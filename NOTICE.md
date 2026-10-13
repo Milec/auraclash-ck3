@@ -1,12 +1,40 @@
-| Path                          | License                          |
-|-------------------------------|----------------------------------|
-| common/, events/              | MIT (LICENSE)                    |
-| localization/, gfx/           | Aura Clash Content (LICENSE-CONTENT.md) |
-| gui/window_character_lifestyle.gui | Derived from Crusader Kings III; © Paradox Interactive. Only our modifications (marked "# AC:") are MIT. |
+# Notice: licensing of files in this repository
 
-Aura Clash names appearing inside code (e.g. trait keys like
-ac_style_akakiru) remain Aura Clash Setting Content; the MIT license
-covers the code, not the names.
+This repository contains material under three sets of terms. Use the table below to find which one applies to a file. If a path matches more than one row, the **most specific** row applies.
 
-Crusader Kings III is © Paradox Interactive. This mod is unofficial and
-distributed under Paradox's modding terms.
+## License map
+
+| Path | License | Notes |
+|---|---|---|
+| `AuraClash.mod` | MIT ([LICENSE](LICENSE)) | |
+| `AuraClash/descriptor.mod` | MIT ([LICENSE](LICENSE)) | |
+| `AuraClash/common/` | MIT ([LICENSE](LICENSE)) | Aura Clash names inside these files are excepted; see below |
+| `AuraClash/events/` | MIT ([LICENSE](LICENSE)) | Same exception |
+| `AuraClash/gui/window_character_lifestyle.gui` | © Paradox Interactive; our modifications are MIT | See *Files derived from Crusader Kings III* |
+| `AuraClash/localization/` | Aura Clash Setting Content ([LICENSE-CONTENT.md](LICENSE-CONTENT.md)) | All player-facing text |
+| `AuraClash/gfx/` | Aura Clash Setting Content ([LICENSE-CONTENT.md](LICENSE-CONTENT.md)) | All icons and illustrations |
+| `README.md`, `NOTICE.md`, `LICENSE`, `LICENSE-CONTENT.md` | All rights reserved | Documentation; may be quoted when crediting this mod |
+
+## Aura Clash names inside code
+The MIT license covers the **code**: its structure, logic and mechanics. It does **not** grant rights to Aura Clash Setting Content that appears inside code files. That content includes:
+- the setting name **Aura Clash**
+- Martial Arts Style names: **Akakiru, Aoyusumu, Kiihakai, Kurokonton, Midorikatai**
+- the setting's definitions of its Combat Cores (Soul, Agility, Power, Fortitude), Foundation tiers, Immortal Core and Elements
+- any lore text, comments or identifiers built from those names (for example `ac_style_akakiru`)
+
+Inside a mod or submod of this mod, those names may be used and changed under [LICENSE-CONTENT.md](LICENSE-CONTENT.md). To reuse the code anywhere else, remove or replace them.
+
+## Files derived from Crusader Kings III
+`AuraClash/gui/window_character_lifestyle.gui` is a modified copy of the vanilla CK3 file of the same name. The original file is © Paradox Interactive and is included under Paradox's terms for user-generated content. Only our modifications, each marked with an `# AC:` comment, are offered under the MIT license.
+
+The mod also references vanilla game assets by path, such as decision illustrations and progress-bar textures. Those assets are not included in this repository and remain © Paradox Interactive.
+
+## Trademarks and affiliation
+"Aura Clash" is a trademark of Banished Tales. None of the licenses in this repository grant trademark rights.
+
+Crusader Kings III and Paradox Interactive are trademarks of Paradox Interactive AB. This mod is unofficial and is not affiliated with or endorsed by Paradox Interactive.
+
+## Credit
+When redistributing a mod or submod that uses Aura Clash Setting Content, credit:
+
+> Aura Clash setting content by Banished Tales (www.auraclash.com), © Banished Tales.
