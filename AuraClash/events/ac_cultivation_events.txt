@@ -1,0 +1,458 @@
+﻿namespace = ac_cult
+
+# 0001 Mortal Core Training menu
+# 0002 scheduled auto-training check (hidden)
+# 0100 choose Martial Arts Style
+# 0200/0201 choose Element (two pages)
+# 0300/0301 choose Foundation (two pages)
+# 0400 Preserved Youth health check (hidden)
+
+ac_cult.0001 = {
+	type = character_event
+	title = ac_cult.0001.t
+	desc = {
+		desc = ac_cult.0001.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = ac_core_training_cooldown }
+				desc = ac_cult.0001.desc_cooldown
+			}
+			desc = ac_cult.0001.desc_ready
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = ac_core_training_auto }
+				desc = ac_cult.0001.desc_auto_on
+			}
+			desc = ac_cult.0001.desc_auto_off
+		}
+	}
+	theme = martial
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = { # Soul Core -> learning
+		name = ac_cult.0001.soul
+		trigger = { ac_can_train_core_trigger = { CORE = soul } }
+		show_as_unavailable = { always = yes }
+		ac_train_core_effect = { CORE = soul }
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 20
+				learning >= 12
+			}
+		}
+	}
+
+	option = { # Agility Core -> intrigue
+		name = ac_cult.0001.agility
+		trigger = { ac_can_train_core_trigger = { CORE = agility } }
+		show_as_unavailable = { always = yes }
+		ac_train_core_effect = { CORE = agility }
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 20
+				intrigue >= 12
+			}
+		}
+	}
+
+	option = { # Power Core -> martial
+		name = ac_cult.0001.power
+		trigger = { ac_can_train_core_trigger = { CORE = power } }
+		show_as_unavailable = { always = yes }
+		ac_train_core_effect = { CORE = power }
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 20
+				martial >= 12
+			}
+		}
+	}
+
+	option = { # Fortitude Core -> stewardship
+		name = ac_cult.0001.fortitude
+		trigger = { ac_can_train_core_trigger = { CORE = fortitude } }
+		show_as_unavailable = { always = yes }
+		ac_train_core_effect = { CORE = fortitude }
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 20
+				stewardship >= 12
+			}
+		}
+	}
+
+	option = { # turn auto-training on
+		name = ac_cult.0001.auto_on
+		trigger = { NOT = { has_character_flag = ac_core_training_auto } }
+		add_character_flag = ac_core_training_auto
+		custom_tooltip = ac_cult.0001.auto_on.tt
+		hidden_effect = { trigger_event = ac_cult.0001 }
+		ai_chance = { base = 0 }
+	}
+
+	option = { # turn auto-training off
+		name = ac_cult.0001.auto_off
+		trigger = { has_character_flag = ac_core_training_auto }
+		remove_character_flag = ac_core_training_auto
+		custom_tooltip = ac_cult.0001.auto_off.tt
+		ai_chance = { base = 0 }
+	}
+
+	option = {
+		name = ac_cult.0001.leave
+		ai_chance = { base = 1 }
+	}
+}
+
+ac_cult.0002 = {
+	type = character_event
+	hidden = yes
+
+	immediate = {
+		ac_core_auto_train_effect = yes
+	}
+}
+
+ac_cult.0100 = {
+	type = character_event
+	title = ac_cult.0100.t
+	desc = ac_cult.0100.desc
+	theme = martial
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = {
+		name = ac_cult.0100.akakiru
+		trigger = { NOT = { has_trait = ac_style_akakiru } }
+		ac_attempt_style_effect = { STYLE = akakiru }
+		ai_chance = { base = 10 }
+	}
+
+	option = {
+		name = ac_cult.0100.aoyusumu
+		trigger = { NOT = { has_trait = ac_style_aoyusumu } }
+		ac_attempt_style_effect = { STYLE = aoyusumu }
+		ai_chance = { base = 10 }
+	}
+
+	option = {
+		name = ac_cult.0100.kiihakai
+		trigger = { NOT = { has_trait = ac_style_kiihakai } }
+		ac_attempt_style_effect = { STYLE = kiihakai }
+		ai_chance = { base = 10 }
+	}
+
+	option = {
+		name = ac_cult.0100.kurokonton
+		trigger = { NOT = { has_trait = ac_style_kurokonton } }
+		ac_attempt_style_effect = { STYLE = kurokonton }
+		ai_chance = { base = 10 }
+	}
+
+	option = {
+		name = ac_cult.0100.midorikatai
+		trigger = { NOT = { has_trait = ac_style_midorikatai } }
+		ac_attempt_style_effect = { STYLE = midorikatai }
+		ai_chance = { base = 10 }
+	}
+
+}
+
+ac_cult.0200 = {
+	type = character_event
+	title = ac_cult.0200.t
+	desc = ac_cult.0200.desc
+	theme = learning
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	option = {
+		name = ac_cult.0200.darkness
+		trigger = { NOT = { has_trait = ac_element_darkness } }
+		ac_attempt_element_effect = { ELEMENT = darkness }
+		ai_chance = { base = 10 }
+	}
+
+	option = {
+		name = ac_cult.0200.earth
+		trigger = { NOT = { has_trait = ac_element_earth } }
+		ac_attempt_element_effect = { ELEMENT = earth }
+		ai_chance = { base = 10 }
+	}
+
+	option = {
+		name = ac_cult.0200.fire
+		trigger = { NOT = { has_trait = ac_element_fire } }
+		ac_attempt_element_effect = { ELEMENT = fire }
+		ai_chance = { base = 10 }
+	}
+
+	option = {
+		name = ac_cult.0200.ice
+		trigger = { NOT = { has_trait = ac_element_ice } }
+		ac_attempt_element_effect = { ELEMENT = ice }
+		ai_chance = { base = 10 }
+	}
+
+	option = {
+		name = ac_cult.0200.nav
+		trigger_event = ac_cult.0201
+		ai_chance = { base = 0 }
+	}
+}
+
+ac_cult.0201 = {
+	type = character_event
+	title = ac_cult.0200.t
+	desc = ac_cult.0200.desc
+	theme = learning
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	option = {
+		name = ac_cult.0201.light
+		trigger = { NOT = { has_trait = ac_element_light } }
+		ac_attempt_element_effect = { ELEMENT = light }
+		ai_chance = { base = 10 }
+	}
+
+	option = {
+		name = ac_cult.0201.storm
+		trigger = { NOT = { has_trait = ac_element_storm } }
+		ac_attempt_element_effect = { ELEMENT = storm }
+		ai_chance = { base = 10 }
+	}
+
+	option = {
+		name = ac_cult.0201.water
+		trigger = { NOT = { has_trait = ac_element_water } }
+		ac_attempt_element_effect = { ELEMENT = water }
+		ai_chance = { base = 10 }
+	}
+
+	option = {
+		name = ac_cult.0201.wind
+		trigger = { NOT = { has_trait = ac_element_wind } }
+		ac_attempt_element_effect = { ELEMENT = wind }
+		ai_chance = { base = 10 }
+	}
+
+	option = {
+		name = ac_cult.0201.nav
+		trigger_event = ac_cult.0200
+		ai_chance = { base = 0 }
+	}
+}
+
+ac_cult.0300 = {
+	type = character_event
+	title = ac_cult.0300.t
+	desc = ac_cult.0300.desc
+	theme = learning
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	trigger = { ac_has_foundation_trigger = no }
+
+	option = {
+		name = ac_cult.0300.dragon
+		trigger = { ac_has_foundation_trigger = no }
+		add_trait = ac_foundation_dragon
+		ai_chance = {
+			base = 10
+			modifier = { add = diplomacy }
+		}
+	}
+
+	option = {
+		name = ac_cult.0300.rabbit
+		trigger = { ac_has_foundation_trigger = no }
+		add_trait = ac_foundation_rabbit
+		ai_chance = {
+			base = 10
+			modifier = { add = diplomacy }
+		}
+	}
+
+	option = {
+		name = ac_cult.0300.tiger
+		trigger = { ac_has_foundation_trigger = no }
+		add_trait = ac_foundation_tiger
+		ai_chance = {
+			base = 10
+			modifier = { add = martial }
+		}
+	}
+
+	option = {
+		name = ac_cult.0300.snake
+		trigger = { ac_has_foundation_trigger = no }
+		add_trait = ac_foundation_snake
+		ai_chance = {
+			base = 10
+			modifier = { add = intrigue }
+		}
+	}
+
+	option = {
+		name = ac_cult.0300.stallion
+		trigger = { ac_has_foundation_trigger = no }
+		add_trait = ac_foundation_stallion
+		ai_chance = {
+			base = 10
+			modifier = { add = martial }
+		}
+	}
+
+	option = {
+		name = ac_cult.0300.ram
+		trigger = { ac_has_foundation_trigger = no }
+		add_trait = ac_foundation_ram
+		ai_chance = {
+			base = 10
+			modifier = { add = learning }
+		}
+	}
+
+	option = {
+		name = ac_cult.0300.nav
+		trigger_event = ac_cult.0301
+		ai_chance = { base = 0 }
+	}
+}
+
+ac_cult.0301 = {
+	type = character_event
+	title = ac_cult.0300.t
+	desc = ac_cult.0300.desc
+	theme = learning
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	trigger = { ac_has_foundation_trigger = no }
+
+	option = {
+		name = ac_cult.0301.monkey
+		trigger = { ac_has_foundation_trigger = no }
+		add_trait = ac_foundation_monkey
+		ai_chance = {
+			base = 10
+			modifier = { add = intrigue }
+		}
+	}
+
+	option = {
+		name = ac_cult.0301.crane
+		trigger = { ac_has_foundation_trigger = no }
+		add_trait = ac_foundation_crane
+		ai_chance = {
+			base = 10
+			modifier = { add = learning }
+		}
+	}
+
+	option = {
+		name = ac_cult.0301.wolf
+		trigger = { ac_has_foundation_trigger = no }
+		add_trait = ac_foundation_wolf
+		ai_chance = {
+			base = 10
+			modifier = { add = martial }
+		}
+	}
+
+	option = {
+		name = ac_cult.0301.boar
+		trigger = { ac_has_foundation_trigger = no }
+		add_trait = ac_foundation_boar
+		ai_chance = {
+			base = 10
+			modifier = { add = stewardship }
+		}
+	}
+
+	option = {
+		name = ac_cult.0301.rat
+		trigger = { ac_has_foundation_trigger = no }
+		add_trait = ac_foundation_rat
+		ai_chance = {
+			base = 10
+			modifier = { add = stewardship }
+		}
+	}
+
+	option = {
+		name = ac_cult.0301.ox
+		trigger = { ac_has_foundation_trigger = no }
+		add_trait = ac_foundation_ox
+		ai_chance = {
+			base = 10
+			modifier = { add = stewardship }
+		}
+	}
+
+	option = {
+		name = ac_cult.0301.nav
+		trigger_event = ac_cult.0300
+		ai_chance = { base = 0 }
+	}
+}
+
+ac_cult.0400 = {
+	type = character_event
+	hidden = yes
+
+	trigger = {
+		is_alive = yes
+		has_trait = ac_preserved_youth
+	}
+
+	immediate = {
+		remove_character_flag = ac_health_watch
+		if = {
+			limit = { health < 3 }
+			random = {
+				chance = ac_low_health_death_chance
+				ac_low_health_death_effect = yes
+			}
+		}
+		if = {
+			limit = { is_alive = yes }
+			add_character_flag = {
+				flag = ac_health_watch
+				days = 100
+			}
+			if = {
+				limit = { health < 3 }
+				trigger_event = {
+					id = ac_cult.0400
+					days = 30
+				}
+			}
+			else = {
+				trigger_event = {
+					id = ac_cult.0400
+					days = 90
+				}
+			}
+		}
+	}
+}
