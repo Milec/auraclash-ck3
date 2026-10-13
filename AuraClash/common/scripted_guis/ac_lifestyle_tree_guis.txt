@@ -1,0 +1,110 @@
+﻿# Visibility of Cultivation perk trees (used by gui/window_character_lifestyle.gui)
+# Tree header loc: <tree>_name -> "<tree>_visible" (this scripted gui) -> display name.
+
+ac_tree_shown_default = { scope = character is_shown = {} }
+
+
+ac_1_alchemy_visible = {
+	scope = character
+	is_shown = {
+		has_trait = ac_cultivator
+	}
+}
+
+ac_2_handseals_visible = {
+	scope = character
+	is_shown = {
+		has_trait = ac_cultivator
+	}
+}
+
+ac_3_style_akakiru_visible = {
+	scope = character
+	is_shown = {
+		has_trait = ac_style_akakiru
+	}
+}
+
+ac_3_style_aoyusumu_visible = {
+	scope = character
+	is_shown = {
+		has_trait = ac_style_aoyusumu
+	}
+}
+
+ac_3_style_kiihakai_visible = {
+	scope = character
+	is_shown = {
+		has_trait = ac_style_kiihakai
+	}
+}
+
+ac_3_style_kurokonton_visible = {
+	scope = character
+	is_shown = {
+		has_trait = ac_style_kurokonton
+	}
+}
+
+ac_3_style_midorikatai_visible = {
+	scope = character
+	is_shown = {
+		has_trait = ac_style_midorikatai
+	}
+}
+
+ac_4_element_darkness_visible = {
+	scope = character
+	is_shown = {
+		has_trait = ac_element_darkness
+	}
+}
+
+ac_4_element_earth_visible = {
+	scope = character
+	is_shown = {
+		has_trait = ac_element_earth
+	}
+}
+
+ac_4_element_fire_visible = {
+	scope = character
+	is_shown = {
+		has_trait = ac_element_fire
+	}
+}
+
+ac_4_element_ice_visible = {
+	scope = character
+	is_shown = {
+		has_trait = ac_element_ice
+	}
+}
+
+ac_4_element_light_visible = {
+	scope = character
+	is_shown = {
+		has_trait = ac_element_light
+	}
+}
+
+ac_4_element_storm_visible = {
+	scope = character
+	is_shown = {
+		has_trait = ac_element_storm
+	}
+}
+
+ac_4_element_water_visible = {
+	scope = character
+	is_shown = {
+		has_trait = ac_element_water
+	}
+}
+
+ac_4_element_wind_visible = {
+	scope = character
+	is_shown = {
+		has_trait = ac_element_wind
+	}
+}

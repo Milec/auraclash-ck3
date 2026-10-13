@@ -1,0 +1,122 @@
+﻿# Appended to vanilla on_actions (lists merge; nothing vanilla is replaced).
+# Every hook starts with a cheap has_trait check, so non-cultivators cost nothing.
+quarterly_playable_pulse = {
+	on_actions = { ac_quarterly_player_pulse ac_fame_cultivation_pulse }
+}
+random_yearly_everyone_pulse = {
+	on_actions = { ac_yearly_ai_pulse ac_fame_cultivation_pulse }
+}
+on_birthday = {
+	on_actions = { ac_birthday_pulse }
+}
+on_game_start_after_lobby = {
+	on_actions = { ac_game_start }
+}
+on_combat_end_winner = {
+	on_actions = { ac_on_combat_end_winner }
+}
+on_combat_end_loser = {
+	on_actions = { ac_on_combat_end_loser }
+}
+
+# Players: auto-training, Immortal Core XP, Foundation catch-up, youth health check
+ac_quarterly_player_pulse = {
+	trigger = {
+		has_trait = ac_cultivator
+		is_ai = no
+	}
+	effect = {
+		ac_core_auto_train_effect = yes
+		if = {
+			limit = {
+				has_trait = ac_immortal_core
+				age >= 16
+			}
+			add_ac_cultivation_lifestyle_xp = 60
+		}
+		ac_offer_foundation_effect = yes
+		if = {
+			limit = { has_trait = ac_preserved_youth }
+			ac_update_visual_age_effect = yes
+		}
+	}
+}
+
+# AI: one routine per adult cultivator per year, on a random day (spreads the load)
+ac_yearly_ai_pulse = {
+	trigger = {
+		has_trait = ac_cultivator
+		is_ai = yes
+		age >= 16
+	}
+	effect = {
+		ac_ai_yearly_cultivation_effect = yes
+		ac_start_health_watch_effect = yes
+	}
+}
+
+# Conqueror / Despoiler of Byzantium / Greatest of Khans grant cultivation once each
+ac_fame_cultivation_pulse = {
+	trigger = {
+		OR = {
+			has_trait = conqueror
+			has_trait = despoiler_of_byzantium
+			has_trait = greatest_of_khans
+		}
+	}
+	effect = {
+		ac_fame_cultivation_all_effect = yes
+	}
+}
+
+# Everyone: portrait age, and the Foundation choice on reaching adulthood
+ac_birthday_pulse = {
+	trigger = { has_trait = ac_cultivator }
+	effect = {
+		ac_update_visual_age_effect = yes
+		ac_offer_foundation_effect = yes
+	}
+}
+
+# Game start: set up existing cultivators (runs once)
+ac_game_start = {
+	effect = {
+		every_living_character = {
+			limit = {
+				OR = {
+			has_trait = conqueror
+			has_trait = despoiler_of_byzantium
+			has_trait = greatest_of_khans
+				}
+			}
+			ac_fame_cultivation_all_effect = yes
+		}
+		every_living_character = {
+			limit = { has_trait = ac_cultivator }
+			ac_update_visual_age_effect = yes
+			ac_offer_foundation_effect = yes
+		}
+	}
+}
+
+# root = combat side
+ac_on_combat_end_winner = {
+	effect = {
+		every_side_commander = {
+			ac_gain_foundation_xp_effect = { XP = 3 }
+		}
+		every_side_knight = {
+			ac_gain_foundation_xp_effect = { XP = 2 }
+		}
+	}
+}
+ac_on_combat_end_loser = {
+	effect = {
+		every_side_commander = {
+			ac_gain_foundation_xp_effect = { XP = 1 }
+		}
+		every_side_knight = {
+			ac_gain_foundation_xp_effect = { XP = 1 }
+		}
+	}
+}

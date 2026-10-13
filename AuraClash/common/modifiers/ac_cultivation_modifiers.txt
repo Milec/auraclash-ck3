@@ -1,0 +1,359 @@
+﻿ac_hex_diplomacy_1 = {
+	icon = ac_hex
+	diplomacy = -1
+}
+
+ac_hex_diplomacy_2 = {
+	icon = ac_hex
+	diplomacy = -2
+}
+
+ac_hex_diplomacy_3 = {
+	icon = ac_hex
+	diplomacy = -3
+}
+
+ac_hex_diplomacy_4 = {
+	icon = ac_hex
+	diplomacy = -4
+}
+
+ac_hex_diplomacy_5 = {
+	icon = ac_hex
+	diplomacy = -5
+}
+
+ac_hex_diplomacy_6 = {
+	icon = ac_hex
+	diplomacy = -6
+}
+
+ac_hex_diplomacy_7 = {
+	icon = ac_hex
+	diplomacy = -7
+}
+
+ac_hex_diplomacy_8 = {
+	icon = ac_hex
+	diplomacy = -8
+}
+
+ac_hex_diplomacy_9 = {
+	icon = ac_hex
+	diplomacy = -9
+}
+
+ac_hex_diplomacy_10 = {
+	icon = ac_hex
+	diplomacy = -10
+}
+
+ac_hex_diplomacy_11 = {
+	icon = ac_hex
+	diplomacy = -11
+}
+
+ac_hex_diplomacy_12 = {
+	icon = ac_hex
+	diplomacy = -12
+}
+
+ac_hex_martial_1 = {
+	icon = ac_hex
+	martial = -1
+}
+
+ac_hex_martial_2 = {
+	icon = ac_hex
+	martial = -2
+}
+
+ac_hex_martial_3 = {
+	icon = ac_hex
+	martial = -3
+}
+
+ac_hex_martial_4 = {
+	icon = ac_hex
+	martial = -4
+}
+
+ac_hex_martial_5 = {
+	icon = ac_hex
+	martial = -5
+}
+
+ac_hex_martial_6 = {
+	icon = ac_hex
+	martial = -6
+}
+
+ac_hex_martial_7 = {
+	icon = ac_hex
+	martial = -7
+}
+
+ac_hex_martial_8 = {
+	icon = ac_hex
+	martial = -8
+}
+
+ac_hex_martial_9 = {
+	icon = ac_hex
+	martial = -9
+}
+
+ac_hex_martial_10 = {
+	icon = ac_hex
+	martial = -10
+}
+
+ac_hex_martial_11 = {
+	icon = ac_hex
+	martial = -11
+}
+
+ac_hex_martial_12 = {
+	icon = ac_hex
+	martial = -12
+}
+
+ac_hex_stewardship_1 = {
+	icon = ac_hex
+	stewardship = -1
+}
+
+ac_hex_stewardship_2 = {
+	icon = ac_hex
+	stewardship = -2
+}
+
+ac_hex_stewardship_3 = {
+	icon = ac_hex
+	stewardship = -3
+}
+
+ac_hex_stewardship_4 = {
+	icon = ac_hex
+	stewardship = -4
+}
+
+ac_hex_stewardship_5 = {
+	icon = ac_hex
+	stewardship = -5
+}
+
+ac_hex_stewardship_6 = {
+	icon = ac_hex
+	stewardship = -6
+}
+
+ac_hex_stewardship_7 = {
+	icon = ac_hex
+	stewardship = -7
+}
+
+ac_hex_stewardship_8 = {
+	icon = ac_hex
+	stewardship = -8
+}
+
+ac_hex_stewardship_9 = {
+	icon = ac_hex
+	stewardship = -9
+}
+
+ac_hex_stewardship_10 = {
+	icon = ac_hex
+	stewardship = -10
+}
+
+ac_hex_stewardship_11 = {
+	icon = ac_hex
+	stewardship = -11
+}
+
+ac_hex_stewardship_12 = {
+	icon = ac_hex
+	stewardship = -12
+}
+
+ac_hex_intrigue_1 = {
+	icon = ac_hex
+	intrigue = -1
+}
+
+ac_hex_intrigue_2 = {
+	icon = ac_hex
+	intrigue = -2
+}
+
+ac_hex_intrigue_3 = {
+	icon = ac_hex
+	intrigue = -3
+}
+
+ac_hex_intrigue_4 = {
+	icon = ac_hex
+	intrigue = -4
+}
+
+ac_hex_intrigue_5 = {
+	icon = ac_hex
+	intrigue = -5
+}
+
+ac_hex_intrigue_6 = {
+	icon = ac_hex
+	intrigue = -6
+}
+
+ac_hex_intrigue_7 = {
+	icon = ac_hex
+	intrigue = -7
+}
+
+ac_hex_intrigue_8 = {
+	icon = ac_hex
+	intrigue = -8
+}
+
+ac_hex_intrigue_9 = {
+	icon = ac_hex
+	intrigue = -9
+}
+
+ac_hex_intrigue_10 = {
+	icon = ac_hex
+	intrigue = -10
+}
+
+ac_hex_intrigue_11 = {
+	icon = ac_hex
+	intrigue = -11
+}
+
+ac_hex_intrigue_12 = {
+	icon = ac_hex
+	intrigue = -12
+}
+
+ac_hex_learning_1 = {
+	icon = ac_hex
+	learning = -1
+}
+
+ac_hex_learning_2 = {
+	icon = ac_hex
+	learning = -2
+}
+
+ac_hex_learning_3 = {
+	icon = ac_hex
+	learning = -3
+}
+
+ac_hex_learning_4 = {
+	icon = ac_hex
+	learning = -4
+}
+
+ac_hex_learning_5 = {
+	icon = ac_hex
+	learning = -5
+}
+
+ac_hex_learning_6 = {
+	icon = ac_hex
+	learning = -6
+}
+
+ac_hex_learning_7 = {
+	icon = ac_hex
+	learning = -7
+}
+
+ac_hex_learning_8 = {
+	icon = ac_hex
+	learning = -8
+}
+
+ac_hex_learning_9 = {
+	icon = ac_hex
+	learning = -9
+}
+
+ac_hex_learning_10 = {
+	icon = ac_hex
+	learning = -10
+}
+
+ac_hex_learning_11 = {
+	icon = ac_hex
+	learning = -11
+}
+
+ac_hex_learning_12 = {
+	icon = ac_hex
+	learning = -12
+}
+
+ac_hex_prowess_1 = {
+	icon = ac_hex
+	prowess = -1
+}
+
+ac_hex_prowess_2 = {
+	icon = ac_hex
+	prowess = -2
+}
+
+ac_hex_prowess_3 = {
+	icon = ac_hex
+	prowess = -3
+}
+
+ac_hex_prowess_4 = {
+	icon = ac_hex
+	prowess = -4
+}
+
+ac_hex_prowess_5 = {
+	icon = ac_hex
+	prowess = -5
+}
+
+ac_hex_prowess_6 = {
+	icon = ac_hex
+	prowess = -6
+}
+
+ac_hex_prowess_7 = {
+	icon = ac_hex
+	prowess = -7
+}
+
+ac_hex_prowess_8 = {
+	icon = ac_hex
+	prowess = -8
+}
+
+ac_hex_prowess_9 = {
+	icon = ac_hex
+	prowess = -9
+}
+
+ac_hex_prowess_10 = {
+	icon = ac_hex
+	prowess = -10
+}
+
+ac_hex_prowess_11 = {
+	icon = ac_hex
+	prowess = -11
+}
+
+ac_hex_prowess_12 = {
+	icon = ac_hex
+	prowess = -12
+}

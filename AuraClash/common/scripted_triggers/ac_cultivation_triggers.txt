@@ -1,0 +1,150 @@
+﻿ac_has_martial_style_trigger = {
+	OR = {
+		has_trait = ac_style_akakiru
+		has_trait = ac_style_aoyusumu
+		has_trait = ac_style_kiihakai
+		has_trait = ac_style_kurokonton
+		has_trait = ac_style_midorikatai
+	}
+}
+
+ac_has_element_trigger = {
+	OR = {
+		has_trait = ac_element_darkness
+		has_trait = ac_element_earth
+		has_trait = ac_element_fire
+		has_trait = ac_element_ice
+		has_trait = ac_element_light
+		has_trait = ac_element_storm
+		has_trait = ac_element_water
+		has_trait = ac_element_wind
+	}
+}
+
+ac_has_foundation_trigger = {
+	OR = {
+		has_trait = ac_foundation_dragon
+		has_trait = ac_foundation_rabbit
+		has_trait = ac_foundation_tiger
+		has_trait = ac_foundation_snake
+		has_trait = ac_foundation_stallion
+		has_trait = ac_foundation_ram
+		has_trait = ac_foundation_monkey
+		has_trait = ac_foundation_crane
+		has_trait = ac_foundation_wolf
+		has_trait = ac_foundation_boar
+		has_trait = ac_foundation_rat
+		has_trait = ac_foundation_ox
+	}
+}
+
+# Foundation battle tier at least $XP$
+ac_foundation_xp_trigger = {
+	OR = {
+		has_trait_xp = { trait = ac_foundation_dragon value >= $XP$ }
+		has_trait_xp = { trait = ac_foundation_rabbit value >= $XP$ }
+		has_trait_xp = { trait = ac_foundation_tiger value >= $XP$ }
+		has_trait_xp = { trait = ac_foundation_snake value >= $XP$ }
+		has_trait_xp = { trait = ac_foundation_stallion value >= $XP$ }
+		has_trait_xp = { trait = ac_foundation_ram value >= $XP$ }
+		has_trait_xp = { trait = ac_foundation_monkey value >= $XP$ }
+		has_trait_xp = { trait = ac_foundation_crane value >= $XP$ }
+		has_trait_xp = { trait = ac_foundation_wolf value >= $XP$ }
+		has_trait_xp = { trait = ac_foundation_boar value >= $XP$ }
+		has_trait_xp = { trait = ac_foundation_rat value >= $XP$ }
+		has_trait_xp = { trait = ac_foundation_ox value >= $XP$ }
+	}
+}
+
+ac_core_soul_maxed_trigger = {
+	has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 100 }
+}
+ac_core_agility_maxed_trigger = {
+	has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 100 }
+}
+ac_core_power_maxed_trigger = {
+	has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 100 }
+}
+ac_core_fortitude_maxed_trigger = {
+	has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 100 }
+}
+
+# Temporary wounds / illnesses: low health from these doesn't start the Death Spiral
+ac_temporarily_unwell_trigger = {
+	OR = {
+		has_trait = ill
+		has_trait = pneumonic
+		has_trait = wounded_1
+		has_trait = wounded_2
+		has_trait = wounded_3
+		has_trait = typhus
+		has_trait = bubonic_plague
+		has_trait = smallpox
+		has_trait = measles
+		has_trait = dysentery
+		has_trait = ergotism
+		has_trait = lovers_pox
+		has_trait = pregnant
+	}
+}
+
+# Warrior-like or hardworking characters: the only AI that try to awaken cultivation
+ac_ai_cultivation_aspirant_trigger = {
+	OR = {
+		has_trait = ambitious
+		has_trait = brave
+		has_trait = diligent
+		has_trait = education_martial_3
+		has_trait = education_martial_4
+		has_trait = education_martial_5
+		has_trait = education_martial_prowess_3
+		has_trait = education_martial_prowess_4
+		has_trait = strong
+		has_trait = physique_good_1
+		has_trait = physique_good_2
+		has_trait = physique_good_3
+		has_trait = berserker
+		has_trait = lifestyle_blademaster
+		has_trait = populist_leader
+		has_trait = adventurer
+		has_trait = order_member
+		has_trait = holy_warrior
+		has_trait = crusader_king
+		has_trait = faith_warrior
+		has_trait = viking
+		has_trait = varangian
+		number_of_commander_traits >= 3
+	}
+}
+
+# Has a perk that unlocks Chi Healing
+ac_can_chi_heal_trigger = {
+	OR = {
+		has_perk = ac_3_style_aoyusumu_j_perk
+		has_perk = ac_3_style_kiihakai_c_perk
+		has_perk = ac_4_element_water_a_perk
+	}
+}
+
+# Shared cooldown between studying a Style and attuning an Element
+ac_path_study_ready_trigger = {
+	custom_tooltip = {
+		text = ac_path_study_cooldown_tt
+		NOT = { has_character_flag = ac_path_study_cooldown }
+	}
+}
+
+# Can this character run a Mortal Core Training on $CORE$ right now?
+ac_can_train_core_trigger = {
+	has_trait = ac_cultivator
+	age >= 16
+	custom_tooltip = {
+		text = ac_core_training_cooldown_tt
+		NOT = { has_character_flag = ac_core_training_cooldown }
+	}
+	prestige >= 100
+	custom_tooltip = {
+		text = ac_core_maxed_tt
+		NOT = { ac_core_$CORE$_maxed_trigger = yes }
+	}
+}

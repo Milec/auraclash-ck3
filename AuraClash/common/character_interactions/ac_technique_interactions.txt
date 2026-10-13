@@ -1,0 +1,539 @@
+﻿# Perk-unlocked cultivation techniques
+
+### Scry (Kiihakai) ###
+ac_scry_interaction = {
+	category = interaction_category_hostile
+	common_interaction = yes
+	icon = secret
+	desc = ac_scry_interaction_desc
+
+	cooldown = { years = 3 }
+	auto_accept = yes
+
+	is_shown = {
+		NOT = { scope:actor = scope:recipient }
+		scope:actor = {
+			OR = {
+			has_perk = ac_3_style_kiihakai_d_perk
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = { is_imprisoned = no }
+	}
+
+	cost = {
+		piety = 100
+	}
+
+	on_accept = {
+		scope:actor = {
+			custom_tooltip = ac_scry_chance_tt
+			random_list = {
+				0 = {
+					modifier = { add = ac_scry_success_chance }
+					desc = ac_scry_interaction.success
+					if = {
+						limit = { scope:recipient = { any_secret = { always = yes } } }
+						send_interface_toast = {
+							type = event_toast_effect_good
+							title = ac_scry_found_toast
+							left_icon = scope:actor
+							right_icon = scope:recipient
+							scope:recipient = {
+								every_secret = { reveal_to = scope:actor }
+							}
+						}
+					}
+					else = {
+						send_interface_toast = {
+							type = event_toast_effect_neutral
+							title = ac_scry_nothing_toast
+							left_icon = scope:actor
+							right_icon = scope:recipient
+						}
+					}
+				}
+				0 = {
+					modifier = { add = ac_scry_failure_chance }
+					desc = ac_scry_interaction.failure
+					send_interface_toast = {
+						type = event_toast_effect_bad
+						title = ac_scry_failed_toast
+						left_icon = scope:actor
+						right_icon = scope:recipient
+					}
+				}
+			}
+		}
+	}
+
+	ai_will_do = { base = 0 }
+}
+
+### Hex (Kurokonton) ###
+ac_hex_interaction = {
+	category = interaction_category_hostile
+	common_interaction = yes
+	icon = antagonistic
+	desc = ac_hex_interaction_desc
+
+	cooldown_against_recipient = { years = 1 }
+	auto_accept = yes
+
+	is_shown = {
+		NOT = { scope:actor = scope:recipient }
+		scope:actor = {
+			OR = {
+			has_perk = ac_3_style_kurokonton_c_perk
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = { is_imprisoned = no }
+	}
+
+	cost = {
+		prestige = 100
+	}
+
+	send_options_exclusive = yes
+	send_option = {
+		flag = ac_hex_diplomacy
+		localization = ac_hex_option_diplomacy
+	}
+	send_option = {
+		flag = ac_hex_martial
+		localization = ac_hex_option_martial
+	}
+	send_option = {
+		flag = ac_hex_stewardship
+		localization = ac_hex_option_stewardship
+	}
+	send_option = {
+		flag = ac_hex_intrigue
+		localization = ac_hex_option_intrigue
+	}
+	send_option = {
+		flag = ac_hex_learning
+		localization = ac_hex_option_learning
+	}
+	send_option = {
+		flag = ac_hex_prowess
+		localization = ac_hex_option_prowess
+	}
+
+	can_send = {
+		custom_description = {
+			text = ac_hex_pick_stat_tt
+			OR = {
+			scope:ac_hex_diplomacy ?= yes
+			scope:ac_hex_martial ?= yes
+			scope:ac_hex_stewardship ?= yes
+			scope:ac_hex_intrigue ?= yes
+			scope:ac_hex_learning ?= yes
+			scope:ac_hex_prowess ?= yes
+			}
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = ac_hex_toast
+				left_icon = scope:actor
+				right_icon = scope:recipient
+				custom_tooltip = ac_hex_strength_tt
+			}
+		}
+		scope:recipient = {
+		if = {
+			limit = { scope:ac_hex_diplomacy ?= yes }
+			if = {
+				limit = { scope:actor.ac_hex_strength >= 12 }
+				add_character_modifier = { modifier = ac_hex_diplomacy_12 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 11 }
+				add_character_modifier = { modifier = ac_hex_diplomacy_11 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 10 }
+				add_character_modifier = { modifier = ac_hex_diplomacy_10 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 9 }
+				add_character_modifier = { modifier = ac_hex_diplomacy_9 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 8 }
+				add_character_modifier = { modifier = ac_hex_diplomacy_8 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 7 }
+				add_character_modifier = { modifier = ac_hex_diplomacy_7 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 6 }
+				add_character_modifier = { modifier = ac_hex_diplomacy_6 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 5 }
+				add_character_modifier = { modifier = ac_hex_diplomacy_5 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 4 }
+				add_character_modifier = { modifier = ac_hex_diplomacy_4 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 3 }
+				add_character_modifier = { modifier = ac_hex_diplomacy_3 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 2 }
+				add_character_modifier = { modifier = ac_hex_diplomacy_2 years = 1 }
+			}
+			else_if = {
+				limit = { always = yes }
+				add_character_modifier = { modifier = ac_hex_diplomacy_1 years = 1 }
+			}
+		}
+		if = {
+			limit = { scope:ac_hex_martial ?= yes }
+			if = {
+				limit = { scope:actor.ac_hex_strength >= 12 }
+				add_character_modifier = { modifier = ac_hex_martial_12 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 11 }
+				add_character_modifier = { modifier = ac_hex_martial_11 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 10 }
+				add_character_modifier = { modifier = ac_hex_martial_10 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 9 }
+				add_character_modifier = { modifier = ac_hex_martial_9 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 8 }
+				add_character_modifier = { modifier = ac_hex_martial_8 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 7 }
+				add_character_modifier = { modifier = ac_hex_martial_7 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 6 }
+				add_character_modifier = { modifier = ac_hex_martial_6 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 5 }
+				add_character_modifier = { modifier = ac_hex_martial_5 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 4 }
+				add_character_modifier = { modifier = ac_hex_martial_4 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 3 }
+				add_character_modifier = { modifier = ac_hex_martial_3 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 2 }
+				add_character_modifier = { modifier = ac_hex_martial_2 years = 1 }
+			}
+			else_if = {
+				limit = { always = yes }
+				add_character_modifier = { modifier = ac_hex_martial_1 years = 1 }
+			}
+		}
+		if = {
+			limit = { scope:ac_hex_stewardship ?= yes }
+			if = {
+				limit = { scope:actor.ac_hex_strength >= 12 }
+				add_character_modifier = { modifier = ac_hex_stewardship_12 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 11 }
+				add_character_modifier = { modifier = ac_hex_stewardship_11 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 10 }
+				add_character_modifier = { modifier = ac_hex_stewardship_10 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 9 }
+				add_character_modifier = { modifier = ac_hex_stewardship_9 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 8 }
+				add_character_modifier = { modifier = ac_hex_stewardship_8 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 7 }
+				add_character_modifier = { modifier = ac_hex_stewardship_7 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 6 }
+				add_character_modifier = { modifier = ac_hex_stewardship_6 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 5 }
+				add_character_modifier = { modifier = ac_hex_stewardship_5 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 4 }
+				add_character_modifier = { modifier = ac_hex_stewardship_4 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 3 }
+				add_character_modifier = { modifier = ac_hex_stewardship_3 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 2 }
+				add_character_modifier = { modifier = ac_hex_stewardship_2 years = 1 }
+			}
+			else_if = {
+				limit = { always = yes }
+				add_character_modifier = { modifier = ac_hex_stewardship_1 years = 1 }
+			}
+		}
+		if = {
+			limit = { scope:ac_hex_intrigue ?= yes }
+			if = {
+				limit = { scope:actor.ac_hex_strength >= 12 }
+				add_character_modifier = { modifier = ac_hex_intrigue_12 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 11 }
+				add_character_modifier = { modifier = ac_hex_intrigue_11 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 10 }
+				add_character_modifier = { modifier = ac_hex_intrigue_10 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 9 }
+				add_character_modifier = { modifier = ac_hex_intrigue_9 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 8 }
+				add_character_modifier = { modifier = ac_hex_intrigue_8 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 7 }
+				add_character_modifier = { modifier = ac_hex_intrigue_7 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 6 }
+				add_character_modifier = { modifier = ac_hex_intrigue_6 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 5 }
+				add_character_modifier = { modifier = ac_hex_intrigue_5 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 4 }
+				add_character_modifier = { modifier = ac_hex_intrigue_4 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 3 }
+				add_character_modifier = { modifier = ac_hex_intrigue_3 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 2 }
+				add_character_modifier = { modifier = ac_hex_intrigue_2 years = 1 }
+			}
+			else_if = {
+				limit = { always = yes }
+				add_character_modifier = { modifier = ac_hex_intrigue_1 years = 1 }
+			}
+		}
+		if = {
+			limit = { scope:ac_hex_learning ?= yes }
+			if = {
+				limit = { scope:actor.ac_hex_strength >= 12 }
+				add_character_modifier = { modifier = ac_hex_learning_12 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 11 }
+				add_character_modifier = { modifier = ac_hex_learning_11 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 10 }
+				add_character_modifier = { modifier = ac_hex_learning_10 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 9 }
+				add_character_modifier = { modifier = ac_hex_learning_9 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 8 }
+				add_character_modifier = { modifier = ac_hex_learning_8 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 7 }
+				add_character_modifier = { modifier = ac_hex_learning_7 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 6 }
+				add_character_modifier = { modifier = ac_hex_learning_6 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 5 }
+				add_character_modifier = { modifier = ac_hex_learning_5 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 4 }
+				add_character_modifier = { modifier = ac_hex_learning_4 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 3 }
+				add_character_modifier = { modifier = ac_hex_learning_3 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 2 }
+				add_character_modifier = { modifier = ac_hex_learning_2 years = 1 }
+			}
+			else_if = {
+				limit = { always = yes }
+				add_character_modifier = { modifier = ac_hex_learning_1 years = 1 }
+			}
+		}
+		if = {
+			limit = { scope:ac_hex_prowess ?= yes }
+			if = {
+				limit = { scope:actor.ac_hex_strength >= 12 }
+				add_character_modifier = { modifier = ac_hex_prowess_12 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 11 }
+				add_character_modifier = { modifier = ac_hex_prowess_11 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 10 }
+				add_character_modifier = { modifier = ac_hex_prowess_10 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 9 }
+				add_character_modifier = { modifier = ac_hex_prowess_9 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 8 }
+				add_character_modifier = { modifier = ac_hex_prowess_8 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 7 }
+				add_character_modifier = { modifier = ac_hex_prowess_7 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 6 }
+				add_character_modifier = { modifier = ac_hex_prowess_6 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 5 }
+				add_character_modifier = { modifier = ac_hex_prowess_5 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 4 }
+				add_character_modifier = { modifier = ac_hex_prowess_4 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 3 }
+				add_character_modifier = { modifier = ac_hex_prowess_3 years = 1 }
+			}
+			else_if = {
+				limit = { scope:actor.ac_hex_strength >= 2 }
+				add_character_modifier = { modifier = ac_hex_prowess_2 years = 1 }
+			}
+			else_if = {
+				limit = { always = yes }
+				add_character_modifier = { modifier = ac_hex_prowess_1 years = 1 }
+			}
+		}
+		}
+	}
+
+	ai_will_do = { base = 0 }
+}
+
+### Copy Technique (Kurokonton) ###
+ac_copy_technique_interaction = {
+	category = interaction_category_prison
+	common_interaction = yes
+	icon = prison
+	desc = ac_copy_technique_interaction_desc
+
+	cooldown = { years = 1 }
+	auto_accept = yes
+
+	is_shown = {
+		NOT = { scope:actor = scope:recipient }
+		scope:actor = {
+			OR = {
+			has_perk = ac_3_style_kurokonton_e_perk
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			custom_tooltip = {
+				text = ac_copy_technique_prisoner_tt
+				is_imprisoned_by = scope:actor
+			}
+			custom_tooltip = {
+				text = ac_copy_technique_education_tt
+				OR = {
+				OR = { has_education_martial_trigger = yes has_trait = education_martial_prowess_1 has_trait = education_martial_prowess_2 has_trait = education_martial_prowess_3 has_trait = education_martial_prowess_4 }
+				has_education_diplomacy_trigger = yes
+				has_education_stewardship_trigger = yes
+				has_education_intrigue_trigger = yes
+				has_education_learning_trigger = yes
+				}
+			}
+		}
+	}
+
+	cost = {
+		piety = 100
+	}
+
+	on_accept = {
+		scope:actor = {
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = ac_copy_technique_toast
+				left_icon = scope:actor
+				right_icon = scope:recipient
+			if = {
+				limit = { scope:recipient = { OR = { has_education_martial_trigger = yes has_trait = education_martial_prowess_1 has_trait = education_martial_prowess_2 has_trait = education_martial_prowess_3 has_trait = education_martial_prowess_4 } } }
+				add_martial_lifestyle_perk_points = 1
+			}
+			else_if = {
+				limit = { scope:recipient = { has_education_diplomacy_trigger = yes } }
+				add_diplomacy_lifestyle_perk_points = 1
+			}
+			else_if = {
+				limit = { scope:recipient = { has_education_stewardship_trigger = yes } }
+				add_stewardship_lifestyle_perk_points = 1
+			}
+			else_if = {
+				limit = { scope:recipient = { has_education_intrigue_trigger = yes } }
+				add_intrigue_lifestyle_perk_points = 1
+			}
+			else_if = {
+				limit = { scope:recipient = { has_education_learning_trigger = yes } }
+				add_learning_lifestyle_perk_points = 1
+			}
+			}
+		}
+	}
+
+	ai_will_do = { base = 0 }
+}

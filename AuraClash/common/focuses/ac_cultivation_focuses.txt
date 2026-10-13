@@ -1,0 +1,49 @@
+﻿ac_deep_meditation_focus = {
+	lifestyle = ac_cultivation_lifestyle
+
+	is_shown = { has_trait = ac_cultivator }
+	is_valid = { has_trait = ac_cultivator }
+
+	modifier = {
+		learning = 1
+		stress_loss_mult = 0.1
+	}
+
+	desc = {
+		desc = ac_deep_meditation_focus_desc
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 50
+		if = {
+			limit = { NOT = { has_trait = ac_cultivator } }
+			multiply = 0
+		}
+	}
+}
+
+ac_physical_training_focus = {
+	lifestyle = ac_cultivation_lifestyle
+
+	is_shown = { has_trait = ac_cultivator }
+	is_valid = { has_trait = ac_cultivator }
+
+	modifier = {
+		prowess = 3
+		martial = 1
+	}
+
+	desc = {
+		desc = ac_physical_training_focus_desc
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 50
+		if = {
+			limit = { NOT = { has_trait = ac_cultivator } }
+			multiply = 0
+		}
+	}
+}

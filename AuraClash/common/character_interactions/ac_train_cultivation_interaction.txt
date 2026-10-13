@@ -1,0 +1,85 @@
+﻿# Train in Cultivation: try to awaken a courtier, child or vassal as a Cultivator
+ac_train_cultivation_interaction = {
+	category = interaction_category_friendly
+	common_interaction = yes
+	icon = mentor
+	desc = ac_train_cultivation_interaction_desc
+
+	cooldown_against_recipient = { years = 1 }
+	auto_accept = yes
+
+	is_shown = {
+		NOT = { scope:actor = scope:recipient }
+		scope:actor = {
+			has_trait = ac_cultivator
+			age >= 16
+		}
+		scope:recipient = {
+			NOT = { has_trait = ac_cultivator }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = { is_imprisoned = no }
+		scope:recipient = {
+			is_imprisoned = no
+			custom_tooltip = {
+				text = ac_train_cultivation_relation_tt
+				OR = {
+					is_courtier_of = scope:actor
+					is_vassal_or_below_of = scope:actor
+					AND = {
+						is_child_of = scope:actor
+						in_diplomatic_range = scope:actor
+					}
+				}
+			}
+		}
+	}
+
+	cost = {
+		piety = 250
+		prestige = 250
+	}
+
+	on_accept = {
+		scope:actor = {
+			custom_tooltip = ac_train_cultivation_chance_tt
+			random_list = {
+				0 = {
+					modifier = { add = scope:recipient.ac_train_cultivation_success_chance }
+					desc = ac_train_cultivation_interaction.success
+					send_interface_toast = {
+						type = event_toast_effect_good
+						title = ac_train_cultivation_success_toast
+						left_icon = scope:actor
+						right_icon = scope:recipient
+						scope:recipient = { add_trait = ac_cultivator }
+					}
+					scope:recipient = {
+						hidden_effect = {
+							ac_update_visual_age_effect = yes
+							ac_offer_foundation_effect = yes
+						}
+					}
+				}
+				0 = {
+					modifier = { add = scope:recipient.ac_train_cultivation_failure_chance }
+					desc = ac_train_cultivation_interaction.failure
+					send_interface_toast = {
+						type = event_toast_effect_bad
+						title = ac_train_cultivation_failure_toast
+						left_icon = scope:actor
+						right_icon = scope:recipient
+						scope:recipient = { increase_wounds_no_death_effect = { REASON = fight } }
+					}
+				}
+			}
+		}
+	}
+
+	# Player-only for now: the AI never uses this interaction
+	ai_will_do = {
+		base = 0
+	}
+}

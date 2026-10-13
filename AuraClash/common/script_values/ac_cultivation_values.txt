@@ -1,0 +1,710 @@
+﻿# Awakening: Martial + Learning check
+ac_awaken_success_chance = {
+	value = martial
+	add = learning
+	multiply = 2
+	add = 10
+	min = 5
+	max = 85
+}
+ac_awaken_failure_chance = {
+	value = 100
+	subtract = ac_awaken_success_chance
+}
+
+ac_martial_plus_learning = {
+	value = martial
+	add = learning
+}
+
+# Immortal Core: Learning + Martial check, improved by Insight from failures and by Foundation tier
+ac_immortal_core_success_chance = {
+	value = ac_martial_plus_learning
+	multiply = 1.5
+	subtract = 10
+	if = {
+		limit = { has_variable = ac_immortal_insight }
+		add = var:ac_immortal_insight
+	}
+	if = {
+		limit = { ac_foundation_xp_trigger = { XP = 50 } }
+		add = 5
+	}
+	if = {
+		limit = { ac_foundation_xp_trigger = { XP = 100 } }
+		add = 5
+	}
+	min = 5
+	max = 75
+}
+ac_immortal_core_failure_chance = {
+	value = 100
+	subtract = ac_immortal_core_success_chance
+}
+
+# How many Elements this character has attuned to
+ac_element_count = {
+	value = 0
+	if = {
+		limit = { has_trait = ac_element_darkness }
+		add = 1
+	}
+	if = {
+		limit = { has_trait = ac_element_earth }
+		add = 1
+	}
+	if = {
+		limit = { has_trait = ac_element_fire }
+		add = 1
+	}
+	if = {
+		limit = { has_trait = ac_element_ice }
+		add = 1
+	}
+	if = {
+		limit = { has_trait = ac_element_light }
+		add = 1
+	}
+	if = {
+		limit = { has_trait = ac_element_storm }
+		add = 1
+	}
+	if = {
+		limit = { has_trait = ac_element_water }
+		add = 1
+	}
+	if = {
+		limit = { has_trait = ac_element_wind }
+		add = 1
+	}
+}
+
+# Total life expectancy this mod grants the character
+ac_longevity_bonus = {
+	value = 20
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 50 } }
+		add = 5
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 100 } }
+		add = 5
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 50 } }
+		add = 5
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 100 } }
+		add = 5
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 50 } }
+		add = 5
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 100 } }
+		add = 5
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 50 } }
+		add = 5
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 100 } }
+		add = 5
+	}
+	if = {
+		limit = { has_trait = ac_immortal_core }
+		add = 20
+	}
+	if = {
+		limit = { has_trait = ac_foundation_crane }
+		add = 5
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_foundation_crane value >= 25 } }
+		add = 2
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_foundation_crane value >= 50 } }
+		add = 2
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_foundation_crane value >= 75 } }
+		add = 2
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_foundation_crane value >= 100 } }
+		add = 2
+	}
+	if = {
+		limit = { has_perk = ac_1_alchemy_j_perk }
+		add = 5
+	}
+	if = {
+		limit = { has_perk = ac_4_element_ice_i_perk }
+		add = 2
+	}
+}
+
+# Portrait age for cultivators. The slowed phase starts when the character is both a
+# cultivator and at least 22 (var:ac_youth_start_age), from their apparent age then
+# (var:ac_youth_start_visual): they age 5 visible years over as many
+# real years as their longevity bonus, then age normally from there.
+ac_youth_end_age = {
+	value = var:ac_youth_start_age
+	add = ac_longevity_bonus
+}
+ac_visual_age = {
+	value = age
+	if = {
+		limit = { has_variable = ac_youth_start_age }
+		if = {
+			limit = { age < ac_youth_end_age }
+			value = age
+			subtract = var:ac_youth_start_age
+			multiply = 5
+			divide = {
+				value = ac_longevity_bonus
+				min = 1
+			}
+			add = var:ac_youth_start_visual
+		}
+		else = {
+			value = age
+			subtract = ac_youth_end_age
+			add = var:ac_youth_start_visual
+			add = 5
+		}
+	}
+	floor = yes
+}
+# Age at which Preserved Youth ends (the Death Spiral)
+ac_youth_release_age = {
+	value = ac_longevity_bonus
+	add = 60
+}
+
+# Vanilla-style monthly death chance from low health, for Preserved Youth characters
+# (their immortal portrait flag blocks the engine's own natural-death roll)
+ac_low_health_factor = {
+	value = 3
+	subtract = health
+	divide = 3
+	min = 0
+	max = 1
+}
+ac_low_health_death_chance = {
+	value = ac_low_health_factor
+	multiply = ac_low_health_factor
+	multiply = 25
+}
+
+# Style / Element learning chances: 4% per point of the deciding skill
+ac_skill_diplomacy = { value = diplomacy }
+ac_skill_martial = { value = martial }
+ac_skill_stewardship = { value = stewardship }
+ac_skill_intrigue = { value = intrigue }
+ac_skill_learning = { value = learning }
+ac_learn_style_akakiru_chance = {
+	value = stewardship
+	multiply = 4
+	min = 0
+	max = 100
+}
+ac_learn_style_akakiru_failure = {
+	value = 100
+	subtract = ac_learn_style_akakiru_chance
+}
+ac_learn_style_aoyusumu_chance = {
+	value = diplomacy
+	multiply = 4
+	min = 0
+	max = 100
+}
+ac_learn_style_aoyusumu_failure = {
+	value = 100
+	subtract = ac_learn_style_aoyusumu_chance
+}
+ac_learn_style_kiihakai_chance = {
+	value = learning
+	multiply = 4
+	min = 0
+	max = 100
+}
+ac_learn_style_kiihakai_failure = {
+	value = 100
+	subtract = ac_learn_style_kiihakai_chance
+}
+ac_learn_style_kurokonton_chance = {
+	value = intrigue
+	multiply = 4
+	min = 0
+	max = 100
+}
+ac_learn_style_kurokonton_failure = {
+	value = 100
+	subtract = ac_learn_style_kurokonton_chance
+}
+ac_learn_style_midorikatai_chance = {
+	value = martial
+	multiply = 4
+	min = 0
+	max = 100
+}
+ac_learn_style_midorikatai_failure = {
+	value = 100
+	subtract = ac_learn_style_midorikatai_chance
+}
+ac_learn_element_darkness_chance = {
+	value = intrigue
+	if = {
+		limit = { learning > ac_skill_intrigue }
+		value = learning
+	}
+	multiply = 4
+	min = 0
+	max = 100
+}
+ac_learn_element_darkness_failure = {
+	value = 100
+	subtract = ac_learn_element_darkness_chance
+}
+ac_learn_element_earth_chance = {
+	value = stewardship
+	if = {
+		limit = { diplomacy > ac_skill_stewardship }
+		value = diplomacy
+	}
+	multiply = 4
+	min = 0
+	max = 100
+}
+ac_learn_element_earth_failure = {
+	value = 100
+	subtract = ac_learn_element_earth_chance
+}
+ac_learn_element_fire_chance = {
+	value = martial
+	if = {
+		limit = { learning > ac_skill_martial }
+		value = learning
+	}
+	multiply = 4
+	min = 0
+	max = 100
+}
+ac_learn_element_fire_failure = {
+	value = 100
+	subtract = ac_learn_element_fire_chance
+}
+ac_learn_element_ice_chance = {
+	value = stewardship
+	if = {
+		limit = { martial > ac_skill_stewardship }
+		value = martial
+	}
+	multiply = 4
+	min = 0
+	max = 100
+}
+ac_learn_element_ice_failure = {
+	value = 100
+	subtract = ac_learn_element_ice_chance
+}
+ac_learn_element_light_chance = {
+	value = learning
+	if = {
+		limit = { intrigue > ac_skill_learning }
+		value = intrigue
+	}
+	multiply = 4
+	min = 0
+	max = 100
+}
+ac_learn_element_light_failure = {
+	value = 100
+	subtract = ac_learn_element_light_chance
+}
+ac_learn_element_storm_chance = {
+	value = learning
+	if = {
+		limit = { stewardship > ac_skill_learning }
+		value = stewardship
+	}
+	multiply = 4
+	min = 0
+	max = 100
+}
+ac_learn_element_storm_failure = {
+	value = 100
+	subtract = ac_learn_element_storm_chance
+}
+ac_learn_element_water_chance = {
+	value = diplomacy
+	if = {
+		limit = { martial > ac_skill_diplomacy }
+		value = martial
+	}
+	multiply = 4
+	min = 0
+	max = 100
+}
+ac_learn_element_water_failure = {
+	value = 100
+	subtract = ac_learn_element_water_chance
+}
+ac_learn_element_wind_chance = {
+	value = martial
+	if = {
+		limit = { intrigue > ac_skill_martial }
+		value = intrigue
+	}
+	multiply = 4
+	min = 0
+	max = 100
+}
+ac_learn_element_wind_failure = {
+	value = 100
+	subtract = ac_learn_element_wind_chance
+}
+
+# Total Cultivator dots across all four Cores
+ac_core_dots = {
+	value = 0
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 5 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 10 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 15 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 20 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 25 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 30 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 35 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 40 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 45 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 50 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 55 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 60 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 65 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 70 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 75 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 80 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 85 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 90 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 95 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 100 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 5 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 10 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 15 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 20 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 25 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 30 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 35 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 40 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 45 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 50 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 55 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 60 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 65 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 70 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 75 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 80 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 85 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 90 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 95 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 100 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 5 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 10 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 15 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 20 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 25 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 30 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 35 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 40 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 45 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 50 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 55 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 60 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 65 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 70 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 75 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 80 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 85 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 90 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 95 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 100 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 5 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 10 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 15 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 20 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 25 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 30 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 35 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 40 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 45 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 50 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 55 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 60 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 65 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 70 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 75 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 80 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 85 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 90 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 95 } }
+		add = 1
+	}
+	if = {
+		limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 100 } }
+		add = 1
+	}
+}
+
+# Train in Cultivation: 1% per point of the student's Martial and Learning,
+# +1% per Core dot of the teacher (scope:actor)
+ac_train_cultivation_success_chance = {
+	value = martial
+	add = learning
+	add = scope:actor.ac_core_dots
+	min = 0
+	max = 100
+}
+ac_train_cultivation_failure_chance = {
+	value = 100
+	subtract = ac_train_cultivation_success_chance
+}

@@ -1,0 +1,46 @@
+﻿# Chi Healing — unlocked by healing perks (Water, Kiihakai, Aoyusumu mastery)
+ac_chi_healing_interaction = {
+	category = interaction_category_friendly
+	common_interaction = yes
+	icon = wound
+	desc = ac_chi_healing_interaction_desc
+
+	cooldown = { months = 6 }
+	auto_accept = yes
+
+	is_shown = {
+		scope:actor = { ac_can_chi_heal_trigger = yes }
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = { is_imprisoned = no }
+		scope:recipient = {
+			is_alive = yes
+			custom_tooltip = {
+				text = ac_chi_healing_needs_wound_tt
+				has_trait = wounded
+			}
+		}
+	}
+
+	on_accept = {
+		scope:recipient = {
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = ac_chi_healing_toast
+				left_icon = scope:actor
+				right_icon = scope:recipient
+				ac_heal_one_wound_effect = yes
+			}
+		}
+	}
+
+	ai_targets = { ai_recipients = self }
+	ai_targets = { ai_recipients = family }
+	ai_targets = { ai_recipients = courtiers }
+	ai_frequency = 6
+
+	ai_will_do = {
+		base = 100
+	}
+}

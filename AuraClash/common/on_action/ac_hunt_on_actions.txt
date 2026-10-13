@@ -1,0 +1,29 @@
+﻿# Subjugation Domain: +10 hunt success for hosts with the perk
+hunt_start_events = {
+	on_actions = { ac_hunt_start }
+}
+
+ac_hunt_start = {
+	trigger = {
+		exists = scope:activity
+		OR = {
+			has_perk = ac_3_style_midorikatai_e_perk
+		}
+	}
+	effect = {
+		scope:activity = {
+			if = {
+				limit = { NOT = { exists = var:hunt_success_chance_event } }
+				set_variable = { name = hunt_success_chance_event value = 0 }
+			}
+			change_variable = {
+				name = hunt_success_chance_event
+				add = 10
+			}
+			set_variable = {
+				name = hunt_success_chance
+				value = hunt_success_chance_value
+			}
+		}
+	}
+}

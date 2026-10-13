@@ -1,0 +1,1320 @@
+﻿# Spend prestige to raise one Combat Core (a track on the Cultivator trait)
+ac_train_core_effect = {
+	add_prestige = -100
+	add_trait_xp = {
+		trait = ac_cultivator
+		track = ac_core_$CORE$
+		value = 5
+	}
+	add_character_flag = {
+		flag = ac_core_training_cooldown
+		years = 1
+	}
+	set_variable = {
+		name = ac_core_last
+		value = flag:$CORE$
+	}
+	if = {
+		limit = { has_character_flag = ac_core_training_auto }
+		custom_tooltip = ac_core_auto_will_repeat_tt
+		hidden_effect = {
+			trigger_event = {
+				id = ac_cult.0002
+				days = 366
+			}
+		}
+	}
+}
+
+# Called by the quarterly pulse and by the scheduled ac_cult.0002 check
+ac_core_auto_train_effect = {
+	if = {
+		limit = {
+			has_trait = ac_cultivator
+			has_character_flag = ac_core_training_auto
+			has_variable = ac_core_last
+		}
+		if = {
+			limit = {
+				var:ac_core_last = flag:soul
+				ac_can_train_core_trigger = { CORE = soul }
+			}
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = ac_core_auto_trained_toast
+				left_icon = root
+				ac_train_core_effect = { CORE = soul }
+			}
+		}
+		else_if = {
+			limit = {
+				var:ac_core_last = flag:agility
+				ac_can_train_core_trigger = { CORE = agility }
+			}
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = ac_core_auto_trained_toast
+				left_icon = root
+				ac_train_core_effect = { CORE = agility }
+			}
+		}
+		else_if = {
+			limit = {
+				var:ac_core_last = flag:power
+				ac_can_train_core_trigger = { CORE = power }
+			}
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = ac_core_auto_trained_toast
+				left_icon = root
+				ac_train_core_effect = { CORE = power }
+			}
+		}
+		else_if = {
+			limit = {
+				var:ac_core_last = flag:fortitude
+				ac_can_train_core_trigger = { CORE = fortitude }
+			}
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = ac_core_auto_trained_toast
+				left_icon = root
+				ac_train_core_effect = { CORE = fortitude }
+			}
+		}
+	}
+}
+
+# One random Core dot (+5 XP) on a Core that still has room
+ac_add_random_core_dot_effect = {
+	if = {
+		limit = {
+			OR = {
+				ac_core_soul_maxed_trigger = no
+				ac_core_agility_maxed_trigger = no
+				ac_core_power_maxed_trigger = no
+				ac_core_fortitude_maxed_trigger = no
+			}
+		}
+		random_list = {
+			10 = {
+				trigger = { ac_core_soul_maxed_trigger = no }
+				add_trait_xp = { trait = ac_cultivator track = ac_core_soul value = 5 }
+			}
+			10 = {
+				trigger = { ac_core_agility_maxed_trigger = no }
+				add_trait_xp = { trait = ac_cultivator track = ac_core_agility value = 5 }
+			}
+			10 = {
+				trigger = { ac_core_power_maxed_trigger = no }
+				add_trait_xp = { trait = ac_cultivator track = ac_core_power value = 5 }
+			}
+			10 = {
+				trigger = { ac_core_fortitude_maxed_trigger = no }
+				add_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value = 5 }
+			}
+		}
+	}
+}
+
+# Fame traits ($TRAIT$) awaken cultivation and add $DOTS$ random Core dots, once per trait
+ac_fame_cultivation_effect = {
+	if = {
+		limit = {
+			has_trait = $TRAIT$
+			NOT = { has_character_flag = ac_fame_gift_$TRAIT$ }
+		}
+		add_character_flag = ac_fame_gift_$TRAIT$
+		send_interface_toast = {
+			type = event_toast_effect_good
+			title = ac_fame_cultivation_toast
+			left_icon = root
+			if = {
+				limit = { NOT = { has_trait = ac_cultivator } }
+				add_trait = ac_cultivator
+			}
+			while = {
+				count = $DOTS$
+				ac_add_random_core_dot_effect = yes
+			}
+		}
+		hidden_effect = {
+			ac_update_visual_age_effect = yes
+			ac_offer_foundation_effect = yes
+		}
+	}
+}
+
+ac_fame_cultivation_all_effect = {
+	ac_fame_cultivation_effect = { TRAIT = conqueror DOTS = 5 }
+	ac_fame_cultivation_effect = { TRAIT = despoiler_of_byzantium DOTS = 10 }
+	ac_fame_cultivation_effect = { TRAIT = greatest_of_khans DOTS = 20 }
+}
+
+# Try to learn a Style / Element after paying for it; failure refunds and wounds
+ac_attempt_style_effect = {
+	random_list = {
+		0 = {
+			modifier = { add = ac_learn_style_$STYLE$_chance }
+			desc = ac_learn_path.success
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = ac_learn_style_success_toast
+				left_icon = root
+				add_trait = ac_style_$STYLE$
+			}
+		}
+		0 = {
+			modifier = { add = ac_learn_style_$STYLE$_failure }
+			desc = ac_learn_path.failure
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = ac_learn_path_failure_toast
+				left_icon = root
+				add_prestige = 150
+				increase_wounds_no_death_effect = { REASON = fight }
+			}
+		}
+	}
+}
+ac_attempt_element_effect = {
+	random_list = {
+		0 = {
+			modifier = { add = ac_learn_element_$ELEMENT$_chance }
+			desc = ac_learn_path.success
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = ac_learn_element_success_toast
+				left_icon = root
+				add_trait = ac_element_$ELEMENT$
+			}
+		}
+		0 = {
+			modifier = { add = ac_learn_element_$ELEMENT$_failure }
+			desc = ac_learn_path.failure
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = ac_learn_path_failure_toast
+				left_icon = root
+				add_piety = 100
+				increase_wounds_no_death_effect = { REASON = fight }
+			}
+		}
+	}
+}
+
+# Mend one level of wounds
+ac_heal_one_wound_effect = {
+	if = {
+		limit = { has_trait = wounded_3 }
+		remove_trait = wounded_3
+		add_trait = wounded_2
+	}
+	else_if = {
+		limit = { has_trait = wounded_2 }
+		remove_trait = wounded_2
+		add_trait = wounded_1
+	}
+	else_if = {
+		limit = { has_trait = wounded_1 }
+		remove_trait = wounded_1
+	}
+}
+
+# Battle XP for the cultivator's Foundation
+ac_gain_foundation_xp_effect = {
+	if = {
+		limit = {
+			has_trait = ac_cultivator
+			is_alive = yes
+		}
+		if = {
+			limit = { has_trait = ac_foundation_dragon }
+			add_trait_xp = { trait = ac_foundation_dragon value = $XP$ }
+		}
+		else_if = {
+			limit = { has_trait = ac_foundation_rabbit }
+			add_trait_xp = { trait = ac_foundation_rabbit value = $XP$ }
+		}
+		else_if = {
+			limit = { has_trait = ac_foundation_tiger }
+			add_trait_xp = { trait = ac_foundation_tiger value = $XP$ }
+		}
+		else_if = {
+			limit = { has_trait = ac_foundation_snake }
+			add_trait_xp = { trait = ac_foundation_snake value = $XP$ }
+		}
+		else_if = {
+			limit = { has_trait = ac_foundation_stallion }
+			add_trait_xp = { trait = ac_foundation_stallion value = $XP$ }
+		}
+		else_if = {
+			limit = { has_trait = ac_foundation_ram }
+			add_trait_xp = { trait = ac_foundation_ram value = $XP$ }
+		}
+		else_if = {
+			limit = { has_trait = ac_foundation_monkey }
+			add_trait_xp = { trait = ac_foundation_monkey value = $XP$ }
+		}
+		else_if = {
+			limit = { has_trait = ac_foundation_crane }
+			add_trait_xp = { trait = ac_foundation_crane value = $XP$ }
+		}
+		else_if = {
+			limit = { has_trait = ac_foundation_wolf }
+			add_trait_xp = { trait = ac_foundation_wolf value = $XP$ }
+		}
+		else_if = {
+			limit = { has_trait = ac_foundation_boar }
+			add_trait_xp = { trait = ac_foundation_boar value = $XP$ }
+		}
+		else_if = {
+			limit = { has_trait = ac_foundation_rat }
+			add_trait_xp = { trait = ac_foundation_rat value = $XP$ }
+		}
+		else_if = {
+			limit = { has_trait = ac_foundation_ox }
+			add_trait_xp = { trait = ac_foundation_ox value = $XP$ }
+		}
+	}
+}
+
+# Ask the player to choose a Foundation, or pick one for the AI
+ac_offer_foundation_effect = {
+	if = {
+		limit = {
+			has_trait = ac_cultivator
+			ac_has_foundation_trigger = no
+			age >= 16
+		}
+		if = {
+			limit = { is_ai = yes }
+			ac_random_foundation_effect = yes
+		}
+		else_if = {
+			limit = { NOT = { has_character_flag = ac_foundation_offered } }
+			add_character_flag = {
+				flag = ac_foundation_offered
+				days = 30
+			}
+			trigger_event = ac_cult.0300
+		}
+	}
+}
+
+# Random Foundation, weighted toward the character's matching skill
+ac_random_foundation_effect = {
+	random_list = {
+		10 = {
+			modifier = { add = diplomacy }
+			add_trait = ac_foundation_dragon
+		}
+		10 = {
+			modifier = { add = diplomacy }
+			add_trait = ac_foundation_rabbit
+		}
+		10 = {
+			modifier = { add = martial }
+			add_trait = ac_foundation_tiger
+		}
+		10 = {
+			modifier = { add = intrigue }
+			add_trait = ac_foundation_snake
+		}
+		10 = {
+			modifier = { add = martial }
+			add_trait = ac_foundation_stallion
+		}
+		10 = {
+			modifier = { add = learning }
+			add_trait = ac_foundation_ram
+		}
+		10 = {
+			modifier = { add = intrigue }
+			add_trait = ac_foundation_monkey
+		}
+		10 = {
+			modifier = { add = learning }
+			add_trait = ac_foundation_crane
+		}
+		10 = {
+			modifier = { add = martial }
+			add_trait = ac_foundation_wolf
+		}
+		10 = {
+			modifier = { add = stewardship }
+			add_trait = ac_foundation_boar
+		}
+		10 = {
+			modifier = { add = stewardship }
+			add_trait = ac_foundation_rat
+		}
+		10 = {
+			modifier = { add = stewardship }
+			add_trait = ac_foundation_ox
+		}
+	}
+}
+
+# Immortal Core attempt (decision and AI share this)
+ac_immortal_core_attempt_effect = {
+	custom_tooltip = ac_immortal_core_advancement_decision_check_tt
+	random_list = {
+		0 = {
+			modifier = { add = ac_immortal_core_success_chance }
+			desc = ac_immortal_core_advancement_decision.success
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = ac_immortal_core_success_toast
+				left_icon = root
+				add_trait = ac_immortal_core
+				custom_tooltip = ac_immortal_core_xp_tt
+			}
+			hidden_effect = {
+				remove_variable = ac_immortal_insight
+			}
+		}
+		0 = {
+			modifier = { add = ac_immortal_core_failure_chance }
+			desc = ac_immortal_core_advancement_decision.failure
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = ac_immortal_core_failure_toast
+				left_icon = root
+				add_stress = minor_stress_gain
+				custom_tooltip = ac_immortal_core_insight_tt
+			}
+			hidden_effect = {
+				if = {
+					limit = { has_variable = ac_immortal_insight }
+					change_variable = {
+						name = ac_immortal_insight
+						add = 5
+					}
+				}
+				else = {
+					set_variable = {
+						name = ac_immortal_insight
+						value = 5
+					}
+				}
+			}
+		}
+	}
+}
+
+# Record when the slowed-aging phase begins (no retroactive rejuvenation)
+ac_start_youth_effect = {
+	if = {
+		limit = {
+			has_trait = ac_cultivator
+			age >= 22
+			NOT = { has_variable = ac_youth_start_age }
+		}
+		set_variable = {
+			name = ac_youth_start_age
+			value = age
+		}
+		if = {
+			limit = { age <= 22 }
+			set_variable = {
+				name = ac_youth_start_visual
+				value = 22
+			}
+		}
+		else = {
+			set_variable = {
+				name = ac_youth_start_visual
+				value = age
+			}
+		}
+	}
+}
+
+# Health watch: while Preserved Youth is active, a hidden check (ac_cult.0400) runs every
+# 30 days when health is below 3, otherwise every 90 days, and stops when the trait goes.
+ac_start_health_watch_effect = {
+	if = {
+		limit = {
+			has_trait = ac_preserved_youth
+			NOT = { has_character_flag = ac_health_watch }
+		}
+		add_character_flag = {
+			flag = ac_health_watch
+			days = 100
+		}
+		trigger_event = {
+			id = ac_cult.0400
+			days = 30
+		}
+	}
+}
+
+# Die of low health the way the engine would, with a fitting death reason
+ac_low_health_death_effect = {
+	if = {
+		limit = { has_trait = wounded_3 }
+		death = { death_reason = death_wounds }
+	}
+	else_if = {
+		limit = { has_trait = wounded_2 }
+		death = { death_reason = death_wounds }
+	}
+	else_if = {
+		limit = { has_trait = wounded_1 }
+		death = { death_reason = death_wounds }
+	}
+	else_if = {
+		limit = { has_trait = bubonic_plague }
+		death = { death_reason = death_bubonic_plague }
+	}
+	else_if = {
+		limit = { has_trait = smallpox }
+		death = { death_reason = death_smallpox }
+	}
+	else_if = {
+		limit = { has_trait = typhus }
+		death = { death_reason = death_typhus }
+	}
+	else_if = {
+		limit = { has_trait = measles }
+		death = { death_reason = death_measles }
+	}
+	else_if = {
+		limit = { has_trait = dysentery }
+		death = { death_reason = death_dysentery }
+	}
+	else_if = {
+		limit = { has_trait = pneumonic }
+		death = { death_reason = death_pneumonic }
+	}
+	else_if = {
+		limit = { has_trait = ergotism }
+		death = { death_reason = death_ergotism }
+	}
+	else_if = {
+		limit = { has_trait = ill }
+		death = { death_reason = death_ill }
+	}
+	else = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+# Keep the portrait young (game rule "Cultivator Aging": Slowed)
+ac_update_visual_age_effect = {
+	ac_start_youth_effect = yes
+	if = {
+		limit = {
+			has_game_rule = ac_cultivator_aging_slowed
+			has_trait = ac_cultivator
+			has_variable = ac_youth_start_age
+			age < ac_youth_release_age
+			OR = {
+				health >= 1
+				ac_temporarily_unwell_trigger = yes
+			}
+		}
+		if = {
+			limit = { NOT = { has_trait = ac_preserved_youth } }
+			add_trait = ac_preserved_youth
+		}
+		set_immortal_age = ac_visual_age
+		ac_start_health_watch_effect = yes
+	}
+	else_if = {
+		limit = { has_trait = ac_preserved_youth }
+		send_interface_toast = {
+			type = event_toast_effect_bad
+			title = ac_death_spiral_toast
+			left_icon = root
+			remove_trait = ac_preserved_youth
+		}
+	}
+}
+
+# AI: unlock the next Cultivation perk (Style first, then Elements, Alchemy, Handseals)
+ac_ai_grant_cultivation_perk_effect = {
+	if = {
+		limit = { has_trait = ac_style_akakiru NOT = { has_perk = ac_3_style_akakiru_a_perk } }
+		add_perk = ac_3_style_akakiru_a_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_akakiru NOT = { has_perk = ac_3_style_akakiru_b_perk } }
+		add_perk = ac_3_style_akakiru_b_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_akakiru NOT = { has_perk = ac_3_style_akakiru_c_perk } has_perk = ac_3_style_akakiru_a_perk }
+		add_perk = ac_3_style_akakiru_c_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_akakiru NOT = { has_perk = ac_3_style_akakiru_d_perk } has_perk = ac_3_style_akakiru_b_perk }
+		add_perk = ac_3_style_akakiru_d_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_akakiru NOT = { has_perk = ac_3_style_akakiru_e_perk } has_perk = ac_3_style_akakiru_c_perk has_perk = ac_3_style_akakiru_d_perk }
+		add_perk = ac_3_style_akakiru_e_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_akakiru NOT = { has_perk = ac_3_style_akakiru_f_perk } has_perk = ac_3_style_akakiru_e_perk }
+		add_perk = ac_3_style_akakiru_f_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_akakiru NOT = { has_perk = ac_3_style_akakiru_g_perk } has_perk = ac_3_style_akakiru_e_perk }
+		add_perk = ac_3_style_akakiru_g_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_akakiru NOT = { has_perk = ac_3_style_akakiru_h_perk } has_perk = ac_3_style_akakiru_e_perk }
+		add_perk = ac_3_style_akakiru_h_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_akakiru NOT = { has_perk = ac_3_style_akakiru_i_perk } has_perk = ac_3_style_akakiru_e_perk }
+		add_perk = ac_3_style_akakiru_i_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_akakiru NOT = { has_perk = ac_3_style_akakiru_j_perk } has_perk = ac_3_style_akakiru_f_perk has_perk = ac_3_style_akakiru_g_perk has_perk = ac_3_style_akakiru_h_perk has_perk = ac_3_style_akakiru_i_perk }
+		add_perk = ac_3_style_akakiru_j_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_aoyusumu NOT = { has_perk = ac_3_style_aoyusumu_a_perk } }
+		add_perk = ac_3_style_aoyusumu_a_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_aoyusumu NOT = { has_perk = ac_3_style_aoyusumu_b_perk } }
+		add_perk = ac_3_style_aoyusumu_b_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_aoyusumu NOT = { has_perk = ac_3_style_aoyusumu_c_perk } has_perk = ac_3_style_aoyusumu_a_perk }
+		add_perk = ac_3_style_aoyusumu_c_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_aoyusumu NOT = { has_perk = ac_3_style_aoyusumu_d_perk } has_perk = ac_3_style_aoyusumu_b_perk }
+		add_perk = ac_3_style_aoyusumu_d_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_aoyusumu NOT = { has_perk = ac_3_style_aoyusumu_e_perk } has_perk = ac_3_style_aoyusumu_c_perk has_perk = ac_3_style_aoyusumu_d_perk }
+		add_perk = ac_3_style_aoyusumu_e_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_aoyusumu NOT = { has_perk = ac_3_style_aoyusumu_f_perk } has_perk = ac_3_style_aoyusumu_e_perk }
+		add_perk = ac_3_style_aoyusumu_f_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_aoyusumu NOT = { has_perk = ac_3_style_aoyusumu_g_perk } has_perk = ac_3_style_aoyusumu_e_perk }
+		add_perk = ac_3_style_aoyusumu_g_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_aoyusumu NOT = { has_perk = ac_3_style_aoyusumu_h_perk } has_perk = ac_3_style_aoyusumu_e_perk }
+		add_perk = ac_3_style_aoyusumu_h_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_aoyusumu NOT = { has_perk = ac_3_style_aoyusumu_i_perk } has_perk = ac_3_style_aoyusumu_e_perk }
+		add_perk = ac_3_style_aoyusumu_i_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_aoyusumu NOT = { has_perk = ac_3_style_aoyusumu_j_perk } has_perk = ac_3_style_aoyusumu_f_perk has_perk = ac_3_style_aoyusumu_g_perk has_perk = ac_3_style_aoyusumu_h_perk has_perk = ac_3_style_aoyusumu_i_perk }
+		add_perk = ac_3_style_aoyusumu_j_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kiihakai NOT = { has_perk = ac_3_style_kiihakai_a_perk } }
+		add_perk = ac_3_style_kiihakai_a_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kiihakai NOT = { has_perk = ac_3_style_kiihakai_b_perk } }
+		add_perk = ac_3_style_kiihakai_b_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kiihakai NOT = { has_perk = ac_3_style_kiihakai_c_perk } has_perk = ac_3_style_kiihakai_a_perk }
+		add_perk = ac_3_style_kiihakai_c_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kiihakai NOT = { has_perk = ac_3_style_kiihakai_d_perk } has_perk = ac_3_style_kiihakai_b_perk }
+		add_perk = ac_3_style_kiihakai_d_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kiihakai NOT = { has_perk = ac_3_style_kiihakai_e_perk } has_perk = ac_3_style_kiihakai_c_perk has_perk = ac_3_style_kiihakai_d_perk }
+		add_perk = ac_3_style_kiihakai_e_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kiihakai NOT = { has_perk = ac_3_style_kiihakai_f_perk } has_perk = ac_3_style_kiihakai_e_perk }
+		add_perk = ac_3_style_kiihakai_f_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kiihakai NOT = { has_perk = ac_3_style_kiihakai_g_perk } has_perk = ac_3_style_kiihakai_e_perk }
+		add_perk = ac_3_style_kiihakai_g_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kiihakai NOT = { has_perk = ac_3_style_kiihakai_h_perk } has_perk = ac_3_style_kiihakai_e_perk }
+		add_perk = ac_3_style_kiihakai_h_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kiihakai NOT = { has_perk = ac_3_style_kiihakai_i_perk } has_perk = ac_3_style_kiihakai_e_perk }
+		add_perk = ac_3_style_kiihakai_i_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kiihakai NOT = { has_perk = ac_3_style_kiihakai_j_perk } has_perk = ac_3_style_kiihakai_f_perk has_perk = ac_3_style_kiihakai_g_perk has_perk = ac_3_style_kiihakai_h_perk has_perk = ac_3_style_kiihakai_i_perk }
+		add_perk = ac_3_style_kiihakai_j_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kurokonton NOT = { has_perk = ac_3_style_kurokonton_a_perk } }
+		add_perk = ac_3_style_kurokonton_a_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kurokonton NOT = { has_perk = ac_3_style_kurokonton_b_perk } }
+		add_perk = ac_3_style_kurokonton_b_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kurokonton NOT = { has_perk = ac_3_style_kurokonton_c_perk } has_perk = ac_3_style_kurokonton_a_perk }
+		add_perk = ac_3_style_kurokonton_c_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kurokonton NOT = { has_perk = ac_3_style_kurokonton_d_perk } has_perk = ac_3_style_kurokonton_b_perk }
+		add_perk = ac_3_style_kurokonton_d_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kurokonton NOT = { has_perk = ac_3_style_kurokonton_e_perk } has_perk = ac_3_style_kurokonton_c_perk has_perk = ac_3_style_kurokonton_d_perk }
+		add_perk = ac_3_style_kurokonton_e_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kurokonton NOT = { has_perk = ac_3_style_kurokonton_f_perk } has_perk = ac_3_style_kurokonton_e_perk }
+		add_perk = ac_3_style_kurokonton_f_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kurokonton NOT = { has_perk = ac_3_style_kurokonton_g_perk } has_perk = ac_3_style_kurokonton_e_perk }
+		add_perk = ac_3_style_kurokonton_g_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kurokonton NOT = { has_perk = ac_3_style_kurokonton_h_perk } has_perk = ac_3_style_kurokonton_e_perk }
+		add_perk = ac_3_style_kurokonton_h_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kurokonton NOT = { has_perk = ac_3_style_kurokonton_i_perk } has_perk = ac_3_style_kurokonton_e_perk }
+		add_perk = ac_3_style_kurokonton_i_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_kurokonton NOT = { has_perk = ac_3_style_kurokonton_j_perk } has_perk = ac_3_style_kurokonton_f_perk has_perk = ac_3_style_kurokonton_g_perk has_perk = ac_3_style_kurokonton_h_perk has_perk = ac_3_style_kurokonton_i_perk }
+		add_perk = ac_3_style_kurokonton_j_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_midorikatai NOT = { has_perk = ac_3_style_midorikatai_a_perk } }
+		add_perk = ac_3_style_midorikatai_a_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_midorikatai NOT = { has_perk = ac_3_style_midorikatai_b_perk } }
+		add_perk = ac_3_style_midorikatai_b_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_midorikatai NOT = { has_perk = ac_3_style_midorikatai_c_perk } has_perk = ac_3_style_midorikatai_a_perk }
+		add_perk = ac_3_style_midorikatai_c_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_midorikatai NOT = { has_perk = ac_3_style_midorikatai_d_perk } has_perk = ac_3_style_midorikatai_b_perk }
+		add_perk = ac_3_style_midorikatai_d_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_midorikatai NOT = { has_perk = ac_3_style_midorikatai_e_perk } has_perk = ac_3_style_midorikatai_c_perk has_perk = ac_3_style_midorikatai_d_perk }
+		add_perk = ac_3_style_midorikatai_e_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_midorikatai NOT = { has_perk = ac_3_style_midorikatai_f_perk } has_perk = ac_3_style_midorikatai_e_perk }
+		add_perk = ac_3_style_midorikatai_f_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_midorikatai NOT = { has_perk = ac_3_style_midorikatai_g_perk } has_perk = ac_3_style_midorikatai_e_perk }
+		add_perk = ac_3_style_midorikatai_g_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_midorikatai NOT = { has_perk = ac_3_style_midorikatai_h_perk } has_perk = ac_3_style_midorikatai_e_perk }
+		add_perk = ac_3_style_midorikatai_h_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_midorikatai NOT = { has_perk = ac_3_style_midorikatai_i_perk } has_perk = ac_3_style_midorikatai_e_perk }
+		add_perk = ac_3_style_midorikatai_i_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_style_midorikatai NOT = { has_perk = ac_3_style_midorikatai_j_perk } has_perk = ac_3_style_midorikatai_f_perk has_perk = ac_3_style_midorikatai_g_perk has_perk = ac_3_style_midorikatai_h_perk has_perk = ac_3_style_midorikatai_i_perk }
+		add_perk = ac_3_style_midorikatai_j_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_darkness NOT = { has_perk = ac_4_element_darkness_a_perk } }
+		add_perk = ac_4_element_darkness_a_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_darkness NOT = { has_perk = ac_4_element_darkness_b_perk } }
+		add_perk = ac_4_element_darkness_b_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_darkness NOT = { has_perk = ac_4_element_darkness_c_perk } has_perk = ac_4_element_darkness_a_perk }
+		add_perk = ac_4_element_darkness_c_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_darkness NOT = { has_perk = ac_4_element_darkness_d_perk } has_perk = ac_4_element_darkness_b_perk }
+		add_perk = ac_4_element_darkness_d_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_darkness NOT = { has_perk = ac_4_element_darkness_e_perk } has_perk = ac_4_element_darkness_c_perk has_perk = ac_4_element_darkness_d_perk }
+		add_perk = ac_4_element_darkness_e_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_darkness NOT = { has_perk = ac_4_element_darkness_f_perk } has_perk = ac_4_element_darkness_e_perk }
+		add_perk = ac_4_element_darkness_f_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_darkness NOT = { has_perk = ac_4_element_darkness_g_perk } has_perk = ac_4_element_darkness_e_perk }
+		add_perk = ac_4_element_darkness_g_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_darkness NOT = { has_perk = ac_4_element_darkness_h_perk } has_perk = ac_4_element_darkness_e_perk }
+		add_perk = ac_4_element_darkness_h_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_darkness NOT = { has_perk = ac_4_element_darkness_i_perk } has_perk = ac_4_element_darkness_e_perk }
+		add_perk = ac_4_element_darkness_i_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_darkness NOT = { has_perk = ac_4_element_darkness_j_perk } has_perk = ac_4_element_darkness_f_perk has_perk = ac_4_element_darkness_g_perk has_perk = ac_4_element_darkness_h_perk has_perk = ac_4_element_darkness_i_perk }
+		add_perk = ac_4_element_darkness_j_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_earth NOT = { has_perk = ac_4_element_earth_a_perk } }
+		add_perk = ac_4_element_earth_a_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_earth NOT = { has_perk = ac_4_element_earth_b_perk } }
+		add_perk = ac_4_element_earth_b_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_earth NOT = { has_perk = ac_4_element_earth_c_perk } has_perk = ac_4_element_earth_a_perk }
+		add_perk = ac_4_element_earth_c_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_earth NOT = { has_perk = ac_4_element_earth_d_perk } has_perk = ac_4_element_earth_b_perk }
+		add_perk = ac_4_element_earth_d_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_earth NOT = { has_perk = ac_4_element_earth_e_perk } has_perk = ac_4_element_earth_c_perk has_perk = ac_4_element_earth_d_perk }
+		add_perk = ac_4_element_earth_e_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_earth NOT = { has_perk = ac_4_element_earth_f_perk } has_perk = ac_4_element_earth_e_perk }
+		add_perk = ac_4_element_earth_f_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_earth NOT = { has_perk = ac_4_element_earth_g_perk } has_perk = ac_4_element_earth_e_perk }
+		add_perk = ac_4_element_earth_g_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_earth NOT = { has_perk = ac_4_element_earth_h_perk } has_perk = ac_4_element_earth_e_perk }
+		add_perk = ac_4_element_earth_h_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_earth NOT = { has_perk = ac_4_element_earth_i_perk } has_perk = ac_4_element_earth_e_perk }
+		add_perk = ac_4_element_earth_i_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_earth NOT = { has_perk = ac_4_element_earth_j_perk } has_perk = ac_4_element_earth_f_perk has_perk = ac_4_element_earth_g_perk has_perk = ac_4_element_earth_h_perk has_perk = ac_4_element_earth_i_perk }
+		add_perk = ac_4_element_earth_j_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_fire NOT = { has_perk = ac_4_element_fire_a_perk } }
+		add_perk = ac_4_element_fire_a_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_fire NOT = { has_perk = ac_4_element_fire_b_perk } }
+		add_perk = ac_4_element_fire_b_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_fire NOT = { has_perk = ac_4_element_fire_c_perk } has_perk = ac_4_element_fire_a_perk }
+		add_perk = ac_4_element_fire_c_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_fire NOT = { has_perk = ac_4_element_fire_d_perk } has_perk = ac_4_element_fire_b_perk }
+		add_perk = ac_4_element_fire_d_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_fire NOT = { has_perk = ac_4_element_fire_e_perk } has_perk = ac_4_element_fire_c_perk has_perk = ac_4_element_fire_d_perk }
+		add_perk = ac_4_element_fire_e_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_fire NOT = { has_perk = ac_4_element_fire_f_perk } has_perk = ac_4_element_fire_e_perk }
+		add_perk = ac_4_element_fire_f_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_fire NOT = { has_perk = ac_4_element_fire_g_perk } has_perk = ac_4_element_fire_e_perk }
+		add_perk = ac_4_element_fire_g_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_fire NOT = { has_perk = ac_4_element_fire_h_perk } has_perk = ac_4_element_fire_e_perk }
+		add_perk = ac_4_element_fire_h_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_fire NOT = { has_perk = ac_4_element_fire_i_perk } has_perk = ac_4_element_fire_e_perk }
+		add_perk = ac_4_element_fire_i_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_fire NOT = { has_perk = ac_4_element_fire_j_perk } has_perk = ac_4_element_fire_f_perk has_perk = ac_4_element_fire_g_perk has_perk = ac_4_element_fire_h_perk has_perk = ac_4_element_fire_i_perk }
+		add_perk = ac_4_element_fire_j_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_ice NOT = { has_perk = ac_4_element_ice_a_perk } }
+		add_perk = ac_4_element_ice_a_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_ice NOT = { has_perk = ac_4_element_ice_b_perk } }
+		add_perk = ac_4_element_ice_b_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_ice NOT = { has_perk = ac_4_element_ice_c_perk } has_perk = ac_4_element_ice_a_perk }
+		add_perk = ac_4_element_ice_c_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_ice NOT = { has_perk = ac_4_element_ice_d_perk } has_perk = ac_4_element_ice_b_perk }
+		add_perk = ac_4_element_ice_d_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_ice NOT = { has_perk = ac_4_element_ice_e_perk } has_perk = ac_4_element_ice_c_perk has_perk = ac_4_element_ice_d_perk }
+		add_perk = ac_4_element_ice_e_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_ice NOT = { has_perk = ac_4_element_ice_f_perk } has_perk = ac_4_element_ice_e_perk }
+		add_perk = ac_4_element_ice_f_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_ice NOT = { has_perk = ac_4_element_ice_g_perk } has_perk = ac_4_element_ice_e_perk }
+		add_perk = ac_4_element_ice_g_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_ice NOT = { has_perk = ac_4_element_ice_h_perk } has_perk = ac_4_element_ice_e_perk }
+		add_perk = ac_4_element_ice_h_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_ice NOT = { has_perk = ac_4_element_ice_i_perk } has_perk = ac_4_element_ice_e_perk }
+		add_perk = ac_4_element_ice_i_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_ice NOT = { has_perk = ac_4_element_ice_j_perk } has_perk = ac_4_element_ice_f_perk has_perk = ac_4_element_ice_g_perk has_perk = ac_4_element_ice_h_perk has_perk = ac_4_element_ice_i_perk }
+		add_perk = ac_4_element_ice_j_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_light NOT = { has_perk = ac_4_element_light_a_perk } }
+		add_perk = ac_4_element_light_a_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_light NOT = { has_perk = ac_4_element_light_b_perk } }
+		add_perk = ac_4_element_light_b_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_light NOT = { has_perk = ac_4_element_light_c_perk } has_perk = ac_4_element_light_a_perk }
+		add_perk = ac_4_element_light_c_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_light NOT = { has_perk = ac_4_element_light_d_perk } has_perk = ac_4_element_light_b_perk }
+		add_perk = ac_4_element_light_d_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_light NOT = { has_perk = ac_4_element_light_e_perk } has_perk = ac_4_element_light_c_perk has_perk = ac_4_element_light_d_perk }
+		add_perk = ac_4_element_light_e_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_light NOT = { has_perk = ac_4_element_light_f_perk } has_perk = ac_4_element_light_e_perk }
+		add_perk = ac_4_element_light_f_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_light NOT = { has_perk = ac_4_element_light_g_perk } has_perk = ac_4_element_light_e_perk }
+		add_perk = ac_4_element_light_g_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_light NOT = { has_perk = ac_4_element_light_h_perk } has_perk = ac_4_element_light_e_perk }
+		add_perk = ac_4_element_light_h_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_light NOT = { has_perk = ac_4_element_light_i_perk } has_perk = ac_4_element_light_e_perk }
+		add_perk = ac_4_element_light_i_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_light NOT = { has_perk = ac_4_element_light_j_perk } has_perk = ac_4_element_light_f_perk has_perk = ac_4_element_light_g_perk has_perk = ac_4_element_light_h_perk has_perk = ac_4_element_light_i_perk }
+		add_perk = ac_4_element_light_j_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_storm NOT = { has_perk = ac_4_element_storm_a_perk } }
+		add_perk = ac_4_element_storm_a_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_storm NOT = { has_perk = ac_4_element_storm_b_perk } }
+		add_perk = ac_4_element_storm_b_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_storm NOT = { has_perk = ac_4_element_storm_c_perk } has_perk = ac_4_element_storm_a_perk }
+		add_perk = ac_4_element_storm_c_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_storm NOT = { has_perk = ac_4_element_storm_d_perk } has_perk = ac_4_element_storm_b_perk }
+		add_perk = ac_4_element_storm_d_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_storm NOT = { has_perk = ac_4_element_storm_e_perk } has_perk = ac_4_element_storm_c_perk has_perk = ac_4_element_storm_d_perk }
+		add_perk = ac_4_element_storm_e_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_storm NOT = { has_perk = ac_4_element_storm_f_perk } has_perk = ac_4_element_storm_e_perk }
+		add_perk = ac_4_element_storm_f_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_storm NOT = { has_perk = ac_4_element_storm_g_perk } has_perk = ac_4_element_storm_e_perk }
+		add_perk = ac_4_element_storm_g_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_storm NOT = { has_perk = ac_4_element_storm_h_perk } has_perk = ac_4_element_storm_e_perk }
+		add_perk = ac_4_element_storm_h_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_storm NOT = { has_perk = ac_4_element_storm_i_perk } has_perk = ac_4_element_storm_e_perk }
+		add_perk = ac_4_element_storm_i_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_storm NOT = { has_perk = ac_4_element_storm_j_perk } has_perk = ac_4_element_storm_f_perk has_perk = ac_4_element_storm_g_perk has_perk = ac_4_element_storm_h_perk has_perk = ac_4_element_storm_i_perk }
+		add_perk = ac_4_element_storm_j_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_water NOT = { has_perk = ac_4_element_water_a_perk } }
+		add_perk = ac_4_element_water_a_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_water NOT = { has_perk = ac_4_element_water_b_perk } }
+		add_perk = ac_4_element_water_b_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_water NOT = { has_perk = ac_4_element_water_c_perk } has_perk = ac_4_element_water_a_perk }
+		add_perk = ac_4_element_water_c_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_water NOT = { has_perk = ac_4_element_water_d_perk } has_perk = ac_4_element_water_b_perk }
+		add_perk = ac_4_element_water_d_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_water NOT = { has_perk = ac_4_element_water_e_perk } has_perk = ac_4_element_water_c_perk has_perk = ac_4_element_water_d_perk }
+		add_perk = ac_4_element_water_e_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_water NOT = { has_perk = ac_4_element_water_f_perk } has_perk = ac_4_element_water_e_perk }
+		add_perk = ac_4_element_water_f_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_water NOT = { has_perk = ac_4_element_water_g_perk } has_perk = ac_4_element_water_e_perk }
+		add_perk = ac_4_element_water_g_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_water NOT = { has_perk = ac_4_element_water_h_perk } has_perk = ac_4_element_water_e_perk }
+		add_perk = ac_4_element_water_h_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_water NOT = { has_perk = ac_4_element_water_i_perk } has_perk = ac_4_element_water_e_perk }
+		add_perk = ac_4_element_water_i_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_water NOT = { has_perk = ac_4_element_water_j_perk } has_perk = ac_4_element_water_f_perk has_perk = ac_4_element_water_g_perk has_perk = ac_4_element_water_h_perk has_perk = ac_4_element_water_i_perk }
+		add_perk = ac_4_element_water_j_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_wind NOT = { has_perk = ac_4_element_wind_a_perk } }
+		add_perk = ac_4_element_wind_a_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_wind NOT = { has_perk = ac_4_element_wind_b_perk } }
+		add_perk = ac_4_element_wind_b_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_wind NOT = { has_perk = ac_4_element_wind_c_perk } has_perk = ac_4_element_wind_a_perk }
+		add_perk = ac_4_element_wind_c_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_wind NOT = { has_perk = ac_4_element_wind_d_perk } has_perk = ac_4_element_wind_b_perk }
+		add_perk = ac_4_element_wind_d_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_wind NOT = { has_perk = ac_4_element_wind_e_perk } has_perk = ac_4_element_wind_c_perk has_perk = ac_4_element_wind_d_perk }
+		add_perk = ac_4_element_wind_e_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_wind NOT = { has_perk = ac_4_element_wind_f_perk } has_perk = ac_4_element_wind_e_perk }
+		add_perk = ac_4_element_wind_f_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_wind NOT = { has_perk = ac_4_element_wind_g_perk } has_perk = ac_4_element_wind_e_perk }
+		add_perk = ac_4_element_wind_g_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_wind NOT = { has_perk = ac_4_element_wind_h_perk } has_perk = ac_4_element_wind_e_perk }
+		add_perk = ac_4_element_wind_h_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_wind NOT = { has_perk = ac_4_element_wind_i_perk } has_perk = ac_4_element_wind_e_perk }
+		add_perk = ac_4_element_wind_i_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_element_wind NOT = { has_perk = ac_4_element_wind_j_perk } has_perk = ac_4_element_wind_f_perk has_perk = ac_4_element_wind_g_perk has_perk = ac_4_element_wind_h_perk has_perk = ac_4_element_wind_i_perk }
+		add_perk = ac_4_element_wind_j_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_1_alchemy_a_perk } }
+		add_perk = ac_1_alchemy_a_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_1_alchemy_b_perk } }
+		add_perk = ac_1_alchemy_b_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_1_alchemy_c_perk } has_perk = ac_1_alchemy_a_perk }
+		add_perk = ac_1_alchemy_c_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_1_alchemy_d_perk } has_perk = ac_1_alchemy_b_perk }
+		add_perk = ac_1_alchemy_d_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_1_alchemy_e_perk } has_perk = ac_1_alchemy_c_perk has_perk = ac_1_alchemy_d_perk }
+		add_perk = ac_1_alchemy_e_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_1_alchemy_f_perk } has_perk = ac_1_alchemy_e_perk }
+		add_perk = ac_1_alchemy_f_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_1_alchemy_g_perk } has_perk = ac_1_alchemy_e_perk }
+		add_perk = ac_1_alchemy_g_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_1_alchemy_h_perk } has_perk = ac_1_alchemy_e_perk }
+		add_perk = ac_1_alchemy_h_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_1_alchemy_i_perk } has_perk = ac_1_alchemy_e_perk }
+		add_perk = ac_1_alchemy_i_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_1_alchemy_j_perk } has_perk = ac_1_alchemy_f_perk has_perk = ac_1_alchemy_g_perk has_perk = ac_1_alchemy_h_perk has_perk = ac_1_alchemy_i_perk }
+		add_perk = ac_1_alchemy_j_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_2_handseals_a_perk } }
+		add_perk = ac_2_handseals_a_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_2_handseals_b_perk } }
+		add_perk = ac_2_handseals_b_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_2_handseals_c_perk } has_perk = ac_2_handseals_a_perk }
+		add_perk = ac_2_handseals_c_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_2_handseals_d_perk } has_perk = ac_2_handseals_b_perk }
+		add_perk = ac_2_handseals_d_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_2_handseals_e_perk } has_perk = ac_2_handseals_c_perk has_perk = ac_2_handseals_d_perk }
+		add_perk = ac_2_handseals_e_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_2_handseals_f_perk } has_perk = ac_2_handseals_e_perk }
+		add_perk = ac_2_handseals_f_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_2_handseals_g_perk } has_perk = ac_2_handseals_e_perk }
+		add_perk = ac_2_handseals_g_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_2_handseals_h_perk } has_perk = ac_2_handseals_e_perk }
+		add_perk = ac_2_handseals_h_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_2_handseals_i_perk } has_perk = ac_2_handseals_e_perk }
+		add_perk = ac_2_handseals_i_perk
+	}
+	else_if = {
+		limit = { has_trait = ac_cultivator NOT = { has_perk = ac_2_handseals_j_perk } has_perk = ac_2_handseals_f_perk has_perk = ac_2_handseals_g_perk has_perk = ac_2_handseals_h_perk has_perk = ac_2_handseals_i_perk }
+		add_perk = ac_2_handseals_j_perk
+	}
+}
+
+# AI: the whole yearly cultivation routine (one call per adult AI cultivator per year)
+ac_ai_yearly_cultivation_effect = {
+	# Foundation
+	if = {
+		limit = { ac_has_foundation_trigger = no }
+		ac_random_foundation_effect = yes
+	}
+
+	# Mortal Core Training: random unmaxed Core
+	if = {
+		limit = {
+			prestige > 300
+			NOT = { has_character_flag = ac_core_training_cooldown }
+			OR = {
+				ac_core_soul_maxed_trigger = no
+				ac_core_agility_maxed_trigger = no
+				ac_core_power_maxed_trigger = no
+				ac_core_fortitude_maxed_trigger = no
+			}
+		}
+		random_list = {
+		10 = {
+			trigger = { ac_core_soul_maxed_trigger = no }
+			ac_train_core_effect = { CORE = soul }
+		}
+		10 = {
+			trigger = { ac_core_agility_maxed_trigger = no }
+			ac_train_core_effect = { CORE = agility }
+		}
+		10 = {
+			trigger = { ac_core_power_maxed_trigger = no }
+			ac_train_core_effect = { CORE = power }
+		}
+		10 = {
+			trigger = { ac_core_fortitude_maxed_trigger = no }
+			ac_train_core_effect = { CORE = fortitude }
+		}
+		}
+	}
+
+	# Style or Element (shared yearly cooldown)
+	if = {
+		limit = { NOT = { has_character_flag = ac_path_study_cooldown } }
+		if = {
+			limit = {
+				ac_has_martial_style_trigger = no
+				prestige >= 150
+			}
+			random = {
+				chance = 15
+				add_prestige = -150
+				add_character_flag = {
+					flag = ac_path_study_cooldown
+					years = 1
+				}
+				random_list = {
+		10 = {
+			modifier = { add = stewardship }
+			ac_attempt_style_effect = { STYLE = akakiru }
+		}
+		10 = {
+			modifier = { add = diplomacy }
+			ac_attempt_style_effect = { STYLE = aoyusumu }
+		}
+		10 = {
+			modifier = { add = learning }
+			ac_attempt_style_effect = { STYLE = kiihakai }
+		}
+		10 = {
+			modifier = { add = intrigue }
+			ac_attempt_style_effect = { STYLE = kurokonton }
+		}
+		10 = {
+			modifier = { add = martial }
+			ac_attempt_style_effect = { STYLE = midorikatai }
+		}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				ac_element_count < 2
+				piety >= 100
+			}
+			random = {
+				chance = 15
+				add_piety = -100
+				add_character_flag = {
+					flag = ac_path_study_cooldown
+					years = 1
+				}
+				random_list = {
+		10 = {
+			trigger = { NOT = { has_trait = ac_element_darkness } }
+			modifier = { add = ac_learn_element_darkness_chance }
+			ac_attempt_element_effect = { ELEMENT = darkness }
+		}
+		10 = {
+			trigger = { NOT = { has_trait = ac_element_earth } }
+			modifier = { add = ac_learn_element_earth_chance }
+			ac_attempt_element_effect = { ELEMENT = earth }
+		}
+		10 = {
+			trigger = { NOT = { has_trait = ac_element_fire } }
+			modifier = { add = ac_learn_element_fire_chance }
+			ac_attempt_element_effect = { ELEMENT = fire }
+		}
+		10 = {
+			trigger = { NOT = { has_trait = ac_element_ice } }
+			modifier = { add = ac_learn_element_ice_chance }
+			ac_attempt_element_effect = { ELEMENT = ice }
+		}
+		10 = {
+			trigger = { NOT = { has_trait = ac_element_light } }
+			modifier = { add = ac_learn_element_light_chance }
+			ac_attempt_element_effect = { ELEMENT = light }
+		}
+		10 = {
+			trigger = { NOT = { has_trait = ac_element_storm } }
+			modifier = { add = ac_learn_element_storm_chance }
+			ac_attempt_element_effect = { ELEMENT = storm }
+		}
+		10 = {
+			trigger = { NOT = { has_trait = ac_element_water } }
+			modifier = { add = ac_learn_element_water_chance }
+			ac_attempt_element_effect = { ELEMENT = water }
+		}
+		10 = {
+			trigger = { NOT = { has_trait = ac_element_wind } }
+			modifier = { add = ac_learn_element_wind_chance }
+			ac_attempt_element_effect = { ELEMENT = wind }
+		}
+				}
+			}
+		}
+	}
+
+	# Immortal Core Advancement
+	if = {
+		limit = {
+			NOT = { has_trait = ac_immortal_core }
+			NOT = { has_character_flag = ac_immortal_attempt_cooldown }
+			piety >= 150
+			ac_martial_plus_learning >= 16
+		}
+		random = {
+			chance = 30
+			add_piety = -150
+			add_character_flag = {
+				flag = ac_immortal_attempt_cooldown
+				years = 1
+			}
+			ac_immortal_core_attempt_effect = yes
+		}
+	}
+
+	# Immortal Core experience: AI banks it in a variable and unlocks a perk per
+	# 1000 XP, so it never depends on the AI choosing a Cultivation focus
+	if = {
+		limit = { has_trait = ac_immortal_core }
+		if = {
+			limit = { NOT = { has_variable = ac_ai_cultivation_xp } }
+			set_variable = {
+				name = ac_ai_cultivation_xp
+				value = 0
+			}
+		}
+		change_variable = {
+			name = ac_ai_cultivation_xp
+			add = 240
+		}
+		if = {
+			limit = { var:ac_ai_cultivation_xp >= 1000 }
+			change_variable = {
+				name = ac_ai_cultivation_xp
+				add = -1000
+			}
+			ac_ai_grant_cultivation_perk_effect = yes
+		}
+	}
+}

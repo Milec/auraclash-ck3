@@ -1,0 +1,8 @@
+﻿ac_cultivator_aging = {
+	categories = { tweaks }
+
+	default = ac_cultivator_aging_slowed
+
+	ac_cultivator_aging_slowed = {}
+	ac_cultivator_aging_normal = {}
+}
