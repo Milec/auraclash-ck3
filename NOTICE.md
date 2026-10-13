@@ -25,16 +25,16 @@ The MIT license covers the **code**: its structure, logic and mechanics. It does
 Inside a mod or submod of this mod, those names may be used and changed under [LICENSE-CONTENT.md](LICENSE-CONTENT.md). To reuse the code anywhere else, remove or replace them.
 
 ## Files derived from Crusader Kings III
-`AuraClash/gui/window_character_lifestyle.gui` is a modified copy of the vanilla CK3 file of the same name. The original file is © Paradox Interactive and is included under Paradox's terms for user-generated content. Only our modifications, each marked with an `# AC:` comment, are offered under the MIT license.
+`AuraClash/gui/window_character_lifestyle.gui` is a modified copy of the vanilla CK3 file of the same name. The original is © Paradox Interactive and is included under Paradox's terms for user-generated content. Only our modifications, each marked with an `# AC:` comment, are offered under the MIT license.
 
 The mod also references vanilla game assets by path, such as decision illustrations and progress-bar textures. Those assets are not included in this repository and remain © Paradox Interactive.
 
 ## Trademarks and affiliation
-"Aura Clash" is a trademark of Banished Tales. None of the licenses in this repository grant trademark rights.
+"Aura Clash" is a trademark of Aurillian Productions LLC. None of the licenses in this repository grant trademark rights.
 
 Crusader Kings III and Paradox Interactive are trademarks of Paradox Interactive AB. This mod is unofficial and is not affiliated with or endorsed by Paradox Interactive.
 
 ## Credit
 When redistributing a mod or submod that uses Aura Clash Setting Content, credit:
 
-> Aura Clash setting content by Banished Tales (www.auraclash.com), © Banished Tales.
+> Aura Clash setting content by Banished Tales (banishedtales.com), © Banished Tales.
