@@ -37,4 +37,4 @@ Crusader Kings III and Paradox Interactive are trademarks of Paradox Interactive
 ## Credit
 When redistributing a mod or submod that uses Aura Clash Setting Content, credit:
 
-> Aura Clash setting content by Banished Tales (banishedtales.com), © Banished Tales.
+> Aura Clash setting content by Banished Tales (www.banishedtales.com), © Banished Tales.
