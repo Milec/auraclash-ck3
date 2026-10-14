@@ -16,6 +16,7 @@ This repository contains material under three sets of terms. Use the table below
 | `AuraClash/localization/` | Aura Clash Setting Content ([LICENSE-CONTENT.md](LICENSE-CONTENT.md)) | All player-facing text |
 | `AuraClash/gfx/` | Aura Clash Setting Content ([LICENSE-CONTENT.md](LICENSE-CONTENT.md)) | All icons and illustrations |
 | `assets/trait-icons/` | Aura Clash Setting Content ([LICENSE-CONTENT.md](LICENSE-CONTENT.md)) | Approved trait artwork masters and preview |
+| `docs/`, `outputs/aura-clash-events/` | Mixed: underlying CK3 event titles remain © Paradox Interactive; Aura Clash text follows [LICENSE-CONTENT.md](LICENSE-CONTENT.md); our script logic is MIT | Generated event and option registers |
 | `README.md`, `NOTICE.md`, `LICENSE`, `LICENSE-CONTENT.md` | All rights reserved | Documentation; may be quoted when crediting this mod |
 
 ## Aura Clash names inside code

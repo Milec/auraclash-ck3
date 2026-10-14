@@ -47,7 +47,7 @@ class EventRegressionTests(unittest.TestCase):
             self.assertEqual(path.read_bytes(), data, str(path))
 
     def test_reviewed_events_and_required_resolvers_are_overridden(self):
-        self.assertEqual(len(self.generated), 101)
+        self.assertEqual(len(self.generated), 143)
         self.assertEqual(len(self.generated), len(SPECS))
         for text in self.generated.values():
             self.assertEqual(text.count('id_override_priority = 10'), 1)
@@ -392,6 +392,93 @@ class EventRegressionTests(unittest.TestCase):
         self.assertIn('trait = lifestyle_hunter', effect)
         self.assertNotIn('ac_cultivation', effect)
         self.assertNotIn('ac_cultivator', effect)
+
+    def test_dlc_batch_covers_42_events(self):
+        self.assertEqual(sum(group == 'dlc' for _, group, _ in SPECS), 42)
+
+    def test_examinations_restore_prior_preparation_after_native_attempt(self):
+        for eid in ('imperial_examination.5000', 'imperial_examination.5100',
+                    'imperial_examination.5160', 'imperial_examination.5170'):
+            choices = next(c for e, _, c in SPECS if e == eid)
+            self.assertIn('name = ac_dlc_prior_exam_advantage value = var:has_exam_advantage', choices)
+            self.assertIn('imperial_examination_exam_duel_effect = { EXAM = ', choices)
+            self.assertIn('name = has_exam_advantage value = scope:ac_dlc_prior_exam_advantage', choices)
+            self.assertIn('else = { remove_variable = has_exam_advantage }', choices)
+            self.assertNotIn('activity_tournament_change_contestant_score_effect', choices)
+
+    def test_greek_fire_keeps_native_resolver_but_excludes_catastrophic_flag(self):
+        choices = next(c for e, _, c in SPECS if e == 'ep3_emperor_yearly.3011')
+        self.assertIn('scope:city_defender = root location = root.capital_province', choices)
+        self.assertIn('flag = used_fire_dromons days = 30', choices)
+        self.assertIn('trigger_event = ep3_emperor_yearly.3012', choices)
+        self.assertNotIn('add_character_flag = crit_failed_greek_fire_attack', choices)
+        self.assertIn('add_character_flag = failed_greek_fire_attack', choices)
+        self.assertIn('compare_modifier', choices)
+
+    def test_palace_essay_initializes_the_native_advantage_multiplier(self):
+        choices = next(c for e, _, c in SPECS if e == 'imperial_examination.5300')
+        wrapper = 'wrapper = {' + choices + '}'
+        for field in builder.fields(wrapper):
+            body = field.body(wrapper)
+            self.assertLess(body.index('imperial_examination_set_up_exam_advantage_scope = yes'),
+                            body.index('factor = scope:exam_advantage_mult'))
+
+    def test_prisoner_rescue_uses_noncombat_contract_resolution(self):
+        choices = next(c for e, _, c in SPECS if e == 'ep3_contract_event.0570')
+        self.assertIn('add_character_flag = contract_success_flag', choices)
+        self.assertIn('id = ep3_contract_event.0575 days = 1', choices)
+        self.assertNotIn('single_combat', choices)
+        self.assertNotRegex(builder.masked(choices), r'\bdeath\s*=')
+
+    def test_watermill_is_paid_and_building_creation_is_only_a_tooltip(self):
+        choices = next(c for e, _, c in SPECS if e == 'ep3_laamp_decision_event.1133')
+        self.assertIn('gold >= 160', choices)
+        self.assertIn('remove_short_term_gold = 160', choices)
+        self.assertIn('add_character_flag = laamp_city_builder_mill_upgrade', choices)
+        self.assertEqual(choices.count('add_building = watermills_03'),
+                         choices.count('show_as_tooltip = { scope:city_location = { add_building = watermills_03 } }'))
+
+    def test_chariot_rescue_helps_actual_drivers_with_nonfatal_wounds(self):
+        choices = next(c for e, _, c in SPECS if e == 'chariot_race.3040')
+        self.assertIn('scope:charioteer_1 = {', choices)
+        self.assertIn('scope:charioteer_2 = {', choices)
+        self.assertIn('increase_wounds_no_death_effect', choices)
+        self.assertEqual(choices.count('ac_heal_one_wound_effect = yes'), 1)
+        self.assertIn('ac_event_chi_healing_cooldown_effect = yes', choices)
+        self.assertNotIn('remove_trait = incapable', choices)
+
+    def test_herd_treatment_does_not_restore_lost_animals_or_heal_character_wounds(self):
+        eid = 'mpo_migration_travel_events.0030'
+        choices = next(c for e, _, c in SPECS if e == eid)
+        self.assertNotIn('ac_heal_one_wound_effect', choices)
+        self.assertNotIn('add_herd', choices)
+        self.assertNotIn('delay_travel_plan', choices)
+        self.assertEqual(builder.one(self.generated[eid], 'immediate').body(self.generated[eid]),
+                         builder.one(self.vanilla[eid], 'immediate').body(self.vanilla[eid]))
+
+    def test_harm_choices_prevent_new_incapacity_without_curing_it(self):
+        for eid in ('harm.0511', 'harm.0521', 'harm.0561', 'harm.0581', 'harm.0591'):
+            choices = next(c for e, _, c in SPECS if e == eid)
+            self.assertNotRegex(builder.masked(choices), r'\b(?:remove_trait|add_trait|death)\s*=')
+            self.assertIn('ac_event_practitioner', choices)
+
+    def test_direct_plague_barrier_requires_presence_in_reported_county(self):
+        choices = next(c for e, _, c in SPECS if e == 'epidemic_events.1064')
+        self.assertIn('location.county = scope:witch_trial_county', choices)
+        self.assertNotIn('remove_epidemic', choices)
+
+    def test_file_local_constants_follow_relocated_events(self):
+        for group in {g for _, g, _ in SPECS}:
+            generated = (builder.ROOT / f'AuraClash/events/ac_vanilla_{group}_options.txt').read_text(encoding='utf-8-sig')
+            declared = set(re.findall(r'(?m)^(@\w+)\s*=', generated))
+            for eid, candidate, _ in SPECS:
+                if candidate != group:
+                    continue
+                _, relative, _ = builder.load_event(builder.DEFAULT_GAME, eid)
+                source = (builder.DEFAULT_GAME / relative).read_text(encoding='utf-8-sig')
+                source_constants = set(re.findall(r'(?m)^\s*(@\w+)\s*=', source))
+                references = set(re.findall(r'@\w+', builder.masked(generated)))
+                self.assertTrue(references.intersection(source_constants) <= declared, eid)
 
     def test_relocated_events_include_their_file_local_helpers(self):
         path = builder.ROOT / 'AuraClash/events/ac_vanilla_activities_options.txt'

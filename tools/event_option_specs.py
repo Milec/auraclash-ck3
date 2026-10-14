@@ -196,3 +196,6 @@ register(globals())
 
 from event_activity_specs import register as register_activities
 register_activities(globals())
+
+from event_dlc_specs import register as register_dlc
+register_dlc(globals())

@@ -208,8 +208,33 @@ def required_inline_helpers(game: Path, relatives: set[str], blocks: list[str]) 
         newly_required = references.intersection(candidates).difference(required)
         required.update(newly_required)
         pending = '\n'.join(candidates[name] for name in newly_required)
-    return '\n'.join('# Source: ' + origins[name] + ' (file-local helper)\n' + candidates[name] + '\n'
-                     for name in sorted(required))
+    helpers = '\n'.join('# Source: ' + origins[name] + ' (file-local helper)\n' + candidates[name] + '\n'
+                        for name in sorted(required))
+    # File-local @variables are not inherited by an individual event override.
+    constants = {}
+    for relative in sorted(relatives):
+        source = (game / relative).read_text(encoding='utf-8-sig')
+        clean = masked(source)
+        depth = 0
+        depths = []
+        for char in clean:
+            depths.append(depth)
+            depth += (char == '{') - (char == '}')
+        for match in re.finditer(r'(?m)^\s*(@\w+)\s*=\s*([^\n#]+)', source):
+            if depths[match.start(1)] != 0:
+                continue
+            name, value = match[1], match[2].strip()
+            if name in constants and constants[name] != value:
+                raise ValueError(f'Conflicting file-local constant {name}; split event groups')
+            constants[name] = value
+    needed = set()
+    pending = '\n'.join(blocks) + helpers
+    while pending:
+        found = set(re.findall(r'@\w+', masked(pending))).intersection(constants) - needed
+        needed.update(found)
+        pending = '\n'.join(constants[name] for name in found)
+    declarations = ''.join(f'{name} = {constants[name]}\n' for name in sorted(needed))
+    return declarations + ('\n' if declarations else '') + helpers
 
 
 def render(game: Path) -> dict[Path, bytes]:
