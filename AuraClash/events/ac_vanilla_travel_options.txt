@@ -5,6 +5,390 @@
 namespace = travel_danger_events
 namespace = travel_events
 
+# Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
+scripted_effect add_severe_frostbite_modifier_effect = { #change mild into severe modifier
+	remove_character_modifier = travel_mild_frostbite_modifier
+	add_character_modifier = {
+		modifier = travel_severe_frostbite_modifier
+		years = 10
+	}
+}
+
+# Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
+scripted_effect change_frostbite_modifier_with_severity_effect = { #outcome of each option
+	 scope:frostbite_victim = {
+		if = { #death
+			limit = { exists = $SEVERITY$ $SEVERITY$ > 2 }
+			death = { death_reason = death_hypothermia }
+		}
+		else_if = { #traits: maimed, one-legged, disfigured 
+			limit = { $SEVERITY$ ?= 2 }
+			change_severe_frostbite_modifier_to_trait_effect = yes
+			get_rival_from_frostbite_effect = yes
+		}
+		else_if = { #severe frostbite character modifier
+			limit = { $SEVERITY$ ?= 1 }
+			add_severe_frostbite_modifier_effect = yes
+			get_rival_from_frostbite_effect = yes
+		}
+		else_if = { #keep the modifier
+			limit = { exists = $SEVERITY$ $SEVERITY$ < 0 $SEVERITY$ >= -3 }
+			if = {
+				limit = {has_character_modifier = travel_mild_frostbite_modifier}
+				custom_tooltip = travel_danger_events.1011.c.tt_mild
+			}
+			else_if = {
+				limit = {has_character_modifier = travel_severe_frostbite_modifier}
+				custom_tooltip = travel_danger_events.1011.c.tt_severe
+			}
+		}
+		else_if = { #remove modifiers
+			limit = { exists = $SEVERITY$ $SEVERITY$ < -3 }
+			cure_frostbite_modifier_effect = yes
+		}
+	}
+}
+
+# Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
+scripted_effect change_severe_frostbite_modifier_to_trait_effect = { #change modifier into trait corresponding to affected body part
+	remove_character_modifier = travel_severe_frostbite_modifier
+	if = {
+		limit = { var:frostbite_bodypart = flag:upper_limb }
+		apply_maimed_trait_and_modifier_effect = yes
+	}
+	else_if = {
+		limit = { var:frostbite_bodypart = flag:lower_limb }
+		add_trait = one_legged
+	}
+	else_if = {
+		limit = { var:frostbite_bodypart = flag:head }
+		add_trait = disfigured
+	}
+}
+
+# Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
+scripted_effect cure_frostbite_modifier_effect = { #remove the correct modifier if successful
+	if = {
+		limit = {has_character_modifier = travel_mild_frostbite_modifier}
+		remove_character_modifier = travel_mild_frostbite_modifier
+	}
+	else = {
+		remove_character_modifier = travel_severe_frostbite_modifier
+	}
+}
+
+# Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
+scripted_effect get_friend_from_frostbite_effect = {
+	progress_towards_friend_effect = {
+		CHARACTER = scope:frostbite_victim
+		REASON = friend_treated_wounds
+		OPINION = default_friend_opinion
+	}
+}
+
+# Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
+scripted_effect get_rival_from_frostbite_effect = { #don't trigger if frostbite is going to kill them
+	progress_towards_rival_effect = {
+		CHARACTER = root
+		REASON = botched_my_treatment_opinion
+		OPINION = default_rival_opinion
+	}
+}
+
+# Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
+scripted_trigger has_frostbite_already_trigger = { #to affect only characters that got this before and got worse
+	exists = var:frostbite_bodypart
+	var:frostbite_severity > 0
+	is_ai = yes
+}
+
+# Source: events/travel_events/travel_danger_events_oltner.txt (file-local helper)
+scripted_trigger is_suitable_victim_of_harsh_weather = {
+	is_physically_able_adult = yes
+	NOR = {
+		is_of_major_or_minor_interest_trigger = { CHARACTER = root }
+		this = root.current_travel_plan.travel_leader
+		aptitude = {
+			court_position = travel_leader_court_position
+			value >= 2
+		}
+		prowess >= 10
+		age <= 6 # Wouldn't toddle off by themselves
+	}
+}
+
+# Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
+scripted_trigger knows_winter_trigger = { #to find a character that shouldn't be affected by winter or know what they are doing
+	OR = {
+		has_trait = winter_soldier
+		culture = {
+			OR = {
+				has_cultural_tradition = tradition_himalayan_settlers
+				has_cultural_tradition = tradition_winter_warriors
+			}
+		}
+	}
+}
+
+# Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
+scripted_trigger new_frostbite_victim_trigger = { #to pick a suitable character to get the frostbite
+	is_ai = yes
+	age >= 5
+	knows_winter_trigger = no
+	NOT = {has_character_flag = cured_from_frostbite_travel_danger_1011	}
+}
+
+# Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
+scripted_effect randomize_frostbite_bodypart_effect = { #pick a body part that gets the frostbite
+	 scope:frostbite_victim = {
+		 random_list = {
+			1 = {
+				set_variable = {
+					name = frostbite_bodypart
+					value = flag:upper_limb
+				}
+			}
+			1 = {
+				set_variable = {
+					name = frostbite_bodypart
+					value = flag:lower_limb
+				}
+			}
+			1 = {
+				set_variable = {
+					name = frostbite_bodypart
+					value = flag:head
+				}
+			}
+		}
+	}
+}
+
+# Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
+scripted_effect tooltip_changed_frostbite_effect = { #display only as a tooltip what will happen to the frostbitten character depending on option outcome
+	 show_as_tooltip = {
+		change_frostbite_modifier_with_severity_effect = { SEVERITY = scope:frostbite_severity_value }
+	}
+}
+
+# Source: events/travel_events/travel_danger_events_joe.txt (file-local helper)
+scripted_effect travel_danger_events_6000_beast_duel_effect = {
+	if = {
+		limit = { $FIGHTER$ != scope:beast_victim }
+		save_scope_as = toast_scope
+	}
+	$FIGHTER$ = {
+		if = {
+			limit = { $FIGHTER$ = scope:root_scope }
+			duel = {
+				skill = prowess
+				value = high_skill_rating
+				5 = {
+					desc = travel_danger_events.6000.success_root
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 1
+						min = -49
+					}
+					send_interface_toast = {
+						title = travel_danger_events.6000.success_root
+						left_icon = $FIGHTER$
+						add_prestige = medium_prestige_gain
+					}
+					min = 1
+				}
+				15 = {
+					desc = travel_danger_events.6000.wound_root
+					trigger = {
+						NOT = {
+							has_trait_rank = {
+								trait = wounded
+								rank > 1
+							}
+						}
+					}
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -3.5
+						min = -49
+					}
+					send_interface_toast = {
+						title = travel_danger_events.6000.wound_root
+						left_icon = $FIGHTER$
+						hunt_animal_wound_effect = { VARIABLE = root.var:animal_type }
+					}
+					min = 3
+				}
+				10 = {
+					desc = travel_danger_events.6000.failure_root
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -3.5
+						min = -49
+					}
+					send_interface_toast = {
+						title = travel_danger_events.6000.failure_root
+						left_icon = $FIGHTER$
+						hunt_animal_death_effect = { VAR = root.var:animal_type }
+					}
+					min = 2
+				}
+			}
+		}
+		else = {
+			duel = {
+				skill = prowess
+				value = high_skill_rating
+				5 = {
+					desc = travel_danger_events.6000.success
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 1
+						min = -49
+					}
+					scope:root_scope = {
+						send_interface_toast = {
+							title = travel_danger_events.6000.success
+							left_icon = $FIGHTER$
+							$FIGHTER$ = { add_prestige = medium_prestige_gain }
+						}
+					}
+					min = 1
+				}
+				15 = {
+					desc = travel_danger_events.6000.wound
+					trigger = {
+						NOT = {
+							has_trait_rank = {
+								trait = wounded
+								rank > 1
+							}
+						}
+					}
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -3.5
+						min = -49
+					}
+					scope:root_scope = {
+						send_interface_toast = {
+							title = travel_danger_events.6000.wound
+							left_icon = $FIGHTER$
+							$FIGHTER$ = {
+								hunt_animal_wound_effect = { VARIABLE = root.var:animal_type }
+							}
+						}
+					}
+					min = 3
+				}
+				10 = {
+					desc = travel_danger_events.6000.failure
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -3.5
+						min = -49
+					}
+					scope:root_scope = {
+						send_interface_toast = {
+							title = travel_danger_events.6000.failure
+							left_icon = $FIGHTER$
+							$FIGHTER$ = {
+								hunt_animal_death_effect = { VAR = root.var:animal_type }
+							}
+						}
+					}
+					min = 2
+				}
+			}
+		}
+	}
+}
+
+# Source: events/travel_events/travel_danger_events_ariana.txt (file-local helper)
+scripted_effect travel_danger_events_7000_fail_effect = {
+    if = {
+        limit = {
+            has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:snake_victim }
+        }
+        send_interface_toast = {
+            title = travel_danger_events.7000.treatment_bad
+            type = event_toast_effect_neutral
+            left_icon = root
+            right_icon = scope:snake_victim
+            scope:snake_victim = {
+                add_opinion = {
+                    target = root
+                    modifier = disappointed_opinion
+                    opinion = -30
+                }
+            }
+            hidden_effect = {
+                stress_and_fulfillment_impact = {
+                    callous = major_stress_impact_loss
+                    sadistic = major_stress_impact_loss
+                }
+            }
+        }
+
+    }
+    else = {
+        send_interface_toast = {
+            title = travel_danger_events.7000.treatment_bad
+            type = event_toast_effect_bad
+            left_icon = root
+            right_icon = scope:snake_victim
+            scope:snake_victim = {
+                add_opinion = {
+                    target = root
+                    modifier = disappointed_opinion
+                    opinion = -20
+                }
+            }
+            hidden_effect = {
+                stress_and_fulfillment_impact = {
+                    callous = medium_stress_impact_loss
+                    sadistic = medium_stress_impact_loss
+                }
+            }
+        }
+    }
+
+}
+
+# Source: events/travel_events/travel_danger_events_ariana.txt (file-local helper)
+scripted_effect travel_danger_events_7000_success_effect = {
+    send_interface_toast = {
+        type = event_toast_effect_good
+        title = travel_danger_events.7000.treatment_good
+        left_icon = root
+        right_icon = scope:snake_victim
+        scope:snake_victim = { remove_trait = ill }
+    }
+    scope:snake_victim = {
+        add_opinion = {
+            target = root
+            modifier = cared_for_my_health_opinion
+            opinion = 20
+        }
+    }
+    current_travel_plan = {
+        every_entourage_character = {
+            custom_tooltip = every_victim_relation_tt
+            limit = {
+                NOR = {
+                    this = scope:snake_victim
+                    this = root
+                }
+                is_close_or_extended_family_of = scope:snake_victim
+            }
+            add_opinion = {
+                target = root
+                modifier = grateful_opinion
+                opinion = 15
+            }
+        }
+    }
+}
 # Source: events/travel_events/travel_danger_events_klank.txt:1274
 travel_danger_events.3004 = {
 	id_override_priority = 10 # AC: individual CK3 1.20.1 event override

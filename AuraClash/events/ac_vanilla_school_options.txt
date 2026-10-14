@@ -11,6 +11,99 @@ namespace = tgp_governor_contract_event
 namespace = tgp_japan_yearly_events
 namespace = travel_danger_events
 
+# Source: events/dlc/ach/ach_coronation_events.txt (file-local helper)
+scripted_trigger ach_coronation_0014_random_attendee_trigger = {
+	NOR = {
+		this = scope:host
+		this = scope:crush_initiator
+		involved_activity.var:officiator ?= this
+	}
+	is_available_in_activity_trigger = yes
+}
+
+# Source: events/dlc/ach/ach_coronation_events.txt (file-local helper)
+scripted_effect ach_coronation_0015_crushed_guest_effect = {
+	involved_activity = {
+		# Wound X characters and kill Y %
+		while = {
+			count = $COUNT$
+			random_attending_character = {
+				limit = {
+					ach_coronation_0014_random_attendee_trigger = yes
+					NOT = { is_in_list = in_crowd_crush }
+				}
+				add_to_list = in_crowd_crush
+				increase_wounds_effect = { REASON = crowd_stampede }
+				create_character_memory = {
+					type = injured_in_crowd_crush_at_coronation_memory
+					participants = {
+						coronation_host = scope:host
+					}
+				}
+
+				random = {
+					chance = $DEATH_CHANCE$
+					death = { death_reason = death_crowd_stampede }
+				}
+			}
+		}
+		# Add the stampede modifier
+		root.location = {
+			if = {
+				limit = {
+					NOT = { has_province_modifier = ach_coronation_stampede_modifier }
+				}
+				add_province_modifier = { modifier = ach_coronation_stampede_modifier years = 5 }
+				county = { change_county_control = minor_county_control_loss }
+			}
+		}
+	}
+}
+
+# Source: events/dlc/ach/ach_coronation_events.txt (file-local helper)
+scripted_effect ach_coronation_0015_major_crush_effect = {
+	custom_tooltip = many_guests_wounded_or_killed
+	hidden_effect = { ach_coronation_0015_crushed_guest_effect = { COUNT = 12 DEATH_CHANCE = 4 } }
+}
+
+# Source: events/dlc/ach/ach_coronation_events.txt (file-local helper)
+scripted_effect ach_coronation_0015_medium_crush_effect = {
+	custom_tooltip = many_guests_wounded
+	hidden_effect = { ach_coronation_0015_crushed_guest_effect = { COUNT = 8 DEATH_CHANCE = 0 } }
+}
+
+# Source: events/dlc/ach/ach_coronation_events.txt (file-local helper)
+scripted_effect ach_coronation_0015_minor_crush_effect = {
+	custom_tooltip = few_guests_wounded
+	hidden_effect = { ach_coronation_0015_crushed_guest_effect = { COUNT = 2 DEATH_CHANCE = 0 } }
+}
+
+# Source: events/dlc/tgp/tgp_natural_disaster_flavor_events.txt (file-local helper)
+scripted_trigger is_location_affected_by_disaster_in_recovery_trigger = {
+	location.county = {
+		any_county_situation = {
+			tgp_natural_disaster_situation_is_disaster_trigger = yes
+			situation_current_phase = recovery
+		}
+	}
+}
+
+# Source: events/dlc/pam/pam_secular_faith_events.txt (file-local helper)
+scripted_trigger pam_sf_possessed_courtier_valid_trigger = {
+	is_available_ai_adult = yes
+	trigger_if = {
+		limit = { exists = root.cp:councillor_court_chaplain }
+		this != root.cp:councillor_court_chaplain
+	}
+	faith = root.faith
+	OR = {
+		has_trait = possessed_1
+		has_trait = lunatic_1
+	}
+	NOT = {
+		has_character_flag = cured_demons
+	}
+}
 # Source: events/dlc/ach/ach_coronation_events.txt:3409
 ach_coronation.0015 = {
 	id_override_priority = 10 # AC: individual CK3 1.20.1 event override

@@ -4,6 +4,23 @@
 
 namespace = health
 
+# Source: events/health_events.txt (file-local helper)
+scripted_trigger health_event_is_worried_trigger = {
+	OR = {
+		ai_compassion >= medium_positive_ai_value
+		dread_modified_ai_boldness = {
+			dreaded_character = $CHARACTER$
+			value <= medium_negative_ai_value
+		}
+		has_relation_friend = $CHARACTER$
+		has_relation_lover = $CHARACTER$
+		opinion = {
+			target = $CHARACTER$
+			value >= high_positive_opinion
+		}
+	}
+	$CHARACTER$.health < fine_health
+}
 # Source: events/health_events.txt:9266
 health.4000 = {
 	id_override_priority = 10 # AC: individual CK3 1.20.1 event override

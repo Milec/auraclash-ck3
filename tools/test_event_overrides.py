@@ -9,6 +9,7 @@ import unittest
 
 import build_event_overrides as builder
 from event_option_specs import LOCALIZATION, SPECS
+from event_activity_specs import SETUP_CHANGES, OPTION_CHANGES
 
 
 def normalized(text):
@@ -46,14 +47,14 @@ class EventRegressionTests(unittest.TestCase):
             self.assertEqual(path.read_bytes(), data, str(path))
 
     def test_reviewed_events_and_required_resolvers_are_overridden(self):
-        self.assertEqual(len(self.generated), 56)
+        self.assertEqual(len(self.generated), 101)
         self.assertEqual(len(self.generated), len(SPECS))
         for text in self.generated.values():
             self.assertEqual(text.count('id_override_priority = 10'), 1)
 
     def test_vanilla_options_remain_byte_for_byte_unchanged(self):
         for event_id, group, _ in SPECS:
-            if group == 'fatal':
+            if group == 'fatal' or event_id in OPTION_CHANGES:
                 continue
             before = [self.vanilla[event_id][field.start:field.end] for field in builder.fields(self.vanilla[event_id]) if field.key == 'option']
             after = [self.generated[event_id][field.start:field.end] for field in builder.fields(self.generated[event_id]) if field.key == 'option']
@@ -63,7 +64,7 @@ class EventRegressionTests(unittest.TestCase):
     def test_normal_event_setup_and_cleanup_are_unchanged(self):
         for event_id, group, _ in SPECS:
             for key in ('trigger', 'after', 'immediate'):
-                if key == 'immediate' and (group == 'fatal' or event_id == 'contest_events.1132'):
+                if key == 'immediate' and (group == 'fatal' or event_id == 'contest_events.1132' or event_id in SETUP_CHANGES):
                     continue
                 before = [self.vanilla[event_id][field.start:field.end] for field in builder.fields(self.vanilla[event_id]) if field.key == key]
                 after = [self.generated[event_id][field.start:field.end] for field in builder.fields(self.generated[event_id]) if field.key == key]
@@ -249,6 +250,172 @@ class EventRegressionTests(unittest.TestCase):
         self.assertIn('any_entourage_character', text)
         self.assertNotIn('any_courtier', text)
         self.assertNotIn('any_living_character', text)
+
+    def test_activity_batch_has_all_approved_contest_and_social_events(self):
+        expected = {
+            'board_games.0001', 'contest_events.0863', 'contest_events.5520', 'contest_events.5530',
+            'contest_events.0610', 'contest_events.0860', 'contest_events.0861', 'contest_events.0862',
+            'contest_events.0711', 'contest_events.0510', 'contest_events.3010',
+            'contest_events.5000', 'contest_events.5020', 'contest_events.5030',
+            'jason_first_race_event.1', 'hunt.8050', 'hunt.8580',
+            'hunt_events_anna.0010', 'hunt_events_anna.0015', 'tournament_events.1410',
+            'pilgrimage.1100', 'pilgrimage.2008', 'pilgrimage.3201', 'pilgrimage.6532',
+            'feast_default.6351', 'feast_default.8004', 'tour_grounds_events.3003', 'funeral.1060',
+        } | {'ep2_tournament_events.' + suffix for suffix in (
+            '0010', '0011', '1003', '1007', '1017', '2001', '2501', '2502', '2506',
+            '4001', '4003', '4004', '4008', '4500', '5501', '5503', '5504')}
+        actual = {eid for eid, group, _ in SPECS if group == 'activities'}
+        self.assertEqual(actual, expected)
+
+    def test_ordinary_duels_and_tour_sparring_are_excluded(self):
+        for eid in self.generated:
+            self.assertFalse(eid.startswith('single_combat.'))
+        self.assertNotIn('tour_grounds_events.6300', self.generated)
+        common = (builder.ROOT / 'AuraClash/common/scripted_effects/ac_activity_effects.txt').read_text()
+        self.assertNotIn('trigger_event', common)
+        self.assertNotIn('single_combat.', common)
+
+    def test_main_contest_techniques_do_not_arm_the_delayed_vanilla_roll(self):
+        for eid in ('contest_events.0610', 'contest_events.0711', 'contest_events.0510'):
+            choices = next(c for e, _, c in SPECS if e == eid)
+            self.assertIn('ac_activity_contest_technique_effect', choices)
+            self.assertNotRegex(choices, r'add_character_flag\s*=\s*\w+_pivotal_duel')
+        effect = (builder.ROOT / 'AuraClash/common/scripted_effects/ac_activity_effects.txt').read_text()
+        self.assertIn('SCORE = increase_$GAIN$', effect)
+        self.assertIn('SCORE = decrease_minor', effect)
+        self.assertIn('success_pivotal_flag', effect)
+        self.assertIn('failure_pivotal_flag', effect)
+        self.assertNotRegex(builder.masked(effect), r'\b(?:death|set_winner|tournament_contest_knocked_out_effect)\s*=')
+
+    def test_jockey_techniques_use_the_rider_and_preparation_preserves_selection(self):
+        choices = next(c for e, _, c in SPECS if e == 'contest_events.0510')
+        for field in builder.fields('wrapper = {\n' + choices + '\n}'):
+            body = field.body('wrapper = {\n' + choices + '\n}')
+            self.assertIn('scope:jockey = { ac_', body)
+            self.assertIn('location = root.location', body)
+            self.assertIn('PRACTITIONER = scope:jockey', body)
+            self.assertIn('scope:jockey = { save_scope_as = ac_event_practitioner }', body)
+            self.assertIn('scope:ac_event_practitioner = { ac_event_exertion_effect', body)
+        prepared = next(c for e, _, c in SPECS if e == 'ep2_tournament_events.4500')
+        wrapper = 'wrapper = {' + prepared + '}'
+        for field in builder.fields(wrapper):
+            body = field.body(wrapper)
+            self.assertIn('tournament_choose_jockey_effect = yes', body)
+            self.assertIn('location = root.location', body)
+        self.assertEqual(len(builder.fields(wrapper)), 9)
+
+    def test_pit_protection_precedes_injury_and_declining_keeps_native_cost(self):
+        eid = 'hunt_events_anna.0010'
+        text = self.generated[eid]
+        wrapper = 'wrapper = {' + builder.one(text, 'immediate').body(text) + '}'
+        fallback = builder.one(wrapper, 'else').body(wrapper)
+        injury = builder.one(self.vanilla[eid], 'immediate').body(self.vanilla[eid])
+        self.assertEqual(normalized(fallback), normalized(injury))
+        for field in [f for f in builder.fields(text) if f.key == 'option']:
+            body = field.body(text)
+            if 'name = ac_event_' in body:
+                self.assertNotIn('increase_wounds', body)
+                continue
+            # Remove only the guarded original landing injury, then require the
+            # entire original option to be preserved.
+            wrapped = 'wrapper = {' + body + '}'
+            guard = next(f for f in builder.fields(wrapped) if f.key == 'if')
+            self.assertIn('exists = scope:ac_activity_pit_pending', guard.body(wrapped))
+            self.assertIn(normalized(injury), normalized(guard.body(wrapped)))
+            remaining = wrapped[:guard.start] + wrapped[guard.end:]
+            old_options = [f.body(self.vanilla[eid]) for f in builder.fields(self.vanilla[eid]) if f.key == 'option']
+            self.assertIn(normalized(remaining[len('wrapper = {'):-1]), [normalized(b) for b in old_options])
+            if 'duel = {' in body:
+                self.assertLess(body.index('ac_activity_pit_pending'), body.index('duel = {'))
+
+    def test_wrestling_escape_avoids_both_fatal_and_permanent_native_outcomes(self):
+        eid = 'ep2_tournament_events.2506'
+        choices = next(c for e, _, c in SPECS if e == eid)
+        self.assertIn('ac_activity_mido_body_trigger = yes', choices)
+        self.assertNotRegex(builder.masked(choices), r'\b(?:death|add_trait|remove_variable)\s*=')
+        self.assertIn('ac_event_activity_wrestle_desc', self.generated[eid])
+        self.assertIn('death_reason = death_tournament_roundhouse', self.generated[eid])
+        self.assertIn('add_trait = disfigured', self.generated[eid])
+
+    def test_board_foresight_uses_a_supported_move_and_native_resolution(self):
+        text = self.generated['board_games.0001']
+        choices = next(c for e, _, c in SPECS if e == 'board_games.0001')
+        for skill in ('diplomacy', 'martial', 'stewardship', 'intrigue', 'learning', 'prowess'):
+            self.assertIn('scope:bg_skill_a = flag:' + skill, choices)
+            self.assertIn('name = bg_defender_move value = flag:' + skill, choices)
+            self.assertIn('name = bg_attacker_move value = flag:' + skill, choices)
+        self.assertNotIn('bg_current_score', choices)
+        self.assertNotIn('bg_victor', choices)
+        self.assertIn('scope:bg_opponent = { ac_event_precognition_trigger = yes }', choices)
+        self.assertIn('flag = ac_activity_board_foresight days = 1', choices)
+        self.assertEqual(builder.one(text, 'after').body(text), builder.one(self.vanilla['board_games.0001'], 'after').body(self.vanilla['board_games.0001']))
+
+    def test_murder_feast_escape_retains_all_native_nonplayer_fates(self):
+        from event_activity_specs import native_block
+        eid = 'feast_default.8004'
+        original = builder.one(self.vanilla[eid], 'option').body(self.vanilla[eid])
+        duel = native_block(original, 'duel')
+        tail = original[original.index(duel) + len(duel):]
+        choices = next(c for e, _, c in SPECS if e == eid)
+        wrapper = 'wrapper = {' + choices + '}'
+        for field in builder.fields(wrapper):
+            body = field.body(wrapper)
+            self.assertIn(normalized(tail), normalized(body))
+            for marker in ('murder_feast_murder_failure_var', 'murder_feast_murder_failure_me_var',
+                           'murder_feast_goh_survivor', 'murder_feast_entourage_survivor', 'bloody_murder_fail'):
+                self.assertIn(marker, body)
+            # The choice retains the companions' outcomes, but never sends the
+            # player down the original random success/death roll.
+            self.assertNotIn('duel = {', body)
+            self.assertNotIn('death_reason = death_murder_feast', body)
+
+    def test_brawl_repair_records_one_damage_roll_and_restores_only_that_amount(self):
+        eid = 'feast_default.6351'
+        before = builder.one(self.vanilla[eid], 'immediate').body(self.vanilla[eid])
+        after = builder.one(self.generated[eid], 'immediate').body(self.generated[eid])
+        self.assertEqual(after.count('integer_range'), before.count('integer_range'))
+        self.assertIn('name = ac_activity_brawl_damage', after)
+        self.assertIn('add_durability = { value = scope:ac_activity_brawl_damage multiply = -1 }', after)
+        choices = next(c for e, _, c in SPECS if e == eid)
+        self.assertIn('add_durability = scope:ac_activity_brawl_damage', choices)
+        self.assertNotIn('subtract = artifact_durability', choices)
+
+    def test_activity_healing_uses_cooldown_and_child_training_is_not_cultivation(self):
+        choices = next(c for e, _, c in SPECS if e == 'contest_events.3010')
+        self.assertIn('scope:jockey = { ac_heal_one_wound_effect = yes }', choices)
+        self.assertIn('ac_event_chi_healing_cooldown_effect = yes', choices)
+        self.assertIn('location = root.location', choices)
+        child = next(c for e, _, c in SPECS if e == 'hunt_events_anna.0015')
+        wrapper = 'wrapper = {' + child + '}'
+        opening = child.index('scope:child_with_bow = {', child.index('save_scope_as'))
+        effect = child[opening:builder.close_brace(child, child.index('{', opening))]
+        self.assertIn('trait = lifestyle_hunter', effect)
+        self.assertNotIn('ac_cultivation', effect)
+        self.assertNotIn('ac_cultivator', effect)
+
+    def test_relocated_events_include_their_file_local_helpers(self):
+        path = builder.ROOT / 'AuraClash/events/ac_vanilla_activities_options.txt'
+        text = path.read_text(encoding='utf-8-sig')
+        for name in ('bg_play_move_type_effect', 'pilgrimage_st_elmo_success_effect',
+                     'feast_default_6351_fighter_1_trigger', 'feast_default_6351_fighter_2_trigger',
+                     'feast_default_6351_gold_amount_based_on_rarity_effect',
+                     'jason_first_race_event_1_opponent_trigger'):
+            self.assertEqual(len(re.findall(r'^scripted_(?:effect|trigger) ' + name + r'\s*=', text, re.M)), 1)
+        # Every referenced inline helper from a source file must be declared in
+        # the generated file too, including helpers called by other helpers.
+        groups = {group for _, group, _ in SPECS}
+        for group in groups:
+            generated = (builder.ROOT / f'AuraClash/events/ac_vanilla_{group}_options.txt').read_text(encoding='utf-8-sig')
+            references = set(re.findall(r'\b(\w+)\s*=', builder.masked(generated)))
+            declared = set(re.findall(r'^scripted_(?:effect|trigger)\s+(\w+)\s*=', generated, re.M))
+            for eid, candidate, _ in SPECS:
+                if candidate != group:
+                    continue
+                _, relative, _ = builder.load_event(builder.DEFAULT_GAME, eid)
+                for name, definition in builder.inline_helpers(builder.DEFAULT_GAME, relative).items():
+                    if name in references:
+                        self.assertIn(name, declared, f'{eid}: {name}')
+                        self.assertIn(definition, generated)
 
 
 if __name__ == '__main__':

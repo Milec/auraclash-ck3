@@ -5,6 +5,129 @@
 namespace = hold_court
 namespace = hunt
 
+# Source: events/activities/hold_court_activity/hold_court_events_general.txt (file-local helper)
+scripted_trigger hold_court_6000_valid_inspector_trigger = {
+	has_court_event_flag = no
+	OR = {
+		stewardship >= 14
+		has_trait = education_stewardship_2
+		has_trait = education_stewardship_3
+		has_trait = education_stewardship_4
+		has_trait = education_stewardship_5
+		has_trait = administrator
+	}
+	NOR = {
+		has_trait = lazy
+		is_spouse_of = root
+		is_concubine_of = root
+	}
+	is_councillor = no
+	is_available_ai_adult = yes
+}
+
+# Source: events/activities/hold_court_activity/hold_court_events_general.txt (file-local helper)
+scripted_trigger hold_court_6000_valid_province_trigger = {
+	OR = {
+		has_province_modifier = recently_looted_modifier
+		has_province_modifier = disease_spreading_modifier
+		has_province_modifier = winter_harsh_modifier
+		barony = {
+			holder ?= {
+				has_character_flag = recently_occupied_flag
+			}
+		}
+	}
+	barony = {
+		holder ?= {
+			this != root
+			is_available_ai_adult = yes
+			has_court_event_flag = no
+		}
+	}
+}
+
+# Source: events/activities/hunt_activity/hunt_events.txt (file-local helper)
+scripted_trigger hunt_4010_heir_trigger = {
+	exists = root.player_heir
+	root.player_heir = { is_participant_in_activity = scope:activity }
+	scope:activity = {
+		any_attending_character = {
+			hunt_4010_murderer_trigger = yes
+		}
+	}
+}
+
+# Source: events/activities/hunt_activity/hunt_events.txt (file-local helper)
+scripted_trigger hunt_4010_intent_trigger = {
+	has_activity_intent = murder_attendee_intent
+	exists = intent_target
+	this != root
+	intent_target = {
+		this != root
+		OR = {
+			is_close_family_of = root
+			is_consort_of = root
+		}
+		is_ai = yes
+		is_participant_in_activity = scope:activity # Scheme target must also be on the hunt with us.
+		NOT = {
+			has_any_bad_relationship_with_character_trigger = { CHARACTER = root }
+		}
+		reverse_opinion = {
+			target = root
+			value >= 25
+		}
+	}
+}
+
+# Source: events/activities/hunt_activity/hunt_events.txt (file-local helper)
+scripted_trigger hunt_4010_murderer_trigger = {
+	this != root
+	player_heir_position = { target = root value >= 1 }
+	player_heir_position = { target = root value <= 3 }			
+	opinion = {
+		target = root.player_heir
+		value <= -10
+	}
+	NOT = {
+		has_any_good_relationship_with_character_trigger = { CHARACTER = root.player_heir }
+	}
+	can_start_scheme = {
+		type = murder
+		target_character = root.player_heir
+	}
+}
+
+# Source: events/activities/hunt_activity/hunt_events.txt (file-local helper)
+scripted_trigger hunt_4010_scheme_trigger = {
+	OR = {
+		scheme_type = murder
+		scheme_type = abduct
+	}
+	NOR = {
+		scheme_owner = root
+		any_scheme_agent_character = { this = root }
+	}
+	OR = {
+		scheme_owner = { is_participant_in_activity = scope:activity }
+		any_scheme_agent_character = { is_participant_in_activity = scope:activity }
+	}
+	save_temporary_scope_as = scheme
+	scheme_progress > scheme_progress_33
+	# Scheme target is a close relative/spouse.
+	scheme_target_character = {
+		this != root
+		is_ai = yes
+		is_participant_in_activity = scope:activity # Scheme target must also be on the hunt with us.
+		NOT = {
+			has_any_bad_relationship_with_character_trigger = { CHARACTER = root }
+		}
+		reverse_opinion = {
+			target = root
+			value >= 25
+		}
+	}
+}
 # Source: events/activities/hunt_activity/hunt_events.txt:14343
 hunt.4007 = {
 	id_override_priority = 10 # AC: individual CK3 1.20.1 event override

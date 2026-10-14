@@ -392,6 +392,321 @@
       "source_sha256": "314f31a390843df9acf158aa87b50a44b6921fc3d8f1cffe9a23010732b5ab58",
       "original_options": 3,
       "added_options": 1
+    },
+    {
+      "event": "board_games.0001",
+      "source": "events/board_game_events.txt",
+      "source_sha256": "923e815b033ec7fa8dc0bf6195b195e457a0165958a8419c3e4bff76355e78f9",
+      "original_options": 6,
+      "added_options": 1
+    },
+    {
+      "event": "contest_events.0863",
+      "source": "events/activities/tournaments/contest_events.txt",
+      "source_sha256": "46070505d17729c3eeba35acbb8ef8bf05ea7397c2c9de2fa774f27783c8a1f6",
+      "original_options": 4,
+      "added_options": 1
+    },
+    {
+      "event": "contest_events.5520",
+      "source": "events/activities/tournaments/contest_events.txt",
+      "source_sha256": "428bed896177deb4fa3f16406b28301bcf502f7893ad6749736213887cc175e8",
+      "original_options": 3,
+      "added_options": 1
+    },
+    {
+      "event": "contest_events.5530",
+      "source": "events/activities/tournaments/contest_events.txt",
+      "source_sha256": "7bdee16801dfa6993ae8cdaa687a5b3a28dbd76c7a6109f63277d9094a06b9dd",
+      "original_options": 3,
+      "added_options": 1
+    },
+    {
+      "event": "contest_events.0610",
+      "source": "events/activities/tournaments/contest_events.txt",
+      "source_sha256": "2b59a09166646c9ce9083cf96bf64a49ce5aaa023f85fcb05e80bbee79b346d3",
+      "original_options": 4,
+      "added_options": 3
+    },
+    {
+      "event": "contest_events.0860",
+      "source": "events/activities/tournaments/contest_events.txt",
+      "source_sha256": "bba9e7122d514cd889a055338db1477f48067c1402c36bedf8cbc6ab478c1a04",
+      "original_options": 4,
+      "added_options": 3
+    },
+    {
+      "event": "contest_events.0861",
+      "source": "events/activities/tournaments/contest_events.txt",
+      "source_sha256": "978f8f61eb4f55dda677d9ca0c9194b599b12d4f8e8ff42b18a1620b60fb75c9",
+      "original_options": 4,
+      "added_options": 3
+    },
+    {
+      "event": "contest_events.0862",
+      "source": "events/activities/tournaments/contest_events.txt",
+      "source_sha256": "67aeae5f8e14ad01b7ae5df102b85e6085f9a7133cf060493c1863386a092dcc",
+      "original_options": 4,
+      "added_options": 4
+    },
+    {
+      "event": "contest_events.0711",
+      "source": "events/activities/tournaments/contest_events.txt",
+      "source_sha256": "ffe6e2c296e37ff3fad524f619a27331ad96a82843fe4b5e04e0828f28d1cc03",
+      "original_options": 4,
+      "added_options": 4
+    },
+    {
+      "event": "ep2_tournament_events.1003",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "0baddbf9de564d85bc0aecb707e758f3b85fc7ea9cf1408838d2d2d0ed8463c1",
+      "original_options": 2,
+      "added_options": 2
+    },
+    {
+      "event": "ep2_tournament_events.1007",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "52dcead18233c4c959bc2c21dca761aa8b1aaea923f342ea6487a1fe824056c3",
+      "original_options": 3,
+      "added_options": 2
+    },
+    {
+      "event": "ep2_tournament_events.1017",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "e1be83c8c7537b1b9850c3119227788bfb7134338a39a18cb1bf6b083f6ba825",
+      "original_options": 2,
+      "added_options": 2
+    },
+    {
+      "event": "ep2_tournament_events.0010",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "dcfb6674a8148b55460a3288d903f27a7e5f382dbb5ff94f574d3c27fe4499fc",
+      "original_options": 3,
+      "added_options": 2
+    },
+    {
+      "event": "ep2_tournament_events.0011",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "ff0832237dbdebbdceb1f68dd04f8a58ad7c2c72ea07ffa8b04717a3b050ffba",
+      "original_options": 3,
+      "added_options": 2
+    },
+    {
+      "event": "ep2_tournament_events.4003",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "9aae5933de11b66c479f08307bff8d305a092e7adaa93e314388b10afdd92a1c",
+      "original_options": 3,
+      "added_options": 2
+    },
+    {
+      "event": "ep2_tournament_events.4004",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "d0a1cc0862497352fc1c35bd671ef56d3981e95348b872311e558c34c9701f77",
+      "original_options": 3,
+      "added_options": 2
+    },
+    {
+      "event": "ep2_tournament_events.4008",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "db1511c18e32b708f59ea0403fe16b1c29c2c519b6e18eb5bcbfa4449a03e66e",
+      "original_options": 2,
+      "added_options": 2
+    },
+    {
+      "event": "ep2_tournament_events.2001",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "1b9e352a0ae340a0c9625d48348d05f24542ec2e66f388e2cc34c1ed09eb4431",
+      "original_options": 2,
+      "added_options": 1
+    },
+    {
+      "event": "ep2_tournament_events.2501",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "83692f2ef2006e351d60e914bf045e9e774173faf2ea8d2fc3ab69c103a2363a",
+      "original_options": 3,
+      "added_options": 3
+    },
+    {
+      "event": "ep2_tournament_events.2502",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "5a0f3382a784f8d68fb48fa74be87ed8073794b73d791b7499060f753334e29d",
+      "original_options": 3,
+      "added_options": 1
+    },
+    {
+      "event": "ep2_tournament_events.4001",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "906d939a5a50e0f6f57694635e16bfe5ad00600a765acca010ad723f1250bc8f",
+      "original_options": 3,
+      "added_options": 1
+    },
+    {
+      "event": "ep2_tournament_events.2506",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "8f2ed9bb7c07b384ba512eeadcf47409aad20b70dfdbf7a536016fe771f8f9d0",
+      "original_options": 2,
+      "added_options": 1
+    },
+    {
+      "event": "contest_events.5000",
+      "source": "events/activities/tournaments/jb_recital_contest_events.txt",
+      "source_sha256": "b7dc0c493844c665d47e16a262322edf4f81aca04c93ffd3b96ae5fe9e8b834e",
+      "original_options": 4,
+      "added_options": 2
+    },
+    {
+      "event": "contest_events.5020",
+      "source": "events/activities/tournaments/jb_recital_contest_events.txt",
+      "source_sha256": "8b06c58ac54fec3e146c222605614c1397233b48c67ef366b7165487acadb99a",
+      "original_options": 2,
+      "added_options": 2
+    },
+    {
+      "event": "contest_events.5030",
+      "source": "events/activities/tournaments/jb_recital_contest_events.txt",
+      "source_sha256": "ba81585d810e8eb98a67b299617a38ac68feacd1e02d238ef13a7ba7697e992a",
+      "original_options": 2,
+      "added_options": 2
+    },
+    {
+      "event": "ep2_tournament_events.5501",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "1b13a8a10151fb6b3eb5beffd25f6b0b70bbe35981a6ffe09b1f65fe5de44107",
+      "original_options": 3,
+      "added_options": 2
+    },
+    {
+      "event": "ep2_tournament_events.5503",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "7ac8b8e4fdfcb481dc7faaacdfa248341d568e2d887b9b472eb5bf80ee3b96a7",
+      "original_options": 5,
+      "added_options": 2
+    },
+    {
+      "event": "ep2_tournament_events.5504",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "7aa95c96b380b054900709015e71932edebbe7ddfeb5336fa0634b184c65735b",
+      "original_options": 2,
+      "added_options": 2
+    },
+    {
+      "event": "contest_events.0510",
+      "source": "events/activities/tournaments/contest_events.txt",
+      "source_sha256": "f09b95749f67175dc76dbecc774a056c26344fe0a682d872f216b6e0c0714bd5",
+      "original_options": 4,
+      "added_options": 3
+    },
+    {
+      "event": "ep2_tournament_events.4500",
+      "source": "events/dlc/ep2/ep2_tournament_events.txt",
+      "source_sha256": "da217d58d5f4aa149cd1c1f485d1b2ba3d221ef5227a85124898a6d81f1102a2",
+      "original_options": 3,
+      "added_options": 9
+    },
+    {
+      "event": "jason_first_race_event.1",
+      "source": "events/activities/tournaments/jason_first_race_event.txt",
+      "source_sha256": "ae775934362f5861b33864cd540e6e422c8db8765949d30c3b96e688e2637061",
+      "original_options": 4,
+      "added_options": 3
+    },
+    {
+      "event": "contest_events.3010",
+      "source": "events/activities/tournaments/contest_events.txt",
+      "source_sha256": "b4191a68d0b744aff55822901bca4191fbd66a36b3a78756ee577f62d7468e31",
+      "original_options": 2,
+      "added_options": 3
+    },
+    {
+      "event": "hunt.8050",
+      "source": "events/activities/hunt_activity/jb_hunt_events.txt",
+      "source_sha256": "df46016336b10bc671e0dfa941f406b6cb2bb40ecbba7ef747aad89ce32f6bba",
+      "original_options": 2,
+      "added_options": 1
+    },
+    {
+      "event": "hunt_events_anna.0010",
+      "source": "events/activities/hunt_activity/hunt_events_anna.txt",
+      "source_sha256": "4cb16877c6a867a2338b382efd4868b5064041f83926dffcd154ed0b420e157a",
+      "original_options": 2,
+      "added_options": 3
+    },
+    {
+      "event": "hunt_events_anna.0015",
+      "source": "events/activities/hunt_activity/hunt_events_anna.txt",
+      "source_sha256": "1b4ed55fb14486fb5d5894f5d23e90b93f2e974a0fd106ccd240439e5cd72021",
+      "original_options": 3,
+      "added_options": 1
+    },
+    {
+      "event": "hunt.8580",
+      "source": "events/activities/hunt_activity/jb_hunt_events.txt",
+      "source_sha256": "a145f728d3e616dade6c5d51c7d0758faa23a597f9524a2d3f1eac200bb5b7fc",
+      "original_options": 3,
+      "added_options": 2
+    },
+    {
+      "event": "tournament_events.1410",
+      "source": "events/activities/tournaments/tournament_events.txt",
+      "source_sha256": "cf2f321b7c61a5d0512023f0d2bb5649b5b93195a1bc06e9e58f9cd6ccde1a81",
+      "original_options": 3,
+      "added_options": 3
+    },
+    {
+      "event": "pilgrimage.1100",
+      "source": "events/activities/pilgrimage_activity/pilgrimage_events.txt",
+      "source_sha256": "4ccce98fc6615ff1b1436cf41f17a35d32f453f07cbf85527a68928e39ed9424",
+      "original_options": 4,
+      "added_options": 2
+    },
+    {
+      "event": "pilgrimage.2008",
+      "source": "events/activities/pilgrimage_activity/pilgrimage_events.txt",
+      "source_sha256": "4957bdd0cd8370492c2379512618d4f4f673157a35a7323dc3b433da79aaadaf",
+      "original_options": 3,
+      "added_options": 1
+    },
+    {
+      "event": "pilgrimage.3201",
+      "source": "events/activities/pilgrimage_activity/pilgrimage_events.txt",
+      "source_sha256": "e68f8d7236ee7cdeaeaf727b3db40c32f95a492aaa2aa23df48c819680fe410c",
+      "original_options": 2,
+      "added_options": 2
+    },
+    {
+      "event": "pilgrimage.6532",
+      "source": "events/activities/pilgrimage_activity/pilgrimage_events.txt",
+      "source_sha256": "cb958dd0f4e0612ce28a2f5399d2d088f63a2fb669fefaef6986874d2a1a6d0f",
+      "original_options": 3,
+      "added_options": 2
+    },
+    {
+      "event": "feast_default.6351",
+      "source": "events/activities/feast_activity/main_events/feast_default_events.txt",
+      "source_sha256": "d77404d469dc36e5861cd12e2f138923df5cac9b8be7739efea5330a588248fb",
+      "original_options": 5,
+      "added_options": 1
+    },
+    {
+      "event": "feast_default.8004",
+      "source": "events/activities/feast_activity/murder_feast_events.txt",
+      "source_sha256": "29fdcdc161ea0045e4d2e74e9c404854848e18f4fd70cde0ba2db6cdf5761382",
+      "original_options": 1,
+      "added_options": 3
+    },
+    {
+      "event": "tour_grounds_events.3003",
+      "source": "events/activities/tour_activity/tour_phase_tour_grounds.txt",
+      "source_sha256": "8dc2030aac92ccaa29e533a689fa7fbbe136208376fbed47ce3d202147a53535",
+      "original_options": 2,
+      "added_options": 2
+    },
+    {
+      "event": "funeral.1060",
+      "source": "events/activities/funeral_activity/funeral_events.txt",
+      "source_sha256": "fcfbec7c6d81cc5899c35fa03f46f84fc23877b2f5be0d239ffb34df092d6bb4",
+      "original_options": 3,
+      "added_options": 1
     }
   ]
 }

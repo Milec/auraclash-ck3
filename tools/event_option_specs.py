@@ -193,3 +193,6 @@ custom_tooltip = ac_event_poison_saved_tt'''))
 
 from event_expansion_specs import register
 register(globals())
+
+from event_activity_specs import register as register_activities
+register_activities(globals())

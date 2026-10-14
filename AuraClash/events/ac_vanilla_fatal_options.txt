@@ -5,6 +5,14 @@
 namespace = host_dinner_events
 namespace = travel_danger_events
 
+# Source: events/travel_events/travel_danger_events_joe.txt (file-local helper)
+scripted_trigger travel_danger_events_6020_flavor_trigger = {
+	NOR = {
+		scope:hugger ?= this
+		scope:prayer ?= this
+		scope:diver ?= this
+	}
+}
 # Source: events/travel_events/travel_danger_events_joe.txt:2211
 travel_danger_events.6020 = {
 	id_override_priority = 10 # AC: individual CK3 1.20.1 event override
