@@ -1,0 +1,397 @@
+{
+  "ck3_version": "1.20.1",
+  "events": [
+    {
+      "event": "travel_danger_events.3004",
+      "source": "events/travel_events/travel_danger_events_klank.txt",
+      "source_sha256": "8ffbb7fa6ca128e2aafe5745c01d048467dd4def9655c9a747a9ef3527cee23a",
+      "original_options": 3,
+      "added_options": 2
+    },
+    {
+      "event": "travel_danger_events.4000",
+      "source": "events/travel_events/travel_danger_events_filippa.txt",
+      "source_sha256": "5ff4d10f65b2eef7231b30645199c8a027b27dfaca7fa7f53a745c0fed7fccb2",
+      "original_options": 3,
+      "added_options": 1
+    },
+    {
+      "event": "travel_danger_events.2001",
+      "source": "events/travel_events/travel_danger_events_dan.txt",
+      "source_sha256": "86c5b2ad1f9d4b3a2617398ab224e9caec5e5d8e93cca0b17021a20217187521",
+      "original_options": 2,
+      "added_options": 1
+    },
+    {
+      "event": "travel_danger_events.1007",
+      "source": "events/travel_events/travel_danger_events.txt",
+      "source_sha256": "95926fd161266fc997fb94897e001d64cfa24dbd8fbfdeb4af8f8f02d2d6f19d",
+      "original_options": 4,
+      "added_options": 1
+    },
+    {
+      "event": "travel_danger_events.3005",
+      "source": "events/travel_events/travel_danger_events_klank.txt",
+      "source_sha256": "a09d4252737085f43581f27ba7704b57a70c33814662acc9fb3d9f1392312f69",
+      "original_options": 2,
+      "added_options": 1
+    },
+    {
+      "event": "travel_danger_events.3003",
+      "source": "events/travel_events/travel_danger_events_klank.txt",
+      "source_sha256": "b7fc21243267191145497a055f39f2b66375762b9507ce8c123f36f0281e64f3",
+      "original_options": 3,
+      "added_options": 1
+    },
+    {
+      "event": "travel_danger_events.3001",
+      "source": "events/travel_events/travel_danger_events_klank.txt",
+      "source_sha256": "6657a1df1842015b633ab098544ed815f2c83a4577506dfa98a068cb36f2d1d8",
+      "original_options": 3,
+      "added_options": 1
+    },
+    {
+      "event": "travel_danger_events.1006",
+      "source": "events/travel_events/travel_danger_events.txt",
+      "source_sha256": "90c1a0bc89254062a4eb8cbc82c555d46faf72a70ffb1bd2b1e46bab4ebe7f3b",
+      "original_options": 3,
+      "added_options": 1
+    },
+    {
+      "event": "travel_danger_events.3000",
+      "source": "events/travel_events/travel_danger_events_klank.txt",
+      "source_sha256": "35de8c15e677204be10d52d292eb605d22115ff9b55d79912821ec69c31edfba",
+      "original_options": 4,
+      "added_options": 1
+    },
+    {
+      "event": "travel_events.3070",
+      "source": "events/travel_events/travel_events_veronica.txt",
+      "source_sha256": "48088f9e4c332f5e290930d119ca7940a4dd92af246c464a5b986ae7b40a65ee",
+      "original_options": 3,
+      "added_options": 4
+    },
+    {
+      "event": "travel_danger_events.6030",
+      "source": "events/travel_events/travel_danger_events_joe.txt",
+      "source_sha256": "d335d53f778511a3c409687fca5770c5db49c865dcdade0bf4864df574460b85",
+      "original_options": 3,
+      "added_options": 2
+    },
+    {
+      "event": "travel_danger_events.9040",
+      "source": "events/travel_events/travel_danger_events_oltner.txt",
+      "source_sha256": "ec9d66ac5d2629120b63d74dff490f482a73f34ce359bf9e7071554574bded98",
+      "original_options": 2,
+      "added_options": 1
+    },
+    {
+      "event": "health.4000",
+      "source": "events/health_events.txt",
+      "source_sha256": "cebdd3eadeefccb9010aeafe0a9b6170e43206050e706aaab04dcba9ea857e16",
+      "original_options": 6,
+      "added_options": 2
+    },
+    {
+      "event": "health.4001",
+      "source": "events/health_events.txt",
+      "source_sha256": "b9b80528a0308b94a99e1f41c5e10436185c129f41b1861f3afbd878ad055513",
+      "original_options": 3,
+      "added_options": 2
+    },
+    {
+      "event": "health.4002",
+      "source": "events/health_events.txt",
+      "source_sha256": "b74879d9ff5fa3aeab7db095d76752a99e3d55c5a32947d772ff9325a02dcc4f",
+      "original_options": 4,
+      "added_options": 2
+    },
+    {
+      "event": "hunt.4007",
+      "source": "events/activities/hunt_activity/hunt_events.txt",
+      "source_sha256": "5f1db80fdda166e28b6ec39bbb407486b67cbb176646bcd7a23106d3702f2a78",
+      "original_options": 6,
+      "added_options": 1
+    },
+    {
+      "event": "hunt.4010",
+      "source": "events/activities/hunt_activity/hunt_events.txt",
+      "source_sha256": "8c72146138230c33b1d2d2f4704a68cfe03fd8fdf42daf6f7777ee4add547b4b",
+      "original_options": 4,
+      "added_options": 2
+    },
+    {
+      "event": "hold_court.6000",
+      "source": "events/activities/hold_court_activity/hold_court_events_general.txt",
+      "source_sha256": "17c333af9e5d0709bc4c6f5e721e8a9ff099b28dbf6daa49abe6d3ee6770e4ad",
+      "original_options": 4,
+      "added_options": 1
+    },
+    {
+      "event": "hold_court.5010",
+      "source": "events/activities/hold_court_activity/hold_court_events_general.txt",
+      "source_sha256": "e1779a6e39228712ab2b91d272ed05bb78dfbf22b0865bd8036335cd44245ceb",
+      "original_options": 3,
+      "added_options": 2
+    },
+    {
+      "event": "travel_danger_events.6020",
+      "source": "events/travel_events/travel_danger_events_joe.txt",
+      "source_sha256": "6e55b769791b98055f2097c4adbc5e47419cd904f5b5c617c4c03dd27a187c09",
+      "original_options": 1,
+      "added_options": 1
+    },
+    {
+      "event": "host_dinner_events.1091",
+      "source": "events/activities/tour_activity/tour_phase_host_a_dinner.txt",
+      "source_sha256": "f3a664351d97aa99317a0ccd092adada98dd6169af85a53c0cf567508baff602",
+      "original_options": 1,
+      "added_options": 1
+    },
+    {
+      "event": "tgp_natural_disaster_contract_event.0006",
+      "source": "events/dlc/tgp/tgp_natural_disaster_contract_events.txt",
+      "source_sha256": "a20e92b5aeb5547cec92c4a46fabeb84a1490ded45079e7d84fa5335b4c09982",
+      "original_options": 4,
+      "added_options": 1
+    },
+    {
+      "event": "tgp_natural_disaster_contract_event.0011",
+      "source": "events/dlc/tgp/tgp_natural_disaster_contract_events.txt",
+      "source_sha256": "3a6d233d698142baa2685e64b8b75222dc605a437ceecf296a036e2667e6e8ab",
+      "original_options": 4,
+      "added_options": 2
+    },
+    {
+      "event": "tgp_natural_disaster_contract_event.0002",
+      "source": "events/dlc/tgp/tgp_natural_disaster_contract_events.txt",
+      "source_sha256": "ee25064a1c97bcf2928f0efa741edc53d6d405249965e48bac692e85487595bc",
+      "original_options": 4,
+      "added_options": 1
+    },
+    {
+      "event": "tgp_natural_disaster_contract_event.0016",
+      "source": "events/dlc/tgp/tgp_natural_disaster_contract_events.txt",
+      "source_sha256": "597a00a1750f07ffc325ef9bb50dfead62ca2503cab905013970b29334aef61f",
+      "original_options": 4,
+      "added_options": 2
+    },
+    {
+      "event": "tgp_travel_danger_events.0001",
+      "source": "events/dlc/tgp/tgp_travel_danger_events.txt",
+      "source_sha256": "b0ffa11d0cab562d0c34ef012910c93f9c6c26938ce2ca0882aca5cf5c8734c1",
+      "original_options": 3,
+      "added_options": 1
+    },
+    {
+      "event": "physician_epidemic_events.1020",
+      "source": "events/dlc/ce1/physician_epidemic_events.txt",
+      "source_sha256": "38775fdd58f3ece0f72ce73776787c97ddac7074e988f93ef15da91e36e54e1e",
+      "original_options": 4,
+      "added_options": 1
+    },
+    {
+      "event": "physician_epidemic_events.1030",
+      "source": "events/dlc/ce1/physician_epidemic_events.txt",
+      "source_sha256": "494ad549903ad1b02ff16a05f401410f77a9d125dde8154735679e8a4aef2dc8",
+      "original_options": 2,
+      "added_options": 1
+    },
+    {
+      "event": "epidemic_events.1110",
+      "source": "events/dlc/ce1/epidemic_events.txt",
+      "source_sha256": "88a5f88d0a047fab25eb81c3c5e34a24e1e4caa5a44b7050097c294551150e21",
+      "original_options": 2,
+      "added_options": 2
+    },
+    {
+      "event": "epidemic_events.1121",
+      "source": "events/dlc/ce1/epidemic_events.txt",
+      "source_sha256": "40eccb5eab9604022f3372fe748c2e75c771ac8406d669448ff06483ad727973",
+      "original_options": 3,
+      "added_options": 2
+    },
+    {
+      "event": "epidemic_events.5003",
+      "source": "events/dlc/ce1/epidemic_events.txt",
+      "source_sha256": "d13e0905ee4cf9c7373960c028f5c3b3951d4f2a03d83b6826751cee8b899711",
+      "original_options": 3,
+      "added_options": 1
+    },
+    {
+      "event": "dungeon_ongoing.0004",
+      "source": "events/prison_events/dungeon_ongoing_events.txt",
+      "source_sha256": "8bd054f877f98b6f30c1cee21d45fb369629f6709f1bc9482f5fa6cb867fbb23",
+      "original_options": 1,
+      "added_options": 1
+    },
+    {
+      "event": "contest_events.0710",
+      "source": "events/activities/tournaments/contest_events.txt",
+      "source_sha256": "ae6b570e1f836c9628570d670cf9fc02904896cd7e29aecf116b33df1c0b5cdf",
+      "original_options": 4,
+      "added_options": 1
+    },
+    {
+      "event": "contest_events.1131",
+      "source": "events/activities/tournaments/contest_events.txt",
+      "source_sha256": "3efac59d87600676801a990a572bf98c8a21a95140454db8325e7de7647326fa",
+      "original_options": 2,
+      "added_options": 4
+    },
+    {
+      "event": "contest_events.1132",
+      "source": "events/activities/tournaments/contest_events.txt",
+      "source_sha256": "acc81c13e2e8e8ce6f74376e601f3810d74c5214575dd4b4bb40b53ac38bcfcd",
+      "original_options": 0,
+      "added_options": 0
+    },
+    {
+      "event": "contest_events.1133",
+      "source": "events/activities/tournaments/contest_events.txt",
+      "source_sha256": "c4b0f471ecd7d425ca225bd166226457879ffdaf345e43058c92058abf5c3f92",
+      "original_options": 1,
+      "added_options": 0
+    },
+    {
+      "event": "ep2_locale_events.4500",
+      "source": "events/activities/tournaments/ep2_locale_events.txt",
+      "source_sha256": "49e0f5a15fe48fbbeda1512ec312e723aeb6a376f8926a27763276dff7114d0e",
+      "original_options": 3,
+      "added_options": 1
+    },
+    {
+      "event": "intrigue_scheme_ongoing.5019",
+      "source": "events/scheme_events/intrigue_scheme_ongoing_events.txt",
+      "source_sha256": "f6262634ba841bb952913fd3ad2aab4786bb31cf7dc7432556347c9402e32a17",
+      "original_options": 2,
+      "added_options": 2
+    },
+    {
+      "event": "intrigue_scheme_ongoing.5005",
+      "source": "events/scheme_events/intrigue_scheme_ongoing_events.txt",
+      "source_sha256": "3d0fd1c4ef5eb6de29d709728fe66ed9b7ab93e071e981356b31ecdf31b0b411",
+      "original_options": 2,
+      "added_options": 1
+    },
+    {
+      "event": "prison.9501",
+      "source": "events/prison_events/prison_events.txt",
+      "source_sha256": "96966fa7cdc5fc7beded9505cf047c1d1c853edd208eb505e4583f50d5b91839",
+      "original_options": 1,
+      "added_options": 3
+    },
+    {
+      "event": "travel_events.1005",
+      "source": "events/travel_events/travel_events.txt",
+      "source_sha256": "18678be4f6243d64dd8421013243d144e19fba9d85ce7aceedb4c444da536b9b",
+      "original_options": 2,
+      "added_options": 1
+    },
+    {
+      "event": "travel_danger_events.1011",
+      "source": "events/travel_events/travel_danger_events_arky.txt",
+      "source_sha256": "99304b60ca1336e3c972a0fb5c90e6fff700dd22bb71b6ce76308b68c6ddc9ce",
+      "original_options": 4,
+      "added_options": 1
+    },
+    {
+      "event": "travel_danger_events.7000",
+      "source": "events/travel_events/travel_danger_events_ariana.txt",
+      "source_sha256": "9d7b1f126dd529fe438d53a44b323e704f40bc13a46095e3f857af38ece4e7c8",
+      "original_options": 7,
+      "added_options": 1
+    },
+    {
+      "event": "travel_danger_events.6000",
+      "source": "events/travel_events/travel_danger_events_joe.txt",
+      "source_sha256": "bc14041dc5aa7762c12a69ccf95e0efc2a4976e1a1f4166cd104d9379427eda7",
+      "original_options": 3,
+      "added_options": 2
+    },
+    {
+      "event": "travel_danger_events.9030",
+      "source": "events/travel_events/travel_danger_events_oltner.txt",
+      "source_sha256": "c356d5ab818eb2065134ba54b2c2d2c43fa11f70bf7fd35dd10b8b80d11d8dd7",
+      "original_options": 2,
+      "added_options": 1
+    },
+    {
+      "event": "travel_events.2012",
+      "source": "events/travel_events/travel_events_filippa.txt",
+      "source_sha256": "3e96526d68cea10259b84cd3738d247645b26fcae45cc5e715b5692a93ecf60e",
+      "original_options": 4,
+      "added_options": 2
+    },
+    {
+      "event": "travel_events.3120",
+      "source": "events/travel_events/travel_events_veronica.txt",
+      "source_sha256": "bf74a7533beef8b3cd1c072563f6b533c1159d636b29096c93c8d4992741e40c",
+      "original_options": 4,
+      "added_options": 3
+    },
+    {
+      "event": "ach_coronation.0015",
+      "source": "events/dlc/ach/ach_coronation_events.txt",
+      "source_sha256": "18bd5fee027a57697886d6fa4549ecff3c4eefdbe11e4e7e08ba49bc2a4796e9",
+      "original_options": 4,
+      "added_options": 1
+    },
+    {
+      "event": "pam_secular_faith_events.0026",
+      "source": "events/dlc/pam/pam_secular_faith_events.txt",
+      "source_sha256": "4d77dbf60f8cf39fbd07859cb97930ada5e845f39f946e94f9f3ebd81e52b8c9",
+      "original_options": 4,
+      "added_options": 1
+    },
+    {
+      "event": "epidemic_events.1050",
+      "source": "events/dlc/ce1/epidemic_events.txt",
+      "source_sha256": "880ce942aecfb2375f0b3f1947850d57a54eb12b5553193d1f5b91d90aa7885a",
+      "original_options": 3,
+      "added_options": 1
+    },
+    {
+      "event": "stress_threshold.2311",
+      "source": "events/stress_events/stress_threshold_events.txt",
+      "source_sha256": "a6e40929bed93a44abf78124bbd8a8f7092d6899f14503488959a40e2dae055e",
+      "original_options": 12,
+      "added_options": 1
+    },
+    {
+      "event": "tgp_governor_contract_event.0031",
+      "source": "events/dlc/tgp/tgp_governor_contract_events.txt",
+      "source_sha256": "584020312ad4ef6ec81bbfaed61ab7ba0e1766c4e67365d348996450e15915b8",
+      "original_options": 5,
+      "added_options": 1
+    },
+    {
+      "event": "natural_disaster_flavor_events.0015",
+      "source": "events/dlc/tgp/tgp_natural_disaster_flavor_events.txt",
+      "source_sha256": "c15daeb817fb85cc1b2836c14cbd0424bd11c718729e1d042fc4593ba9783cce",
+      "original_options": 4,
+      "added_options": 1
+    },
+    {
+      "event": "natural_disaster_flavor_events.0005",
+      "source": "events/dlc/tgp/tgp_natural_disaster_flavor_events.txt",
+      "source_sha256": "d3954a36c5b8574390ffda0f14c591759c9fafca1696ff2a49635e5f80bc9566",
+      "original_options": 2,
+      "added_options": 2
+    },
+    {
+      "event": "travel_danger_events.9010",
+      "source": "events/travel_events/travel_danger_events_oltner.txt",
+      "source_sha256": "2d64585f90077bab91ff5ce920e0c47adcf26f747bb6c377d7c28f28f16e6bc2",
+      "original_options": 3,
+      "added_options": 1
+    },
+    {
+      "event": "tgp_japan_yearly_events.1230",
+      "source": "events/dlc/tgp/tgp_japan_yearly_events_ariana.txt",
+      "source_sha256": "314f31a390843df9acf158aa87b50a44b6921fc3d8f1cffe9a23010732b5ab58",
+      "original_options": 3,
+      "added_options": 1
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 Bring the cultivation system of **Aura Clash**, an eastern-fantasy (xianxia/wuxia) setting, into Crusader Kings III. Awaken as a Cultivator, train your four Combat Cores, temper your Foundation in battle, master a Martial Arts Style and two Elements, and condense an Immortal Core.
 
-**Version:** 0.4.0 · **Game version:** CK3 1.x · **Status:** early and playable; many perks are still placeholders
+**Version:** 0.4.0 · **Event integrations target:** CK3 1.20.1 · **Status:** early and playable; many perks are still placeholders
 
 ---
 
@@ -29,11 +29,33 @@ mod/
 - **Start a new game** when updating from an earlier version. v0.3 replaces the Foundation trait, and v0.2 renamed the tree and perk keys.
 - `AuraClash/gui/window_character_lifestyle.gui` **replaces** the vanilla lifestyle window. It will conflict with other mods that edit that window, including Princes of Darkness and most UI overhauls.
 - One vanilla define is changed: event windows now show up to **6** options, including greyed-out ones (vanilla is 4).
-- Otherwise the mod only adds new content. Its on_actions (including a hook on hunts) are appended to vanilla's, and no vanilla scripts are overwritten.
+- Cultivation integration overrides **56 individual vanilla events** using `id_override_priority = 10`, targeting CK3 **1.20.1**: **79 added choices in 54 events**, plus two linked tournament outcome events. Mods changing those same events need a compatibility patch. Original event files are not replaced; normal choices and cleanup are preserved, with guarded tournament resolution for successful cultivation interventions. Fully restart CK3 after updating: event priority overrides do not support hot reload.
+- Its on_actions (including a hook on hunts) are appended to vanilla's.
 
 ---
 
 ## Features
+
+### Trait artwork
+All 28 cultivation, Foundation, Style and Element traits have replacement painted icons. Akakiru uses a katana with a straight hilt. [Preview and approved PNG masters](assets/trait-icons/README.md) are included; runtime textures retain their original filenames and 120 × 120 DDS format. With Pillow installed, `python tools/build_trait_icons.py --check` verifies all 28 textures against their sources.
+
+### Cultivation choices in vanilla events
+Cultivators aged 16+ can use relevant affinities, styles, trained Cores and perks in existing events:
+- **Travel:** White Squall, Person Overboard, The Flood, Not a Drop, A Fire in the Night, Snowbound, Avalanche, Familiar Trees, On a Mountain Trail, Bandits on the Bridge, Flawed Fare and Rainstorm.
+- **Bridge bandits:** Midorikatai overpowers the leader; Akakiru disarms the bandits; Storm frightens them away; Darkness conceals the crossing.
+- **Healing:** three wound-treatment events offer the existing one-tier Chi Healing effect. This shares a six-month cooldown with the character interaction and does not cure infection or gangrene. The healer must be physically present with the patient.
+- **Hunts:** a trained Midorikatai or Akakiru cultivator can stop a charging animal; sword techniques, protective wards or Blinding Flash can interrupt an attack on another hunter.
+- **Court:** cultivation can support three-year agricultural relief and patrol projects in the petitioning county. These cost money and do not instantly remove famine, epidemics or all unrest.
+- **Fatal outcomes:** Dangers of the Deep checks for Water, Wind or Storm cultivation before executing its death effects. A poisoned visitor can intervene using Toxicology, Grandmaster Alchemist, Flame Purge, Purifying Light, an Immortal Core or at least ten Fortitude Core dots. The normal fatal outcome remains available if the rescue is declined; characters without a qualifying ability follow vanilla behavior.
+- **More travel:** retrieve a sliding artifact chest; treat frostbite or a snakebite; subdue or frighten a beast; free muddy wagons; rescue plantation workers and a companion trapped in a forest fire. Frostbite treatment updates native severity and modifiers without restoring lost limbs.
+- **Disaster relief:** funded food distribution, rubble rescue, medical assistance and nonlethal responses to looting complete existing governor contracts. A ruined farmhouse can be rebuilt with cultivation support. These checks use the actual destination and preserve the contract's rewards and cleanup.
+- **Plagues and alchemy:** funded capital defenses, an alchemical medical book, emergency burials or cremation, containment of a diseased siege projectile, and treatment of the child in Healing Hands. These do not erase a county's epidemic. Cremation costs piety when it conflicts with the ruler's faith's funeral doctrine.
+- **Tournaments and intrigue:** Wind-Guided Arrows changes archery score; Treasure Refining preserves a chipped weapon; Akakiru, Midorikatai, Kurokonton and Aoyusumu can interrupt a lethal tournament encounter. The delayed wound/death resolver honors these choices. Scrying and Shadow Step improve use of a secret tunnel; trained alchemists can send poisoned gifts without accidentally poisoning their own household.
+- **Aoyusumu:** named techniques calm a coronation stampede, perform an Exorcist's Rite, reassure people facing plague or earthquake, and resolve Haunted by the Past through meditation. Precognition averts the hunt attack and the tournament assault, and guides a safe disaster retreat. Meditation has a three-year cooldown and six months of reduced diplomacy/stewardship duties; it does not add exertion stress.
+- **Kiihakai:** Barrier of Chi protects the family members present during Selfless Acts; Ward shelters a disaster rallying point; Runic Empowerment repairs a wagon wheel or neglected artifact; Scrying Sphere inspects a secret tunnel. Named Mending Chi options appear in all three wound-treatment events and disaster medical relief, sharing the normal healing cooldown.
+- **Prison:** captive cultivators can purify an infected wound or use Wallbreaker, Vanishing Arts or Stone Shaping after a failed escape. Captive-specific triggers permit these techniques while imprisoned. Successful escapes retain vanilla release, memory, opinion and notification effects.
+
+Travel techniques can be performed by the ruler or a qualified cultivator in the actual entourage. The practitioner gains 25 Cultivation XP, 15 stress and three months of Spent Chi (-2 prowess, +10% stress gain). An avalanche rescue or fatal-outcome intervention instead grants 100 XP, 40 stress and six months of Overextended Chi (-4 prowess, -0.25 health, +20% stress gain). Poison survivors also recover for six months with a further -0.25 health.
 
 ### Cultivator
 A trait that grants **+0.5 health, +20 life expectancy, +10 years of fertility and +4 prowess**, and unlocks everything below.
@@ -178,6 +200,14 @@ effect = { add_ac_cultivation_lifestyle_xp = 5000 }
 ```
 Problems are logged to `Documents/Paradox Interactive/Crusader Kings III/logs/error.log`; search it for `ac_`.
 
+The vanilla event overrides are generated from the installed CK3 event definitions. Edit `tools/event_option_specs.py` or `tools/event_expansion_specs.py`, then run:
+```
+python tools/build_event_overrides.py --game-root "C:/Program Files (x86)/Steam/steamapps/common/Crusader Kings III/game"
+python tools/build_event_overrides.py --check
+python -m unittest discover -s tools -p "test_*.py" -v
+```
+The builder refuses game versions other than 1.20.1 until their upstream changes are reviewed. `tools/event_override_sources.json` records the source event hashes. Regression checks verify preserved vanilla options and cleanup, fatal intervention gates, linked tournament outcomes, captive eligibility, native event references, healing cooldowns and localization. They do not replace an in-game playtest: use a separate debug save to test travel, disaster contracts, plagues, prison, school techniques, tournaments, hunts, court petitions and both fatal outcomes with and without the required abilities. Most of these events require scopes supplied by their normal gameplay chains; firing a bare event ID from the console is insufficient.
+
 ---
 
 ## Repository layout
@@ -199,7 +229,7 @@ All script keys use the `ac_` prefix to avoid clashing with vanilla or other mod
 - Lore-accurate refinements of the current perks, plus capstone traits
 - Prayer Talisman requirement for Aoyusumu's Chi Healing
 - Cultivator gained through a good tutor, or a childhood event when raised by a cultivator
-- Final artwork (the current icons are placeholders)
+- Additional artwork for perks, decisions and interface elements
 
 ---
 
