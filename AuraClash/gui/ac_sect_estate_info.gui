@@ -5,119 +5,137 @@
         visible = "[GetScriptedGui('ac_sect_native_estate_info').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
         widget = { position = { 92 80 } size = { 1206 556 }
             background = { texture = "gfx/interface/window_domiciles/ac_sect_landscape.dds" }
-            button = { position = { 37% 1% } size = { 27% 40% }
+            button = { position = { 36% 0% } size = { 30% 40% }
             allow_outside = yes
             onclick = "[GetScriptedGui('ac_sect_estate_select_cultivation_hall').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" tooltip = "ac_sect_panel_cultivation_hall"
-            icon = { size = { 100% 100% } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_cultivation_hall_01')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_cultivation_hall_02'))))]"
+            icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 310 196 } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_cultivation_hall_01')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_cultivation_hall_02'))))]"
                 texture = "gfx/interface/window_domiciles/estate_building_manor_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_cultivation_hall_02')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_cultivation_hall_03'))))]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 310 196 } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_cultivation_hall_02')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_cultivation_hall_03'))))]"
                 texture = "gfx/interface/window_domiciles/estate_building_estate_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_cultivation_hall_03'))]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 310 196 } alwaystransparent = yes visible = "[GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_cultivation_hall_03'))]"
                 texture = "gfx/interface/window_domiciles/estate_building_grand_estate_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 88% 88% } alwaystransparent = yes
             visible = "[Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_cultivation_hall_01')))]"
             texture = "gfx/interface/window_domiciles/yurt_empty_slot_01.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[GetScriptedGui('ac_sect_estate_pending_cultivation_hall').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 196 196 } alwaystransparent = yes visible = "[GetScriptedGui('ac_sect_estate_pending_cultivation_hall').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
             texture = "gfx/interface/window_domiciles/estate_building_construction_chinese.dds" }
-            text_label_center = { parentanchor = top|hcenter position = { 0 12 } size = { 310 34 }
-                autoresize = no align = center fontsize = 20
-                background = { texture = "gfx/interface/window_domiciles/domicile_header_background.dds" }
-                text = "ac_sect_plot_cultivation_hall" default_format = "#light_background" }
+            widget = { parentanchor = top|hcenter position = { 0 0 } size = { 310 34 } alwaystransparent = yes
+                icon = { size = { 100% 100% } alwaystransparent = yes
+                    texture = "gfx/interface/window_domiciles/domicile_header_background.dds" }
+                text_single = { parentanchor = center widgetanchor = center size = { 286 34 }
+                    autoresize = no align = vcenter|nobaseline|center fontsize = 20 margin_bottom = 0
+                    alwaystransparent = yes text = "ac_sect_plot_cultivation_hall" default_format = "#light_background" }
+            }
         }
-button = { position = { 12% 15% } size = { 24% 36% }
+button = { position = { 10% 6% } size = { 27% 32% }
             allow_outside = yes
             onclick = "[GetScriptedGui('ac_sect_estate_select_alchemy_pavilion').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" tooltip = "ac_sect_panel_alchemy_pavilion"
-            icon = { size = { 100% 100% } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_alchemy_pavilion_01')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_alchemy_pavilion_02'))))]"
+            icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 157 157 } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_alchemy_pavilion_01')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_alchemy_pavilion_02'))))]"
                 texture = "gfx/interface/window_domiciles/estate_building_herb_hall_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_alchemy_pavilion_02')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_alchemy_pavilion_03'))))]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 157 157 } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_alchemy_pavilion_02')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_alchemy_pavilion_03'))))]"
                 texture = "gfx/interface/window_domiciles/estate_building_herb_hall_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_alchemy_pavilion_03'))]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 157 157 } alwaystransparent = yes visible = "[GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_alchemy_pavilion_03'))]"
                 texture = "gfx/interface/window_domiciles/estate_building_herb_hall_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 88% 88% } alwaystransparent = yes
             visible = "[Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_alchemy_pavilion_01')))]"
             texture = "gfx/interface/window_domiciles/yurt_empty_slot_01.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[GetScriptedGui('ac_sect_estate_pending_alchemy_pavilion').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 157 157 } alwaystransparent = yes visible = "[GetScriptedGui('ac_sect_estate_pending_alchemy_pavilion').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
             texture = "gfx/interface/window_domiciles/estate_building_construction_chinese.dds" }
-            text_label_center = { parentanchor = top|hcenter position = { 0 12 } size = { 310 34 }
-                autoresize = no align = center fontsize = 20
-                background = { texture = "gfx/interface/window_domiciles/domicile_header_background.dds" }
-                text = "ac_sect_plot_alchemy_pavilion" default_format = "#light_background" }
+            widget = { parentanchor = top|hcenter position = { 0 0 } size = { 310 34 } alwaystransparent = yes
+                icon = { size = { 100% 100% } alwaystransparent = yes
+                    texture = "gfx/interface/window_domiciles/domicile_header_background.dds" }
+                text_single = { parentanchor = center widgetanchor = center size = { 286 34 }
+                    autoresize = no align = vcenter|nobaseline|center fontsize = 20 margin_bottom = 0
+                    alwaystransparent = yes text = "ac_sect_plot_alchemy_pavilion" default_format = "#light_background" }
+            }
         }
-button = { position = { 17% 39% } size = { 24% 36% }
+button = { position = { 15% 36% } size = { 28% 34% }
             allow_outside = yes
             onclick = "[GetScriptedGui('ac_sect_estate_select_training_ground').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" tooltip = "ac_sect_panel_training_ground"
-            icon = { size = { 100% 100% } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_training_ground_01')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_training_ground_02'))))]"
+            icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 166 166 } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_training_ground_01')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_training_ground_02'))))]"
                 texture = "gfx/interface/window_domiciles/estate_building_barracks_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_training_ground_02')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_training_ground_03'))))]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 166 166 } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_training_ground_02')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_training_ground_03'))))]"
                 texture = "gfx/interface/window_domiciles/estate_building_barracks_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_training_ground_03'))]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 166 166 } alwaystransparent = yes visible = "[GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_training_ground_03'))]"
                 texture = "gfx/interface/window_domiciles/estate_building_barracks_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 88% 88% } alwaystransparent = yes
             visible = "[Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_training_ground_01')))]"
             texture = "gfx/interface/window_domiciles/yurt_empty_slot_01.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[GetScriptedGui('ac_sect_estate_pending_training_ground').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 166 166 } alwaystransparent = yes visible = "[GetScriptedGui('ac_sect_estate_pending_training_ground').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
             texture = "gfx/interface/window_domiciles/estate_building_construction_chinese.dds" }
-            text_label_center = { parentanchor = top|hcenter position = { 0 12 } size = { 310 34 }
-                autoresize = no align = center fontsize = 20
-                background = { texture = "gfx/interface/window_domiciles/domicile_header_background.dds" }
-                text = "ac_sect_plot_training_ground" default_format = "#light_background" }
+            widget = { parentanchor = top|hcenter position = { 0 0 } size = { 310 34 } alwaystransparent = yes
+                icon = { size = { 100% 100% } alwaystransparent = yes
+                    texture = "gfx/interface/window_domiciles/domicile_header_background.dds" }
+                text_single = { parentanchor = center widgetanchor = center size = { 286 34 }
+                    autoresize = no align = vcenter|nobaseline|center fontsize = 20 margin_bottom = 0
+                    alwaystransparent = yes text = "ac_sect_plot_training_ground" default_format = "#light_background" }
+            }
         }
-button = { position = { 61% 10% } size = { 24% 36% }
+button = { position = { 59% 8% } size = { 28% 38% }
             allow_outside = yes
             onclick = "[GetScriptedGui('ac_sect_estate_select_scripture_library').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" tooltip = "ac_sect_panel_scripture_library"
-            icon = { size = { 100% 100% } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_scripture_library_01')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_scripture_library_02'))))]"
+            icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 295 186 } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_scripture_library_01')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_scripture_library_02'))))]"
                 texture = "gfx/interface/window_domiciles/estate_building_mansion_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_scripture_library_02')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_scripture_library_03'))))]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 295 186 } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_scripture_library_02')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_scripture_library_03'))))]"
                 texture = "gfx/interface/window_domiciles/estate_building_mansion_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_scripture_library_03'))]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 295 186 } alwaystransparent = yes visible = "[GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_scripture_library_03'))]"
                 texture = "gfx/interface/window_domiciles/estate_building_mansion_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 88% 88% } alwaystransparent = yes
             visible = "[Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_scripture_library_01')))]"
             texture = "gfx/interface/window_domiciles/yurt_empty_slot_01.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[GetScriptedGui('ac_sect_estate_pending_scripture_library').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 186 186 } alwaystransparent = yes visible = "[GetScriptedGui('ac_sect_estate_pending_scripture_library').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
             texture = "gfx/interface/window_domiciles/estate_building_construction_chinese.dds" }
-            text_label_center = { parentanchor = top|hcenter position = { 0 12 } size = { 310 34 }
-                autoresize = no align = center fontsize = 20
-                background = { texture = "gfx/interface/window_domiciles/domicile_header_background.dds" }
-                text = "ac_sect_plot_scripture_library" default_format = "#light_background" }
+            widget = { parentanchor = top|hcenter position = { 0 0 } size = { 310 34 } alwaystransparent = yes
+                icon = { size = { 100% 100% } alwaystransparent = yes
+                    texture = "gfx/interface/window_domiciles/domicile_header_background.dds" }
+                text_single = { parentanchor = center widgetanchor = center size = { 286 34 }
+                    autoresize = no align = vcenter|nobaseline|center fontsize = 20 margin_bottom = 0
+                    alwaystransparent = yes text = "ac_sect_plot_scripture_library" default_format = "#light_background" }
+            }
         }
-button = { position = { 31% 61% } size = { 24% 32% }
+button = { position = { 36% 61% } size = { 28% 30% }
             allow_outside = yes
             onclick = "[GetScriptedGui('ac_sect_estate_select_spirit_garden').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" tooltip = "ac_sect_panel_spirit_garden"
-            icon = { size = { 100% 100% } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_spirit_garden_01')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_spirit_garden_02'))))]"
+            icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 147 147 } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_spirit_garden_01')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_spirit_garden_02'))))]"
                 texture = "gfx/interface/window_domiciles/estate_building_garden_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_spirit_garden_02')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_spirit_garden_03'))))]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 147 147 } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_spirit_garden_02')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_spirit_garden_03'))))]"
                 texture = "gfx/interface/window_domiciles/estate_building_garden_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_spirit_garden_03'))]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 147 147 } alwaystransparent = yes visible = "[GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_spirit_garden_03'))]"
                 texture = "gfx/interface/window_domiciles/estate_building_garden_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 88% 88% } alwaystransparent = yes
             visible = "[Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_spirit_garden_01')))]"
             texture = "gfx/interface/window_domiciles/yurt_empty_slot_01.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[GetScriptedGui('ac_sect_estate_pending_spirit_garden').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 147 147 } alwaystransparent = yes visible = "[GetScriptedGui('ac_sect_estate_pending_spirit_garden').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
             texture = "gfx/interface/window_domiciles/estate_building_construction_chinese.dds" }
-            text_label_center = { parentanchor = top|hcenter position = { 0 12 } size = { 310 34 }
-                autoresize = no align = center fontsize = 20
-                background = { texture = "gfx/interface/window_domiciles/domicile_header_background.dds" }
-                text = "ac_sect_plot_spirit_garden" default_format = "#light_background" }
+            widget = { parentanchor = top|hcenter position = { 0 0 } size = { 310 34 } alwaystransparent = yes
+                icon = { size = { 100% 100% } alwaystransparent = yes
+                    texture = "gfx/interface/window_domiciles/domicile_header_background.dds" }
+                text_single = { parentanchor = center widgetanchor = center size = { 286 34 }
+                    autoresize = no align = vcenter|nobaseline|center fontsize = 20 margin_bottom = 0
+                    alwaystransparent = yes text = "ac_sect_plot_spirit_garden" default_format = "#light_background" }
+            }
         }
-button = { position = { 51% 35% } size = { 24% 36% }
+button = { position = { 49% 33% } size = { 28% 38% }
             allow_outside = yes
             onclick = "[GetScriptedGui('ac_sect_estate_select_formation_hall').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" tooltip = "ac_sect_panel_formation_hall"
-            icon = { size = { 100% 100% } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_formation_hall_01')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_formation_hall_02'))))]"
+            icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 186 186 } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_formation_hall_01')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_formation_hall_02'))))]"
                 texture = "gfx/interface/window_domiciles/estate_building_ancestral_shrine_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_formation_hall_02')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_formation_hall_03'))))]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 186 186 } alwaystransparent = yes visible = "[And(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_formation_hall_02')), Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_formation_hall_03'))))]"
                 texture = "gfx/interface/window_domiciles/estate_building_ancestral_shrine_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_formation_hall_03'))]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 186 186 } alwaystransparent = yes visible = "[GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_formation_hall_03'))]"
                 texture = "gfx/interface/window_domiciles/estate_building_ancestral_shrine_chinese.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 88% 88% } alwaystransparent = yes
             visible = "[Not(GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_estate_domicile').Domicile.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_formation_hall_01')))]"
             texture = "gfx/interface/window_domiciles/yurt_empty_slot_01.dds" }
-icon = { size = { 100% 100% } alwaystransparent = yes visible = "[GetScriptedGui('ac_sect_estate_pending_formation_hall').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+icon = { parentanchor = bottom|hcenter position = { 0 -6 } size = { 186 186 } alwaystransparent = yes visible = "[GetScriptedGui('ac_sect_estate_pending_formation_hall').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
             texture = "gfx/interface/window_domiciles/estate_building_construction_chinese.dds" }
-            text_label_center = { parentanchor = top|hcenter position = { 0 12 } size = { 310 34 }
-                autoresize = no align = center fontsize = 20
-                background = { texture = "gfx/interface/window_domiciles/domicile_header_background.dds" }
-                text = "ac_sect_plot_formation_hall" default_format = "#light_background" }
+            widget = { parentanchor = top|hcenter position = { 0 36 } size = { 310 34 } alwaystransparent = yes
+                icon = { size = { 100% 100% } alwaystransparent = yes
+                    texture = "gfx/interface/window_domiciles/domicile_header_background.dds" }
+                text_single = { parentanchor = center widgetanchor = center size = { 286 34 }
+                    autoresize = no align = vcenter|nobaseline|center fontsize = 20 margin_bottom = 0
+                    alwaystransparent = yes text = "ac_sect_plot_formation_hall" default_format = "#light_background" }
+            }
         }
         }
         icon = { position = { 58 46 } size = { 1274 624 } alwaystransparent = yes

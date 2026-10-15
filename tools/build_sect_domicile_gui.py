@@ -53,9 +53,9 @@ def render(buildings, sprites):
         'ac_sect_vanilla_completed_desc': 'The [CHARACTER.GetDomicile.GetBuildingUnderConstruction.GetName] [domicile_building|E] has finished constructing in your [CHARACTER.GetDomicile.GetType.GetTitleText( CHARACTER.Self )]',
     }
     plots, panels = [], []
-    positions = [('37% 1%', '27% 40%'), ('12% 15%', '24% 36%'),
-                 ('61% 10%', '24% 36%'), ('17% 39%', '24% 36%'),
-                 ('51% 35%', '24% 36%'), ('31% 61%', '24% 32%')]
+    positions = [('36% 0%', '30% 40%'), ('10% 6%', '27% 32%'),
+                 ('59% 8%', '28% 38%'), ('15% 36%', '28% 34%'),
+                 ('49% 33%', '28% 38%'), ('36% 61%', '28% 30%')]
     # The original background's plots are deliberately spacious; each chain has
     # a stable painted position independent of the engine's free-slot ordering.
     places = {'cultivation_hall': 0, 'alchemy_pavilion': 1,
@@ -83,17 +83,26 @@ def render(buildings, sprites):
             is_shown = {{ var:ac_sect = {{ has_variable = ac_native_construction var:ac_building ?= flag:{key} }} }}
         }}''']
         pos, size = positions[places[key]]
+        label_y = 36 if key == 'formation_hall' else 0
+        # Architectural canvases are 812x512; the other native sprites are
+        # square. Fit each canvas without stretching its painted footprint.
+        slot_width, slot_height = (float(n.rstrip('%')) for n in size.split())
+        max_width, max_height = 1206 * slot_width / 100 * .88, 556 * slot_height / 100 * .88
         images = []
         for level in (1, 2, 3):
+            sprite = sprites[key][level - 1]
+            native_width = 812 if sprite in ('manor', 'estate', 'grand_estate', 'mansion') else 512
+            scale = min(max_width / native_width, max_height / 512)
+            image_size = f'{round(native_width * scale)} {round(512 * scale)}'
             condition = f"{dom}.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_{key}_{level:02}'))"
             if level < 3:
                 condition = f"And({condition}, Not({dom}.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_{key}_{level + 1:02}'))))"
-            images.append(f'''icon = {{ size = {{ 100% 100% }} alwaystransparent = yes visible = "[{condition}]"
+            images.append(f'''icon = {{ parentanchor = bottom|hcenter position = {{ 0 -6 }} size = {{ {image_size} }} alwaystransparent = yes visible = "[{condition}]"
                 texture = "gfx/interface/window_domiciles/estate_building_{sprites[key][level - 1]}_chinese.dds" }}''')
-        images.append(f'''icon = {{ size = {{ 100% 100% }} alwaystransparent = yes
+        images.append(f'''icon = {{ parentanchor = bottom|hcenter position = {{ 0 -6 }} size = {{ 88% 88% }} alwaystransparent = yes
             visible = "[Not({dom}.HasBuildingOrHigherTier(GetDomicileBuilding('ac_sect_{key}_01')))]"
             texture = "gfx/interface/window_domiciles/yurt_empty_slot_01.dds" }}''')
-        images.append(f'''icon = {{ size = {{ 100% 100% }} alwaystransparent = yes visible = "{shown(pending)}"
+        images.append(f'''icon = {{ parentanchor = bottom|hcenter position = {{ 0 -6 }} size = {{ {round(min(max_width, max_height))} {round(min(max_width, max_height))} }} alwaystransparent = yes visible = "{shown(pending)}"
             texture = "gfx/interface/window_domiciles/estate_building_construction_chinese.dds" }}''')
         loc[f'ac_sect_plot_{key}'] = f"{name}  [GetPlayer.MakeScope.Var('ac_sect').Var('ac_{key}').GetValue|0]/3"
         loc[f'ac_sect_panel_{key}'] = f'{description}\\n\\n{benefit}\\n\\n$ac_sect_domicile_rules$'
@@ -101,10 +110,13 @@ def render(buildings, sprites):
             allow_outside = yes
             onclick = "{execute(select)}" tooltip = "ac_sect_panel_{key}"
             {chr(10).join(images)}
-            text_label_center = {{ parentanchor = top|hcenter position = {{ 0 12 }} size = {{ 310 34 }}
-                autoresize = no align = center fontsize = 20
-                background = {{ texture = "gfx/interface/window_domiciles/domicile_header_background.dds" }}
-                text = "ac_sect_plot_{key}" default_format = "#light_background" }}
+            widget = {{ parentanchor = top|hcenter position = {{ 0 {label_y} }} size = {{ 310 34 }} alwaystransparent = yes
+                icon = {{ size = {{ 100% 100% }} alwaystransparent = yes
+                    texture = "gfx/interface/window_domiciles/domicile_header_background.dds" }}
+                text_single = {{ parentanchor = center widgetanchor = center size = {{ 286 34 }}
+                    autoresize = no align = vcenter|nobaseline|center fontsize = 20 margin_bottom = 0
+                    alwaystransparent = yes text = "ac_sect_plot_{key}" default_format = "#light_background" }}
+            }}
         }}''')
         panels.append(f'''widget = {{ visible = "{shown(select + '_panel')}" parentanchor = top|right
             position = {{ -50 110 }} size = {{ 410 480 }} using = Window_Background using = Window_Decoration
