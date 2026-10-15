@@ -153,6 +153,7 @@ ac_sect_leave_effect = {
 	if = {
 		limit = { has_variable = ac_sect }
 		ac_sect_cancel_mission_effect = yes
+		ac_sect_clear_offers_effect = yes
 		ac_sect_clear_trial_effect = yes
 		save_scope_as = ac_departing_member
 		var:ac_sect = {

@@ -79,6 +79,7 @@ ac_sect_ensure_domicile_effect = {
 # Member character scope. Exact title lookup also works when the Master owns a
 # personal administrative estate, a nomadic domicile, or an adventurer camp.
 ac_sect_open_estate_effect = {
+	remove_variable = ac_sect_contract_board_open
 	var:ac_sect = { ac_sect_ensure_domicile_effect = yes }
 	remove_variable = ac_sect_window_open
 	remove_variable = ac_sect_estate_selected

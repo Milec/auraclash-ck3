@@ -67,3 +67,12 @@ ac_sect_native_title_gain = {
         }
     }
 }
+
+# Extends native hooks; a cancelled mission journey cannot leave a reserved job.
+on_travel_plan_abort = { on_actions = { ac_sect_contract_travel_aborted } }
+on_travel_plan_cancel = { on_actions = { ac_sect_contract_travel_aborted } }
+on_travel_plan_complete = { on_actions = { ac_sect_contract_travel_aborted } }
+ac_sect_contract_travel_aborted = {
+ trigger = { has_variable = ac_sect_mission_journey exists = var:ac_sect_mission }
+ effect = { ac_sect_cancel_mission_effect = yes }
+}

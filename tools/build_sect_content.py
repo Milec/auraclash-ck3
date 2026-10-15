@@ -31,12 +31,12 @@ BUILDINGS = [
     ('formation_hall', 'Formation Hall', 'Disciples study how to combine their elements in coordinated battle.', 'Annual Agility Core experience: 1 per level; strengthens sect battle formations.'),
 ]
 MISSIONS = [
-    ('patrol', 'Patrol the Sect Roads', 'Escort merchants and drive brigands away from the headquarters.', 'prowess', 90, 50),
-    ('herbs', 'Gather Spiritual Herbs', 'Locate medicinal herbs and deliver a usable harvest to the alchemy pavilion.', 'learning', 90, 50),
-    ('manual', 'Recover a Lost Manual', 'Investigate a missing scripture and bring its teachings home.', 'intrigue', 120, 70),
-    ('mediation', 'Settle a Local Dispute', 'Resolve a feud among the households supporting the sect.', 'diplomacy', 60, 40),
-    ('relief', 'Aid the Local Villages', 'Organize supplies and cultivation healing for vulnerable villagers.', 'stewardship', 90, 50),
-    ('escort', 'Guard a Sect Delegation', 'Protect a delegation carrying tribute and correspondence.', 'martial', 120, 70),
+    ('patrol', 'Patrol the Sect Roads', 'Escort merchants and drive brigands away from the headquarters.', 'prowess', 50),
+    ('herbs', 'Gather Spiritual Herbs', 'Locate medicinal herbs and deliver a usable harvest to the alchemy pavilion.', 'learning', 50),
+    ('manual', 'Recover a Lost Manual', 'Investigate a missing scripture and bring its teachings home.', 'intrigue', 70),
+    ('mediation', 'Settle a Local Dispute', 'Resolve a feud among the households supporting the sect.', 'diplomacy', 40),
+    ('relief', 'Aid the Local Villages', 'Organize supplies and cultivation healing for vulnerable villagers.', 'stewardship', 50),
+    ('escort', 'Guard a Sect Delegation', 'Protect a delegation carrying tribute and correspondence.', 'martial', 70),
 ]
 
 
@@ -156,113 +156,8 @@ AC_SectRank = {
     import build_sect_domiciles
     files.update(build_sect_domiciles.render(BUILDINGS))
 
-    contracts, start, options = [], [], []
-    for key, name, desc, skill, days, reward in MISSIONS:
-        contracts.append(f'''ac_sect_{key} = {{
-    group = ac_sect_missions
-    icon = "gfx/interface/icons/traits/ac_cultivator.dds"
-    desc = ac_sect_{key}_desc
-    task_contract_request = ac_sect_{key}_request
-    travel = no
-    is_criminal = no
-    use_diplomatic_range = yes
-    valid_to_create = {{ ac_sect_mission_ready_trigger = yes }}
-    valid_to_accept = {{ ac_sect_mission_ready_trigger = yes }}
-    valid_to_keep = {{ exists = task_contract_employer }}
-    valid_to_continue = {{
-        task_contract_taker ?= {{
-            is_alive = yes
-            ac_sect_member_trigger = yes
-            var:ac_sect = prev.var:ac_contract_sect
-        }}
-    }}
-    on_create = {{
-        scope:contract = {{ set_variable = {{ name = ac_contract_sect value = prev.var:ac_sect }} }}
-    }}
-    on_accepted = {{
-        save_scope_as = ac_mission_contract
-        task_contract_taker = {{
-            set_variable = {{ name = ac_sect_mission value = scope:ac_mission_contract }}
-            set_variable = {{ name = ac_sect_mission_kind value = flag:{key} }}
-            add_character_flag = {{ flag = ac_sect_mission_cooldown days = {days + 90} }}
-            trigger_event = {{ id = ac_sect_mission.0002 days = {days} }}
-        }}
-    }}
-    on_completed = {{ ac_sect_contract_cleanup_effect = yes }}
-    on_invalidated = {{ ac_sect_contract_cleanup_effect = yes }}
-    task_contract_reward = {{
-        ac_sect_{key}_success = {{
-            visible = yes positive = yes should_print_on_complete = yes
-            effect = {{
-                task_contract_taker = {{
-                    ac_sect_award_contribution_effect = {{ VALUE = {reward} }}
-                    add_ac_cultivation_lifestyle_xp = 40
-                    var:ac_sect = {{ change_variable = {{ name = ac_treasury add = 20 }} }}
-                }}
-            }}
-        }}
-        ac_sect_{key}_failure = {{
-            visible = yes positive = no
-            effect = {{ task_contract_taker = {{ add_stress = 15 }} }}
-        }}
-        ac_sect_{key}_abandoned = {{ visible = no positive = no effect = {{ }} }}
-    }}
-    should_show_toast_on_complete = yes
-    weight = {{ value = 0 }}
-}}''')
-        start.append(f'''ac_sect_start_{key}_effect = {{
-    if = {{
-        limit = {{ ac_sect_mission_ready_trigger = yes }}
-        create_task_contract = {{
-            task_contract_type = ac_sect_{key}
-            task_contract_tier = 1
-            task_contract_employer = var:ac_sect.story_owner
-            location = var:ac_sect.var:ac_headquarters
-            save_scope_as = ac_created_contract
-        }}
-        accept_task_contract = scope:ac_created_contract
-    }}
-}}''')
-        options.append(f'option = {{ name = ac_sect_{key}_contract trigger = {{ ac_sect_mission_ready_trigger = yes }} custom_tooltip = ac_sect_{key}_request hidden_effect = {{ ac_sect_start_{key}_effect = yes }} }}')
-        loc[f'ac_sect_{key}_contract'] = name
-        loc[f'ac_sect_{key}_desc'] = desc
-        loc[f'ac_sect_{key}_request'] = f'{desc} Resolution after {days} days; success earns {reward} sect contribution. Strong {skill} helps. One mission at a time, followed by a 90-day rest.'
-        for result in ('success', 'failure', 'abandoned'):
-            loc[f'ac_sect_{key}_{result}'] = f'{name}: {result.title()}'
-    start.append('''ac_sect_contract_cleanup_effect = {
-    save_scope_as = ac_cleaned_contract
-    task_contract_taker ?= {
-        if = {
-            limit = { var:ac_sect_mission ?= scope:ac_cleaned_contract }
-            remove_variable = ac_sect_mission
-            remove_variable = ac_sect_mission_kind
-        }
-    }
-}
-ac_sect_cancel_mission_effect = {
-    if = {
-        limit = { has_variable = ac_sect_mission }
-''')
-    for index, (key, *_) in enumerate(MISSIONS):
-        branch = 'if' if index == 0 else 'else_if'
-        start.append(f'{branch} = {{ limit = {{ var:ac_sect_mission_kind = flag:{key} }} var:ac_sect_mission = {{ complete_task_contract = ac_sect_{key}_abandoned }} }}')
-    start.append('remove_variable = ac_sect_mission\nremove_variable = ac_sect_mission_kind\n}\n}')
-    for outcome in ('success', 'failure'):
-        start.append(f'ac_sect_mission_{outcome}_effect = {{')
-        for index, (key, *_) in enumerate(MISSIONS):
-            branch = 'if' if index == 0 else 'else_if'
-            start.append(f'{branch} = {{ limit = {{ var:ac_sect_mission_kind = flag:{key} }} var:ac_sect_mission = {{ complete_task_contract = ac_sect_{key}_{outcome} }} }}')
-        start.append('}')
-    files['common/task_contracts/ac_sect_contracts.txt'] = '\n'.join(contracts)
-    files['common/scripted_effects/ac_sect_contract_effects.txt'] = '\n'.join(start)
-    files['events/ac_sect_mission_board.txt'] = '''namespace = ac_sect_mission
-ac_sect_mission.0001 = {
-type = character_event
-title = ac_sect_mission.0001.t
-desc = ac_sect_mission.0001.desc
-theme = learning
-trigger = { ac_sect_member_trigger = yes }
-''' + '\n'.join(options) + '\noption = { name = ac_sect_back trigger_event = ac_sect.0001 }\n}\n'
+    import build_sect_contracts
+    files.update(build_sect_contracts.render(MISSIONS, loc))
     files['localization/english/ac_sect_generated_l_english.yml'] = 'l_english:\n' + '\n'.join(f' {key}:0 "{value}"' for key, value in loc.items()) + '\n'
     return {name: format_script(text) if name.endswith('.txt') else text for name, text in files.items()}
 

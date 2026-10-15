@@ -84,7 +84,15 @@ ac_sect_test_05_native_mission_contract = {
 		scope:ac_test_agent = {
 			set_variable = { name = ac_sect_contribution value = 0 }
 			set_variable = { name = ac_sect_merit value = 0 }
-			ac_sect_start_patrol_effect = yes
+            # Keep the encounter asynchronous: a local NPC job resolves its
+            # choices immediately, before the explicit reward assertion below.
+            create_task_contract = {
+                task_contract_type = ac_sect_patrol task_contract_tier = 1
+                task_contract_employer = var:ac_sect.story_owner
+                location = title:k_scotland.var:ac_kingdom_sect.var:ac_headquarters
+                save_scope_as = ac_test_contract
+            }
+            accept_task_contract = scope:ac_test_contract
 		}
 	}
 	assert = { scope:ac_test_agent = { has_variable = ac_sect_mission var:ac_sect_mission_kind = flag:patrol } }

@@ -1,15 +1,6 @@
 ﻿namespace = ac_sect_mission
 ac_sect_mission.0001 = {
-	type = character_event
-	title = ac_sect_mission.0001.t
-	desc = ac_sect_mission.0001.desc
-	theme = learning
+	type = character_event hidden = yes
 	trigger = { ac_sect_member_trigger = yes }
-	option = { name = ac_sect_patrol_contract trigger = { ac_sect_mission_ready_trigger = yes } custom_tooltip = ac_sect_patrol_request hidden_effect = { ac_sect_start_patrol_effect = yes } }
-	option = { name = ac_sect_herbs_contract trigger = { ac_sect_mission_ready_trigger = yes } custom_tooltip = ac_sect_herbs_request hidden_effect = { ac_sect_start_herbs_effect = yes } }
-	option = { name = ac_sect_manual_contract trigger = { ac_sect_mission_ready_trigger = yes } custom_tooltip = ac_sect_manual_request hidden_effect = { ac_sect_start_manual_effect = yes } }
-	option = { name = ac_sect_mediation_contract trigger = { ac_sect_mission_ready_trigger = yes } custom_tooltip = ac_sect_mediation_request hidden_effect = { ac_sect_start_mediation_effect = yes } }
-	option = { name = ac_sect_relief_contract trigger = { ac_sect_mission_ready_trigger = yes } custom_tooltip = ac_sect_relief_request hidden_effect = { ac_sect_start_relief_effect = yes } }
-	option = { name = ac_sect_escort_contract trigger = { ac_sect_mission_ready_trigger = yes } custom_tooltip = ac_sect_escort_request hidden_effect = { ac_sect_start_escort_effect = yes } }
-	option = { name = ac_sect_back trigger_event = ac_sect.0001 }
+	immediate = { ac_sect_open_contract_board_effect = yes }
 }

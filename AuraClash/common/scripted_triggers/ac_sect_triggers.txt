@@ -15,6 +15,9 @@ ac_sect_available_trigger = {
 	NOT = { has_trait = incapable }
 }
 ac_sect_mission_ready_trigger = {
+	is_available = yes
+	NOT = { is_travelling = yes }
+	num_taken_task_contracts < 1
 	ac_sect_member_trigger = yes
 	ac_sect_available_trigger = yes
 	NOT = { has_variable = ac_sect_mission }

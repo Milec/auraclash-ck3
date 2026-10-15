@@ -96,11 +96,10 @@ class SectContentTests(unittest.TestCase):
 
     def test_missions_capture_contract_and_gate_repeat_claims(self):
         definitions = (MOD / 'common/task_contracts/ac_sect_contracts.txt').read_text(encoding='utf-8-sig')
-        for key, _, _, _, days, reward in content.MISSIONS:
+        for key, _, _, _, reward in content.MISSIONS:
             self.assertIn(f'ac_sect_{key}_success', definitions)
             self.assertIn(f'ac_sect_{key}_failure', definitions)
             self.assertIn(f'ac_sect_{key}_abandoned', definitions)
-            self.assertGreaterEqual(days, 60)
             self.assertGreater(reward, 0)
         event = (MOD / 'events/ac_sect_mission_events.txt').read_text(encoding='utf-8-sig')
         self.assertIn('var:ac_sect_mission ?= scope:ac_mission_contract', event)
@@ -115,6 +114,34 @@ class SectContentTests(unittest.TestCase):
             block = source[phase.start():end]
             self.assertIn('progress_activity_phase_after', block, key)
             self.assertIn('on_phase_active_activity', block, key)
+
+    def test_contract_offers_use_native_letters_and_arrival_not_timers(self):
+        definitions = (MOD / 'common/task_contracts/ac_sect_contracts.txt').read_text(encoding='utf-8-sig')
+        self.assertEqual(definitions.count('ac_sect_depart_for_contract_effect = yes'), len(content.MISSIONS))
+        self.assertEqual(definitions.count('travel = no'), len(content.MISSIONS))
+        self.assertNotRegex(definitions, r'trigger_event\s*=\s*\{[^}]*days\s*=')
+        # A native taker does not exist until acceptance. Using it for an
+        # unaccepted offer's validity silently removes jobs during travel.
+        for match in re.finditer(r'valid_to_keep\s*=\s*\{', definitions):
+            end = parser.close_brace(definitions, definitions.index('{', match.start()))
+            self.assertIn('var:ac_contract_disciple', definitions[match.start():end])
+            self.assertNotIn('task_contract_taker', definitions[match.start():end])
+        effects = (MOD / 'common/scripted_effects/ac_sect_contract_effects.txt').read_text(encoding='utf-8-sig')
+        board = effects[effects.index('ac_sect_open_contract_board_effect = {'):]
+        self.assertNotIn('accept_task_contract', board)
+        gui = (MOD / 'gui/ac_sect_contract_board.gui').read_text(encoding='utf-8-sig')
+        self.assertIn("OpenGameViewData('task_contract', TaskContract.Self)", gui)
+        self.assertIn("GetList('ac_sect_offers')", gui)
+        encounters = (MOD / 'events/ac_sect_job_events.txt').read_text(encoding='utf-8-sig')
+        self.assertEqual(len(re.findall(r'^ac_sect_job\.\d+ =', encounters, re.M)), 6)
+        self.assertEqual(encounters.count('var:ac_sect_mission ?= scope:ac_mission_contract'), 6)
+
+    def test_sect_hud_opens_exact_sect_estate(self):
+        source = (MOD / 'gui/ac_sect_hud.gui').read_text(encoding='utf-8-sig')
+        self.assertIn('parentanchor = bottom|left', source)
+        self.assertIn("GetScriptedGui('ac_sect_hud_estate').Execute", source)
+        self.assertNotIn('Character.GetDomicile', source)
+        self.assertIn("Var('ac_estate_domicile').Domicile", source)
 
     def test_native_harness_never_runs_in_normal_mod(self):
         for path in MOD.rglob('*.txt'):

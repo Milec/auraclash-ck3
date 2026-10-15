@@ -32,3 +32,19 @@ ac_sect_view_foreign_gui = {
 		trigger_event = ac_sect.0003
 	}
 }
+
+ac_sect_hud_estate = {
+ scope = character
+ is_shown = { ac_sect_member_trigger = yes }
+ effect = { ac_sect_open_estate_effect = yes }
+}
+ac_sect_hud_contracts = {
+ scope = character
+ is_shown = { ac_sect_member_trigger = yes }
+ effect = { ac_sect_open_contract_board_effect = yes }
+}
+ac_sect_contract_board = {
+ scope = character
+ is_shown = { ac_sect_member_trigger = yes has_variable = ac_sect_contract_board_open }
+ effect = { remove_variable = ac_sect_contract_board_open }
+}

@@ -20,12 +20,16 @@ ac_sect_trial_score = {
 	if = { limit = { has_trait = incapable } subtract = 100 }
 }
 ac_sect_mission_chance = {
-	value = 45
-	add = learning
-	add = prowess
-	if = { limit = { has_trait = ac_sect_upper_disciple } add = 10 }
-	min = 15
-	max = 90
+ value = 45
+ if = { limit = { var:ac_sect_mission_kind ?= flag:patrol } add = prowess }
+ else_if = { limit = { var:ac_sect_mission_kind ?= flag:herbs } add = learning }
+ else_if = { limit = { var:ac_sect_mission_kind ?= flag:manual } add = intrigue }
+ else_if = { limit = { var:ac_sect_mission_kind ?= flag:mediation } add = diplomacy }
+ else_if = { limit = { var:ac_sect_mission_kind ?= flag:relief } add = stewardship }
+ else_if = { limit = { var:ac_sect_mission_kind ?= flag:escort } add = martial }
+ if = { limit = { has_trait = ac_sect_upper_disciple } add = 10 }
+ min = 15
+ max = 90
 }
 ac_sect_battle_strength = {
 	value = 10

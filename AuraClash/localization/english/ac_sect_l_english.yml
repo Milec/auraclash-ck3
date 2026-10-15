@@ -71,9 +71,9 @@
  ac_sect_medicinal_pill_modifier:0 "Cultivation Medicine"
  ac_sect_medicinal_pill_modifier_desc:0 "A carefully prepared medicinal pill supports this cultivator's recovery."
  ac_sect_mission.0001.t:0 "The Mission Board"
- ac_sect_mission.0001.desc:0 "Sect service earns contribution and lifetime merit. Choose one assignment, complete its objective, and return with a report. Missions take two to four months and are followed by a 90-day rest. An unfinished mission must be resolved before another can be accepted."
+ ac_sect_mission.0001.desc:0 "Sect service earns contribution and lifetime merit. Choose one assignment, complete its objective, and return with a report. Accepting a contract opens its journey planner; the encounter takes place at its destination. Each completed or abandoned assignment is followed by a 90-day rest. An unfinished mission must be resolved before another can be accepted."
  ac_sect_mission.0002.t:0 "A Sect Mission: The Decisive Moment"
- ac_sect_mission.0002.desc:0 "Weeks of preparation have brought my assignment to its decisive moment. A sound plan and the right cultivation technique may secure the result our sect needs."
+ ac_sect_mission.0002.desc:0 "I have reached the location of my assignment. A sound plan and the right cultivation technique may secure the result our sect needs."
  ac_sect_mission.0002.perform:0 "Complete the task with care."
  ac_sect_mission.0002.expertise:0 "Apply my particular expertise."
  ac_sect_mission.0002.cultivation:0 "Use the cultivation technique best suited to this task."
@@ -189,3 +189,16 @@
  ac_sect_trial_funds_tt:0 "The sect treasury has at least 50 gold to fund the examinations."
  ac_sect_headquarters_location_tt:0 "This is the sect's permanent headquarters."
  ac_sect_trial.0100.t:0 "Sect Trial Preparations"
+
+ ac_sect_hud_estate_tt:0 "#T Sect Domicile#!\nOpen the estate at [GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_headquarters').Province.GetName]. The ring tracks its current construction project."
+ ac_sect_hud_contracts_tt:0 "#T Sect Contracts#!\nReview assignments posted by your Sect Master and your active contract."
+ ac_sect_contract_board_help:0 "Review an assignment to open its contract letter, inspect the employer, destination, difficulty and rewards, then arrange travel. Resolve the job at its destination to earn contribution and Sect Merit. Only one contract may be undertaken at a time."
+ ac_sect_contract_cooldown:0 "#warning You are resting from your last assignment. Check a contract letter for availability.#!"
+ ac_sect_contract_card:0 "[TaskContract.GetNameNoTooltip] — [TaskContract.GetLocation.GetName]\nDifficulty [TaskContract.GetTaskContractTierValue|0]  •  [SelectLocalization(TaskContract.IsAccepted, 'ac_sect_contract_active', 'ac_sect_contract_review')]"
+ ac_sect_contract_active:0 "Active assignment"
+ ac_sect_contract_review:0 "Review contract"
+
+ ac_sect_mission.0003.t:0 "Arriving for Sect Service"
+
+ ac_sect_mission.0004.t:0 "Sect Assignment Abandoned"
+ ac_sect_mission.0005.t:0 "Departing on Sect Service"
