@@ -5,7 +5,7 @@
 namespace = health
 
 # Source: events/health_events.txt (file-local helper)
-scripted_trigger health_event_is_worried_trigger = {
+scripted_trigger ac_vanilla_health_health_event_is_worried_trigger = {
 	OR = {
 		ai_compassion >= medium_positive_ai_value
 		dread_modified_ai_boldness = {
@@ -20,8 +20,7 @@ scripted_trigger health_event_is_worried_trigger = {
 		}
 	}
 	$CHARACTER$.health < fine_health
-}
-# Source: events/health_events.txt:9266
+}# Source: events/health_events.txt:9266
 health.4000 = {
 	id_override_priority = 10 # AC: individual CK3 1.20.1 event override
 
@@ -109,7 +108,7 @@ health.4000 = {
 		}
 		character = scope:physician
 		triggered_animation = {
-			trigger = { scope:physician = { health_event_is_worried_trigger = { CHARACTER = scope:sick_character } } }
+			trigger = { scope:physician = { ac_vanilla_health_health_event_is_worried_trigger = { CHARACTER = scope:sick_character } } }
 			animation = worry
 		}
 		animation = physician
@@ -380,7 +379,7 @@ health.4001 = {
 	right_portrait = {
 		character = scope:physician
 		triggered_animation = {
-			trigger = { scope:physician = { health_event_is_worried_trigger = { CHARACTER = root } } }
+			trigger = { scope:physician = { ac_vanilla_health_health_event_is_worried_trigger = { CHARACTER = root } } }
 			animation = worry
 		}
 		triggered_animation = {
@@ -553,7 +552,7 @@ health.4002 = {
 		}
 		character = scope:physician
 		triggered_animation = {
-			trigger = { scope:physician = { health_event_is_worried_trigger = { CHARACTER = scope:sick_character } } }
+			trigger = { scope:physician = { ac_vanilla_health_health_event_is_worried_trigger = { CHARACTER = scope:sick_character } } }
 			animation = worry
 		}
 		animation = physician

@@ -6,7 +6,7 @@ namespace = hold_court
 namespace = hunt
 
 # Source: events/activities/hold_court_activity/hold_court_events_general.txt (file-local helper)
-scripted_trigger hold_court_6000_valid_inspector_trigger = {
+scripted_trigger ac_vanilla_activity_hold_court_6000_valid_inspector_trigger = {
 	has_court_event_flag = no
 	OR = {
 		stewardship >= 14
@@ -26,7 +26,7 @@ scripted_trigger hold_court_6000_valid_inspector_trigger = {
 }
 
 # Source: events/activities/hold_court_activity/hold_court_events_general.txt (file-local helper)
-scripted_trigger hold_court_6000_valid_province_trigger = {
+scripted_trigger ac_vanilla_activity_hold_court_6000_valid_province_trigger = {
 	OR = {
 		has_province_modifier = recently_looted_modifier
 		has_province_modifier = disease_spreading_modifier
@@ -47,18 +47,18 @@ scripted_trigger hold_court_6000_valid_province_trigger = {
 }
 
 # Source: events/activities/hunt_activity/hunt_events.txt (file-local helper)
-scripted_trigger hunt_4010_heir_trigger = {
+scripted_trigger ac_vanilla_activity_hunt_4010_heir_trigger = {
 	exists = root.player_heir
 	root.player_heir = { is_participant_in_activity = scope:activity }
 	scope:activity = {
 		any_attending_character = {
-			hunt_4010_murderer_trigger = yes
+			ac_vanilla_activity_hunt_4010_murderer_trigger = yes
 		}
 	}
 }
 
 # Source: events/activities/hunt_activity/hunt_events.txt (file-local helper)
-scripted_trigger hunt_4010_intent_trigger = {
+scripted_trigger ac_vanilla_activity_hunt_4010_intent_trigger = {
 	has_activity_intent = murder_attendee_intent
 	exists = intent_target
 	this != root
@@ -81,7 +81,7 @@ scripted_trigger hunt_4010_intent_trigger = {
 }
 
 # Source: events/activities/hunt_activity/hunt_events.txt (file-local helper)
-scripted_trigger hunt_4010_murderer_trigger = {
+scripted_trigger ac_vanilla_activity_hunt_4010_murderer_trigger = {
 	this != root
 	player_heir_position = { target = root value >= 1 }
 	player_heir_position = { target = root value <= 3 }			
@@ -99,7 +99,7 @@ scripted_trigger hunt_4010_murderer_trigger = {
 }
 
 # Source: events/activities/hunt_activity/hunt_events.txt (file-local helper)
-scripted_trigger hunt_4010_scheme_trigger = {
+scripted_trigger ac_vanilla_activity_hunt_4010_scheme_trigger = {
 	OR = {
 		scheme_type = murder
 		scheme_type = abduct
@@ -127,8 +127,7 @@ scripted_trigger hunt_4010_scheme_trigger = {
 			value >= 25
 		}
 	}
-}
-# Source: events/activities/hunt_activity/hunt_events.txt:14343
+}# Source: events/activities/hunt_activity/hunt_events.txt:14343
 hunt.4007 = {
 	id_override_priority = 10 # AC: individual CK3 1.20.1 event override
 
@@ -648,15 +647,15 @@ hunt.4010 = {
 	trigger = {
 		OR = {
 			any_close_family_member = {
-				any_targeting_scheme = { hunt_4010_scheme_trigger = yes }
+				any_targeting_scheme = { ac_vanilla_activity_hunt_4010_scheme_trigger = yes }
 			}
 			any_consort = {
-				any_targeting_scheme = { hunt_4010_scheme_trigger = yes }
+				any_targeting_scheme = { ac_vanilla_activity_hunt_4010_scheme_trigger = yes }
 			}
 			scope:activity = {
-				any_attending_character = { hunt_4010_intent_trigger = yes }
+				any_attending_character = { ac_vanilla_activity_hunt_4010_intent_trigger = yes }
 			}
-			hunt_4010_heir_trigger = yes
+			ac_vanilla_activity_hunt_4010_heir_trigger = yes
 		}
 	}
 
@@ -668,10 +667,10 @@ hunt.4010 = {
 					trigger = {
 						OR = {
 							any_close_family_member = {
-								any_targeting_scheme = { hunt_4010_scheme_trigger = yes }
+								any_targeting_scheme = { ac_vanilla_activity_hunt_4010_scheme_trigger = yes }
 							}
 							any_consort = {
-								any_targeting_scheme = { hunt_4010_scheme_trigger = yes }
+								any_targeting_scheme = { ac_vanilla_activity_hunt_4010_scheme_trigger = yes }
 							}
 						}
 					}
@@ -679,12 +678,12 @@ hunt.4010 = {
 						10 = {
 							trigger = {
 								any_close_family_member = {
-									any_targeting_scheme = { hunt_4010_scheme_trigger = yes }
+									any_targeting_scheme = { ac_vanilla_activity_hunt_4010_scheme_trigger = yes }
 								}
 							}
 							random_close_family_member = {
 								limit = {
-									any_targeting_scheme = { hunt_4010_scheme_trigger = yes }
+									any_targeting_scheme = { ac_vanilla_activity_hunt_4010_scheme_trigger = yes }
 								}
 								save_scope_as = targeted_participant
 							}
@@ -692,12 +691,12 @@ hunt.4010 = {
 						10 = {
 							trigger = {
 								any_consort = {
-									any_targeting_scheme = { hunt_4010_scheme_trigger = yes }
+									any_targeting_scheme = { ac_vanilla_activity_hunt_4010_scheme_trigger = yes }
 								}
 							}
 							random_consort = {
 								limit = {
-									any_targeting_scheme = { hunt_4010_scheme_trigger = yes }
+									any_targeting_scheme = { ac_vanilla_activity_hunt_4010_scheme_trigger = yes }
 								}
 								save_scope_as = targeted_participant
 							}
@@ -705,7 +704,7 @@ hunt.4010 = {
 					}
 					scope:targeted_participant = {
 						random_targeting_scheme = {
-							limit = { hunt_4010_scheme_trigger = yes }
+							limit = { ac_vanilla_activity_hunt_4010_scheme_trigger = yes }
 							save_scope_as = scheme
 							random_list = {
 								10 = {
@@ -737,13 +736,13 @@ hunt.4010 = {
 				20 = { # Intent
 					trigger = {
 						scope:activity = {
-							any_attending_character = { hunt_4010_intent_trigger = yes }
+							any_attending_character = { ac_vanilla_activity_hunt_4010_intent_trigger = yes }
 						}
 					}
 					scope:activity = {
 						random_attending_character = {
 							limit = {
-								hunt_4010_intent_trigger = yes
+								ac_vanilla_activity_hunt_4010_intent_trigger = yes
 								save_temporary_scope_as = murderer_temp
 							}
 							weight = {
@@ -756,11 +755,11 @@ hunt.4010 = {
 					}
 				}
 				5 = { # Heir
-					trigger = { hunt_4010_heir_trigger = yes }
+					trigger = { ac_vanilla_activity_hunt_4010_heir_trigger = yes }
 					scope:activity = {
 						random_attending_character = {
 							limit = {
-								hunt_4010_murderer_trigger = yes
+								ac_vanilla_activity_hunt_4010_murderer_trigger = yes
 								save_temporary_scope_as = murderer_temp
 							}
 							weight = {
@@ -1311,7 +1310,7 @@ hold_court.6000 = {
 
 	trigger = {
 		any_realm_province = {
-			hold_court_6000_valid_province_trigger = yes
+			ac_vanilla_activity_hold_court_6000_valid_province_trigger = yes
 		}
 	}
 
@@ -1325,7 +1324,7 @@ hold_court.6000 = {
 	immediate = {
 		random_realm_province = {
 			limit = {
-				hold_court_6000_valid_province_trigger = yes
+				ac_vanilla_activity_hold_court_6000_valid_province_trigger = yes
 			}
 			save_scope_as = 6000_province
 		}
@@ -1358,12 +1357,12 @@ hold_court.6000 = {
 		else_if = {
 			limit = {
 				any_courtier_or_guest = {
-					hold_court_6000_valid_inspector_trigger = yes
+					ac_vanilla_activity_hold_court_6000_valid_inspector_trigger = yes
 				}
 			}
 			random_courtier_or_guest = {
 				limit = {
-					hold_court_6000_valid_inspector_trigger = yes
+					ac_vanilla_activity_hold_court_6000_valid_inspector_trigger = yes
 				}
 				save_scope_as = inspector
 				court_event_character_flag_effect = yes
@@ -1422,7 +1421,7 @@ hold_court.6000 = {
 		}
 		every_sub_realm_county = {
 			limit = {
-				title_province = { hold_court_6000_valid_province_trigger = yes }
+				title_province = { ac_vanilla_activity_hold_court_6000_valid_province_trigger = yes }
 			}
 			add_county_modifier = {
 				modifier = invested_in_province_modifier
@@ -1469,7 +1468,7 @@ hold_court.6000 = {
 		name = hold_court.6000.b
 		every_sub_realm_county = {
 			limit = {
-				title_province = { hold_court_6000_valid_province_trigger = yes }
+				title_province = { ac_vanilla_activity_hold_court_6000_valid_province_trigger = yes }
 			}
 			add_county_modifier = {
 				modifier = court_tax_relief_county_modifier

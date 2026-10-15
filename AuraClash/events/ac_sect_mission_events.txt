@@ -1,0 +1,51 @@
+﻿namespace = ac_sect_mission
+ac_sect_mission.0002 = {
+	type = character_event
+	title = ac_sect_mission.0002.t
+	desc = ac_sect_mission.0002.desc
+	theme = martial
+	# The captured contract scope is a nonce: an old timer cannot finish a new job.
+	trigger = {
+		ac_sect_member_trigger = yes
+		var:ac_sect_mission ?= scope:ac_mission_contract
+		var:ac_sect = scope:ac_mission_contract.var:ac_contract_sect
+	}
+	immediate = { set_variable = { name = ac_sect_mission_bonus value = 0 } }
+	option = {
+		name = ac_sect_mission.0002.perform
+		ac_sect_resolve_mission_effect = yes
+	}
+	option = {
+		name = ac_sect_mission.0002.expertise
+		trigger = {
+			OR = {
+				AND = { var:ac_sect_mission_kind = flag:patrol prowess >= 15 }
+				AND = { var:ac_sect_mission_kind = flag:herbs learning >= 15 }
+				AND = { var:ac_sect_mission_kind = flag:manual intrigue >= 15 }
+				AND = { var:ac_sect_mission_kind = flag:mediation diplomacy >= 15 }
+				AND = { var:ac_sect_mission_kind = flag:relief stewardship >= 15 }
+				AND = { var:ac_sect_mission_kind = flag:escort martial >= 15 }
+			}
+		}
+		set_variable = { name = ac_sect_mission_bonus value = 15 }
+		ac_sect_resolve_mission_effect = yes
+	}
+	option = {
+		name = ac_sect_mission.0002.cultivation
+		trigger = {
+			OR = {
+				AND = { var:ac_sect_mission_kind = flag:patrol OR = { has_trait = ac_style_akakiru has_trait = ac_style_midorikatai } }
+				AND = { var:ac_sect_mission_kind = flag:herbs OR = { has_trait = ac_element_earth has_trait = ac_element_water } }
+				AND = { var:ac_sect_mission_kind = flag:manual has_trait = ac_style_kurokonton }
+				AND = { var:ac_sect_mission_kind = flag:mediation has_trait = ac_style_aoyusumu }
+				AND = { var:ac_sect_mission_kind = flag:relief OR = { has_trait = ac_style_aoyusumu has_trait = ac_element_water } }
+				AND = { var:ac_sect_mission_kind = flag:escort OR = { has_trait = ac_style_kiihakai has_trait = ac_style_midorikatai } }
+			}
+		}
+		set_variable = { name = ac_sect_mission_bonus value = 20 }
+		add_stress = 10
+		ac_sect_resolve_mission_effect = yes
+	}
+	option = { name = ac_sect_mission.0002.abandon ac_sect_cancel_mission_effect = yes }
+	after = { remove_variable = ac_sect_mission_bonus }
+}

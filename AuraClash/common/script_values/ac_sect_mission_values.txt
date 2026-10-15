@@ -1,0 +1,2 @@
+﻿ac_sect_final_mission_chance = { value = ac_sect_mission_chance add = var:ac_sect_mission_bonus max = 95 }
+ac_sect_final_mission_failure = { value = 100 subtract = ac_sect_final_mission_chance }

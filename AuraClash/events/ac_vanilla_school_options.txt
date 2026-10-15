@@ -12,7 +12,7 @@ namespace = tgp_japan_yearly_events
 namespace = travel_danger_events
 
 # Source: events/dlc/ach/ach_coronation_events.txt (file-local helper)
-scripted_trigger ach_coronation_0014_random_attendee_trigger = {
+scripted_trigger ac_vanilla_school_ach_coronation_0014_random_attendee_trigger = {
 	NOR = {
 		this = scope:host
 		this = scope:crush_initiator
@@ -22,14 +22,14 @@ scripted_trigger ach_coronation_0014_random_attendee_trigger = {
 }
 
 # Source: events/dlc/ach/ach_coronation_events.txt (file-local helper)
-scripted_effect ach_coronation_0015_crushed_guest_effect = {
+scripted_effect ac_vanilla_school_ach_coronation_0015_crushed_guest_effect = {
 	involved_activity = {
 		# Wound X characters and kill Y %
 		while = {
 			count = $COUNT$
 			random_attending_character = {
 				limit = {
-					ach_coronation_0014_random_attendee_trigger = yes
+					ac_vanilla_school_ach_coronation_0014_random_attendee_trigger = yes
 					NOT = { is_in_list = in_crowd_crush }
 				}
 				add_to_list = in_crowd_crush
@@ -61,25 +61,25 @@ scripted_effect ach_coronation_0015_crushed_guest_effect = {
 }
 
 # Source: events/dlc/ach/ach_coronation_events.txt (file-local helper)
-scripted_effect ach_coronation_0015_major_crush_effect = {
+scripted_effect ac_vanilla_school_ach_coronation_0015_major_crush_effect = {
 	custom_tooltip = many_guests_wounded_or_killed
-	hidden_effect = { ach_coronation_0015_crushed_guest_effect = { COUNT = 12 DEATH_CHANCE = 4 } }
+	hidden_effect = { ac_vanilla_school_ach_coronation_0015_crushed_guest_effect = { COUNT = 12 DEATH_CHANCE = 4 } }
 }
 
 # Source: events/dlc/ach/ach_coronation_events.txt (file-local helper)
-scripted_effect ach_coronation_0015_medium_crush_effect = {
+scripted_effect ac_vanilla_school_ach_coronation_0015_medium_crush_effect = {
 	custom_tooltip = many_guests_wounded
-	hidden_effect = { ach_coronation_0015_crushed_guest_effect = { COUNT = 8 DEATH_CHANCE = 0 } }
+	hidden_effect = { ac_vanilla_school_ach_coronation_0015_crushed_guest_effect = { COUNT = 8 DEATH_CHANCE = 0 } }
 }
 
 # Source: events/dlc/ach/ach_coronation_events.txt (file-local helper)
-scripted_effect ach_coronation_0015_minor_crush_effect = {
+scripted_effect ac_vanilla_school_ach_coronation_0015_minor_crush_effect = {
 	custom_tooltip = few_guests_wounded
-	hidden_effect = { ach_coronation_0015_crushed_guest_effect = { COUNT = 2 DEATH_CHANCE = 0 } }
+	hidden_effect = { ac_vanilla_school_ach_coronation_0015_crushed_guest_effect = { COUNT = 2 DEATH_CHANCE = 0 } }
 }
 
 # Source: events/dlc/tgp/tgp_natural_disaster_flavor_events.txt (file-local helper)
-scripted_trigger is_location_affected_by_disaster_in_recovery_trigger = {
+scripted_trigger ac_vanilla_school_is_location_affected_by_disaster_in_recovery_trigger = {
 	location.county = {
 		any_county_situation = {
 			tgp_natural_disaster_situation_is_disaster_trigger = yes
@@ -89,7 +89,7 @@ scripted_trigger is_location_affected_by_disaster_in_recovery_trigger = {
 }
 
 # Source: events/dlc/pam/pam_secular_faith_events.txt (file-local helper)
-scripted_trigger pam_sf_possessed_courtier_valid_trigger = {
+scripted_trigger ac_vanilla_school_pam_sf_possessed_courtier_valid_trigger = {
 	is_available_ai_adult = yes
 	trigger_if = {
 		limit = { exists = root.cp:councillor_court_chaplain }
@@ -103,8 +103,7 @@ scripted_trigger pam_sf_possessed_courtier_valid_trigger = {
 	NOT = {
 		has_character_flag = cured_demons
 	}
-}
-# Source: events/dlc/ach/ach_coronation_events.txt:3409
+}# Source: events/dlc/ach/ach_coronation_events.txt:3409
 ach_coronation.0015 = {
 	id_override_priority = 10 # AC: individual CK3 1.20.1 event override
 
@@ -175,7 +174,7 @@ ach_coronation.0015 = {
 			save_scope_as = peasant
 		}
 
-		ach_coronation_0015_minor_crush_effect = yes
+		ac_vanilla_school_ach_coronation_0015_minor_crush_effect = yes
 
 		custom_tooltip = ach_coronation.0015.has_happened
 	}
@@ -330,7 +329,7 @@ ach_coronation.0015 = {
 
 				desc = ach_coronation.0015.a.tt.success
 
-				ach_coronation_0015_minor_crush_effect = yes
+				ac_vanilla_school_ach_coronation_0015_minor_crush_effect = yes
 
 				# You'll remember this
 				create_character_memory = { type = calmed_the_crowd_memory }
@@ -394,7 +393,7 @@ ach_coronation.0015 = {
 
 				desc = ach_coronation.0015.a.tt.failure
 
-				ach_coronation_0015_medium_crush_effect = yes
+				ac_vanilla_school_ach_coronation_0015_medium_crush_effect = yes
 
 				custom_tooltip = coronation_tt_negative
 				scope:activity = { activity_special_type_progression_negative = yes }
@@ -598,7 +597,7 @@ ach_coronation.0015 = {
 
 		random_list = {
 			1 = { # The soldiers go too far
-				ach_coronation_0015_major_crush_effect = yes
+				ac_vanilla_school_ach_coronation_0015_major_crush_effect = yes
 				add_tyranny = medium_tyranny_gain
 
 				hidden_effect = {
@@ -612,7 +611,7 @@ ach_coronation.0015 = {
 
 							show_as_tooltip = {
 								scope:host = {
-									ach_coronation_0015_major_crush_effect = yes
+									ac_vanilla_school_ach_coronation_0015_major_crush_effect = yes
 									add_tyranny = medium_tyranny_gain
 									add_dread = miniscule_dread_gain
 								}
@@ -622,7 +621,7 @@ ach_coronation.0015 = {
 				}
 			}
 			2 = { # The soldiers kill a bunch of people but restore order
-				ach_coronation_0015_medium_crush_effect = yes
+				ac_vanilla_school_ach_coronation_0015_medium_crush_effect = yes
 				add_tyranny = minor_tyranny_gain
 
 				hidden_effect = {
@@ -636,7 +635,7 @@ ach_coronation.0015 = {
 
 							show_as_tooltip = {
 								scope:host = {
-									ach_coronation_0015_medium_crush_effect = yes
+									ac_vanilla_school_ach_coronation_0015_medium_crush_effect = yes
 									add_dread = miniscule_dread_gain
 									add_character_modifier = {
 										modifier = ach_coronation_crackdown_character_modifier
@@ -649,7 +648,7 @@ ach_coronation.0015 = {
 				}
 			}
 			3 = { # The crowds disperse before many are killed
-				ach_coronation_0015_minor_crush_effect = yes
+				ac_vanilla_school_ach_coronation_0015_minor_crush_effect = yes
 
 				hidden_effect = {
 					# Inform the initiator they failed
@@ -662,7 +661,7 @@ ach_coronation.0015 = {
 
 							show_as_tooltip = {
 								scope:host = {
-									ach_coronation_0015_minor_crush_effect = yes
+									ac_vanilla_school_ach_coronation_0015_minor_crush_effect = yes
 									add_character_modifier = {
 										modifier = ach_coronation_crackdown_character_modifier
 										years = 5
@@ -756,7 +755,7 @@ ach_coronation.0015 = {
 			}
 		}
 
-		ach_coronation_0015_medium_crush_effect = yes
+		ac_vanilla_school_ach_coronation_0015_medium_crush_effect = yes
 		add_prestige = minor_prestige_loss
 
 		hidden_effect = {
@@ -861,7 +860,7 @@ pam_secular_faith_events.0026 = {
 	trigger = {
 		pam_secular_faith_christian_actor_trigger = yes
 		any_courtier = {
-			pam_sf_possessed_courtier_valid_trigger = yes
+			ac_vanilla_school_pam_sf_possessed_courtier_valid_trigger = yes
 		}
 		cp:councillor_court_chaplain ?= {
 			is_available_ai_adult = yes
@@ -870,7 +869,7 @@ pam_secular_faith_events.0026 = {
 
 	immediate = {
 		random_courtier = {
-			limit = { pam_sf_possessed_courtier_valid_trigger = yes }
+			limit = { ac_vanilla_school_pam_sf_possessed_courtier_valid_trigger = yes }
 			weight = {
 				base = 1
 				modifier = {
@@ -2522,7 +2521,7 @@ natural_disaster_flavor_events.0015 = {
 	trigger = {
 		has_tgp_dlc_trigger = yes
 		is_location_valid_for_travel_event_on_land = yes
-		is_location_affected_by_disaster_in_recovery_trigger = yes
+		ac_vanilla_school_is_location_affected_by_disaster_in_recovery_trigger = yes
 		is_landed = yes
 		primary_spouse ?= {
 			is_at_same_location = root

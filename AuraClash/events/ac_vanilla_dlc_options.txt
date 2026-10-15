@@ -2,6 +2,9 @@
 # Vanilla event bodies remain copyright Paradox Interactive; Aura Clash additions are MIT.
 # CK3 1.20.1: retain original options, scopes and after-effects.
 
+@ep3_laamp_flavour_ewan_event_cooldown_shorter = 2
+@random_harm_standard_skill_check_value = very_high_skill_rating
+
 namespace = bp1_yearly
 namespace = bp2_adult_education
 namespace = bp2_yearly
@@ -28,11 +31,9 @@ namespace = pam_generic_events
 namespace = tgp_east_asia_mandala_task_contract_events
 namespace = tgp_governor_contract_event
 
-@ep3_laamp_flavour_ewan_event_cooldown_shorter = 2
-@random_harm_standard_skill_check_value = very_high_skill_rating
 
 # Source: events/dlc/ep3/ep3_laamp_decision_events.txt (file-local helper)
-scripted_trigger 1133_holding_still_under_construction_trigger = {
+scripted_trigger ac_vanilla_dlc_1133_holding_still_under_construction_trigger = {
 	scope:city_location = {
 		has_ongoing_construction = yes
 		NOR = {
@@ -43,7 +44,7 @@ scripted_trigger 1133_holding_still_under_construction_trigger = {
 }
 
 # Source: events/dlc/ep1/ep1_fund_inspiration_events.txt (file-local helper)
-scripted_effect add_inspiration_cooldown_flag = {
+scripted_effect ac_vanilla_dlc_add_inspiration_cooldown_flag = {
 	if = {
 		limit = {
 			inspiration = { has_inspiration_type = weapon_inspiration }
@@ -146,7 +147,7 @@ scripted_effect add_inspiration_cooldown_flag = {
 }
 
 # Source: events/dlc/bp2/bp2_yearly_7.txt (file-local helper)
-scripted_effect contract_disease_from_wet_nurse_effect = {
+scripted_effect ac_vanilla_dlc_contract_disease_from_wet_nurse_effect = {
 	if = {
 		limit = {
 			scope:wet_nurse ?= { has_trait = bubonic_plague }
@@ -191,13 +192,13 @@ scripted_effect contract_disease_from_wet_nurse_effect = {
 }
 
 # Source: events/activities/imperial_examination_activity/imperial_examination_events.txt (file-local helper)
-scripted_effect critical_success_gains_effect = {
+scripted_effect ac_vanilla_dlc_critical_success_gains_effect = {
 	add_prestige = miniscule_prestige_gain
 	add_stress = minor_stress_impact_loss
 }
 
 # Source: events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt (file-local helper)
-scripted_trigger ep3_laamp_flavour_ewan_0041_access_sahara_provision_options_trigger = {
+scripted_trigger ac_vanilla_dlc_ep3_laamp_flavour_ewan_0041_access_sahara_provision_options_trigger = {
 	location = {
 		geographical_region = custom_sahara_proper
 		# If we're in an oasis, we should act like it.
@@ -206,10 +207,10 @@ scripted_trigger ep3_laamp_flavour_ewan_0041_access_sahara_provision_options_tri
 }
 
 # Source: events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt (file-local helper)
-scripted_effect ep3_laamp_flavour_ewan_4021_camp_avoids_dehydration_effect = {
+scripted_effect ac_vanilla_dlc_ep3_laamp_flavour_ewan_4021_camp_avoids_dehydration_effect = {
 	add_prestige = minor_prestige_gain
 	every_courtier = {
-		limit = { ep3_laamp_flavour_ewan_available_courtier_travel_danger_trigger = yes }
+		limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_available_courtier_travel_danger_trigger = yes }
 		custom = custom.every_adult_follower
 		add_opinion = {
 			target = root
@@ -220,10 +221,10 @@ scripted_effect ep3_laamp_flavour_ewan_4021_camp_avoids_dehydration_effect = {
 }
 
 # Source: events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt (file-local helper)
-scripted_effect ep3_laamp_flavour_ewan_4021_camp_suffers_dehydration_effect = {
+scripted_effect ac_vanilla_dlc_ep3_laamp_flavour_ewan_4021_camp_suffers_dehydration_effect = {
 	if = {
 		limit = { health <= good_health }
-		ep3_laamp_flavour_ewan_4021_increment_dehydration_effect = yes
+		ac_vanilla_dlc_ep3_laamp_flavour_ewan_4021_increment_dehydration_effect = yes
 	}
 	every_courtier = {
 		limit = {
@@ -232,12 +233,12 @@ scripted_effect ep3_laamp_flavour_ewan_4021_camp_suffers_dehydration_effect = {
 		}
 		custom = ep3_laamp_flavour_ewan.4021.tt.every_courtier_at_your_location_with_less_than_excellent_health
 		custom_tooltip = ep3_laamp_flavour_ewan.4021.tt.dehydration_increments
-		hidden_effect = { ep3_laamp_flavour_ewan_4021_increment_dehydration_effect = yes }
+		hidden_effect = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4021_increment_dehydration_effect = yes }
 	}
 }
 
 # Source: events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt (file-local helper)
-scripted_effect ep3_laamp_flavour_ewan_4021_delegate_search_to_officer_effect = {
+scripted_effect ac_vanilla_dlc_ep3_laamp_flavour_ewan_4021_delegate_search_to_officer_effect = {
 	custom_tooltip = ep3_laamp_flavour_ewan.4021.tt.officer_aptitude
 	random_list = {
 		0 = {
@@ -245,7 +246,7 @@ scripted_effect ep3_laamp_flavour_ewan_4021_delegate_search_to_officer_effect = 
 			send_interface_toast = {
 				title = ep3_laamp_flavour_ewan.4021.tt.delegated_to_officer.success
 				left_icon = $OFFICER$
-				ep3_laamp_flavour_ewan_4021_camp_avoids_dehydration_effect = yes
+				ac_vanilla_dlc_ep3_laamp_flavour_ewan_4021_camp_avoids_dehydration_effect = yes
 			}
 			modifier = {
 				add = {
@@ -262,7 +263,7 @@ scripted_effect ep3_laamp_flavour_ewan_4021_delegate_search_to_officer_effect = 
 			send_interface_toast = {
 				title = ep3_laamp_flavour_ewan.4021.tt.delegated_to_officer.failure
 				left_icon = $OFFICER$
-				ep3_laamp_flavour_ewan_4021_camp_suffers_dehydration_effect = yes
+				ac_vanilla_dlc_ep3_laamp_flavour_ewan_4021_camp_suffers_dehydration_effect = yes
 			}
 			modifier = {
 				add = {
@@ -281,7 +282,7 @@ scripted_effect ep3_laamp_flavour_ewan_4021_delegate_search_to_officer_effect = 
 }
 
 # Source: events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt (file-local helper)
-scripted_effect ep3_laamp_flavour_ewan_4021_increment_dehydration_effect = {
+scripted_effect ac_vanilla_dlc_ep3_laamp_flavour_ewan_4021_increment_dehydration_effect = {
 	if = {
 		limit = { has_character_modifier = ep3_laamp_flavour_ewan_4021_extended_period_of_dehydration_t3_modifier }
 		custom_tooltip = ep3_laamp_flavour_ewan.4021.tt.dehydration_already_at_worst
@@ -311,13 +312,13 @@ scripted_effect ep3_laamp_flavour_ewan_4021_increment_dehydration_effect = {
 }
 
 # Source: events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt (file-local helper)
-scripted_trigger ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = {
+scripted_trigger ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = {
 	location = root.location
 	health <= good_health
 }
 
 # Source: events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt (file-local helper)
-scripted_effect ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = {
+scripted_effect ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = {
 	if = {
 		limit = { has_character_modifier = ep3_laamp_flavour_ewan_4041_hypothermia_t3_modifier }
 		custom_tooltip = ep3_laamp_flavour_ewan.4041.tt.hypothermia_already_at_worst
@@ -347,17 +348,17 @@ scripted_effect ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = {
 }
 
 # Source: events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt (file-local helper)
-scripted_effect ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type_effect = {
+scripted_effect ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type_effect = {
 	switch = {
 		trigger = scope:weather_type
 		flag:storm_thunder = {
 			every_courtier = {
-				limit = { ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
 				custom = ep3_laamp_flavour_ewan.4021.tt.every_courtier_at_your_location_with_less_than_excellent_health
 				random = {
 					chance = 40
 					custom_tooltip = ep3_laamp_flavour_ewan.4041.tt.hypothermia_increments
-					hidden_effect = { ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes }
+					hidden_effect = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes }
 				}
 				if = {
 					limit = {
@@ -407,32 +408,32 @@ scripted_effect ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type
 		}
 		flag:storm_wind = {
 			every_courtier = {
-				limit = { ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
 				custom = ep3_laamp_flavour_ewan.4021.tt.every_courtier_at_your_location_with_less_than_excellent_health
 				random = {
 					chance = 25
 					custom_tooltip = ep3_laamp_flavour_ewan.4041.tt.hypothermia_increments
-					hidden_effect = { ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes }
+					hidden_effect = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes }
 				}
 			}
 		}
 		flag:storm_snow = {
 			every_courtier = {
-				limit = { ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
 				custom = ep3_laamp_flavour_ewan.4021.tt.every_courtier_at_your_location_with_less_than_excellent_health
 				random = {
 					chance = 60
 					custom_tooltip = ep3_laamp_flavour_ewan.4041.tt.hypothermia_increments_twice
 					hidden_effect = {
-						ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes
-						ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes
+						ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes
+						ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes
 					}
 				}
 			}
 		}
 		flag:storm_sand = {
 			every_courtier = {
-				limit = { ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
 				custom = ep3_laamp_flavour_ewan.4021.tt.every_courtier_at_your_location_with_less_than_excellent_health
 				random = {
 					chance = 50
@@ -469,7 +470,7 @@ scripted_effect ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type
 		}
 		flag:wild_fires = {
 			every_courtier = {
-				limit = { ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
 				custom = ep3_laamp_flavour_ewan.4021.tt.every_courtier_at_your_location_with_less_than_excellent_health
 				random = {
 					chance = 30
@@ -524,7 +525,7 @@ scripted_effect ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type
 				}
 			}
 			every_maa_regiment = {
-				limit = { ep3_laamp_flavour_ewan_4041_valid_regiment_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_valid_regiment_trigger = yes }
 				custom = ep3_laamp_flavour_ewan.4041.tt.every_regiment
 				random = {
 					chance = 40
@@ -546,14 +547,14 @@ scripted_effect ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type
 		}
 		flag:avalanches = {
 			every_courtier = {
-				limit = { ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
 				custom = ep3_laamp_flavour_ewan.4021.tt.every_courtier_at_your_location_with_less_than_excellent_health
 				random = {
 					chance = 60
 					custom_tooltip = ep3_laamp_flavour_ewan.4041.tt.hypothermia_increments_twice
 					hidden_effect = {
-						ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes
-						ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes
+						ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes
+						ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes
 					}
 				}
 				if = {
@@ -570,7 +571,7 @@ scripted_effect ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type
 				}
 			}
 			every_maa_regiment = {
-				limit = { ep3_laamp_flavour_ewan_4041_valid_regiment_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_valid_regiment_trigger = yes }
 				custom = ep3_laamp_flavour_ewan.4041.tt.every_regiment
 				random = {
 					chance = {
@@ -599,12 +600,12 @@ scripted_effect ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type
 		}
 		flag:flash_floods = {
 			every_courtier = {
-				limit = { ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
 				custom = ep3_laamp_flavour_ewan.4021.tt.every_courtier_at_your_location_with_less_than_excellent_health
 				random = {
 					chance = 30
 					custom_tooltip = ep3_laamp_flavour_ewan.4041.tt.hypothermia_increments
-					hidden_effect = { ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes }
+					hidden_effect = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes }
 				}
 				if = {
 					limit = {
@@ -629,7 +630,7 @@ scripted_effect ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type
 				}
 			}
 			every_maa_regiment = {
-				limit = { ep3_laamp_flavour_ewan_4041_valid_regiment_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_valid_regiment_trigger = yes }
 				custom = ep3_laamp_flavour_ewan.4041.tt.every_regiment
 				random = {
 					chance = {
@@ -658,14 +659,14 @@ scripted_effect ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type
 		}
 		flag:frozen_water = {
 			every_courtier = {
-				limit = { ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
 				custom = ep3_laamp_flavour_ewan.4021.tt.every_courtier_at_your_location_with_less_than_excellent_health
 				random = {
 					chance = 50
 					custom_tooltip = ep3_laamp_flavour_ewan.4041.tt.hypothermia_increments_twice
 					hidden_effect = {
-						ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes
-						ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes
+						ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes
+						ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_increment_hypothermia_effect = yes
 					}
 				}
 				if = {
@@ -680,7 +681,7 @@ scripted_effect ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type
 				}
 			}
 			every_maa_regiment = {
-				limit = { ep3_laamp_flavour_ewan_4041_valid_regiment_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_valid_regiment_trigger = yes }
 				custom = ep3_laamp_flavour_ewan.4041.tt.every_regiment
 				random = {
 					chance = {
@@ -729,7 +730,7 @@ scripted_effect ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type
 		}
 		flag:earthquake = {
 			every_courtier = {
-				limit = { ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_here_and_not_peak_health_trigger = yes }
 				custom = ep3_laamp_flavour_ewan.4021.tt.every_courtier_at_your_location_with_less_than_excellent_health
 				random = {
 					chance = 25
@@ -737,7 +738,7 @@ scripted_effect ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type
 				}
 			}
 			every_maa_regiment = {
-				limit = { ep3_laamp_flavour_ewan_4041_valid_regiment_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_valid_regiment_trigger = yes }
 				custom = ep3_laamp_flavour_ewan.4041.tt.every_regiment
 				random = {
 					chance = {
@@ -785,10 +786,10 @@ scripted_effect ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type
 }
 
 # Source: events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt (file-local helper)
-scripted_effect ep3_laamp_flavour_ewan_4041_train_rallies_effect = {
+scripted_effect ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_train_rallies_effect = {
 	add_prestige = medium_prestige_gain
 	every_courtier = {
-		limit = { ep3_laamp_flavour_ewan_available_courtier_travel_danger_trigger = yes }
+		limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_available_courtier_travel_danger_trigger = yes }
 		custom = custom.every_adult_follower
 		add_opinion = {
 			target = root
@@ -799,7 +800,7 @@ scripted_effect ep3_laamp_flavour_ewan_4041_train_rallies_effect = {
 }
 
 # Source: events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt (file-local helper)
-scripted_trigger ep3_laamp_flavour_ewan_4041_use_snowy_forest_backdrop_trigger = {
+scripted_trigger ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_use_snowy_forest_backdrop_trigger = {
 	OR = {
 		scope:weather_type = flag:storm_snow
 		scope:weather_type = flag:frozen_water
@@ -807,7 +808,7 @@ scripted_trigger ep3_laamp_flavour_ewan_4041_use_snowy_forest_backdrop_trigger =
 }
 
 # Source: events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt (file-local helper)
-scripted_trigger ep3_laamp_flavour_ewan_4041_valid_regiment_trigger = {
+scripted_trigger ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_valid_regiment_trigger = {
 	maa_current_troops_count >= 2
 	root = {
 		OR = {
@@ -821,7 +822,7 @@ scripted_trigger ep3_laamp_flavour_ewan_4041_valid_regiment_trigger = {
 }
 
 # Source: events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt (file-local helper)
-scripted_effect ep3_laamp_flavour_ewan_4091_roll_duel_effect = {
+scripted_effect ac_vanilla_dlc_ep3_laamp_flavour_ewan_4091_roll_duel_effect = {
 	duel = {
 		skill = $SKILL$
 		value = very_high_skill_rating
@@ -878,13 +879,13 @@ scripted_effect ep3_laamp_flavour_ewan_4091_roll_duel_effect = {
 }
 
 # Source: events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt (file-local helper)
-scripted_trigger ep3_laamp_flavour_ewan_available_courtier_travel_danger_trigger = {
+scripted_trigger ac_vanilla_dlc_ep3_laamp_flavour_ewan_available_courtier_travel_danger_trigger = {
 	is_adult = yes
 	location = root.location
 }
 
 # Source: events/dlc/fp1/fp1_yearly_events.txt (file-local helper)
-scripted_trigger fp1_valid_riddler_at_court_trigger = {
+scripted_trigger ac_vanilla_dlc_fp1_valid_riddler_at_court_trigger = {
 	# We want characters of minor or major interest, ideally.
 	is_of_major_or_minor_interest_trigger = { CHARACTER = root }
 	# And we want to make sure they're available and can speak.
@@ -892,7 +893,7 @@ scripted_trigger fp1_valid_riddler_at_court_trigger = {
 }
 
 # Source: events/dlc/fp3/fp3_heritage_events.txt (file-local helper)
-scripted_trigger fp3_loves_faloodeh_trigger = {
+scripted_trigger ac_vanilla_dlc_fp3_loves_faloodeh_trigger = {
 	is_available_ai = yes
 	is_healthy = yes 
 	OR = {
@@ -912,7 +913,7 @@ scripted_trigger fp3_loves_faloodeh_trigger = {
 }
 
 # Source: events/dlc/ep1/ep1_fund_inspiration_events.txt (file-local helper)
-scripted_trigger fund_inspiration_court_inspiration_owner_trigger = {
+scripted_trigger ac_vanilla_dlc_fund_inspiration_court_inspiration_owner_trigger = {
 	is_available_ai_adult = yes
 	inspiration = { #Since they're away adventuring
 		NOT = { has_inspiration_type = adventure_inspiration }
@@ -920,7 +921,7 @@ scripted_trigger fund_inspiration_court_inspiration_owner_trigger = {
 }
 
 # Source: events/harm_events.txt (file-local helper)
-scripted_effect harm_0000_apply_dynastic_cooldowns_effect = {
+scripted_effect ac_vanilla_dlc_harm_0000_apply_dynastic_cooldowns_effect = {
 	# Are we a player?
 	if = {
 		limit = { is_ai = no }
@@ -946,7 +947,7 @@ scripted_effect harm_0000_apply_dynastic_cooldowns_effect = {
 }
 
 # Source: events/harm_events.txt (file-local helper)
-scripted_trigger harm_0511_rides_horses_trigger = {
+scripted_trigger ac_vanilla_dlc_harm_0511_rides_horses_trigger = {
 	OR = {
 		# Either you're not a tribe.
 		NOT = { government_has_flag = government_is_tribal }
@@ -958,7 +959,7 @@ scripted_trigger harm_0511_rides_horses_trigger = {
 }
 
 # Source: events/harm_events.txt (file-local helper)
-scripted_trigger harm_0521_cultural_tradition_encourages_swimming_trigger = {
+scripted_trigger ac_vanilla_dlc_harm_0521_cultural_tradition_encourages_swimming_trigger = {
 	culture = {
 		OR = {
 			has_cultural_parameter = next_level_trade_ports
@@ -973,7 +974,7 @@ scripted_trigger harm_0521_cultural_tradition_encourages_swimming_trigger = {
 }
 
 # Source: events/harm_events.txt (file-local helper)
-scripted_trigger harm_0521_has_waterside_capital_trigger = {
+scripted_trigger ac_vanilla_dlc_harm_0521_has_waterside_capital_trigger = {
 	location ?= {
 		OR = {
 			is_sea_province = yes
@@ -989,7 +990,7 @@ scripted_trigger harm_0521_has_waterside_capital_trigger = {
 }
 
 # Source: events/harm_events.txt (file-local helper)
-scripted_trigger harm_0591_likely_to_go_to_town_trigger = {
+scripted_trigger ac_vanilla_dlc_harm_0591_likely_to_go_to_town_trigger = {
 	# Shy'n'lazy characters don't bother going out.
 	NOR = {
 		has_trait = shy
@@ -1000,7 +1001,7 @@ scripted_trigger harm_0591_likely_to_go_to_town_trigger = {
 }
 
 # Source: events/dlc/ep1/ep1_fund_inspiration_events.txt (file-local helper)
-scripted_trigger has_artisan_incapacity_trait = {
+scripted_trigger ac_vanilla_dlc_has_artisan_incapacity_trait = {
 	OR = {
 		has_trait = lunatic
 		has_trait = possessed
@@ -1020,7 +1021,7 @@ scripted_trigger has_artisan_incapacity_trait = {
 }
 
 # Source: events/dlc/ep1/ep1_fund_inspiration_events.txt (file-local helper)
-scripted_trigger has_no_inspiration_event_cooldown = {
+scripted_trigger ac_vanilla_dlc_has_no_inspiration_event_cooldown = {
 	has_none_of_variables = {
 		name = fund_weapon_inspiration_event_cooldown
 		name = fund_armor_inspiration_event_cooldown
@@ -1035,7 +1036,7 @@ scripted_trigger has_no_inspiration_event_cooldown = {
 }
 
 # Source: events/activities/hold_court_activity/hold_court_events_general.txt (file-local helper)
-scripted_trigger hold_court_6140_africa_trigger = {
+scripted_trigger ac_vanilla_dlc_hold_court_6140_africa_trigger = {
 	OR = {
 		terrain = jungle
 		terrain = desert_mountains
@@ -1046,7 +1047,7 @@ scripted_trigger hold_court_6140_africa_trigger = {
 }
 
 # Source: events/activities/hold_court_activity/hold_court_events_general.txt (file-local helper)
-scripted_trigger hold_court_6140_europe_trigger = {
+scripted_trigger ac_vanilla_dlc_hold_court_6140_europe_trigger = {
 	OR = {
 		terrain = forest
 		terrain = taiga
@@ -1055,13 +1056,13 @@ scripted_trigger hold_court_6140_europe_trigger = {
 }
 
 # Source: events/activities/hold_court_activity/hold_court_events_general.txt (file-local helper)
-scripted_trigger hold_court_6140_india_trigger = {
+scripted_trigger ac_vanilla_dlc_hold_court_6140_india_trigger = {
 	terrain = jungle
 	geographical_region = world_india
 }
 
 # Source: events/activities/hold_court_activity/hold_court_events_general.txt (file-local helper)
-scripted_trigger hold_court_6140_valid_vassal_trigger = {
+scripted_trigger ac_vanilla_dlc_hold_court_6140_valid_vassal_trigger = {
 	has_court_event_flag = no
 	opinion = {
 		target = root
@@ -1071,16 +1072,16 @@ scripted_trigger hold_court_6140_valid_vassal_trigger = {
 	any_held_county = {
 		title_province = {
 			OR = {
-				hold_court_6140_europe_trigger = yes
-				hold_court_6140_india_trigger = yes
-				hold_court_6140_africa_trigger = yes
+				ac_vanilla_dlc_hold_court_6140_europe_trigger = yes
+				ac_vanilla_dlc_hold_court_6140_india_trigger = yes
+				ac_vanilla_dlc_hold_court_6140_africa_trigger = yes
 			}
 		}
 	}
 }
 
 # Source: events/activities/imperial_examination_activity/imperial_examination_events.txt (file-local helper)
-scripted_effect imperial_examination_add_score_effect = {
+scripted_effect ac_vanilla_dlc_imperial_examination_add_score_effect = {
 	#Keep track of how much we gained, locally
 	if = {
 		limit = { has_variable = temporary_exam_score }
@@ -1112,7 +1113,7 @@ scripted_effect imperial_examination_add_score_effect = {
 }
 
 # Source: events/activities/imperial_examination_activity/imperial_examination_events.txt (file-local helper)
-scripted_effect imperial_examination_caught_cheating_effect = {
+scripted_effect ac_vanilla_dlc_imperial_examination_caught_cheating_effect = {
 	#We remove this after this round of exams are done so that you get to do the next round of exams, with stink-eye loc
 	set_variable = been_caught_cheating
 	#We keep this so that you get a massive penalty on your final merit gain at the end of the activity (unless you get rid of it somehow...)
@@ -1123,7 +1124,7 @@ scripted_effect imperial_examination_caught_cheating_effect = {
 }
 
 # Source: events/activities/imperial_examination_activity/imperial_examination_events.txt (file-local helper)
-scripted_effect imperial_examination_exam_cheat_effect = {
+scripted_effect ac_vanilla_dlc_imperial_examination_exam_cheat_effect = {
 	#Notify the player that they are spending this cheat
 	custom_tooltip = imperial_examination.cheat_spent.tt
 	#What's the outcome?
@@ -1131,7 +1132,7 @@ scripted_effect imperial_examination_exam_cheat_effect = {
 		90 = {
 			desc = imperial_examination.cheat.success.desc
 			custom_tooltip = imperial_examination.cheat.success.tt
-			imperial_examination_add_score_effect = { VALUE = imperial_examination_cheat_value }
+			ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_cheat_value }
 			#Notify the player
 			send_interface_toast = {
 				type = event_toast_text_good
@@ -1143,21 +1144,21 @@ scripted_effect imperial_examination_exam_cheat_effect = {
 		10 = {
 			desc = imperial_examination.cheat.failure.desc
 			custom_tooltip = imperial_examination.cheat.failure.tt
-			imperial_examination_caught_cheating_effect = yes
+			ac_vanilla_dlc_imperial_examination_caught_cheating_effect = yes
 			trigger_event = imperial_examination.6000
 		}
 	}
 }
 
 # Source: events/activities/imperial_examination_activity/imperial_examination_events.txt (file-local helper)
-scripted_effect imperial_examination_exam_duel_critical_success_effect = {
+scripted_effect ac_vanilla_dlc_imperial_examination_exam_duel_critical_success_effect = {
 	#Notify the player
 	send_interface_toast = {
 		type = event_toast_text_and_effect_good
 		title = imperial_examination.duel.critical_success.t
 		desc = imperial_examination.duel.$EXAM$.critical_success.tt
 		left_icon = root
-		show_as_tooltip = { critical_success_gains_effect = yes }
+		show_as_tooltip = { ac_vanilla_dlc_critical_success_gains_effect = yes }
 	}
 	#So that we can both show the desc and effect to the player
 	hidden_effect = {
@@ -1169,7 +1170,7 @@ scripted_effect imperial_examination_exam_duel_critical_success_effect = {
 				character = root
 				#Effects
 				root = {
-					critical_success_gains_effect = yes
+					ac_vanilla_dlc_critical_success_gains_effect = yes
 					if = {
 						limit = {
 							has_trait = confucian_education
@@ -1195,7 +1196,7 @@ scripted_effect imperial_examination_exam_duel_critical_success_effect = {
 }
 
 # Source: events/activities/imperial_examination_activity/imperial_examination_events.txt (file-local helper)
-scripted_effect imperial_examination_exam_duel_effect = {
+scripted_effect ac_vanilla_dlc_imperial_examination_exam_duel_effect = {
 	#Notify the player that they have collected some advantages
 	if = {
 		limit = { has_variable = has_exam_advantage }
@@ -1321,30 +1322,30 @@ scripted_effect imperial_examination_exam_duel_effect = {
 			#Which activity log entry?
 			if = {
 				limit = { scope:current_examination = flag:essay }
-				imperial_examination_exam_duel_critical_success_effect = { EXAM = essay }
+				ac_vanilla_dlc_imperial_examination_exam_duel_critical_success_effect = { EXAM = essay }
 			}
 			if = {
 				limit = { scope:current_examination = flag:classics }
-				imperial_examination_exam_duel_critical_success_effect = { EXAM = classics }
+				ac_vanilla_dlc_imperial_examination_exam_duel_critical_success_effect = { EXAM = classics }
 			}
 			if = {
 				limit = { scope:current_examination = flag:poetry }
-				imperial_examination_exam_duel_critical_success_effect = { EXAM = poetry }
+				ac_vanilla_dlc_imperial_examination_exam_duel_critical_success_effect = { EXAM = poetry }
 			}
 			if = {
 				limit = { scope:current_examination = flag:archery }
-				imperial_examination_exam_duel_critical_success_effect = { EXAM = archery }
+				ac_vanilla_dlc_imperial_examination_exam_duel_critical_success_effect = { EXAM = archery }
 			}
 			if = {
 				limit = { scope:current_examination = flag:polearm }
-				imperial_examination_exam_duel_critical_success_effect = { EXAM = polearm }
+				ac_vanilla_dlc_imperial_examination_exam_duel_critical_success_effect = { EXAM = polearm }
 			}
 			if = {
 				limit = { scope:current_examination = flag:riding }
-				imperial_examination_exam_duel_critical_success_effect = { EXAM = riding }
+				ac_vanilla_dlc_imperial_examination_exam_duel_critical_success_effect = { EXAM = riding }
 			}
 			#Award score
-			imperial_examination_add_score_effect = { VALUE = imperial_examination_critical_success_value }
+			ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_critical_success_value }
 		}
 		20 = {
 			compare_modifier = {
@@ -1453,9 +1454,9 @@ scripted_effect imperial_examination_exam_duel_effect = {
 			desc = imperial_examination.duel.$EXAM$.great_success.tt
 			custom_tooltip = imperial_examination.score.great_success.tt
 			#Which exam type?
-			imperial_examination_exam_duel_great_success_effect = { EXAM = $EXAM$ }
+			ac_vanilla_dlc_imperial_examination_exam_duel_great_success_effect = { EXAM = $EXAM$ }
 			#Award score
-			imperial_examination_add_score_effect = { VALUE = imperial_examination_great_success_value }
+			ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_great_success_value }
 		}
 		30 = {
 			compare_modifier = {
@@ -1499,9 +1500,9 @@ scripted_effect imperial_examination_exam_duel_effect = {
 			desc = imperial_examination.duel.$EXAM$.success.tt
 			custom_tooltip = imperial_examination.score.success.tt
 			#Which exam type?
-			imperial_examination_exam_duel_success_effect = { EXAM = $EXAM$ }
+			ac_vanilla_dlc_imperial_examination_exam_duel_success_effect = { EXAM = $EXAM$ }
 			#Award score
-			imperial_examination_add_score_effect = { VALUE = imperial_examination_success_value }
+			ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_success_value }
 
 		}
 		40 = {
@@ -1513,15 +1514,15 @@ scripted_effect imperial_examination_exam_duel_effect = {
 			desc = imperial_examination.duel.$EXAM$.failure.tt
 			custom_tooltip = imperial_examination.score.failure.tt
 			#Which exam type?
-			imperial_examination_exam_duel_failure_effect = { EXAM = $EXAM$ }
+			ac_vanilla_dlc_imperial_examination_exam_duel_failure_effect = { EXAM = $EXAM$ }
 			#No score
-			imperial_examination_add_score_effect = { VALUE = 0 }
+			ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = 0 }
 		}
 	}
 }
 
 # Source: events/activities/imperial_examination_activity/imperial_examination_events.txt (file-local helper)
-scripted_effect imperial_examination_exam_duel_failure_effect = {
+scripted_effect ac_vanilla_dlc_imperial_examination_exam_duel_failure_effect = {
 	send_interface_toast = {
 		type = event_toast_text_bad
 		title = imperial_examination.duel.failure.t
@@ -1531,7 +1532,7 @@ scripted_effect imperial_examination_exam_duel_failure_effect = {
 }
 
 # Source: events/activities/imperial_examination_activity/imperial_examination_events.txt (file-local helper)
-scripted_effect imperial_examination_exam_duel_great_success_effect = {
+scripted_effect ac_vanilla_dlc_imperial_examination_exam_duel_great_success_effect = {
 	send_interface_toast = {
 		type = event_toast_text_and_effect_good
 		title = imperial_examination.duel.great_success.t
@@ -1542,7 +1543,7 @@ scripted_effect imperial_examination_exam_duel_great_success_effect = {
 }
 
 # Source: events/activities/imperial_examination_activity/imperial_examination_events.txt (file-local helper)
-scripted_effect imperial_examination_exam_duel_success_effect = {
+scripted_effect ac_vanilla_dlc_imperial_examination_exam_duel_success_effect = {
 	send_interface_toast = {
 		type = event_toast_text_good
 		title = imperial_examination.duel.success.t
@@ -1552,7 +1553,7 @@ scripted_effect imperial_examination_exam_duel_success_effect = {
 }
 
 # Source: events/activities/imperial_examination_activity/imperial_examination_events.txt (file-local helper)
-scripted_effect imperial_examination_fetch_examiner_effect = {
+scripted_effect ac_vanilla_dlc_imperial_examination_fetch_examiner_effect = {
 	if = {
 		limit = {
 			scope:activity = {
@@ -1590,7 +1591,7 @@ scripted_effect imperial_examination_fetch_examiner_effect = {
 }
 
 # Source: events/activities/imperial_examination_activity/imperial_examination_events.txt (file-local helper)
-scripted_effect imperial_examination_fetch_other_entrant_effect = {
+scripted_effect ac_vanilla_dlc_imperial_examination_fetch_other_entrant_effect = {
 	scope:activity = {
 		random_attending_character = {
 			limit = {
@@ -1605,7 +1606,7 @@ scripted_effect imperial_examination_fetch_other_entrant_effect = {
 }
 
 # Source: events/activities/imperial_examination_activity/imperial_examination_events.txt (file-local helper)
-scripted_effect imperial_examination_set_up_exam_advantage_scope = {
+scripted_effect ac_vanilla_dlc_imperial_examination_set_up_exam_advantage_scope = {
 	if = {
 		limit = { has_variable = has_exam_advantage }
 		save_scope_value_as = {
@@ -1619,7 +1620,7 @@ scripted_effect imperial_examination_set_up_exam_advantage_scope = {
 }
 
 # Source: events/dlc/pam/pam_generic_events.txt (file-local helper)
-scripted_trigger pam_generic_events_0009_comforting_courtier_trigger = {
+scripted_trigger ac_vanilla_dlc_pam_generic_events_0009_comforting_courtier_trigger = {
 	is_available_ai_adult = yes
 	opinion = {
 		target = root
@@ -1628,7 +1629,7 @@ scripted_trigger pam_generic_events_0009_comforting_courtier_trigger = {
 }
 
 # Source: events/dlc/ep3/ep3_contract_events.txt (file-local helper)
-scripted_effect set_contract_scopes_effect = {
+scripted_effect ac_vanilla_dlc_set_contract_scopes_effect = {
 	scope:task_contract.task_contract_taker ?= {
 		save_scope_as = task_contract_taker
 	}
@@ -1699,7 +1700,7 @@ scripted_effect set_contract_scopes_effect = {
 }
 
 # Source: events/activities/debate_activity/debate_events.txt (file-local helper)
-scripted_effect set_opponent_scope_effect = {
+scripted_effect ac_vanilla_dlc_set_opponent_scope_effect = {
     if = {
         limit = {
             scope:activity.var:challenged_movement_leader = {
@@ -1721,8 +1722,7 @@ scripted_effect set_opponent_scope_effect = {
             save_scope_as = debate_opponent
         }
     }
-}
-# Source: events/dlc/tgp/tgp_governor_contract_events.txt:2229
+}# Source: events/dlc/tgp/tgp_governor_contract_events.txt:2229
 tgp_governor_contract_event.0025 = {
 	id_override_priority = 10 # AC: individual CK3 1.20.1 event override
 
@@ -2485,9 +2485,9 @@ imperial_examination.5000 = {
 			name = current_examination
 			value = flag:essay
 		}
-		imperial_examination_set_up_exam_advantage_scope = yes
+		ac_vanilla_dlc_imperial_examination_set_up_exam_advantage_scope = yes
 		scope:activity = {
-			imperial_examination_fetch_other_entrant_effect = yes
+			ac_vanilla_dlc_imperial_examination_fetch_other_entrant_effect = yes
 			if = {
 				limit = {
 					has_activity_type = activity_imperial_examination
@@ -2498,7 +2498,7 @@ imperial_examination.5000 = {
 					save_scope_as = examiner
 				}
 			}
-			else = { imperial_examination_fetch_examiner_effect = yes }
+			else = { ac_vanilla_dlc_imperial_examination_fetch_examiner_effect = yes }
 		}
 	}
 	#Cheat: Someone else takes the exam for you
@@ -2515,8 +2515,8 @@ imperial_examination.5000 = {
 		    change_variable = { name = has_exam_advantage add = 1 }
 		}
 		else = { set_variable = { name = has_exam_advantage value = 1 } }
-		imperial_examination_set_up_exam_advantage_scope = yes
-		imperial_examination_exam_duel_effect = { EXAM = essay }
+		ac_vanilla_dlc_imperial_examination_set_up_exam_advantage_scope = yes
+		ac_vanilla_dlc_imperial_examination_exam_duel_effect = { EXAM = essay }
 		if = {
 		    limit = { exists = scope:ac_dlc_prior_exam_advantage }
 		    set_variable = { name = has_exam_advantage value = scope:ac_dlc_prior_exam_advantage }
@@ -2541,8 +2541,8 @@ imperial_examination.5000 = {
 		    change_variable = { name = has_exam_advantage add = 1 }
 		}
 		else = { set_variable = { name = has_exam_advantage value = 1 } }
-		imperial_examination_set_up_exam_advantage_scope = yes
-		imperial_examination_exam_duel_effect = { EXAM = essay }
+		ac_vanilla_dlc_imperial_examination_set_up_exam_advantage_scope = yes
+		ac_vanilla_dlc_imperial_examination_exam_duel_effect = { EXAM = essay }
 		if = {
 		    limit = { exists = scope:ac_dlc_prior_exam_advantage }
 		    set_variable = { name = has_exam_advantage value = scope:ac_dlc_prior_exam_advantage }
@@ -2559,7 +2559,7 @@ imperial_examination.5000 = {
 		custom_tooltip = has_exam_taker_tt
 		trigger = { var:has_exam_taker.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = has_exam_taker
 		ai_chance = {
 			base = 200
@@ -2571,7 +2571,7 @@ imperial_examination.5000 = {
 		custom_tooltip = has_bribed_examiner_tt
 		trigger = { var:has_bribed_examiner.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = has_bribed_examiner
 		ai_chance = {
 			base = 200
@@ -2583,7 +2583,7 @@ imperial_examination.5000 = {
 		custom_tooltip = has_blackmailed_examiner_tt
 		trigger = { var:has_blackmailed_examiner.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = has_blackmailed_examiner
 		ai_chance = {
 			base = 200
@@ -2595,7 +2595,7 @@ imperial_examination.5000 = {
 		custom_tooltip = has_planted_answers_tt
 		trigger = { var:has_planted_answers.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = has_planted_answers
 		ai_chance = {
 			base = 200
@@ -2606,7 +2606,7 @@ imperial_examination.5000 = {
 		name = imperial_examination.5000.f
 		trigger = { var:parent_has_bribed_examiner.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = parent_has_bribed_examiner
 		ai_chance = {
 			base = 200
@@ -2615,7 +2615,7 @@ imperial_examination.5000 = {
 	#Just do it
 	option = {
 		name = imperial_examination.5000.a
-		imperial_examination_exam_duel_effect = { EXAM = essay }
+		ac_vanilla_dlc_imperial_examination_exam_duel_effect = { EXAM = essay }
 		add_internal_flag = special
 		ai_chance = {
 			base = 100
@@ -2736,9 +2736,9 @@ imperial_examination.5100 = {
 			name = current_examination
 			value = flag:poetry
 		}
-		imperial_examination_set_up_exam_advantage_scope = yes
+		ac_vanilla_dlc_imperial_examination_set_up_exam_advantage_scope = yes
 		scope:activity = {
-			imperial_examination_fetch_other_entrant_effect = yes
+			ac_vanilla_dlc_imperial_examination_fetch_other_entrant_effect = yes
 			if = {
 				limit = {
 					has_activity_type = activity_imperial_examination
@@ -2749,7 +2749,7 @@ imperial_examination.5100 = {
 					save_scope_as = examiner
 				}
 			}
-			else = { imperial_examination_fetch_examiner_effect = yes }
+			else = { ac_vanilla_dlc_imperial_examination_fetch_examiner_effect = yes }
 		}
 	}
 	#Cheat: Someone else takes the exam for you
@@ -2766,8 +2766,8 @@ imperial_examination.5100 = {
 		    change_variable = { name = has_exam_advantage add = 1 }
 		}
 		else = { set_variable = { name = has_exam_advantage value = 1 } }
-		imperial_examination_set_up_exam_advantage_scope = yes
-		imperial_examination_exam_duel_effect = { EXAM = poetry }
+		ac_vanilla_dlc_imperial_examination_set_up_exam_advantage_scope = yes
+		ac_vanilla_dlc_imperial_examination_exam_duel_effect = { EXAM = poetry }
 		if = {
 		    limit = { exists = scope:ac_dlc_prior_exam_advantage }
 		    set_variable = { name = has_exam_advantage value = scope:ac_dlc_prior_exam_advantage }
@@ -2792,8 +2792,8 @@ imperial_examination.5100 = {
 		    change_variable = { name = has_exam_advantage add = 1 }
 		}
 		else = { set_variable = { name = has_exam_advantage value = 1 } }
-		imperial_examination_set_up_exam_advantage_scope = yes
-		imperial_examination_exam_duel_effect = { EXAM = poetry }
+		ac_vanilla_dlc_imperial_examination_set_up_exam_advantage_scope = yes
+		ac_vanilla_dlc_imperial_examination_exam_duel_effect = { EXAM = poetry }
 		if = {
 		    limit = { exists = scope:ac_dlc_prior_exam_advantage }
 		    set_variable = { name = has_exam_advantage value = scope:ac_dlc_prior_exam_advantage }
@@ -2810,7 +2810,7 @@ imperial_examination.5100 = {
 		custom_tooltip = has_exam_taker_tt
 		trigger = { var:has_exam_taker.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = has_exam_taker
 		ai_chance = {
 			base = 200
@@ -2822,7 +2822,7 @@ imperial_examination.5100 = {
 		custom_tooltip = has_bribed_examiner_tt
 		trigger = { var:has_bribed_examiner.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = has_bribed_examiner
 		ai_chance = {
 			base = 200
@@ -2834,7 +2834,7 @@ imperial_examination.5100 = {
 		custom_tooltip = has_blackmailed_examiner_tt
 		trigger = { var:has_blackmailed_examiner.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = has_blackmailed_examiner
 		ai_chance = {
 			base = 200
@@ -2846,7 +2846,7 @@ imperial_examination.5100 = {
 		custom_tooltip = has_planted_answers_tt
 		trigger = { var:has_planted_answers.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = has_planted_answers
 		ai_chance = {
 			base = 200
@@ -2861,7 +2861,7 @@ imperial_examination.5100 = {
 		}
 		add_internal_flag = special
 		#Award score
-		imperial_examination_add_score_effect = { VALUE = imperial_examination_great_success_value }
+		ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_great_success_value }
 		ai_chance = {
 			base = 300
 		}
@@ -2871,7 +2871,7 @@ imperial_examination.5100 = {
 		name = imperial_examination.5100.g
 		trigger = { var:parent_has_bribed_examiner.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = has_bribed_examiner
 		ai_chance = {
 			base = 200
@@ -2880,7 +2880,7 @@ imperial_examination.5100 = {
 	#Just do it
 	option = {
 		name = imperial_examination.5100.a
-		imperial_examination_exam_duel_effect = { EXAM = poetry }
+		ac_vanilla_dlc_imperial_examination_exam_duel_effect = { EXAM = poetry }
 		ai_chance = {
 			base = 100
 		}
@@ -2963,12 +2963,12 @@ imperial_examination.5160 = {
 					save_scope_as = examiner
 				}
 			}
-			else = { imperial_examination_fetch_examiner_effect = yes }
+			else = { ac_vanilla_dlc_imperial_examination_fetch_examiner_effect = yes }
 		}
 		# Find other entrant
-		imperial_examination_fetch_other_entrant_effect = yes
+		ac_vanilla_dlc_imperial_examination_fetch_other_entrant_effect = yes
 		#Let's count our advantages
-		imperial_examination_set_up_exam_advantage_scope = yes
+		ac_vanilla_dlc_imperial_examination_set_up_exam_advantage_scope = yes
 	}
 
 	#Cheat: Someone else takes the exam for you
@@ -2985,8 +2985,8 @@ imperial_examination.5160 = {
 		    change_variable = { name = has_exam_advantage add = 1 }
 		}
 		else = { set_variable = { name = has_exam_advantage value = 1 } }
-		imperial_examination_set_up_exam_advantage_scope = yes
-		imperial_examination_exam_duel_effect = { EXAM = polearm }
+		ac_vanilla_dlc_imperial_examination_set_up_exam_advantage_scope = yes
+		ac_vanilla_dlc_imperial_examination_exam_duel_effect = { EXAM = polearm }
 		if = {
 		    limit = { exists = scope:ac_dlc_prior_exam_advantage }
 		    set_variable = { name = has_exam_advantage value = scope:ac_dlc_prior_exam_advantage }
@@ -3003,7 +3003,7 @@ imperial_examination.5160 = {
 		custom_tooltip = has_exam_taker_tt
 		trigger = { var:has_exam_taker.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = has_exam_taker
 	}
 
@@ -3013,7 +3013,7 @@ imperial_examination.5160 = {
 		custom_tooltip = has_bribed_examiner_tt
 		trigger = { var:has_bribed_examiner.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = has_bribed_examiner
 		ai_chance = {
 			base = 200
@@ -3026,7 +3026,7 @@ imperial_examination.5160 = {
 		custom_tooltip = has_blackmailed_examiner_tt
 		trigger = { var:has_blackmailed_examiner.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = has_blackmailed_examiner
 		ai_chance = {
 			base = 200
@@ -3039,7 +3039,7 @@ imperial_examination.5160 = {
 		custom_tooltip = has_blackmailed_examiner_tt
 		trigger = { var:parent_has_bribed_examiner.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = parent_has_bribed_examiner
 		ai_chance = {
 			base = 200
@@ -3049,7 +3049,7 @@ imperial_examination.5160 = {
 	#Just do it
 	option = {
 		name = imperial_examination.5160.a
-		imperial_examination_exam_duel_effect = { EXAM = polearm }
+		ac_vanilla_dlc_imperial_examination_exam_duel_effect = { EXAM = polearm }
 		ai_chance = {
 			base = 100
 		}
@@ -3117,9 +3117,9 @@ imperial_examination.5170 = {
 			value = flag:riding
 		}
 		# Find other entrant
-		imperial_examination_fetch_other_entrant_effect = yes
+		ac_vanilla_dlc_imperial_examination_fetch_other_entrant_effect = yes
 		#Let's count our advantages
-		imperial_examination_set_up_exam_advantage_scope = yes
+		ac_vanilla_dlc_imperial_examination_set_up_exam_advantage_scope = yes
 	}
 
 	#Cheat: Someone else takes the exam for you
@@ -3136,8 +3136,8 @@ imperial_examination.5170 = {
 		    change_variable = { name = has_exam_advantage add = 1 }
 		}
 		else = { set_variable = { name = has_exam_advantage value = 1 } }
-		imperial_examination_set_up_exam_advantage_scope = yes
-		imperial_examination_exam_duel_effect = { EXAM = riding }
+		ac_vanilla_dlc_imperial_examination_set_up_exam_advantage_scope = yes
+		ac_vanilla_dlc_imperial_examination_exam_duel_effect = { EXAM = riding }
 		if = {
 		    limit = { exists = scope:ac_dlc_prior_exam_advantage }
 		    set_variable = { name = has_exam_advantage value = scope:ac_dlc_prior_exam_advantage }
@@ -3162,8 +3162,8 @@ imperial_examination.5170 = {
 		    change_variable = { name = has_exam_advantage add = 1 }
 		}
 		else = { set_variable = { name = has_exam_advantage value = 1 } }
-		imperial_examination_set_up_exam_advantage_scope = yes
-		imperial_examination_exam_duel_effect = { EXAM = riding }
+		ac_vanilla_dlc_imperial_examination_set_up_exam_advantage_scope = yes
+		ac_vanilla_dlc_imperial_examination_exam_duel_effect = { EXAM = riding }
 		if = {
 		    limit = { exists = scope:ac_dlc_prior_exam_advantage }
 		    set_variable = { name = has_exam_advantage value = scope:ac_dlc_prior_exam_advantage }
@@ -3180,7 +3180,7 @@ imperial_examination.5170 = {
 		custom_tooltip = has_exam_taker_tt
 		trigger = { var:has_exam_taker.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = has_exam_taker
 	}
 
@@ -3190,7 +3190,7 @@ imperial_examination.5170 = {
 		custom_tooltip = has_bribed_examiner_tt
 		trigger = { var:has_bribed_examiner.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = has_bribed_examiner
 		ai_chance = {
 			base = 200
@@ -3203,7 +3203,7 @@ imperial_examination.5170 = {
 		custom_tooltip = has_blackmailed_examiner_tt
 		trigger = { var:has_blackmailed_examiner.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = has_blackmailed_examiner
 		ai_chance = {
 			base = 200
@@ -3216,7 +3216,7 @@ imperial_examination.5170 = {
 		custom_tooltip = has_blackmailed_examiner_tt
 		trigger = { var:parent_has_bribed_examiner.involved_activity ?= scope:activity }
 		add_internal_flag = special
-		imperial_examination_exam_cheat_effect = yes
+		ac_vanilla_dlc_imperial_examination_exam_cheat_effect = yes
 		remove_variable = parent_has_bribed_examiner
 		ai_chance = {
 			base = 200
@@ -3261,7 +3261,7 @@ imperial_examination.5170 = {
 		}
 		add_internal_flag = special
 		#Award score
-		imperial_examination_add_score_effect = { VALUE = imperial_examination_great_success_value }
+		ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_great_success_value }
 		ai_chance = {
 			base = 300
 		}
@@ -3270,7 +3270,7 @@ imperial_examination.5170 = {
 	#Just do it
 	option = {
 		name = imperial_examination.5170.a
-		imperial_examination_exam_duel_effect = { EXAM = riding }
+		ac_vanilla_dlc_imperial_examination_exam_duel_effect = { EXAM = riding }
 		ai_chance = {
 			base = 100
 		}
@@ -3315,7 +3315,7 @@ imperial_examination.5300 = {
 		trigger = { ac_activity_kii_academy_trigger = yes  }
 		custom_tooltip = ac_event_dlc_palace_kii_academy_tt
 		save_scope_as = ac_event_practitioner
-		imperial_examination_set_up_exam_advantage_scope = yes
+		ac_vanilla_dlc_imperial_examination_set_up_exam_advantage_scope = yes
 		if = {
 					limit = { has_variable = has_exam_advantage }
 					if = {
@@ -3407,7 +3407,7 @@ imperial_examination.5300 = {
 						desc = imperial_examination.duel.essay.critical_success.tt
 						custom_tooltip = imperial_examination.score.critical_success.tt
 						#Award score
-						imperial_examination_add_score_effect = { VALUE = imperial_examination_critical_success_value }
+						ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_critical_success_value }
 						add_character_flag = palace_critical_success
 					}
 					20 = {
@@ -3485,7 +3485,7 @@ imperial_examination.5300 = {
 						desc = imperial_examination.duel.essay.great_success.tt
 						custom_tooltip = imperial_examination.score.great_success.tt
 						#Award score
-						imperial_examination_add_score_effect = { VALUE = imperial_examination_great_success_value }
+						ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_great_success_value }
 						add_character_flag = palace_great_success
 					}
 					30 = {
@@ -3509,7 +3509,7 @@ imperial_examination.5300 = {
 						desc = imperial_examination.duel.essay.success.tt
 						custom_tooltip = imperial_examination.score.success.tt
 						#Award score
-						imperial_examination_add_score_effect = { VALUE = imperial_examination_success_value }
+						ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_success_value }
 						add_character_flag = palace_success
 					}
 					40 = {
@@ -3533,7 +3533,7 @@ imperial_examination.5300 = {
 		trigger = { ac_activity_aoyu_calm_trigger = yes  }
 		custom_tooltip = ac_event_dlc_palace_aoyu_calm_tt
 		save_scope_as = ac_event_practitioner
-		imperial_examination_set_up_exam_advantage_scope = yes
+		ac_vanilla_dlc_imperial_examination_set_up_exam_advantage_scope = yes
 		if = {
 					limit = { has_variable = has_exam_advantage }
 					if = {
@@ -3625,7 +3625,7 @@ imperial_examination.5300 = {
 						desc = imperial_examination.duel.essay.critical_success.tt
 						custom_tooltip = imperial_examination.score.critical_success.tt
 						#Award score
-						imperial_examination_add_score_effect = { VALUE = imperial_examination_critical_success_value }
+						ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_critical_success_value }
 						add_character_flag = palace_critical_success
 					}
 					20 = {
@@ -3703,7 +3703,7 @@ imperial_examination.5300 = {
 						desc = imperial_examination.duel.essay.great_success.tt
 						custom_tooltip = imperial_examination.score.great_success.tt
 						#Award score
-						imperial_examination_add_score_effect = { VALUE = imperial_examination_great_success_value }
+						ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_great_success_value }
 						add_character_flag = palace_great_success
 					}
 					30 = {
@@ -3727,7 +3727,7 @@ imperial_examination.5300 = {
 						desc = imperial_examination.duel.essay.success.tt
 						custom_tooltip = imperial_examination.score.success.tt
 						#Award score
-						imperial_examination_add_score_effect = { VALUE = imperial_examination_success_value }
+						ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_success_value }
 						add_character_flag = palace_success
 					}
 					40 = {
@@ -3837,7 +3837,7 @@ imperial_examination.5300 = {
 				desc = imperial_examination.duel.essay.critical_success.tt
 				custom_tooltip = imperial_examination.score.critical_success.tt
 				#Award score
-				imperial_examination_add_score_effect = { VALUE = imperial_examination_critical_success_value }
+				ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_critical_success_value }
 				add_character_flag = palace_critical_success
 			}
 			20 = {
@@ -3915,7 +3915,7 @@ imperial_examination.5300 = {
 				desc = imperial_examination.duel.essay.great_success.tt
 				custom_tooltip = imperial_examination.score.great_success.tt
 				#Award score
-				imperial_examination_add_score_effect = { VALUE = imperial_examination_great_success_value }
+				ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_great_success_value }
 				add_character_flag = palace_great_success
 			}
 			30 = {
@@ -3939,7 +3939,7 @@ imperial_examination.5300 = {
 				desc = imperial_examination.duel.essay.success.tt
 				custom_tooltip = imperial_examination.score.success.tt
 				#Award score
-				imperial_examination_add_score_effect = { VALUE = imperial_examination_success_value }
+				ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_success_value }
 				add_character_flag = palace_success
 			}
 			40 = {
@@ -3981,7 +3981,7 @@ imperial_examination.5300 = {
 		name = imperial_examination.5300.b
 		custom_tooltip = imperial_examination.score.success.tt
 		#Award score
-		imperial_examination_add_score_effect = { VALUE = imperial_examination_success_value }
+		ac_vanilla_dlc_imperial_examination_add_score_effect = { VALUE = imperial_examination_success_value }
 		# Use this flag for loc only
 		add_character_flag = safe_start
 		add_prestige = minor_prestige_loss
@@ -4100,7 +4100,7 @@ debate_event.5000 = {
     }
 
     immediate = {
-        set_opponent_scope_effect = yes
+        ac_vanilla_dlc_set_opponent_scope_effect = yes
         if = {
             limit = {
                 NOT = { exists = var:tgp_debate_success_score }
@@ -4746,7 +4746,7 @@ debate_event.5010 = {
     }
 
     immediate = {
-        set_opponent_scope_effect = yes
+        ac_vanilla_dlc_set_opponent_scope_effect = yes
     }
     
 	option = { # AC: ac_event_dlc_debate_event_5010_aoyu_mirror
@@ -6209,7 +6209,7 @@ ep3_laamp_flavour_ewan.4021 = {
 		# If we have a forager or a huntsman, grab whichever is better at their job.
 		court_position:chief_forager_camp_officer ?= {
 			if = {
-				limit = { ep3_laamp_flavour_ewan_available_courtier_travel_danger_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_available_courtier_travel_danger_trigger = yes }
 				save_scope_as = forager
 				# We'll want their aptitude later.
 				save_scope_value_as = {
@@ -6222,7 +6222,7 @@ ep3_laamp_flavour_ewan.4021 = {
 		}
 		court_position:huntperson_camp_officer ?= {
 			if = {
-				limit = { ep3_laamp_flavour_ewan_available_courtier_travel_danger_trigger = yes }
+				limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_available_courtier_travel_danger_trigger = yes }
 				save_scope_as = hunter
 				# We'll want their aptitude later.
 				save_scope_value_as = {
@@ -6303,7 +6303,7 @@ ep3_laamp_flavour_ewan.4021 = {
 	weight_multiplier = {
 		modifier = {
 			add = 1
-			ep3_laamp_flavour_ewan_0041_access_sahara_provision_options_trigger = yes
+			ac_vanilla_dlc_ep3_laamp_flavour_ewan_0041_access_sahara_provision_options_trigger = yes
 		}
 	}
 
@@ -6314,7 +6314,7 @@ ep3_laamp_flavour_ewan.4021 = {
 		trigger = { ac_event_water_trigger = yes  }
 		custom_tooltip = ac_event_dlc_camp_water_water_tt
 		save_scope_as = ac_event_practitioner
-		ep3_laamp_flavour_ewan_4021_camp_avoids_dehydration_effect = yes
+		ac_vanilla_dlc_ep3_laamp_flavour_ewan_4021_camp_avoids_dehydration_effect = yes
 		scope:ac_event_practitioner = { ac_event_exertion_effect = yes }
 		ai_chance = { base = 200 }
 	}
@@ -6325,7 +6325,7 @@ ep3_laamp_flavour_ewan.4021 = {
 		trigger = { ac_activity_hunt_tracks_trigger = yes has_perk = ac_4_element_earth_e_perk }
 		custom_tooltip = ac_event_dlc_camp_water_hunt_tracks_tt
 		save_scope_as = ac_event_practitioner
-		ep3_laamp_flavour_ewan_4021_camp_avoids_dehydration_effect = yes
+		ac_vanilla_dlc_ep3_laamp_flavour_ewan_4021_camp_avoids_dehydration_effect = yes
 		scope:ac_event_practitioner = { ac_event_exertion_effect = yes }
 		ai_chance = { base = 200 }
 	}
@@ -6348,7 +6348,7 @@ ep3_laamp_flavour_ewan.4021 = {
 				send_interface_toast = {
 					title = ep3_laamp_flavour_ewan.4021.a.tt.success
 					left_icon = scope:CHANGE_ME
-					ep3_laamp_flavour_ewan_4021_camp_avoids_dehydration_effect = yes
+					ac_vanilla_dlc_ep3_laamp_flavour_ewan_4021_camp_avoids_dehydration_effect = yes
 				}
 			}
 			# Defeat.
@@ -6363,7 +6363,7 @@ ep3_laamp_flavour_ewan.4021 = {
 				send_interface_toast = {
 					title = ep3_laamp_flavour_ewan.4021.a.tt.failure
 					left_icon = scope:CHANGE_ME
-					ep3_laamp_flavour_ewan_4021_camp_suffers_dehydration_effect = yes
+					ac_vanilla_dlc_ep3_laamp_flavour_ewan_4021_camp_suffers_dehydration_effect = yes
 				}
 			}
 		}
@@ -6381,7 +6381,7 @@ ep3_laamp_flavour_ewan.4021 = {
 		trigger = { scope:preferred_officer ?= flag:forager }
 		reason = have_chief_forager
 
-		ep3_laamp_flavour_ewan_4021_delegate_search_to_officer_effect = {
+		ac_vanilla_dlc_ep3_laamp_flavour_ewan_4021_delegate_search_to_officer_effect = {
 			OFFICER = scope:forager
 			APTITUDE = scope:forager_apt
 		}
@@ -6399,7 +6399,7 @@ ep3_laamp_flavour_ewan.4021 = {
 		trigger = { scope:preferred_officer ?= flag:hunter }
 		reason = have_huntperson
 
-		ep3_laamp_flavour_ewan_4021_delegate_search_to_officer_effect = {
+		ac_vanilla_dlc_ep3_laamp_flavour_ewan_4021_delegate_search_to_officer_effect = {
 			OFFICER = scope:hunter
 			APTITUDE = scope:hunter_apt
 		}
@@ -6421,7 +6421,7 @@ ep3_laamp_flavour_ewan.4021 = {
 
 		add_prestige = minor_prestige_gain
 		every_courtier = {
-			limit = { ep3_laamp_flavour_ewan_available_courtier_travel_danger_trigger = yes }
+			limit = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_available_courtier_travel_danger_trigger = yes }
 			custom = custom.every_adult_follower
 			add_opinion = {
 				target = root
@@ -6462,7 +6462,7 @@ ep3_laamp_flavour_ewan.4021 = {
 				desc = ep3_laamp_flavour_ewan.4021.e.tt.failure
 				send_interface_toast = {
 					title = ep3_laamp_flavour_ewan.4021.e.tt.failure
-					ep3_laamp_flavour_ewan_4021_camp_suffers_dehydration_effect = yes
+					ac_vanilla_dlc_ep3_laamp_flavour_ewan_4021_camp_suffers_dehydration_effect = yes
 				}
 				modifier = {
 					add = 20
@@ -6591,11 +6591,11 @@ ep3_laamp_flavour_ewan.4041 = {
 		animation = shock
 	}
 	override_background = {
-		trigger = { ep3_laamp_flavour_ewan_4041_use_snowy_forest_backdrop_trigger = yes }
+		trigger = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_use_snowy_forest_backdrop_trigger = yes }
 		reference = wilderness
 	}
 	override_background = {
-		trigger = { ep3_laamp_flavour_ewan_4041_use_snowy_forest_backdrop_trigger = no }
+		trigger = { ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_use_snowy_forest_backdrop_trigger = no }
 		reference = wilderness
 	}
 	# ALL THE VFX!
@@ -6967,7 +6967,7 @@ ep3_laamp_flavour_ewan.4041 = {
 		trigger = { ac_event_storm_trigger = yes OR = { scope:weather_type = flag:storm_thunder scope:weather_type = flag:storm_wind } }
 		custom_tooltip = ac_event_dlc_convoy_storm_tt
 		save_scope_as = ac_event_practitioner
-		ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 30 }
+		ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 30 }
 		scope:ac_event_practitioner = { ac_event_great_exertion_effect = yes }
 		ai_chance = { base = 200 }
 	}
@@ -6978,7 +6978,7 @@ ep3_laamp_flavour_ewan.4041 = {
 		trigger = { ac_event_wind_trigger = yes OR = { scope:weather_type = flag:storm_wind scope:weather_type = flag:storm_sand } }
 		custom_tooltip = ac_event_dlc_convoy_wind_tt
 		save_scope_as = ac_event_practitioner
-		ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 30 }
+		ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 30 }
 		scope:ac_event_practitioner = { ac_event_great_exertion_effect = yes }
 		ai_chance = { base = 200 }
 	}
@@ -6989,7 +6989,7 @@ ep3_laamp_flavour_ewan.4041 = {
 		trigger = { ac_event_burial_earth_trigger = yes scope:weather_type = flag:storm_thunder }
 		custom_tooltip = ac_event_dlc_convoy_burial_earth_tt
 		save_scope_as = ac_event_practitioner
-		ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 30 }
+		ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 30 }
 		scope:ac_event_practitioner = { ac_event_great_exertion_effect = yes }
 		ai_chance = { base = 200 }
 	}
@@ -7000,7 +7000,7 @@ ep3_laamp_flavour_ewan.4041 = {
 		trigger = { ac_activity_mido_breaker_trigger = yes  }
 		custom_tooltip = ac_event_dlc_convoy_mido_breaker_tt
 		save_scope_as = ac_event_practitioner
-		ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 30 }
+		ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 30 }
 		scope:ac_event_practitioner = { ac_event_great_exertion_effect = yes }
 		ai_chance = { base = 200 }
 	}
@@ -7011,7 +7011,7 @@ ep3_laamp_flavour_ewan.4041 = {
 		trigger = { ac_event_kiihakai_barrier_trigger = yes  }
 		custom_tooltip = ac_event_dlc_convoy_kiihakai_barrier_tt
 		save_scope_as = ac_event_practitioner
-		ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 30 }
+		ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 30 }
 		scope:ac_event_practitioner = { ac_event_great_exertion_effect = yes }
 		ai_chance = { base = 200 }
 	}
@@ -7033,7 +7033,7 @@ ep3_laamp_flavour_ewan.4041 = {
 				desc = ep3_laamp_flavour_ewan.4041.a.tt.success
 				send_interface_toast = {
 					title = ep3_laamp_flavour_ewan.4041.a.tt.success
-					ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 30 }
+					ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 30 }
 				}
 			}
 			# Defeat.
@@ -7047,7 +7047,7 @@ ep3_laamp_flavour_ewan.4041 = {
 				desc = ep3_laamp_flavour_ewan.4041.a.tt.failure
 				send_interface_toast = {
 					title = ep3_laamp_flavour_ewan.4041.a.tt.failure
-					ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type_effect = yes
+					ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type_effect = yes
 				}
 			}
 		}
@@ -7077,7 +7077,7 @@ ep3_laamp_flavour_ewan.4041 = {
 				desc = ep3_laamp_flavour_ewan.4041.b.tt.success
 				send_interface_toast = {
 					title = ep3_laamp_flavour_ewan.4041.b.tt.success
-					ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 30 }
+					ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 30 }
 				}
 			}
 			# Defeat.
@@ -7091,7 +7091,7 @@ ep3_laamp_flavour_ewan.4041 = {
 				desc = ep3_laamp_flavour_ewan.4041.b.tt.failure
 				send_interface_toast = {
 					title = ep3_laamp_flavour_ewan.4041.b.tt.failure
-					ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type_effect = yes
+					ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type_effect = yes
 				}
 			}
 		}
@@ -7114,14 +7114,14 @@ ep3_laamp_flavour_ewan.4041 = {
 				desc = ep3_laamp_flavour_ewan.4041.c.tt.success
 				send_interface_toast = {
 					title = ep3_laamp_flavour_ewan.4041.c.tt.success
-					ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 40 }
+					ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_train_rallies_effect = { OPINION = 40 }
 				}
 			}
 			50 = {
 				desc = ep3_laamp_flavour_ewan.4041.c.tt.failure
 				send_interface_toast = {
 					title = ep3_laamp_flavour_ewan.4041.c.tt.failure
-					ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type_effect = yes
+					ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type_effect = yes
 				}
 			}
 		}
@@ -7153,7 +7153,7 @@ ep3_laamp_flavour_ewan.4041 = {
 				send_interface_toast = {
 					title = ep3_laamp_flavour_ewan.4041.d.tt.failure
 					add_piety = minor_piety_loss
-					ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type_effect = yes
+					ac_vanilla_dlc_ep3_laamp_flavour_ewan_4041_process_consequences_by_weather_type_effect = yes
 				}
 			}
 		}
@@ -7302,7 +7302,7 @@ ep3_laamp_flavour_ewan.4091 = {
 	option = {
 		name = ep3_laamp_flavour_ewan.4091.a
 
-		ep3_laamp_flavour_ewan_4091_roll_duel_effect = {
+		ac_vanilla_dlc_ep3_laamp_flavour_ewan_4091_roll_duel_effect = {
 			SKILL = martial
 			SUCCESS_LOC = ep3_laamp_flavour_ewan.4091.a.tt.success
 			FAILURE_LOC = ep3_laamp_flavour_ewan.4091.a.tt.failure
@@ -7319,7 +7319,7 @@ ep3_laamp_flavour_ewan.4091 = {
 	option = {
 		name = ep3_laamp_flavour_ewan.4091.b
 
-		ep3_laamp_flavour_ewan_4091_roll_duel_effect = {
+		ac_vanilla_dlc_ep3_laamp_flavour_ewan_4091_roll_duel_effect = {
 			SKILL = prowess
 			SUCCESS_LOC = ep3_laamp_flavour_ewan.4091.b.tt.success
 			FAILURE_LOC = ep3_laamp_flavour_ewan.4091.b.tt.failure
@@ -7390,7 +7390,7 @@ ep3_contract_event.0570 = {
 	}
 	
 	immediate = {
-		set_contract_scopes_effect = yes
+		ac_vanilla_dlc_set_contract_scopes_effect = yes
 		save_scope_as = root_for_loc
 		create_character = {
 			template = mercenary
@@ -8308,7 +8308,7 @@ ep3_laamp_decision_event.1133 = {
 	}
 
 	trigger = {
-		1133_holding_still_under_construction_trigger = yes
+		ac_vanilla_dlc_1133_holding_still_under_construction_trigger = yes
 		OR = {
 			stewardship >= 18
 			has_trait = architect
@@ -10319,7 +10319,7 @@ fund_inspiration.2005 = {
 			}
 			inspiration_owner = {
 				is_available_ai_adult = yes
-				has_no_inspiration_event_cooldown = yes
+				ac_vanilla_dlc_has_no_inspiration_event_cooldown = yes
 				NOT = { has_character_flag = had_event_fund_inspiration_2005 }
 				NOT = { has_character_flag = local_artisan }
 			}
@@ -10341,7 +10341,7 @@ fund_inspiration.2005 = {
 				years = 20
 			}
 			#To stagger any following events
-			add_inspiration_cooldown_flag = yes
+			ac_vanilla_dlc_add_inspiration_cooldown_flag = yes
 		}
 	}
 
@@ -10628,10 +10628,10 @@ fund_inspiration.2070 = {
 		exists = scope:inspiration
 		scope:inspiration_owner = {
 			#These flags are set on the inspiration owner since the sponsor might be sponsoring multiple inspirations at once
-			fund_inspiration_court_inspiration_owner_trigger = yes
-			has_no_inspiration_event_cooldown = yes
+			ac_vanilla_dlc_fund_inspiration_court_inspiration_owner_trigger = yes
+			ac_vanilla_dlc_has_no_inspiration_event_cooldown = yes
 			NOT = { has_character_flag = had_event_fund_inspiration_2070 }
-			has_artisan_incapacity_trait = yes
+			ac_vanilla_dlc_has_artisan_incapacity_trait = yes
 			inspiration.inspiration_progress >= 2
 		}
 	}
@@ -10643,7 +10643,7 @@ fund_inspiration.2070 = {
 				flag = had_event_fund_inspiration_2070
 				years = 5
 			}
-			add_inspiration_cooldown_flag = yes
+			ac_vanilla_dlc_add_inspiration_cooldown_flag = yes
 			inspiration = { change_inspiration_progress = -2 }
 		}
 	}
@@ -10830,7 +10830,7 @@ hold_court.6140 = {
 	
 	trigger = {
 		any_vassal = {
-			hold_court_6140_valid_vassal_trigger = yes
+			ac_vanilla_dlc_hold_court_6140_valid_vassal_trigger = yes
 		}
 	}
 
@@ -10844,7 +10844,7 @@ hold_court.6140 = {
 	immediate = {
 		random_vassal = {
 			limit = {
-				hold_court_6140_valid_vassal_trigger = yes
+				ac_vanilla_dlc_hold_court_6140_valid_vassal_trigger = yes
 			}
 			save_scope_as = 6140_gifter
 			court_event_character_flag_effect = yes
@@ -10852,9 +10852,9 @@ hold_court.6140 = {
 				limit = {
 					title_province = {
 						OR = {
-							hold_court_6140_europe_trigger = yes
-							hold_court_6140_india_trigger = yes
-							hold_court_6140_africa_trigger = yes
+							ac_vanilla_dlc_hold_court_6140_europe_trigger = yes
+							ac_vanilla_dlc_hold_court_6140_india_trigger = yes
+							ac_vanilla_dlc_hold_court_6140_africa_trigger = yes
 						}
 					}
 				}
@@ -11166,7 +11166,7 @@ fp1_yearly.0101 = {
 		# Valid for North Germanics only.
 		culture = { has_cultural_pillar = heritage_north_germanic }
 		# Has a valid courtier/guest who can quiz you.
-		any_courtier_or_guest = { fp1_valid_riddler_at_court_trigger = yes }
+		any_courtier_or_guest = { ac_vanilla_dlc_fp1_valid_riddler_at_court_trigger = yes }
 		# Doesn't have an established extreme hatred of riddles.
 		NOT = { has_character_flag = fp1_yearly_0101_really_hates_riddles }
 	}
@@ -11205,7 +11205,7 @@ fp1_yearly.0101 = {
 		# Designate a suitable riddler.
 		## First, we grab all possibles & sort them into a list.
 		every_courtier_or_guest = {
-			limit = { fp1_valid_riddler_at_court_trigger = yes }
+			limit = { ac_vanilla_dlc_fp1_valid_riddler_at_court_trigger = yes }
 			add_to_list = potential_valid_riddlers_list
 		}
 		## Then, we order that list appropriately.
@@ -12117,16 +12117,16 @@ fp3_yearly.8033 = {
 		#checking that we have an interesting character that would fit the scope
 		OR = { 
 			any_consort = { 
-				fp3_loves_faloodeh_trigger = yes
+				ac_vanilla_dlc_fp3_loves_faloodeh_trigger = yes
 			}
 			any_powerful_vassal = { 
-				fp3_loves_faloodeh_trigger = yes
+				ac_vanilla_dlc_fp3_loves_faloodeh_trigger = yes
 			}
 			any_councillor = {
-				fp3_loves_faloodeh_trigger = yes
+				ac_vanilla_dlc_fp3_loves_faloodeh_trigger = yes
 			}
 			any_child = {
-				fp3_loves_faloodeh_trigger = yes
+				ac_vanilla_dlc_fp3_loves_faloodeh_trigger = yes
 				age >= 10
 			}
 		}
@@ -12153,33 +12153,33 @@ fp3_yearly.8033 = {
 		#getting the best faloodeh lover for our purposes
 		if = {
 			limit = { 
-				any_consort = { fp3_loves_faloodeh_trigger = yes }
+				any_consort = { ac_vanilla_dlc_fp3_loves_faloodeh_trigger = yes }
 			}
 			random_consort = {
 				limit = { 
-					fp3_loves_faloodeh_trigger = yes
+					ac_vanilla_dlc_fp3_loves_faloodeh_trigger = yes
 				}
 				save_scope_as = sorbet_enthusiast
 			}
 		}
 		else_if = {
 			limit = { 
-				any_powerful_vassal = { fp3_loves_faloodeh_trigger = yes }
+				any_powerful_vassal = { ac_vanilla_dlc_fp3_loves_faloodeh_trigger = yes }
 			}
 			random_powerful_vassal = {
 				limit = { 
-					fp3_loves_faloodeh_trigger = yes
+					ac_vanilla_dlc_fp3_loves_faloodeh_trigger = yes
 				}
 				save_scope_as = sorbet_enthusiast
 			}
 		}
 		else_if = {
 			limit = { 
-				any_councillor = { fp3_loves_faloodeh_trigger = yes }
+				any_councillor = { ac_vanilla_dlc_fp3_loves_faloodeh_trigger = yes }
 			}
 			random_councillor = {
 				limit = { 
-					fp3_loves_faloodeh_trigger = yes
+					ac_vanilla_dlc_fp3_loves_faloodeh_trigger = yes
 				}
 				save_scope_as = sorbet_enthusiast
 			}
@@ -12187,13 +12187,13 @@ fp3_yearly.8033 = {
 		else_if = {
 			limit = { 
 				any_child = { 
-					fp3_loves_faloodeh_trigger = yes
+					ac_vanilla_dlc_fp3_loves_faloodeh_trigger = yes
 					age >= 10	
 				}
 			}
 			random_child = {
 				limit = { 
-					fp3_loves_faloodeh_trigger = yes
+					ac_vanilla_dlc_fp3_loves_faloodeh_trigger = yes
 					age >= 10		
 				}
 				save_scope_as = sorbet_enthusiast
@@ -13018,7 +13018,7 @@ bp2_yearly.7000 = {
 					left_icon = root
 					right_icon = scope:nursed_child
 					scope:nursed_child = {
-						contract_disease_from_wet_nurse_effect = yes
+						ac_vanilla_dlc_contract_disease_from_wet_nurse_effect = yes
 					}
 				}
 			}
@@ -13072,7 +13072,7 @@ bp2_yearly.7000 = {
 					left_icon = root
 					right_icon = scope:nursed_child
 			 		scope:nursed_child = {
-			 			contract_disease_from_wet_nurse_effect = yes
+			 			ac_vanilla_dlc_contract_disease_from_wet_nurse_effect = yes
 			 		}
 			 	}
 			}
@@ -13122,7 +13122,7 @@ bp2_yearly.7000 = {
 					left_icon = root
 					right_icon = scope:nursed_child
 					scope:nursed_child = {
-						contract_disease_from_wet_nurse_effect = yes
+						ac_vanilla_dlc_contract_disease_from_wet_nurse_effect = yes
 					}
 				}
 			}
@@ -14337,12 +14337,12 @@ pam_generic_events.0009 = {
 		if = {
 			limit = {
 				any_courtier = {
-					pam_generic_events_0009_comforting_courtier_trigger = yes
+					ac_vanilla_dlc_pam_generic_events_0009_comforting_courtier_trigger = yes
 				}
 			}
 			random_courtier = {
 				limit = {
-					pam_generic_events_0009_comforting_courtier_trigger = yes
+					ac_vanilla_dlc_pam_generic_events_0009_comforting_courtier_trigger = yes
 				}
 				save_scope_as = comforting_courtier
 			}
@@ -14502,7 +14502,7 @@ harm.0511 = {
 		NOT = { has_character_flag = had_event_harm_0511 }
 		has_character_flag = had_event_harm_0512
 		# Are we expected to ride a horse regularly?
-		harm_0511_rides_horses_trigger = yes
+		ac_vanilla_dlc_harm_0511_rides_horses_trigger = yes
 	}
 
 	weight_multiplier = {
@@ -14516,7 +14516,7 @@ harm.0511 = {
 		# We don't want to see this event twice.
 		add_character_flag = had_event_harm_0511
 		# Give a little protection against spam.
-		harm_0000_apply_dynastic_cooldowns_effect = yes
+		ac_vanilla_dlc_harm_0000_apply_dynastic_cooldowns_effect = yes
 	}
 
 	# Wait, n-!
@@ -14709,7 +14709,7 @@ harm.0521 = {
 		NOT = { has_character_flag = had_event_harm_0521 }
 		has_character_flag = had_event_harm_0522
 		# Do we have an opportunity to drown?
-		harm_0521_has_waterside_capital_trigger = yes
+		ac_vanilla_dlc_harm_0521_has_waterside_capital_trigger = yes
 	}
 
 	weight_multiplier = {
@@ -14723,7 +14723,7 @@ harm.0521 = {
 		# We don't want to see this event twice.
 		add_character_flag = had_event_harm_0521
 		# Give a little protection against spam.
-		harm_0000_apply_dynastic_cooldowns_effect = yes
+		ac_vanilla_dlc_harm_0000_apply_dynastic_cooldowns_effect = yes
 	}
 
 	# A rope, a net, a plank, something!
@@ -14801,13 +14801,13 @@ harm.0521 = {
 					can_raid_across_water_trigger = yes
 				}
 				# Has some cultural affinity for the water.
-				harm_0521_cultural_tradition_encourages_swimming_trigger = yes
+				ac_vanilla_dlc_harm_0521_cultural_tradition_encourages_swimming_trigger = yes
 			}
 		}
 		trait = athletic
 		trait = viking
 		if = {
-			limit = { harm_0521_cultural_tradition_encourages_swimming_trigger = yes }
+			limit = { ac_vanilla_dlc_harm_0521_cultural_tradition_encourages_swimming_trigger = yes }
 			custom_tooltip = harm.0521.b.tt.unlocked_by_cultrad
 		}
 
@@ -14913,7 +14913,7 @@ harm.0561 = {
 		# We don't want to see this event twice.
 		add_character_flag = had_event_harm_0561
 		# Give a little protection against spam.
-		harm_0000_apply_dynastic_cooldowns_effect = yes
+		ac_vanilla_dlc_harm_0000_apply_dynastic_cooldowns_effect = yes
 	}
 
 	# Oh — wait — NOO-
@@ -15099,7 +15099,7 @@ harm.0581 = {
 		# We don't want to see this event twice.
 		add_character_flag = had_event_harm_0581
 		# Give a little protection against spam.
-		harm_0000_apply_dynastic_cooldowns_effect = yes
+		ac_vanilla_dlc_harm_0000_apply_dynastic_cooldowns_effect = yes
 		add_character_flag = {
 			flag = is_naked
 			days = 30
@@ -15221,7 +15221,7 @@ harm.0591 = {
 		NOT = { has_character_flag = had_event_harm_0591 }
 		has_character_flag = had_event_harm_0592
 		# Would they be out for this?
-		harm_0591_likely_to_go_to_town_trigger = yes
+		ac_vanilla_dlc_harm_0591_likely_to_go_to_town_trigger = yes
 		# Town
 		location = {
 			OR = {
@@ -15248,7 +15248,7 @@ harm.0591 = {
 		# We don't want to see this event twice.
 		add_character_flag = had_event_harm_0591
 		# Give a little protection against spam.
-		harm_0000_apply_dynastic_cooldowns_effect = yes
+		ac_vanilla_dlc_harm_0000_apply_dynastic_cooldowns_effect = yes
 	}
 
 	# Throw yourself to the side.

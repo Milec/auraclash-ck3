@@ -67,6 +67,14 @@ The complete sorted register is available as an [Excel workbook](outputs/aura-cl
 
 Travel techniques can be performed by the ruler or a qualified cultivator in the actual entourage. The practitioner gains 25 Cultivation XP, 15 stress and three months of Spent Chi (-2 prowess, +10% stress gain). An avalanche rescue or fatal-outcome intervention instead grants 100 XP, 40 stress and six months of Overextended Chi (-4 prowess, -0.25 health, +20% stress gain). Poison survivors also recover for six months with a further -0.25 health.
 
+### Cultivation sects
+
+One provincial sect is seeded per eligible de-jure kingdom, with a Master, up to ten Upper Disciples and twenty Lower Disciples. Rulers can join while keeping their titles. Each sect has two elements, a martial style and a foundation, plus a persistent estate that passes to the next master.
+
+Use **Decisions → Cultivation → Consult the Sect Register** for membership, six estate building lines, mission contracts and the contribution exchange. Public **Sect Trial** activities admit mortals and cultivators and examine disciples for promotion. Sects can form alliances and rivalries, fight group battles and host **Joint Sect Training**. See the [sect guide](docs/sects.md) for costs, succession, geography and testing.
+
+The estate uses a custom province-bound screen and building system. It does not occupy a ruler's existing government domicile. Sect battles resolve as group clashes; they do not use ordinary single combat or conquer territory.
+
 ### Cultivator
 A trait that grants **+0.5 health, +20 life expectancy, +10 years of fertility and +4 prowess**, and unlocks everything below.
 - Children inherit it **25%** of the time.

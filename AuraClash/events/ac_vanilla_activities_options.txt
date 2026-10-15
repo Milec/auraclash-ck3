@@ -15,7 +15,7 @@ namespace = tour_grounds_events
 namespace = tournament_events
 
 # Source: events/activities/pilgrimage_activity/pilgrimage_events.txt (file-local helper)
-scripted_trigger 2002_local_prowess_character_trigger = {
+scripted_trigger ac_vanilla_activities_2002_local_prowess_character_trigger = {
 	is_available_healthy_ai_adult = yes
 	prowess >= high_skill_rating
 	can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
@@ -23,7 +23,7 @@ scripted_trigger 2002_local_prowess_character_trigger = {
 }
 
 # Source: events/activities/pilgrimage_activity/pilgrimage_events.txt (file-local helper)
-scripted_effect 6532_negative_outcome = {
+scripted_effect ac_vanilla_activities_6532_negative_outcome = {
 	involved_activity ?= {
 		add_activity_log_entry = {
 			key = pilgrimage_robbed_log
@@ -43,7 +43,7 @@ scripted_effect 6532_negative_outcome = {
 }
 
 # Source: events/board_game_events.txt (file-local helper)
-scripted_effect bg_play_move_type_effect = {
+scripted_effect ac_vanilla_activities_bg_play_move_type_effect = {
 	# Set the move type played.
 	## Either we're scope:bg_defender...
 	if = {
@@ -136,18 +136,18 @@ scripted_effect bg_play_move_type_effect = {
 }
 
 # Source: events/activities/feast_activity/main_events/feast_default_events.txt (file-local helper)
-scripted_trigger feast_default_6351_fighter_1_trigger = {
+scripted_trigger ac_vanilla_activities_feast_default_6351_fighter_1_trigger = {
 	feast_default_participant_trigger = yes
 	save_temporary_scope_as = feast_default_6351_fighter_1
 	scope:activity = {
 		any_attending_character = {
-			feast_default_6351_fighter_2_trigger = yes
+			ac_vanilla_activities_feast_default_6351_fighter_2_trigger = yes
 		}
 	}
 }
 
 # Source: events/activities/feast_activity/main_events/feast_default_events.txt (file-local helper)
-scripted_trigger feast_default_6351_fighter_2_trigger = {
+scripted_trigger ac_vanilla_activities_feast_default_6351_fighter_2_trigger = {
 	feast_default_participant_trigger = yes
 	this != scope:feast_default_6351_fighter_1
 	OR = {
@@ -176,7 +176,7 @@ scripted_trigger feast_default_6351_fighter_2_trigger = {
 }
 
 # Source: events/activities/feast_activity/main_events/feast_default_events.txt (file-local helper)
-scripted_effect feast_default_6351_gold_amount_based_on_rarity_effect = {
+scripted_effect ac_vanilla_activities_feast_default_6351_gold_amount_based_on_rarity_effect = {
 	#Illustrious court artifact
 	if = {
 		limit = {
@@ -227,7 +227,7 @@ scripted_effect feast_default_6351_gold_amount_based_on_rarity_effect = {
 }
 
 # Source: events/activities/tournaments/jason_first_race_event.txt (file-local helper)
-scripted_trigger jason_first_race_event_1_opponent_trigger = {
+scripted_trigger ac_vanilla_activities_jason_first_race_event_1_opponent_trigger = {
 	is_ai = yes
 	exists = var:contest_aptitude
 	this != root
@@ -238,7 +238,7 @@ scripted_trigger jason_first_race_event_1_opponent_trigger = {
 }
 
 # Source: events/activities/pilgrimage_activity/pilgrimage_events.txt (file-local helper)
-scripted_effect pilgrimage_st_elmo_success_effect = {
+scripted_effect ac_vanilla_activities_pilgrimage_st_elmo_success_effect = {
 	random_list = {
 		7 = {
 			show_chance = no
@@ -268,8 +268,7 @@ scripted_effect pilgrimage_st_elmo_success_effect = {
 		    }
 		}
 	}
-}
-# Source: events/board_game_events.txt:122
+}# Source: events/board_game_events.txt:122
 board_games.0001 = {
 	id_override_priority = 10 # AC: individual CK3 1.20.1 event override
 
@@ -2168,7 +2167,7 @@ board_games.0001 = {
 		# Notify the player of the counter type.
 		custom_tooltip = board_games.0001.a.tt
 		# Duel-'em-up.
-		bg_play_move_type_effect = {
+		ac_vanilla_activities_bg_play_move_type_effect = {
 			SKILL = diplomacy
 			LOC_KEY = a
 		}
@@ -2213,7 +2212,7 @@ board_games.0001 = {
 		# Notify the player of the counter type.
 		custom_tooltip = board_games.0001.b.tt
 		# Duel-'em-up.
-		bg_play_move_type_effect = {
+		ac_vanilla_activities_bg_play_move_type_effect = {
 			SKILL = martial
 			LOC_KEY = b
 		}
@@ -2258,7 +2257,7 @@ board_games.0001 = {
 		# Notify the player of the counter type.
 		custom_tooltip = board_games.0001.c.tt
 		# Duel-'em-up.
-		bg_play_move_type_effect = {
+		ac_vanilla_activities_bg_play_move_type_effect = {
 			SKILL = stewardship
 			LOC_KEY = c
 		}
@@ -2304,7 +2303,7 @@ board_games.0001 = {
 		# Notify the player of the counter type.
 		custom_tooltip = board_games.0001.d.tt
 		# Duel-'em-up.
-		bg_play_move_type_effect = {
+		ac_vanilla_activities_bg_play_move_type_effect = {
 			SKILL = intrigue
 			LOC_KEY = d
 		}
@@ -2349,7 +2348,7 @@ board_games.0001 = {
 		# Notify the player of the counter type.
 		custom_tooltip = board_games.0001.e.tt
 		# Duel-'em-up.
-		bg_play_move_type_effect = {
+		ac_vanilla_activities_bg_play_move_type_effect = {
 			SKILL = learning
 			LOC_KEY = e
 		}
@@ -2395,7 +2394,7 @@ board_games.0001 = {
 		# Notify the player of the counter type.
 		custom_tooltip = board_games.0001.f.tt
 		# Duel-'em-up.
-		bg_play_move_type_effect = {
+		ac_vanilla_activities_bg_play_move_type_effect = {
 			SKILL = prowess
 			LOC_KEY = e
 		}
@@ -9051,7 +9050,7 @@ jason_first_race_event.1 = {
 			}
 			any_guest_subset_current_phase = {
 				name = qualified
-				jason_first_race_event_1_opponent_trigger = yes
+				ac_vanilla_activities_jason_first_race_event_1_opponent_trigger = yes
 			}
 			NOT = { 
 				any_attending_character = {
@@ -9080,7 +9079,7 @@ jason_first_race_event.1 = {
 			random_guest_subset_current_phase = {
 				name = qualified
 				limit = {
-					jason_first_race_event_1_opponent_trigger = yes
+					ac_vanilla_activities_jason_first_race_event_1_opponent_trigger = yes
 				}
 				weight = {
 					base = 1
@@ -11105,7 +11104,7 @@ pilgrimage.1100 = {
 		trigger = { ac_event_water_rescue_trigger = yes scope:victim_pilgrim = { is_alive = yes } }
 		save_scope_as = ac_event_practitioner
 		ac_event_saved_companion_effect = { COMPANION = scope:victim_pilgrim }
-		pilgrimage_st_elmo_success_effect = yes
+		ac_vanilla_activities_pilgrimage_st_elmo_success_effect = yes
 		scope:ac_event_practitioner = { ac_event_exertion_effect = yes }
 		ai_chance = { base = 200 }
 	}
@@ -11144,7 +11143,7 @@ pilgrimage.1100 = {
 					}
 				}
 		scope:panicked_pilgrim ?= { add_stress = -20 }
-		pilgrimage_st_elmo_success_effect = yes
+		ac_vanilla_activities_pilgrimage_st_elmo_success_effect = yes
 		scope:ac_event_practitioner = { ac_event_exertion_effect = yes }
 		ai_chance = { base = 200 }
 	}
@@ -11187,7 +11186,7 @@ pilgrimage.1100 = {
 			}
 		}		
 		pious_type_option_effect = yes
-		pilgrimage_st_elmo_success_effect = yes
+		ac_vanilla_activities_pilgrimage_st_elmo_success_effect = yes
 		stress_and_fulfillment_impact = {
 			zealous = minor_stress_impact_loss
 			craven = minor_stress_impact_gain
@@ -11277,7 +11276,7 @@ pilgrimage.1100 = {
 				death = { death_reason = death_drowned }
 			}
 		}
-		pilgrimage_st_elmo_success_effect = yes
+		ac_vanilla_activities_pilgrimage_st_elmo_success_effect = yes
 		stress_and_fulfillment_impact = {
 			base = major_stress_impact_loss
 			craven = medium_stress_impact_gain
@@ -11318,7 +11317,7 @@ pilgrimage.1100 = {
 				}
 			}
 		}
-		pilgrimage_st_elmo_success_effect = yes
+		ac_vanilla_activities_pilgrimage_st_elmo_success_effect = yes
 		stress_and_fulfillment_impact = {
 			zealous = medium_stress_impact_loss
 			compassionate = medium_stress_impact_gain
@@ -11579,12 +11578,12 @@ pilgrimage.6532 = {
 			limit = {
 				any_pool_character = {
 					province = root.location
-					2002_local_prowess_character_trigger = yes
+					ac_vanilla_activities_2002_local_prowess_character_trigger = yes
 				}
 			}
 			random_pool_character = {
 				province = root.location
-				limit = { 2002_local_prowess_character_trigger = yes }
+				limit = { ac_vanilla_activities_2002_local_prowess_character_trigger = yes }
 				save_scope_as = 6532_local_bandit
 			}
 		}
@@ -11781,7 +11780,7 @@ pilgrimage.6532 = {
 					title = pilgrimage.6532.c_failure.t
 					left_icon = root
 					right_icon = scope:6532_local_bandit
-					6532_negative_outcome = yes
+					ac_vanilla_activities_6532_negative_outcome = yes
 				}
 			}
 		}
@@ -11866,11 +11865,11 @@ feast_default.6351 = {
 		}
 		scope:activity = {
 			any_attending_character = {
-				feast_default_6351_fighter_1_trigger = yes
+				ac_vanilla_activities_feast_default_6351_fighter_1_trigger = yes
 				save_temporary_scope_as = feast_default_6351_fighter_1
 			}
 			any_attending_character = {
-				feast_default_6351_fighter_2_trigger = yes
+				ac_vanilla_activities_feast_default_6351_fighter_2_trigger = yes
 			}
 		}
 	}
@@ -11894,21 +11893,21 @@ feast_default.6351 = {
 			random_attending_character = {
 				#Prefer fighters who don't go into the red if they have to pay up
 				limit = {
-					feast_default_6351_fighter_1_trigger = yes
+					ac_vanilla_activities_feast_default_6351_fighter_1_trigger = yes
 					short_term_gold >= scope:gold_check_6351
 				}
 				alternative_limit = {
-					feast_default_6351_fighter_1_trigger = yes
+					ac_vanilla_activities_feast_default_6351_fighter_1_trigger = yes
 				}
 				save_scope_as = feast_default_6351_fighter_1
 			}
 			random_attending_character = {
 				limit = {
-					feast_default_6351_fighter_2_trigger = yes
+					ac_vanilla_activities_feast_default_6351_fighter_2_trigger = yes
 					short_term_gold >= scope:gold_check_6351
 				}
 				alternative_limit = {
-					feast_default_6351_fighter_2_trigger = yes
+					ac_vanilla_activities_feast_default_6351_fighter_2_trigger = yes
 				}
 				save_scope_as = feast_default_6351_fighter_2
 			}
@@ -11980,7 +11979,7 @@ feast_default.6351 = {
 		flavor = feast_default.6351.a.tt
 		scope:feast_default_6351_fighter_1 = {
 			#Pay up
-			feast_default_6351_gold_amount_based_on_rarity_effect = yes
+			ac_vanilla_activities_feast_default_6351_gold_amount_based_on_rarity_effect = yes
 			add_opinion = {
 				target = root
 				modifier = feast_sided_against_me_in_my_fight_opinion
@@ -12054,7 +12053,7 @@ feast_default.6351 = {
 		}
 		scope:feast_default_6351_fighter_2 = {
 			#Pay up
-			feast_default_6351_gold_amount_based_on_rarity_effect = yes
+			ac_vanilla_activities_feast_default_6351_gold_amount_based_on_rarity_effect = yes
 			add_opinion = {
 				target = root
 				modifier = feast_sided_against_me_in_my_fight_opinion
@@ -12111,7 +12110,7 @@ feast_default.6351 = {
 		#Double hate
 		scope:feast_default_6351_fighter_1 = {
 			#Pay up
-			feast_default_6351_gold_amount_based_on_rarity_effect = yes
+			ac_vanilla_activities_feast_default_6351_gold_amount_based_on_rarity_effect = yes
 			add_opinion = {
 				target = root
 				modifier = feast_sided_against_me_in_my_fight_opinion
@@ -12125,7 +12124,7 @@ feast_default.6351 = {
 		}
 		scope:feast_default_6351_fighter_2 = {
 			#Pay up
-			feast_default_6351_gold_amount_based_on_rarity_effect = yes
+			ac_vanilla_activities_feast_default_6351_gold_amount_based_on_rarity_effect = yes
 			add_opinion = {
 				target = root
 				modifier = feast_sided_against_me_in_my_fight_opinion

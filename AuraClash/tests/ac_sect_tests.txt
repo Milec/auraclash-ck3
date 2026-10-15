@@ -1,0 +1,265 @@
+﻿# Native engine integration tests. Run only in a disposable 1066 game:
+# Use tools/prepare_sect_engine_checks.py for the asynchronous full suite.
+# These deliberately mutate their test game. They never run during normal play.
+ac_sect_test_01_initialization = {
+	title_target = k_england
+	assert = { has_variable = ac_kingdom_sect }
+	expect = {
+		var:ac_kingdom_sect = {
+			exists = var:ac_headquarters
+			var:ac_kingdom = root
+			var:ac_upper_count = 8
+			var:ac_lower_count = 16
+			story_owner = { has_trait = ac_sect_master has_trait = ac_cultivator }
+		}
+	}
+	effect = {
+		var:ac_kingdom_sect = { save_scope_as = ac_original_sect }
+		save_scope_as = ac_sect_kingdom
+		title_capital_county.title_province = { save_scope_as = ac_sect_hq }
+		holder = {
+			create_character = { gender_female_chance = 50 age = 30 culture = this.culture faith = this.faith location = scope:ac_sect_hq save_scope_as = ac_test_duplicate }
+		}
+		scope:ac_test_duplicate = { ac_sect_found_effect = yes }
+	}
+	expect = {
+		var:ac_kingdom_sect = scope:ac_original_sect
+		scope:ac_test_duplicate = { NOT = { has_variable = ac_sect } }
+	}
+}
+ac_sect_test_02_admission_and_departure = {
+	title_target = k_england
+	assert = { has_variable = ac_kingdom_sect }
+	effect = {
+		var:ac_kingdom_sect = { save_scope_as = ac_join_sect }
+		holder = {
+			create_character = { gender_female_chance = 50 age = 22 culture = this.culture faith = this.faith location = this.location save_scope_as = ac_test_mortal }
+		}
+		scope:ac_test_mortal = { ac_sect_join_effect = yes ac_sect_join_effect = yes }
+	}
+	expect = {
+		scope:ac_test_mortal = { ac_sect_member_trigger = yes has_trait = ac_sect_lower_disciple var:ac_sect_contribution = 0 }
+		var:ac_kingdom_sect.var:ac_lower_count = 17
+	}
+	effect = { scope:ac_test_mortal = { ac_sect_award_contribution_effect = { VALUE = 50 } ac_sect_leave_effect = yes } }
+	expect = {
+		scope:ac_test_mortal = { has_trait = ac_cultivator NOT = { has_variable = ac_sect } NOT = { has_variable = ac_sect_contribution } has_character_flag = ac_sect_departure_cooldown }
+		var:ac_kingdom_sect.var:ac_lower_count = 16
+	}
+}
+ac_sect_test_03_interrupted_trial_refunds_once = {
+	title_target = k_england
+	effect = {
+		var:ac_kingdom_sect = {
+			random_in_list = { variable = ac_members limit = { has_trait = ac_sect_lower_disciple } save_scope_as = ac_test_candidate }
+		}
+		scope:ac_test_candidate = {
+			set_variable = { name = ac_sect_contribution value = 0 }
+			set_variable = { name = ac_sect_trial_home value = var:ac_sect }
+			set_variable = { name = ac_sect_trial_paid value = 1 }
+			ac_sect_refund_trial_effect = yes
+			ac_sect_refund_trial_effect = yes
+		}
+	}
+	expect = { scope:ac_test_candidate = { var:ac_sect_contribution = 150 NOT = { has_variable = ac_sect_trial_paid } } }
+}
+ac_sect_test_04_building_queue = {
+	title_target = k_england
+	effect = {
+		var:ac_kingdom_sect = {
+			set_variable = { name = ac_treasury value = 1000 }
+			set_variable = { name = ac_alchemy_pavilion value = 0 }
+			story_owner = { ac_sect_build_alchemy_pavilion_effect = yes ac_sect_build_alchemy_pavilion_effect = yes }
+		}
+	}
+	expect = { var:ac_kingdom_sect = { var:ac_treasury = 900 var:ac_alchemy_pavilion = 0 has_variable = ac_building_timer } }
+	effect = {
+		var:ac_kingdom_sect = { remove_variable = ac_building_timer ac_sect_finish_construction_effect = yes ac_sect_finish_construction_effect = yes }
+	}
+	expect = { var:ac_kingdom_sect = { var:ac_treasury = 900 var:ac_alchemy_pavilion = 1 NOT = { has_variable = ac_building } } }
+}
+ac_sect_test_05_native_mission_contract = {
+	title_target = k_england
+	effect = {
+		var:ac_kingdom_sect = {
+			random_in_list = { variable = ac_members limit = { has_trait = ac_sect_lower_disciple } save_scope_as = ac_test_agent }
+		}
+		scope:ac_test_agent = {
+			set_variable = { name = ac_sect_contribution value = 0 }
+			set_variable = { name = ac_sect_merit value = 0 }
+			ac_sect_start_patrol_effect = yes
+		}
+	}
+	assert = { scope:ac_test_agent = { has_variable = ac_sect_mission var:ac_sect_mission_kind = flag:patrol } }
+	effect = {
+		scope:ac_test_agent.var:ac_sect_mission = { complete_task_contract = ac_sect_patrol_success }
+		scope:ac_test_agent = { ac_sect_resolve_mission_effect = yes }
+	}
+	expect = {
+		scope:ac_test_agent = { var:ac_sect_contribution = 50 var:ac_sect_merit = 50 NOT = { has_variable = ac_sect_mission } has_character_flag = ac_sect_mission_cooldown }
+	}
+}
+ac_sect_test_06_relationships_and_succession = {
+	title_target = k_england
+	assert = { has_variable = ac_kingdom_sect title:k_scotland = { exists = holder } }
+	effect = {
+		var:ac_kingdom_sect = { save_scope_as = ac_inherited_sect story_owner = { save_scope_as = actor } }
+		title:k_scotland.var:ac_kingdom_sect.story_owner = { save_scope_as = recipient }
+		ac_sect_alliance_effect = yes
+		var:ac_kingdom_sect = { save_scope_as = ac_join_sect }
+		title:k_scotland.holder = {
+			save_scope_as = ac_test_ruler
+			ac_sect_join_effect = yes
+			remove_trait = ac_sect_lower_disciple
+			add_trait = ac_sect_upper_disciple
+			set_variable = { name = ac_sect_merit value = 50000 }
+		}
+		var:ac_kingdom_sect = {
+			random_in_list = {
+				variable = ac_members
+				limit = { has_trait = ac_sect_lower_disciple }
+				set_variable = { name = ac_sect_merit value = 100000 }
+			}
+			story_owner = { death = natural }
+		}
+	}
+	expect = {
+		var:ac_kingdom_sect = scope:ac_inherited_sect
+		var:ac_kingdom_sect.story_owner = scope:ac_test_ruler
+		var:ac_kingdom_sect.var:ac_master = scope:ac_test_ruler
+		var:ac_kingdom_sect.var:ac_alchemy_pavilion = 1
+		var:ac_kingdom_sect = { is_target_in_variable_list = { name = ac_allies target = scope:recipient.var:ac_sect } }
+		scope:recipient.var:ac_sect = { is_target_in_variable_list = { name = ac_allies target = scope:ac_inherited_sect } }
+		scope:ac_test_ruler = { has_trait = ac_sect_master primary_title = title:k_scotland }
+	}
+}
+ac_sect_test_09_preserve_existing_paths = {
+	title_target = k_england
+	effect = {
+		var:ac_kingdom_sect = { save_scope_as = ac_join_sect }
+		holder = {
+			create_character = {
+				gender_female_chance = 50
+				age = 25
+				culture = this.culture faith = this.faith location = this.location
+				trait = ac_cultivator
+				trait = ac_foundation_rabbit
+				trait = ac_style_kiihakai
+				trait = ac_element_ice
+				trait = ac_element_fire
+				save_scope_as = ac_test_existing_cultivator
+			}
+		}
+		scope:ac_test_existing_cultivator = { ac_sect_join_effect = yes ac_sect_teach_second_element_effect = yes }
+	}
+	expect = {
+		scope:ac_test_existing_cultivator = {
+			ac_sect_member_trigger = yes has_trait = ac_sect_lower_disciple
+			has_trait = ac_foundation_rabbit has_trait = ac_style_kiihakai has_trait = ac_element_ice has_trait = ac_element_fire ac_element_count = 2
+		}
+	}
+}
+ac_sect_test_07_battle_settles_once = {
+	title_target = k_england
+	effect = {
+		var:ac_kingdom_sect = { save_scope_as = ac_test_attack story_owner = { save_scope_as = actor } }
+		title:k_scotland.var:ac_kingdom_sect = { save_scope_as = ac_test_defend story_owner = { save_scope_as = recipient } }
+		ac_sect_rivalry_effect = yes
+		ac_sect_start_battle_effect = yes
+		scope:ac_test_attack = { remove_variable = ac_battle_timer ac_sect_resolve_battle_effect = yes set_variable = { name = ac_test_final_treasury value = var:ac_treasury } }
+	}
+	expect = {
+		scope:ac_test_attack = { NOT = { has_variable = ac_opponent } has_variable = ac_battle_cooldown NOT = { is_target_in_variable_list = { name = ac_allies target = scope:ac_test_defend } } }
+		scope:ac_test_defend = { NOT = { has_variable = ac_opponent } has_variable = ac_battle_cooldown }
+	}
+	effect = { scope:ac_test_attack = { ac_sect_resolve_battle_effect = yes } }
+	expect = { scope:ac_test_attack = { var:ac_treasury = var:ac_test_final_treasury } }
+}
+ac_sect_test_08_native_trial_planning = {
+	title_target = k_england
+	assert = { var:ac_kingdom_sect.story_owner = { ac_sect_available_trigger = yes is_available = yes is_ai = yes } }
+	assert = { var:ac_kingdom_sect.story_owner = { can_host_activity = activity_ac_sect_trials } }
+	effect = {
+		var:ac_kingdom_sect = {
+			set_variable = { name = ac_treasury value = 1000 }
+			story_owner = {
+				add_gold = 1000
+				ai_attempt_to_host_activity = activity_ac_sect_trials
+			}
+		}
+	}
+	assert = { any_activity = { has_activity_type = activity_ac_sect_trials activity_host = title:k_england.var:ac_kingdom_sect.story_owner } }
+	expect = {
+		any_activity = {
+			has_activity_type = activity_ac_sect_trials
+			activity_host = title:k_england.var:ac_kingdom_sect.story_owner
+			var:ac_trial_sect = title:k_england.var:ac_kingdom_sect
+		}
+	}
+}
+ac_sect_test_10_native_trial_admission_and_promotion = {
+	title_target = k_england
+	assert = { any_activity = { has_activity_type = activity_ac_sect_trials var:ac_trial_sect ?= title:k_england.var:ac_kingdom_sect } }
+	effect = {
+		random_activity = {
+			limit = { has_activity_type = activity_ac_sect_trials var:ac_trial_sect ?= title:k_england.var:ac_kingdom_sect }
+			save_scope_as = activity
+			activity_host = { save_scope_as = host }
+		}
+		holder = {
+			create_character = {
+				gender_female_chance = 50
+				age = 25
+				culture = this.culture faith = this.faith location = this.location
+				save_scope_as = ac_test_examinee
+			}
+		}
+		scope:ac_test_examinee = {
+			add_to_activity_without_travel = scope:activity
+			ac_sect_begin_trial_effect = yes
+			set_variable = { name = ac_sect_trial_score value = 100 }
+			ac_sect_complete_trial_effect = yes
+		}
+	}
+	expect = { scope:ac_test_examinee = { involved_activity = scope:activity has_trait = ac_cultivator has_trait = ac_sect_lower_disciple var:ac_sect = title:k_england.var:ac_kingdom_sect } }
+	effect = {
+		scope:ac_test_examinee = {
+			remove_character_flag = ac_sect_trial_cooldown
+			set_variable = { name = ac_sect_contribution value = 200 }
+			set_variable = { name = ac_sect_promotion_requested value = 1 }
+			ac_sect_begin_trial_effect = yes
+		}
+	}
+	assert = { scope:ac_test_examinee = { var:ac_sect_contribution = 50 has_variable = ac_sect_trial_paid } }
+	effect = {
+		scope:ac_test_examinee = {
+			set_variable = { name = ac_sect_trial_score value = 100 }
+			ac_sect_complete_trial_effect = yes
+			ac_sect_complete_trial_effect = yes
+		}
+	}
+	expect = {
+		scope:ac_test_examinee = {
+			has_trait = ac_sect_upper_disciple NOT = { has_trait = ac_sect_lower_disciple }
+			var:ac_sect_contribution = 50 NOT = { has_variable = ac_sect_trial_paid }
+			ac_element_count = 2
+		}
+	}
+}
+ac_sect_test_11_unlanded_master_patronage = {
+	title_target = k_denmark
+	assert = { var:ac_kingdom_sect.story_owner = { is_landed = no can_host_activity = activity_ac_sect_trials } }
+	effect = { var:ac_kingdom_sect = { ac_sect_request_ai_activity_effect = { ACTIVITY = activity_ac_sect_trials } } }
+	expect = { any_activity = { has_activity_type = activity_ac_sect_trials var:ac_trial_sect = title:k_denmark.var:ac_kingdom_sect } }
+}
+
+ac_sect_test_12_joint_training_planning = {
+ title_target = k_bohemia
+ effect = {
+  var:ac_kingdom_sect.story_owner = { save_scope_as = actor }
+  title:k_bavaria.var:ac_kingdom_sect.story_owner = { save_scope_as = recipient }
+  ac_sect_alliance_effect = yes
+  var:ac_kingdom_sect = { ac_sect_request_ai_activity_effect = { ACTIVITY = activity_ac_sect_joint_training } }
+ }
+ expect = { any_activity = { has_activity_type = activity_ac_sect_joint_training var:ac_training_sect ?= title:k_bohemia.var:ac_kingdom_sect } }
+}

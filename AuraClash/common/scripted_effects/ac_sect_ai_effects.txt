@@ -1,0 +1,72 @@
+﻿# One opportunity per year; construction and recruitment retain the same costs,
+# capacity checks, travel, exams, and rank rules used by the player.
+ac_sect_ai_management_effect = {
+	if = {
+		limit = { story_owner = { is_ai = yes ac_sect_available_trigger = yes } }
+		story_owner = {
+			if = {
+				limit = { var:ac_sect = { NOT = { has_variable = ac_building } } }
+				if = { limit = { var:ac_sect.var:ac_alchemy_pavilion = 0 } ac_sect_build_alchemy_pavilion_effect = yes }
+				else_if = { limit = { var:ac_sect.var:ac_scripture_library = 0 } ac_sect_build_scripture_library_effect = yes }
+				else_if = {
+					limit = {
+						var:ac_sect = { OR = { var:ac_cultivation_hall < 3 var:ac_alchemy_pavilion < 3 var:ac_training_ground < 3 var:ac_scripture_library < 3 var:ac_spirit_garden < 3 var:ac_formation_hall < 3 } }
+					}
+					random_list = {
+						1 = { trigger = { var:ac_sect.var:ac_cultivation_hall < 3 } ac_sect_build_cultivation_hall_effect = yes }
+						1 = { trigger = { var:ac_sect.var:ac_alchemy_pavilion < 3 } ac_sect_build_alchemy_pavilion_effect = yes }
+						1 = { trigger = { var:ac_sect.var:ac_training_ground < 3 } ac_sect_build_training_ground_effect = yes }
+						1 = { trigger = { var:ac_sect.var:ac_scripture_library < 3 } ac_sect_build_scripture_library_effect = yes }
+						1 = { trigger = { var:ac_sect.var:ac_spirit_garden < 3 } ac_sect_build_spirit_garden_effect = yes }
+						1 = { trigger = { var:ac_sect.var:ac_formation_hall < 3 } ac_sect_build_formation_hall_effect = yes }
+					}
+				}
+			}
+			if = {
+				limit = { is_available = yes var:ac_sect.var:ac_treasury >= 50 }
+				random_list = {
+					30 = { var:ac_sect = { ac_sect_request_ai_activity_effect = { ACTIVITY = activity_ac_sect_trials } } }
+					20 = {
+						trigger = { var:ac_sect = { var:ac_treasury >= 75 any_in_list = { variable = ac_allies exists = story_owner } } }
+						var:ac_sect = { ac_sect_request_ai_activity_effect = { ACTIVITY = activity_ac_sect_joint_training } }
+					}
+					50 = { }
+				}
+			}
+		}
+	}
+}
+
+# Society scope. A ruler member can host directly; otherwise the local ruler
+# acts as patron, without taking the master's rank or receiving sect property.
+ac_sect_request_ai_activity_effect = {
+	save_scope_as = ac_sponsored_sect
+	if = {
+		limit = { story_owner = { is_landed = yes is_ai = yes is_available = yes } }
+		story_owner = { set_variable = { name = ac_sect_planned_activity value = flag:$ACTIVITY$ days = 365 }
+			ai_attempt_to_host_activity = $ACTIVITY$ }
+	}
+	else_if = {
+		limit = { any_in_list = { variable = ac_members is_landed = yes is_ai = yes is_available = yes ac_sect_available_trigger = yes } }
+		random_in_list = {
+			variable = ac_members
+			limit = { is_landed = yes is_ai = yes is_available = yes ac_sect_available_trigger = yes }
+			set_variable = { name = ac_sect_patronage value = scope:ac_sponsored_sect days = 365 }
+			set_variable = { name = ac_sect_planned_activity value = flag:$ACTIVITY$ days = 365 }
+			ai_attempt_to_host_activity = $ACTIVITY$
+		}
+	}
+	else_if = {
+		limit = {
+			var:ac_headquarters.county.holder = {
+				is_ai = yes is_available = yes ac_sect_available_trigger = yes
+				NOT = { has_variable = ac_sect_patronage }
+			}
+		}
+		var:ac_headquarters.county.holder = {
+			set_variable = { name = ac_sect_patronage value = scope:ac_sponsored_sect days = 365 }
+			set_variable = { name = ac_sect_planned_activity value = flag:$ACTIVITY$ days = 365 }
+			ai_attempt_to_host_activity = $ACTIVITY$
+		}
+	}
+}

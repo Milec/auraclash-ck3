@@ -6,7 +6,7 @@ namespace = travel_danger_events
 namespace = travel_events
 
 # Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
-scripted_effect add_severe_frostbite_modifier_effect = { #change mild into severe modifier
+scripted_effect ac_vanilla_travel_add_severe_frostbite_modifier_effect = { #change mild into severe modifier
 	remove_character_modifier = travel_mild_frostbite_modifier
 	add_character_modifier = {
 		modifier = travel_severe_frostbite_modifier
@@ -15,7 +15,7 @@ scripted_effect add_severe_frostbite_modifier_effect = { #change mild into sever
 }
 
 # Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
-scripted_effect change_frostbite_modifier_with_severity_effect = { #outcome of each option
+scripted_effect ac_vanilla_travel_change_frostbite_modifier_with_severity_effect = { #outcome of each option
 	 scope:frostbite_victim = {
 		if = { #death
 			limit = { exists = $SEVERITY$ $SEVERITY$ > 2 }
@@ -23,13 +23,13 @@ scripted_effect change_frostbite_modifier_with_severity_effect = { #outcome of e
 		}
 		else_if = { #traits: maimed, one-legged, disfigured 
 			limit = { $SEVERITY$ ?= 2 }
-			change_severe_frostbite_modifier_to_trait_effect = yes
-			get_rival_from_frostbite_effect = yes
+			ac_vanilla_travel_change_severe_frostbite_modifier_to_trait_effect = yes
+			ac_vanilla_travel_get_rival_from_frostbite_effect = yes
 		}
 		else_if = { #severe frostbite character modifier
 			limit = { $SEVERITY$ ?= 1 }
-			add_severe_frostbite_modifier_effect = yes
-			get_rival_from_frostbite_effect = yes
+			ac_vanilla_travel_add_severe_frostbite_modifier_effect = yes
+			ac_vanilla_travel_get_rival_from_frostbite_effect = yes
 		}
 		else_if = { #keep the modifier
 			limit = { exists = $SEVERITY$ $SEVERITY$ < 0 $SEVERITY$ >= -3 }
@@ -44,13 +44,13 @@ scripted_effect change_frostbite_modifier_with_severity_effect = { #outcome of e
 		}
 		else_if = { #remove modifiers
 			limit = { exists = $SEVERITY$ $SEVERITY$ < -3 }
-			cure_frostbite_modifier_effect = yes
+			ac_vanilla_travel_cure_frostbite_modifier_effect = yes
 		}
 	}
 }
 
 # Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
-scripted_effect change_severe_frostbite_modifier_to_trait_effect = { #change modifier into trait corresponding to affected body part
+scripted_effect ac_vanilla_travel_change_severe_frostbite_modifier_to_trait_effect = { #change modifier into trait corresponding to affected body part
 	remove_character_modifier = travel_severe_frostbite_modifier
 	if = {
 		limit = { var:frostbite_bodypart = flag:upper_limb }
@@ -67,7 +67,7 @@ scripted_effect change_severe_frostbite_modifier_to_trait_effect = { #change mod
 }
 
 # Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
-scripted_effect cure_frostbite_modifier_effect = { #remove the correct modifier if successful
+scripted_effect ac_vanilla_travel_cure_frostbite_modifier_effect = { #remove the correct modifier if successful
 	if = {
 		limit = {has_character_modifier = travel_mild_frostbite_modifier}
 		remove_character_modifier = travel_mild_frostbite_modifier
@@ -78,7 +78,7 @@ scripted_effect cure_frostbite_modifier_effect = { #remove the correct modifier 
 }
 
 # Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
-scripted_effect get_friend_from_frostbite_effect = {
+scripted_effect ac_vanilla_travel_get_friend_from_frostbite_effect = {
 	progress_towards_friend_effect = {
 		CHARACTER = scope:frostbite_victim
 		REASON = friend_treated_wounds
@@ -87,7 +87,7 @@ scripted_effect get_friend_from_frostbite_effect = {
 }
 
 # Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
-scripted_effect get_rival_from_frostbite_effect = { #don't trigger if frostbite is going to kill them
+scripted_effect ac_vanilla_travel_get_rival_from_frostbite_effect = { #don't trigger if frostbite is going to kill them
 	progress_towards_rival_effect = {
 		CHARACTER = root
 		REASON = botched_my_treatment_opinion
@@ -96,14 +96,14 @@ scripted_effect get_rival_from_frostbite_effect = { #don't trigger if frostbite 
 }
 
 # Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
-scripted_trigger has_frostbite_already_trigger = { #to affect only characters that got this before and got worse
+scripted_trigger ac_vanilla_travel_has_frostbite_already_trigger = { #to affect only characters that got this before and got worse
 	exists = var:frostbite_bodypart
 	var:frostbite_severity > 0
 	is_ai = yes
 }
 
 # Source: events/travel_events/travel_danger_events_oltner.txt (file-local helper)
-scripted_trigger is_suitable_victim_of_harsh_weather = {
+scripted_trigger ac_vanilla_travel_is_suitable_victim_of_harsh_weather = {
 	is_physically_able_adult = yes
 	NOR = {
 		is_of_major_or_minor_interest_trigger = { CHARACTER = root }
@@ -118,7 +118,7 @@ scripted_trigger is_suitable_victim_of_harsh_weather = {
 }
 
 # Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
-scripted_trigger knows_winter_trigger = { #to find a character that shouldn't be affected by winter or know what they are doing
+scripted_trigger ac_vanilla_travel_knows_winter_trigger = { #to find a character that shouldn't be affected by winter or know what they are doing
 	OR = {
 		has_trait = winter_soldier
 		culture = {
@@ -131,15 +131,15 @@ scripted_trigger knows_winter_trigger = { #to find a character that shouldn't be
 }
 
 # Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
-scripted_trigger new_frostbite_victim_trigger = { #to pick a suitable character to get the frostbite
+scripted_trigger ac_vanilla_travel_new_frostbite_victim_trigger = { #to pick a suitable character to get the frostbite
 	is_ai = yes
 	age >= 5
-	knows_winter_trigger = no
+	ac_vanilla_travel_knows_winter_trigger = no
 	NOT = {has_character_flag = cured_from_frostbite_travel_danger_1011	}
 }
 
 # Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
-scripted_effect randomize_frostbite_bodypart_effect = { #pick a body part that gets the frostbite
+scripted_effect ac_vanilla_travel_randomize_frostbite_bodypart_effect = { #pick a body part that gets the frostbite
 	 scope:frostbite_victim = {
 		 random_list = {
 			1 = {
@@ -165,14 +165,14 @@ scripted_effect randomize_frostbite_bodypart_effect = { #pick a body part that g
 }
 
 # Source: events/travel_events/travel_danger_events_arky.txt (file-local helper)
-scripted_effect tooltip_changed_frostbite_effect = { #display only as a tooltip what will happen to the frostbitten character depending on option outcome
+scripted_effect ac_vanilla_travel_tooltip_changed_frostbite_effect = { #display only as a tooltip what will happen to the frostbitten character depending on option outcome
 	 show_as_tooltip = {
-		change_frostbite_modifier_with_severity_effect = { SEVERITY = scope:frostbite_severity_value }
+		ac_vanilla_travel_change_frostbite_modifier_with_severity_effect = { SEVERITY = scope:frostbite_severity_value }
 	}
 }
 
 # Source: events/travel_events/travel_danger_events_joe.txt (file-local helper)
-scripted_effect travel_danger_events_6000_beast_duel_effect = {
+scripted_effect ac_vanilla_travel_travel_danger_events_6000_beast_duel_effect = {
 	if = {
 		limit = { $FIGHTER$ != scope:beast_victim }
 		save_scope_as = toast_scope
@@ -305,7 +305,7 @@ scripted_effect travel_danger_events_6000_beast_duel_effect = {
 }
 
 # Source: events/travel_events/travel_danger_events_ariana.txt (file-local helper)
-scripted_effect travel_danger_events_7000_fail_effect = {
+scripted_effect ac_vanilla_travel_travel_danger_events_7000_fail_effect = {
     if = {
         limit = {
             has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:snake_victim }
@@ -356,7 +356,7 @@ scripted_effect travel_danger_events_7000_fail_effect = {
 }
 
 # Source: events/travel_events/travel_danger_events_ariana.txt (file-local helper)
-scripted_effect travel_danger_events_7000_success_effect = {
+scripted_effect ac_vanilla_travel_travel_danger_events_7000_success_effect = {
     send_interface_toast = {
         type = event_toast_effect_good
         title = travel_danger_events.7000.treatment_good
@@ -388,8 +388,7 @@ scripted_effect travel_danger_events_7000_success_effect = {
             }
         }
     }
-}
-# Source: events/travel_events/travel_danger_events_klank.txt:1274
+}# Source: events/travel_events/travel_danger_events_klank.txt:1274
 travel_danger_events.3004 = {
 	id_override_priority = 10 # AC: individual CK3 1.20.1 event override
  #White Squall, water terrain
@@ -4067,7 +4066,7 @@ travel_danger_events.9040 = {
 
 		current_travel_plan = {
 			any_entourage_character = {
-				is_suitable_victim_of_harsh_weather = yes
+				ac_vanilla_travel_is_suitable_victim_of_harsh_weather = yes
 			}
 		}
 	}
@@ -4083,7 +4082,7 @@ travel_danger_events.9040 = {
 		current_travel_plan = {
 			random_entourage_character = {
 				limit = {
-					is_suitable_victim_of_harsh_weather = yes
+					ac_vanilla_travel_is_suitable_victim_of_harsh_weather = yes
 				}
 				save_scope_as = victim
 			}
@@ -4422,7 +4421,7 @@ travel_danger_events.1011 = {
 			triggered_desc = {
 				trigger = {
 					scope:frostbite_victim = {
-						has_frostbite_already_trigger = yes
+						ac_vanilla_travel_has_frostbite_already_trigger = yes
 					}
 				}
 				desc = {
@@ -4527,7 +4526,7 @@ travel_danger_events.1011 = {
 		current_travel_plan = {
    			any_entourage_character = {
    				count >= 1 
-   				new_frostbite_victim_trigger = yes
+   				ac_vanilla_travel_new_frostbite_victim_trigger = yes
    			}
    		}
 	}
@@ -4546,12 +4545,12 @@ travel_danger_events.1011 = {
 			if = { #choose the same character again if you already had the event
 				limit = {
 					any_entourage_character = {
-						has_frostbite_already_trigger = yes
+						ac_vanilla_travel_has_frostbite_already_trigger = yes
 					}
 				}
 				random_entourage_character = {
 					limit = {
-						has_frostbite_already_trigger = yes
+						ac_vanilla_travel_has_frostbite_already_trigger = yes
 					}
 					save_scope_as = frostbite_victim
 				}
@@ -4559,7 +4558,7 @@ travel_danger_events.1011 = {
 			else = { #pick someone random
 				random_entourage_character = {
 					limit = {
-						new_frostbite_victim_trigger = yes
+						ac_vanilla_travel_new_frostbite_victim_trigger = yes
 	   				}
 					save_scope_as = frostbite_victim
 				}
@@ -4601,7 +4600,7 @@ travel_danger_events.1011 = {
 		hidden_effect = {
 			if = { #pick a body part to frostbite
 				limit = { NOT = { exists = scope:frostbite_victim.var:frostbite_bodypart } }
-				randomize_frostbite_bodypart_effect = yes
+				ac_vanilla_travel_randomize_frostbite_bodypart_effect = yes
 			}
 			if = { #set initial severity and modifier
 				limit = { NOT = { exists = scope:frostbite_victim.var:frostbite_severity } }
@@ -4639,7 +4638,7 @@ travel_danger_events.1011 = {
 		ac_event_choose_practitioner_effect = { ABILITY = frost_control }
 		scope:frostbite_victim = {
 		    change_variable = { name = frostbite_severity subtract = 6 }
-		    change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
+		    ac_vanilla_travel_change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
 		}
 		ac_event_saved_companion_effect = { COMPANION = scope:frostbite_victim }
 		scope:ac_event_practitioner = { ac_event_exertion_effect = yes }
@@ -4661,7 +4660,7 @@ travel_danger_events.1011 = {
 		current_travel_plan = {
    			delay_travel_plan = { days = 2 }
         }
-		get_friend_from_frostbite_effect = yes #get friendly regardless of the outcome, because you spent quality time by the fire
+		ac_vanilla_travel_get_friend_from_frostbite_effect = yes #get friendly regardless of the outcome, because you spent quality time by the fire
 		random_list = {
 			60 = { #fire cured the frostbite
 				desc = travel_danger_events.1011.a.success
@@ -4673,7 +4672,7 @@ travel_danger_events.1011 = {
 				}
 				modifier = {
 					factor = 2
-					knows_winter_trigger = yes
+					ac_vanilla_travel_knows_winter_trigger = yes
 				}
 				scope:frostbite_victim = {
 					change_variable = {
@@ -4685,12 +4684,12 @@ travel_danger_events.1011 = {
 					name = frostbite_severity_value
 					value = { value = scope:frostbite_victim.var:frostbite_severity add = -6 }
 				}
-				tooltip_changed_frostbite_effect = yes
+				ac_vanilla_travel_tooltip_changed_frostbite_effect = yes
 				hidden_effect = {
 					send_interface_toast = {
 						title = travel_danger_events.1011.a.success
 						left_icon = scope:frostbite_victim
-						change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
+						ac_vanilla_travel_change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
 					}
 				}
 			}
@@ -4710,12 +4709,12 @@ travel_danger_events.1011 = {
 					name = frostbite_severity_value
 					value = { value = scope:frostbite_victim.var:frostbite_severity add = -3 }
 				}
-				tooltip_changed_frostbite_effect = yes
+				ac_vanilla_travel_tooltip_changed_frostbite_effect = yes
 				hidden_effect = {
 					send_interface_toast = {
 						title = travel_danger_events.1011.a.failure
 						left_icon = scope:frostbite_victim
-						change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
+						ac_vanilla_travel_change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
 					}
 				}
 			}
@@ -4746,7 +4745,7 @@ travel_danger_events.1011 = {
 
 	option = { #your physician should take a look at the frostbite
 		name = { #new name when physician is the right person to do it
-			trigger = { scope:court_physician ?= { knows_winter_trigger = yes } }
+			trigger = { scope:court_physician ?= { ac_vanilla_travel_knows_winter_trigger = yes } }
 			text = travel_danger_events.1011.b_physician_knows_winter
 		}
 		name = { #new name when event triggers for the same character again
@@ -4769,7 +4768,7 @@ travel_danger_events.1011 = {
 				}
 				modifier = {
 					factor = 2
-					scope:court_physician = { knows_winter_trigger = yes }
+					scope:court_physician = { ac_vanilla_travel_knows_winter_trigger = yes }
 				}
 				scope:frostbite_victim = {
 					change_variable = {
@@ -4781,12 +4780,12 @@ travel_danger_events.1011 = {
 					name = frostbite_severity_value
 					value = { value = scope:frostbite_victim.var:frostbite_severity add = -6 }
 				}
-				tooltip_changed_frostbite_effect = yes
+				ac_vanilla_travel_tooltip_changed_frostbite_effect = yes
 				hidden_effect = {
 					send_interface_toast = {
 						title = travel_danger_events.1011.b_physician_success
 						left_icon = scope:frostbite_victim
-						change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
+						ac_vanilla_travel_change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
 					}
 				}
 			}
@@ -4806,12 +4805,12 @@ travel_danger_events.1011 = {
 					name = frostbite_severity_value
 					value = { value = scope:frostbite_victim.var:frostbite_severity add = 1 }
 				}
-				tooltip_changed_frostbite_effect = yes
+				ac_vanilla_travel_tooltip_changed_frostbite_effect = yes
 				hidden_effect = {
 					send_interface_toast = {
 						title = travel_danger_events.1011.b_physician_failure
 						left_icon = scope:frostbite_victim
-						change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
+						ac_vanilla_travel_change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
 					}
 				}
 			}
@@ -4834,7 +4833,7 @@ travel_danger_events.1011 = {
 
 	option = { #You will cure the frostbite, hopefully
 		name = { #new name when you are the right person to do it
-			trigger = { knows_winter_trigger = yes }
+			trigger = { ac_vanilla_travel_knows_winter_trigger = yes }
 			text = travel_danger_events.1011.b_root_knows_winter
 		}
 		name = { #new name when event triggers for the same character again
@@ -4861,7 +4860,7 @@ travel_danger_events.1011 = {
 				}
 				modifier = {
 					factor = 2
-					knows_winter_trigger = yes
+					ac_vanilla_travel_knows_winter_trigger = yes
 				}
 				scope:frostbite_victim = {
 					set_variable = {
@@ -4877,7 +4876,7 @@ travel_danger_events.1011 = {
 					name = frostbite_severity_value
 					value = { value = scope:frostbite_victim.var:frostbite_severity add = -6 }
 				}
-				tooltip_changed_frostbite_effect = yes
+				ac_vanilla_travel_tooltip_changed_frostbite_effect = yes
 				traveler_danger_xp_effect = {
 					MIN = 3
 					MAX = 6
@@ -4886,7 +4885,7 @@ travel_danger_events.1011 = {
 					send_interface_toast = {
 						title = travel_danger_events.1011.b.success
 						left_icon = scope:frostbite_victim
-						change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
+						ac_vanilla_travel_change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
 					}
 				}
 			}
@@ -4906,12 +4905,12 @@ travel_danger_events.1011 = {
 					name = frostbite_severity_value
 					value = { value = scope:frostbite_victim.var:frostbite_severity add = 1 }
 				}
-				tooltip_changed_frostbite_effect = yes
+				ac_vanilla_travel_tooltip_changed_frostbite_effect = yes
 				hidden_effect = {
 					send_interface_toast = {
 						title = travel_danger_events.1011.b.failure
 						left_icon = scope:frostbite_victim
-						change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
+						ac_vanilla_travel_change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
 					}
 				}
 			}
@@ -4983,12 +4982,12 @@ travel_danger_events.1011 = {
 						value = { value = scope:frostbite_victim.var:frostbite_severity add = -3 }
 					}
 				}
-				tooltip_changed_frostbite_effect = yes
+				ac_vanilla_travel_tooltip_changed_frostbite_effect = yes
 				hidden_effect = {
 					send_interface_toast = {
 						title = travel_danger_events.1011.c.success
 						left_icon = scope:frostbite_victim
-						change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
+						ac_vanilla_travel_change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
 					}
 				}
 			}
@@ -4996,7 +4995,7 @@ travel_danger_events.1011 = {
 				desc = travel_danger_events.1011.c.failure
 				modifier = {
 					factor = 0
-					knows_winter_trigger = yes
+					ac_vanilla_travel_knows_winter_trigger = yes
 				}
 				scope:frostbite_victim = {
 					set_variable = {
@@ -5012,12 +5011,12 @@ travel_danger_events.1011 = {
 					name = frostbite_severity_value
 					value = { value = scope:frostbite_victim.var:frostbite_severity add = 1 }
 				}
-				tooltip_changed_frostbite_effect = yes
+				ac_vanilla_travel_tooltip_changed_frostbite_effect = yes
 				hidden_effect = {
 					send_interface_toast = {
 						title = travel_danger_events.1011.c.failure
 						left_icon = scope:frostbite_victim
-						change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
+						ac_vanilla_travel_change_frostbite_modifier_with_severity_effect = { SEVERITY = var:frostbite_severity }
 					}
 				}
 			}
@@ -5443,7 +5442,7 @@ travel_danger_events.7000 = {
                     multiplier = 3.5
                 }
                 desc = travel_danger_events.7000.treatment_good
-                travel_danger_events_7000_success_effect = yes
+                ac_vanilla_travel_travel_danger_events_7000_success_effect = yes
                 if = {
                     limit = {
                         has_trait = lifestyle_physician
@@ -5468,7 +5467,7 @@ travel_danger_events.7000 = {
                     has_character_flag = bit_by_snake_recently
                 }
                 desc = travel_danger_events.7000.treatment_bad
-                travel_danger_events_7000_fail_effect = yes
+                ac_vanilla_travel_travel_danger_events_7000_fail_effect = yes
             }
         }
         if = {
@@ -5551,7 +5550,7 @@ travel_danger_events.7000 = {
             }
             remove_short_term_gold = minor_gold_value
             custom_tooltip = travel_danger_events.7000.c_known_tt
-            travel_danger_events_7000_success_effect = yes
+            ac_vanilla_travel_travel_danger_events_7000_success_effect = yes
         }
         else = {
             custom_tooltip = travel_danger_events.7000.c_tt
@@ -5561,7 +5560,7 @@ travel_danger_events.7000 = {
                 60 = {
                     show_chance = no
                     desc = travel_danger_events.7000.treatment_good
-                    travel_danger_events_7000_success_effect = yes
+                    ac_vanilla_travel_travel_danger_events_7000_success_effect = yes
                 }
                 40 = {
                     modifier = {
@@ -5570,7 +5569,7 @@ travel_danger_events.7000 = {
                     }
                     show_chance = no
                     desc = travel_danger_events.7000.treatment_bad
-                    travel_danger_events_7000_fail_effect = yes
+                    ac_vanilla_travel_travel_danger_events_7000_fail_effect = yes
                 }
             }
         }
@@ -5641,7 +5640,7 @@ travel_danger_events.7000 = {
                 }
             }
             custom_tooltip = travel_danger_events.7000.d_tt_phys
-            travel_danger_events_7000_success_effect = yes
+            ac_vanilla_travel_travel_danger_events_7000_success_effect = yes
         }
         else = {
             custom_tooltip = travel_danger_events.7000.d_tt
@@ -5655,7 +5654,7 @@ travel_danger_events.7000 = {
                             multiplier = 3.5
                         }
                         desc = travel_danger_events.7000.treatment_good
-                        travel_danger_events_7000_success_effect = yes
+                        ac_vanilla_travel_travel_danger_events_7000_success_effect = yes
                         if = {
                             limit = {
                                 has_trait = lifestyle_physician
@@ -5680,7 +5679,7 @@ travel_danger_events.7000 = {
                             has_character_flag = bit_by_snake_recently
                         }
                         desc = travel_danger_events.7000.treatment_bad
-                        travel_danger_events_7000_fail_effect = yes
+                        ac_vanilla_travel_travel_danger_events_7000_fail_effect = yes
                     }
                 }
             }
@@ -6166,7 +6165,7 @@ travel_danger_events.6000 = {
 		stress_and_fulfillment_impact = {
 			craven = medium_stress_gain
 		}
-		travel_danger_events_6000_beast_duel_effect = { FIGHTER = root }
+		ac_vanilla_travel_travel_danger_events_6000_beast_duel_effect = { FIGHTER = root }
 		
 		ai_chance = {
 			base = 100
@@ -6197,7 +6196,7 @@ travel_danger_events.6000 = {
 			}
 		}
 		trigger = { scope:beast_victim ?= { is_adult = yes } }
-		travel_danger_events_6000_beast_duel_effect = { FIGHTER = scope:beast_victim }
+		ac_vanilla_travel_travel_danger_events_6000_beast_duel_effect = { FIGHTER = scope:beast_victim }
 		stress_and_fulfillment_impact = {
 			compassionate = medium_stress_impact_gain
 			brave = minor_stress_impact_gain

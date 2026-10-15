@@ -6,14 +6,13 @@ namespace = host_dinner_events
 namespace = travel_danger_events
 
 # Source: events/travel_events/travel_danger_events_joe.txt (file-local helper)
-scripted_trigger travel_danger_events_6020_flavor_trigger = {
+scripted_trigger ac_vanilla_fatal_travel_danger_events_6020_flavor_trigger = {
 	NOR = {
 		scope:hugger ?= this
 		scope:prayer ?= this
 		scope:diver ?= this
 	}
-}
-# Source: events/travel_events/travel_danger_events_joe.txt:2211
+}# Source: events/travel_events/travel_danger_events_joe.txt:2211
 travel_danger_events.6020 = {
 	id_override_priority = 10 # AC: individual CK3 1.20.1 event override
  #Craig
@@ -118,7 +117,7 @@ travel_danger_events.6020 = {
 				save_scope_as = hugger
 			}
 			random_entourage_character = {
-				limit = { travel_danger_events_6020_flavor_trigger = yes }
+				limit = { ac_vanilla_fatal_travel_danger_events_6020_flavor_trigger = yes }
 				weight = {
 					base = 1
 					modifier = { add = ai_zeal }
@@ -126,7 +125,7 @@ travel_danger_events.6020 = {
 				save_scope_as = prayer
 			}
 			random_entourage_character = {
-				limit = { travel_danger_events_6020_flavor_trigger = yes }
+				limit = { ac_vanilla_fatal_travel_danger_events_6020_flavor_trigger = yes }
 				weight = {
 					base = 1
 					modifier = {
@@ -139,7 +138,7 @@ travel_danger_events.6020 = {
 				save_scope_as = diver
 			}
 			random_entourage_character = {
-				limit = { travel_danger_events_6020_flavor_trigger = yes }
+				limit = { ac_vanilla_fatal_travel_danger_events_6020_flavor_trigger = yes }
 				weight = {
 					base = 1
 					modifier = { add = ai_boldness }

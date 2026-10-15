@@ -20,7 +20,8 @@ def event_from_file(path, event_id):
     text = path.read_text(encoding='utf-8-sig')
     match = re.search(r'^' + re.escape(event_id) + r'\s*=\s*\{', text, re.M)
     assert match, event_id
-    return text[match.start():builder.close_brace(text, text.index('{', match.start()))]
+    event = text[match.start():builder.close_brace(text, text.index('{', match.start()))]
+    return builder.canonical_inline_symbols(event)
 
 
 class ScriptParserTests(unittest.TestCase):
@@ -471,6 +472,9 @@ class EventRegressionTests(unittest.TestCase):
         for group in {g for _, g, _ in SPECS}:
             generated = (builder.ROOT / f'AuraClash/events/ac_vanilla_{group}_options.txt').read_text(encoding='utf-8-sig')
             declared = set(re.findall(r'(?m)^(@\w+)\s*=', generated))
+            if declared:
+                namespace_start = generated.index('namespace =')
+                self.assertTrue(all(m.start() < namespace_start for m in re.finditer(r'(?m)^@\w+\s*=', generated)))
             for eid, candidate, _ in SPECS:
                 if candidate != group:
                     continue
@@ -482,7 +486,7 @@ class EventRegressionTests(unittest.TestCase):
 
     def test_relocated_events_include_their_file_local_helpers(self):
         path = builder.ROOT / 'AuraClash/events/ac_vanilla_activities_options.txt'
-        text = path.read_text(encoding='utf-8-sig')
+        text = builder.canonical_inline_symbols(path.read_text(encoding='utf-8-sig'))
         for name in ('bg_play_move_type_effect', 'pilgrimage_st_elmo_success_effect',
                      'feast_default_6351_fighter_1_trigger', 'feast_default_6351_fighter_2_trigger',
                      'feast_default_6351_gold_amount_based_on_rarity_effect',
@@ -492,7 +496,10 @@ class EventRegressionTests(unittest.TestCase):
         # the generated file too, including helpers called by other helpers.
         groups = {group for _, group, _ in SPECS}
         for group in groups:
-            generated = (builder.ROOT / f'AuraClash/events/ac_vanilla_{group}_options.txt').read_text(encoding='utf-8-sig')
+            actual = (builder.ROOT / f'AuraClash/events/ac_vanilla_{group}_options.txt').read_text(encoding='utf-8-sig')
+            actual_names = re.findall(r'^scripted_(?:effect|trigger)\s+(\w+)\s*=', actual, re.M)
+            self.assertTrue(all(name.startswith(f'ac_vanilla_{group}_') for name in actual_names))
+            generated = builder.canonical_inline_symbols(actual)
             references = set(re.findall(r'\b(\w+)\s*=', builder.masked(generated)))
             declared = set(re.findall(r'^scripted_(?:effect|trigger)\s+(\w+)\s*=', generated, re.M))
             for eid, candidate, _ in SPECS:

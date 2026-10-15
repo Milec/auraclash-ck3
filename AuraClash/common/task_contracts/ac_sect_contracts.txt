@@ -1,0 +1,312 @@
+﻿ac_sect_patrol = {
+	group = ac_sect_missions
+	icon = "gfx/interface/icons/traits/ac_cultivator.dds"
+	desc = ac_sect_patrol_desc
+	task_contract_request = ac_sect_patrol_request
+	travel = no
+	is_criminal = no
+	use_diplomatic_range = yes
+	valid_to_create = { ac_sect_mission_ready_trigger = yes }
+	valid_to_accept = { ac_sect_mission_ready_trigger = yes }
+	valid_to_keep = { exists = task_contract_employer }
+	valid_to_continue = {
+		task_contract_taker ?= {
+			is_alive = yes
+			ac_sect_member_trigger = yes
+			var:ac_sect = prev.var:ac_contract_sect
+		}
+	}
+	on_create = {
+		scope:contract = { set_variable = { name = ac_contract_sect value = prev.var:ac_sect } }
+	}
+	on_accepted = {
+		save_scope_as = ac_mission_contract
+		task_contract_taker = {
+			set_variable = { name = ac_sect_mission value = scope:ac_mission_contract }
+			set_variable = { name = ac_sect_mission_kind value = flag:patrol }
+			add_character_flag = { flag = ac_sect_mission_cooldown days = 180 }
+			trigger_event = { id = ac_sect_mission.0002 days = 90 }
+		}
+	}
+	on_completed = { ac_sect_contract_cleanup_effect = yes }
+	on_invalidated = { ac_sect_contract_cleanup_effect = yes }
+	task_contract_reward = {
+		ac_sect_patrol_success = {
+			visible = yes positive = yes should_print_on_complete = yes
+			effect = {
+				task_contract_taker = {
+					ac_sect_award_contribution_effect = { VALUE = 50 }
+					add_ac_cultivation_lifestyle_xp = 40
+					var:ac_sect = { change_variable = { name = ac_treasury add = 20 } }
+				}
+			}
+		}
+		ac_sect_patrol_failure = {
+			visible = yes positive = no
+			effect = { task_contract_taker = { add_stress = 15 } }
+		}
+		ac_sect_patrol_abandoned = { visible = no positive = no effect = { } }
+	}
+	should_show_toast_on_complete = yes
+	weight = { value = 0 }
+}
+ac_sect_herbs = {
+	group = ac_sect_missions
+	icon = "gfx/interface/icons/traits/ac_cultivator.dds"
+	desc = ac_sect_herbs_desc
+	task_contract_request = ac_sect_herbs_request
+	travel = no
+	is_criminal = no
+	use_diplomatic_range = yes
+	valid_to_create = { ac_sect_mission_ready_trigger = yes }
+	valid_to_accept = { ac_sect_mission_ready_trigger = yes }
+	valid_to_keep = { exists = task_contract_employer }
+	valid_to_continue = {
+		task_contract_taker ?= {
+			is_alive = yes
+			ac_sect_member_trigger = yes
+			var:ac_sect = prev.var:ac_contract_sect
+		}
+	}
+	on_create = {
+		scope:contract = { set_variable = { name = ac_contract_sect value = prev.var:ac_sect } }
+	}
+	on_accepted = {
+		save_scope_as = ac_mission_contract
+		task_contract_taker = {
+			set_variable = { name = ac_sect_mission value = scope:ac_mission_contract }
+			set_variable = { name = ac_sect_mission_kind value = flag:herbs }
+			add_character_flag = { flag = ac_sect_mission_cooldown days = 180 }
+			trigger_event = { id = ac_sect_mission.0002 days = 90 }
+		}
+	}
+	on_completed = { ac_sect_contract_cleanup_effect = yes }
+	on_invalidated = { ac_sect_contract_cleanup_effect = yes }
+	task_contract_reward = {
+		ac_sect_herbs_success = {
+			visible = yes positive = yes should_print_on_complete = yes
+			effect = {
+				task_contract_taker = {
+					ac_sect_award_contribution_effect = { VALUE = 50 }
+					add_ac_cultivation_lifestyle_xp = 40
+					var:ac_sect = { change_variable = { name = ac_treasury add = 20 } }
+				}
+			}
+		}
+		ac_sect_herbs_failure = {
+			visible = yes positive = no
+			effect = { task_contract_taker = { add_stress = 15 } }
+		}
+		ac_sect_herbs_abandoned = { visible = no positive = no effect = { } }
+	}
+	should_show_toast_on_complete = yes
+	weight = { value = 0 }
+}
+ac_sect_manual = {
+	group = ac_sect_missions
+	icon = "gfx/interface/icons/traits/ac_cultivator.dds"
+	desc = ac_sect_manual_desc
+	task_contract_request = ac_sect_manual_request
+	travel = no
+	is_criminal = no
+	use_diplomatic_range = yes
+	valid_to_create = { ac_sect_mission_ready_trigger = yes }
+	valid_to_accept = { ac_sect_mission_ready_trigger = yes }
+	valid_to_keep = { exists = task_contract_employer }
+	valid_to_continue = {
+		task_contract_taker ?= {
+			is_alive = yes
+			ac_sect_member_trigger = yes
+			var:ac_sect = prev.var:ac_contract_sect
+		}
+	}
+	on_create = {
+		scope:contract = { set_variable = { name = ac_contract_sect value = prev.var:ac_sect } }
+	}
+	on_accepted = {
+		save_scope_as = ac_mission_contract
+		task_contract_taker = {
+			set_variable = { name = ac_sect_mission value = scope:ac_mission_contract }
+			set_variable = { name = ac_sect_mission_kind value = flag:manual }
+			add_character_flag = { flag = ac_sect_mission_cooldown days = 210 }
+			trigger_event = { id = ac_sect_mission.0002 days = 120 }
+		}
+	}
+	on_completed = { ac_sect_contract_cleanup_effect = yes }
+	on_invalidated = { ac_sect_contract_cleanup_effect = yes }
+	task_contract_reward = {
+		ac_sect_manual_success = {
+			visible = yes positive = yes should_print_on_complete = yes
+			effect = {
+				task_contract_taker = {
+					ac_sect_award_contribution_effect = { VALUE = 70 }
+					add_ac_cultivation_lifestyle_xp = 40
+					var:ac_sect = { change_variable = { name = ac_treasury add = 20 } }
+				}
+			}
+		}
+		ac_sect_manual_failure = {
+			visible = yes positive = no
+			effect = { task_contract_taker = { add_stress = 15 } }
+		}
+		ac_sect_manual_abandoned = { visible = no positive = no effect = { } }
+	}
+	should_show_toast_on_complete = yes
+	weight = { value = 0 }
+}
+ac_sect_mediation = {
+	group = ac_sect_missions
+	icon = "gfx/interface/icons/traits/ac_cultivator.dds"
+	desc = ac_sect_mediation_desc
+	task_contract_request = ac_sect_mediation_request
+	travel = no
+	is_criminal = no
+	use_diplomatic_range = yes
+	valid_to_create = { ac_sect_mission_ready_trigger = yes }
+	valid_to_accept = { ac_sect_mission_ready_trigger = yes }
+	valid_to_keep = { exists = task_contract_employer }
+	valid_to_continue = {
+		task_contract_taker ?= {
+			is_alive = yes
+			ac_sect_member_trigger = yes
+			var:ac_sect = prev.var:ac_contract_sect
+		}
+	}
+	on_create = {
+		scope:contract = { set_variable = { name = ac_contract_sect value = prev.var:ac_sect } }
+	}
+	on_accepted = {
+		save_scope_as = ac_mission_contract
+		task_contract_taker = {
+			set_variable = { name = ac_sect_mission value = scope:ac_mission_contract }
+			set_variable = { name = ac_sect_mission_kind value = flag:mediation }
+			add_character_flag = { flag = ac_sect_mission_cooldown days = 150 }
+			trigger_event = { id = ac_sect_mission.0002 days = 60 }
+		}
+	}
+	on_completed = { ac_sect_contract_cleanup_effect = yes }
+	on_invalidated = { ac_sect_contract_cleanup_effect = yes }
+	task_contract_reward = {
+		ac_sect_mediation_success = {
+			visible = yes positive = yes should_print_on_complete = yes
+			effect = {
+				task_contract_taker = {
+					ac_sect_award_contribution_effect = { VALUE = 40 }
+					add_ac_cultivation_lifestyle_xp = 40
+					var:ac_sect = { change_variable = { name = ac_treasury add = 20 } }
+				}
+			}
+		}
+		ac_sect_mediation_failure = {
+			visible = yes positive = no
+			effect = { task_contract_taker = { add_stress = 15 } }
+		}
+		ac_sect_mediation_abandoned = { visible = no positive = no effect = { } }
+	}
+	should_show_toast_on_complete = yes
+	weight = { value = 0 }
+}
+ac_sect_relief = {
+	group = ac_sect_missions
+	icon = "gfx/interface/icons/traits/ac_cultivator.dds"
+	desc = ac_sect_relief_desc
+	task_contract_request = ac_sect_relief_request
+	travel = no
+	is_criminal = no
+	use_diplomatic_range = yes
+	valid_to_create = { ac_sect_mission_ready_trigger = yes }
+	valid_to_accept = { ac_sect_mission_ready_trigger = yes }
+	valid_to_keep = { exists = task_contract_employer }
+	valid_to_continue = {
+		task_contract_taker ?= {
+			is_alive = yes
+			ac_sect_member_trigger = yes
+			var:ac_sect = prev.var:ac_contract_sect
+		}
+	}
+	on_create = {
+		scope:contract = { set_variable = { name = ac_contract_sect value = prev.var:ac_sect } }
+	}
+	on_accepted = {
+		save_scope_as = ac_mission_contract
+		task_contract_taker = {
+			set_variable = { name = ac_sect_mission value = scope:ac_mission_contract }
+			set_variable = { name = ac_sect_mission_kind value = flag:relief }
+			add_character_flag = { flag = ac_sect_mission_cooldown days = 180 }
+			trigger_event = { id = ac_sect_mission.0002 days = 90 }
+		}
+	}
+	on_completed = { ac_sect_contract_cleanup_effect = yes }
+	on_invalidated = { ac_sect_contract_cleanup_effect = yes }
+	task_contract_reward = {
+		ac_sect_relief_success = {
+			visible = yes positive = yes should_print_on_complete = yes
+			effect = {
+				task_contract_taker = {
+					ac_sect_award_contribution_effect = { VALUE = 50 }
+					add_ac_cultivation_lifestyle_xp = 40
+					var:ac_sect = { change_variable = { name = ac_treasury add = 20 } }
+				}
+			}
+		}
+		ac_sect_relief_failure = {
+			visible = yes positive = no
+			effect = { task_contract_taker = { add_stress = 15 } }
+		}
+		ac_sect_relief_abandoned = { visible = no positive = no effect = { } }
+	}
+	should_show_toast_on_complete = yes
+	weight = { value = 0 }
+}
+ac_sect_escort = {
+	group = ac_sect_missions
+	icon = "gfx/interface/icons/traits/ac_cultivator.dds"
+	desc = ac_sect_escort_desc
+	task_contract_request = ac_sect_escort_request
+	travel = no
+	is_criminal = no
+	use_diplomatic_range = yes
+	valid_to_create = { ac_sect_mission_ready_trigger = yes }
+	valid_to_accept = { ac_sect_mission_ready_trigger = yes }
+	valid_to_keep = { exists = task_contract_employer }
+	valid_to_continue = {
+		task_contract_taker ?= {
+			is_alive = yes
+			ac_sect_member_trigger = yes
+			var:ac_sect = prev.var:ac_contract_sect
+		}
+	}
+	on_create = {
+		scope:contract = { set_variable = { name = ac_contract_sect value = prev.var:ac_sect } }
+	}
+	on_accepted = {
+		save_scope_as = ac_mission_contract
+		task_contract_taker = {
+			set_variable = { name = ac_sect_mission value = scope:ac_mission_contract }
+			set_variable = { name = ac_sect_mission_kind value = flag:escort }
+			add_character_flag = { flag = ac_sect_mission_cooldown days = 210 }
+			trigger_event = { id = ac_sect_mission.0002 days = 120 }
+		}
+	}
+	on_completed = { ac_sect_contract_cleanup_effect = yes }
+	on_invalidated = { ac_sect_contract_cleanup_effect = yes }
+	task_contract_reward = {
+		ac_sect_escort_success = {
+			visible = yes positive = yes should_print_on_complete = yes
+			effect = {
+				task_contract_taker = {
+					ac_sect_award_contribution_effect = { VALUE = 70 }
+					add_ac_cultivation_lifestyle_xp = 40
+					var:ac_sect = { change_variable = { name = ac_treasury add = 20 } }
+				}
+			}
+		}
+		ac_sect_escort_failure = {
+			visible = yes positive = no
+			effect = { task_contract_taker = { add_stress = 15 } }
+		}
+		ac_sect_escort_abandoned = { visible = no positive = no effect = { } }
+	}
+	should_show_toast_on_complete = yes
+	weight = { value = 0 }
+}

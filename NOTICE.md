@@ -13,6 +13,8 @@ This repository contains material under three sets of terms. Use the table below
 | `AuraClash/events/ac_vanilla_*_options.txt` | © Paradox Interactive; our modifications are MIT | Individual vanilla event definitions with added cultivation choices |
 | `tools/` | MIT ([LICENSE](LICENSE)) | Build scripts, option specifications, source hashes and regression checks; Aura Clash names are excepted |
 | `AuraClash/gui/window_character_lifestyle.gui` | © Paradox Interactive; our modifications are MIT | See *Files derived from Crusader Kings III* |
+| `AuraClash/gui/ac_sect_window.gui`, `AuraClash/gui/scripted_widgets/ac_sect_widgets.txt`, `AuraClash/tests/` | MIT ([LICENSE](LICENSE)) | Original sect interface code and integration scenarios; Aura Clash names are excepted |
+| `docs/sects.md` | All rights reserved | Sect mechanics and development documentation |
 | `AuraClash/localization/` | Aura Clash Setting Content ([LICENSE-CONTENT.md](LICENSE-CONTENT.md)) | All player-facing text |
 | `AuraClash/gfx/` | Aura Clash Setting Content ([LICENSE-CONTENT.md](LICENSE-CONTENT.md)) | All icons and illustrations |
 | `assets/trait-icons/` | Aura Clash Setting Content ([LICENSE-CONTENT.md](LICENSE-CONTENT.md)) | Approved trait artwork masters and preview |
