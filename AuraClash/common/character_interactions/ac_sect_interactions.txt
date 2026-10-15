@@ -95,7 +95,7 @@ ac_sect_handover_interaction = {
 	on_accept = {
 		scope:actor = { remove_trait = ac_sect_master add_trait = ac_sect_upper_disciple }
 		scope:recipient = { remove_trait = ac_sect_upper_disciple add_trait = ac_sect_master }
-		scope:actor.var:ac_sect = { make_story_owner = scope:recipient set_variable = { name = ac_master value = scope:recipient } ac_sect_recount_effect = yes }
+		scope:actor.var:ac_sect = { make_story_owner = scope:recipient set_variable = { name = ac_master value = scope:recipient } ac_sect_ensure_domicile_effect = yes ac_sect_recount_effect = yes }
 		scope:recipient = { if = { limit = { is_ai = no } trigger_event = ac_sect.0020 } }
 	}
 	ai_will_do = { base = 0 }

@@ -1,98 +1,4 @@
-﻿# Generated estate construction effects. Buildings live on the persistent sect story.
-ac_sect_build_cultivation_hall_effect = {
-	if = {
-		limit = {
-			ac_sect_master_trigger = yes
-			var:ac_sect = { NOT = { has_variable = ac_building } var:ac_cultivation_hall < 3 }
-			var:ac_sect.var:ac_treasury >= ac_sect_cultivation_hall_cost
-		}
-		save_scope_as = ac_builder
-		var:ac_sect = {
-			change_variable = { name = ac_treasury subtract = scope:ac_builder.ac_sect_cultivation_hall_cost }
-			set_variable = { name = ac_building value = flag:cultivation_hall }
-			set_variable = { name = ac_building_timer value = 1 days = 180 }
-		}
-	}
-}
-ac_sect_build_alchemy_pavilion_effect = {
-	if = {
-		limit = {
-			ac_sect_master_trigger = yes
-			var:ac_sect = { NOT = { has_variable = ac_building } var:ac_alchemy_pavilion < 3 }
-			var:ac_sect.var:ac_treasury >= ac_sect_alchemy_pavilion_cost
-		}
-		save_scope_as = ac_builder
-		var:ac_sect = {
-			change_variable = { name = ac_treasury subtract = scope:ac_builder.ac_sect_alchemy_pavilion_cost }
-			set_variable = { name = ac_building value = flag:alchemy_pavilion }
-			set_variable = { name = ac_building_timer value = 1 days = 180 }
-		}
-	}
-}
-ac_sect_build_training_ground_effect = {
-	if = {
-		limit = {
-			ac_sect_master_trigger = yes
-			var:ac_sect = { NOT = { has_variable = ac_building } var:ac_training_ground < 3 }
-			var:ac_sect.var:ac_treasury >= ac_sect_training_ground_cost
-		}
-		save_scope_as = ac_builder
-		var:ac_sect = {
-			change_variable = { name = ac_treasury subtract = scope:ac_builder.ac_sect_training_ground_cost }
-			set_variable = { name = ac_building value = flag:training_ground }
-			set_variable = { name = ac_building_timer value = 1 days = 180 }
-		}
-	}
-}
-ac_sect_build_scripture_library_effect = {
-	if = {
-		limit = {
-			ac_sect_master_trigger = yes
-			var:ac_sect = { NOT = { has_variable = ac_building } var:ac_scripture_library < 3 }
-			var:ac_sect.var:ac_treasury >= ac_sect_scripture_library_cost
-		}
-		save_scope_as = ac_builder
-		var:ac_sect = {
-			change_variable = { name = ac_treasury subtract = scope:ac_builder.ac_sect_scripture_library_cost }
-			set_variable = { name = ac_building value = flag:scripture_library }
-			set_variable = { name = ac_building_timer value = 1 days = 180 }
-		}
-	}
-}
-ac_sect_build_spirit_garden_effect = {
-	if = {
-		limit = {
-			ac_sect_master_trigger = yes
-			var:ac_sect = { NOT = { has_variable = ac_building } var:ac_spirit_garden < 3 }
-			var:ac_sect.var:ac_treasury >= ac_sect_spirit_garden_cost
-		}
-		save_scope_as = ac_builder
-		var:ac_sect = {
-			change_variable = { name = ac_treasury subtract = scope:ac_builder.ac_sect_spirit_garden_cost }
-			set_variable = { name = ac_building value = flag:spirit_garden }
-			set_variable = { name = ac_building_timer value = 1 days = 180 }
-		}
-	}
-}
-ac_sect_build_formation_hall_effect = {
-	if = {
-		limit = {
-			ac_sect_master_trigger = yes
-			var:ac_sect = { NOT = { has_variable = ac_building } var:ac_formation_hall < 3 }
-			var:ac_sect.var:ac_treasury >= ac_sect_formation_hall_cost
-		}
-		save_scope_as = ac_builder
-		var:ac_sect = {
-			change_variable = { name = ac_treasury subtract = scope:ac_builder.ac_sect_formation_hall_cost }
-			set_variable = { name = ac_building value = flag:formation_hall }
-			set_variable = { name = ac_building_timer value = 1 days = 180 }
-		}
-	}
-}
-ac_sect_finish_construction_effect = {
-	if = {
-		limit = { has_variable = ac_building NOT = { has_variable = ac_building_timer } }
-
+﻿ac_sect_finish_construction_effect = { if = { limit = { has_variable = ac_building NOT = { has_variable = ac_building_timer } NOT = { has_variable = ac_native_construction } }
 		if = { limit = { var:ac_building = flag:cultivation_hall } change_variable = { name = ac_cultivation_hall add = 1 } }
 		if = { limit = { var:ac_building = flag:alchemy_pavilion } change_variable = { name = ac_alchemy_pavilion add = 1 } }
 		if = { limit = { var:ac_building = flag:training_ground } change_variable = { name = ac_training_ground add = 1 } }
@@ -100,11 +6,9 @@ ac_sect_finish_construction_effect = {
 		if = { limit = { var:ac_building = flag:spirit_garden } change_variable = { name = ac_spirit_garden add = 1 } }
 		if = { limit = { var:ac_building = flag:formation_hall } change_variable = { name = ac_formation_hall add = 1 } }
 		remove_variable = ac_building
-		story_owner = {
-			send_interface_toast = { type = event_toast_effect_good title = ac_sect_construction_complete left_icon = this }
-		}
-	}
-}
+		ac_sect_migrate_building_levels_effect = yes
+		story_owner = { send_interface_toast = { type = event_toast_effect_good title = ac_sect_construction_complete left_icon = this } }
+	} }
 ac_sect_training_effect = {
 	add_ac_cultivation_lifestyle_xp = ac_sect_annual_study_xp
 	add_trait_xp = { trait = ac_cultivator track = ac_core_power value = var:ac_sect.var:ac_training_ground }

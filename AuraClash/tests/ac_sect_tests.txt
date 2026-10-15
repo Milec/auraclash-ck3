@@ -11,6 +11,7 @@ ac_sect_test_01_initialization = {
 			var:ac_upper_count = 8
 			var:ac_lower_count = 16
 			story_owner = { has_trait = ac_sect_master has_trait = ac_cultivator }
+			var:ac_estate_title = { holder = title:k_england.var:ac_kingdom_sect.story_owner title_domicile = { is_domicile_type = ac_sect_estate domicile_location = title:k_england.var:ac_kingdom_sect.var:ac_headquarters } }
 		}
 	}
 	effect = {
@@ -72,11 +73,7 @@ ac_sect_test_04_building_queue = {
 			story_owner = { ac_sect_build_alchemy_pavilion_effect = yes ac_sect_build_alchemy_pavilion_effect = yes }
 		}
 	}
-	expect = { var:ac_kingdom_sect = { var:ac_treasury = 900 var:ac_alchemy_pavilion = 0 has_variable = ac_building_timer } }
-	effect = {
-		var:ac_kingdom_sect = { remove_variable = ac_building_timer ac_sect_finish_construction_effect = yes ac_sect_finish_construction_effect = yes }
-	}
-	expect = { var:ac_kingdom_sect = { var:ac_treasury = 900 var:ac_alchemy_pavilion = 1 NOT = { has_variable = ac_building } } }
+	expect = { var:ac_kingdom_sect = { var:ac_treasury = 900 var:ac_alchemy_pavilion = 0 var:ac_estate_title.title_domicile = { has_domicile_construction = ac_sect_alchemy_pavilion_01 var:ac_native_build_cost = 100 } } }
 }
 ac_sect_test_05_native_mission_contract = {
 	title_target = k_england
@@ -103,7 +100,7 @@ ac_sect_test_06_relationships_and_succession = {
 	title_target = k_england
 	assert = { has_variable = ac_kingdom_sect title:k_scotland = { exists = holder } }
 	effect = {
-		var:ac_kingdom_sect = { save_scope_as = ac_inherited_sect story_owner = { save_scope_as = actor } }
+		var:ac_kingdom_sect = { save_scope_as = ac_inherited_sect var:ac_estate_title.title_domicile = { save_scope_as = ac_inherited_domicile } story_owner = { save_scope_as = actor } }
 		title:k_scotland.var:ac_kingdom_sect.story_owner = { save_scope_as = recipient }
 		ac_sect_alliance_effect = yes
 		var:ac_kingdom_sect = { save_scope_as = ac_join_sect }
@@ -127,10 +124,15 @@ ac_sect_test_06_relationships_and_succession = {
 		var:ac_kingdom_sect = scope:ac_inherited_sect
 		var:ac_kingdom_sect.story_owner = scope:ac_test_ruler
 		var:ac_kingdom_sect.var:ac_master = scope:ac_test_ruler
-		var:ac_kingdom_sect.var:ac_alchemy_pavilion = 1
+		var:ac_kingdom_sect.var:ac_alchemy_pavilion = 0
+        var:ac_kingdom_sect.var:ac_estate_title = {
+            holder = scope:ac_test_ruler
+            title_domicile = scope:ac_inherited_domicile
+            title_domicile = { owner = scope:ac_test_ruler has_domicile_construction = ac_sect_alchemy_pavilion_01 }
+        }
 		var:ac_kingdom_sect = { is_target_in_variable_list = { name = ac_allies target = scope:recipient.var:ac_sect } }
 		scope:recipient.var:ac_sect = { is_target_in_variable_list = { name = ac_allies target = scope:ac_inherited_sect } }
-		scope:ac_test_ruler = { has_trait = ac_sect_master primary_title = title:k_scotland }
+		scope:ac_test_ruler = { has_trait = ac_sect_master primary_title = title:k_scotland has_government = feudal_government }
 	}
 }
 ac_sect_test_09_preserve_existing_paths = {
@@ -295,4 +297,100 @@ ac_sect_test_13_interest_does_not_host = {
 		NOT = { is_target_in_global_variable_list = { name = ac_sect_interested_characters target = title:k_england.holder } }
 	}
 	effect = { holder = { ac_sect_register_interest_effect = yes } }
+}
+
+# A Master may already have a personal native estate. The sect office must not
+# replace it, change their government, or take away the imperial title.
+ac_sect_test_14_personal_estate_coexistence = {
+	title_target = k_wales
+	assert = { title:e_byzantium.holder = { has_domicile = yes has_government = administrative_government } }
+	effect = {
+		var:ac_kingdom_sect = { save_scope_as = ac_join_sect story_owner = { save_scope_as = ac_returning_master } }
+		title:e_byzantium.holder = {
+			save_scope_as = ac_personal_estate_master
+			domicile = { save_scope_as = ac_personal_estate }
+			ac_sect_join_effect = yes
+			remove_trait = ac_sect_lower_disciple add_trait = ac_sect_master
+		}
+		scope:ac_returning_master = { remove_trait = ac_sect_master add_trait = ac_sect_upper_disciple }
+		var:ac_kingdom_sect = {
+			make_story_owner = scope:ac_personal_estate_master
+			set_variable = { name = ac_master value = scope:ac_personal_estate_master }
+			ac_sect_ensure_domicile_effect = yes
+		}
+	}
+	expect = {
+		scope:ac_personal_estate_master = { primary_title = title:e_byzantium has_government = administrative_government }
+		scope:ac_personal_estate = { owner = scope:ac_personal_estate_master }
+		var:ac_kingdom_sect.var:ac_estate_title = {
+			holder = scope:ac_personal_estate_master
+			title_domicile = { owner = scope:ac_personal_estate_master is_domicile_type = ac_sect_estate this != scope:ac_personal_estate }
+		}
+	}
+	effect = {
+		scope:ac_personal_estate_master = { remove_trait = ac_sect_master add_trait = ac_sect_upper_disciple }
+		scope:ac_returning_master = { remove_trait = ac_sect_upper_disciple add_trait = ac_sect_master }
+		var:ac_kingdom_sect = {
+			make_story_owner = scope:ac_returning_master
+			set_variable = { name = ac_master value = scope:ac_returning_master }
+			ac_sect_ensure_domicile_effect = yes
+			ac_sect_recount_effect = yes
+		}
+		scope:ac_personal_estate_master = { ac_sect_leave_effect = yes }
+	}
+	expect = {
+		scope:ac_personal_estate_master = { primary_title = title:e_byzantium has_government = administrative_government }
+		scope:ac_personal_estate = { owner = scope:ac_personal_estate_master }
+		var:ac_kingdom_sect.var:ac_estate_title.holder = scope:ac_returning_master
+	}
+}
+
+# Migration preserves an already paid legacy project while completed levels
+# become native buildings, then finishes the old project exactly once.
+ac_sect_test_15_legacy_construction_migration = {
+    title_target = k_wales
+    effect = {
+        title:k_wales.var:ac_kingdom_sect = {
+            set_variable = { name = ac_treasury value = 900 }
+            var:ac_estate_title.title_domicile = { remove_domicile_building_no_refund = ac_sect_training_ground_01 }
+            set_variable = { name = ac_training_ground value = 1 }
+            set_variable = { name = ac_building value = flag:scripture_library }
+            set_variable = { name = ac_building_timer value = 1 days = 180 }
+            ac_sect_migrate_building_levels_effect = yes
+        }
+    }
+    expect = {
+        title:k_wales.var:ac_kingdom_sect = {
+            var:ac_treasury = 900
+        }
+    }
+    expect = { title:k_wales.var:ac_kingdom_sect = { has_variable = ac_building_timer var:ac_building = flag:scripture_library } }
+    expect = { title:k_wales.var:ac_kingdom_sect.var:ac_estate_title.title_domicile = { has_domicile_building = ac_sect_training_ground_01 } }
+    effect = {
+        title:k_wales.var:ac_kingdom_sect = {
+            remove_variable = ac_building_timer
+            ac_sect_finish_construction_effect = yes
+            ac_sect_finish_construction_effect = yes
+        }
+    }
+    expect = {
+        title:k_wales.var:ac_kingdom_sect = {
+            var:ac_treasury = 900
+        }
+    }
+    expect = { title:k_wales.var:ac_kingdom_sect = { var:ac_scripture_library = 1 NOT = { has_variable = ac_building } } }
+    expect = { title:k_wales.var:ac_kingdom_sect.var:ac_estate_title.title_domicile = { has_domicile_building = ac_sect_scripture_library_01 } }
+}
+
+ac_sect_test_16_native_upgrade_cancellation = {
+    title_target = k_wales
+    effect = {
+        title:k_wales.var:ac_kingdom_sect = { set_variable = { name = ac_treasury value = 900 } story_owner = { ac_sect_build_training_ground_effect = yes } }
+    }
+    expect = { title:k_wales.var:ac_kingdom_sect = { var:ac_treasury = 700 var:ac_estate_domicile = { has_domicile_construction = ac_sect_training_ground_02 } } }
+    effect = { title:k_wales.var:ac_kingdom_sect.var:ac_estate_domicile = { hidden_effect = { ac_sect_cancel_native_construction_effect = yes } } }
+    expect = { title:k_wales.var:ac_kingdom_sect = { var:ac_treasury = 900 NOT = { has_variable = ac_building } } }
+    expect = { title:k_wales.var:ac_kingdom_sect.var:ac_estate_domicile = { has_domicile_building = ac_sect_training_ground_01 NOT = { has_ongoing_domicile_construction = yes } } }
+    effect = { title:k_wales.var:ac_kingdom_sect.var:ac_estate_domicile = { hidden_effect = { ac_sect_cancel_native_construction_effect = yes } } }
+    expect = { title:k_wales.var:ac_kingdom_sect = { var:ac_treasury = 900 var:ac_training_ground = 1 } }
 }

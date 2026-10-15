@@ -62,11 +62,30 @@ class SectContentTests(unittest.TestCase):
                 self.assertIn(ref, keys, (path.name, ref))
         self.assertTrue(events)
 
-    def test_sects_do_not_change_governments_or_invoke_single_combat(self):
+    def test_sect_office_preserves_secular_government_and_avoids_single_combat(self):
         for path in MOD.rglob('ac_sect*.txt'):
             source = parser.masked(path.read_text(encoding='utf-8-sig'))
-            self.assertNotRegex(source, r'\b(?:set_government|change_government|set_primary_title_to|change_title_holder|create_adventurer_title)\s*=')
+            if path.name != 'ac_sect_domicile_effects.txt':
+                self.assertNotRegex(source, r'\b(?:set_government|change_government|set_primary_title_to|change_title_holder|create_adventurer_title)\s*=')
             self.assertNotRegex(source, r'\b(?:start_single_combat|configure_start_single_combat_effect|single_combat\.\d+)\b')
+
+    def test_native_domicile_assets_and_title_are_wired(self):
+        source = (MOD / 'common/scripted_effects/ac_sect_domicile_effects.txt').read_text(encoding='utf-8-sig')
+        self.assertIn('create_domicile_title = {', source)
+        self.assertNotRegex(source, r'\bchange_government\s*=')
+        self.assertIn('scope:ac_domicile_master = { is_ruler = no }', source)
+        self.assertIn('holder = scope:ac_domicile_creator', source)
+        self.assertIn('change_title_holder = { holder = scope:ac_domicile_master', source)
+        self.assertNotIn('give_noble_family_title', source)
+        definitions = (MOD / 'common/domiciles/buildings/ac_sect_domicile_buildings.txt').read_text(encoding='utf-8-sig')
+        self.assertEqual(len(re.findall(r'^ac_sect_\w+_0[123] =', definitions, re.M)), 18)
+        game = Path('C:/Program Files (x86)/Steam/steamapps/common/Crusader Kings III/game')
+        for asset in re.findall(r'"(gfx/[^"\n]+)"', definitions):
+            self.assertTrue((game / asset).exists() or (MOD / asset).exists(), asset)
+
+    def test_sect_landscape_reproduces(self):
+        import build_sect_landscape
+        self.assertEqual(build_sect_landscape.TARGET.read_bytes(), build_sect_landscape.render())
 
     def test_every_generated_character_has_explicit_gender(self):
         for path in MOD.rglob('ac_sect*.txt'):

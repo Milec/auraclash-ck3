@@ -28,8 +28,10 @@ mod/
 ### Compatibility
 - **Start a new game** when updating from an earlier version. v0.3 replaces the Foundation trait, and v0.2 renamed the tree and perk keys.
 - `AuraClash/gui/window_character_lifestyle.gui` **replaces** the vanilla lifestyle window. It will conflict with other mods that edit that window, including Princes of Darkness and most UI overhauls.
-- One vanilla define is changed: unavailable options can remain visible until **6** options are shown (vanilla is 4). This does not cap the number of available choices.
-- Cultivation integration overrides **143 individual vanilla events** using `id_override_priority = 10`, targeting CK3 **1.20.1**: **269 added choices in 141 events**, plus two linked tournament outcome events. Mods changing those same events need a compatibility patch. Original event files are not replaced; normal choices and cleanup are preserved, with guarded resolution for successful cultivation interventions. The generator includes required file-local helpers and constants alongside relocated events. Fully restart CK3 after updating: event priority overrides do not support hot reload.
+- One vanilla option-display define is changed: unavailable options can remain visible until **6** options are shown (vanilla is 4). This does not cap the number of available choices.
+- Cultivation integration overrides **143 individual vanilla events** using `id_override_priority = 10`, targeting CK3 **1.20.1 / 1.20.1.1**: **269 added choices in 141 events**, plus two linked tournament outcome events. Mods changing those same events need a compatibility patch. Original event files are not replaced; normal choices and cleanup are preserved, with guarded resolution for successful cultivation interventions. The generator includes required file-local helpers and constants alongside relocated events. Fully restart CK3 after updating: event priority overrides do not support hot reload.
+- Native sect domiciles add a landless Sect Master title and register its government in `NGovernment.GOVERNMENT_TYPES`, retaining all 20 native entries. Mods replacing that list need a merged compatibility definition.
+- Six construction-notification localization keys use generic wording for Sect Masters because native messages assume a personal domicile. Other characters keep vanilla wording; mods replacing those same keys need a localization merge.
 - Its on_actions (including a hook on hunts) are appended to vanilla's.
 
 ---
@@ -73,7 +75,7 @@ One provincial sect is seeded per eligible de-jure kingdom, with a Master, up to
 
 Use **Decisions → Cultivation → Consult the Sect Register** for membership, six estate building lines, mission contracts and the contribution exchange. Public **Sect Trial** activities admit mortals and cultivators and examine disciples for promotion. Sects can form alliances and rivalries, fight group battles and host **Joint Sect Training**. See the [sect guide](docs/sects.md) for costs, succession, geography and testing.
 
-The estate uses a custom province-bound screen and building system. It does not occupy a ruler's existing government domicile. Sect battles resolve as group clashes; they do not use ordinary single combat or conquer territory.
+The estate is a native CK3 domicile attached to a separate landless Sect Master title, with an original Chinese-inspired landscape and six building chains. It passes with sect leadership while rulers keep their lands, government and personal estate. The sect register opens illustrated building plots and sect-aware controls for the native construction queue; the vanilla editor assumes a ruler's personal domicile. Sect battles resolve as group clashes; they do not use ordinary single combat or conquer territory.
 
 ### Cultivator
 A trait that grants **+0.5 health, +20 life expectancy, +10 years of fertility and +4 prowess**, and unlocks everything below.

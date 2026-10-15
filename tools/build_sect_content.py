@@ -129,69 +129,32 @@ AC_SectRank = {
 ''']
     files['common/customizable_localization/ac_sect_custom_loc.txt'] = '\n'.join(custom)
 
-    estate = ['# Generated estate construction effects. Buildings live on the persistent sect story.']
+    # Native domicile construction is the authority. Keep this timer handler
+    # solely to finish projects already paid for in pre-domicile saves.
+    estate = ['ac_sect_finish_construction_effect = { if = { limit = { has_variable = ac_building NOT = { has_variable = ac_building_timer } NOT = { has_variable = ac_native_construction } }']
     values = []
-    events = ['namespace = ac_sect_estate', '''ac_sect_estate.0001 = {
-    type = character_event
-    title = ac_sect_estate.0001.t
-    desc = ac_sect_estate.0001.desc
-    theme = stewardship
-    trigger = { ac_sect_member_trigger = yes }
-''']
     for b, name, desc, benefit in BUILDINGS:
         values.append(f'ac_sect_{b}_cost = {{ value = var:ac_sect.var:ac_{b} add = 1 multiply = 100 }}')
-        estate.append(f'''ac_sect_build_{b}_effect = {{
-    if = {{
-        limit = {{
-            ac_sect_master_trigger = yes
-            var:ac_sect = {{ NOT = {{ has_variable = ac_building }} var:ac_{b} < 3 }}
-            var:ac_sect.var:ac_treasury >= ac_sect_{b}_cost
-        }}
-        save_scope_as = ac_builder
-        var:ac_sect = {{
-            change_variable = {{ name = ac_treasury subtract = scope:ac_builder.ac_sect_{b}_cost }}
-            set_variable = {{ name = ac_building value = flag:{b} }}
-            set_variable = {{ name = ac_building_timer value = 1 days = 180 }}
-        }}
-    }}
-}}''')
-        events.append(f'''    option = {{
-        name = ac_sect_build_{b}
-        trigger = {{
-            ac_sect_master_trigger = yes
-            var:ac_sect = {{ NOT = {{ has_variable = ac_building }} var:ac_{b} < 3 }}
-            var:ac_sect.var:ac_treasury >= ac_sect_{b}_cost
-        }}
-        show_as_unavailable = {{ ac_sect_master_trigger = yes }}
-        custom_tooltip = ac_sect_build_{b}_tt
-        ac_sect_build_{b}_effect = yes
-    }}''')
-        loc[f'ac_sect_build_{b}'] = f'Improve the {name} (level [ROOT.Char.MakeScope.Var(\'ac_sect\').Var(\'ac_{b}\').GetValue|0]/3)'
-        loc[f'ac_sect_build_{b}_tt'] = f'{desc} {benefit} Costs 100/200/300 sect gold for levels 1/2/3. Construction takes six to seven months. Only one building can be under construction.'
-    events += ['option = { name = ac_sect_back trigger_event = ac_sect.0001 }', '}']
-    estate += ['''ac_sect_finish_construction_effect = {
-    if = {
-        limit = { has_variable = ac_building NOT = { has_variable = ac_building_timer } }
-''']
-    for b, *_ in BUILDINGS:
         estate.append(f'if = {{ limit = {{ var:ac_building = flag:{b} }} change_variable = {{ name = ac_{b} add = 1 }} }}')
-    estate += ['''        remove_variable = ac_building
-        story_owner = {
-            send_interface_toast = { type = event_toast_effect_good title = ac_sect_construction_complete left_icon = this }
-        }
+        loc[f'ac_sect_build_{b}'] = f'Improve the {name}'
+        loc[f'ac_sect_build_{b}_tt'] = f'{desc} {benefit} Costs 100/200/300 sect gold. Base construction time: 180 days.'
+    estate += ["""remove_variable = ac_building
+        ac_sect_migrate_building_levels_effect = yes
+        story_owner = { send_interface_toast = { type = event_toast_effect_good title = ac_sect_construction_complete left_icon = this } }
+    } }
+    ac_sect_training_effect = {
+        add_ac_cultivation_lifestyle_xp = ac_sect_annual_study_xp
+        add_trait_xp = { trait = ac_cultivator track = ac_core_power value = var:ac_sect.var:ac_training_ground }
+        add_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value = var:ac_sect.var:ac_spirit_garden }
+        add_trait_xp = { trait = ac_cultivator track = ac_core_agility value = var:ac_sect.var:ac_formation_hall }
     }
-}
-ac_sect_training_effect = {
-    add_ac_cultivation_lifestyle_xp = ac_sect_annual_study_xp
-    add_trait_xp = { trait = ac_cultivator track = ac_core_power value = var:ac_sect.var:ac_training_ground }
-    add_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value = var:ac_sect.var:ac_spirit_garden }
-    add_trait_xp = { trait = ac_cultivator track = ac_core_agility value = var:ac_sect.var:ac_formation_hall }
-}
-''']
+    """]
     values.append('ac_sect_annual_study_xp = { value = var:ac_sect.var:ac_cultivation_hall add = var:ac_sect.var:ac_scripture_library multiply = 20 }')
     files['common/scripted_effects/ac_sect_estate_effects.txt'] = '\n'.join(estate)
     files['common/script_values/ac_sect_estate_values.txt'] = '\n'.join(values)
-    files['events/ac_sect_estate_events.txt'] = '\n'.join(events)
+    files['events/ac_sect_estate_events.txt'] = 'namespace = ac_sect_estate\nac_sect_estate.0001 = { type = character_event hidden = yes trigger = { ac_sect_member_trigger = yes } immediate = { ac_sect_open_estate_effect = yes } }\nac_sect_estate.0002 = { type = character_event hidden = yes trigger = { ac_sect_master_trigger = yes } immediate = { var:ac_sect = { ac_sect_ensure_domicile_effect = yes } } }\n'
+    import build_sect_domiciles
+    files.update(build_sect_domiciles.render(BUILDINGS))
 
     contracts, start, options = [], [], []
     for key, name, desc, skill, days, reward in MISSIONS:

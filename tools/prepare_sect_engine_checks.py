@@ -47,9 +47,18 @@ def test_body(name, body, skip_effect=False, only_effect=False, after_effect=Fal
 
 
 def main():
+    global OUT, OVERLAY
     arguments = argparse.ArgumentParser()
+    arguments.add_argument('--out', type=Path, help='Use a separate isolated output folder for a concurrent fixture.')
     arguments.add_argument('--master-ui', action='store_true', help='Prepare a player Sect Master for manual activity-planner verification.')
+    arguments.add_argument('--estate-ui', action='store_true', help='Open a player Master native domicile for UI verification.')
     args = arguments.parse_args()
+    if args.out:
+        OUT = args.out.resolve()
+        if not OUT.is_relative_to(ROOT / 'output'):
+            raise SystemExit('QA output must stay inside the workspace output directory.')
+        OVERLAY = OUT / 'qa-mod'
+    args.master_ui = args.master_ui or args.estate_ui
     tests = extract_tests()
     action = ['on_game_start_after_lobby = { on_actions = { ac_sect_qa_startup } }',
               'ac_sect_qa_startup = { effect = { debug_log = "AC_SECT_QA BEGIN" title:k_england = {']
@@ -61,6 +70,7 @@ def main():
                     effect = effect.replace('story_owner = { death = natural }', '''
                         set_global_variable = { name = ac_qa_inherited_sect value = this }
                         set_global_variable = { name = ac_qa_expected_master value = scope:ac_test_ruler }
+                        set_global_variable = { name = ac_qa_inherited_domicile value = scope:ac_inherited_domicile }
                         set_global_variable = { name = ac_qa_ally_master value = scope:recipient }
                         story_owner = { death = natural }
                     ''')
@@ -79,9 +89,9 @@ def main():
     marker = core.index('ac_sect_succession_effect = {')
     end = script.close_brace(core, core.index('{', marker)) - 1
     sixth = next((k, v) for k, v in tests.items() if '_06_' in k)
-    remaining = [(k, v) for k, v in tests.items() if int(k.split('_')[3]) in (7, 9, 13)]
+    remaining = [(k, v) for k, v in tests.items() if int(k.split('_')[3]) in (7, 9, 13, 14, 15, 16)]
     check = test_body(*sixth, skip_effect=True)
-    for old, new in {'ac_test_ruler': 'ac_qa_expected_master', 'ac_inherited_sect': 'ac_qa_inherited_sect', 'recipient': 'ac_qa_ally_master'}.items():
+    for old, new in {'ac_test_ruler': 'ac_qa_expected_master', 'ac_inherited_sect': 'ac_qa_inherited_sect', 'recipient': 'ac_qa_ally_master', 'ac_inherited_domicile': 'ac_qa_inherited_domicile'}.items():
         check = check.replace('scope:' + old, 'global_var:' + new)
     audit = '''
     if = {
@@ -123,6 +133,9 @@ ac_sect_qa.0001 = {
 ac_sect_qa.0002 = {
     type = character_event hidden = yes
     immediate = {
+        if = { limit = { title:k_england.var:ac_kingdom_sect.var:ac_estate_title = { holder = title:k_scotland.holder title_domicile = global_var:ac_qa_inherited_domicile } title:k_scotland.holder = { has_government = feudal_government } }
+            debug_log = "AC_SECT_QA PASS native_estate_persists_after_owner_death"
+        } else = { debug_log = "AC_SECT_QA FAIL native_estate_persists_after_owner_death" }
         title:k_england = { ''' + test_body(*eighth, skip_effect=True, after_effect=True) + '\n' + test_body(*tenth) + ''' }
         title:k_denmark = { ''' + test_body(*eleventh, skip_effect=True, after_effect=True) + ''' }
         title:k_bohemia = { ''' + test_body(*twelfth, skip_effect=True, after_effect=True) + ''' }
@@ -169,6 +182,9 @@ ac_sect_qa.0003 = {
             limit = { title:k_bohemia.var:ac_kingdom_sect = { has_variable = ac_joint_drill } }
             debug_log = "AC_SECT_QA PASS joint_training_full_lifecycle"
         } else = { debug_log = "AC_SECT_QA FAIL joint_training_full_lifecycle" }
+        if = { limit = { title:k_england.var:ac_kingdom_sect = { var:ac_alchemy_pavilion = 1 var:ac_estate_title.title_domicile = { has_domicile_building = ac_sect_alchemy_pavilion_01 NOT = { has_ongoing_domicile_construction = yes } NOT = { has_variable = ac_native_build_cost } } } }
+            debug_log = "AC_SECT_QA PASS native_construction_completes_after_succession"
+        } else = { debug_log = "AC_SECT_QA FAIL native_construction_completes_after_succession" }
         debug_log = "AC_SECT_QA COMPLETE"
     }
 }
@@ -213,14 +229,15 @@ ac_sect_qa_startup = { effect = {
     scope:ac_old_master = { remove_trait = ac_sect_master add_trait = ac_sect_upper_disciple }
     scope:ac_player_master = {
         remove_trait = ac_sect_lower_disciple add_trait = ac_sect_master
-        var:ac_sect = { make_story_owner = scope:ac_player_master set_variable = { name = ac_master value = scope:ac_player_master } ac_sect_recount_effect = yes }
+        var:ac_sect = { make_story_owner = scope:ac_player_master set_variable = { name = ac_master value = scope:ac_player_master } ac_sect_ensure_domicile_effect = yes ac_sect_recount_effect = yes }
         if = { limit = { can_host_activity = activity_ac_sect_trials } debug_log = "AC_SECT_QA PASS player_master_can_host" }
         else = { debug_log = "AC_SECT_QA FAIL player_master_can_host" }
     }
 } }
 ''', encoding='utf-8-sig')
         (OVERLAY / 'common/scripted_effects/ac_sect_core_effects.txt').write_text(core, encoding='utf-8-sig')
-        activities = activities.replace('on_start = {', 'on_start = { scope:host = { trigger_event = { id = ac_sect_qa.0010 days = 2 } }')
+        if not args.estate_ui:
+            activities = activities.replace('on_start = {', 'on_start = { scope:host = { if = { limit = { is_ai = no } trigger_event = { id = ac_sect_qa.0010 days = 2 } } }')
         (OVERLAY / 'common/activities/activity_types/ac_sect_activities.txt').write_text(activities, encoding='utf-8-sig')
         (OVERLAY / 'events/ac_sect_qa.txt').write_text('''namespace = ac_sect_qa
 ac_sect_qa.0010 = { type = character_event hidden = yes immediate = {
@@ -236,6 +253,100 @@ ac_sect_qa.0010 = { type = character_event hidden = yes immediate = {
     } else = { debug_log = "AC_SECT_QA FAIL player_master_planner_created_trial_at_headquarters" }
 } }
 ''', encoding='utf-8-sig')
+
+    if args.estate_ui:
+        # This fixture does not exercise the activity planner; do not retain
+        # its unused event or attach its assertions to unrelated NPC trials.
+        (OVERLAY / 'events/ac_sect_qa.txt').write_text('namespace = ac_sect_qa\n', encoding='utf-8-sig')
+        path = OVERLAY / 'common/on_action/ac_sect_qa_startup.txt'
+        source = path.read_text(encoding='utf-8-sig').replace('if = { limit = { can_host_activity', '''
+        every_character_war = { end_war = white_peace }
+        set_variable = { name = ac_qa_estate_step value = 0 }
+        set_variable = { name = ac_qa_estate_gold value = gold }
+        set_variable = { name = ac_qa_estate_treasury value = var:ac_sect.var:ac_treasury }
+        ac_sect_open_estate_effect = yes
+        if = { limit = { can_host_activity''')
+        estate_checks = [(name, body) for name, body in tests.items() if int(name.split('_')[3]) in (15, 16)]
+        source = source.replace('every_character_war =', 'title:k_wales = { ' + '\n'.join(test_body(*check) for check in estate_checks) + ' }\n        every_character_war =')
+        path.write_text(source, encoding='utf-8-sig')
+        # Manual fixture: construct Alchemy Pavilion I in the native UI, audit,
+        # cancel it in the native UI, audit, then construct/audit and unpause.
+        (OVERLAY / 'events/ac_sect_qa_estate.txt').write_text('''namespace = ac_sect_qa
+ac_sect_qa.0020 = { type = character_event hidden = yes immediate = {
+    if = {
+        limit = { OR = { var:ac_qa_estate_step = 0 var:ac_qa_estate_step = 2 } }
+        if = {
+            limit = {
+                primary_title = title:k_england has_government = feudal_government
+                gold = var:ac_qa_estate_gold
+                var:ac_sect.var:ac_treasury = ac_qa_estate_after_cost
+                var:ac_sect.var:ac_estate_title.title_domicile = { has_domicile_construction = ac_sect_alchemy_pavilion_01 var:ac_native_build_cost = 100 }
+            }
+            debug_log = "AC_SECT_QA PASS native_UI_build_spends_only_sect_gold"
+            change_variable = { name = ac_qa_estate_step add = 1 }
+            if = { limit = { var:ac_qa_estate_step = 3 } trigger_event = { id = ac_sect_qa.0021 days = 200 } }
+        } else = { debug_log = "AC_SECT_QA FAIL native_UI_build_spends_only_sect_gold" }
+    }
+    else_if = {
+        limit = { var:ac_qa_estate_step = 1 }
+        if = {
+            limit = {
+                gold = var:ac_qa_estate_gold
+                var:ac_sect.var:ac_treasury = var:ac_qa_estate_treasury
+                var:ac_sect = { NOT = { has_variable = ac_building } NOT = { has_variable = ac_native_construction } }
+                var:ac_sect.var:ac_estate_title.title_domicile = { NOT = { has_ongoing_domicile_construction = yes } NOT = { has_variable = ac_native_build_cost } }
+            }
+            debug_log = "AC_SECT_QA PASS native_UI_cancel_refunds_sect_gold_once"
+            set_variable = { name = ac_qa_estate_step value = 2 }
+        } else = { debug_log = "AC_SECT_QA FAIL native_UI_cancel_refunds_sect_gold_once" }
+    }
+} }
+ac_sect_qa.0021 = { type = character_event hidden = yes immediate = {
+    if = {
+        limit = {
+            var:ac_sect.var:ac_alchemy_pavilion = 1
+            var:ac_sect.var:ac_treasury = ac_qa_estate_after_cost
+            var:ac_sect.var:ac_estate_title = { holder = root title_domicile = { has_domicile_building = ac_sect_alchemy_pavilion_01 NOT = { has_ongoing_domicile_construction = yes } } }
+        }
+        debug_log = "AC_SECT_QA PASS native_UI_project_completes_and_updates_sect"
+    } else = { debug_log = "AC_SECT_QA FAIL native_UI_project_completes_and_updates_sect" }
+    set_variable = { name = ac_qa_ui_completed value = 1 }
+    ac_sect_open_estate_effect = yes
+    debug_log = "AC_SECT_QA UI COMPLETE"
+} }
+''', encoding='utf-8-sig')
+        path = OVERLAY / 'common/script_values/ac_sect_qa_estate.txt'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('ac_qa_estate_after_cost = { value = var:ac_qa_estate_treasury subtract = 100 }\n', encoding='utf-8-sig')
+        path = OVERLAY / 'common/scripted_guis/ac_sect_qa_estate.txt'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('''ac_sect_qa_audit = {
+    scope = character
+    is_shown = { has_variable = ac_qa_estate_step NOT = { has_variable = ac_qa_ui_completed } }
+    effect = { trigger_event = ac_sect_qa.0020 }
+}''', encoding='utf-8-sig')
+        path = OVERLAY / 'gui/ac_sect_qa_estate.gui'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('''window = {
+    name = "ac_sect_qa_estate" layer = windows_layer
+    parentanchor = bottom|hcenter size = { 340 40 } position = { 0 -45 }
+    visible = "[GetScriptedGui('ac_sect_qa_audit').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+    button_standard = { size = { 340 40 } text = "ac_sect_qa_audit_button" onclick = "[GetScriptedGui('ac_sect_qa_audit').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+}''', encoding='utf-8-sig')
+        path = OVERLAY / 'gui/scripted_widgets/ac_sect_qa_estate.txt'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('gui/ac_sect_qa_estate.gui = ac_sect_qa_estate\n', encoding='utf-8-sig')
+        path = OVERLAY / 'localization/english/ac_sect_qa_estate_l_english.yml'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('l_english:\n ac_sect_qa_audit_button:0 "Audit native estate state (test only)"\n', encoding='utf-8-sig')
+
+    if not args.estate_ui:
+        for relative in (
+            'events/ac_sect_qa_estate.txt', 'common/scripted_guis/ac_sect_qa_estate.txt',
+            'common/script_values/ac_sect_qa_estate.txt', 'gui/ac_sect_qa_estate.gui',
+            'gui/scripted_widgets/ac_sect_qa_estate.txt', 'localization/english/ac_sect_qa_estate_l_english.yml',
+        ):
+            (OVERLAY / relative).unlink(missing_ok=True)
 
     (OUT / 'mod').mkdir(parents=True, exist_ok=True)
     for name, directory in [('ac_sect_test', ROOT / 'AuraClash'), ('ac_sect_qa', OVERLAY)]:

@@ -34,7 +34,7 @@ ac_sect_found_effect = {
 		add_trait = ac_sect_master
 		ac_sect_teach_identity_effect = yes
 		ac_sect_teach_second_element_effect = yes
-		scope:ac_new_sect = { add_to_variable_list = { name = ac_members target = prev } }
+		scope:ac_new_sect = { add_to_variable_list = { name = ac_members target = prev } ac_sect_ensure_domicile_effect = yes }
 	}
 }
 
@@ -113,6 +113,7 @@ ac_sect_succession_effect = {
 			ac_sect_teach_second_element_effect = yes
 			if = { limit = { is_ai = no } trigger_event = ac_sect.0020 }
 		}
+		ac_sect_ensure_domicile_effect = yes
 		ac_sect_recount_effect = yes
 	}
 }
@@ -172,6 +173,8 @@ ac_sect_leave_effect = {
 # One bounded maintenance pass per sect each year, not a world scan each month.
 ac_sect_yearly_effect = {
 	save_scope_as = ac_maintained_sect
+	ac_sect_ensure_domicile_effect = yes
+	ac_sect_refresh_native_building_levels_effect = yes
 	every_in_list = {
 		variable = ac_members
 		limit = { OR = { is_alive = no NOT = { var:ac_sect ?= scope:ac_maintained_sect } } }

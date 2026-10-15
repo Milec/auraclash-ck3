@@ -35,7 +35,7 @@ Inside a mod or submod of this mod, those names may be used and changed under [L
 
 `AuraClash/events/ac_vanilla_*_options.txt` contains selected event definitions derived from CK3 1.20.1. The original event logic remains © Paradox Interactive. Added cultivation choices and their supporting code are MIT, subject to the Aura Clash setting-content exception above. The generated files identify their sources and are rebuilt by `tools/build_event_overrides.py`; they do not replace entire vanilla event files.
 
-The mod also references vanilla game assets by path, such as decision illustrations and progress-bar textures. Those assets are not included in this repository and remain © Paradox Interactive.
+The domicile notification fallbacks retain six original CK3 localization strings, © Paradox Interactive, alongside conditional wording for Sect Masters. The mod also references vanilla game assets by path, such as decision illustrations, progress-bar textures and Chinese domicile building sprites/masks. These referenced textures are not included in this repository and remain © Paradox Interactive. The original generated sect-domicile landscape is included under `assets/sect-domicile` with its generation prompt.
 
 ## Trademarks and affiliation
 "Aura Clash" is a trademark of Aurillian Productions LLC. None of the licenses in this repository grant trademark rights.

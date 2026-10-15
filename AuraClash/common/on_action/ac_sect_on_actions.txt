@@ -50,3 +50,20 @@ ac_sect_member_death = {
 		}
 	}
 }
+
+# Native title succession may finish after a story's owner-death effect. Repair
+# only a sect office and only after its living Master has already been chosen.
+on_title_gain = { on_actions = { ac_sect_native_title_gain } }
+ac_sect_native_title_gain = {
+    trigger = {
+        exists = scope:title.title_domicile.var:ac_domicile_sect
+        scope:title.title_domicile.var:ac_domicile_sect.story_owner = {
+            is_alive = yes has_trait = ac_sect_master this != root
+        }
+    }
+    effect = {
+        scope:title.title_domicile.var:ac_domicile_sect.story_owner = {
+            trigger_event = { id = ac_sect_estate.0002 days = 1 }
+        }
+    }
+}
