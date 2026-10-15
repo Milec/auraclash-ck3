@@ -6,6 +6,7 @@ logs assertions without requiring console/desktop automation. It does not
 modify the user's normal CK3 settings or saves. It never starts the game itself.
 """
 from pathlib import Path
+import argparse
 import json
 import re
 import shutil
@@ -46,6 +47,9 @@ def test_body(name, body, skip_effect=False, only_effect=False, after_effect=Fal
 
 
 def main():
+    arguments = argparse.ArgumentParser()
+    arguments.add_argument('--master-ui', action='store_true', help='Prepare a player Sect Master for manual activity-planner verification.')
+    args = arguments.parse_args()
     tests = extract_tests()
     action = ['on_game_start_after_lobby = { on_actions = { ac_sect_qa_startup } }',
               'ac_sect_qa_startup = { effect = { debug_log = "AC_SECT_QA BEGIN" title:k_england = {']
@@ -75,7 +79,7 @@ def main():
     marker = core.index('ac_sect_succession_effect = {')
     end = script.close_brace(core, core.index('{', marker)) - 1
     sixth = next((k, v) for k, v in tests.items() if '_06_' in k)
-    remaining = [(k, v) for k, v in tests.items() if int(k.split('_')[3]) in (7, 9)]
+    remaining = [(k, v) for k, v in tests.items() if int(k.split('_')[3]) in (7, 9, 13)]
     check = test_body(*sixth, skip_effect=True)
     for old, new in {'ac_test_ruler': 'ac_qa_expected_master', 'ac_inherited_sect': 'ac_qa_inherited_sect', 'recipient': 'ac_qa_ally_master'}.items():
         check = check.replace('scope:' + old, 'global_var:' + new)
@@ -102,6 +106,7 @@ def main():
 ac_sect_qa.0001 = {
     type = character_event hidden = yes
     immediate = {
+        title:k_england.holder = { set_variable = { name = ac_sect_application value = title:k_england.var:ac_kingdom_sect } }
         title:k_england = { ''' + test_body(*eighth, only_effect=True) + ''' }
         title:k_denmark = { ''' + test_body(*eleventh, only_effect=True) + ''' }
         title:k_bohemia = { ''' + test_body(*twelfth, only_effect=True) + '''
@@ -137,9 +142,6 @@ ac_sect_qa.0002 = {
             }
         }
         trigger_event = { id = ac_sect_qa.0003 days = 220 }
-        title:k_england.var:ac_kingdom_sect = { save_scope_as = ac_join_sect }
-        ac_sect_join_effect = yes
-        set_variable = { name = ac_sect_window_open value = 1 }
     }
 }
 ac_sect_qa.0003 = {
@@ -181,7 +183,6 @@ ac_sect_qa.0003 = {
     activities = activities.replace('on_complete = {', 'on_complete = { debug_log = "AC_SECT_QA COMPLETION CALLBACK"')
     activities = activities.replace('on_start = {', 'on_start = { debug_log = "AC_SECT_QA ACTIVITY CREATED"')
     activities = activities.replace('on_invalidated = {', 'on_invalidated = { debug_log = "AC_SECT_QA ACTIVITY INVALIDATED"')
-    activities = activities.replace('activity_ac_sect_joint_training = {', 'activity_ac_sect_joint_training = { on_invalidated = { debug_log = "AC_SECT_QA JOINT INVALIDATED" }')
     path = OVERLAY / 'common/activities/activity_types/ac_sect_activities.txt'
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(activities, encoding='utf-8-sig')
@@ -195,6 +196,46 @@ ac_sect_qa.0003 = {
         ai_attempt_to_host_activity = $ACTIVITY$''')
     path = OVERLAY / 'common/scripted_effects/ac_sect_ai_effects.txt'
     path.write_text(ai, encoding='utf-8-sig')
+
+    if args.master_ui:
+        # Keep this UI fixture separate from the applicant/lifecycle suite.
+        # The player remains King of England and becomes Master of the Welsh
+        # sect, whose headquarters is safely outside the opening invasion.
+        (OVERLAY / 'common/on_action/ac_sect_qa_startup.txt').write_text('''
+on_game_start_after_lobby = { on_actions = { ac_sect_qa_startup } }
+ac_sect_qa_startup = { effect = {
+    title:k_england.holder = { save_scope_as = ac_player_master }
+    title:k_wales.var:ac_kingdom_sect = {
+        save_scope_as = ac_join_sect
+        story_owner = { save_scope_as = ac_old_master }
+    }
+    scope:ac_player_master = { ac_sect_join_effect = yes }
+    scope:ac_old_master = { remove_trait = ac_sect_master add_trait = ac_sect_upper_disciple }
+    scope:ac_player_master = {
+        remove_trait = ac_sect_lower_disciple add_trait = ac_sect_master
+        var:ac_sect = { make_story_owner = scope:ac_player_master set_variable = { name = ac_master value = scope:ac_player_master } ac_sect_recount_effect = yes }
+        if = { limit = { can_host_activity = activity_ac_sect_trials } debug_log = "AC_SECT_QA PASS player_master_can_host" }
+        else = { debug_log = "AC_SECT_QA FAIL player_master_can_host" }
+    }
+} }
+''', encoding='utf-8-sig')
+        (OVERLAY / 'common/scripted_effects/ac_sect_core_effects.txt').write_text(core, encoding='utf-8-sig')
+        activities = activities.replace('on_start = {', 'on_start = { scope:host = { trigger_event = { id = ac_sect_qa.0010 days = 2 } }')
+        (OVERLAY / 'common/activities/activity_types/ac_sect_activities.txt').write_text(activities, encoding='utf-8-sig')
+        (OVERLAY / 'events/ac_sect_qa.txt').write_text('''namespace = ac_sect_qa
+ac_sect_qa.0010 = { type = character_event hidden = yes immediate = {
+    if = {
+        limit = {
+            scope:activity = {
+                activity_host = title:k_england.holder
+                activity_location = title:k_wales.var:ac_kingdom_sect.var:ac_headquarters
+                var:ac_trial_master = title:k_england.holder
+            }
+        }
+        debug_log = "AC_SECT_QA PASS player_master_planner_created_trial_at_headquarters"
+    } else = { debug_log = "AC_SECT_QA FAIL player_master_planner_created_trial_at_headquarters" }
+} }
+''', encoding='utf-8-sig')
 
     (OUT / 'mod').mkdir(parents=True, exist_ok=True)
     for name, directory in [('ac_sect_test', ROOT / 'AuraClash'), ('ac_sect_qa', OVERLAY)]:

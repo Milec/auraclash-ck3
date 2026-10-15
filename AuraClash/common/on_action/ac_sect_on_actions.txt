@@ -40,11 +40,12 @@ ac_sect_trial_repair = {
 	}
 }
 ac_sect_member_death = {
-	trigger = { has_variable = ac_sect }
+	trigger = { OR = { has_variable = ac_sect has_character_flag = ac_sect_recruitment_interest } }
 	effect = {
+		ac_sect_clear_interest_effect = yes
 		# Story owner death transfers leadership separately. Do not clear its scope first.
 		if = {
-			limit = { NOT = { var:ac_sect.story_owner = this } }
+			limit = { has_variable = ac_sect NOT = { var:ac_sect.story_owner = this } }
 			ac_sect_leave_effect = yes
 		}
 	}

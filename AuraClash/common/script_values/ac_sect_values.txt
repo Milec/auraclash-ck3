@@ -5,7 +5,6 @@ ac_sect_initial_upper = 8
 ac_sect_initial_lower = 16
 ac_sect_promotion_cost = 150
 ac_sect_mission_reward = 50
-ac_sect_trial_host_gold = { value = 50 if = { limit = { is_ai = yes } multiply = 0 } }
 ac_sect_joint_host_gold = { value = 75 if = { limit = { is_ai = yes } multiply = 0 } }
 ac_sect_successor_score = {
 	value = var:ac_sect_merit

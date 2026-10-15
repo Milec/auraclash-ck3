@@ -30,21 +30,13 @@ ac_sect.0001 = {
 ac_sect.0002 = {
 	type = character_event
 	title = ac_sect.0002.t
-	desc = {
-		first_valid = {
-			triggered_desc = { trigger = { has_variable = ac_sect_application } desc = ac_sect.0002.found }
-			desc = ac_sect.0002.none
-		}
-	}
+	desc = ac_sect.0002.desc
 	theme = learning
-	left_portrait = { character = var:ac_sect_application.story_owner }
 	option = {
 		name = ac_sect.0002.apply
-		trigger = { ac_sect_candidate_trigger = yes has_variable = ac_sect_application }
 		custom_tooltip = ac_sect_application_tt
 	}
-	option = { name = ac_sect.0002.another ac_sect_find_application_effect = yes }
-	option = { name = ac_sect_close }
+	option = { name = ac_sect.0002.withdraw ac_sect_clear_interest_effect = yes }
 }
 ac_sect.0003 = {
 	type = character_event

@@ -113,6 +113,35 @@ class SectContentTests(unittest.TestCase):
         self.assertEqual(completion.count('order_by = var:ac_sect_trial_score'), 2)
         self.assertIn('has_variable = ac_sect_trial_paid', completion[ranked[0].start():ranked[1].start()])
 
+    def test_recruitment_interest_does_not_start_or_fund_an_activity(self):
+        source = (MOD / 'common/scripted_effects/ac_sect_recruitment_effects.txt').read_text(encoding='utf-8-sig')
+        registration = source[source.index('ac_sect_register_interest_effect = {'):source.index('ac_sect_clear_interest_effect = {')]
+        self.assertIn('ac_sect_recruitment_interest', registration)
+        self.assertNotRegex(registration, r'\b(?:ai_attempt_to_host_activity|remove_gold|remove_short_term_gold|set_activity_host)\s*=')
+        activity = (MOD / 'common/activities/activity_types/ac_sect_activities.txt').read_text(encoding='utf-8-sig')
+        trial = activity.split('activity_ac_sect_joint_training = {')[0]
+        fields = {f.key: f.body(trial) for f in parser.fields(trial)}
+        self.assertIn('ac_sect_master_trigger = yes', fields['is_shown'])
+        self.assertNotIn('ac_sect_application', fields['is_shown'])
+        self.assertIn('ac_sect_trial_planner_trigger = yes', fields['can_start'])
+
+    def test_single_location_activities_assign_all_predefined_phases(self):
+        source = (MOD / 'common/activities/activity_types/ac_sect_activities.txt').read_text(encoding='utf-8-sig')
+        self.assertNotIn('first_picked_phase', source)
+        self.assertEqual(source.count('is_single_location = yes'), 2)
+        self.assertEqual(source.count('location_source = pickable'), 5)
+
+    def test_recruitment_schedule_and_player_notice_are_independent(self):
+        source = (MOD / 'common/scripted_effects/ac_sect_recruitment_effects.txt').read_text(encoding='utf-8-sig')
+        scheduling = source[source.index('ac_sect_consider_recruitment_effect = {'):source.index('ac_sect_mark_activity_started_effect = {')]
+        self.assertIn('is_ai = yes', scheduling)
+        self.assertIn('chance = 30', scheduling)
+        self.assertNotIn('ac_sect_recruitment_interest', scheduling)
+        notice = source[source.index('ac_sect_announce_trial_effect = {'):]
+        self.assertIn('has_character_flag = ac_sect_recruitment_interest', notice)
+        self.assertIn('can_join_activity = scope:ac_invited_trial', notice)
+        self.assertNotIn('add_to_activity', notice)
+
 
 if __name__ == '__main__':
     unittest.main()

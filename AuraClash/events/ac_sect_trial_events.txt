@@ -64,3 +64,30 @@ ac_sect_trial.0010 = {
 	option = { name = ac_sect_trial.0010.observe add_stress = -10 }
 	option = { name = ac_sect_trial.0010.teach add_prestige = 20 }
 }
+
+# Recruitment notices lead to the native invitation/travel screen. They do not
+# accept an invitation, teleport the player, or plan a new activity.
+ac_sect_trial.0020 = {
+	type = character_event
+	title = ac_sect_trial.0020.t
+	desc = ac_sect_trial.0020.desc
+	theme = learning
+	trigger = {
+		exists = scope:ac_invited_trial
+		OR = { has_character_flag = ac_sect_recruitment_interest ac_sect_member_trigger = yes }
+	}
+	left_portrait = { character = scope:ac_invited_trial.var:ac_trial_sect.story_owner animation = personality_honorable }
+	option = {
+		name = ac_sect_trial.0020.review
+		trigger = { can_join_activity = scope:ac_invited_trial can_arrive_in_time_to_activity_minimum = scope:ac_invited_trial }
+		scope:ac_invited_trial = { open_view_data = { view = activity_list_detail_invite_window player = prev } }
+	}
+	option = { name = ac_sect_trial.0020.wait }
+}
+
+ac_sect_trial.0100 = {
+	type = character_event
+	hidden = yes
+	trigger = { exists = scope:activity.var:ac_trial_sect.story_owner }
+	immediate = { scope:activity = { ac_sect_install_trial_master_effect = yes } }
+}

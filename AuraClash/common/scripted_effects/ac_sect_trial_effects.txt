@@ -9,7 +9,7 @@ ac_sect_begin_trial_effect = {
 		limit = {
 			NOT = { has_variable = ac_sect_trial_activity }
 			OR = {
-				ac_sect_candidate_trigger = yes
+				ac_sect_interested_candidate_trigger = yes
 				AND = {
 					var:ac_sect = scope:activity.var:ac_trial_sect
 					ac_sect_promotion_ready_trigger = yes

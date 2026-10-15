@@ -36,6 +36,68 @@ ac_sect_candidate_trigger = {
 	NOT = { has_character_flag = ac_sect_departure_cooldown }
 	NOT = { has_character_flag = ac_sect_trial_cooldown }
 }
+ac_sect_interested_candidate_trigger = {
+	ac_sect_candidate_trigger = yes
+	OR = { is_ai = yes has_character_flag = ac_sect_recruitment_interest }
+}
+# Society scope. A master opens trials when recruitment or requested promotion
+# can actually award a place. A rejected AI plan can retry after 90 days.
+ac_sect_can_plan_trial_trigger = {
+	story_owner = { ac_sect_available_trigger = yes is_available = yes }
+	var:ac_treasury >= 50
+	NOT = { has_variable = ac_trial_cooldown }
+	NOT = { has_variable = ac_activity_plan }
+	NOT = { exists = var:ac_current_activity }
+	OR = {
+		var:ac_lower_count < ac_sect_lower_capacity
+		AND = {
+			var:ac_upper_count < ac_sect_upper_capacity
+			any_in_list = { variable = ac_members ac_sect_promotion_ready_trigger = yes has_variable = ac_sect_promotion_requested }
+		}
+	}
+}
+# Character scope. Only a player master or the master's pending AI organizer can
+# reach the hosting planner. Applicants and disciples cannot host examinations.
+ac_sect_trial_planner_trigger = {
+	trigger_if = {
+		limit = { is_ai = no }
+		ac_sect_master_trigger = yes
+		trigger_if = { limit = { has_variable = ac_sect } var:ac_sect = { ac_sect_can_plan_trial_trigger = yes } }
+	}
+	trigger_else = {
+		has_variable = ac_sect_patronage
+		trigger_if = {
+			limit = { has_variable = ac_sect_patronage }
+			var:ac_sect_patronage = {
+				var:ac_activity_plan ?= flag:activity_ac_sect_trials
+				var:ac_activity_organizer ?= prev
+				NOT = { has_variable = ac_trial_cooldown }
+				NOT = { exists = var:ac_current_activity }
+				story_owner = { ac_sect_available_trigger = yes }
+			}
+		}
+	}
+}
+# Character scope, ac_sponsored_sect supplied by the society.
+ac_sect_activity_ruler_trigger = {
+	is_ai = yes
+	is_landed = yes
+	highest_held_title_tier >= tier_county
+	is_available = yes
+	ac_sect_available_trigger = yes
+	trigger_if = { limit = { has_variable = ac_sect_patronage } var:ac_sect_patronage = scope:ac_sponsored_sect }
+	trigger_if = { limit = { has_variable = ac_sect } var:ac_sect = scope:ac_sponsored_sect }
+}
+# Candidate character scope, host supplied by the native guest check.
+ac_sect_trial_candidate_for_host_trigger = {
+	ac_sect_interested_candidate_trigger = yes
+	in_diplomatic_range = scope:host
+	trigger_if = {
+		limit = { has_variable = ac_sect_application }
+		trigger_if = { limit = { scope:host = { has_variable = ac_sect_patronage } } var:ac_sect_application ?= scope:host.var:ac_sect_patronage }
+		trigger_else = { var:ac_sect_application ?= scope:host.var:ac_sect }
+	}
+}
 # This is the only geographic policy: replace it when the custom map arrives.
 ac_sect_kingdom_eligible_trigger = {
 	any_de_jure_county = { always = yes }

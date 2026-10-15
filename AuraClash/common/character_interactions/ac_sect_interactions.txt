@@ -6,7 +6,7 @@
 	is_shown = { scope:actor = { ac_sect_candidate_trigger = yes } scope:recipient = { ac_sect_master_trigger = yes } }
 	is_valid_showing_failures_only = { scope:actor = { in_diplomatic_range = scope:recipient } }
 	on_accept = {
-		scope:actor = { set_variable = { name = ac_sect_application value = scope:recipient.var:ac_sect } custom_tooltip = ac_sect_application_tt }
+		scope:actor = { ac_sect_register_interest_effect = yes set_variable = { name = ac_sect_application value = scope:recipient.var:ac_sect } custom_tooltip = ac_sect_application_tt }
 	}
 	ai_will_do = { base = 0 }
 }

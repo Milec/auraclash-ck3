@@ -135,7 +135,7 @@ ac_sect_join_effect = {
 			add_to_variable_list = { name = ac_members target = scope:ac_new_disciple }
 			ac_sect_recount_effect = yes
 		}
-		remove_variable = ac_sect_application
+		ac_sect_clear_interest_effect = yes
 		ac_update_visual_age_effect = yes
 	}
 }

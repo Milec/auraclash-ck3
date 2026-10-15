@@ -178,14 +178,11 @@ ac_sect_test_07_battle_settles_once = {
 ac_sect_test_08_native_trial_planning = {
 	title_target = k_england
 	assert = { var:ac_kingdom_sect.story_owner = { ac_sect_available_trigger = yes is_available = yes is_ai = yes } }
-	assert = { var:ac_kingdom_sect.story_owner = { can_host_activity = activity_ac_sect_trials } }
+	assert = { var:ac_kingdom_sect.story_owner = { NOT = { can_host_activity = activity_ac_sect_trials } } }
 	effect = {
 		var:ac_kingdom_sect = {
 			set_variable = { name = ac_treasury value = 1000 }
-			story_owner = {
-				add_gold = 1000
-				ai_attempt_to_host_activity = activity_ac_sect_trials
-			}
+			ac_sect_request_ai_activity_effect = { ACTIVITY = activity_ac_sect_trials }
 		}
 	}
 	assert = { any_activity = { has_activity_type = activity_ac_sect_trials activity_host = title:k_england.var:ac_kingdom_sect.story_owner } }
@@ -194,6 +191,7 @@ ac_sect_test_08_native_trial_planning = {
 			has_activity_type = activity_ac_sect_trials
 			activity_host = title:k_england.var:ac_kingdom_sect.story_owner
 			var:ac_trial_sect = title:k_england.var:ac_kingdom_sect
+			activity_location = title:k_england.var:ac_kingdom_sect.var:ac_headquarters
 		}
 	}
 }
@@ -210,7 +208,7 @@ ac_sect_test_10_native_trial_admission_and_promotion = {
 			create_character = {
 				gender_female_chance = 50
 				age = 25
-				culture = this.culture faith = this.faith location = this.location
+				culture = this.culture faith = this.faith location = scope:activity.activity_location
 				save_scope_as = ac_test_examinee
 			}
 		}
@@ -248,9 +246,16 @@ ac_sect_test_10_native_trial_admission_and_promotion = {
 }
 ac_sect_test_11_unlanded_master_patronage = {
 	title_target = k_denmark
-	assert = { var:ac_kingdom_sect.story_owner = { is_landed = no can_host_activity = activity_ac_sect_trials } }
+	assert = { var:ac_kingdom_sect.story_owner = { is_landed = no NOT = { can_host_activity = activity_ac_sect_trials } } }
 	effect = { var:ac_kingdom_sect = { ac_sect_request_ai_activity_effect = { ACTIVITY = activity_ac_sect_trials } } }
-	expect = { any_activity = { has_activity_type = activity_ac_sect_trials var:ac_trial_sect = title:k_denmark.var:ac_kingdom_sect } }
+	expect = {
+		any_activity = {
+			has_activity_type = activity_ac_sect_trials
+			var:ac_trial_sect = title:k_denmark.var:ac_kingdom_sect
+			activity_host = title:k_denmark.var:ac_kingdom_sect.story_owner
+			activity_location = title:k_denmark.var:ac_kingdom_sect.var:ac_headquarters
+		}
+	}
 }
 
 ac_sect_test_12_joint_training_planning = {
@@ -262,4 +267,32 @@ ac_sect_test_12_joint_training_planning = {
   var:ac_kingdom_sect = { ac_sect_request_ai_activity_effect = { ACTIVITY = activity_ac_sect_joint_training } }
  }
  expect = { any_activity = { has_activity_type = activity_ac_sect_joint_training var:ac_training_sect ?= title:k_bohemia.var:ac_kingdom_sect } }
+}
+
+ac_sect_test_13_interest_does_not_host = {
+	title_target = k_england
+	effect = {
+		holder = {
+			set_variable = { name = ac_test_interest_gold value = gold }
+			set_variable = { name = ac_sect_application value = title:k_denmark.var:ac_kingdom_sect }
+			ac_sect_register_interest_effect = yes
+			ac_sect_register_interest_effect = yes
+		}
+	}
+	expect = {
+		holder = {
+			has_character_flag = ac_sect_recruitment_interest
+			NOT = { has_variable = ac_sect }
+			NOT = { has_variable = ac_sect_application }
+			NOT = { can_host_activity = activity_ac_sect_trials }
+			gold = var:ac_test_interest_gold
+		}
+		is_target_in_global_variable_list = { name = ac_sect_interested_characters target = title:k_england.holder }
+	}
+	effect = { holder = { ac_sect_clear_interest_effect = yes } }
+	expect = {
+		holder = { NOT = { has_character_flag = ac_sect_recruitment_interest } }
+		NOT = { is_target_in_global_variable_list = { name = ac_sect_interested_characters target = title:k_england.holder } }
+	}
+	effect = { holder = { ac_sect_register_interest_effect = yes } }
 }

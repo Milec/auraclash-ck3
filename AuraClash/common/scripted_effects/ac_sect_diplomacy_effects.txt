@@ -17,19 +17,6 @@ ac_sect_find_neighbor_effect = {
 	}
 	else = { trigger_event = ac_sect.0001 }
 }
-ac_sect_find_application_effect = {
-	clear_saved_scope = ac_application
-	random_in_global_list = {
-		variable = ac_sects
-		limit = { story_owner = { is_alive = yes in_diplomatic_range = root } }
-		save_scope_as = ac_application
-	}
-	if = {
-		limit = { exists = scope:ac_application }
-		set_variable = { name = ac_sect_application value = scope:ac_application }
-	}
-	trigger_event = ac_sect.0002
-}
 ac_sect_alliance_effect = {
 	scope:actor.var:ac_sect = {
 		add_to_variable_list = { name = ac_allies target = scope:recipient.var:ac_sect }
