@@ -26,13 +26,14 @@ ac_quarterly_player_pulse = {
 		is_ai = no
 	}
 	effect = {
+		ac_migrate_cultivation_lifestyles_effect = yes
 		ac_core_auto_train_effect = yes
 		if = {
 			limit = {
 				has_trait = ac_immortal_core
 				age >= 16
 			}
-			add_ac_cultivation_lifestyle_xp = 60
+			ac_gain_cultivation_study_xp_effect = { XP = 60 }
 		}
 		ac_offer_foundation_effect = yes
 		if = {
@@ -98,6 +99,7 @@ ac_game_start = {
 		}
 		every_living_character = {
 			limit = { has_trait = ac_cultivator }
+			ac_migrate_cultivation_lifestyles_effect = yes
 			ac_update_visual_age_effect = yes
 			ac_offer_foundation_effect = yes
 		}

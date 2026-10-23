@@ -42,7 +42,7 @@
 					save_scope_as = ac_reward_contract
 					task_contract_taker = {
 						ac_sect_award_contribution_effect = { VALUE = ac_sect_patrol_reward_value }
-						add_ac_cultivation_lifestyle_xp = ac_sect_contract_xp_value
+						ac_gain_cultivation_study_xp_effect = { XP = ac_sect_contract_xp_value }
 						var:ac_sect = { change_variable = { name = ac_treasury add = 20 } }
 						play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract"
 					}
@@ -99,7 +99,7 @@ ac_sect_herbs = {
 					save_scope_as = ac_reward_contract
 					task_contract_taker = {
 						ac_sect_award_contribution_effect = { VALUE = ac_sect_herbs_reward_value }
-						add_ac_cultivation_lifestyle_xp = ac_sect_contract_xp_value
+						ac_gain_cultivation_study_xp_effect = { XP = ac_sect_contract_xp_value }
 						var:ac_sect = { change_variable = { name = ac_treasury add = 20 } }
 						play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract"
 					}
@@ -156,7 +156,7 @@ ac_sect_manual = {
 					save_scope_as = ac_reward_contract
 					task_contract_taker = {
 						ac_sect_award_contribution_effect = { VALUE = ac_sect_manual_reward_value }
-						add_ac_cultivation_lifestyle_xp = ac_sect_contract_xp_value
+						ac_gain_cultivation_study_xp_effect = { XP = ac_sect_contract_xp_value }
 						var:ac_sect = { change_variable = { name = ac_treasury add = 20 } }
 						play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract"
 					}
@@ -213,7 +213,7 @@ ac_sect_mediation = {
 					save_scope_as = ac_reward_contract
 					task_contract_taker = {
 						ac_sect_award_contribution_effect = { VALUE = ac_sect_mediation_reward_value }
-						add_ac_cultivation_lifestyle_xp = ac_sect_contract_xp_value
+						ac_gain_cultivation_study_xp_effect = { XP = ac_sect_contract_xp_value }
 						var:ac_sect = { change_variable = { name = ac_treasury add = 20 } }
 						play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract"
 					}
@@ -270,7 +270,7 @@ ac_sect_relief = {
 					save_scope_as = ac_reward_contract
 					task_contract_taker = {
 						ac_sect_award_contribution_effect = { VALUE = ac_sect_relief_reward_value }
-						add_ac_cultivation_lifestyle_xp = ac_sect_contract_xp_value
+						ac_gain_cultivation_study_xp_effect = { XP = ac_sect_contract_xp_value }
 						var:ac_sect = { change_variable = { name = ac_treasury add = 20 } }
 						play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract"
 					}
@@ -327,7 +327,7 @@ ac_sect_escort = {
 					save_scope_as = ac_reward_contract
 					task_contract_taker = {
 						ac_sect_award_contribution_effect = { VALUE = ac_sect_escort_reward_value }
-						add_ac_cultivation_lifestyle_xp = ac_sect_contract_xp_value
+						ac_gain_cultivation_study_xp_effect = { XP = ac_sect_contract_xp_value }
 						var:ac_sect = { change_variable = { name = ac_treasury add = 20 } }
 						play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract"
 					}

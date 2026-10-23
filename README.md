@@ -137,7 +137,7 @@ When a character becomes a Cultivator, or turns 16 as one, they choose **one of 
 ### Immortal Core
 - **Immortal Core Advancement** (decision): costs 150 piety, once per year. It's a Learning + Martial check with a 5–75% chance.
 - Each failure adds **+5% Insight** to the next attempt, and high Foundation tiers add more.
-- Success grants **+20 life expectancy and +0.5 health**, plus **20 Cultivation lifestyle XP every month**, whatever your current focus.
+- Success grants **+20 life expectancy and +0.5 health**, plus **60 total cultivation XP per quarter**, divided equally between the three cultivation lifestyles, whatever your current focus.
 
 ### Martial Arts Styles and Elements
 - **Study a Martial Arts Style** (decision): costs 150 prestige. Choose Akakiru, Aoyusumu, Kiihakai, Kurokonton or Midorikatai. Styles are exclusive.
@@ -165,7 +165,7 @@ Adult AI cultivators run **one short routine per year**, on a random day, throug
 - **Trains a Core** (one picked at random, skipping maxed ones) if it has more than 300 prestige.
 - Has a **15% chance** to learn a Style (150 prestige), or else an Element (100 piety). This is subject to the shared yearly cooldown.
 - Has a **30% chance** to attempt an Immortal Core, if it has 150 piety and Martial + Learning of at least 16.
-- **With an Immortal Core**, banks 240 Cultivation XP. Each time the bank passes 1,000, it unlocks its next perk in this order: Style, then Elements, then Alchemy, then Handseals.
+- **With an Immortal Core**, gains 240 total cultivation XP annually, divided equally between Elements, Martial Styles, and Handseals & Alchemy. Each discipline spends only its own native perk points on learned paths and valid prerequisites; unavailable trees keep their saved points. Focus and sect/event XP feed those same pools.
 
 Adult non-cultivators skip the annual cultivation routine. Children also receive a lightweight check for teaching from a cultivator guardian.
 
@@ -175,7 +175,7 @@ A character interaction (right-click a character). It needs a Cultivator aged 16
 - **Cost:** 250 piety and 250 prestige. Each person can be trained at most once per year.
 - **Success chance:** 1% per point of the target's Martial and Learning, plus 1% per Combat Core dot you've unlocked (up to 100%).
 - **Failure** wounds the target.
-- The AI does not use this interaction.
+- NPC teachers can offer it to interested qualifying NPCs they like, when healthy and able to retain a resource reserve. Personality affects their willingness; NPC offers do not force player recipients into an ordeal.
 
 ### Perk-unlocked interactions (right-click a character)
 - **Chi Healing:** unlocked by *Water: Healing Waters*, *Kiihakai: Mending Chi* or *Aoyusumu Mastery*. It mends one level of wounds on anyone, including yourself, with a 6-month cooldown.
@@ -183,11 +183,18 @@ A character interaction (right-click a character). It needs a Cultivator aged 16
 - **Hex:** unlocked by *Kurokonton: Hex*. Costs 100 prestige. Pick one of the target's Diplomacy, Martial, Stewardship, Intrigue, Learning or Prowess. It drops by **1, plus 1 per 5 of your Intrigue** (maximum 12) for a year. You can hex the same person once per year.
 - **Copy Technique:** unlocked by *Kurokonton: Malocchio Eyes*. Costs 100 piety, with a 1-year cooldown. The target must be **your prisoner** with an education trait. You gain 1 perk point in the lifestyle matching their education (Martial and Prowess educations both give Martial).
 
-### Cultivation Lifestyle
-A seventh lifestyle tab, visible only to Cultivators aged 16+, with a gold XP bar.
-- **Focuses:** Deep Meditation and Physical Training.
-- **Trees shown, in order:** Alchemy, then Handseals, then your Style, then your Element(s) alphabetically. Trees you haven't unlocked stay hidden.
-- The window scrolls sideways when the trees don't fit on screen.
+### Cultivation Lifestyles
+Three separate lifestyle tabs are visible to Cultivators aged 16+. Each has its own experience and perk points, at **1,000 XP per point**.
+
+| Lifestyle | Focus | Perk trees |
+|---|---|---|
+| **Elements** | Elemental Attunement | Your learned elements; up to two trees |
+| **Martial Styles** | Physical Training | Your learned martial style |
+| **Handseals & Alchemy** | Deep Meditation | Alchemy and Handseals, available to every adult cultivator |
+
+Your selected focus generates **25 base XP per month** in its own lifestyle. Immortal Core income and general cultivation rewards keep their previous total and divide it equally between all three pools: a 150-XP manual grants 50 XP in each. Unlearned Style and Element trees remain hidden, with saved points available when you learn the path. The window scrolls sideways when needed.
+
+Existing perks keep their IDs and effects. Existing unspent Cultivation XP stays in **Handseals & Alchemy**; the old AI XP remainder transfers there once. The original focus IDs remain valid, with Physical Training now belonging to Martial Styles.
 
 #### Perk trees
 Every tree has **10 perks**:
@@ -223,11 +230,13 @@ Each Style and Element also favours specific men-at-arms:
 
 ## Testing (console, launch with `-debug_mode`)
 
+Lifestyle separation has an isolated native fixture: run `python tools/prepare_lifestyle_checks.py` and use its printed launch command. It checks independent XP, prerequisite-aware spending, point retention without a learned path, legacy AI XP migration and passive rewards. Its disposable UI includes an audit for buying Healing Waters with only the Elements pool.
+
 Awakening access and decision costs have an isolated native fixture: run `python tools/prepare_awakening_checks.py`, launch with the printed arguments, and require `AC_AWAKENING_QA COMPLETE`, no failed assertions and an empty error log. Add `--ui` to inspect the teacher's right-click menu, send an actual request and verify its cost with the audit button. The fixture changes only its disposable game.
 ```
 add_trait ac_cultivator
 effect = { add_prestige = 1000 add_piety = 1000 }
-effect = { add_ac_cultivation_lifestyle_xp = 5000 }
+effect = { ac_gain_cultivation_study_xp_effect = { XP = 15000 } }
 ```
 Problems are logged to `Documents/Paradox Interactive/Crusader Kings III/logs/error.log`; search it for `ac_`.
 
@@ -277,3 +286,5 @@ This repository uses more than one license. **[NOTICE.md](NOTICE.md) lists which
 "Aura Clash" is a trademark of Aurillian Productions LLC. This is an unofficial mod and is not affiliated with or endorsed by Paradox Interactive.
 
 More Aura Clash: [auraclash.com](https://www.auraclash.com) · [banishedtales.com](https://www.banishedtales.com)
+
+The Martial Styles and Elements lifestyle badge DDS files reuse CK3 artwork owned by Paradox Interactive; the code license does not change ownership of that artwork.

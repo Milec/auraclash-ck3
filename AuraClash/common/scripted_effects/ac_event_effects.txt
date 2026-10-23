@@ -17,13 +17,13 @@ ac_event_choose_practitioner_effect = {
 ac_event_exertion_effect = {
 	add_stress = 15
 	add_character_modifier = { modifier = ac_event_chi_exertion_modifier months = 3 }
-	add_ac_cultivation_lifestyle_xp = 25
+	ac_gain_cultivation_study_xp_effect = { XP = 25 }
 }
 
 ac_event_great_exertion_effect = {
 	add_stress = 40
 	add_character_modifier = { modifier = ac_event_great_exertion_modifier months = 6 }
-	add_ac_cultivation_lifestyle_xp = 100
+	ac_gain_cultivation_study_xp_effect = { XP = 100 }
 }
 
 ac_event_saved_companion_effect = {

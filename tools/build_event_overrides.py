@@ -261,8 +261,8 @@ def render(game: Path) -> dict[Path, bytes]:
     import event_activity_specs as activities
 
     version = json.loads((game.parent / 'launcher/launcher-settings.json').read_text(encoding='utf-8-sig'))['rawVersion']
-    if version not in ('1.20.1', '1.20.1.1'):
-        raise ValueError(f'Review upstream event changes before building against CK3 {version}; expected reviewed 1.20.1 or 1.20.1.1')
+    if version not in ('1.20.1', '1.20.1.1', '1.20.1.2'):
+        raise ValueError(f'Review upstream event changes before building against CK3 {version}; expected reviewed 1.20.1, 1.20.1.1 or 1.20.1.2')
     groups: dict[str, list[str]] = {}
     group_sources: dict[str, set[str]] = {}
     sources = []

@@ -237,7 +237,7 @@ activity_ac_sect_joint_training = {
 				}
 			}
 			ac_sect_award_contribution_effect = { VALUE = 30 }
-			add_ac_cultivation_lifestyle_xp = 100
+			ac_gain_cultivation_study_xp_effect = { XP = 100 }
 			add_trait_xp = { trait = ac_cultivator track = ac_core_power value = 5 }
 			add_character_modifier = { modifier = ac_sect_joint_training_modifier years = 2 }
 			var:ac_sect = { set_variable = { name = ac_joint_drill value = 1 years = 2 } }

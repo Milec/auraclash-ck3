@@ -1,0 +1,42 @@
+﻿ac_lifestyle_test_progression = {
+ effect = { create_character = { age = 25 gender = male random_traits = no health = 8
+ culture = root.culture faith = root.faith employer = root trait = ac_cultivator
+ trait = ac_style_akakiru trait = ac_element_water save_scope_as = ac_test_student }
+ create_character = { age = 25 gender = female random_traits = no health = 8
+ culture = root.culture faith = root.faith employer = root trait = ac_cultivator
+ save_scope_as = ac_test_unattuned }
+ create_character = { age = 12 gender = male random_traits = no
+ culture = root.culture faith = root.faith employer = root trait = ac_cultivator save_scope_as = ac_test_child } }
+ effect = { scope:ac_test_student = { ac_ai_spend_cultivation_perks_effect = yes } }
+ assert = { scope:ac_test_student = { ac_cultivation_lifestyle_perks = 0 ac_martial_styles_lifestyle_perks = 0 ac_elements_lifestyle_perks = 0 } }
+ effect = { scope:ac_test_student = { ac_gain_cultivation_study_xp_effect = { XP = 300 } } }
+ assert = { scope:ac_test_student = { ac_cultivation_lifestyle_xp = 100 ac_martial_styles_lifestyle_xp = 100 ac_elements_lifestyle_xp = 100 } }
+ effect = { scope:ac_test_student = { add_ac_elements_lifestyle_xp = 900 } }
+ assert = { scope:ac_test_student = { ac_elements_lifestyle_perk_points = 1 ac_martial_styles_lifestyle_perk_points = 0 ac_cultivation_lifestyle_perk_points = 0 } }
+ effect = { scope:ac_test_student = { ac_ai_spend_cultivation_perks_effect = yes } }
+ assert = { scope:ac_test_student = { has_perk = ac_4_element_water_a_perk ac_elements_lifestyle_perk_points = 0 NOT = { has_perk = ac_3_style_akakiru_a_perk } NOT = { has_perk = ac_1_alchemy_a_perk } } }
+ effect = { scope:ac_test_student = { add_ac_martial_styles_lifestyle_xp = 900 add_ac_cultivation_lifestyle_xp = 900 ac_ai_spend_cultivation_perks_effect = yes } }
+ assert = { scope:ac_test_student = { has_perk = ac_3_style_akakiru_a_perk has_perk = ac_1_alchemy_a_perk ac_martial_styles_lifestyle_perk_points = 0 ac_cultivation_lifestyle_perk_points = 0 } }
+ effect = { scope:ac_test_student = { add_ac_martial_styles_lifestyle_perk_points = 2 ac_ai_spend_cultivation_perks_effect = yes } }
+ assert = { scope:ac_test_student = { has_perk = ac_3_style_akakiru_b_perk has_perk = ac_3_style_akakiru_c_perk NOT = { has_perk = ac_3_style_akakiru_e_perk } NOT = { has_perk = ac_3_style_midorikatai_a_perk } } }
+ effect = { scope:ac_test_student = { add_ac_elements_lifestyle_perk_points = 20 ac_ai_spend_cultivation_perks_effect = yes } }
+ assert = { scope:ac_test_student = { has_perk = ac_4_element_water_j_perk ac_elements_lifestyle_perk_points = 11 NOT = { has_perk = ac_4_element_earth_a_perk } } }
+ effect = { scope:ac_test_unattuned = { add_ac_martial_styles_lifestyle_perk_points = 1 add_ac_elements_lifestyle_perk_points = 1 ac_ai_spend_cultivation_perks_effect = yes } }
+ assert = { scope:ac_test_unattuned = { ac_martial_styles_lifestyle_perk_points = 1 ac_elements_lifestyle_perk_points = 1 ac_martial_styles_lifestyle_perks = 0 ac_elements_lifestyle_perks = 0 } }
+ effect = { scope:ac_test_unattuned = { add_trait = ac_style_kiihakai ac_ai_spend_cultivation_perks_effect = yes } }
+ assert = { scope:ac_test_unattuned = { has_perk = ac_3_style_kiihakai_a_perk ac_martial_styles_lifestyle_perk_points = 0 ac_elements_lifestyle_perk_points = 1 } }
+ effect = { scope:ac_test_unattuned = { add_ac_cultivation_lifestyle_xp = 1250 add_perk = ac_1_alchemy_a_perk set_variable = { name = ac_ai_cultivation_xp value = 750 } ac_migrate_cultivation_lifestyles_effect = yes } }
+ assert = { scope:ac_test_unattuned = { ac_cultivation_lifestyle_xp = 0 ac_cultivation_lifestyle_perk_points = 2 NOT = { has_variable = ac_ai_cultivation_xp } has_perk = ac_1_alchemy_a_perk has_perk = ac_3_style_kiihakai_a_perk ac_elements_lifestyle_perk_points = 1 } }
+ effect = { scope:ac_test_unattuned = { ac_migrate_cultivation_lifestyles_effect = yes } }
+ assert = { scope:ac_test_unattuned = { ac_cultivation_lifestyle_xp = 0 ac_cultivation_lifestyle_perk_points = 2 } }
+ effect = { scope:ac_test_student = { set_variable = { name = ac_test_shared_xp value = ac_cultivation_lifestyle_xp } ac_gain_cultivation_study_xp_effect = { XP = 25 } } }
+ assert = { scope:ac_test_student = { ac_cultivation_lifestyle_xp > { value = var:ac_test_shared_xp add = 8.3 } ac_cultivation_lifestyle_xp < { value = var:ac_test_shared_xp add = 8.4 } } }
+ effect = { scope:ac_test_child = { ac_gain_cultivation_study_xp_effect = { XP = 300 } } }
+ assert = { scope:ac_test_child = { ac_cultivation_lifestyle_xp = 0 ac_martial_styles_lifestyle_xp = 0 ac_elements_lifestyle_xp = 0 } }
+ effect = { add_trait = ac_cultivator add_trait = ac_immortal_core add_character_flag = ac_foundation_offered
+ set_variable = { name = ac_test_craft_before value = ac_cultivation_lifestyle_xp }
+ set_variable = { name = ac_test_style_before value = ac_martial_styles_lifestyle_xp }
+ set_variable = { name = ac_test_element_before value = ac_elements_lifestyle_xp }
+ ac_gain_cultivation_study_xp_effect = { XP = 60 } }
+ assert = { ac_cultivation_lifestyle_xp = { value = var:ac_test_craft_before add = 20 } ac_martial_styles_lifestyle_xp = { value = var:ac_test_style_before add = 20 } ac_elements_lifestyle_xp = { value = var:ac_test_element_before add = 20 } }
+}

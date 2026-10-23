@@ -230,7 +230,7 @@ add_legitimacy_effect = { LEGITIMACY = minor_legitimacy_gain }
     add('stress_threshold.2311', 'school', own('aoyusumu_meditation', 'I will find stillness within the Calming Current.', 'aoyusumu_meditation', '''add_stress = -40
 add_character_flag = { flag = ac_event_meditation_cooldown years = 3 }
 add_character_modifier = { modifier = ac_event_meditative_retreat_modifier months = 6 }
-add_ac_cultivation_lifestyle_xp = 25''', tip='ac_event_meditation_tt', exhaust=False))
+ac_gain_cultivation_study_xp_effect = { XP = 25 }''', tip='ac_event_meditation_tt', exhaust=False))
     add('tgp_governor_contract_event.0031', 'school', own('aoyusumu_quake_refuge', 'Set up a refuge. I will hear each family\'s fears myself.', 'aoyusumu_refuge', relief_cost + contract('convene_public_meeting'), major=True, tip='ac_event_disaster_cost_tt'))
     add('natural_disaster_flavor_events.0015', 'school', own('kiihakai_family_barrier', 'Stay behind me—all of you!', 'kiihakai_barrier', '''if = { limit = { exists = scope:spouse scope:spouse = { is_at_same_location = root } } ''' + grateful('scope:spouse') + ''' }
 if = { limit = { exists = scope:heir } ''' + grateful('scope:heir') + ''' }

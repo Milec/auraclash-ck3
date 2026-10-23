@@ -90,7 +90,7 @@ ac_sect.0010 = {
 			NOT = { has_character_flag = ac_sect_manual_cooldown }
 		}
 		change_variable = { name = ac_sect_contribution subtract = 75 }
-		add_ac_cultivation_lifestyle_xp = 150
+		ac_gain_cultivation_study_xp_effect = { XP = 150 }
 		add_character_flag = { flag = ac_sect_manual_cooldown months = 6 }
 	}
 	option = {

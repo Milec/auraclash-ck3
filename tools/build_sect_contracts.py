@@ -58,7 +58,7 @@ task_contract_reward = {{
             save_scope_as = ac_reward_contract
             task_contract_taker = {{
                 ac_sect_award_contribution_effect = {{ VALUE = ac_sect_{key}_reward_value }}
-                add_ac_cultivation_lifestyle_xp = ac_sect_contract_xp_value
+                ac_gain_cultivation_study_xp_effect = {{ XP = ac_sect_contract_xp_value }}
                 var:ac_sect = {{ change_variable = {{ name = ac_treasury add = 20 }} }}
                 play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract"
             }}

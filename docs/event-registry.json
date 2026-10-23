@@ -2581,7 +2581,7 @@
       "vanilla_source": "events/stress_events/stress_threshold_events.txt:9820",
       "mod_source": "AuraClash/events/ac_vanilla_school_options.txt:1286",
       "requirements_script": " ac_event_aoyusumu_meditation_trigger = yes  ",
-      "effects_script": "# AC: ac_event_aoyusumu_meditation\n\n\n\t\t\n\t\tcustom_tooltip = ac_event_meditation_tt\n\t\tsave_scope_as = ac_event_practitioner\n\t\tadd_stress = -40\n\t\tadd_character_flag = { flag = ac_event_meditation_cooldown years = 3 }\n\t\tadd_character_modifier = { modifier = ac_event_meditative_retreat_modifier months = 6 }\n\t\tadd_ac_cultivation_lifestyle_xp = 25"
+      "effects_script": "# AC: ac_event_aoyusumu_meditation\n\n\n\t\t\n\t\tcustom_tooltip = ac_event_meditation_tt\n\t\tsave_scope_as = ac_event_practitioner\n\t\tadd_stress = -40\n\t\tadd_character_flag = { flag = ac_event_meditation_cooldown years = 3 }\n\t\tadd_character_modifier = { modifier = ac_event_meditative_retreat_modifier months = 6 }\n\t\tac_gain_cultivation_study_xp_effect = { XP = 25 }"
     },
     {
       "content_pack": "Base game / shared activities",

@@ -143,7 +143,7 @@ AC_SectRank = {
         story_owner = { send_interface_toast = { type = event_toast_effect_good title = ac_sect_construction_complete left_icon = this } }
     } }
     ac_sect_training_effect = {
-        add_ac_cultivation_lifestyle_xp = ac_sect_annual_study_xp
+        ac_gain_cultivation_study_xp_effect = { XP = ac_sect_annual_study_xp }
         add_trait_xp = { trait = ac_cultivator track = ac_core_power value = var:ac_sect.var:ac_training_ground }
         add_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value = var:ac_sect.var:ac_spirit_garden }
         add_trait_xp = { trait = ac_cultivator track = ac_core_agility value = var:ac_sect.var:ac_formation_hall }

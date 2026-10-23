@@ -1712,7 +1712,7 @@ stress_threshold.2311 = {
 		add_stress = -40
 		add_character_flag = { flag = ac_event_meditation_cooldown years = 3 }
 		add_character_modifier = { modifier = ac_event_meditative_retreat_modifier months = 6 }
-		add_ac_cultivation_lifestyle_xp = 25
+		ac_gain_cultivation_study_xp_effect = { XP = 25 }
 		ai_chance = { base = 200 }
 	}
 

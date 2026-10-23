@@ -1,0 +1,41 @@
+﻿# Generic cultivation rewards share the old total between three independent pools.
+# Decimal shares retain fractions instead of rounding small rewards down.
+ac_gain_cultivation_study_xp_effect = {
+ if = {
+  limit = { has_trait = ac_cultivator age >= 16 }
+  add_ac_cultivation_lifestyle_xp = { value = $XP$ divide = 3 }
+  add_ac_martial_styles_lifestyle_xp = { value = $XP$ divide = 3 }
+  add_ac_elements_lifestyle_xp = { value = $XP$ divide = 3 }
+ }
+}
+
+# The old shared XP key is now Handseals & Alchemy. Existing perks retain their IDs.
+ac_migrate_cultivation_lifestyles_effect = {
+ if = {
+  limit = { has_variable = ac_ai_cultivation_xp }
+  add_ac_cultivation_lifestyle_xp = var:ac_ai_cultivation_xp
+  remove_variable = ac_ai_cultivation_xp
+ }
+}
+
+# Spend only actual points in that discipline, respecting prerequisites and path access.
+ac_ai_spend_cultivation_perks_effect = {
+ while = {
+  limit = { ac_martial_styles_lifestyle_perk_points > 0 ac_martial_styles_lifestyle_unlockable_perks > 0 }
+  count = 20
+  ac_ai_grant_style_perk_effect = yes
+  add_ac_martial_styles_lifestyle_perk_points = -1
+ }
+ while = {
+  limit = { ac_elements_lifestyle_perk_points > 0 ac_elements_lifestyle_unlockable_perks > 0 }
+  count = 20
+  ac_ai_grant_element_perk_effect = yes
+  add_ac_elements_lifestyle_perk_points = -1
+ }
+ while = {
+  limit = { ac_cultivation_lifestyle_perk_points > 0 ac_cultivation_lifestyle_unlockable_perks > 0 }
+  count = 20
+  ac_ai_grant_craft_perk_effect = yes
+  add_ac_cultivation_lifestyle_perk_points = -1
+ }
+}
