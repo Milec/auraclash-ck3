@@ -4,7 +4,7 @@ quarterly_playable_pulse = {
 	on_actions = { ac_quarterly_player_pulse ac_fame_cultivation_pulse }
 }
 random_yearly_everyone_pulse = {
-	on_actions = { ac_yearly_ai_pulse ac_fame_cultivation_pulse ac_guardian_teaching_pulse }
+	on_actions = { ac_yearly_ai_pulse ac_fame_cultivation_pulse ac_guardian_teaching_pulse ac_ai_awakening_pulse }
 }
 on_birthday = {
 	on_actions = { ac_birthday_pulse ac_guardian_teaching_pulse }
@@ -145,4 +145,12 @@ ac_guardian_ward_teaching = {
 ac_guardian_teaching_pulse = {
 	trigger = { age <= 16 NOT = { has_trait = ac_cultivator } }
 	effect = { ac_record_cultivator_guardian_effect = yes }
+}
+
+# Mortals, including non-ruler courtiers and wanderers, consider their routes once a year.
+ac_ai_awakening_pulse = {
+ trigger = { ac_ai_awakening_ready_trigger = yes prestige >= 200 }
+ effect = {
+  random = { chance = ac_ai_awakening_willingness ac_ai_pursue_awakening_effect = yes }
+ }
 }

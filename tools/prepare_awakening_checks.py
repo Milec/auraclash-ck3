@@ -18,7 +18,7 @@ def main():
     startup = overlay / 'common/on_action/ac_awakening_qa.txt'
     startup.parent.mkdir(parents=True, exist_ok=True)
     source = (ROOT / 'AuraClash/tests/ac_awakening_tests.txt').read_text(encoding='utf-8-sig')
-    body = source
+    body = source + '\n' + (ROOT / 'AuraClash/tests/ac_ai_awakening_tests.txt').read_text(encoding='utf-8-sig')
     # The shared harness normally runs in title scope; these tests use a character.
     checks = test_body('awakening', body.replace('root.', 'scope:ac_qa_learner.')).replace('title:k_england', 'scope:ac_qa_learner')
     startup.write_text('''on_game_start_after_lobby = { on_actions = { ac_awakening_qa } }
@@ -82,6 +82,10 @@ ac_awakening_qa.0003 = { type = character_event hidden = yes immediate = {
             f'name="{name}"\npath="{directory.as_posix()}"\nsupported_version="1.20.*"\n', encoding='utf-8')
     (OUT / 'dlc_load.json').write_text(json.dumps({
         'enabled_mods': ['mod/ac_awakening.mod', 'mod/ac_awakening_qa.mod'], 'disabled_dlcs': []}), encoding='utf-8')
+    if not args.ui:
+        event.write_text(event.read_text(encoding='utf-8-sig').split('ac_awakening_qa.0002 = {')[0], encoding='utf-8-sig')
+        for relative in ('common/scripted_guis/ac_awakening_qa.txt', 'gui/ac_awakening_qa.gui'):
+            (overlay / relative).write_text('', encoding='utf-8-sig')
     baseline = ROOT / 'output/sect-layout-ui'
     if not (OUT / 'pdx_settings.txt').exists() and (baseline / 'pdx_settings.txt').exists():
         shutil.copy2(baseline / 'pdx_settings.txt', OUT / 'pdx_settings.txt')

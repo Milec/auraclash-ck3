@@ -7,7 +7,7 @@ ac_seek_cultivation_decision = {
 	desc = ac_seek_cultivation_decision_desc
 	selection_tooltip = ac_seek_cultivation_decision_tooltip
 	confirm_text = ac_seek_cultivation_decision_confirm
-	ai_check_interval = 60
+	ai_check_interval = 0 # Annual everyone pulse executes this decision after checking teachers.
 	cooldown = { years = 1 }
 	is_shown = { NOT = { has_trait = ac_cultivator } has_trait = ambitious }
 	is_valid_showing_failures_only = {
@@ -21,10 +21,9 @@ ac_seek_cultivation_decision = {
 	effect = { ac_attempt_awakening_effect = yes }
 	ai_potential = {
 		gold >= 200 prestige >= 500 piety >= 500
-		NOT = { has_trait = wounded }
-		ac_has_cultivation_access_trigger = no
+		ac_ai_awakening_ready_trigger = yes
 	}
-	ai_will_do = { base = 10 }
+	ai_will_do = { base = 100 } # The annual pulse supplies the willingness roll.
 }
 
 ### Mortal Core Training ###

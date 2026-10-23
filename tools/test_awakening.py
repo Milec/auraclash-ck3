@@ -61,6 +61,10 @@ class AwakeningTests(unittest.TestCase):
     def test_new_scripts_balance_and_localization_is_present(self):
         for relative in ('common/scripted_triggers/ac_awakening_triggers.txt',
                          'common/scripted_effects/ac_awakening_effects.txt',
+                         'common/scripted_triggers/ac_ai_awakening_triggers.txt',
+                         'common/scripted_effects/ac_ai_awakening_effects.txt',
+                         'common/script_values/ac_ai_awakening_values.txt',
+                         'tests/ac_ai_awakening_tests.txt',
                          'tests/ac_awakening_tests.txt'):
             depth = 0
             for char in parser.masked(read(relative)):

@@ -1,0 +1,97 @@
+﻿# Select from actual personal connections, without a global character scan.
+# Willing teachers take priority over spending a hook. Invalid teachers do not
+# block an ambitious learner from paying for their own search.
+ac_ai_find_cultivation_teacher_effect = {
+ save_scope_as = ac_ai_awakening_learner
+ clear_saved_scope = ac_ai_awakening_teacher
+ random_in_list = {
+  variable = ac_cultivation_guardians
+  limit = { scope:ac_ai_awakening_learner = { ac_ai_can_request_cultivation_trigger = { TEACHER = prev } } }
+  save_scope_as = ac_ai_awakening_teacher
+ }
+ if = {
+  limit = { NOT = { exists = scope:ac_ai_awakening_teacher } }
+  random_relation = {
+   type = guardian
+   limit = { scope:ac_ai_awakening_learner = { ac_ai_can_request_cultivation_trigger = { TEACHER = prev } } }
+   save_scope_as = ac_ai_awakening_teacher
+  }
+ }
+ if = {
+  limit = { NOT = { exists = scope:ac_ai_awakening_teacher } }
+  random_relation = {
+   type = friend
+   limit = { scope:ac_ai_awakening_learner = { ac_ai_can_request_cultivation_trigger = { TEACHER = prev } } }
+   save_scope_as = ac_ai_awakening_teacher
+  }
+ }
+ if = {
+  limit = { NOT = { exists = scope:ac_ai_awakening_teacher } }
+  random_relation = {
+   type = best_friend
+   limit = { scope:ac_ai_awakening_learner = { ac_ai_can_request_cultivation_trigger = { TEACHER = prev } } }
+   save_scope_as = ac_ai_awakening_teacher
+  }
+ }
+ if = {
+  limit = { NOT = { exists = scope:ac_ai_awakening_teacher } }
+  random_relation = {
+   type = lover
+   limit = { scope:ac_ai_awakening_learner = { ac_ai_can_request_cultivation_trigger = { TEACHER = prev } } }
+   save_scope_as = ac_ai_awakening_teacher
+  }
+ }
+ if = {
+  limit = { NOT = { exists = scope:ac_ai_awakening_teacher } }
+  random_relation = {
+   type = soulmate
+   limit = { scope:ac_ai_awakening_learner = { ac_ai_can_request_cultivation_trigger = { TEACHER = prev } } }
+   save_scope_as = ac_ai_awakening_teacher
+  }
+ }
+ if = {
+  limit = { NOT = { exists = scope:ac_ai_awakening_teacher } }
+  random_spouse = {
+   limit = { scope:ac_ai_awakening_learner = { ac_ai_can_request_cultivation_trigger = { TEACHER = prev } } }
+   save_scope_as = ac_ai_awakening_teacher
+  }
+ }
+ if = {
+  limit = { NOT = { exists = scope:ac_ai_awakening_teacher } ac_has_sect_awakening_access_trigger = yes }
+  var:ac_sect = {
+   random_in_list = {
+    variable = ac_members
+    limit = { scope:ac_ai_awakening_learner = { ac_ai_can_request_cultivation_trigger = { TEACHER = prev } } }
+    save_scope_as = ac_ai_awakening_teacher
+   }
+  }
+ }
+ if = {
+  limit = { NOT = { exists = scope:ac_ai_awakening_teacher } }
+  random_hooked_character = {
+   limit = { scope:ac_ai_awakening_learner = { ac_ai_can_request_cultivation_trigger = { TEACHER = prev } } }
+   save_scope_as = ac_ai_awakening_teacher
+  }
+ }
+}
+
+# Execute the real interaction/decision, so costs, hook use and cooldowns stay native.
+ac_ai_pursue_awakening_effect = {
+ if = {
+  limit = { ac_ai_awakening_ready_trigger = yes }
+  ac_ai_find_cultivation_teacher_effect = yes
+  if = {
+   limit = { exists = scope:ac_ai_awakening_teacher }
+   run_interaction = {
+    interaction = ac_request_cultivation_interaction
+    actor = this
+    recipient = scope:ac_ai_awakening_teacher
+    send_threshold = accept
+   }
+  }
+  else_if = {
+   limit = { ac_ai_can_seek_cultivation_trigger = yes }
+   execute_decision = ac_seek_cultivation_decision
+  }
+ }
+}

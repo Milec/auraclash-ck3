@@ -1,0 +1,99 @@
+﻿ac_awakening_test_ai = {
+ effect = { create_character = { age = 25 gender = male random_traits = no health = 8
+ culture = root.culture faith = root.faith employer = root trait = ambitious save_scope_as = ac_qa_ai_learner }
+ create_character = { age = 40 gender = female random_traits = no health = 8
+ culture = root.culture faith = root.faith employer = root trait = ac_cultivator save_scope_as = ac_qa_ai_teacher }
+ create_character = { age = 40 gender = male random_traits = no health = 8
+ culture = root.culture faith = root.faith employer = root trait = ac_cultivator save_scope_as = ac_qa_ai_hook_teacher } }
+ effect = { scope:ac_qa_ai_learner = { add_gold = 1000 add_prestige = 3000 add_piety = 3000 add_character_flag = ac_foundation_offered ac_record_guardian_teacher_effect = { TEACHER = scope:ac_qa_ai_teacher } add_hook = { type = favor_hook target = scope:ac_qa_ai_hook_teacher } } }
+ assert = { scope:ac_qa_ai_learner = { is_ai = yes is_ruler = no ac_ai_awakening_ready_trigger = yes NOT = { ac_ai_can_seek_cultivation_trigger = yes } ac_ai_can_request_cultivation_trigger = { TEACHER = scope:ac_qa_ai_teacher } } }
+ effect = { scope:ac_qa_ai_learner = { ac_ai_find_cultivation_teacher_effect = yes } }
+ assert = { scope:ac_ai_awakening_teacher = scope:ac_qa_ai_teacher }
+ effect = { scope:ac_qa_ai_learner = { set_variable = { name = ac_test_gold value = gold } set_variable = { name = ac_test_prestige value = prestige } set_variable = { name = ac_test_piety value = piety } } }
+ effect = { scope:ac_qa_ai_learner = { ac_ai_pursue_awakening_effect = yes } }
+ assert = { scope:ac_qa_ai_learner = { has_character_flag = ac_awakening_cooldown prestige = { value = var:ac_test_prestige subtract = 100 } gold = var:ac_test_gold piety = var:ac_test_piety has_usable_hook = scope:ac_qa_ai_hook_teacher } }
+ effect = { scope:ac_qa_ai_learner = { set_variable = { name = ac_test_gold value = gold } set_variable = { name = ac_test_prestige value = prestige } set_variable = { name = ac_test_piety value = piety } } }
+ effect = { scope:ac_qa_ai_learner = { ac_ai_pursue_awakening_effect = yes } }
+ assert = { scope:ac_qa_ai_learner = { prestige = var:ac_test_prestige gold = var:ac_test_gold piety = var:ac_test_piety NOT = { ac_ai_awakening_ready_trigger = yes } } }
+ effect = { scope:ac_qa_ai_learner = { remove_trait = ac_cultivator remove_trait = wounded_1 remove_trait = wounded_2 remove_trait = wounded_3 remove_character_flag = ac_awakening_cooldown remove_interaction_cooldown = ac_request_cultivation_interaction remove_decision_cooldown = ac_seek_cultivation_decision } }
+ effect = { scope:ac_qa_ai_teacher = { remove_trait = ac_cultivator } }
+ effect = { scope:ac_qa_ai_learner = { ac_ai_find_cultivation_teacher_effect = yes } }
+ assert = { scope:ac_ai_awakening_teacher = scope:ac_qa_ai_hook_teacher }
+ effect = { scope:ac_qa_ai_learner = { set_variable = { name = ac_test_gold value = gold } set_variable = { name = ac_test_prestige value = prestige } set_variable = { name = ac_test_piety value = piety } } }
+ effect = { scope:ac_qa_ai_learner = { ac_ai_pursue_awakening_effect = yes } }
+ assert = { scope:ac_qa_ai_learner = { has_character_flag = ac_awakening_cooldown NOT = { has_usable_hook = scope:ac_qa_ai_hook_teacher } prestige = { value = var:ac_test_prestige subtract = 100 } gold = var:ac_test_gold } }
+ effect = { scope:ac_qa_ai_learner = { remove_trait = ac_cultivator remove_trait = wounded_1 remove_trait = wounded_2 remove_trait = wounded_3 remove_character_flag = ac_awakening_cooldown remove_interaction_cooldown = ac_request_cultivation_interaction remove_decision_cooldown = ac_seek_cultivation_decision } }
+ effect = { scope:ac_qa_ai_learner = { ac_ai_find_cultivation_teacher_effect = yes } }
+ assert = { NOT = { exists = scope:ac_ai_awakening_teacher } }
+ effect = { scope:ac_qa_ai_learner = { set_variable = { name = ac_test_gold value = gold } set_variable = { name = ac_test_prestige value = prestige } set_variable = { name = ac_test_piety value = piety } } }
+ effect = { scope:ac_qa_ai_learner = { ac_ai_pursue_awakening_effect = yes } }
+ assert = { scope:ac_qa_ai_learner = { NOT = { has_character_flag = ac_awakening_cooldown } gold = var:ac_test_gold prestige = var:ac_test_prestige piety = var:ac_test_piety } }
+ effect = { scope:ac_qa_ai_learner = { remove_trait = ac_cultivator remove_trait = wounded_1 remove_trait = wounded_2 remove_trait = wounded_3 remove_character_flag = ac_awakening_cooldown remove_interaction_cooldown = ac_request_cultivation_interaction remove_decision_cooldown = ac_seek_cultivation_decision } }
+ effect = { scope:ac_qa_ai_learner = { remove_short_term_gold = gold } }
+ effect = { scope:ac_qa_ai_learner = { set_variable = { name = ac_test_gold value = gold } set_variable = { name = ac_test_prestige value = prestige } set_variable = { name = ac_test_piety value = piety } } }
+ effect = { scope:ac_qa_ai_learner = { ac_ai_pursue_awakening_effect = yes } }
+ assert = { scope:ac_qa_ai_learner = { NOT = { has_character_flag = ac_awakening_cooldown } gold = 0 prestige = var:ac_test_prestige piety = var:ac_test_piety } }
+ effect = { scope:ac_qa_ai_learner = { add_gold = 1000 add_trait = wounded_2 } }
+ assert = { scope:ac_qa_ai_learner = { NOT = { ac_ai_awakening_ready_trigger = yes } } }
+ effect = { scope:ac_qa_ai_learner = { ac_ai_pursue_awakening_effect = yes } }
+ assert = { scope:ac_qa_ai_learner = { NOT = { has_character_flag = ac_awakening_cooldown } prestige = var:ac_test_prestige } }
+ effect = { scope:ac_qa_ai_learner = { remove_trait = wounded_2 remove_trait = ambitious } }
+ assert = { scope:ac_qa_ai_learner = { NOT = { ac_ai_awakening_ready_trigger = yes } NOT = { ac_ai_can_seek_cultivation_trigger = yes } } }
+ effect = { scope:ac_qa_ai_learner = { add_trait = brave } }
+ assert = { scope:ac_qa_ai_learner = { ac_ai_awakening_ready_trigger = yes NOT = { ac_ai_can_seek_cultivation_trigger = yes } } }
+ effect = { scope:ac_qa_ai_learner = { set_variable = { name = ac_test_willingness value = ac_ai_awakening_willingness } remove_trait = brave add_trait = craven } }
+ assert = { scope:ac_qa_ai_learner = { ac_ai_awakening_willingness < var:ac_test_willingness } }
+ effect = { scope:ac_qa_ai_learner = { remove_trait = craven add_trait = ambitious add_trait = incapable } }
+ assert = { scope:ac_qa_ai_learner = { NOT = { ac_ai_awakening_ready_trigger = yes } } }
+ effect = { scope:ac_qa_ai_learner = { remove_trait = incapable add_trait = ac_cultivator } }
+ assert = { scope:ac_qa_ai_learner = { NOT = { ac_ai_awakening_ready_trigger = yes } } }
+ effect = { scope:ac_qa_ai_learner = { remove_trait = ac_cultivator remove_trait = wounded_1 remove_trait = wounded_2 remove_trait = wounded_3 remove_character_flag = ac_awakening_cooldown remove_interaction_cooldown = ac_request_cultivation_interaction remove_decision_cooldown = ac_seek_cultivation_decision } }
+ effect = { scope:ac_qa_ai_learner = { add_prestige = { value = prestige multiply = -1 } set_relation_friend = scope:ac_qa_ai_teacher } }
+ effect = { scope:ac_qa_ai_teacher = { add_trait = ac_cultivator add_prestige = 1000 add_piety = 1000 } }
+ assert = { scope:ac_qa_ai_teacher = { ac_ai_can_offer_cultivation_trigger = yes is_character_interaction_valid = { interaction = ac_train_cultivation_interaction recipient = scope:ac_qa_ai_learner } } scope:ac_qa_ai_learner = { ac_ai_awakening_ready_trigger = yes prestige = 0 } }
+ effect = { scope:ac_qa_ai_teacher = { set_variable = { name = ac_test_prestige value = prestige } set_variable = { name = ac_test_piety value = piety } } run_interaction = { interaction = ac_train_cultivation_interaction actor = scope:ac_qa_ai_teacher recipient = scope:ac_qa_ai_learner send_threshold = accept } }
+ assert = { scope:ac_qa_ai_teacher = { prestige = { value = var:ac_test_prestige subtract = 250 } piety = { value = var:ac_test_piety subtract = 250 } } scope:ac_qa_ai_learner = { has_character_flag = ac_awakening_cooldown prestige = 0 } }
+
+ # NPC rulers use the actual paid decision; native courtiers cannot take decisions.
+ effect = { title:k_scotland.holder = {
+  save_scope_as = ac_qa_ai_seeker
+  remove_trait = ac_cultivator remove_trait = incapable
+  remove_trait = wounded_1 remove_trait = wounded_2 remove_trait = wounded_3
+  remove_trait = ill remove_trait = pneumonic remove_trait = smallpox
+  add_trait = ambitious add_trait = physique_good_3
+  remove_character_flag = ac_awakening_cooldown
+  add_gold = 2000 add_prestige = 3000 add_piety = 3000
+  add_character_flag = ac_foundation_offered
+  set_variable = { name = ac_test_gold value = gold }
+  set_variable = { name = ac_test_prestige value = prestige }
+  set_variable = { name = ac_test_piety value = piety }
+ } }
+ assert = { scope:ac_qa_ai_seeker = { is_ai = yes ac_ai_can_seek_cultivation_trigger = yes } }
+ effect = { scope:ac_qa_ai_seeker = { ac_ai_pursue_awakening_effect = yes } }
+ assert = { scope:ac_qa_ai_seeker = {
+  has_character_flag = ac_awakening_cooldown
+  gold = { value = var:ac_test_gold subtract = 100 }
+  prestige = { value = var:ac_test_prestige subtract = 250 }
+  piety = { value = var:ac_test_piety subtract = 250 }
+ } }
+ # Sect membership can discover a teacher without a personal relation.
+ effect = {
+  scope:ac_qa_ai_learner = {
+   remove_trait = ac_cultivator remove_trait = wounded_1 remove_trait = wounded_2 remove_trait = wounded_3
+   remove_character_flag = ac_awakening_cooldown remove_interaction_cooldown = ac_request_cultivation_interaction
+   remove_relation_friend = scope:ac_qa_ai_teacher
+   add_prestige = 300
+   clear_variable_list = ac_cultivation_guardians
+   set_variable = { name = ac_sect value = scope:ac_qa_society }
+  }
+  scope:ac_qa_ai_teacher = { set_variable = { name = ac_sect value = scope:ac_qa_society } }
+  scope:ac_qa_society = {
+   add_to_variable_list = { name = ac_members target = scope:ac_qa_ai_learner }
+   add_to_variable_list = { name = ac_members target = scope:ac_qa_ai_teacher }
+  }
+  scope:ac_qa_ai_learner = { ac_ai_find_cultivation_teacher_effect = yes }
+ }
+ assert = { exists = scope:ac_ai_awakening_teacher scope:ac_ai_awakening_teacher = { has_trait = ac_cultivator } }
+ effect = { scope:ac_qa_ai_learner = { ac_ai_pursue_awakening_effect = yes } }
+ assert = { scope:ac_qa_ai_learner = { has_character_flag = ac_awakening_cooldown prestige = 200 } }
+}

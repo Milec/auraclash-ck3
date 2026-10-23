@@ -19,18 +19,9 @@ ac_request_cultivation_interaction = {
 	}
 	cost = { prestige = 100 }
 	on_accept = { scope:actor = { ac_request_cultivation_effect = { TEACHER = scope:recipient } } }
-	ai_frequency = 12
-	ai_targets = {
-		ai_recipients = scripted_relations
-		ai_recipients = family
-		ai_recipients = hooked_characters
-		max = 10
-	}
-	ai_will_do = {
-		base = 0
-		modifier = {
-			add = 10
-			scope:actor = { ac_ai_cultivation_aspirant_trigger = yes prestige >= 300 NOT = { has_trait = wounded } }
-		}
-	}
+	# The annual everyone pulse also reaches former wards and cross-realm sect members.
+	# It runs this real interaction; a second native AI schedule would duplicate rolls.
+	ai_frequency = 0
+	ai_targets = { ai_recipients = scripted_relations }
+	ai_will_do = { base = 100 } # The annual pulse supplies the willingness roll.
 }
