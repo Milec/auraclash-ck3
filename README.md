@@ -100,7 +100,7 @@ A trait that grants **+0.5 health, +20 life expectancy, +10 years of fertility a
 All Cultivation decisions appear in their own **Cultivation** group in the decisions panel.
 
 ### Mortal Core Training
-- **Mortal Core Training** (decision → event): costs 100 prestige, once per year. It raises one Combat Core, which raises its linked skill by 1, up to +20 per Core:
+- **Mortal Core Training** (decision → event): once per year, raises one Combat Core dot and its linked skill by 1, up to +20 per Core. The price starts at 100 prestige and increases with the total dots already formed across all four Cores. At Mortal I Limit, dots 1–8 cost 100 each, 9–16 cost 200 each, 17–24 cost 300 each, and so on. Higher innate Limit delays these increases. The menu displays the current price; manual training, auto-training and NPCs use the same calculation.
 
 | Core | Skill |
 |---|---|
@@ -115,6 +115,27 @@ All Cultivation decisions appear in their own **Cultivation** group in the decis
 - Core progress shows as track bars on the Cultivator trait tooltip.
 - All four options stay visible but greyed out until the yearly cooldown ends.
 - **Auto-training:** a toggle in the same event repeats your last choice each year, whenever you can pay. Open the decision again to turn it off.
+
+### Innate Potential
+**Potential** is a genetic aptitude revealed when a character awakens as a Cultivator. It has two separate, fixed nine-grade tracks, **Limit** and **Talent**, each grouped into Mortal I–III, Earthly I–III and Heavenly I–III. The trait tooltip shows both exact grades. Its three painted icon variants reflect the higher tier of the two aptitudes; a Heavenly icon does not imply both tracks are Heavenly.
+
+| Grade | Limit: dots per cost band | Talent: lifestyle XP | Talent: monthly prestige |
+|---|---:|---:|---:|
+| Mortal I | 8 | +5% | +0.1 |
+| Mortal II | 9 | +10% | +0.2 |
+| Mortal III | 10 | +15% | +0.3 |
+| Earthly I | 12 | +25% | +0.5 |
+| Earthly II | 14 | +35% | +0.75 |
+| Earthly III | 16 | +50% | +1 |
+| Heavenly I | 20 | +75% | +1.5 |
+| Heavenly II | 24 | +100% | +2 |
+| Heavenly III | 32 | +150% | +3 |
+
+The next Core dot costs `100 × (1 + floor(total existing dots / Limit band size))` prestige. This follows the requested 1×, 2×, 3× bands; it does not impose an aptitude cap. Free development from sect rank, buildings or fame still counts toward future paid training costs. Talent boosts native monthly lifestyle XP, and multiplies new shared cultivation XP rewards before dividing them between the three cultivation lifestyles. Legacy XP migration is not multiplied.
+
+Each aptitude's fresh roll has an **86% Mortal / 13% Earthly / 1% Heavenly** distribution. Hidden gene values are assigned once and persist across failed or repeated awakening attempts. Children inherit each aptitude independently from their biological parents: with two available parents, 35% copies each parent's value, 27% rolls fresh variation, and 3% reinforces the stronger value. Two parents of the same tier can reinforce into the next tier; Heavenly reinforcement caps at grade nine. With one available parent, 75% copies that parent's value and 25% rolls fresh variation. Missing or deceased parents use the available-parent or fresh-roll fallback; historical ancestors are not retroactively assigned DNA.
+
+CK3 does not natively inherit two independent trait-track XP values, so persistent character variables hold the genes, and the visible genetic trait mirrors them only after awakening. Mortal children keep hidden potential and must still learn cultivation through the normal pathways. Existing cultivators receive Potential at game start or the first playable quarterly pulse after loading an older save. Artwork masters, generation prompts and a labelled preview are in [assets/trait-icons/potential](assets/trait-icons/potential).
 
 ### Foundations
 When a character becomes a Cultivator, or turns 16 as one, they choose **one of twelve zodiac Foundations**. The choice popup has two pages of six. Each Foundation gives +1 to a skill and a minor bonus. Fighting as a **commander or knight** tempers it through the tiers **Mortal → Iron → Jade → Golden → Heavenly**. Each tier strengthens that Foundation's own bonus, and Jade and Heavenly also add +5% knight effectiveness (Wolf gets +1 prowess there instead).
@@ -162,7 +183,7 @@ Cultivators stay young-looking much longer, shown by the **Preserved Youth** tra
 
 ### AI cultivators
 Adult AI cultivators run **one short routine per year**, on a random day, through `random_yearly_everyone_pulse`. There are no constant scripts and no per-character timers. Each year, an AI cultivator:
-- **Trains a Core** (one picked at random, skipping maxed ones) if it has more than 300 prestige.
+- **Trains a Core** (one picked at random, skipping maxed ones) if it can pay the current scaled price and retain 200 prestige.
 - Has a **15% chance** to learn a Style (150 prestige), or else an Element (100 piety). This is subject to the shared yearly cooldown.
 - Has a **30% chance** to attempt an Immortal Core, if it has 150 piety and Martial + Learning of at least 16.
 - **With an Immortal Core**, gains 240 total cultivation XP annually, divided equally between Elements, Martial Styles, and Handseals & Alchemy. Each discipline spends only its own native perk points on learned paths and valid prerequisites; unavailable trees keep their saved points. Focus and sect/event XP feed those same pools.
@@ -192,7 +213,7 @@ Three separate lifestyle tabs are visible to Cultivators aged 16+. Each has its 
 | **Martial Styles** | Physical Training | Your learned martial style |
 | **Handseals & Alchemy** | Deep Meditation | Alchemy and Handseals, available to every adult cultivator |
 
-Your selected focus generates **25 base XP per month** in its own lifestyle. Immortal Core income and general cultivation rewards keep their previous total and divide it equally between all three pools: a 150-XP manual grants 50 XP in each. Unlearned Style and Element trees remain hidden, with saved points available when you learn the path. The window scrolls sideways when needed.
+Your selected focus generates **25 base XP per month** in its own lifestyle, increased by Talent and other monthly XP modifiers. Immortal Core income and general cultivation rewards apply Talent, then divide the total equally between all three pools: a base 150-XP manual grants 52.5 XP in each at Mortal I Talent. Unlearned Style and Element trees remain hidden, with saved points available when you learn the path. The window scrolls sideways when needed.
 
 Existing perks keep their IDs and effects. Existing unspent Cultivation XP stays in **Handseals & Alchemy**; the old AI XP remainder transfers there once. The original focus IDs remain valid, with Physical Training now belonging to Martial Styles.
 
@@ -231,6 +252,8 @@ Each Style and Element also favours specific men-at-arms:
 ## Testing (console, launch with `-debug_mode`)
 
 Lifestyle separation has an isolated native fixture: run `python tools/prepare_lifestyle_checks.py` and use its printed launch command. It checks independent XP, prerequisite-aware spending, point retention without a learned path, legacy AI XP migration and passive rewards. Its disposable UI includes an audit for buying Healing Waters with only the Elements pool.
+
+Potential has a separate disposable fixture: `python tools/prepare_potential_checks.py`. It checks reveal stability, all nine grades, cost boundaries, actual manual/automatic/NPC charges, insufficient-fund and cooldown guards, shared XP bonuses, tier reinforcement and randomized distribution. `python tools/build_potential.py --check` verifies its generated production files.
 
 Awakening access and decision costs have an isolated native fixture: run `python tools/prepare_awakening_checks.py`, launch with the printed arguments, and require `AC_AWAKENING_QA COMPLETE`, no failed assertions and an empty error log. Add `--ui` to inspect the teacher's right-click menu, send an actual request and verify its cost with the audit button. The fixture changes only its disposable game.
 ```

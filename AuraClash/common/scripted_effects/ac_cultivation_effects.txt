@@ -1,26 +1,30 @@
 ﻿# Spend prestige to raise one Combat Core (a track on the Cultivator trait)
 ac_train_core_effect = {
-	add_prestige = -100
-	add_trait_xp = {
-		trait = ac_cultivator
-		track = ac_core_$CORE$
-		value = 5
-	}
-	add_character_flag = {
-		flag = ac_core_training_cooldown
-		years = 1
-	}
-	set_variable = {
-		name = ac_core_last
-		value = flag:$CORE$
-	}
+	ac_reveal_potential_effect = yes
 	if = {
-		limit = { has_character_flag = ac_core_training_auto }
-		custom_tooltip = ac_core_auto_will_repeat_tt
-		hidden_effect = {
-			trigger_event = {
-				id = ac_cult.0002
-				days = 366
+		limit = { ac_can_train_core_trigger = { CORE = $CORE$ } }
+		add_prestige = { value = ac_core_formation_cost multiply = -1 }
+		add_trait_xp = {
+			trait = ac_cultivator
+			track = ac_core_$CORE$
+			value = 5
+		}
+		add_character_flag = {
+			flag = ac_core_training_cooldown
+			years = 1
+		}
+		set_variable = {
+			name = ac_core_last
+			value = flag:$CORE$
+		}
+		if = {
+			limit = { has_character_flag = ac_core_training_auto }
+			custom_tooltip = ac_core_auto_will_repeat_tt
+			hidden_effect = {
+				trigger_event = {
+					id = ac_cult.0002
+					days = 366
+				}
 			}
 		}
 	}
@@ -278,6 +282,7 @@ ac_gain_foundation_xp_effect = {
 
 # Ask the player to choose a Foundation, or pick one for the AI
 ac_offer_foundation_effect = {
+ ac_reveal_potential_effect = yes
 	if = {
 		limit = {
 			has_trait = ac_cultivator
@@ -534,6 +539,7 @@ ac_update_visual_age_effect = {
 
 # AI: the whole yearly cultivation routine (one call per adult AI cultivator per year)
 ac_ai_yearly_cultivation_effect = {
+ ac_reveal_potential_effect = yes
 	# Foundation
 	if = {
 		limit = { ac_has_foundation_trigger = no }
@@ -543,7 +549,7 @@ ac_ai_yearly_cultivation_effect = {
 	# Mortal Core Training: random unmaxed Core
 	if = {
 		limit = {
-			prestige > 300
+			prestige >= { value = ac_core_formation_cost add = 200 }
 			NOT = { has_character_flag = ac_core_training_cooldown }
 			OR = {
 				ac_core_soul_maxed_trigger = no

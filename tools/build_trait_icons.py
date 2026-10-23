@@ -39,6 +39,10 @@ def main():
     sources = {path.stem: path for path in source_dir.glob('*.png')}
     if traits != set(sources):
         raise SystemExit(f'Trait/artwork mismatch: missing={sorted(traits - set(sources))}, extra={sorted(set(sources) - traits)}')
+    for tier in ("mortal", "earthly", "heavenly"):
+        key = "ac_potential_" + tier
+        sources[key] = ROOT / "assets/trait-icons/potential" / (tier + ".png")
+        traits.add(key)
     for trait in sorted(traits):
         data = dds_bytes(sources[trait])
         target = ROOT / 'AuraClash/gfx/interface/icons/traits' / (trait + '.dds')

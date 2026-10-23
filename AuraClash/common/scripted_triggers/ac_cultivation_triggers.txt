@@ -142,7 +142,7 @@ ac_can_train_core_trigger = {
 		text = ac_core_training_cooldown_tt
 		NOT = { has_character_flag = ac_core_training_cooldown }
 	}
-	prestige >= 100
+	prestige >= ac_core_formation_cost
 	custom_tooltip = {
 		text = ac_core_maxed_tt
 		NOT = { ac_core_$CORE$_maxed_trigger = yes }
