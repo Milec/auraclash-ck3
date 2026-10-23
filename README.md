@@ -80,11 +80,12 @@ The estate is a native CK3 domicile attached to a separate landless Sect Master 
 ### Cultivator
 A trait that grants **+0.5 health, +20 life expectancy, +10 years of fertility and +4 prowess**, and unlocks everything below.
 - Children inherit it **25%** of the time.
-- Newborns and generated characters get it at random **0.5%** of the time.
+- Spontaneous newborn/generated-character cultivation is disabled; sect founders and disciples supply established cultivators.
 - It's available in the ruler designer for 80 points.
-- **Awaken Cultivation** (decision): costs 100 prestige, usable once per year. It's a Martial + Learning check with a 5–85% chance. Failure leaves you wounded, but never kills you.
+- **Awaken Cultivation** (decision): requires teachings from a cultivator guardian, a living adult cultivator friend/best friend, lover/soulmate or spouse, a usable hook on an adult cultivator, or actual sect membership. Guardian teaching is recorded during childhood and remains valid after guardianship ends. Costs 100 prestige; a hook is spent only if it is the sole access route. It is a Martial + Learning check with a 5–85% chance; failure wounds without killing.
+- **Seek Cultivation** (decision): Ambitious adults can instead fund their own search for 100 gold, 250 prestige and 250 piety, then face the same awakening check. Both decisions share a one-year attempt cooldown; switching routes cannot bypass it.
 - **AI rulers** only attempt Awaken Cultivation if they are warrior-like or hardworking. That means any of: Ambitious, Brave, Diligent, Martial or Prowess education rank 3+, Strong, Hale, Robust, Herculean, Berserker, Blademaster, Populist Leader, Adventurer, Military Order member, Crusader or Holy Warrior, Warrior of the Faith, Raider, Varangian, or 3+ commander traits.
-- **Legendary conquerors:** the fame traits **Conqueror**, **Despoiler of Byzantium** and **Greatest of Khans** grant the Cultivator trait if the character doesn't have it, plus **5 / 10 / 20** randomly distributed Core dots. Characters who are already Cultivators still get the dots, up to the Cores' caps. This happens once per trait.
+- **Legendary conquerors:** the fame traits **Conqueror**, **Despoiler of Byzantium** and **Greatest of Khans** grant existing Cultivators **5 / 10 / 20** randomly distributed Core dots, up to the Cores' caps. Fame does not awaken mortals or bypass the access requirements. Each reward happens once per trait, after awakening.
 - Cultivation only advances from **age 16**: Core training, Foundations, Styles, Elements, perks and the lifestyle tab all wait until then.
 
 ### Decisions
@@ -158,11 +159,11 @@ Adult AI cultivators run **one short routine per year**, on a random day, throug
 - Has a **30% chance** to attempt an Immortal Core, if it has 150 piety and Martial + Learning of at least 16.
 - **With an Immortal Core**, banks 240 Cultivation XP. Each time the bank passes 1,000, it unlocks its next perk in this order: Style, then Elements, then Alchemy, then Handseals.
 
-Non-cultivators only cost a single trait check, so the load is negligible.
+Adult non-cultivators skip the annual cultivation routine. Children also receive a lightweight check for teaching from a cultivator guardian.
 
 ### Train in Cultivation
 A character interaction (right-click a character). It needs a Cultivator aged 16+ as the trainer and a target who isn't a Cultivator.
-- **Who you can train:** your **courtiers**, your **vassals**, or your **children within diplomatic range**. Anyone else shows the option greyed out.
+- **Who you can train:** your wards, friends/best friends, lovers/soulmates, spouses, fellow sect members, or someone holding a usable hook on you. Court membership, vassalage or parenthood alone does not qualify. A hook is spent only when needed to obtain training.
 - **Cost:** 250 piety and 250 prestige. Each person can be trained at most once per year.
 - **Success chance:** 1% per point of the target's Martial and Learning, plus 1% per Combat Core dot you've unlocked (up to 100%).
 - **Failure** wounds the target.
@@ -213,6 +214,8 @@ Each Style and Element also favours specific men-at-arms:
 ---
 
 ## Testing (console, launch with `-debug_mode`)
+
+Awakening access and decision costs have an isolated native fixture: run `python tools/prepare_awakening_checks.py`, launch with the printed arguments, and require `AC_AWAKENING_QA COMPLETE`, no failed assertions and an empty error log. The fixture changes only its disposable game.
 ```
 add_trait ac_cultivator
 effect = { add_prestige = 1000 add_piety = 1000 }

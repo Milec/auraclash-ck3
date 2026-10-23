@@ -1,0 +1,64 @@
+﻿# Do not require the Cultivator trait when checking the mortal's sect route.
+ac_has_sect_awakening_access_trigger = {
+	has_variable = ac_sect
+	exists = var:ac_sect.story_owner
+	var:ac_sect = {
+		has_variable = ac_headquarters
+		is_target_in_variable_list = { name = ac_members target = prev }
+	}
+}
+
+ac_cultivation_teacher_trigger = { is_alive = yes has_trait = ac_cultivator age >= 16 }
+
+ac_has_willing_cultivation_access_trigger = {
+	OR = {
+		has_character_flag = ac_cultivator_guardian_taught
+		any_relation = { type = guardian ac_cultivation_teacher_trigger = yes }
+		any_relation = { type = friend ac_cultivation_teacher_trigger = yes }
+		any_relation = { type = best_friend ac_cultivation_teacher_trigger = yes }
+		any_relation = { type = lover ac_cultivation_teacher_trigger = yes }
+		any_relation = { type = soulmate ac_cultivation_teacher_trigger = yes }
+		any_spouse = { ac_cultivation_teacher_trigger = yes }
+		ac_has_sect_awakening_access_trigger = yes
+	}
+}
+
+ac_has_cultivation_access_trigger = {
+	OR = {
+		ac_has_willing_cultivation_access_trigger = yes
+		any_hooked_character = {
+			ac_cultivation_teacher_trigger = yes
+			prev = { has_usable_hook = prev }
+		}
+	}
+}
+
+ac_awakening_ready_trigger = {
+	custom_tooltip = {
+		text = ac_awakening_cooldown_tt
+		NOT = { has_character_flag = ac_awakening_cooldown }
+	}
+}
+
+# Recipient scope; access must come from this particular trainer.
+ac_has_willing_training_connection_trigger = {
+	OR = {
+		has_relation_guardian = $TEACHER$
+		has_relation_friend = $TEACHER$
+		has_relation_best_friend = $TEACHER$
+		has_relation_lover = $TEACHER$
+		has_relation_soulmate = $TEACHER$
+		is_spouse_of = $TEACHER$
+		AND = {
+			ac_has_sect_awakening_access_trigger = yes
+			$TEACHER$ = { ac_has_sect_awakening_access_trigger = yes var:ac_sect = prev.var:ac_sect }
+		}
+	}
+}
+
+ac_can_receive_cultivation_training_trigger = {
+	OR = {
+		ac_has_willing_training_connection_trigger = { TEACHER = $TEACHER$ }
+		has_usable_hook = $TEACHER$
+	}
+}

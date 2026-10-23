@@ -1,4 +1,4 @@
-﻿# Train in Cultivation: try to awaken a courtier, child or vassal as a Cultivator
+﻿# Train in Cultivation: teach a ward, friend, partner, fellow sect member or hook holder
 ac_train_cultivation_interaction = {
 	category = interaction_category_friendly
 	common_interaction = yes
@@ -23,16 +23,10 @@ ac_train_cultivation_interaction = {
 		scope:actor = { is_imprisoned = no }
 		scope:recipient = {
 			is_imprisoned = no
+			NOT = { has_trait = incapable }
 			custom_tooltip = {
 				text = ac_train_cultivation_relation_tt
-				OR = {
-					is_courtier_of = scope:actor
-					is_vassal_or_below_of = scope:actor
-					AND = {
-						is_child_of = scope:actor
-						in_diplomatic_range = scope:actor
-					}
-				}
+				ac_can_receive_cultivation_training_trigger = { TEACHER = scope:actor }
 			}
 		}
 	}
@@ -43,6 +37,12 @@ ac_train_cultivation_interaction = {
 	}
 
 	on_accept = {
+		scope:recipient = {
+			if = {
+				limit = { has_usable_hook = scope:actor NOT = { ac_has_willing_training_connection_trigger = { TEACHER = scope:actor } } }
+				use_hook = scope:actor
+			}
+		}
 		scope:actor = {
 			custom_tooltip = ac_train_cultivation_chance_tt
 			random_list = {

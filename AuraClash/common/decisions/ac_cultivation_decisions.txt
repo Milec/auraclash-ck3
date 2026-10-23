@@ -21,6 +21,8 @@ ac_awaken_cultivation_decision = {
 		is_adult = yes
 		is_imprisoned = no
 		NOT = { has_trait = incapable }
+		ac_awakening_ready_trigger = yes
+		custom_tooltip = { text = ac_awakening_access_tt ac_has_cultivation_access_trigger = yes }
 	}
 
 	cost = {
@@ -28,31 +30,8 @@ ac_awaken_cultivation_decision = {
 	}
 
 	effect = {
-		custom_tooltip = ac_awaken_cultivation_decision_check_tt
-		random_list = {
-			0 = {
-				modifier = { add = ac_awaken_success_chance }
-				desc = ac_awaken_cultivation_decision.success
-				send_interface_toast = {
-					type = event_toast_effect_good
-					title = ac_awaken_success_toast
-					left_icon = root
-					add_trait = ac_cultivator
-				}
-				ac_update_visual_age_effect = yes
-				ac_offer_foundation_effect = yes
-			}
-			0 = {
-				modifier = { add = ac_awaken_failure_chance }
-				desc = ac_awaken_cultivation_decision.failure
-				send_interface_toast = {
-					type = event_toast_effect_bad
-					title = ac_awaken_failure_toast
-					left_icon = root
-					increase_wounds_no_death_effect = { REASON = fight }
-				}
-			}
-		}
+		ac_spend_awakening_hook_effect = yes
+		ac_attempt_awakening_effect = yes
 	}
 
 	# AI only seeks cultivation if warrior-like or hardworking
@@ -69,6 +48,33 @@ ac_awaken_cultivation_decision = {
 			has_trait = ambitious
 		}
 	}
+}
+
+### Seek Cultivation: an ambitious outsider finances their own search ###
+ac_seek_cultivation_decision = {
+	decision_group_type = ac_cultivation
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds" }
+	desc = ac_seek_cultivation_decision_desc
+	selection_tooltip = ac_seek_cultivation_decision_tooltip
+	confirm_text = ac_seek_cultivation_decision_confirm
+	ai_check_interval = 60
+	cooldown = { years = 1 }
+	is_shown = { NOT = { has_trait = ac_cultivator } has_trait = ambitious }
+	is_valid_showing_failures_only = {
+		is_adult = yes
+		is_imprisoned = no
+		NOT = { has_trait = incapable }
+		has_trait = ambitious
+		ac_awakening_ready_trigger = yes
+	}
+	cost = { gold = 100 prestige = 250 piety = 250 }
+	effect = { ac_attempt_awakening_effect = yes }
+	ai_potential = {
+		gold >= 200 prestige >= 500 piety >= 500
+		NOT = { has_trait = wounded }
+		ac_has_cultivation_access_trigger = no
+	}
+	ai_will_do = { base = 10 }
 }
 
 ### Mortal Core Training ###

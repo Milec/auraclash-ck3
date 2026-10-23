@@ -1,0 +1,49 @@
+﻿# Both decisions share a cooldown and the original Martial/Learning ordeal.
+ac_attempt_awakening_effect = {
+	add_character_flag = { flag = ac_awakening_cooldown years = 1 }
+	custom_tooltip = ac_awaken_cultivation_decision_check_tt
+	random_list = {
+		0 = {
+			modifier = { add = ac_awaken_success_chance }
+			desc = ac_awaken_cultivation_decision.success
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = ac_awaken_success_toast
+				left_icon = root
+				add_trait = ac_cultivator
+			}
+			ac_update_visual_age_effect = yes
+			ac_offer_foundation_effect = yes
+		}
+		0 = {
+			modifier = { add = ac_awaken_failure_chance }
+			desc = ac_awaken_cultivation_decision.failure
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = ac_awaken_failure_toast
+				left_icon = root
+				increase_wounds_no_death_effect = { REASON = fight }
+			}
+		}
+	}
+}
+
+# A hook is spent only when no willing connection or sect supplies access.
+ac_spend_awakening_hook_effect = {
+	if = {
+		limit = { ac_has_willing_cultivation_access_trigger = no }
+		random_hooked_character = {
+			limit = { ac_cultivation_teacher_trigger = yes prev = { has_usable_hook = prev } }
+			save_scope_as = ac_awakening_teacher
+		}
+		use_hook = scope:ac_awakening_teacher
+	}
+}
+
+# Retain the education route when CK3 removes guardianship on adulthood.
+ac_record_cultivator_guardian_effect = {
+	if = {
+		limit = { any_relation = { type = guardian ac_cultivation_teacher_trigger = yes } }
+		add_character_flag = ac_cultivator_guardian_taught
+	}
+}

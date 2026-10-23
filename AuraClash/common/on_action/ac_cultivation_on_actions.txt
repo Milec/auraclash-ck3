@@ -1,13 +1,13 @@
 ﻿# Appended to vanilla on_actions (lists merge; nothing vanilla is replaced).
-# Every hook starts with a cheap has_trait check, so non-cultivators cost nothing.
+# Cultivation routines use cheap eligibility checks before doing further work.
 quarterly_playable_pulse = {
 	on_actions = { ac_quarterly_player_pulse ac_fame_cultivation_pulse }
 }
 random_yearly_everyone_pulse = {
-	on_actions = { ac_yearly_ai_pulse ac_fame_cultivation_pulse }
+	on_actions = { ac_yearly_ai_pulse ac_fame_cultivation_pulse ac_guardian_teaching_pulse }
 }
 on_birthday = {
-	on_actions = { ac_birthday_pulse }
+	on_actions = { ac_birthday_pulse ac_guardian_teaching_pulse }
 }
 on_game_start_after_lobby = {
 	on_actions = { ac_game_start }
@@ -55,9 +55,10 @@ ac_yearly_ai_pulse = {
 	}
 }
 
-# Conqueror / Despoiler of Byzantium / Greatest of Khans grant cultivation once each
+# Fame bonuses require cultivation; fame cannot bypass awakening access.
 ac_fame_cultivation_pulse = {
 	trigger = {
+		has_trait = ac_cultivator
 		OR = {
 			has_trait = conqueror
 			has_trait = despoiler_of_byzantium
@@ -82,11 +83,15 @@ ac_birthday_pulse = {
 ac_game_start = {
 	effect = {
 		every_living_character = {
+			limit = { age < 16 NOT = { has_trait = ac_cultivator } }
+			ac_record_cultivator_guardian_effect = yes
+		}
+		every_living_character = {
 			limit = {
 				OR = {
-			has_trait = conqueror
-			has_trait = despoiler_of_byzantium
-			has_trait = greatest_of_khans
+					has_trait = conqueror
+					has_trait = despoiler_of_byzantium
+					has_trait = greatest_of_khans
 				}
 			}
 			ac_fame_cultivation_all_effect = yes
@@ -119,4 +124,25 @@ ac_on_combat_end_loser = {
 			ac_gain_foundation_xp_effect = { XP = 1 }
 		}
 	}
+}
+
+# Relation callbacks cover both directions, including guardians appointed
+# shortly before adulthood. Removal records a guardian who awakened later.
+on_set_relation_guardian = { on_actions = { ac_ward_guardian_teaching } }
+on_remove_relation_guardian = { on_actions = { ac_ward_guardian_teaching } }
+on_set_relation_ward = { on_actions = { ac_guardian_ward_teaching } }
+on_remove_relation_ward = { on_actions = { ac_guardian_ward_teaching } }
+ac_ward_guardian_teaching = {
+	trigger = { age <= 16 scope:target = { ac_cultivation_teacher_trigger = yes } }
+	effect = { add_character_flag = ac_cultivator_guardian_taught }
+}
+ac_guardian_ward_teaching = {
+	trigger = { ac_cultivation_teacher_trigger = yes scope:target = { age <= 16 } }
+	effect = { scope:target = { add_character_flag = ac_cultivator_guardian_taught } }
+}
+
+# Catch guardians who themselves awaken after being appointed.
+ac_guardian_teaching_pulse = {
+	trigger = { age <= 16 NOT = { has_trait = ac_cultivator } NOT = { has_character_flag = ac_cultivator_guardian_taught } }
+	effect = { ac_record_cultivator_guardian_effect = yes }
 }

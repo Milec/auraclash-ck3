@@ -117,10 +117,11 @@ ac_add_random_core_dot_effect = {
 	}
 }
 
-# Fame traits ($TRAIT$) awaken cultivation and add $DOTS$ random Core dots, once per trait
+# Fame traits reward existing cultivators with $DOTS$ Core dots, once per trait
 ac_fame_cultivation_effect = {
 	if = {
 		limit = {
+			has_trait = ac_cultivator
 			has_trait = $TRAIT$
 			NOT = { has_character_flag = ac_fame_gift_$TRAIT$ }
 		}
@@ -129,10 +130,6 @@ ac_fame_cultivation_effect = {
 			type = event_toast_effect_good
 			title = ac_fame_cultivation_toast
 			left_icon = root
-			if = {
-				limit = { NOT = { has_trait = ac_cultivator } }
-				add_trait = ac_cultivator
-			}
 			while = {
 				count = $DOTS$
 				ac_add_random_core_dot_effect = yes

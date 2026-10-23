@@ -8,8 +8,8 @@ ac_cultivator = {
 	prowess = 4
 
 	inherit_chance = 25
-	birth = 0.5
-	random_creation = 0.5
+	birth = 0
+	random_creation = 0
 	good = yes
 	ruler_designer_cost = 80
 
@@ -1096,4 +1096,3 @@ ac_element_wind = {
 	prowess = 5
 	shown_in_ruler_designer = no
 }
-
