@@ -38,6 +38,7 @@ class AwakeningTests(unittest.TestCase):
         self.assertIn('has_trait = ac_cultivator', block(block(effect, 'if'), 'limit'))
         self.assertNotIn('add_trait = ac_cultivator', effect)
         trait = block(read('common/traits/ac_cultivation_traits.txt'), 'ac_cultivator')
+        self.assertRegex(trait, r'\binherit_chance = 0\b')
         self.assertRegex(trait, r'\bbirth = 0\b')
         self.assertRegex(trait, r'\brandom_creation = 0\b')
 

@@ -85,7 +85,7 @@ Independent roaming cultivators appear throughout the world, initially one per e
 
 ### Cultivator
 A trait that grants **+0.5 health, +20 life expectancy, +10 years of fertility and +4 prowess**, and unlocks everything below.
-- Children inherit it **25%** of the time.
+- Cultivation is not genetically inherited; children must awaken through the available cultivation pathways.
 - Spontaneous newborn/generated-character cultivation is disabled; sect founders and disciples supply established cultivators.
 - It's available in the ruler designer for 80 points.
 - **Request Cultivation Training** (right-click a qualifying cultivator): request an awakening ordeal from your current/former cultivator guardian, friend/best friend, lover/soulmate, spouse, a member of your own sect, or a cultivator on whom you hold a usable hook. The relationship is checked against the selected teacher; an unrelated cultivator cannot substitute. Costs 100 prestige, and consumes a hook only when it is needed for that teacher. The Martial + Learning check has a 5–85% success chance; failure wounds without killing.
