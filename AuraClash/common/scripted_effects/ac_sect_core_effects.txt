@@ -34,6 +34,7 @@ ac_sect_found_effect = {
 		add_trait = ac_sect_master
 		ac_sect_teach_identity_effect = yes
 		ac_sect_teach_second_element_effect = yes
+		ac_sect_develop_rank_effect = yes
 		scope:ac_new_sect = { add_to_variable_list = { name = ac_members target = prev } ac_sect_ensure_domicile_effect = yes }
 	}
 }
@@ -111,6 +112,7 @@ ac_sect_succession_effect = {
 			remove_trait = ac_sect_upper_disciple
 			add_trait = ac_sect_master
 			ac_sect_teach_second_element_effect = yes
+			ac_sect_develop_rank_effect = yes
 			if = { limit = { is_ai = no } trigger_event = ac_sect.0020 }
 		}
 		ac_sect_ensure_domicile_effect = yes
@@ -196,6 +198,7 @@ ac_sect_yearly_effect = {
 			}
 			ac_sect_refund_trial_effect = yes
 		}
+		ac_sect_develop_rank_effect = yes
 		ac_sect_training_effect = yes
 		if = {
 			limit = { is_ai = yes ac_sect_promotion_ready_trigger = yes }

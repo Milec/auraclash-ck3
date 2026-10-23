@@ -140,7 +140,7 @@ ac_sect_seed_disciple_effect = {
 			limit = { has_trait = ac_sect_upper_disciple }
 			set_variable = { name = ac_sect_merit value = 150 }
 			ac_sect_teach_second_element_effect = yes
-			add_trait_xp = { trait = ac_cultivator track = ac_core_power value = 15 }
+			ac_sect_develop_rank_effect = yes
 		}
 	}
 	scope:ac_seeded_sect = { add_to_variable_list = { name = ac_members target = scope:ac_seeded_member } }

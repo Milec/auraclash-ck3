@@ -56,6 +56,7 @@ ac_sect_complete_trial_effect = {
 					remove_trait = ac_sect_lower_disciple
 					add_trait = ac_sect_upper_disciple
 					ac_sect_teach_second_element_effect = yes
+					ac_sect_develop_rank_effect = yes
 					trigger_event = ac_sect_trial.0004
 				}
 				else = { trigger_event = ac_sect_trial.0005 }

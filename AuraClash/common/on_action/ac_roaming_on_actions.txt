@@ -1,0 +1,17 @@
+﻿# One startup/backfill pass; native global pulse maintains the bounded pool yearly.
+yearly_global_pulse = { on_actions = { ac_roaming_annual_maintenance } }
+ac_cultivation_population_initialize = {
+	trigger = { has_global_variable = ac_sects_initialized NOT = { has_global_variable = ac_cultivation_population_v1 } }
+	effect = {
+		set_global_variable = { name = ac_cultivation_population_v1 value = 1 }
+		every_in_global_list = {
+			variable = ac_sects
+			every_in_list = { variable = ac_members limit = { is_alive = yes } ac_sect_develop_rank_effect = yes }
+		}
+		ac_roaming_world_maintenance_effect = yes
+	}
+}
+ac_roaming_annual_maintenance = {
+	trigger = { has_global_variable = ac_cultivation_population_v1 }
+	effect = { ac_roaming_world_maintenance_effect = yes }
+}

@@ -107,7 +107,7 @@ ac_sect_seed_disciple_effect = {
             limit = { has_trait = ac_sect_upper_disciple }
             set_variable = { name = ac_sect_merit value = 150 }
             ac_sect_teach_second_element_effect = yes
-            add_trait_xp = { trait = ac_cultivator track = ac_core_power value = 15 }
+            ac_sect_develop_rank_effect = yes
         }
     }
     scope:ac_seeded_sect = { add_to_variable_list = { name = ac_members target = scope:ac_seeded_member } }
@@ -158,6 +158,8 @@ AC_SectRank = {
 
     import build_sect_contracts
     files.update(build_sect_contracts.render(MISSIONS, loc))
+    import build_cultivation_population
+    files.update(build_cultivation_population.render(IDENTITIES))
     files['localization/english/ac_sect_generated_l_english.yml'] = 'l_english:\n' + '\n'.join(f' {key}:0 "{value}"' for key, value in loc.items()) + '\n'
     return {name: format_script(text) if name.endswith('.txt') else text for name, text in files.items()}
 

@@ -77,6 +77,12 @@ Use **Decisions → Cultivation → Consult the Sect Register** for membership, 
 
 The estate is a native CK3 domicile attached to a separate landless Sect Master title, with an original Chinese-inspired landscape and six building chains. It passes with sect leadership while rulers keep their lands, government and personal estate. The sect register opens illustrated building plots and sect-aware controls for the native construction queue; the vanilla editor assumes a ruler's personal domicile. Sect battles resolve as group clashes; they do not use ordinary single combat or conquer territory.
 
+### Developed ranks and roaming masters
+
+Upper Disciples receive 6–10 dots in each Combat Core and a Jade Foundation; Sect Masters receive 12–16 dots, a Golden Foundation and an Immortal Core. Minimums apply once on initialization, promotion and leadership changes, preserving stronger progress and existing paths.
+
+Independent roaming cultivators appear throughout the world, initially one per eligible kingdom of origin. Roaming Adepts match Upper Disciples, Roaming Masters match Sect Masters, and rarer Roaming Grandmasters have 17–20 dots in each Core with a Heavenly Foundation. They use native wanderer pools, may visit courts and can be recruited. Find the Roaming Master trait in the character finder. Their relationships and hooks can qualify them as teachers through the normal targeted cultivation request. Annual maintenance moves only free AI wanderers and replaces deceased masters without spawning extras when one is recruited. See the [sect guide](docs/sects.md#roaming-masters) for distribution, caps and migration.
+
 ### Cultivator
 A trait that grants **+0.5 health, +20 life expectancy, +10 years of fertility and +4 prowess**, and unlocks everything below.
 - Children inherit it **25%** of the time.

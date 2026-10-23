@@ -1,6 +1,6 @@
-﻿on_game_start_after_lobby = { on_actions = { ac_sect_initialize } }
+﻿on_game_start_after_lobby = { on_actions = { ac_sect_initialize ac_cultivation_population_initialize } }
 # Existing saves are initialized lazily on the next playable pulse as well.
-quarterly_playable_pulse = { on_actions = { ac_sect_initialize ac_sect_trial_repair } }
+quarterly_playable_pulse = { on_actions = { ac_sect_initialize ac_cultivation_population_initialize ac_sect_trial_repair } }
 on_death = { on_actions = { ac_sect_member_death } }
 ac_sect_initialize = {
 	trigger = { NOT = { has_global_variable = ac_sects_initialized } }

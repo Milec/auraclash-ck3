@@ -10,6 +10,35 @@ A new sect starts with one Master, eight Upper Disciples and sixteen Lower Disci
 
 The geographic policy is isolated in `ac_sect_kingdom_eligible_trigger` and the initialization on-action. Replace that policy when the custom map is introduced, while retaining the society and province data model.
 
+## Rank development
+
+Upper Disciples and Masters have actual Combat Core and Foundation XP appropriate to their position:
+
+| Rank | Dots in each of the four Cores | Foundation | Immortal Core |
+|---|---|---|---|
+| Upper Disciple | 6–10 | Jade (50, 60 or 70 XP) | Existing advancement retained |
+| Sect Master | 12–16 | Golden (75, 85 or 95 XP) | Granted |
+
+Each Core is rolled independently. One dot is five track XP. These are minimum baselines, not caps: stronger characters keep their development, existing Foundations, styles and elements. Promotion, succession, voluntary handover and successful leadership petitions apply the appropriate baseline once. Returning to an earlier rank cannot reroll it for more XP. Normal training can continue afterward. Generated Lower Disciples retain their existing introductory training.
+
+Existing saves receive a one-time backfill on loading or the next quarterly playable pulse. Annual sect maintenance also catches any member whose development marker is missing. The native trait tracks and Foundation names show the resulting strength; this is not a separate hidden combat modifier.
+
+## Roaming masters
+
+One independent cultivator is initially generated per eligible populated de-jure kingdom of origin. They begin outside all sects, with one style, two distinct elements and a Foundation. Their strength is rolled as follows:
+
+| Profile | Initial share | Dots in each Core | Foundation |
+|---|---:|---|---|
+| Roaming Adept | 60% | 6–10 | Jade |
+| Roaming Master | 30% | 12–16 | Golden |
+| Roaming Grandmaster | 10% | 17–20 | Heavenly |
+
+Master and Grandmaster profiles have an Immortal Core. Grandmasters exceed the initial development of ordinary Sect Masters while retaining the existing 20-dot Core and 100-XP Foundation caps.
+
+Find them through the character finder using the Roaming Master trait. They use native wanderer pools and can visit courts as guests or be recruited through normal interactions. A qualifying friendship, partnership, guardianship or hook permits **Request Cultivation Training** on the individual; their roaming status alone does not bypass the awakening rules.
+
+Annual world maintenance uses the vanilla wanderer relocation helper only for free AI pool characters who are unlanded, outside a sect, not imprisoned, not travelling and not in an activity. Settled or player-controlled characters are not forcibly moved. Their origin retains a reference to the living character, so recruitment does not manufacture an immediate replacement. Death clears the registry entry and permits a new master at the next annual pass. The map policy is isolated in `ac_roaming_origin_eligible_trigger` for the future custom map.
+
 ## Martial identities
 
 These are initial templates, not unique global organizations. A kingdom name distinguishes sects sharing a template.
@@ -108,3 +137,5 @@ The design references the installed CK3 1.20.1.1 examination activities, adminis
 The domicile implementation was verified against the installed CK3 1.20.1.1 build: all 67 repository checks, 42 native integration assertions and 15 assertions in the estate UI fixture passed. Native coverage includes actual owner death, retained secular government and titles, coexistence with a personal administrative estate, inherited construction, prepaid migration, upgrade cancellation without losing the earlier level, native contracts, a full ranked admission trial and completed allied training. Actual estate clicks verified construction, an unchanged personal wallet, a single sect-treasury refund and completed native construction updating the painted building and sect benefits. The interest register, invitation flow, player Master activity planner and mission board were inspected in-game in the earlier recruitment checks; player hosting was started after selecting the headquarters once. The event override generator also accepts 1.20.1.1: all 143 referenced native event blocks are unchanged from the reviewed 1.20.1 versions. Long-campaign balance and multiplayer still need broader testing.
 
 The contract/HUD update passes all 69 repository checks. A separate clean native fixture passes 12 assertions covering all six reward paths, duplicate-payment protection, abandonment without rewards, clearing offers, persistent unaccepted offers, and actual player cancellation with retained feudal government/titles. The final fixture's error log is empty. A landed Lower Disciple also completed an actual native-planned round trip, resolved the patrol encounter through cultivation, and received contribution and Sect Merit; its audit confirmed cleanup and retained titles. Actual HUD clicks opened both the member's contract board and the correct sect domicile. Use `python tools/prepare_sect_contract_checks.py` to reproduce the isolated contract fixture; its audit button checks a completed or abandoned contract. NPC reward probes suppress only their arrival dispatcher so the native rewards can be asserted deterministically. Player travel and encounters use the shipping scripts.
+
+Rank and roamer integration checks can be prepared with `python tools/prepare_population_checks.py`. Launch the disposable user folder using its printed arguments and unpause for one day; require `AC_POPULATION_QA COMPLETE` and no failed population assertions.

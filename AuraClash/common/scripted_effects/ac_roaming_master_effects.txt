@@ -1,0 +1,69 @@
+﻿ac_roaming_choose_path_effect = {
+	ac_random_foundation_effect = yes
+	random_list = {
+		1 = { add_trait = ac_style_akakiru add_trait = ac_element_fire add_trait = ac_element_earth }
+		1 = { add_trait = ac_style_aoyusumu add_trait = ac_element_water add_trait = ac_element_ice }
+		1 = { add_trait = ac_style_kiihakai add_trait = ac_element_storm add_trait = ac_element_wind }
+		1 = { add_trait = ac_style_midorikatai add_trait = ac_element_earth add_trait = ac_element_light }
+		1 = { add_trait = ac_style_kurokonton add_trait = ac_element_darkness add_trait = ac_element_ice }
+		1 = { add_trait = ac_style_aoyusumu add_trait = ac_element_light add_trait = ac_element_water }
+		1 = { add_trait = ac_style_akakiru add_trait = ac_element_fire add_trait = ac_element_darkness }
+		1 = { add_trait = ac_style_midorikatai add_trait = ac_element_wind add_trait = ac_element_storm }
+	}
+}
+# Title scope: one living independent master per eligible kingdom of origin.
+# Recruiting one does not immediately create another; only death frees its slot.
+ac_roaming_spawn_effect = {
+	save_scope_as = ac_roaming_origin
+	title_capital_county.holder = {
+		create_character = {
+			gender_female_chance = 50
+			age = { 35 70 }
+			culture = this.culture
+			faith = this.faith
+			location = scope:ac_roaming_origin.title_capital_county.title_province
+			random_traits = yes
+			trait = ac_cultivator
+			trait = ac_roaming_master
+			trait = historical_character
+			save_scope_as = ac_new_roaming_master
+		}
+	}
+	set_variable = { name = ac_roaming_master value = scope:ac_new_roaming_master }
+	scope:ac_new_roaming_master = {
+		ac_roaming_choose_path_effect = yes
+		random_list = {
+			60 = { ac_develop_upper_effect = yes set_variable = { name = ac_roaming_grade value = 1 } set_variable = { name = ac_development_rank value = 1 } }
+			30 = { ac_develop_master_effect = yes set_variable = { name = ac_roaming_grade value = 2 } set_variable = { name = ac_development_rank value = 2 } }
+			10 = { ac_develop_grandmaster_effect = yes set_variable = { name = ac_roaming_grade value = 3 } set_variable = { name = ac_development_rank value = 3 } }
+		}
+		if = {
+			limit = { NOT = { is_in_pool_at = scope:ac_roaming_origin.title_capital_county.title_province } }
+			move_to_pool_at = scope:ac_roaming_origin.title_capital_county.title_province
+		}
+		add_to_global_variable_list = { name = ac_roaming_masters target = this }
+	}
+}
+
+# Global scope. Native pools handle court visits and recruitment; only free
+# pool characters receive a yearly relocation through the vanilla wanderer helper.
+ac_roaming_world_maintenance_effect = {
+	every_in_global_list = {
+		variable = ac_roaming_masters
+		limit = { is_alive = no }
+		save_scope_as = ac_dead_roaming_master
+		remove_list_global_variable = { name = ac_roaming_masters target = scope:ac_dead_roaming_master }
+	}
+	every_in_global_list = {
+		variable = ac_roaming_masters
+		limit = { is_alive = yes is_ai = yes is_pool_character = yes is_ruler = no is_imprisoned = no is_travelling = no NOT = { has_variable = ac_sect } NOT = { exists = involved_activity } }
+		fallback_move_to_pool_effect = yes
+	}
+	every_kingdom = {
+		limit = { ac_roaming_origin_eligible_trigger = yes }
+		if = {
+			limit = { NOT = { var:ac_roaming_master ?= { is_alive = yes } } }
+			ac_roaming_spawn_effect = yes
+		}
+	}
+}
