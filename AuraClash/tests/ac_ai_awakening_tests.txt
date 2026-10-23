@@ -97,3 +97,59 @@
  effect = { scope:ac_qa_ai_learner = { ac_ai_pursue_awakening_effect = yes } }
  assert = { scope:ac_qa_ai_learner = { has_character_flag = ac_awakening_cooldown prestige = 200 } }
 }
+
+# Parenthood alone authorizes this teacher; no guardian, friendship or sect is required.
+ac_awakening_test_parent_teaching = {
+ effect = {
+  create_character = { age = 45 gender = female random_traits = no health = 8
+   culture = root.culture faith = root.faith employer = root trait = ac_cultivator save_scope_as = ac_qa_parent_mother }
+  create_character = { age = 50 gender = male random_traits = no health = 8
+   culture = root.culture faith = root.faith employer = root save_scope_as = ac_qa_parent_father }
+  create_character = { age = 25 gender = male random_traits = no health = 8
+   culture = root.culture faith = root.faith employer = root trait = ambitious save_scope_as = ac_qa_parent_child }
+  create_character = { age = 12 gender = female random_traits = no health = 8
+   culture = root.culture faith = root.faith employer = root save_scope_as = ac_qa_parent_minor }
+  scope:ac_qa_parent_mother = { add_prestige = 1000 add_piety = 1000 }
+  scope:ac_qa_parent_father = {
+   add_prestige = 1000 add_piety = 1000
+   set_variable = { name = ac_test_parent_prestige value = prestige }
+   set_variable = { name = ac_test_parent_piety value = piety }
+  }
+  scope:ac_qa_parent_minor = { set_mother = scope:ac_qa_parent_mother }
+  scope:ac_qa_parent_child = {
+   set_mother = scope:ac_qa_parent_mother set_father = scope:ac_qa_parent_father
+   add_prestige = 1000 add_character_flag = ac_foundation_offered
+   set_variable = { name = ac_test_child_prestige value = prestige }
+   add_hook = { type = favor_hook target = scope:ac_qa_parent_mother }
+  }
+ }
+ assert = { scope:ac_qa_parent_child = {
+  ac_has_willing_cultivation_access_trigger = yes
+  ac_has_willing_training_connection_trigger = { TEACHER = scope:ac_qa_parent_mother }
+  ac_can_request_cultivation_trigger = { TEACHER = scope:ac_qa_parent_mother }
+  NOT = { ac_can_receive_cultivation_training_trigger = { TEACHER = scope:ac_qa_stranger } }
+ } }
+ assert = {
+  scope:ac_qa_parent_minor = { ac_can_receive_cultivation_training_trigger = { TEACHER = scope:ac_qa_parent_mother } NOT = { ac_can_request_cultivation_trigger = { TEACHER = scope:ac_qa_parent_mother } } }
+  scope:ac_qa_parent_mother = { is_character_interaction_valid = { interaction = ac_train_cultivation_interaction recipient = scope:ac_qa_parent_minor } }
+ }
+ effect = { scope:ac_qa_parent_child = { ac_ai_find_cultivation_teacher_effect = yes } }
+ assert = { scope:ac_ai_awakening_teacher = scope:ac_qa_parent_mother }
+ effect = { scope:ac_qa_parent_child = { ac_ai_pursue_awakening_effect = yes } }
+ assert = { scope:ac_qa_parent_child = { prestige = { value = var:ac_test_child_prestige subtract = 100 } has_character_flag = ac_awakening_cooldown has_usable_hook = scope:ac_qa_parent_mother } }
+ effect = {
+  scope:ac_qa_parent_mother = { remove_trait = ac_cultivator }
+  scope:ac_qa_parent_father = { add_trait = ac_cultivator }
+  scope:ac_qa_parent_child = {
+   remove_trait = ac_cultivator remove_trait = wounded_1 remove_trait = wounded_2 remove_trait = wounded_3
+   remove_character_flag = ac_awakening_cooldown remove_interaction_cooldown = ac_request_cultivation_interaction
+   ac_ai_find_cultivation_teacher_effect = yes
+  }
+ }
+ assert = { scope:ac_ai_awakening_teacher = scope:ac_qa_parent_father scope:ac_qa_parent_child = { ac_has_willing_training_connection_trigger = { TEACHER = scope:ac_qa_parent_father } } }
+ effect = { run_interaction = { interaction = ac_train_cultivation_interaction actor = scope:ac_qa_parent_father recipient = scope:ac_qa_parent_child send_threshold = accept } }
+ assert = {
+  scope:ac_qa_parent_father = { prestige = { value = var:ac_test_parent_prestige subtract = 250 } piety = { value = var:ac_test_parent_piety subtract = 250 } }
+  scope:ac_qa_parent_child = { has_character_flag = ac_awakening_cooldown prestige = { value = var:ac_test_child_prestige subtract = 100 } }
+ }
+}

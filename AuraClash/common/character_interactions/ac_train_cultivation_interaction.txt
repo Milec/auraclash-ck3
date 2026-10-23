@@ -1,4 +1,4 @@
-﻿# Train in Cultivation: teach a ward, friend, partner, fellow sect member or hook holder
+﻿# Train in Cultivation: teach a child, ward, friend, partner, sect member or hook holder
 ac_train_cultivation_interaction = {
 	category = interaction_category_friendly
 	common_interaction = yes

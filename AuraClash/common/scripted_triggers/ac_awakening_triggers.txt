@@ -15,6 +15,7 @@ ac_cultivation_teacher_trigger = { is_alive = yes has_trait = ac_cultivator age 
 
 ac_has_willing_cultivation_access_trigger = {
 	OR = {
+		any_parent = { ac_cultivation_teacher_trigger = yes }
 		any_in_list = { variable = ac_cultivation_guardians ac_cultivation_teacher_trigger = yes }
 		any_relation = { type = guardian ac_cultivation_teacher_trigger = yes }
 		any_relation = { type = friend ac_cultivation_teacher_trigger = yes }
@@ -46,6 +47,7 @@ ac_awakening_ready_trigger = {
 # Recipient scope; access must come from this particular trainer.
 ac_has_willing_training_connection_trigger = {
 	OR = {
+		is_child_of = $TEACHER$
 		has_relation_guardian = $TEACHER$
 		is_target_in_variable_list = { name = ac_cultivation_guardians target = $TEACHER$ }
 		has_relation_friend = $TEACHER$

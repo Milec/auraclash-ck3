@@ -33,7 +33,7 @@ ac_ai_can_seek_cultivation_trigger = {
  can_execute_decision = ac_seek_cultivation_decision
 }
 
-# Offer training to interested AI friends/wards/partners, never force an ordeal on a player.
+# Offer training to interested AI children/wards/friends/partners; players choose their ordeal.
 ac_ai_can_offer_cultivation_trigger = {
  is_alive = yes
  has_trait = ac_cultivator

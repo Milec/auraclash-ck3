@@ -4,9 +4,13 @@
 ac_ai_find_cultivation_teacher_effect = {
  save_scope_as = ac_ai_awakening_learner
  clear_saved_scope = ac_ai_awakening_teacher
+ random_parent = {
+  limit = { scope:ac_ai_awakening_learner = { ac_ai_can_request_cultivation_trigger = { TEACHER = prev } } }
+  save_scope_as = ac_ai_awakening_teacher
+ }
  random_in_list = {
   variable = ac_cultivation_guardians
-  limit = { scope:ac_ai_awakening_learner = { ac_ai_can_request_cultivation_trigger = { TEACHER = prev } } }
+  limit = { NOT = { exists = scope:ac_ai_awakening_teacher } scope:ac_ai_awakening_learner = { ac_ai_can_request_cultivation_trigger = { TEACHER = prev } } }
   save_scope_as = ac_ai_awakening_teacher
  }
  if = {

@@ -697,7 +697,7 @@
  ac_awaken_element_decision_effect_tt:0 "Choose one of the elements."
  ac_train_cultivation_interaction:0 "Train in Cultivation"
  ac_train_cultivation_interaction_desc:0 "Push this character through the brutal training that can awaken a cultivator."
- ac_train_cultivation_relation_tt:0 "The recipient must be your ward, friend, best friend, lover, soulmate, spouse, fellow sect member, or hold a usable hook on you"
+ ac_train_cultivation_relation_tt:0 "The recipient must be your child, ward, friend, best friend, lover, soulmate, spouse, fellow sect member, or hold a usable hook on you"
  ac_train_cultivation_chance_tt:0 "Success: +1% per point of their [martial|E] and [learning|E], +1% per dot across your Combat Cores (max 100%). Failure leaves them #N wounded#!."
  ac_train_cultivation_interaction.success:0 "Their chi awakens"
  ac_train_cultivation_interaction.failure:0 "Their body breaks under the strain"
@@ -926,7 +926,7 @@
  ac_cult.0001.auto_off.tt:0 "Your Cores will no longer be trained automatically."
  ac_cult.0001.leave:0 "Not now"
 
- ac_awakening_access_tt:0 "You need a cultivator guardian (or their earlier teaching), a living cultivator friend, best friend, lover, soulmate or spouse, a usable hook on an adult cultivator, or sect membership. A hook is spent if it is your only source of access."
+ ac_awakening_access_tt:0 "You need a living cultivator parent, a cultivator guardian (or their earlier teaching), a living cultivator friend, best friend, lover, soulmate or spouse, a usable hook on an adult cultivator, or sect membership. A hook is spent if it is your only source of access."
  ac_awakening_cooldown_tt:0 "You have not attempted an awakening ordeal in the past year"
  ac_seek_cultivation_decision:0 "Seek Cultivation"
  ac_seek_cultivation_decision_desc:0 "Ambition will not let me accept a mortal's limits. I will spend my wealth, reputation and religious standing to seek out hidden teachers and forbidden instruction, then attempt the awakening ordeal."
@@ -934,7 +934,7 @@
  ac_seek_cultivation_decision_confirm:0 "Seek the path"
 
  ac_request_cultivation_interaction:0 "Request Cultivation Training"
- ac_request_cultivation_interaction_desc:0 "Ask [recipient.GetShortUINameNoTooltip] to guide your awakening as a Cultivator. Requires a qualifying relationship with this teacher, earlier teaching from this guardian, membership in the same sect, or your usable hook on this teacher. Costs 100 prestige; failure can leave you wounded. All awakening routes share a one-year attempt cooldown."
+ ac_request_cultivation_interaction_desc:0 "Ask [recipient.GetShortUINameNoTooltip] to guide your awakening as a Cultivator. Requires a qualifying relationship with this teacher (including your parent), earlier teaching from this guardian, membership in the same sect, or your usable hook on this teacher. Costs 100 prestige; failure can leave you wounded. All awakening routes share a one-year attempt cooldown."
  ac_martial_styles_lifestyle:0 "Martial Styles"
  ac_martial_styles_lifestyle_name:0 "Martial Styles"
  ac_martial_styles_lifestyle_desc:0 "Master the techniques of your chosen martial style. Learn a style through Study a Martial Arts Style to unlock its perk tree."
