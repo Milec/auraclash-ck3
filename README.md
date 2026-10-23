@@ -32,6 +32,7 @@ mod/
 - Cultivation integration overrides **143 individual vanilla events** using `id_override_priority = 10`, targeting CK3 **1.20.1 / 1.20.1.1**: **269 added choices in 141 events**, plus two linked tournament outcome events. Mods changing those same events need a compatibility patch. Original event files are not replaced; normal choices and cleanup are preserved, with guarded resolution for successful cultivation interventions. The generator includes required file-local helpers and constants alongside relocated events. Fully restart CK3 after updating: event priority overrides do not support hot reload.
 - Native sect domiciles add a landless Sect Master title and register its government in `NGovernment.GOVERNMENT_TYPES`, retaining all 20 native entries. Mods replacing that list need a merged compatibility definition.
 - Six construction-notification localization keys use generic wording for Sect Masters because native messages assume a personal domicile. Other characters keep vanilla wording; mods replacing those same keys need a localization merge.
+- Potential adds conditional descriptions to `TRAIT_LEVEL_TRACK_TT`; other traits retain their native pip text. Mods replacing that localization key need a merge.
 - Its on_actions (including a hook on hunts) are appended to vanilla's.
 
 ---
@@ -39,7 +40,7 @@ mod/
 ## Features
 
 ### Trait artwork
-All 28 cultivation, Foundation, Style and Element traits have replacement painted icons. Akakiru uses a katana with a straight hilt. [Preview and approved PNG masters](assets/trait-icons/README.md) are included; runtime textures retain their original filenames and 120 × 120 DDS format. With Pillow installed, `python tools/build_trait_icons.py --check` verifies all 28 textures against their sources.
+All 28 cultivation, Foundation, Style and Element traits have replacement painted icons. Akakiru uses a katana with a straight hilt. [Preview and approved PNG masters](assets/trait-icons/README.md) are included; runtime textures retain their original filenames and 120 × 120 DDS format. Potential adds three tier variants and two track icons. With Pillow installed, `python tools/build_trait_icons.py --check` verifies all 31 trait textures and both Potential track icons against their sources.
 
 ### Cultivation choices in vanilla events
 Cultivators aged 16+ can use relevant affinities, styles, trained Cores and perks in existing events:
@@ -117,7 +118,7 @@ All Cultivation decisions appear in their own **Cultivation** group in the decis
 - **Auto-training:** a toggle in the same event repeats your last choice each year, whenever you can pay. Open the decision again to turn it off.
 
 ### Innate Potential
-**Potential** is a genetic aptitude revealed when a character awakens as a Cultivator. It has two separate, fixed nine-grade tracks, **Limit** and **Talent**, each grouped into Mortal I–III, Earthly I–III and Heavenly I–III. The trait tooltip shows both exact grades. Its three painted icon variants reflect the higher tier of the two aptitudes; a Heavenly icon does not imply both tracks are Heavenly.
+**Potential** is a genetic aptitude revealed when a character awakens as a Cultivator. It has two separate, fixed nine-grade tracks, **Limit** and **Talent**, each grouped into Mortal I–III, Earthly I–III and Heavenly I–III. The trait tooltip shows both exact grades. Hover each bar pip to see its named grade and full effect; pips 1, 4 and 7 mark the starts of Mortal, Earthly and Heavenly. The main trait tooltip shows the current Limit band and next Core price; the Limit bar explains cost scaling across all nine grades. Its three painted icon variants reflect the higher tier of the two aptitudes; a Heavenly icon does not imply both tracks are Heavenly.
 
 | Grade | Limit: dots per cost band | Talent: lifestyle XP | Talent: monthly prestige |
 |---|---:|---:|---:|

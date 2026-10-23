@@ -51,7 +51,17 @@ def main():
                 raise SystemExit(f'Stale trait icon: {target.relative_to(ROOT)}')
         else:
             target.write_bytes(data)
-    print(('Verified' if args.check else 'Built') + f' {len(traits)} trait icons.')
+    # Native trait bars request their own icon paths when their tooltips open.
+    for track, tier in (('limit', 'mortal'), ('talent', 'heavenly')):
+        data = dds_bytes(ROOT / 'assets/trait-icons/potential' / (tier + '.png'))
+        target = ROOT / 'AuraClash/gfx/interface/icons/trait_level_tracks' / ('ac_potential_' + track + '.dds')
+        if args.check:
+            if not target.is_file() or target.read_bytes() != data:
+                raise SystemExit(f'Stale track icon: {target.relative_to(ROOT)}')
+        else:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(data)
+    print(('Verified' if args.check else 'Built') + f' {len(traits)} trait icons and 2 Potential track icons.')
 
 
 if __name__ == '__main__':
