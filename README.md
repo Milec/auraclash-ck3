@@ -82,9 +82,9 @@ A trait that grants **+0.5 health, +20 life expectancy, +10 years of fertility a
 - Children inherit it **25%** of the time.
 - Spontaneous newborn/generated-character cultivation is disabled; sect founders and disciples supply established cultivators.
 - It's available in the ruler designer for 80 points.
-- **Awaken Cultivation** (decision): requires teachings from a cultivator guardian, a living adult cultivator friend/best friend, lover/soulmate or spouse, a usable hook on an adult cultivator, or actual sect membership. Guardian teaching is recorded during childhood and remains valid after guardianship ends. Costs 100 prestige; a hook is spent only if it is the sole access route. It is a Martial + Learning check with a 5–85% chance; failure wounds without killing.
-- **Seek Cultivation** (decision): Ambitious adults can instead fund their own search for 100 gold, 250 prestige and 250 piety, then face the same awakening check. Both decisions share a one-year attempt cooldown; switching routes cannot bypass it.
-- **AI rulers** only attempt Awaken Cultivation if they are warrior-like or hardworking. That means any of: Ambitious, Brave, Diligent, Martial or Prowess education rank 3+, Strong, Hale, Robust, Herculean, Berserker, Blademaster, Populist Leader, Adventurer, Military Order member, Crusader or Holy Warrior, Warrior of the Faith, Raider, Varangian, or 3+ commander traits.
+- **Request Cultivation Training** (right-click a qualifying cultivator): request an awakening ordeal from your current/former cultivator guardian, friend/best friend, lover/soulmate, spouse, a member of your own sect, or a cultivator on whom you hold a usable hook. The relationship is checked against the selected teacher; an unrelated cultivator cannot substitute. Costs 100 prestige, and consumes a hook only when it is needed for that teacher. The Martial + Learning check has a 5–85% success chance; failure wounds without killing.
+- **Seek Cultivation** (decision): Ambitious adults can instead fund their own search for 100 gold, 250 prestige and 250 piety, then face the same awakening check. Requests, offers of training and this decision share a one-year attempt cooldown; switching routes cannot bypass it.
+- **AI rulers** only request cultivation training if they are warrior-like or hardworking. That means any of: Ambitious, Brave, Diligent, Martial or Prowess education rank 3+, Strong, Hale, Robust, Herculean, Berserker, Blademaster, Populist Leader, Adventurer, Military Order member, Crusader or Holy Warrior, Warrior of the Faith, Raider, Varangian, or 3+ commander traits.
 - **Legendary conquerors:** the fame traits **Conqueror**, **Despoiler of Byzantium** and **Greatest of Khans** grant existing Cultivators **5 / 10 / 20** randomly distributed Core dots, up to the Cores' caps. Fame does not awaken mortals or bypass the access requirements. Each reward happens once per trait, after awakening.
 - Cultivation only advances from **age 16**: Core training, Foundations, Styles, Elements, perks and the lifestyle tab all wait until then.
 
@@ -163,7 +163,7 @@ Adult non-cultivators skip the annual cultivation routine. Children also receive
 
 ### Train in Cultivation
 A character interaction (right-click a character). It needs a Cultivator aged 16+ as the trainer and a target who isn't a Cultivator.
-- **Who you can train:** your wards, friends/best friends, lovers/soulmates, spouses, fellow sect members, or someone holding a usable hook on you. Court membership, vassalage or parenthood alone does not qualify. A hook is spent only when needed to obtain training.
+- **Who you can train:** your current or former wards, friends/best friends, lovers/soulmates, spouses, fellow sect members, or someone holding a usable hook on you. Court membership, vassalage or parenthood alone does not qualify. A hook is spent only when needed to obtain training.
 - **Cost:** 250 piety and 250 prestige. Each person can be trained at most once per year.
 - **Success chance:** 1% per point of the target's Martial and Learning, plus 1% per Combat Core dot you've unlocked (up to 100%).
 - **Failure** wounds the target.
@@ -215,7 +215,7 @@ Each Style and Element also favours specific men-at-arms:
 
 ## Testing (console, launch with `-debug_mode`)
 
-Awakening access and decision costs have an isolated native fixture: run `python tools/prepare_awakening_checks.py`, launch with the printed arguments, and require `AC_AWAKENING_QA COMPLETE`, no failed assertions and an empty error log. The fixture changes only its disposable game.
+Awakening access and decision costs have an isolated native fixture: run `python tools/prepare_awakening_checks.py`, launch with the printed arguments, and require `AC_AWAKENING_QA COMPLETE`, no failed assertions and an empty error log. Add `--ui` to inspect the teacher's right-click menu, send an actual request and verify its cost with the audit button. The fixture changes only its disposable game.
 ```
 add_trait ac_cultivator
 effect = { add_prestige = 1000 add_piety = 1000 }

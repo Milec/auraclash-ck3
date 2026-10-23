@@ -134,15 +134,15 @@ on_set_relation_ward = { on_actions = { ac_guardian_ward_teaching } }
 on_remove_relation_ward = { on_actions = { ac_guardian_ward_teaching } }
 ac_ward_guardian_teaching = {
 	trigger = { age <= 16 scope:target = { ac_cultivation_teacher_trigger = yes } }
-	effect = { add_character_flag = ac_cultivator_guardian_taught }
+	effect = { ac_record_guardian_teacher_effect = { TEACHER = scope:target } }
 }
 ac_guardian_ward_teaching = {
 	trigger = { ac_cultivation_teacher_trigger = yes scope:target = { age <= 16 } }
-	effect = { scope:target = { add_character_flag = ac_cultivator_guardian_taught } }
+	effect = { save_scope_as = ac_recorded_guardian scope:target = { ac_record_guardian_teacher_effect = { TEACHER = scope:ac_recorded_guardian } } }
 }
 
 # Catch guardians who themselves awaken after being appointed.
 ac_guardian_teaching_pulse = {
-	trigger = { age <= 16 NOT = { has_trait = ac_cultivator } NOT = { has_character_flag = ac_cultivator_guardian_taught } }
+	trigger = { age <= 16 NOT = { has_trait = ac_cultivator } }
 	effect = { ac_record_cultivator_guardian_effect = yes }
 }

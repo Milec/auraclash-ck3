@@ -24,6 +24,7 @@ ac_train_cultivation_interaction = {
 		scope:recipient = {
 			is_imprisoned = no
 			NOT = { has_trait = incapable }
+			ac_awakening_ready_trigger = yes
 			custom_tooltip = {
 				text = ac_train_cultivation_relation_tt
 				ac_can_receive_cultivation_training_trigger = { TEACHER = scope:actor }
@@ -38,6 +39,7 @@ ac_train_cultivation_interaction = {
 
 	on_accept = {
 		scope:recipient = {
+			add_character_flag = { flag = ac_awakening_cooldown years = 1 }
 			if = {
 				limit = { has_usable_hook = scope:actor NOT = { ac_has_willing_training_connection_trigger = { TEACHER = scope:actor } } }
 				use_hook = scope:actor

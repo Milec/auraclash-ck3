@@ -1,0 +1,36 @@
+﻿# A mortal asks the qualifying cultivator personally for an awakening ordeal.
+ac_request_cultivation_interaction = {
+	category = interaction_category_friendly
+	common_interaction = yes
+	icon = mentor
+	desc = ac_request_cultivation_interaction_desc
+	auto_accept = yes
+	cooldown = { years = 1 }
+	is_shown = {
+		NOT = { scope:actor = scope:recipient }
+		scope:actor = {
+			NOT = { has_trait = ac_cultivator }
+			ac_can_receive_cultivation_training_trigger = { TEACHER = scope:recipient }
+		}
+		scope:recipient = { ac_cultivation_teacher_trigger = yes }
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = { ac_can_request_cultivation_trigger = { TEACHER = scope:recipient } }
+	}
+	cost = { prestige = 100 }
+	on_accept = { scope:actor = { ac_request_cultivation_effect = { TEACHER = scope:recipient } } }
+	ai_frequency = 12
+	ai_targets = {
+		ai_recipients = scripted_relations
+		ai_recipients = family
+		ai_recipients = hooked_characters
+		max = 10
+	}
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 10
+			scope:actor = { ac_ai_cultivation_aspirant_trigger = yes prestige >= 300 NOT = { has_trait = wounded } }
+		}
+	}
+}

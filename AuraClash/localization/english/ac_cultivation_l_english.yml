@@ -932,3 +932,6 @@
  ac_seek_cultivation_decision_desc:0 "Ambition will not let me accept a mortal's limits. I will spend my wealth, reputation and religious standing to seek out hidden teachers and forbidden instruction, then attempt the awakening ordeal."
  ac_seek_cultivation_decision_tooltip:0 "Fund a search for cultivation teachings and attempt awakening. Requires Ambitious; costs 100 gold, 250 prestige and 250 piety."
  ac_seek_cultivation_decision_confirm:0 "Seek the path"
+
+ ac_request_cultivation_interaction:0 "Request Cultivation Training"
+ ac_request_cultivation_interaction_desc:0 "Ask [recipient.GetShortUINameNoTooltip] to guide your awakening as a Cultivator. Requires a qualifying relationship with this teacher, earlier teaching from this guardian, membership in the same sect, or your usable hook on this teacher. Costs 100 prestige; failure can leave you wounded. All awakening routes share a one-year attempt cooldown."

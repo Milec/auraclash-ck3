@@ -1,4 +1,4 @@
-﻿# Both decisions share a cooldown and the original Martial/Learning ordeal.
+﻿# Requests, offers of training and the paid search share an attempt cooldown.
 ac_attempt_awakening_effect = {
 	add_character_flag = { flag = ac_awakening_cooldown years = 1 }
 	custom_tooltip = ac_awaken_cultivation_decision_check_tt
@@ -9,7 +9,7 @@ ac_attempt_awakening_effect = {
 			send_interface_toast = {
 				type = event_toast_effect_good
 				title = ac_awaken_success_toast
-				left_icon = root
+				left_icon = this
 				add_trait = ac_cultivator
 			}
 			ac_update_visual_age_effect = yes
@@ -21,29 +21,39 @@ ac_attempt_awakening_effect = {
 			send_interface_toast = {
 				type = event_toast_effect_bad
 				title = ac_awaken_failure_toast
-				left_icon = root
+				left_icon = this
 				increase_wounds_no_death_effect = { REASON = fight }
 			}
 		}
 	}
 }
 
-# A hook is spent only when no willing connection or sect supplies access.
-ac_spend_awakening_hook_effect = {
+# Resolve against the person selected in the character interaction.
+ac_request_cultivation_effect = {
 	if = {
-		limit = { ac_has_willing_cultivation_access_trigger = no }
-		random_hooked_character = {
-			limit = { ac_cultivation_teacher_trigger = yes prev = { has_usable_hook = prev } }
-			save_scope_as = ac_awakening_teacher
+		limit = { ac_can_request_cultivation_trigger = { TEACHER = $TEACHER$ } }
+		if = {
+			limit = { NOT = { ac_has_willing_training_connection_trigger = { TEACHER = $TEACHER$ } } }
+			use_hook = $TEACHER$
 		}
-		use_hook = scope:ac_awakening_teacher
+		ac_attempt_awakening_effect = yes
 	}
 }
 
-# Retain the education route when CK3 removes guardianship on adulthood.
-ac_record_cultivator_guardian_effect = {
+# Store the actual guardian, so earlier teaching cannot qualify strangers.
+ac_record_guardian_teacher_effect = {
+	add_character_flag = ac_cultivator_guardian_taught
 	if = {
-		limit = { any_relation = { type = guardian ac_cultivation_teacher_trigger = yes } }
-		add_character_flag = ac_cultivator_guardian_taught
+		limit = { NOT = { is_target_in_variable_list = { name = ac_cultivation_guardians target = $TEACHER$ } } }
+		add_to_variable_list = { name = ac_cultivation_guardians target = $TEACHER$ }
+	}
+}
+
+ac_record_cultivator_guardian_effect = {
+	every_relation = {
+		type = guardian
+		limit = { ac_cultivation_teacher_trigger = yes }
+		save_scope_as = ac_recorded_guardian
+		prev = { ac_record_guardian_teacher_effect = { TEACHER = scope:ac_recorded_guardian } }
 	}
 }

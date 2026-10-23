@@ -7,20 +7,23 @@
 		remove_variable = ac_sect
 		remove_character_flag = ac_cultivator_guardian_taught
 		remove_character_flag = ac_awakening_cooldown
+        add_character_flag = ac_foundation_offered
 		add_gold = 2000
 		add_prestige = 3000
 		add_piety = 3000
 		create_character = { age = 35 gender = female culture = root.culture faith = root.faith location = root.location save_scope_as = ac_qa_teacher }
-		create_character = { age = 12 gender_female_chance = 50 culture = root.culture faith = root.faith location = root.location save_scope_as = ac_qa_child }
+		create_character = { age = 40 gender = male culture = root.culture faith = root.faith location = root.location trait = ac_cultivator save_scope_as = ac_qa_stranger }
+        create_character = { age = 12 gender_female_chance = 50 culture = root.culture faith = root.faith location = root.location save_scope_as = ac_qa_child }
 	}
-	assert = { ac_has_cultivation_access_trigger = no NOT = { can_execute_decision = ac_awaken_cultivation_decision } NOT = { can_execute_decision = ac_seek_cultivation_decision } }
+	assert = { ac_has_cultivation_access_trigger = no NOT = { ac_can_request_cultivation_trigger = { TEACHER = scope:ac_qa_teacher } } NOT = { can_execute_decision = ac_seek_cultivation_decision } }
 	effect = { add_trait = ambitious }
-	assert = { ac_has_cultivation_access_trigger = no NOT = { can_execute_decision = ac_awaken_cultivation_decision } can_execute_decision = ac_seek_cultivation_decision }
+	assert = { ac_has_cultivation_access_trigger = no NOT = { ac_can_request_cultivation_trigger = { TEACHER = scope:ac_qa_teacher } } can_execute_decision = ac_seek_cultivation_decision }
 	effect = { remove_trait = ambitious set_relation_friend = scope:ac_qa_teacher }
 	assert = { ac_has_cultivation_access_trigger = no }
 	effect = { scope:ac_qa_teacher = { add_trait = ac_cultivator } }
-	assert = { ac_has_cultivation_access_trigger = yes can_execute_decision = ac_awaken_cultivation_decision ac_can_receive_cultivation_training_trigger = { TEACHER = scope:ac_qa_teacher } }
-	effect = { remove_relation_friend = scope:ac_qa_teacher set_relation_best_friend = scope:ac_qa_teacher }
+	assert = { ac_has_cultivation_access_trigger = yes ac_can_request_cultivation_trigger = { TEACHER = scope:ac_qa_teacher } ac_can_receive_cultivation_training_trigger = { TEACHER = scope:ac_qa_teacher } }
+	assert = { NOT = { ac_can_request_cultivation_trigger = { TEACHER = scope:ac_qa_stranger } } }
+    effect = { remove_relation_friend = scope:ac_qa_teacher set_relation_best_friend = scope:ac_qa_teacher }
 	assert = { ac_has_cultivation_access_trigger = yes }
 	effect = { remove_relation_best_friend = scope:ac_qa_teacher set_relation_lover = scope:ac_qa_teacher }
 	assert = { ac_has_cultivation_access_trigger = yes }
@@ -35,7 +38,12 @@
 	}
 	assert = { scope:ac_qa_child = { has_character_flag = ac_cultivator_guardian_taught ac_has_cultivation_access_trigger = yes ac_can_receive_cultivation_training_trigger = { TEACHER = scope:ac_qa_teacher } } }
 	effect = { scope:ac_qa_child = { remove_relation_guardian = scope:ac_qa_teacher } }
-	assert = { scope:ac_qa_child = { ac_has_cultivation_access_trigger = yes has_character_flag = ac_cultivator_guardian_taught } }
+	assert = { scope:ac_qa_child = {
+        ac_has_cultivation_access_trigger = yes
+        ac_can_receive_cultivation_training_trigger = { TEACHER = scope:ac_qa_teacher }
+        NOT = { ac_can_receive_cultivation_training_trigger = { TEACHER = scope:ac_qa_stranger } }
+        has_character_flag = ac_cultivator_guardian_taught
+    } }
 	effect = { scope:ac_qa_child = { remove_character_flag = ac_cultivator_guardian_taught } scope:ac_qa_teacher = { set_relation_ward = scope:ac_qa_child } }
 	assert = { scope:ac_qa_child = { has_character_flag = ac_cultivator_guardian_taught } }
 	effect = { scope:ac_qa_child = { remove_character_flag = ac_cultivator_guardian_taught } scope:ac_qa_teacher = { remove_relation_ward = scope:ac_qa_child } }
@@ -44,7 +52,7 @@
 	assert = { ac_has_cultivation_access_trigger = no }
 	effect = { add_hook = { type = favor_hook target = scope:ac_qa_teacher } }
 	assert = { ac_has_cultivation_access_trigger = yes ac_can_receive_cultivation_training_trigger = { TEACHER = scope:ac_qa_teacher } }
-	effect = { ac_spend_awakening_hook_effect = yes }
+	effect = { ac_request_cultivation_effect = { TEACHER = scope:ac_qa_teacher } remove_trait = ac_cultivator remove_character_flag = ac_awakening_cooldown }
 	assert = { NOT = { has_usable_hook = scope:ac_qa_teacher } ac_has_cultivation_access_trigger = no }
 	effect = { add_hook = { type = strong_favor_hook target = scope:ac_qa_teacher } use_hook = scope:ac_qa_teacher }
 	assert = { has_strong_hook = scope:ac_qa_teacher NOT = { has_usable_hook = scope:ac_qa_teacher } ac_has_cultivation_access_trigger = no }
@@ -54,16 +62,22 @@
 		set_variable = { name = ac_sect value = scope:ac_qa_society }
 	}
 	assert = { ac_has_cultivation_access_trigger = no }
-	effect = { scope:ac_qa_society = { add_to_variable_list = { name = ac_members target = scope:ac_qa_learner } } }
-	assert = { ac_has_cultivation_access_trigger = yes can_execute_decision = ac_awaken_cultivation_decision }
+	effect = {
+    scope:ac_qa_society = {
+        add_to_variable_list = { name = ac_members target = scope:ac_qa_learner }
+        add_to_variable_list = { name = ac_members target = scope:ac_qa_teacher }
+    }
+    scope:ac_qa_teacher = { set_variable = { name = ac_sect value = scope:ac_qa_society } }
+}
+	assert = { ac_has_cultivation_access_trigger = yes ac_can_request_cultivation_trigger = { TEACHER = scope:ac_qa_teacher } }
 	effect = { remove_variable = ac_sect add_trait = conqueror ac_fame_cultivation_all_effect = yes }
 	assert = { NOT = { has_trait = ac_cultivator } NOT = { has_character_flag = ac_fame_gift_conqueror } }
 	effect = {
 		set_relation_friend = scope:ac_qa_teacher
 		set_variable = { name = ac_qa_prestige_before value = prestige }
-		execute_decision = ac_awaken_cultivation_decision
+		ac_request_cultivation_effect = { TEACHER = scope:ac_qa_teacher }
 	}
-	assert = { has_character_flag = ac_awakening_cooldown NOT = { can_execute_decision = ac_awaken_cultivation_decision } prestige = { value = var:ac_qa_prestige_before subtract = 100 } }
+	assert = { has_character_flag = ac_awakening_cooldown NOT = { ac_can_request_cultivation_trigger = { TEACHER = scope:ac_qa_teacher } } prestige = var:ac_qa_prestige_before }
 	effect = { remove_trait = ac_cultivator add_trait = ambitious }
 	assert = { NOT = { can_execute_decision = ac_seek_cultivation_decision } }
 	effect = {

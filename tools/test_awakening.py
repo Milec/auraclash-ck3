@@ -20,13 +20,16 @@ def block(source, key):
 class AwakeningTests(unittest.TestCase):
     def test_access_and_ambition_are_distinct_routes_with_a_shared_attempt(self):
         decisions = read('common/decisions/ac_cultivation_decisions.txt')
-        normal = block(decisions, 'ac_awaken_cultivation_decision')
+        self.assertNotIn('ac_awaken_cultivation_decision =', decisions)
         seeking = block(decisions, 'ac_seek_cultivation_decision')
-        self.assertIn('ac_has_cultivation_access_trigger = yes', block(normal, 'is_valid_showing_failures_only'))
+        request = read('common/character_interactions/ac_request_cultivation_interaction.txt')
         self.assertIn('has_trait = ambitious', block(seeking, 'is_valid_showing_failures_only'))
-        for decision in (normal, seeking):
-            self.assertIn('ac_awakening_ready_trigger = yes', block(decision, 'is_valid_showing_failures_only'))
-            self.assertIn('ac_attempt_awakening_effect = yes', block(decision, 'effect'))
+        self.assertIn('ac_awakening_ready_trigger = yes', block(seeking, 'is_valid_showing_failures_only'))
+        self.assertIn('ac_attempt_awakening_effect = yes', block(seeking, 'effect'))
+        request = block(request, 'ac_request_cultivation_interaction')
+        self.assertIn('TEACHER = scope:recipient', block(request, 'is_shown'))
+        self.assertIn('ac_can_request_cultivation_trigger', block(request, 'is_valid_showing_failures_only'))
+        self.assertIn('TEACHER = scope:recipient', block(request, 'on_accept'))
         self.assertEqual(dict(re.findall(r'(gold|prestige|piety)\s*=\s*(\d+)', block(seeking, 'cost'))),
                          {'gold': '100', 'prestige': '250', 'piety': '250'})
 
@@ -65,6 +68,7 @@ class AwakeningTests(unittest.TestCase):
             self.assertEqual(depth, 0, relative)
         loc = read('localization/english/ac_cultivation_l_english.yml')
         for key in ('ac_awakening_access_tt', 'ac_awakening_cooldown_tt',
+                    'ac_request_cultivation_interaction', 'ac_request_cultivation_interaction_desc',
                     'ac_seek_cultivation_decision', 'ac_seek_cultivation_decision_desc',
                     'ac_seek_cultivation_decision_tooltip', 'ac_seek_cultivation_decision_confirm'):
             self.assertRegex(loc, rf'(?m)^ {key}:0 "')

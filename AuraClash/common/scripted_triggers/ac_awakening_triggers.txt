@@ -1,18 +1,21 @@
 ﻿# Do not require the Cultivator trait when checking the mortal's sect route.
 ac_has_sect_awakening_access_trigger = {
-	has_variable = ac_sect
-	exists = var:ac_sect.story_owner
-	var:ac_sect = {
-		has_variable = ac_headquarters
-		is_target_in_variable_list = { name = ac_members target = prev }
+	trigger_if = {
+		limit = { has_variable = ac_sect exists = var:ac_sect }
+		var:ac_sect = {
+			exists = story_owner
+			has_variable = ac_headquarters
+			is_target_in_variable_list = { name = ac_members target = prev }
+		}
 	}
+	trigger_else = { always = no }
 }
 
 ac_cultivation_teacher_trigger = { is_alive = yes has_trait = ac_cultivator age >= 16 }
 
 ac_has_willing_cultivation_access_trigger = {
 	OR = {
-		has_character_flag = ac_cultivator_guardian_taught
+		any_in_list = { variable = ac_cultivation_guardians ac_cultivation_teacher_trigger = yes }
 		any_relation = { type = guardian ac_cultivation_teacher_trigger = yes }
 		any_relation = { type = friend ac_cultivation_teacher_trigger = yes }
 		any_relation = { type = best_friend ac_cultivation_teacher_trigger = yes }
@@ -44,15 +47,20 @@ ac_awakening_ready_trigger = {
 ac_has_willing_training_connection_trigger = {
 	OR = {
 		has_relation_guardian = $TEACHER$
+		is_target_in_variable_list = { name = ac_cultivation_guardians target = $TEACHER$ }
 		has_relation_friend = $TEACHER$
 		has_relation_best_friend = $TEACHER$
 		has_relation_lover = $TEACHER$
 		has_relation_soulmate = $TEACHER$
 		is_spouse_of = $TEACHER$
-		AND = {
-			ac_has_sect_awakening_access_trigger = yes
-			$TEACHER$ = { ac_has_sect_awakening_access_trigger = yes var:ac_sect = prev.var:ac_sect }
+		trigger_if = {
+			limit = {
+				ac_has_sect_awakening_access_trigger = yes
+				$TEACHER$ = { ac_has_sect_awakening_access_trigger = yes }
+			}
+			$TEACHER$ = { var:ac_sect = prev.var:ac_sect }
 		}
+		trigger_else = { always = no }
 	}
 }
 
@@ -61,4 +69,19 @@ ac_can_receive_cultivation_training_trigger = {
 		ac_has_willing_training_connection_trigger = { TEACHER = $TEACHER$ }
 		has_usable_hook = $TEACHER$
 	}
+}
+
+# Learner scope, exact teacher. Used by visibility, validity and acceptance.
+ac_can_request_cultivation_trigger = {
+	is_adult = yes
+	is_imprisoned = no
+	NOT = { has_trait = incapable }
+	NOT = { has_trait = ac_cultivator }
+	ac_awakening_ready_trigger = yes
+	$TEACHER$ = {
+		ac_cultivation_teacher_trigger = yes
+		is_imprisoned = no
+		NOT = { has_trait = incapable }
+	}
+	ac_can_receive_cultivation_training_trigger = { TEACHER = $TEACHER$ }
 }
