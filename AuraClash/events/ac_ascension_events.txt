@@ -1,0 +1,207 @@
+﻿namespace = ac_ascend
+
+# 0001 heralds announce the Heavenly Ascension Trials (players)
+# 0010 round one: the Gate of Ten Thousand Steps
+# 0020 round two: the Mirror of the Heart Demon
+# 0030 round three: the Heavenly Stage
+# 0050 results
+# 0090 AI admissions (hidden, on the year's favourite)
+
+ac_ascend.0001 = {
+	type = character_event
+	title = ac_ascend.0001.t
+	desc = ac_ascend.0001.desc
+	theme = martial
+	left_portrait = { character = root animation = personality_bold }
+	trigger = { ac_ascension_eligible_trigger = yes }
+
+	option = {
+		name = ac_ascend.0001.enter
+		trigger = { gold >= ac_ascension_entry_gold }
+		show_as_unavailable = { always = yes }
+		remove_short_term_gold = ac_ascension_entry_gold
+		add_character_flag = { flag = ac_ascension_entrant days = 365 }
+		custom_tooltip = ac_ascend.0001.enter_tt
+		hidden_effect = { trigger_event = { id = ac_ascend.0010 days = 90 } }
+	}
+	option = {
+		name = ac_ascend.0001.decline
+	}
+}
+
+ac_ascend.0010 = {
+	type = character_event
+	title = ac_ascend.0010.t
+	desc = ac_ascend.0010.desc
+	theme = martial
+	left_portrait = { character = root animation = stress }
+	trigger = { ac_ascension_competing_trigger = yes }
+	immediate = { ac_ascension_assign_rival_effect = yes }
+
+	option = { # Endure: Stewardship
+		name = ac_ascend.0010.endure
+		random_list = {
+			0 = { modifier = { add = ac_ascension_endure_chance } desc = ac_ascend.round.pass
+				ac_ascension_add_score_effect = { POINTS = 1 } trigger_event = { id = ac_ascend.0020 days = 7 } }
+			0 = { modifier = { add = ac_ascension_endure_failure } desc = ac_ascend.round.fail
+				increase_wounds_no_death_effect = { REASON = fight } trigger_event = { id = ac_ascend.0050 days = 3 } }
+		}
+	}
+	option = { # Flow: Intrigue
+		name = ac_ascend.0010.flow
+		random_list = {
+			0 = { modifier = { add = ac_ascension_flow_chance } desc = ac_ascend.round.pass
+				ac_ascension_add_score_effect = { POINTS = 1 } trigger_event = { id = ac_ascend.0020 days = 7 } }
+			0 = { modifier = { add = ac_ascension_flow_failure } desc = ac_ascend.round.fail
+				add_stress = 15 trigger_event = { id = ac_ascend.0050 days = 3 } }
+		}
+	}
+	option = { # Ruthless: shove rivals from the stair
+		name = ac_ascend.0010.shove
+		add_dread = 5
+		random_list = {
+			0 = { modifier = { add = ac_ascension_shove_chance } desc = ac_ascend.round.pass
+				ac_ascension_add_score_effect = { POINTS = 2 } trigger_event = { id = ac_ascend.0020 days = 7 } }
+			0 = { modifier = { add = ac_ascension_shove_failure } desc = ac_ascend.round.fail
+				add_prestige = -100 trigger_event = { id = ac_ascend.0050 days = 3 } }
+		}
+	}
+	option = { # Honourable: carry a fallen competitor
+		name = ac_ascend.0010.carry
+		add_prestige = 100
+		custom_tooltip = ac_ascend.0010.carry_tt
+		var:ac_ascension_rival = { add_opinion = { target = root modifier = grateful_opinion opinion = 30 } }
+		trigger_event = { id = ac_ascend.0020 days = 7 }
+	}
+}
+
+ac_ascend.0020 = {
+	type = character_event
+	title = ac_ascend.0020.t
+	desc = ac_ascend.0020.desc
+	theme = learning
+	left_portrait = { character = root animation = worry }
+	trigger = { ac_ascension_competing_trigger = yes }
+
+	option = { # Still the mind: Learning
+		name = ac_ascend.0020.still
+		random_list = {
+			0 = { modifier = { add = ac_ascension_mind_chance } desc = ac_ascend.round.pass ac_ascension_add_score_effect = { POINTS = 1 } }
+			0 = { modifier = { add = ac_ascension_mind_failure } desc = ac_ascend.round.fail add_stress = 20 }
+		}
+		trigger_event = { id = ac_ascend.0030 days = 7 }
+	}
+	option = { # Burn the illusion with an element
+		name = ac_ascend.0020.element
+		trigger = { ac_has_element_trigger = yes }
+		random_list = {
+			0 = { modifier = { add = ac_ascension_element_chance } desc = ac_ascend.round.pass ac_ascension_add_score_effect = { POINTS = 1 } }
+			0 = { modifier = { add = ac_ascension_element_failure } desc = ac_ascend.round.fail add_stress = 20 }
+		}
+		trigger_event = { id = ac_ascend.0030 days = 7 }
+	}
+	option = { # Feed the demon: certain points at a cost
+		name = ac_ascend.0020.embrace
+		ac_ascension_add_score_effect = { POINTS = 2 }
+		add_stress = 40
+		add_dread = 10
+		trigger_event = { id = ac_ascend.0030 days = 7 }
+	}
+}
+
+ac_ascend.0030 = {
+	type = character_event
+	title = ac_ascend.0030.t
+	desc = ac_ascend.0030.desc
+	theme = martial
+	left_portrait = { character = root animation = anger }
+	right_portrait = { character = var:ac_ascension_rival animation = personality_bold }
+	trigger = { ac_ascension_competing_trigger = yes exists = var:ac_ascension_rival }
+	immediate = {
+		if = {
+			limit = { NOT = { var:ac_ascension_rival = { ac_ascension_valid_rival_trigger = yes } } }
+			ac_ascension_assign_rival_effect = yes
+		}
+	}
+
+	option = { # Martial Style technique
+		name = ac_ascend.0030.style
+		trigger = { ac_has_martial_style_trigger = yes }
+		random_list = {
+			0 = { modifier = { add = ac_ascension_duel_style_chance } desc = ac_ascend.duel.win
+				ac_ascension_add_score_effect = { POINTS = 2 } add_character_flag = ac_ascension_duel_won }
+			0 = { modifier = { add = ac_ascension_duel_style_failure } desc = ac_ascend.duel.loss
+				increase_wounds_no_death_effect = { REASON = fight } }
+		}
+		trigger_event = { id = ac_ascend.0050 days = 3 }
+	}
+	option = { # Elemental technique
+		name = ac_ascend.0030.element
+		trigger = { ac_has_element_trigger = yes }
+		random_list = {
+			0 = { modifier = { add = ac_ascension_duel_element_chance } desc = ac_ascend.duel.win
+				ac_ascension_add_score_effect = { POINTS = 2 } add_character_flag = ac_ascension_duel_won }
+			0 = { modifier = { add = ac_ascension_duel_element_failure } desc = ac_ascend.duel.loss
+				increase_wounds_no_death_effect = { REASON = fight } }
+		}
+		trigger_event = { id = ac_ascend.0050 days = 3 }
+	}
+	option = { # Raw strength
+		name = ac_ascend.0030.strength
+		random_list = {
+			0 = { modifier = { add = ac_ascension_duel_chance } desc = ac_ascend.duel.win
+				ac_ascension_add_score_effect = { POINTS = 2 } add_character_flag = ac_ascension_duel_won }
+			0 = { modifier = { add = ac_ascension_duel_failure } desc = ac_ascend.duel.loss
+				increase_wounds_no_death_effect = { REASON = fight } }
+		}
+		trigger_event = { id = ac_ascend.0050 days = 3 }
+	}
+	option = { # Bow out with honour
+		name = ac_ascend.0030.yield
+		add_prestige = 150
+		var:ac_ascension_rival = { add_opinion = { target = root modifier = respect_opinion opinion = 20 } }
+		trigger_event = { id = ac_ascend.0050 days = 3 }
+	}
+}
+
+ac_ascend.0050 = {
+	type = character_event
+	title = ac_ascend.0050.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = ac_ascension_duel_won ac_ascension_score_value >= ac_ascension_admission_score }
+				desc = ac_ascend.0050.desc_admitted
+			}
+			triggered_desc = {
+				trigger = { ac_ascension_score_value >= ac_ascension_mention_score }
+				desc = ac_ascend.0050.desc_mention
+			}
+			desc = ac_ascend.0050.desc_eliminated
+		}
+	}
+	theme = martial
+	left_portrait = { character = root animation = personality_honorable }
+	trigger = { is_alive = yes has_character_flag = ac_ascension_entrant }
+
+	option = {
+		name = ac_ascend.0050.ok
+		if = {
+			limit = { has_character_flag = ac_ascension_duel_won ac_ascension_score_value >= ac_ascension_admission_score }
+			ac_join_archonate_effect = yes
+		}
+		else_if = {
+			limit = { ac_ascension_score_value >= ac_ascension_mention_score }
+			add_prestige = 300
+			ac_add_random_core_dot_effect = yes
+		}
+		else = { add_prestige = 50 }
+		hidden_effect = { ac_ascension_finish_effect = yes }
+	}
+}
+
+ac_ascend.0090 = {
+	type = character_event
+	hidden = yes
+	immediate = { ac_ascension_ai_admissions_effect = yes }
+}

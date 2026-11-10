@@ -1,0 +1,84 @@
+﻿# Heavenly Ascension Trials: cadence, entry, round checks and the final duel.
+ac_ascension_interval_years = 8
+ac_ascension_first_countdown = 3
+ac_ascension_entry_gold = 100
+ac_ascension_min_age = 16
+ac_ascension_max_age = 40
+ac_ascension_ai_admissions = 3
+ac_ascension_admission_score = 3
+ac_ascension_mention_score = 2
+
+# Overall fighting strength, used to rank AI entrants and to judge the duel.
+ac_ascension_power = {
+	value = prowess
+	add = { value = ac_core_dots divide = 2 }
+	if = { limit = { ac_has_martial_style_trigger = yes } add = 5 }
+	if = { limit = { ac_has_element_trigger = yes } add = 3 }
+	if = { limit = { has_trait = ac_immortal_core } add = 10 }
+}
+
+# Round one: the Gate of Ten Thousand Steps
+ac_ascension_endure_chance = {
+	value = stewardship
+	multiply = 3
+	add = prowess
+	add = 10
+	min = 10
+	max = 90
+}
+ac_ascension_endure_failure = { value = 100 subtract = ac_ascension_endure_chance }
+ac_ascension_flow_chance = {
+	value = intrigue
+	multiply = 3
+	add = prowess
+	add = 10
+	min = 10
+	max = 90
+}
+ac_ascension_flow_failure = { value = 100 subtract = ac_ascension_flow_chance }
+ac_ascension_shove_chance = {
+	value = martial
+	multiply = 2
+	add = { value = prowess multiply = 2 }
+	min = 10
+	max = 90
+}
+ac_ascension_shove_failure = { value = 100 subtract = ac_ascension_shove_chance }
+
+# Round two: the Mirror of the Heart Demon
+ac_ascension_mind_chance = {
+	value = learning
+	multiply = 3
+	add = 10
+	if = { limit = { OR = { has_trait = ac_style_aoyusumu has_trait = ac_style_kiihakai } } add = 15 }
+	min = 10
+	max = 90
+}
+ac_ascension_mind_failure = { value = 100 subtract = ac_ascension_mind_chance }
+ac_ascension_element_chance = {
+	value = learning
+	multiply = 3
+	add = 25
+	min = 10
+	max = 95
+}
+ac_ascension_element_failure = { value = 100 subtract = ac_ascension_element_chance }
+
+# Round three: the Heavenly Stage. Entrant scope with var:ac_ascension_rival.
+ac_ascension_duel_base = {
+	value = ac_ascension_power
+	subtract = var:ac_ascension_rival.ac_ascension_power
+	multiply = 2
+	add = 50
+}
+ac_ascension_duel_chance = { value = ac_ascension_duel_base min = 5 max = 95 }
+ac_ascension_duel_failure = { value = 100 subtract = ac_ascension_duel_chance }
+ac_ascension_duel_style_chance = { value = ac_ascension_duel_base add = 15 min = 5 max = 95 }
+ac_ascension_duel_style_failure = { value = 100 subtract = ac_ascension_duel_style_chance }
+ac_ascension_duel_element_chance = { value = ac_ascension_duel_base add = 10 min = 5 max = 95 }
+ac_ascension_duel_element_failure = { value = 100 subtract = ac_ascension_duel_element_chance }
+
+ac_ascension_score_value = {
+	value = 0
+	if = { limit = { has_variable = ac_ascension_score } value = var:ac_ascension_score }
+}

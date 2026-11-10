@@ -1,0 +1,17 @@
+﻿# Heavenly Ascension Trials and the Archonate. Lists append to vanilla hooks.
+yearly_global_pulse = { on_actions = { ac_ascension_yearly } }
+random_yearly_everyone_pulse = { on_actions = { ac_archonate_stipend } }
+on_death = { on_actions = { ac_archonate_death } }
+
+ac_ascension_yearly = { effect = { ac_ascension_yearly_effect = yes } }
+
+# Archonate disciples receive the sect's teachings each year.
+ac_archonate_stipend = {
+	trigger = { has_trait = ac_archonate_disciple has_trait = ac_cultivator age >= 16 }
+	effect = { ac_gain_cultivation_study_xp_effect = { XP = 100 } }
+}
+
+ac_archonate_death = {
+	trigger = { has_trait = ac_archonate_disciple }
+	effect = { ac_leave_archonate_effect = yes }
+}

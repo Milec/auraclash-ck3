@@ -1,0 +1,125 @@
+﻿# Heavenly Ascension Trials and the Archonate.
+
+# Global scope, yearly. The trials open every ac_ascension_interval_years.
+ac_ascension_yearly_effect = {
+	if = {
+		limit = { NOT = { has_global_variable = ac_ascension_countdown } }
+		set_global_variable = { name = ac_ascension_countdown value = ac_ascension_first_countdown }
+	}
+	change_global_variable = { name = ac_ascension_countdown add = -1 }
+	if = {
+		limit = { global_var:ac_ascension_countdown <= 0 }
+		set_global_variable = { name = ac_ascension_countdown value = ac_ascension_interval_years }
+		ac_ascension_open_effect = yes
+	}
+}
+
+# Global scope. Choose the favourite, herald the trials to players, and schedule the AI results.
+ac_ascension_open_effect = {
+	remove_global_variable = ac_ascension_champion
+	ordered_living_character = {
+		limit = {
+			is_ai = yes
+			ac_ascension_eligible_trigger = yes
+		}
+		order_by = ac_ascension_power
+		save_scope_as = ac_ascension_favourite
+	}
+	if = {
+		limit = { exists = scope:ac_ascension_favourite }
+		set_global_variable = { name = ac_ascension_champion value = scope:ac_ascension_favourite }
+		scope:ac_ascension_favourite = { trigger_event = { id = ac_ascend.0090 days = 120 } }
+	}
+	every_player = {
+		limit = { ac_ascension_eligible_trigger = yes }
+		trigger_event = ac_ascend.0001
+	}
+}
+
+# Global scope, at the close of the trials. The strongest AI entrants ascend.
+ac_ascension_ai_admissions_effect = {
+	every_living_character = {
+		limit = {
+			is_ai = yes
+			ac_ascension_eligible_trigger = yes
+			ac_ascension_power >= 20
+		}
+		add_to_temporary_list = ac_ascension_ai_field
+	}
+	ordered_in_list = {
+		list = ac_ascension_ai_field
+		order_by = ac_ascension_power
+		max = ac_ascension_ai_admissions
+		check_range_bounds = no
+		ac_join_archonate_effect = yes
+	}
+}
+
+# Character scope.
+ac_join_archonate_effect = {
+	if = {
+		limit = { NOT = { has_trait = ac_archonate_disciple } }
+		add_trait = ac_archonate_disciple
+		add_prestige = 500
+		ac_add_random_core_dot_effect = yes
+		ac_add_random_core_dot_effect = yes
+		add_to_global_variable_list = { name = ac_archonate_members target = this }
+	}
+}
+
+ac_leave_archonate_effect = {
+	if = {
+		limit = { is_target_in_global_variable_list = { name = ac_archonate_members target = this } }
+		remove_list_global_variable = { name = ac_archonate_members target = this }
+	}
+}
+
+# Entrant scope.
+ac_ascension_add_score_effect = {
+	if = {
+		limit = { NOT = { has_variable = ac_ascension_score } }
+		set_variable = { name = ac_ascension_score value = 0 }
+	}
+	change_variable = { name = ac_ascension_score add = $POINTS$ }
+}
+
+# Entrant scope. Pick the year's favourite, or a wandering prodigy if none can fight.
+ac_ascension_assign_rival_effect = {
+	if = {
+		limit = {
+			has_global_variable = ac_ascension_champion
+			global_var:ac_ascension_champion = {
+				ac_ascension_valid_rival_trigger = yes
+				NOT = { this = root }
+			}
+		}
+		set_variable = { name = ac_ascension_rival value = global_var:ac_ascension_champion }
+	}
+	else = {
+		create_character = {
+			age = { 18 28 }
+			gender_female_chance = 50
+			culture = root.culture
+			faith = root.faith
+			location = root.location
+			trait = ac_cultivator
+			trait = ac_roaming_master
+			trait = brave
+			save_scope_as = ac_ascension_prodigy
+		}
+		scope:ac_ascension_prodigy = {
+			set_variable = { name = ac_roaming_grade value = 1 }
+			add_prowess_skill = 8
+			while = { count = 12 ac_add_random_core_dot_effect = yes }
+		}
+		set_variable = { name = ac_ascension_rival value = scope:ac_ascension_prodigy }
+	}
+}
+
+# Entrant scope. Close the trials for this character.
+ac_ascension_finish_effect = {
+	remove_character_flag = ac_ascension_entrant
+	remove_variable = ac_ascension_score
+	remove_variable = ac_ascension_rival
+	remove_character_flag = ac_ascension_duel_won
+}

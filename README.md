@@ -78,6 +78,14 @@ Use **Decisions → Cultivation → Consult the Sect Register** for membership, 
 
 The estate is a native CK3 domicile attached to a separate landless Sect Master title, with an original Chinese-inspired landscape and six building chains. It passes with sect leadership while rulers keep their lands, government and personal estate. The sect register opens illustrated building plots and sect-aware controls for the native construction queue; the vanilla editor assumes a ruler's personal domicile. Sect battles resolve as group clashes; they do not use ordinary single combat or conquer territory.
 
+### Heavenly Ascension Trials and the Archonate
+Every 8 years (first after 3), heralds announce the **Heavenly Ascension Trials** in Nanhou. Player cultivators aged 16–40 can pay 100 gold to enter; three months later they face three rounds:
+1. **The Gate of Ten Thousand Steps:** endure (Stewardship), slip through the formation (Intrigue), or shove rivals aside (Martial + prowess, +2 points, dread). Failing eliminates you. Carrying a fallen competitor always passes, scores nothing, and earns prestige and your rival's gratitude.
+2. **The Mirror of the Heart Demon:** still the mind (Learning; Aoyusumu and Kiihakai +15%), shatter it with an element, or embrace the demon for 2 certain points, heavy stress and dread.
+3. **The Heavenly Stage:** a duel against the year's favourite, the strongest eligible AI cultivator, or a wandering prodigy. Style techniques add 15%, elements 10%; the base is 50% ± 2% per point of difference in prowess, half of Core dots, path and Immortal Core bonuses. You can bow out with honour.
+
+Winning the duel with 3+ points earns the **Archonate Disciple** trait (+1 monthly prestige, +3 prowess, +1 Diplomacy, +5 general opinion, 500 prestige, two Core dots, 100 cultivation XP a year). 2+ points earn 300 prestige and a Core dot. The three strongest AI entrants also join the Archonate each time.
+
 ### Developed ranks and roaming masters
 
 Upper Disciples receive 6–10 dots in each Combat Core and a Jade Foundation; Sect Masters receive 12–16 dots, a Golden Foundation and an Immortal Core. Minimums apply once on initialization, promotion and leadership changes, preserving stronger progress and existing paths.
