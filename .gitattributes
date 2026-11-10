@@ -15,3 +15,9 @@ AuraClash/gui/scripted_widgets/ac_sect*.txt text eol=lf
 AuraClash/localization/english/ac_event_options_l_english.yml text eol=lf
 # Overrides intentionally preserve vanilla indentation and trailing whitespace.
 AuraClash/events/ac_vanilla_*_options.txt text eol=lf whitespace=-blank-at-eol,-space-before-tab
+RasenMap/**/*.txt text eol=lf
+RasenMap/**/*.yml text eol=lf
+RasenMap/**/*.csv text eol=lf
+RasenMap/**/*.map text eol=lf
+RasenMap/**/*.png binary
+assets/map/*.jpg binary

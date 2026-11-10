@@ -304,6 +304,9 @@ All script keys use the `ac_` prefix to avoid clashing with vanilla or other mod
 
 ---
 
+## Imperial Rasen overhaul (in development)
+The mod is becoming a full overhaul set in Imperial Rasen, the spiral continent of Aura Clash. `tools/build_rasen_map.py` generates the map geometry (1,157 land provinces across the five Inner Kingdoms, Azuma Honsha and the four Outer provinces), title hierarchy and regions into `RasenMap/` from the painted world map. `RasenMap/` is **not loadable yet**. See the [overhaul plan](docs/overhaul.md) for the setting, design and remaining steps.
+
 ## Roadmap
 - Lore-accurate refinements of the current perks, plus capstone traits
 - Prayer Talisman requirement for Aoyusumu's Chi Healing
