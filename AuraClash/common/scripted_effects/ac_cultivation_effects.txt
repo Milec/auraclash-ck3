@@ -281,6 +281,7 @@ ac_immortal_core_attempt_effect = {
 				title = ac_immortal_core_success_toast
 				left_icon = root
 				add_trait = ac_immortal_core
+				remove_trait = ac_immortal_method
 				custom_tooltip = ac_immortal_core_unlock_tt
 				custom_tooltip = ac_immortal_core_xp_tt
 			}
@@ -562,14 +563,16 @@ ac_ai_yearly_cultivation_effect = {
 		}
 	}
 
-	# Immortal Core Advancement
+	# Learn the Immortal Core Method (sect, master or genius), then attempt the breakthrough
+	ac_ai_seek_immortal_method_effect = yes
 	if = {
 		limit = {
 			NOT = { has_trait = ac_immortal_core }
 			NOT = { has_character_flag = ac_immortal_attempt_cooldown }
 			piety >= 150
 			ac_martial_plus_learning >= 16
-			ac_aura_pressure_value >= ac_immortal_core_ap_requirement
+			has_trait = ac_immortal_method
+			ac_immortal_method_requirements_trigger = yes
 		}
 		random = {
 			chance = 30

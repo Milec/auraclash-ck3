@@ -196,3 +196,85 @@ ac_battle_core_progress_effect = {
 		ac_gain_aura_pressure_effect = { AP = $AP$ }
 	}
 }
+
+# ---------------------------------------------------------------------------
+# Learning the Immortal Core Method
+# ---------------------------------------------------------------------------
+ac_learn_immortal_method_effect = {
+	if = {
+		limit = { NOT = { ac_knows_immortal_method_trigger = yes } }
+		send_interface_toast = {
+			type = event_toast_effect_good
+			title = ac_immortal_method_learned_toast
+			left_icon = this
+			add_trait = ac_immortal_method
+		}
+	}
+}
+
+ac_comprehend_immortal_method_effect = {
+	add_character_flag = { flag = ac_immortal_method_comprehend_cooldown years = 1 }
+	random_list = {
+		0 = {
+			modifier = { add = ac_immortal_method_comprehend_chance }
+			desc = ac_immortal_method_comprehend.success
+			ac_learn_immortal_method_effect = yes
+		}
+		0 = {
+			modifier = { add = ac_immortal_method_comprehend_failure }
+			desc = ac_immortal_method_comprehend.failure
+			add_stress = minor_stress_gain
+			ac_gain_aura_pressure_effect = { AP = 10 }
+		}
+	}
+}
+
+ac_study_sect_immortal_method_effect = {
+	change_variable = { name = ac_sect_contribution add = { value = ac_immortal_method_sect_cost multiply = -1 } }
+	ac_learn_immortal_method_effect = yes
+}
+
+# AI learners: sect first, then a master among their bonds or hooks, then genius.
+ac_ai_seek_immortal_method_effect = {
+	if = {
+		limit = { ac_can_learn_immortal_method_trigger = yes }
+		save_scope_as = ac_immortal_learner
+		if = {
+			limit = {
+				ac_sect_teaches_immortal_method_trigger = yes
+				var:ac_sect_contribution >= ac_immortal_method_sect_cost
+			}
+			ac_study_sect_immortal_method_effect = yes
+		}
+		else = {
+			clear_saved_scope = ac_immortal_master
+			if = {
+				limit = { prestige >= { value = ac_immortal_method_prestige_cost add = 200 } }
+				random_parent = { limit = { scope:ac_immortal_learner = { ac_immortal_method_master_trigger = { TEACHER = prev } } } save_scope_as = ac_immortal_master }
+				if = { limit = { NOT = { exists = scope:ac_immortal_master } } random_relation = { type = guardian limit = { scope:ac_immortal_learner = { ac_immortal_method_master_trigger = { TEACHER = prev } } } save_scope_as = ac_immortal_master } }
+				if = { limit = { NOT = { exists = scope:ac_immortal_master } } random_relation = { type = friend limit = { scope:ac_immortal_learner = { ac_immortal_method_master_trigger = { TEACHER = prev } } } save_scope_as = ac_immortal_master } }
+				if = { limit = { NOT = { exists = scope:ac_immortal_master } } random_relation = { type = best_friend limit = { scope:ac_immortal_learner = { ac_immortal_method_master_trigger = { TEACHER = prev } } } save_scope_as = ac_immortal_master } }
+				if = { limit = { NOT = { exists = scope:ac_immortal_master } } random_spouse = { limit = { scope:ac_immortal_learner = { ac_immortal_method_master_trigger = { TEACHER = prev } } } save_scope_as = ac_immortal_master } }
+				if = { limit = { NOT = { exists = scope:ac_immortal_master } } random_hooked_character = { limit = { scope:ac_immortal_learner = { ac_immortal_method_master_trigger = { TEACHER = prev } } } save_scope_as = ac_immortal_master } }
+			}
+			if = {
+				limit = { exists = scope:ac_immortal_master }
+				run_interaction = {
+					interaction = ac_request_immortal_method_interaction
+					actor = this
+					recipient = scope:ac_immortal_master
+					send_threshold = accept
+				}
+			}
+			else_if = {
+				limit = {
+					ac_immortal_method_genius_trigger = yes
+					piety >= ac_immortal_method_comprehend_piety
+					NOT = { has_character_flag = ac_immortal_method_comprehend_cooldown }
+				}
+				add_piety = { value = ac_immortal_method_comprehend_piety multiply = -1 }
+				ac_comprehend_immortal_method_effect = yes
+			}
+		}
+	}
+}

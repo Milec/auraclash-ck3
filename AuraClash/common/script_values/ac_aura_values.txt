@@ -1,8 +1,9 @@
 ﻿# Aura Pressure (AP), as in Aura Clash. Total AP grows through training, cycling Shards and events.
 # Immortal Core Advancement binds free AP into a Combat Core: 100 AP, less the progress that Core has
-# earned through use. Mortal Core Training raises Cores directly, but only to ac_mortal_core_cap.
+# earned through use. Mortal Core Training raises Cores directly, but only to eight Mortal Cores in total.
 
-ac_mortal_core_cap = 3
+# "Eight Mortal Cores, the peak of natural human power."
+ac_mortal_core_peak = 8
 ac_immortal_core_ap_requirement = 300
 ac_ap_per_core_dot = 100
 ac_core_progress_cap = 200
@@ -148,3 +149,17 @@ ac_ap_pending_gain = {
 # Cycling Spirit Shards: gold stands in for Shards. Price rises with Aura Pressure.
 ac_shard_cycle_cost = { value = ac_aura_pressure_value add = 10 divide = 10 round = yes min = 10 }
 ac_shard_cycle_gain = { value = 16 add = ac_core_soul_rating }
+
+# Learning the Immortal Core Method.
+ac_immortal_method_prestige_cost = 150
+ac_immortal_method_sect_cost = 100
+ac_immortal_method_comprehend_piety = 100
+ac_immortal_method_comprehend_chance = {
+	value = learning
+	multiply = 3
+	add = 10
+	if = { limit = { has_trait = intellect_good_3 } add = 15 }
+	min = 5
+	max = 90
+}
+ac_immortal_method_comprehend_failure = { value = 100 subtract = ac_immortal_method_comprehend_chance }

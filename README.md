@@ -114,10 +114,10 @@ All Cultivation decisions appear in their own **Cultivation** group in the decis
 ### Aura Pressure and Combat Cores
 This follows the Aura Clash game. **Aura Pressure (AP)** is a cultivator's total spiritual power. Each of the four **Combat Cores** has a rating from 0 to 20.
 - **Mortal Core Training** (decision → event): once a year, train one Core.
-  - Below a rating of **3**, it raises that Core by 1. Beyond that, the results of mortal training become minuscule, and the Core no longer rises.
+  - Until you hold **eight Mortal Cores in total**, "the peak of natural human power", it raises that Core by 1. Beyond that, the results of mortal training become minuscule, and Cores no longer rise.
   - Every session adds about **10 AP** and **10 progress** toward that Core's next Advancement.
   - Auto-training repeats your last choice yearly. It costs no prestige.
-- **Immortal Core Advancement** (decision): the breakthrough that seizes control of the chi absorbed from the world. It needs **300 AP** (see below). Afterwards, **Advance a Combat Core** binds free AP into a Core: **100 AP, less that Core's progress**, with no cooldown. Free AP is total AP minus the AP already bound. A quarterly auto-advance toggle binds new AP into your last-advanced Core.
+- **Immortal Core Advancement** (decision): the breakthrough that seizes control of the chi absorbed from the world. It requires first learning the **Immortal Core Method** (see Immortal Core below). Afterwards, **Advance a Combat Core** binds free AP into a Core: **100 AP, less that Core's progress**, with no cooldown. Free AP is total AP minus the AP already bound. A quarterly auto-advance toggle binds new AP into your last-advanced Core.
 - **Progress** comes from using a Core:
   - Battles: Power and Fortitude, for commanders and knights.
   - Hunts: Agility.
@@ -186,7 +186,11 @@ When a character becomes a Cultivator, or turns 16 as one, they choose **one of 
 | Ox | +1 Stewardship, −5% building cost | −2.5% building cost |
 
 ### Immortal Core
-- **Immortal Core Advancement** (decision): needs 300 Aura Pressure; costs 150 piety, once per year. It's a Learning + Martial check with a 5–75% chance.
+- **The Immortal Core Method** is a technique, shown as a trait, that you must learn first. The prerequisites are **eight Mortal Cores**, **300 Aura Pressure**, a **Foundation** and age 16. There are three ways to learn it:
+  - **From a master:** right-click a cultivator who knows it and choose **Request Immortal Core Instruction** (150 prestige). They must be your parent, current or former guardian, friend, best friend, lover, soulmate, spouse or fellow sect member, or you must hold a usable hook on them. A hook is spent only if it is your only bond.
+  - **From your sect:** **Study the Sect's Immortal Core Method** (100 sect contribution) is open to Upper Disciples and Sect Masters whose Sect Master knows it. Lower Disciples never see it.
+  - **Through genius:** a character with the Genius trait or Heavenly Talent can **Comprehend Immortal Core Advancement** alone: 100 piety, once a year, a Learning check of 3% per point + 10% (+15% for Genius), between 5% and 90%.
+- **Immortal Core Advancement** (decision): requires the method and the same prerequisites; costs 150 piety, once per year. It's a Learning + Martial check with a 5–75% chance.
 - Each failure adds **+5% Insight** to the next attempt, and high Foundation tiers add more.
 - Success unlocks **binding Aura Pressure into Cores** (Advance a Combat Core), and grants **+20 life expectancy and +0.5 health**, plus **60 total cultivation XP per quarter**, divided equally between the three cultivation lifestyles, whatever your current focus.
 
@@ -213,9 +217,9 @@ Cultivators stay young-looking much longer, shown by the **Preserved Youth** tra
 
 ### AI cultivators
 Adult AI cultivators run **one short routine per year**, on a random day, through `random_yearly_everyone_pulse`. There are no constant scripts and no per-character timers. Each year, an AI cultivator:
-- Does **Mortal Core Training** on a random Core still below 3. It **cycles Shards** up to twice if it keeps 150 gold spare, and with an Immortal Core it **binds free AP** into Cores, favouring those with more progress.
+- Does **Mortal Core Training** on a random Core until it holds eight Mortal Cores. It **cycles Shards** up to twice if it keeps 150 gold spare, and with an Immortal Core it **binds free AP** into Cores, favouring those with more progress.
 - Has a **15% chance** to learn a Style (150 prestige), or else an Element (100 piety). This is subject to the shared yearly cooldown.
-- Has a **30% chance** to attempt an Immortal Core, if it has 300 AP, 150 piety and Martial + Learning of at least 16.
+- Seeks the **Immortal Core Method** once it meets the prerequisites. It tries its sect first, then a master among its bonds or hooks, then genius. Once it knows the method, it has a **30% chance** to attempt the breakthrough, if it has 150 piety and Martial + Learning of at least 16.
 - **With an Immortal Core**, gains 240 total cultivation XP annually, divided equally between Elements, Martial Styles, and Handseals & Alchemy. Each discipline spends only its own native perk points on learned paths and valid prerequisites; unavailable trees keep their saved points. Focus and sect/event XP feed those same pools.
 
 Adult non-cultivators skip the annual cultivation routine. Children also receive a lightweight check for teaching from a cultivator guardian.

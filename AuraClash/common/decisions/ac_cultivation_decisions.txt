@@ -121,6 +121,80 @@ ac_cycle_shards_decision = {
 	ai_will_do = { base = 0 }
 }
 
+### Learn the Immortal Core Method: from your sect ###
+ac_study_sect_immortal_method_decision = {
+	decision_group_type = ac_cultivation
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	desc = ac_study_sect_immortal_method_decision_desc
+	selection_tooltip = ac_study_sect_immortal_method_decision_tooltip
+	confirm_text = ac_study_sect_immortal_method_decision_confirm
+
+	ai_check_interval = 0
+
+	is_shown = {
+		has_trait = ac_cultivator
+		NOT = { ac_knows_immortal_method_trigger = yes }
+		ac_sect_member_trigger = yes
+	}
+
+	is_valid = {
+		ac_sect_teaches_immortal_method_trigger = yes
+		custom_tooltip = {
+			text = ac_immortal_sect_contribution_tt
+			var:ac_sect_contribution >= ac_immortal_method_sect_cost
+		}
+		ac_immortal_method_requirements_trigger = yes
+	}
+
+	effect = {
+		ac_study_sect_immortal_method_effect = yes
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}
+
+### Learn the Immortal Core Method: comprehend it alone ###
+ac_comprehend_immortal_method_decision = {
+	decision_group_type = ac_cultivation
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
+	}
+	desc = ac_comprehend_immortal_method_decision_desc
+	selection_tooltip = ac_comprehend_immortal_method_decision_tooltip
+	confirm_text = ac_comprehend_immortal_method_decision_confirm
+
+	ai_check_interval = 0
+
+	is_shown = {
+		has_trait = ac_cultivator
+		NOT = { ac_knows_immortal_method_trigger = yes }
+		ac_immortal_method_genius_trigger = yes
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = ac_immortal_comprehend_cooldown_tt
+			NOT = { has_character_flag = ac_immortal_method_comprehend_cooldown }
+		}
+		ac_immortal_method_requirements_trigger = yes
+	}
+
+	cost = {
+		piety = ac_immortal_method_comprehend_piety
+	}
+
+	effect = {
+		custom_tooltip = ac_immortal_comprehend_check_tt
+		ac_comprehend_immortal_method_effect = yes
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}
+
 ### Immortal Core Advancement ###
 ac_immortal_core_advancement_decision = {
 	decision_group_type = ac_cultivation
@@ -141,9 +215,10 @@ ac_immortal_core_advancement_decision = {
 
 	is_valid = {
 		custom_tooltip = {
-			text = ac_immortal_core_ap_requirement_tt
-			ac_aura_pressure_value >= ac_immortal_core_ap_requirement
+			text = ac_immortal_knows_method_tt
+			has_trait = ac_immortal_method
 		}
+		ac_immortal_method_requirements_trigger = yes
 	}
 
 	is_valid_showing_failures_only = {

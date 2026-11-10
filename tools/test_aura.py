@@ -27,7 +27,8 @@ class AuraTests(unittest.TestCase):
     def test_files_balance(self):
         for relative in ('common/script_values/ac_aura_values.txt', 'common/scripted_effects/ac_aura_effects.txt',
                          'common/scripted_triggers/ac_aura_triggers.txt', 'events/ac_cultivation_events.txt',
-                         'common/decisions/ac_cultivation_decisions.txt', 'tests/ac_potential_tests.txt'):
+                         'common/decisions/ac_cultivation_decisions.txt', 'tests/ac_potential_tests.txt',
+                         'common/character_interactions/ac_immortal_method_interaction.txt', 'common/traits/ac_technique_traits.txt'):
             script.fields('{' + read(relative) + '}')
 
     def test_prestige_no_longer_buys_cores(self):
@@ -53,12 +54,33 @@ class AuraTests(unittest.TestCase):
         self.assertLess(gain.index('multiply = 0.25'), gain.index('multiply = 0.5'))
         self.assertIn('ac_mortal_limit = { value = ac_mortal_limit_base add = ac_mortal_limit_region_bonus }', self.values)
 
-    def test_mortal_training_caps_and_immortal_core_requires_ap(self):
-        self.assertIn('ac_mortal_core_cap = 3', self.values)
-        self.assertIn('ac_immortal_core_ap_requirement = 300', self.values)
+    def test_mortal_training_stops_at_eight_mortal_cores(self):
+        self.assertIn('ac_mortal_core_peak = 8', self.values)
+        self.assertIn('ac_core_dots < ac_mortal_core_peak', block(self.triggers, 'ac_mortal_training_raises_core_trigger'))
+
+    def test_immortal_core_method_must_be_learned_with_requirements(self):
+        requirements = block(self.triggers, 'ac_immortal_method_requirements_trigger')
+        for needed in ('ac_core_dots >= ac_mortal_core_peak', 'ac_aura_pressure_value >= ac_immortal_core_ap_requirement',
+                       'ac_has_foundation_trigger = yes', 'age >= 16'):
+            self.assertIn(needed, requirements)
         decisions = read('common/decisions/ac_cultivation_decisions.txt')
-        self.assertIn('ac_aura_pressure_value >= ac_immortal_core_ap_requirement', block(decisions, 'ac_immortal_core_advancement_decision'))
-        self.assertIn('ac_aura_pressure_value >= ac_immortal_core_ap_requirement', read('common/scripted_effects/ac_cultivation_effects.txt'))
+        breakthrough = block(decisions, 'ac_immortal_core_advancement_decision')
+        self.assertIn('has_trait = ac_immortal_method', breakthrough)
+        self.assertIn('ac_immortal_method_requirements_trigger = yes', breakthrough)
+        ai = read('common/scripted_effects/ac_cultivation_effects.txt')
+        self.assertIn('has_trait = ac_immortal_method', ai)
+        self.assertIn('remove_trait = ac_immortal_method', ai)
+        # Three routes: master (interaction), sect (Upper Disciple+), genius (decision).
+        interaction = read('common/character_interactions/ac_immortal_method_interaction.txt')
+        self.assertIn('ac_knows_immortal_method_trigger = yes', interaction)
+        self.assertIn('ac_can_receive_cultivation_training_trigger = { TEACHER = scope:recipient }', interaction)
+        sect = block(self.triggers, 'ac_sect_teaches_immortal_method_trigger')
+        self.assertIn('has_trait = ac_sect_upper_disciple', sect)
+        self.assertNotIn('ac_sect_lower_disciple', sect)
+        self.assertIn('has_trait = intellect_good_3', block(self.triggers, 'ac_immortal_method_genius_trigger'))
+        self.assertIn('ac_immortal_method_genius_trigger = yes', block(decisions, 'ac_comprehend_immortal_method_decision'))
+        self.assertIn('ac_sect_teaches_immortal_method_trigger = yes', block(decisions, 'ac_study_sect_immortal_method_decision'))
+        self.assertIn('ac_immortal_core_ap_requirement = 300', self.values)
         self.assertIn('trigger_event = ac_cult.0005', block(decisions, 'ac_advance_core_decision'))
         self.assertIn('gold >= ac_shard_cycle_cost', block(decisions, 'ac_cycle_shards_decision'))
 
@@ -78,7 +100,10 @@ class AuraTests(unittest.TestCase):
         loc = '\n'.join(p.read_text(encoding='utf-8-sig') for p in (MOD / 'localization/english').glob('*.yml'))
         keys = set(k for pair in re.findall(r'\b(?:text|custom_tooltip|title|desc|selection_tooltip|confirm_text)\s*=\s*(ac_[\w.]+)|\bname\s*=\s*(ac_\w+\.[\w.]+)',
                               self.effects + self.triggers + read('events/ac_cultivation_events.txt') + read('common/decisions/ac_cultivation_decisions.txt')) for k in pair if k)
-        keys |= {'ac_advance_core_decision', 'ac_cycle_shards_decision', 'ac_ascend.0010.surge'}
+        keys |= {'ac_advance_core_decision', 'ac_cycle_shards_decision', 'ac_ascend.0010.surge', 'trait_ac_immortal_method',
+                 'trait_ac_immortal_method_desc', 'ac_request_immortal_method_interaction', 'ac_request_immortal_method_interaction_desc',
+                 'ac_study_sect_immortal_method_decision', 'ac_comprehend_immortal_method_decision'}
+        keys |= set(re.findall(r'\b(?:text|desc|custom_tooltip|selection_tooltip|confirm_text)\s*=\s*(ac_[\w.]+)', read('common/character_interactions/ac_immortal_method_interaction.txt')))
         for key in keys:
             self.assertRegex(loc, rf'(?m)^ {re.escape(key)}:\d+ "', key)
 

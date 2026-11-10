@@ -1,0 +1,53 @@
+﻿# Request Immortal Core Instruction: learn the method from a master who knows it.
+ac_request_immortal_method_interaction = {
+	category = interaction_category_friendly
+	common_interaction = yes
+	icon = mentor
+	desc = ac_request_immortal_method_interaction_desc
+
+	cooldown_against_recipient = { years = 1 }
+	auto_accept = yes
+
+	is_shown = {
+		NOT = { scope:actor = scope:recipient }
+		scope:recipient = { ac_knows_immortal_method_trigger = yes }
+		scope:actor = {
+			has_trait = ac_cultivator
+			NOT = { ac_knows_immortal_method_trigger = yes }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			ac_immortal_method_requirements_trigger = yes
+			custom_tooltip = {
+				text = ac_immortal_master_bond_tt
+				ac_can_receive_cultivation_training_trigger = { TEACHER = scope:recipient }
+			}
+		}
+		scope:recipient = {
+			is_imprisoned = no
+			NOT = { has_trait = incapable }
+		}
+	}
+
+	cost = {
+		prestige = ac_immortal_method_prestige_cost
+	}
+
+	on_accept = {
+		scope:actor = {
+			if = {
+				limit = { has_usable_hook = scope:recipient NOT = { ac_has_willing_training_connection_trigger = { TEACHER = scope:recipient } } }
+				use_hook = scope:recipient
+			}
+			ac_learn_immortal_method_effect = yes
+		}
+		scope:recipient = {
+			add_opinion = { target = scope:actor modifier = respect_opinion opinion = 10 }
+		}
+	}
+
+	ai_frequency = 0
+	ai_will_do = { base = 100 }
+}
