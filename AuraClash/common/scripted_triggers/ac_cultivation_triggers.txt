@@ -134,17 +134,3 @@ ac_path_study_ready_trigger = {
 	}
 }
 
-# Can this character run a Mortal Core Training on $CORE$ right now?
-ac_can_train_core_trigger = {
-	has_trait = ac_cultivator
-	age >= 16
-	custom_tooltip = {
-		text = ac_core_training_cooldown_tt
-		NOT = { has_character_flag = ac_core_training_cooldown }
-	}
-	prestige >= ac_core_formation_cost
-	custom_tooltip = {
-		text = ac_core_maxed_tt
-		NOT = { ac_core_$CORE$_maxed_trigger = yes }
-	}
-}

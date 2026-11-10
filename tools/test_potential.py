@@ -13,20 +13,17 @@ class PotentialTests(unittest.TestCase):
         self.assertEqual(sum(potential.WEIGHTS[:3]),860)
         self.assertEqual(sum(potential.WEIGHTS[3:6]),130)
         self.assertEqual(sum(potential.WEIGHTS[6:]),10)
-        self.assertEqual(len(potential.BLOCKS),9)
+        self.assertEqual(len(potential.LIMITS),9)
         self.assertEqual(len(potential.THRESHOLDS),9)
         self.assertEqual(potential.THRESHOLDS[-1],100)
-        self.assertEqual(potential.BLOCKS[0],8)
-        self.assertEqual(list(potential.BLOCKS),sorted(potential.BLOCKS))
+        self.assertEqual(potential.LIMITS[0],800)  # Outer West's Mortal Limit in Aura Clash
+        self.assertEqual(list(potential.LIMITS),sorted(set(potential.LIMITS)))
 
-    def test_price_boundaries_and_limit_advantage(self):
-        for level,interval in enumerate(potential.BLOCKS):
-            prices=[100*(1+dots//interval) for dots in range(81)]
-            self.assertEqual(prices[interval-1],100)
-            self.assertEqual(prices[interval],200)
-            self.assertEqual(prices[2*interval],300)
-            if level:
-                self.assertTrue(all(price<=100*(1+dots//potential.BLOCKS[level-1]) for dots,price in enumerate(prices)))
+    def test_mortal_limit_values_are_generated_for_each_grade(self):
+        values=potential.outputs()['common/script_values/ac_potential_values.txt']
+        for limit in potential.LIMITS:
+            self.assertIn(f'value = {limit} }}',values)
+        self.assertNotIn('ac_core_formation_cost',values)
 
     def test_generated_content_is_current_and_parses(self):
         for relative,expected in potential.outputs().items():
@@ -34,16 +31,6 @@ class PotentialTests(unittest.TestCase):
             self.assertEqual(source,expected,relative)
             if relative.endswith('.txt'):
                 script.fields('{'+source+'}')
-
-    def test_all_paid_paths_use_shared_cost_and_free_seed_progress_remains(self):
-        effects=(ROOT/'AuraClash/common/scripted_effects/ac_cultivation_effects.txt').read_text(encoding='utf-8-sig')
-        training=next(f.body('{'+effects+'}') for f in script.fields('{'+effects+'}') if f.key=='ac_train_core_effect')
-        self.assertIn('ac_can_train_core_trigger = { CORE = $CORE$ }',training)
-        self.assertIn('add_prestige = { value = ac_core_formation_cost multiply = -1 }',training)
-        self.assertLess(training.index('add_prestige'),training.index('add_trait_xp'))
-        self.assertIn('prestige >= { value = ac_core_formation_cost add = 200 }',effects)
-        trigger=(ROOT/'AuraClash/common/scripted_triggers/ac_cultivation_triggers.txt').read_text(encoding='utf-8-sig')
-        self.assertIn('prestige >= ac_core_formation_cost',trigger)
 
     def test_genes_are_distinct_from_cultivation_and_track_xp(self):
         output=potential.outputs()

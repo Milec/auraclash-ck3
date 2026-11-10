@@ -84,6 +84,8 @@ Every 8 years (first after 3), heralds announce the **Heavenly Ascension Trials*
 2. **The Mirror of the Heart Demon:** still the mind (Learning; Aoyusumu and Kiihakai +15%), shatter it with an element, or embrace the demon for 2 certain points, heavy stress and dread.
 3. **The Heavenly Stage:** a duel against the year's favourite, the strongest eligible AI cultivator, or a wandering prodigy. Style techniques add 15%, elements 10%; the base is 50% ± 2% per point of difference in prowess, half of Core dots, path and Immortal Core bonuses. You can bow out with honour.
 
+Each round also lets you push a Combat Core to the limit (Fortitude, Soul, and Power and Agility together), spending a Core charge for better odds.
+
 Winning the duel with 3+ points earns the **Archonate Disciple** trait (+1 monthly prestige, +3 prowess, +1 Diplomacy, +5 general opinion, 500 prestige, two Core dots, 100 cultivation XP a year). 2+ points earn 300 prestige and a Core dot. The three strongest AI entrants also join the Archonate each time.
 
 ### Developed ranks and roaming masters
@@ -109,8 +111,28 @@ A trait that grants **+0.5 health, +20 life expectancy, +10 years of fertility a
 ### Decisions
 All Cultivation decisions appear in their own **Cultivation** group in the decisions panel.
 
-### Mortal Core Training
-- **Mortal Core Training** (decision → event): once per year, raises one Combat Core dot and its linked skill by 1, up to +20 per Core. The price starts at 100 prestige and increases with the total dots already formed across all four Cores. At Mortal I Limit, dots 1–8 cost 100 each, 9–16 cost 200 each, 17–24 cost 300 each, and so on. Higher innate Limit delays these increases. The menu displays the current price; manual training, auto-training and NPCs use the same calculation.
+### Aura Pressure and Combat Cores
+This follows the Aura Clash game. **Aura Pressure (AP)** is a cultivator's total spiritual power. Each of the four **Combat Cores** has a rating from 0 to 20.
+- **Mortal Core Training** (decision → event): once a year, train one Core.
+  - Below a rating of **3**, it raises that Core by 1. Beyond that, the results of mortal training become minuscule, and the Core no longer rises.
+  - Every session adds about **10 AP** and **10 progress** toward that Core's next Advancement.
+  - Auto-training repeats your last choice yearly. It costs no prestige.
+- **Immortal Core Advancement** (decision): the breakthrough that seizes control of the chi absorbed from the world. It needs **300 AP** (see below). Afterwards, **Advance a Combat Core** binds free AP into a Core: **100 AP, less that Core's progress**, with no cooldown. Free AP is total AP minus the AP already bound. A quarterly auto-advance toggle binds new AP into your last-advanced Core.
+- **Progress** comes from using a Core:
+  - Battles: Power and Fortitude, for commanders and knights.
+  - Hunts: Agility.
+  - Surges in the Trials.
+  - Yearly practice: the Core linked to your strongest skill.
+  - Progress above 100 carries over to the next Advancement.
+- **AP sources:**
+  - Yearly training: +10.
+  - **Cycle Spirit Shards** (decision, monthly): spend `(AP + 10) / 10` gold for **16 + Soul rating** AP.
+  - One fifth of every cultivation-XP reward (events, sects, Immortal Core).
+  - Battles: +1 to +3.
+  - Talent multiplies all AP gains.
+- **Mortal Limit:** AP gains are **halved above your Mortal Limit** and **quartered above 1.5×** it. The limit comes from Potential Limit: Mortal I is 800 AP, Outer West's limit in the game. In the Imperial Rasen overhaul, the Inner Kingdoms add 700 and Azuma Honsha adds 1,700.
+- **Surging:** each Core's rating is also a pool of charges. In the Heavenly Ascension Trials you can push a Core to the limit (+25%, or more in the duel), spending a charge and earning progress. Meditation restores spent Cores each quarter.
+- Existing cultivators keep their Cores; their current dots count as AP already bound into them.
 
 | Core | Skill |
 |---|---|
@@ -123,25 +145,23 @@ All Cultivation decisions appear in their own **Cultivation** group in the decis
   - dots **5 and 15**: +2 prowess each
   - dots **10 and 20**: +0.25 health and +5 years of life expectancy each
 - Core progress shows as track bars on the Cultivator trait tooltip.
-- All four options stay visible but greyed out until the yearly cooldown ends.
-- **Auto-training:** a toggle in the same event repeats your last choice each year, whenever you can pay. Open the decision again to turn it off.
 
 ### Innate Potential
-**Potential** is a genetic aptitude revealed when a character awakens as a Cultivator. It has two separate, fixed nine-grade tracks, **Limit** and **Talent**, each grouped into Mortal I–III, Earthly I–III and Heavenly I–III. The trait tooltip shows both exact grades. Hover each bar pip to see its named grade and full effect; pips 1, 4 and 7 mark the starts of Mortal, Earthly and Heavenly. The main trait tooltip shows the current Limit band and next Core price; the Limit bar explains cost scaling across all nine grades. Its three painted icon variants reflect the higher tier of the two aptitudes; a Heavenly icon does not imply both tracks are Heavenly.
+**Potential** is a genetic aptitude revealed when a character awakens as a Cultivator. It has two separate, fixed nine-grade tracks, **Limit** and **Talent**, each grouped into Mortal I–III, Earthly I–III and Heavenly I–III. The trait tooltip shows both exact grades. Hover each bar pip to see its named grade and full effect; pips 1, 4 and 7 mark the starts of Mortal, Earthly and Heavenly. The main trait tooltip shows the current Mortal Limit and Aura Pressure; the Limit bar lists the limit at all nine grades. Its three painted icon variants reflect the higher tier of the two aptitudes; a Heavenly icon does not imply both tracks are Heavenly.
 
-| Grade | Limit: dots per cost band | Talent: lifestyle XP | Talent: monthly prestige |
+| Grade | Mortal Limit (AP) | Talent: AP and lifestyle XP | Talent: monthly prestige |
 |---|---:|---:|---:|
-| Mortal I | 8 | +5% | +0.1 |
-| Mortal II | 9 | +10% | +0.2 |
-| Mortal III | 10 | +15% | +0.3 |
-| Earthly I | 12 | +25% | +0.5 |
-| Earthly II | 14 | +35% | +0.75 |
-| Earthly III | 16 | +50% | +1 |
-| Heavenly I | 20 | +75% | +1.5 |
-| Heavenly II | 24 | +100% | +2 |
-| Heavenly III | 32 | +150% | +3 |
+| Mortal I | 800 | +5% | +0.1 |
+| Mortal II | 1,000 | +10% | +0.2 |
+| Mortal III | 1,200 | +15% | +0.3 |
+| Earthly I | 1,500 | +25% | +0.5 |
+| Earthly II | 2,000 | +35% | +0.75 |
+| Earthly III | 2,500 | +50% | +1 |
+| Heavenly I | 3,500 | +75% | +1.5 |
+| Heavenly II | 5,000 | +100% | +2 |
+| Heavenly III | 8,000 | +150% | +3 |
 
-The next Core dot costs `100 × (1 + floor(total existing dots / Limit band size))` prestige. This follows the requested 1×, 2×, 3× bands; it does not impose an aptitude cap. Free development from sect rank, buildings or fame still counts toward future paid training costs. Talent boosts native monthly lifestyle XP, and multiplies new shared cultivation XP rewards before dividing them between the three cultivation lifestyles. Legacy XP migration is not multiplied.
+Talent boosts native monthly lifestyle XP, and multiplies Aura Pressure gains and new shared cultivation XP rewards before dividing them between the three cultivation lifestyles. Legacy XP migration is not multiplied.
 
 Each aptitude's fresh roll has an **86% Mortal / 13% Earthly / 1% Heavenly** distribution. Hidden gene values are assigned once and persist across failed or repeated awakening attempts. Children inherit each aptitude independently from their biological parents: with two available parents, 35% copies each parent's value, 27% rolls fresh variation, and 3% reinforces the stronger value. Two parents of the same tier can reinforce into the next tier; Heavenly reinforcement caps at grade nine. With one available parent, 75% copies that parent's value and 25% rolls fresh variation. Missing or deceased parents use the available-parent or fresh-roll fallback; historical ancestors are not retroactively assigned DNA.
 
@@ -166,9 +186,9 @@ When a character becomes a Cultivator, or turns 16 as one, they choose **one of 
 | Ox | +1 Stewardship, −5% building cost | −2.5% building cost |
 
 ### Immortal Core
-- **Immortal Core Advancement** (decision): costs 150 piety, once per year. It's a Learning + Martial check with a 5–75% chance.
+- **Immortal Core Advancement** (decision): needs 300 Aura Pressure; costs 150 piety, once per year. It's a Learning + Martial check with a 5–75% chance.
 - Each failure adds **+5% Insight** to the next attempt, and high Foundation tiers add more.
-- Success grants **+20 life expectancy and +0.5 health**, plus **60 total cultivation XP per quarter**, divided equally between the three cultivation lifestyles, whatever your current focus.
+- Success unlocks **binding Aura Pressure into Cores** (Advance a Combat Core), and grants **+20 life expectancy and +0.5 health**, plus **60 total cultivation XP per quarter**, divided equally between the three cultivation lifestyles, whatever your current focus.
 
 ### Martial Arts Styles and Elements
 - **Study a Martial Arts Style** (decision): costs 150 prestige. Choose Akakiru, Aoyusumu, Kiihakai, Kurokonton or Midorikatai. Styles are exclusive.
@@ -193,9 +213,9 @@ Cultivators stay young-looking much longer, shown by the **Preserved Youth** tra
 
 ### AI cultivators
 Adult AI cultivators run **one short routine per year**, on a random day, through `random_yearly_everyone_pulse`. There are no constant scripts and no per-character timers. Each year, an AI cultivator:
-- **Trains a Core** (one picked at random, skipping maxed ones) if it can pay the current scaled price and retain 200 prestige.
+- Does **Mortal Core Training** on a random Core still below 3. It **cycles Shards** up to twice if it keeps 150 gold spare, and with an Immortal Core it **binds free AP** into Cores, favouring those with more progress.
 - Has a **15% chance** to learn a Style (150 prestige), or else an Element (100 piety). This is subject to the shared yearly cooldown.
-- Has a **30% chance** to attempt an Immortal Core, if it has 150 piety and Martial + Learning of at least 16.
+- Has a **30% chance** to attempt an Immortal Core, if it has 300 AP, 150 piety and Martial + Learning of at least 16.
 - **With an Immortal Core**, gains 240 total cultivation XP annually, divided equally between Elements, Martial Styles, and Handseals & Alchemy. Each discipline spends only its own native perk points on learned paths and valid prerequisites; unavailable trees keep their saved points. Focus and sect/event XP feed those same pools.
 
 Adult non-cultivators skip the annual cultivation routine. Children also receive a lightweight check for teaching from a cultivator guardian.

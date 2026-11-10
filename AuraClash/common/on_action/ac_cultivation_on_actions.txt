@@ -4,7 +4,7 @@ quarterly_playable_pulse = {
 	on_actions = { ac_quarterly_player_pulse ac_fame_cultivation_pulse }
 }
 random_yearly_everyone_pulse = {
-	on_actions = { ac_yearly_ai_pulse ac_fame_cultivation_pulse ac_guardian_teaching_pulse ac_ai_awakening_pulse }
+	on_actions = { ac_yearly_ai_pulse ac_fame_cultivation_pulse ac_guardian_teaching_pulse ac_ai_awakening_pulse ac_aura_yearly_pulse }
 }
 on_birthday = {
 	on_actions = { ac_birthday_pulse ac_guardian_teaching_pulse }
@@ -27,7 +27,10 @@ ac_quarterly_player_pulse = {
 	}
 	effect = {
 		ac_migrate_cultivation_lifestyles_effect = yes
+		ac_init_aura_effect = yes
 		ac_core_auto_train_effect = yes
+		ac_core_auto_advance_effect = yes
+		ac_restore_cores_effect = yes
 		if = {
 			limit = {
 				has_trait = ac_immortal_core
@@ -99,6 +102,7 @@ ac_game_start = {
 		}
 		every_living_character = {
 			limit = { has_trait = ac_cultivator }
+			ac_init_aura_effect = yes
 			ac_migrate_cultivation_lifestyles_effect = yes
 			ac_update_visual_age_effect = yes
 			ac_offer_foundation_effect = yes
@@ -111,9 +115,11 @@ ac_on_combat_end_winner = {
 	effect = {
 		every_side_commander = {
 			ac_gain_foundation_xp_effect = { XP = 3 }
+			ac_battle_core_progress_effect = { POWER = 6 FORTITUDE = 4 AP = 3 }
 		}
 		every_side_knight = {
 			ac_gain_foundation_xp_effect = { XP = 2 }
+			ac_battle_core_progress_effect = { POWER = 4 FORTITUDE = 3 AP = 2 }
 		}
 	}
 }
@@ -121,9 +127,11 @@ ac_on_combat_end_loser = {
 	effect = {
 		every_side_commander = {
 			ac_gain_foundation_xp_effect = { XP = 1 }
+			ac_battle_core_progress_effect = { POWER = 2 FORTITUDE = 4 AP = 1 }
 		}
 		every_side_knight = {
 			ac_gain_foundation_xp_effect = { XP = 1 }
+			ac_battle_core_progress_effect = { POWER = 2 FORTITUDE = 3 AP = 1 }
 		}
 	}
 }
@@ -168,4 +176,14 @@ ac_childhood_nurture_pulse = {
 ac_childhood_spark_pulse = {
 	trigger = { ac_childhood_spark_ready_trigger = yes }
 	effect = { ac_childhood_spark_effect = yes }
+}
+
+# Every adult cultivator's daily training raises Aura Pressure and works their strongest Core.
+ac_aura_yearly_pulse = {
+	trigger = { has_trait = ac_cultivator age >= 16 }
+	effect = {
+		ac_init_aura_effect = yes
+		ac_gain_aura_pressure_effect = { AP = 10 }
+		ac_practice_core_progress_effect = { PROGRESS = 10 }
+	}
 }

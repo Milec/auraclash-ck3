@@ -1,93 +1,4 @@
-﻿# Spend prestige to raise one Combat Core (a track on the Cultivator trait)
-ac_train_core_effect = {
-	ac_reveal_potential_effect = yes
-	if = {
-		limit = { ac_can_train_core_trigger = { CORE = $CORE$ } }
-		add_prestige = { value = ac_core_formation_cost multiply = -1 }
-		add_trait_xp = {
-			trait = ac_cultivator
-			track = ac_core_$CORE$
-			value = 5
-		}
-		add_character_flag = {
-			flag = ac_core_training_cooldown
-			years = 1
-		}
-		set_variable = {
-			name = ac_core_last
-			value = flag:$CORE$
-		}
-		if = {
-			limit = { has_character_flag = ac_core_training_auto }
-			custom_tooltip = ac_core_auto_will_repeat_tt
-			hidden_effect = {
-				trigger_event = {
-					id = ac_cult.0002
-					days = 366
-				}
-			}
-		}
-	}
-}
-
-# Called by the quarterly pulse and by the scheduled ac_cult.0002 check
-ac_core_auto_train_effect = {
-	if = {
-		limit = {
-			has_trait = ac_cultivator
-			has_character_flag = ac_core_training_auto
-			has_variable = ac_core_last
-		}
-		if = {
-			limit = {
-				var:ac_core_last = flag:soul
-				ac_can_train_core_trigger = { CORE = soul }
-			}
-			send_interface_toast = {
-				type = event_toast_effect_good
-				title = ac_core_auto_trained_toast
-				left_icon = root
-				ac_train_core_effect = { CORE = soul }
-			}
-		}
-		else_if = {
-			limit = {
-				var:ac_core_last = flag:agility
-				ac_can_train_core_trigger = { CORE = agility }
-			}
-			send_interface_toast = {
-				type = event_toast_effect_good
-				title = ac_core_auto_trained_toast
-				left_icon = root
-				ac_train_core_effect = { CORE = agility }
-			}
-		}
-		else_if = {
-			limit = {
-				var:ac_core_last = flag:power
-				ac_can_train_core_trigger = { CORE = power }
-			}
-			send_interface_toast = {
-				type = event_toast_effect_good
-				title = ac_core_auto_trained_toast
-				left_icon = root
-				ac_train_core_effect = { CORE = power }
-			}
-		}
-		else_if = {
-			limit = {
-				var:ac_core_last = flag:fortitude
-				ac_can_train_core_trigger = { CORE = fortitude }
-			}
-			send_interface_toast = {
-				type = event_toast_effect_good
-				title = ac_core_auto_trained_toast
-				left_icon = root
-				ac_train_core_effect = { CORE = fortitude }
-			}
-		}
-	}
-}
+﻿
 
 # One random Core dot (+5 XP) on a Core that still has room
 ac_add_random_core_dot_effect = {
@@ -370,7 +281,12 @@ ac_immortal_core_attempt_effect = {
 				title = ac_immortal_core_success_toast
 				left_icon = root
 				add_trait = ac_immortal_core
+				custom_tooltip = ac_immortal_core_unlock_tt
 				custom_tooltip = ac_immortal_core_xp_tt
+			}
+			if = {
+				limit = { is_ai = no }
+				hidden_effect = { trigger_event = { id = ac_cult.0005 days = 1 } }
 			}
 			hidden_effect = {
 				remove_variable = ac_immortal_insight
@@ -546,37 +462,8 @@ ac_ai_yearly_cultivation_effect = {
 		ac_random_foundation_effect = yes
 	}
 
-	# Mortal Core Training: random unmaxed Core
-	if = {
-		limit = {
-			prestige >= { value = ac_core_formation_cost add = 200 }
-			NOT = { has_character_flag = ac_core_training_cooldown }
-			OR = {
-				ac_core_soul_maxed_trigger = no
-				ac_core_agility_maxed_trigger = no
-				ac_core_power_maxed_trigger = no
-				ac_core_fortitude_maxed_trigger = no
-			}
-		}
-		random_list = {
-		10 = {
-			trigger = { ac_core_soul_maxed_trigger = no }
-			ac_train_core_effect = { CORE = soul }
-		}
-		10 = {
-			trigger = { ac_core_agility_maxed_trigger = no }
-			ac_train_core_effect = { CORE = agility }
-		}
-		10 = {
-			trigger = { ac_core_power_maxed_trigger = no }
-			ac_train_core_effect = { CORE = power }
-		}
-		10 = {
-			trigger = { ac_core_fortitude_maxed_trigger = no }
-			ac_train_core_effect = { CORE = fortitude }
-		}
-		}
-	}
+	# Aura Pressure: Mortal Core Training, cycling Shards, Immortal Core Advancement of Cores
+	ac_ai_aura_routine_effect = yes
 
 	# Style or Element (shared yearly cooldown)
 	if = {
@@ -682,6 +569,7 @@ ac_ai_yearly_cultivation_effect = {
 			NOT = { has_character_flag = ac_immortal_attempt_cooldown }
 			piety >= 150
 			ac_martial_plus_learning >= 16
+			ac_aura_pressure_value >= ac_immortal_core_ap_requirement
 		}
 		random = {
 			chance = 30

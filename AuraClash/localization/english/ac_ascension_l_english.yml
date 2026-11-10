@@ -33,3 +33,6 @@
  ac_ascend.round.fail:0 "You falter"
  ac_ascend.duel.win:0 "You win the duel"
  ac_ascend.duel.loss:0 "You are defeated"
+ ac_ascend.0010.surge:0 "Push my Fortitude Core to the limit"
+ ac_ascend.0020.surge:0 "Push my Soul Core to the limit"
+ ac_ascend.0030.surge:0 "Surge my Power and Agility Cores at once"

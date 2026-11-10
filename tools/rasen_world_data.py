@@ -224,3 +224,6 @@ BOOKMARK = dict(
     name='The Heavenly Ascension Trials',
     desc='The war in the north is won, and the Exalted Council has chosen the Outer West town of Nanhou to host the next Heavenly Ascension Trials. Ten thousand young martial artists converge on it, and the five Exalts watch for those worth claiming.',
 )
+
+# Natural aura raises the Mortal Limit (AP). Outer lands are weakest; the leylines meet at Azuma Honsha.
+MORTAL_LIMIT_BONUS = {'world_rasen_azuma': 1700, 'world_rasen_inner': 700}

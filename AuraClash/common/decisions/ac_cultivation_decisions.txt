@@ -57,6 +57,70 @@ ac_mortal_core_training_decision = {
 	ai_will_do = { base = 0 }
 }
 
+### Advance a Combat Core (after Immortal Core Advancement) ###
+ac_advance_core_decision = {
+	decision_group_type = ac_cultivation
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	desc = ac_advance_core_decision_desc
+	selection_tooltip = ac_advance_core_decision_tooltip
+	confirm_text = ac_advance_core_decision_confirm
+
+	ai_check_interval = 0
+
+	is_shown = {
+		has_trait = ac_cultivator
+		has_trait = ac_immortal_core
+	}
+
+	is_valid_showing_failures_only = {
+		age >= 16
+		is_imprisoned = no
+	}
+
+	effect = {
+		custom_tooltip = ac_advance_core_decision_effect_tt
+		trigger_event = ac_cult.0005
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}
+
+### Cycle Spirit Shards ###
+ac_cycle_shards_decision = {
+	decision_group_type = ac_cultivation
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	desc = ac_cycle_shards_decision_desc
+	selection_tooltip = ac_cycle_shards_decision_tooltip
+	confirm_text = ac_cycle_shards_decision_confirm
+
+	ai_check_interval = 0
+	cooldown = { days = 30 }
+
+	is_shown = {
+		has_trait = ac_cultivator
+		age >= 16
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		gold >= ac_shard_cycle_cost
+	}
+
+	effect = {
+		ac_init_aura_effect = yes
+		ac_cycle_shards_effect = yes
+	}
+
+	# AI cultivators cycle Shards in ac_ai_aura_routine_effect.
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}
+
 ### Immortal Core Advancement ###
 ac_immortal_core_advancement_decision = {
 	decision_group_type = ac_cultivation
@@ -73,6 +137,13 @@ ac_immortal_core_advancement_decision = {
 	is_shown = {
 		has_trait = ac_cultivator
 		NOT = { has_trait = ac_immortal_core }
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = ac_immortal_core_ap_requirement_tt
+			ac_aura_pressure_value >= ac_immortal_core_ap_requirement
+		}
 	}
 
 	is_valid_showing_failures_only = {

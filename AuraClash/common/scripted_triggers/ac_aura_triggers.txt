@@ -1,0 +1,48 @@
+﻿# Mortal Core Training: once a year. It raises a Core only below ac_mortal_core_cap;
+# beyond that, training still builds Aura Pressure and Core progress.
+ac_can_mortal_train_trigger = {
+	has_trait = ac_cultivator
+	age >= 16
+	is_imprisoned = no
+	custom_tooltip = {
+		text = ac_core_training_cooldown_tt
+		NOT = { has_character_flag = ac_core_training_cooldown }
+	}
+}
+
+ac_mortal_training_raises_core_trigger = {
+	ac_core_$CORE$_rating < ac_mortal_core_cap
+	NOT = { ac_core_$CORE$_maxed_trigger = yes }
+}
+
+# Immortal Core Advancement: bind free Aura Pressure into a Core.
+ac_can_advance_core_trigger = {
+	has_trait = ac_cultivator
+	age >= 16
+	custom_tooltip = {
+		text = ac_advance_requires_immortal_core_tt
+		has_trait = ac_immortal_core
+	}
+	custom_tooltip = {
+		text = ac_advance_free_ap_tt
+		ac_free_ap >= ac_core_$CORE$_advance_cost
+	}
+	custom_tooltip = {
+		text = ac_core_maxed_tt
+		NOT = { ac_core_$CORE$_maxed_trigger = yes }
+	}
+}
+
+ac_can_advance_any_core_trigger = {
+	OR = {
+		ac_can_advance_core_trigger = { CORE = soul }
+		ac_can_advance_core_trigger = { CORE = agility }
+		ac_can_advance_core_trigger = { CORE = power }
+		ac_can_advance_core_trigger = { CORE = fortitude }
+	}
+}
+
+ac_can_surge_core_trigger = {
+	has_trait = ac_cultivator
+	ac_core_$CORE$_available >= 1
+}

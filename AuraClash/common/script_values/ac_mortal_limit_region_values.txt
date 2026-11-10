@@ -1,0 +1,2 @@
+﻿# Natural aura by region. Zero on the vanilla map; the Imperial Rasen overhaul replaces this file.
+ac_mortal_limit_region_bonus = { value = 0 }

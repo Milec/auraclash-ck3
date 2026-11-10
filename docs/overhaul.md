@@ -35,7 +35,7 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
 | Archons and the Heavenly Ascension Trials | Already in the base mod (Archonate Disciple, the Trials event chain) |
 | Castes and Clans | Estates and houses; "Clanless" lowborn; promotion into the Warrior Caste via events |
 | Sects | The base mod's provincial sects, reseeded with canonical sects |
-| Mortal Limit by region | Regional cap on Core training: outer regions slow advancement above a limit; inner regions and Azuma Honsha raise it |
+| Mortal Limit by region | Implemented: Aura Pressure gains halve above the Mortal Limit; `RasenMap` adds +700 in the Inner Kingdoms and +1,700 on Azuma Honsha (`ac_mortal_limit_region_values.txt`) |
 | Zenshin, Cathayan, Oni, Yokai, Kitsune | Five cultures, each with its own heritage; Zenshin and Old Cathayan languages |
 | Devanic Temple, Shugendō, Wild Gods | Religions and faiths |
 
@@ -65,7 +65,7 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
    - A High Steward of the Exalted Council holds Azuma Honsha. The Outer lands are independent duchies; Magistrates Khan (Thunderfall) and Fuyu (Nanhou) are canon.
    - Province culture, faith and holdings.
    - Still to do: spouses and heirs, the canonical sects as seeded sects, culture innovations (`history/cultures`), and bookmark portraits.
-5. **Regional systems:** a regional Mortal Limit, Ice Incursions in Outer North, Inner Kingdom favour (honour, compassion, ruthlessness, intelligence, practicality) affecting Trial scoring, and caste promotion events.
+5. **Regional systems:** (regional Mortal Limit done) Ice Incursions in Outer North, Inner Kingdom favour (honour, compassion, ruthlessness, intelligence, practicality) affecting Trial scoring, and caste promotion events.
 6. **Cleanup:** replace or guard vanilla content that assumes Earth's map (vanilla event overrides that reference real places, struggles, travel events).
 
 ## Loading

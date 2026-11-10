@@ -82,3 +82,12 @@ ac_ascension_score_value = {
 	value = 0
 	if = { limit = { has_variable = ac_ascension_score } value = var:ac_ascension_score }
 }
+
+# Surging a Combat Core pushes it to the limit for one check.
+ac_ascension_surge_bonus = 25
+ac_ascension_endure_surge_chance = { value = ac_ascension_endure_chance add = ac_ascension_surge_bonus max = 95 }
+ac_ascension_endure_surge_failure = { value = 100 subtract = ac_ascension_endure_surge_chance }
+ac_ascension_mind_surge_chance = { value = ac_ascension_mind_chance add = ac_ascension_surge_bonus max = 95 }
+ac_ascension_mind_surge_failure = { value = 100 subtract = ac_ascension_mind_surge_chance }
+ac_ascension_duel_surge_chance = { value = ac_ascension_duel_base add = 20 add = { value = ac_core_power_rating add = ac_core_agility_rating } min = 5 max = 95 }
+ac_ascension_duel_surge_failure = { value = 100 subtract = ac_ascension_duel_surge_chance }

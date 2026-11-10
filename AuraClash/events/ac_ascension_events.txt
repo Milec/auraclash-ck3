@@ -47,6 +47,18 @@ ac_ascend.0010 = {
 				increase_wounds_no_death_effect = { REASON = fight } trigger_event = { id = ac_ascend.0050 days = 3 } }
 		}
 	}
+	option = { # Surge the Fortitude Core
+		name = ac_ascend.0010.surge
+		trigger = { ac_can_surge_core_trigger = { CORE = fortitude } }
+		show_as_unavailable = { has_trait = ac_cultivator }
+		ac_surge_core_effect = { CORE = fortitude }
+		random_list = {
+			0 = { modifier = { add = ac_ascension_endure_surge_chance } desc = ac_ascend.round.pass
+				ac_ascension_add_score_effect = { POINTS = 1 } trigger_event = { id = ac_ascend.0020 days = 7 } }
+			0 = { modifier = { add = ac_ascension_endure_surge_failure } desc = ac_ascend.round.fail
+				increase_wounds_no_death_effect = { REASON = fight } trigger_event = { id = ac_ascend.0050 days = 3 } }
+		}
+	}
 	option = { # Flow: Intrigue
 		name = ac_ascend.0010.flow
 		random_list = {
@@ -88,6 +100,17 @@ ac_ascend.0020 = {
 		random_list = {
 			0 = { modifier = { add = ac_ascension_mind_chance } desc = ac_ascend.round.pass ac_ascension_add_score_effect = { POINTS = 1 } }
 			0 = { modifier = { add = ac_ascension_mind_failure } desc = ac_ascend.round.fail add_stress = 20 }
+		}
+		trigger_event = { id = ac_ascend.0030 days = 7 }
+	}
+	option = { # Surge the Soul Core
+		name = ac_ascend.0020.surge
+		trigger = { ac_can_surge_core_trigger = { CORE = soul } }
+		show_as_unavailable = { has_trait = ac_cultivator }
+		ac_surge_core_effect = { CORE = soul }
+		random_list = {
+			0 = { modifier = { add = ac_ascension_mind_surge_chance } desc = ac_ascend.round.pass ac_ascension_add_score_effect = { POINTS = 1 } }
+			0 = { modifier = { add = ac_ascension_mind_surge_failure } desc = ac_ascend.round.fail add_stress = 20 }
 		}
 		trigger_event = { id = ac_ascend.0030 days = 7 }
 	}
@@ -142,6 +165,23 @@ ac_ascend.0030 = {
 			0 = { modifier = { add = ac_ascension_duel_element_chance } desc = ac_ascend.duel.win
 				ac_ascension_add_score_effect = { POINTS = 2 } add_character_flag = ac_ascension_duel_won }
 			0 = { modifier = { add = ac_ascension_duel_element_failure } desc = ac_ascend.duel.loss
+				increase_wounds_no_death_effect = { REASON = fight } }
+		}
+		trigger_event = { id = ac_ascend.0050 days = 3 }
+	}
+	option = { # Surge Power and Agility together
+		name = ac_ascend.0030.surge
+		trigger = {
+			ac_can_surge_core_trigger = { CORE = power }
+			ac_can_surge_core_trigger = { CORE = agility }
+		}
+		show_as_unavailable = { has_trait = ac_cultivator }
+		ac_surge_core_effect = { CORE = power }
+		ac_surge_core_effect = { CORE = agility }
+		random_list = {
+			0 = { modifier = { add = ac_ascension_duel_surge_chance } desc = ac_ascend.duel.win
+				ac_ascension_add_score_effect = { POINTS = 2 } add_character_flag = ac_ascension_duel_won }
+			0 = { modifier = { add = ac_ascension_duel_surge_failure } desc = ac_ascend.duel.loss
 				increase_wounds_no_death_effect = { REASON = fight } }
 		}
 		trigger_event = { id = ac_ascend.0050 days = 3 }
