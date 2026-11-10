@@ -90,6 +90,7 @@ A trait that grants **+0.5 health, +20 life expectancy, +10 years of fertility a
 - Spontaneous newborn/generated-character cultivation is disabled; sect founders and disciples supply established cultivators.
 - It's available in the ruler designer for 80 points.
 - **Request Cultivation Training** (right-click a qualifying cultivator): request an awakening ordeal from your cultivator parent, current/former cultivator guardian, friend/best friend, lover/soulmate, spouse, a member of your own sect, or a cultivator on whom you hold a usable hook. The relationship is checked against the selected teacher; an unrelated cultivator cannot substitute. Costs 100 prestige, and consumes a hook only when it is needed for that teacher. The Martial + Learning check has a 5–85% success chance; failure wounds without killing.
+- **Raised by a cultivator:** from age 6, each birthday spent with a cultivator guardian, or with a cultivator parent in the same location, stores one year of **nurtured chi** (maximum 5). A player mentor chooses each year between breathing lessons (+1 Learning), dawn stances (+1 Martial) or letting the child rest; either lesson also grants the mentor 25 cultivation XP. AI mentors teach silently. On the 16th birthday, two or more years of nurtured chi trigger **The Spark of Chi**: a free awakening attempt using the normal Martial + Learning check plus 8% per year of nurture (max 95%). It shares the one-year attempt cooldown; if that cooldown is active at 16, the spark waits until 17, then fades. Declining or failing removes the stored chi, while the normal teacher and sect routes remain.
 - **Seek Cultivation** (decision): Ambitious adults can instead fund their own search for 100 gold, 250 prestige and 250 piety, then face the same awakening check. Requests, offers of training and this decision share a one-year attempt cooldown; switching routes cannot bypass it.
 - **NPC learners**, including courtiers and wanderers, consider awakening once a year if they are warrior-like or hardworking: Ambitious, Brave, Diligent, Martial or Prowess education rank 3+, Strong, Hale, Robust, Herculean, Berserker, Blademaster, Populist Leader, Adventurer, Military Order member, Crusader or Holy Warrior, Warrior of the Faith, Raider, Varangian, or 3+ commander traits. Ambition, diligence, bravery and aptitude increase willingness; contentment, cowardice and laziness reduce it. Injured, ill, imprisoned, incapable or frail characters wait.
 - NPCs prefer an available cultivator parent, guardian/former guardian, friend, partner or fellow sect member, then a usable hook on a teacher. They retain at least 100 prestige after requesting training. Ambitious NPC rulers without a usable teacher can fund **Seek Cultivation** once they have 200 gold, 500 prestige and 500 piety. These routes use the normal costs, ordeal and shared cooldown.
@@ -256,7 +257,9 @@ Lifestyle separation has an isolated native fixture: run `python tools/prepare_l
 
 Potential has a separate disposable fixture: `python tools/prepare_potential_checks.py`. It checks reveal stability, all nine grades, cost boundaries, actual manual/automatic/NPC charges, insufficient-fund and cooldown guards, shared XP bonuses, tier reinforcement and randomized distribution. `python tools/build_potential.py --check` verifies its generated production files.
 
-Awakening access and decision costs have an isolated native fixture: run `python tools/prepare_awakening_checks.py`, launch with the printed arguments, and require `AC_AWAKENING_QA COMPLETE`, no failed assertions and an empty error log. Add `--ui` to inspect the teacher's right-click menu, send an actual request and verify its cost with the audit button. The fixture changes only its disposable game.
+Static checks run without the game: `python -m unittest discover -s tools -p "test_*.py"`. Event-override and tracker checks need the installed game files; they skip unless CK3 is at the default Steam path or `CK3_GAME_ROOT` points at its `game` directory.
+
+Awakening access and decision costs have an isolated native fixture: run `python tools/prepare_awakening_checks.py`, launch with the printed arguments, and require `AC_AWAKENING_QA COMPLETE`, no failed assertions and an empty error log. The same fixture covers childhood nurture and the Spark of Chi. Add `--ui` to inspect the teacher's right-click menu, send an actual request and verify its cost with the audit button. The fixture changes only its disposable game.
 ```
 add_trait ac_cultivator
 effect = { add_prestige = 1000 add_piety = 1000 }
@@ -296,7 +299,7 @@ All script keys use the `ac_` prefix to avoid clashing with vanilla or other mod
 ## Roadmap
 - Lore-accurate refinements of the current perks, plus capstone traits
 - Prayer Talisman requirement for Aoyusumu's Chi Healing
-- Cultivator gained through a good tutor, or a childhood event when raised by a cultivator
+- Cultivator gained through a good tutor (childhood nurture by a cultivator guardian or parent is implemented)
 - Additional artwork for perks, decisions and interface elements
 
 ---

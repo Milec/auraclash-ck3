@@ -18,7 +18,8 @@ def main():
     startup = overlay / 'common/on_action/ac_awakening_qa.txt'
     startup.parent.mkdir(parents=True, exist_ok=True)
     source = (ROOT / 'AuraClash/tests/ac_awakening_tests.txt').read_text(encoding='utf-8-sig')
-    body = source + '\n' + (ROOT / 'AuraClash/tests/ac_ai_awakening_tests.txt').read_text(encoding='utf-8-sig')
+    body = '\n'.join([source] + [(ROOT / 'AuraClash/tests' / name).read_text(encoding='utf-8-sig')
+                                  for name in ('ac_ai_awakening_tests.txt', 'ac_childhood_tests.txt')])
     # The shared harness normally runs in title scope; these tests use a character.
     checks = test_body('awakening', body.replace('root.', 'scope:ac_qa_learner.')).replace('title:k_england', 'scope:ac_qa_learner')
     startup.write_text('''on_game_start_after_lobby = { on_actions = { ac_awakening_qa } }
