@@ -36,7 +36,7 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
 | Castes and Clans | Estates and houses; "Clanless" lowborn; promotion into the Warrior Caste via events |
 | Sects | The base mod's provincial sects, reseeded with canonical sects |
 | Mortal Limit by region | Regional cap on Core training: outer regions slow advancement above a limit; inner regions and Azuma Honsha raise it |
-| Zenshin, Cathayan, Oni, Yokai, Kitsune | Cultures and heritages (Oni, Yokai and Kitsune as heritages with traits) |
+| Zenshin, Cathayan, Oni, Yokai, Kitsune | Five cultures, each with its own heritage; Zenshin and Old Cathayan languages |
 | Devanic Temple, Shugendō, Wild Gods | Religions and faiths |
 
 ## Roadmap
@@ -52,11 +52,31 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
    - Bake the heightmap. CK3 reads a packed `heightmap.heightmap`, `packed_heightmap.png` and `indirection_heightmap.png`, not the plain PNG. Generate them from `heightmap.png` with the game's map tooling, then verify that the game loads the result.
    - `rivers.png` in CK3's indexed palette (a builder option will copy the palette from the vanilla file), plus terrain masks under `gfx/map/terrain/`, `province_terrain`, flatmap, water and climate.
    - Map object locators (cities, units, combat) from the in-game map editor.
-3. **Peoples and faiths:** Zenshin and Cathayan cultures; Oni, Yokai and Kitsune heritages; the Devanic faith, Shugendō and Wild God cults; holy sites at the Devanic Temple and the Heavenly Storm Gate.
-4. **History and bookmark:** title holders, Magistrates, the five Exalts, Inner Kingdom houses (Ryuuzan, Ozaki, Nakamoto), the canonical sects, and a start date shortly before the Trials at Nanhou.
+3. **Peoples and faiths (done, generated).** `tools/build_rasen_world.py`, with its data in `tools/rasen_world_data.py`:
+   - **Cultures:** Zenshin, Cathayan, Oni, Yokai and Kitsune, each with its own heritage and Zenshin-style or Cathayan name lists.
+   - **Rasenese Rites:** Ancestral Rites (the Outer lands, Azuma Honsha and the Bladed Lands), the Celestial Order (Mystic) and the Veiled Ancestors (Cursed).
+   - **Devanic Faith:** the Devanic Temple (Sacred) and Shugendō (Outer North).
+   - **Wild Gods:** the Pacts of the Wild Gods (Wild).
+   - **Holy sites:** 12, including the Devanic Temple, Dead Mountain, Rabbit Trial Valley, the Burning Forest, the Leyline Nexus and the Heavenly Storm Gate.
+4. **History and bookmark (first pass, generated).**
+   - Start date 3000.3.1, "The Heavenly Ascension Trials".
+   - 92 rulers in 29 dynasties.
+   - The five Exalts hold the Inner Kingdoms as grandmaster cultivators with Immortal Cores: Bladed Exalt Ryuuzan Masaru (canon); the Wild, Cursed (Ozaki), Mystic and Sacred Exalts (generated names).
+   - A High Steward of the Exalted Council holds Azuma Honsha. The Outer lands are independent duchies; Magistrates Khan (Thunderfall) and Fuyu (Nanhou) are canon.
+   - Province culture, faith and holdings.
+   - Still to do: spouses and heirs, the canonical sects as seeded sects, culture innovations (`history/cultures`), and bookmark portraits.
 5. **Regional systems:** a regional Mortal Limit, Ice Incursions in Outer North, Inner Kingdom favour (honour, compassion, ruthlessness, intelligence, practicality) affecting Trial scoring, and caste promotion events.
 6. **Cleanup:** replace or guard vanilla content that assumes Earth's map (vanilla event overrides that reference real places, struggles, travel events).
 
 ## Loading
 
-`RasenMap/` is not yet a loadable mod. CK3 needs the baked heightmap, rivers, terrain, history and a bookmark first. Until step 4 is complete, keep using `AuraClash/` alone. The intended load order is `AuraClash`, then `RasenMap`, with `RasenMap` replacing `map_data`, `common/landed_titles`, `history/provinces`, `history/titles`, `history/characters` and `common/bookmarks`.
+`RasenMap/` is not yet a loadable mod: it still needs the step 2 map assets. Until then, keep using `AuraClash/` alone. Its `descriptor.mod` loads after `AuraClash` and replaces `map_data`, `common/landed_titles`, the bookmarks, `common/dynasties` and `history/{characters,provinces,titles}`. Vanilla cultures and religions stay loaded but unused.
+
+### Verify in-game first
+The generated scripts use vanilla keys that cannot be checked without the game files:
+- Graphics sets (`mongol_*_gfx`, `steppe_*_gfx`) and the `asian` ethnicity.
+- Traditions, tenets and doctrines.
+- `graphical_faith` and `piety_icon_group`, and the `custom_faith_N` icons.
+- `NGame.START_DATE` and `NGame.END_DATE`.
+
+Check `error.log` for unknown keys on the first launch, and correct them in `tools/rasen_world_data.py`.

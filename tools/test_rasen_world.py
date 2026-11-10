@@ -1,0 +1,76 @@
+"""Cross-reference checks for Imperial Rasen's peoples, faiths and history."""
+from pathlib import Path
+import re
+import unittest
+
+import build_event_overrides as parser
+import build_rasen_world as world
+
+OUT = world.OUT
+
+
+def read(relative):
+    return (OUT / relative).read_text(encoding='utf-8-sig')
+
+
+class RasenWorldTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.files, cls.people = world.render()
+        cls.text = {k: v.decode('utf-8-sig') for k, v in cls.files.items()}
+        cls.loc = '\n'.join(v for k, v in cls.text.items() if k.endswith('.yml'))
+
+    def test_committed_output_is_current(self):
+        for relative, data in self.files.items():
+            self.assertEqual((OUT / relative).read_bytes(), data, relative)
+
+    def test_scripts_balance(self):
+        for relative, text in self.text.items():
+            if relative.endswith('.txt'):
+                parser.fields(text)
+
+    def test_history_uses_defined_cultures_and_faiths(self):
+        cultures = set(re.findall(r'(?m)^(\w+) = \{', self.text['common/culture/cultures/rasen_cultures.txt']))
+        faiths = set(re.findall(r'(?m)^\t\t(\w+) = \{', self.text['common/religion/religions/rasen_religions.txt']))
+        for relative in ('history/provinces/rasen_provinces.txt', 'history/characters/rasen_characters.txt'):
+            self.assertLessEqual(set(re.findall(r'culture = (\w+)', self.text[relative])), cultures, relative)
+            self.assertLessEqual(set(re.findall(r'religion = (\w+)', self.text[relative])), faiths, relative)
+
+    def test_every_county_and_province_has_history(self):
+        titles = read('common/landed_titles/00_rasen_titles.txt')
+        counties = set(re.findall(r'(?m)^\t\t\t(c_\w+) = \{', titles))
+        held = set(re.findall(r'(?m)^(c_\w+) = \{', self.text['history/titles/rasen_titles.txt']))
+        self.assertEqual(counties, held)
+        provinces = set(re.findall(r'province = (\d+)', titles))
+        self.assertEqual(provinces, set(re.findall(r'(?m)^(\d+) = \{', self.text['history/provinces/rasen_provinces.txt'])))
+
+    def test_holders_and_dynasties_exist(self):
+        characters = set(re.findall(r'(?m)^(rasen_\d+) = \{', self.text['history/characters/rasen_characters.txt']))
+        self.assertLessEqual(set(re.findall(r'holder = (rasen_\d+)', self.text['history/titles/rasen_titles.txt'])), characters)
+        dynasties = set(re.findall(r'(?m)^(dynasty_\w+) = \{', self.text['common/dynasties/rasen_dynasties.txt']))
+        self.assertLessEqual(set(re.findall(r'dynasty = (dynasty_\w+)', self.text['history/characters/rasen_characters.txt'])), dynasties)
+
+    def test_holy_sites_exist_and_faiths_have_at_most_five(self):
+        sites = set(re.findall(r'(?m)^(rasen_\w+) = \{', self.text['common/religion/holy_sites/rasen_holy_sites.txt']))
+        religions = self.text['common/religion/religions/rasen_religions.txt']
+        self.assertLessEqual(set(re.findall(r'holy_site = (\w+)', religions)), sites)
+        for faith in world.FAITHS.values():
+            self.assertLessEqual(len(faith['holy_sites']), 5)
+
+    def test_localization_covers_keys(self):
+        keys = set(re.findall(r'= (rasen_\w+_religion_\w+)$', self.text['common/religion/religions/rasen_religions.txt'], re.M))
+        keys |= set(world.CULTURES) | set(world.FAITHS) | set(world.RELIGIONS)
+        keys |= set(re.findall(r'(?m)^(dynasty_\w+) = \{', self.text['common/dynasties/rasen_dynasties.txt']))
+        keys |= {f'holy_site_{s}_name' for s in world.HOLY_SITES}
+        for key in keys:
+            self.assertRegex(self.loc, rf'(?m)^ {re.escape(key)}:0 "', key)
+
+    def test_exalts_rule_the_inner_kingdoms_at_the_bookmark(self):
+        bookmark = self.text['common/bookmarks/bookmarks/rasen_bookmarks.txt']
+        for region in ('bladed', 'sacred', 'mystic', 'cursed', 'wild'):
+            self.assertIn(f'title = k_{region}', bookmark)
+        self.assertIn('START_DATE = "3000.3.1"', self.text['common/defines/rasen_defines.txt'])
+
+
+if __name__ == '__main__':
+    unittest.main()

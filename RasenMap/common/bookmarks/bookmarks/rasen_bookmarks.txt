@@ -1,0 +1,96 @@
+﻿bm_rasen_trials = {
+	start_date = 3000.3.1
+	is_playable = yes
+	group = bm_group_rasen
+	weight = { value = 100 }
+	character = {
+		name = "bm_rasen_sacred"
+		dynasty = dynasty_rasen_hoshino
+		dynasty_splendor_level = 1
+		type = female
+		birth = 2934.8.20
+		title = k_sacred
+		government = feudal_government
+		culture = cathayan
+		religion = devanic_temple
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = rasen_56
+		position = { 900 500 }
+		animation = personality_bold
+	}
+	character = {
+		name = "bm_rasen_mystic"
+		dynasty = dynasty_rasen_lan
+		dynasty_splendor_level = 1
+		type = male
+		birth = 2930.3.27
+		title = k_mystic
+		government = feudal_government
+		culture = cathayan
+		religion = celestial_order
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = rasen_65
+		position = { 900 500 }
+		animation = personality_bold
+	}
+	character = {
+		name = "bm_rasen_cursed"
+		dynasty = dynasty_rasen_ozaki
+		dynasty_splendor_level = 1
+		type = male
+		birth = 2942.1.17
+		title = k_cursed
+		government = feudal_government
+		culture = zenshin
+		religion = veiled_ancestors
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = rasen_69
+		position = { 900 500 }
+		animation = personality_bold
+	}
+	character = {
+		name = "bm_rasen_bladed"
+		dynasty = dynasty_rasen_ryuuzan
+		dynasty_splendor_level = 1
+		type = male
+		birth = 2938.12.21
+		title = k_bladed
+		government = feudal_government
+		culture = zenshin
+		religion = ancestral_rites
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = rasen_73
+		position = { 900 500 }
+		animation = personality_bold
+	}
+	character = {
+		name = "bm_rasen_wild"
+		dynasty = dynasty_rasen_kiba
+		dynasty_splendor_level = 1
+		type = male
+		birth = 2945.8.26
+		title = k_wild
+		government = feudal_government
+		culture = yokai
+		religion = wild_pacts
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = rasen_77
+		position = { 900 500 }
+		animation = personality_bold
+	}
+	character = {
+		name = "bm_rasen_azuma"
+		dynasty = dynasty_rasen_amatsu
+		dynasty_splendor_level = 1
+		type = female
+		birth = 2940.5.4
+		title = k_azuma
+		government = feudal_government
+		culture = zenshin
+		religion = ancestral_rites
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = rasen_87
+		position = { 900 500 }
+		animation = personality_bold
+	}
+}

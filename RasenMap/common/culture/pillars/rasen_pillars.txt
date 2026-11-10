@@ -1,0 +1,29 @@
+﻿heritage_cathayan = {
+	type = heritage
+}
+
+heritage_kitsune = {
+	type = heritage
+}
+
+heritage_oni = {
+	type = heritage
+}
+
+heritage_yokai = {
+	type = heritage
+}
+
+heritage_zenshin = {
+	type = heritage
+}
+
+language_zenshin = {
+	type = language
+	color = { 200 60 50 }
+}
+
+language_cathayan = {
+	type = language
+	color = { 210 160 60 }
+}

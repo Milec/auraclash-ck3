@@ -1,0 +1,1284 @@
+﻿rasen_1 = {
+	name = "Fuyu"
+	dynasty = dynasty_rasen_fuyu
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = greedy
+	trait = callous
+	trait = honest
+	trait = education_stewardship_4
+	trait = arrogant
+	trait = diligent
+	trait = ac_cultivator
+	2951.11.7 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_2 = {
+	name = "Khan"
+	dynasty = dynasty_rasen_khan
+	religion = devanic_temple
+	culture = zenshin
+	trait = shy
+	trait = greedy
+	trait = cynical
+	trait = education_intrigue_2
+	trait = just
+	trait = patient
+	trait = ac_cultivator
+	2943.11.13 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_3 = {
+	name = "Tadashi"
+	dynasty = dynasty_rasen_kurosawa
+	religion = ancestral_rites
+	culture = zenshin
+	trait = wrathful
+	trait = patient
+	trait = just
+	trait = education_learning_4
+	2968.2.21 = { birth = yes }
+}
+
+rasen_4 = {
+	name = "Jiro"
+	dynasty = dynasty_rasen_mizuhara
+	religion = ancestral_rites
+	culture = oni
+	trait = patient
+	trait = calm
+	trait = paranoid
+	trait = education_learning_2
+	trait = ac_cultivator
+	2958.6.19 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_5 = {
+	name = "Izumi"
+	dynasty = dynasty_rasen_sanada
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = arrogant
+	trait = gregarious
+	trait = patient
+	trait = education_learning_4
+	trait = ac_cultivator
+	2975.4.5 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_6 = {
+	name = "Midori"
+	dynasty = dynasty_rasen_kagemori
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = brave
+	trait = compassionate
+	trait = impatient
+	trait = education_martial_3
+	trait = ac_cultivator
+	2967.6.22 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_7 = {
+	name = "Raiden"
+	dynasty = dynasty_rasen_tsukimura
+	religion = ancestral_rites
+	culture = zenshin
+	trait = trusting
+	trait = humble
+	trait = just
+	trait = education_intrigue_4
+	trait = ac_cultivator
+	2948.1.6 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_8 = {
+	name = "Hiroshi"
+	dynasty = dynasty_rasen_takeda
+	religion = devanic_temple
+	culture = zenshin
+	trait = deceitful
+	trait = wrathful
+	trait = greedy
+	trait = education_martial_4
+	trait = ac_cultivator
+	2976.3.9 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_9 = {
+	name = "Chiyo"
+	dynasty = dynasty_rasen_ishida
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = gregarious
+	trait = deceitful
+	trait = ambitious
+	trait = education_intrigue_4
+	trait = ac_cultivator
+	2956.8.4 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_10 = {
+	name = "Takeshi"
+	dynasty = dynasty_rasen_ishida
+	religion = devanic_temple
+	culture = zenshin
+	trait = arbitrary
+	trait = trusting
+	trait = greedy
+	trait = education_martial_2
+	trait = ac_cultivator
+	2953.3.22 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_11 = {
+	name = "Isamu"
+	dynasty = dynasty_rasen_ryuuzan
+	religion = ancestral_rites
+	culture = zenshin
+	trait = content
+	trait = just
+	trait = shy
+	trait = education_diplomacy_3
+	2959.5.13 = { birth = yes }
+}
+
+rasen_12 = {
+	name = "Mao"
+	dynasty = dynasty_rasen_ozaki
+	religion = devanic_temple
+	culture = zenshin
+	trait = impatient
+	trait = arbitrary
+	trait = arrogant
+	trait = education_intrigue_2
+	2942.1.11 = { birth = yes }
+}
+
+rasen_13 = {
+	name = "Shin"
+	dynasty = dynasty_rasen_fujiwara
+	religion = ancestral_rites
+	culture = zenshin
+	trait = arrogant
+	trait = content
+	trait = compassionate
+	trait = education_learning_2
+	trait = ac_cultivator
+	2957.4.23 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_14 = {
+	name = "Tadashi"
+	dynasty = dynasty_rasen_hoshino
+	religion = ancestral_rites
+	culture = zenshin
+	trait = ambitious
+	trait = patient
+	trait = craven
+	trait = education_martial_3
+	trait = ac_cultivator
+	2959.2.2 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_15 = {
+	name = "Ren"
+	dynasty = dynasty_rasen_hayashi
+	religion = devanic_temple
+	culture = oni
+	trait = diligent
+	trait = wrathful
+	trait = brave
+	trait = education_stewardship_4
+	trait = ac_cultivator
+	2967.12.27 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_16 = {
+	name = "Sakura"
+	dynasty = dynasty_rasen_arakawa
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = paranoid
+	trait = content
+	trait = patient
+	trait = education_stewardship_2
+	2973.3.27 = { birth = yes }
+}
+
+rasen_17 = {
+	name = "Ryo"
+	dynasty = dynasty_rasen_fujiwara
+	religion = ancestral_rites
+	culture = zenshin
+	trait = deceitful
+	trait = humble
+	trait = brave
+	trait = education_intrigue_4
+	trait = ac_cultivator
+	2961.6.26 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_18 = {
+	name = "Yoshiro"
+	dynasty = dynasty_rasen_kurosawa
+	religion = devanic_temple
+	culture = zenshin
+	trait = greedy
+	trait = patient
+	trait = humble
+	trait = education_stewardship_4
+	2975.7.14 = { birth = yes }
+}
+
+rasen_19 = {
+	name = "Tetsuo"
+	dynasty = dynasty_rasen_ryuuzan
+	religion = devanic_temple
+	culture = zenshin
+	trait = content
+	trait = just
+	trait = zealous
+	trait = education_martial_2
+	2951.1.24 = { birth = yes }
+}
+
+rasen_20 = {
+	name = "Jiro"
+	dynasty = dynasty_rasen_kanzaki
+	religion = ancestral_rites
+	culture = zenshin
+	trait = patient
+	trait = craven
+	trait = arbitrary
+	trait = education_learning_4
+	trait = ac_cultivator
+	2942.4.24 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_21 = {
+	name = "Akane"
+	dynasty = dynasty_rasen_yamabe
+	religion = ancestral_rites
+	culture = oni
+	female = yes
+	trait = honest
+	trait = lazy
+	trait = generous
+	trait = education_diplomacy_2
+	trait = ac_cultivator
+	2946.1.5 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_22 = {
+	name = "Makoto"
+	dynasty = dynasty_rasen_kanzaki
+	religion = ancestral_rites
+	culture = zenshin
+	trait = arrogant
+	trait = diligent
+	trait = wrathful
+	trait = education_martial_3
+	trait = ac_cultivator
+	2974.1.25 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_23 = {
+	name = "Makoto"
+	dynasty = dynasty_rasen_kanzaki
+	religion = shugendo
+	culture = zenshin
+	trait = content
+	trait = diligent
+	trait = just
+	trait = education_stewardship_3
+	trait = ac_cultivator
+	2964.3.27 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_24 = {
+	name = "Reiko"
+	dynasty = dynasty_rasen_fujiwara
+	religion = shugendo
+	culture = zenshin
+	female = yes
+	trait = arbitrary
+	trait = humble
+	trait = content
+	trait = education_stewardship_4
+	trait = ac_cultivator
+	2950.9.17 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_25 = {
+	name = "Jiro"
+	dynasty = dynasty_rasen_kanzaki
+	religion = ancestral_rites
+	culture = zenshin
+	trait = content
+	trait = impatient
+	trait = craven
+	trait = education_diplomacy_4
+	trait = ac_cultivator
+	2951.5.13 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_26 = {
+	name = "Kazuki"
+	dynasty = dynasty_rasen_kanzaki
+	religion = shugendo
+	culture = zenshin
+	trait = lazy
+	trait = humble
+	trait = calm
+	trait = education_learning_2
+	trait = ac_cultivator
+	2958.6.14 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_27 = {
+	name = "Haruto"
+	dynasty = dynasty_rasen_okami
+	religion = shugendo
+	culture = oni
+	trait = arbitrary
+	trait = shy
+	trait = craven
+	trait = education_learning_2
+	2951.3.12 = { birth = yes }
+}
+
+rasen_28 = {
+	name = "Aiko"
+	dynasty = dynasty_rasen_tsukimura
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = arbitrary
+	trait = calm
+	trait = shy
+	trait = education_diplomacy_4
+	2952.9.12 = { birth = yes }
+}
+
+rasen_29 = {
+	name = "Emi"
+	dynasty = dynasty_rasen_kiba
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = arrogant
+	trait = ambitious
+	trait = callous
+	trait = education_martial_2
+	trait = ac_cultivator
+	2976.9.15 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_30 = {
+	name = "Mei"
+	dynasty = dynasty_rasen_kiba
+	religion = ancestral_rites
+	culture = oni
+	female = yes
+	trait = greedy
+	trait = patient
+	trait = calm
+	trait = education_intrigue_4
+	trait = ac_cultivator
+	2951.12.18 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_31 = {
+	name = "Satoshi"
+	dynasty = dynasty_rasen_ishida
+	religion = ancestral_rites
+	culture = zenshin
+	trait = brave
+	trait = trusting
+	trait = greedy
+	trait = education_martial_3
+	2964.4.18 = { birth = yes }
+}
+
+rasen_32 = {
+	name = "Midori"
+	dynasty = dynasty_rasen_mizuhara
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = diligent
+	trait = wrathful
+	trait = content
+	trait = education_intrigue_3
+	trait = ac_cultivator
+	2959.8.2 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_33 = {
+	name = "Haruto"
+	dynasty = dynasty_rasen_matsuda
+	religion = ancestral_rites
+	culture = kitsune
+	trait = honest
+	trait = lazy
+	trait = craven
+	trait = education_martial_2
+	2970.4.1 = { birth = yes }
+}
+
+rasen_34 = {
+	name = "Takeshi"
+	dynasty = dynasty_rasen_fujiwara
+	religion = ancestral_rites
+	culture = oni
+	trait = calm
+	trait = diligent
+	trait = paranoid
+	trait = education_martial_4
+	trait = ac_cultivator
+	2968.2.10 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_35 = {
+	name = "Daisuke"
+	dynasty = dynasty_rasen_shimizu
+	religion = ancestral_rites
+	culture = zenshin
+	trait = deceitful
+	trait = wrathful
+	trait = content
+	trait = education_intrigue_2
+	trait = ac_cultivator
+	2961.3.24 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_36 = {
+	name = "Ran"
+	dynasty = dynasty_rasen_kanzaki
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = lazy
+	trait = shy
+	trait = callous
+	trait = education_diplomacy_4
+	trait = ac_cultivator
+	2976.11.25 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_37 = {
+	name = "Osamu"
+	dynasty = dynasty_rasen_fujiwara
+	religion = devanic_temple
+	culture = zenshin
+	trait = trusting
+	trait = wrathful
+	trait = honest
+	trait = education_diplomacy_3
+	2950.2.2 = { birth = yes }
+}
+
+rasen_38 = {
+	name = "Tetsuo"
+	dynasty = dynasty_rasen_kagemori
+	religion = ancestral_rites
+	culture = oni
+	trait = callous
+	trait = humble
+	trait = craven
+	trait = education_diplomacy_4
+	2958.10.3 = { birth = yes }
+}
+
+rasen_39 = {
+	name = "Kaito"
+	dynasty = dynasty_rasen_nakamoto
+	religion = devanic_temple
+	culture = oni
+	trait = arbitrary
+	trait = zealous
+	trait = calm
+	trait = education_diplomacy_4
+	trait = ac_cultivator
+	2973.11.14 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_40 = {
+	name = "Tomoya"
+	dynasty = dynasty_rasen_shimizu
+	religion = ancestral_rites
+	culture = zenshin
+	trait = greedy
+	trait = ambitious
+	trait = deceitful
+	trait = education_intrigue_4
+	trait = ac_cultivator
+	2966.9.1 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_41 = {
+	name = "Umeko"
+	dynasty = dynasty_rasen_okami
+	religion = ancestral_rites
+	culture = oni
+	female = yes
+	trait = diligent
+	trait = humble
+	trait = wrathful
+	trait = education_learning_4
+	2942.2.6 = { birth = yes }
+}
+
+rasen_42 = {
+	name = "Sayuri"
+	dynasty = dynasty_rasen_ishida
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = arbitrary
+	trait = patient
+	trait = trusting
+	trait = education_martial_4
+	2968.1.17 = { birth = yes }
+}
+
+rasen_43 = {
+	name = "Sora"
+	dynasty = dynasty_rasen_matsuda
+	religion = ancestral_rites
+	culture = zenshin
+	trait = craven
+	trait = zealous
+	trait = greedy
+	trait = education_martial_2
+	trait = ac_cultivator
+	2975.12.2 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_44 = {
+	name = "Yoko"
+	dynasty = dynasty_rasen_hayashi
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = impatient
+	trait = arrogant
+	trait = greedy
+	trait = education_stewardship_3
+	2958.7.8 = { birth = yes }
+}
+
+rasen_45 = {
+	name = "Sayuri"
+	dynasty = dynasty_rasen_fujiwara
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = cynical
+	trait = arbitrary
+	trait = shy
+	trait = education_diplomacy_3
+	trait = ac_cultivator
+	2976.8.5 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_46 = {
+	name = "Hayato"
+	dynasty = dynasty_rasen_matsuda
+	religion = ancestral_rites
+	culture = zenshin
+	trait = craven
+	trait = impatient
+	trait = arrogant
+	trait = education_martial_4
+	2956.7.10 = { birth = yes }
+}
+
+rasen_47 = {
+	name = "Katsu"
+	dynasty = dynasty_rasen_kurosawa
+	religion = ancestral_rites
+	culture = zenshin
+	trait = generous
+	trait = cynical
+	trait = honest
+	trait = education_diplomacy_4
+	trait = ac_cultivator
+	2968.6.17 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_48 = {
+	name = "Yasuo"
+	dynasty = dynasty_rasen_kurosawa
+	religion = devanic_temple
+	culture = zenshin
+	trait = paranoid
+	trait = content
+	trait = zealous
+	trait = education_diplomacy_2
+	2954.1.15 = { birth = yes }
+}
+
+rasen_49 = {
+	name = "Ryo"
+	dynasty = dynasty_rasen_okami
+	religion = devanic_temple
+	culture = zenshin
+	trait = patient
+	trait = brave
+	trait = callous
+	trait = education_intrigue_2
+	trait = ac_cultivator
+	2960.12.6 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_50 = {
+	name = "Ran"
+	dynasty = dynasty_rasen_ryuuzan
+	religion = devanic_temple
+	culture = zenshin
+	female = yes
+	trait = patient
+	trait = ambitious
+	trait = shy
+	trait = education_intrigue_4
+	trait = ac_cultivator
+	2965.2.7 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_51 = {
+	name = "Wenyao"
+	dynasty = dynasty_rasen_jin
+	religion = ancestral_rites
+	culture = cathayan
+	trait = brave
+	trait = gregarious
+	trait = cynical
+	trait = education_learning_3
+	2948.5.16 = { birth = yes }
+}
+
+rasen_52 = {
+	name = "Isamu"
+	dynasty = dynasty_rasen_takeda
+	religion = devanic_temple
+	culture = zenshin
+	trait = zealous
+	trait = just
+	trait = generous
+	trait = education_stewardship_2
+	trait = ac_cultivator
+	2967.6.24 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_53 = {
+	name = "Ayame"
+	dynasty = dynasty_rasen_arakawa
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = content
+	trait = craven
+	trait = arrogant
+	trait = education_learning_3
+	2970.2.16 = { birth = yes }
+}
+
+rasen_54 = {
+	name = "Katsu"
+	dynasty = dynasty_rasen_kiba
+	religion = ancestral_rites
+	culture = zenshin
+	trait = trusting
+	trait = diligent
+	trait = ambitious
+	trait = education_diplomacy_3
+	2959.10.11 = { birth = yes }
+}
+
+rasen_55 = {
+	name = "Amane"
+	dynasty = dynasty_rasen_mizuhara
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = gregarious
+	trait = craven
+	trait = ambitious
+	trait = education_stewardship_3
+	trait = ac_cultivator
+	2974.5.19 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_56 = {
+	name = "Amane"
+	dynasty = dynasty_rasen_hoshino
+	religion = devanic_temple
+	culture = cathayan
+	female = yes
+	trait = greedy
+	trait = patient
+	trait = lazy
+	trait = education_martial_4
+	trait = compassionate
+	trait = zealous
+	trait = ac_cultivator
+	2934.8.20 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes add_trait = ac_immortal_core } }
+}
+
+rasen_57 = {
+	name = "Ryota"
+	dynasty = dynasty_rasen_arakawa
+	religion = devanic_temple
+	culture = zenshin
+	trait = craven
+	trait = deceitful
+	trait = paranoid
+	trait = education_diplomacy_4
+	trait = ac_cultivator
+	2974.4.19 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_58 = {
+	name = "Mao"
+	dynasty = dynasty_rasen_yamabe
+	religion = devanic_temple
+	culture = zenshin
+	trait = shy
+	trait = generous
+	trait = wrathful
+	trait = education_intrigue_3
+	2954.6.28 = { birth = yes }
+}
+
+rasen_59 = {
+	name = "Daisuke"
+	dynasty = dynasty_rasen_tsukimura
+	religion = devanic_temple
+	culture = zenshin
+	trait = honest
+	trait = cynical
+	trait = arrogant
+	trait = education_learning_4
+	trait = ac_cultivator
+	2963.6.18 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_60 = {
+	name = "Xun"
+	dynasty = dynasty_rasen_dou
+	religion = devanic_temple
+	culture = cathayan
+	trait = patient
+	trait = just
+	trait = content
+	trait = education_martial_2
+	trait = ac_cultivator
+	2974.1.8 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_61 = {
+	name = "Ren"
+	dynasty = dynasty_rasen_kiba
+	religion = shugendo
+	culture = zenshin
+	trait = brave
+	trait = generous
+	trait = humble
+	trait = education_learning_2
+	trait = ac_cultivator
+	2943.1.22 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_62 = {
+	name = "Jing"
+	dynasty = dynasty_rasen_long
+	religion = devanic_temple
+	culture = cathayan
+	female = yes
+	trait = lazy
+	trait = trusting
+	trait = zealous
+	trait = education_stewardship_2
+	trait = ac_cultivator
+	2954.2.8 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_63 = {
+	name = "Yan"
+	dynasty = dynasty_rasen_bai
+	religion = devanic_temple
+	culture = cathayan
+	female = yes
+	trait = wrathful
+	trait = craven
+	trait = patient
+	trait = education_diplomacy_2
+	trait = ac_cultivator
+	2953.7.3 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_64 = {
+	name = "Aiko"
+	dynasty = dynasty_rasen_ryuuzan
+	religion = devanic_temple
+	culture = zenshin
+	female = yes
+	trait = compassionate
+	trait = zealous
+	trait = paranoid
+	trait = education_diplomacy_2
+	2955.1.28 = { birth = yes }
+}
+
+rasen_65 = {
+	name = "Wenyao"
+	dynasty = dynasty_rasen_lan
+	religion = celestial_order
+	culture = cathayan
+	trait = shy
+	trait = trusting
+	trait = honest
+	trait = education_diplomacy_3
+	trait = diligent
+	trait = arrogant
+	trait = ac_cultivator
+	2930.3.27 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes add_trait = ac_immortal_core } }
+}
+
+rasen_66 = {
+	name = "Xiu"
+	dynasty = dynasty_rasen_jin
+	religion = celestial_order
+	culture = cathayan
+	female = yes
+	trait = shy
+	trait = zealous
+	trait = arbitrary
+	trait = education_martial_3
+	trait = ac_cultivator
+	2963.5.6 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_67 = {
+	name = "Ting"
+	dynasty = dynasty_rasen_jin
+	religion = celestial_order
+	culture = cathayan
+	female = yes
+	trait = compassionate
+	trait = patient
+	trait = ambitious
+	trait = education_intrigue_2
+	trait = ac_cultivator
+	2967.7.19 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_68 = {
+	name = "Wenyao"
+	dynasty = dynasty_rasen_long
+	religion = celestial_order
+	culture = cathayan
+	trait = trusting
+	trait = brave
+	trait = cynical
+	trait = education_stewardship_4
+	2947.9.26 = { birth = yes }
+}
+
+rasen_69 = {
+	name = "Kagerou"
+	dynasty = dynasty_rasen_ozaki
+	religion = veiled_ancestors
+	culture = zenshin
+	trait = wrathful
+	trait = arrogant
+	trait = compassionate
+	trait = education_intrigue_3
+	trait = deceitful
+	trait = patient
+	trait = ac_cultivator
+	2942.1.17 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes add_trait = ac_immortal_core } }
+}
+
+rasen_70 = {
+	name = "Kosuke"
+	dynasty = dynasty_rasen_nakamoto
+	religion = veiled_ancestors
+	culture = zenshin
+	trait = calm
+	trait = ambitious
+	trait = honest
+	trait = education_learning_2
+	trait = ac_cultivator
+	2966.11.13 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_71 = {
+	name = "Mariko"
+	dynasty = dynasty_rasen_kagemori
+	religion = veiled_ancestors
+	culture = zenshin
+	female = yes
+	trait = arrogant
+	trait = lazy
+	trait = paranoid
+	trait = education_diplomacy_3
+	2956.3.2 = { birth = yes }
+}
+
+rasen_72 = {
+	name = "Chiyo"
+	dynasty = dynasty_rasen_fujiwara
+	religion = veiled_ancestors
+	culture = zenshin
+	female = yes
+	trait = wrathful
+	trait = patient
+	trait = cynical
+	trait = education_diplomacy_4
+	trait = ac_cultivator
+	2947.12.3 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_73 = {
+	name = "Masaru"
+	dynasty = dynasty_rasen_ryuuzan
+	religion = ancestral_rites
+	culture = zenshin
+	trait = ambitious
+	trait = craven
+	trait = paranoid
+	trait = education_intrigue_2
+	trait = honest
+	trait = just
+	trait = ac_cultivator
+	2938.12.21 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes add_trait = ac_immortal_core } }
+}
+
+rasen_74 = {
+	name = "Ryota"
+	dynasty = dynasty_rasen_hoshino
+	religion = ancestral_rites
+	culture = zenshin
+	trait = brave
+	trait = lazy
+	trait = humble
+	trait = education_learning_2
+	trait = ac_cultivator
+	2965.9.3 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_75 = {
+	name = "Tetsuo"
+	dynasty = dynasty_rasen_kiba
+	religion = ancestral_rites
+	culture = zenshin
+	trait = generous
+	trait = ambitious
+	trait = deceitful
+	trait = education_diplomacy_3
+	trait = ac_cultivator
+	2952.6.17 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_76 = {
+	name = "Tomoya"
+	dynasty = dynasty_rasen_amatsu
+	religion = ancestral_rites
+	culture = zenshin
+	trait = calm
+	trait = brave
+	trait = patient
+	trait = education_stewardship_2
+	trait = ac_cultivator
+	2953.4.13 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_77 = {
+	name = "Tetsuo"
+	dynasty = dynasty_rasen_kiba
+	religion = wild_pacts
+	culture = yokai
+	trait = cynical
+	trait = patient
+	trait = arbitrary
+	trait = education_martial_3
+	trait = wrathful
+	trait = ambitious
+	trait = ac_cultivator
+	2945.8.26 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes add_trait = ac_immortal_core } }
+}
+
+rasen_78 = {
+	name = "Kaito"
+	dynasty = dynasty_rasen_hayashi
+	religion = wild_pacts
+	culture = zenshin
+	trait = shy
+	trait = callous
+	trait = calm
+	trait = education_diplomacy_4
+	trait = ac_cultivator
+	2943.4.16 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_79 = {
+	name = "Yoko"
+	dynasty = dynasty_rasen_shimizu
+	religion = wild_pacts
+	culture = yokai
+	female = yes
+	trait = greedy
+	trait = arbitrary
+	trait = honest
+	trait = education_learning_4
+	trait = ac_cultivator
+	2972.3.3 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_80 = {
+	name = "Takeshi"
+	dynasty = dynasty_rasen_kagemori
+	religion = wild_pacts
+	culture = zenshin
+	trait = compassionate
+	trait = ambitious
+	trait = shy
+	trait = education_learning_2
+	trait = ac_cultivator
+	2975.2.6 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_81 = {
+	name = "Amane"
+	dynasty = dynasty_rasen_kanzaki
+	religion = wild_pacts
+	culture = yokai
+	female = yes
+	trait = paranoid
+	trait = diligent
+	trait = greedy
+	trait = education_diplomacy_2
+	trait = ac_cultivator
+	2942.5.4 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_82 = {
+	name = "Minoru"
+	dynasty = dynasty_rasen_ozaki
+	religion = wild_pacts
+	culture = oni
+	trait = calm
+	trait = impatient
+	trait = arbitrary
+	trait = education_stewardship_2
+	trait = ac_cultivator
+	2944.5.26 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_83 = {
+	name = "Osamu"
+	dynasty = dynasty_rasen_ozaki
+	religion = wild_pacts
+	culture = yokai
+	trait = paranoid
+	trait = shy
+	trait = ambitious
+	trait = education_stewardship_2
+	trait = ac_cultivator
+	2965.7.4 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_84 = {
+	name = "Shuichi"
+	dynasty = dynasty_rasen_kanzaki
+	religion = wild_pacts
+	culture = oni
+	trait = craven
+	trait = just
+	trait = callous
+	trait = education_diplomacy_4
+	trait = ac_cultivator
+	2975.11.17 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_85 = {
+	name = "Ryota"
+	dynasty = dynasty_rasen_kurosawa
+	religion = wild_pacts
+	culture = zenshin
+	trait = honest
+	trait = paranoid
+	trait = cynical
+	trait = education_stewardship_4
+	trait = ac_cultivator
+	2970.11.26 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_86 = {
+	name = "Yoshiro"
+	dynasty = dynasty_rasen_ryuuzan
+	religion = wild_pacts
+	culture = yokai
+	trait = diligent
+	trait = cynical
+	trait = honest
+	trait = education_stewardship_4
+	trait = ac_cultivator
+	2959.8.6 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_87 = {
+	name = "Haruka"
+	dynasty = dynasty_rasen_amatsu
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = ambitious
+	trait = patient
+	trait = shy
+	trait = education_diplomacy_2
+	trait = calm
+	trait = just
+	trait = ac_cultivator
+	2940.5.4 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes add_trait = ac_immortal_core } }
+}
+
+rasen_88 = {
+	name = "Kosuke"
+	dynasty = dynasty_rasen_kurosawa
+	religion = ancestral_rites
+	culture = zenshin
+	trait = zealous
+	trait = generous
+	trait = calm
+	trait = education_intrigue_2
+	trait = ac_cultivator
+	2971.4.17 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_89 = {
+	name = "Xiu"
+	dynasty = dynasty_rasen_luo
+	religion = ancestral_rites
+	culture = cathayan
+	female = yes
+	trait = arrogant
+	trait = callous
+	trait = patient
+	trait = education_learning_4
+	2946.6.14 = { birth = yes }
+}
+
+rasen_90 = {
+	name = "Kasumi"
+	dynasty = dynasty_rasen_ishida
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = deceitful
+	trait = gregarious
+	trait = zealous
+	trait = education_learning_4
+	trait = ac_cultivator
+	2961.5.25 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_91 = {
+	name = "Misuka"
+	dynasty = dynasty_rasen_takeda
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = generous
+	trait = arrogant
+	trait = patient
+	trait = education_diplomacy_4
+	trait = ac_cultivator
+	2975.9.17 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_92 = {
+	name = "Yoshiro"
+	dynasty = dynasty_rasen_kagemori
+	religion = ancestral_rites
+	culture = zenshin
+	trait = calm
+	trait = gregarious
+	trait = deceitful
+	trait = education_diplomacy_2
+	2955.2.3 = { birth = yes }
+}

@@ -1,0 +1,17 @@
+version="0.1.0"
+tags={
+	"Total Conversion"
+	"Map"
+	"Culture"
+	"Religion"
+}
+name="Aura Clash: Imperial Rasen (in development)"
+supported_version="1.20.*"
+replace_path="map_data"
+replace_path="common/landed_titles"
+replace_path="common/bookmarks/bookmarks"
+replace_path="common/bookmarks/groups"
+replace_path="common/dynasties"
+replace_path="history/characters"
+replace_path="history/provinces"
+replace_path="history/titles"

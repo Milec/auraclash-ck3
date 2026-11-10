@@ -1,0 +1,107 @@
+﻿rasen_devanic_temple = {
+	county = c_nanhou
+	barony = b_devanic_temple
+	character_modifier = {
+		name = holy_site_rasen_devanic_temple_effect_name
+		monthly_piety_gain_mult = 0.1
+	}
+}
+
+rasen_dead_mountain = {
+	county = c_ironfield
+	barony = b_dead_mountain
+	character_modifier = {
+		name = holy_site_rasen_dead_mountain_effect_name
+		stress_loss_mult = 0.1
+	}
+}
+
+rasen_rabbit_trial_valley = {
+	county = c_cedarfall
+	barony = b_rabbit_trial_valley
+	character_modifier = {
+		name = holy_site_rasen_rabbit_trial_valley_effect_name
+		prowess = 2
+	}
+}
+
+rasen_burning_forest = {
+	county = c_gabemori
+	barony = b_burning_forest
+	character_modifier = {
+		name = holy_site_rasen_burning_forest_effect_name
+		prowess = 2
+	}
+}
+
+rasen_leyline_nexus = {
+	county = c_azuma
+	barony = b_azuma
+	character_modifier = {
+		name = holy_site_rasen_leyline_nexus_effect_name
+		monthly_prestige_gain_mult = 0.1
+	}
+}
+
+rasen_heavenly_storm_gate = {
+	county = c_kuura
+	barony = b_zehicho
+	character_modifier = {
+		name = holy_site_rasen_heavenly_storm_gate_effect_name
+		learning = 1
+	}
+}
+
+rasen_bladed_forge = {
+	county = c_gohara
+	barony = b_seyujo
+	character_modifier = {
+		name = holy_site_rasen_bladed_forge_effect_name
+		martial = 1
+	}
+}
+
+rasen_mystic_spires = {
+	county = c_luohe
+	barony = b_houhe
+	character_modifier = {
+		name = holy_site_rasen_mystic_spires_effect_name
+		learning = 1
+	}
+}
+
+rasen_cursed_hollow = {
+	county = c_rahokubo
+	barony = b_hahamori
+	character_modifier = {
+		name = holy_site_rasen_cursed_hollow_effect_name
+		intrigue = 1
+	}
+}
+
+rasen_sacred_sanctum = {
+	county = c_todamine
+	barony = b_hiwayama
+	character_modifier = {
+		name = holy_site_rasen_sacred_sanctum_effect_name
+		diplomacy = 1
+	}
+}
+
+rasen_ice_front = {
+	county = c_brasspeak
+	barony = b_whitepass
+	character_modifier = {
+		name = holy_site_rasen_ice_front_effect_name
+		prowess = 2
+	}
+}
+
+rasen_wild_arena = {
+	county = c_bloodrun
+	barony = b_thornthicket
+	character_modifier = {
+		name = holy_site_rasen_wild_arena_effect_name
+		martial = 1
+	}
+}
