@@ -163,3 +163,7 @@ ac_immortal_method_comprehend_chance = {
 	max = 90
 }
 ac_immortal_method_comprehend_failure = { value = 100 subtract = ac_immortal_method_comprehend_chance }
+
+# Immortal Cores: one per Immortal Core Advancement. Mortal Cores are the rest (at most eight).
+ac_immortal_core_count = { value = 0 if = { limit = { has_variable = ac_immortal_cores } value = var:ac_immortal_cores } }
+ac_mortal_core_count = { value = ac_core_dots subtract = ac_immortal_core_count min = 0 }

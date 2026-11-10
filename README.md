@@ -90,7 +90,7 @@ Winning the duel with 3+ points earns the **Archonate Disciple** trait (+1 month
 
 ### Developed ranks and roaming masters
 
-Upper Disciples receive 6–10 dots in each Combat Core and a Jade Foundation; Sect Masters receive 12–16 dots, a Golden Foundation and an Immortal Core. Minimums apply once on initialization, promotion and leadership changes, preserving stronger progress and existing paths.
+Upper Disciples receive 6–10 dots in each Combat Core (16–32 Immortal Cores) and a Jade Foundation; Sect Masters receive 12–16 dots (40–56 Immortal Cores) and a Golden Foundation. Minimums apply once on initialization, promotion and leadership changes, preserving stronger progress and existing paths.
 
 Independent roaming cultivators appear throughout the world, initially one per eligible kingdom of origin. Roaming Adepts match Upper Disciples, Roaming Masters match Sect Masters, and rarer Roaming Grandmasters have 17–20 dots in each Core with a Heavenly Foundation. They use native wanderer pools, may visit courts and can be recruited. Find the Roaming Master trait in the character finder. Their relationships and hooks can qualify them as teachers through the normal targeted cultivation request. Annual maintenance moves only free AI wanderers and replaces deceased masters without spawning extras when one is recruited. See the [sect guide](docs/sects.md#roaming-masters) for distribution, caps and migration.
 
@@ -117,7 +117,7 @@ This follows the Aura Clash game. **Aura Pressure (AP)** is a cultivator's total
   - Until you hold **eight Mortal Cores in total**, "the peak of natural human power", it raises that Core by 1. Beyond that, the results of mortal training become minuscule, and Cores no longer rise.
   - Every session adds about **10 AP** and **10 progress** toward that Core's next Advancement.
   - Auto-training repeats your last choice yearly. It costs no prestige.
-- **Immortal Core Advancement** (decision): the breakthrough that seizes control of the chi absorbed from the world. It requires first learning the **Immortal Core Method** (see Immortal Core below). Afterwards, **Advance a Combat Core** binds free AP into a Core: **100 AP, less that Core's progress**, with no cooldown. Free AP is total AP minus the AP already bound. A quarterly auto-advance toggle binds new AP into your last-advanced Core.
+- **Immortal Core Advancement** (decision): the breakthrough that seizes control of the chi absorbed from the world. It requires first learning the **Immortal Core Method** (see Immortal Core below). Afterwards, each **Advance a Combat Core** binds free AP into a Core and forms a new **Immortal Core**: **100 AP, less that Core's progress**, with no cooldown. Free AP is total AP minus the AP already bound. A quarterly auto-advance toggle binds new AP into your last-advanced Core.
 - **Progress** comes from using a Core:
   - Battles: Power and Fortitude, for commanders and knights.
   - Hunts: Agility.
@@ -191,6 +191,8 @@ When a character becomes a Cultivator, or turns 16 as one, they choose **one of 
   - **From your sect:** **Study the Sect's Immortal Core Method** (100 sect contribution) is open to Upper Disciples and Sect Masters whose Sect Master knows it. Lower Disciples never see it.
   - **Through genius:** a character with the Genius trait or Heavenly Talent can **Comprehend Immortal Core Advancement** alone: 100 piety, once a year, a Learning check of 3% per point + 10% (+15% for Genius), between 5% and 90%.
 - **Immortal Core Advancement** (decision): requires the method and the same prerequisites; costs 150 piety, once per year. It's a Learning + Martial check with a 5–75% chance.
+- **Immortal Cores:** after the breakthrough, every Advancement forms another Immortal Core. A cultivator holds up to 8 Mortal Cores and up to 72 Immortal Cores, limited by each Core's 20-rating cap; powerful masters hold dozens. The **Immortal Cores** trait shows both counts and a track: every 8 Immortal Cores add +1 prowess and +0.1 monthly prestige, and 8, 24, 40, 56 and 72 also add +0.15 health and 3 years of life expectancy.
+- **Seeded and historical characters:** every Core dot beyond the eighth counts as an Immortal Core, and holding one grants the ability. Upper Disciples hold 16–32, Sect Masters 40–56, and Grandmasters and Exalts 60–72.
 - Each failure adds **+5% Insight** to the next attempt, and high Foundation tiers add more.
 - Success unlocks **binding Aura Pressure into Cores** (Advance a Combat Core), and grants **+20 life expectancy and +0.5 health**, plus **60 total cultivation XP per quarter**, divided equally between the three cultivation lifestyles, whatever your current focus.
 

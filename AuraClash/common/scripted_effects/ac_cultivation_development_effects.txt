@@ -49,6 +49,7 @@ ac_develop_upper_effect = {
 		1 = { ac_ensure_foundation_floor_effect = { XP = 60 } }
 		1 = { ac_ensure_foundation_floor_effect = { XP = 70 } }
 	}
+	ac_resync_aura_effect = yes
 	ac_update_visual_age_effect = yes
 }
 ac_develop_master_effect = {
@@ -87,6 +88,7 @@ ac_develop_master_effect = {
 		1 = { ac_ensure_foundation_floor_effect = { XP = 95 } }
 	}
 	add_trait = ac_immortal_core
+	ac_resync_aura_effect = yes
 	ac_update_visual_age_effect = yes
 }
 ac_develop_grandmaster_effect = {
@@ -119,6 +121,7 @@ ac_develop_grandmaster_effect = {
 		1 = { ac_ensure_foundation_floor_effect = { XP = 100 } }
 	}
 	add_trait = ac_immortal_core
+	ac_resync_aura_effect = yes
 	ac_update_visual_age_effect = yes
 }
 # Rank changes grant a baseline once; stronger progress is never reduced.

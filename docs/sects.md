@@ -14,10 +14,10 @@ The geographic policy is isolated in `ac_sect_kingdom_eligible_trigger` and the 
 
 Upper Disciples and Masters have actual Combat Core and Foundation XP appropriate to their position:
 
-| Rank | Dots in each of the four Cores | Foundation | Immortal Core |
+| Rank | Dots in each of the four Cores | Foundation | Immortal Cores |
 |---|---|---|---|
-| Upper Disciple | 6–10 | Jade (50, 60 or 70 XP) | Existing advancement retained |
-| Sect Master | 12–16 | Golden (75, 85 or 95 XP) | Granted |
+| Upper Disciple | 6–10 | Jade (50, 60 or 70 XP) | 16–32 |
+| Sect Master | 12–16 | Golden (75, 85 or 95 XP) | 40–56 |
 
 Each Core is rolled independently. One dot is five track XP. These are minimum baselines, not caps: stronger characters keep their development, existing Foundations, styles and elements. Promotion, succession, voluntary handover and successful leadership petitions apply the appropriate baseline once. Returning to an earlier rank cannot reroll it for more XP. Normal training can continue afterward. Generated Lower Disciples retain their existing introductory training.
 
@@ -33,7 +33,7 @@ One independent cultivator is initially generated per eligible populated de-jure
 | Roaming Master | 30% | 12–16 | Golden |
 | Roaming Grandmaster | 10% | 17–20 | Heavenly |
 
-Master and Grandmaster profiles have an Immortal Core. Grandmasters exceed the initial development of ordinary Sect Masters while retaining the existing 20-dot Core and 100-XP Foundation caps.
+Every Core dot beyond eight Mortal Cores is an Immortal Core, so all three profiles hold Immortal Cores: Grandmasters 60–72. Grandmasters exceed the initial development of ordinary Sect Masters while retaining the existing 20-dot Core and 100-XP Foundation caps.
 
 Find them through the character finder using the Roaming Master trait. They use native wanderer pools and can visit courts as guests or be recruited through normal interactions. A qualifying friendship, partnership, guardianship or hook permits **Request Cultivation Training** on the individual; their roaming status alone does not bypass the awakening rules.
 

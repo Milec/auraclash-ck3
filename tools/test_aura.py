@@ -84,6 +84,19 @@ class AuraTests(unittest.TestCase):
         self.assertIn('trigger_event = ac_cult.0005', block(decisions, 'ac_advance_core_decision'))
         self.assertIn('gold >= ac_shard_cycle_cost', block(decisions, 'ac_cycle_shards_decision'))
 
+    def test_each_advancement_forms_an_immortal_core(self):
+        effect = block(self.effects, 'ac_advance_core_effect')
+        self.assertIn('change_variable = { name = ac_immortal_cores add = 1 }', effect)
+        self.assertIn('track = ac_immortal_cores value = 1', effect)
+        traits = read('common/traits/ac_cultivation_traits.txt')
+        track = block(block(block(traits, 'ac_immortal_core'), 'tracks'), 'ac_immortal_cores')
+        self.assertIn('72 = {', track)
+        sync = block(self.effects, 'ac_sync_immortal_cores_effect')
+        self.assertIn('ac_core_dots > ac_mortal_core_peak', sync)
+        self.assertIn('subtract = ac_mortal_core_peak', sync)
+        development = read('common/scripted_effects/ac_cultivation_development_effects.txt')
+        self.assertEqual(development.count('ac_resync_aura_effect = yes'), 3)
+
     def test_progress_sources_are_hooked(self):
         actions = read('common/on_action/ac_cultivation_on_actions.txt')
         self.assertIn('ac_battle_core_progress_effect', actions)

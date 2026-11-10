@@ -981,11 +981,33 @@ ac_preserved_youth = {
 	shown_in_encyclopedia = no
 }
 
+# The ability to bind Aura Pressure into Cores. The track counts Immortal Cores:
+# one per Immortal Core Advancement. Masters hold dozens.
 ac_immortal_core = {
 	icon = ac_immortal_core.dds
 	life_expectancy = 20
 	health = 0.5
 	shown_in_ruler_designer = no
+	desc = {
+		first_valid = {
+			triggered_desc = { trigger = { NOT = { exists = this } } desc = trait_ac_immortal_core_generic_desc }
+			desc = trait_ac_immortal_core_desc
+		}
+	}
+	tracks = {
+		ac_immortal_cores = {
+			1 = { prowess = 1 monthly_prestige = 0.1 }
+			8 = { prowess = 1 monthly_prestige = 0.1 health = 0.15 life_expectancy = 3 }
+			16 = { prowess = 1 monthly_prestige = 0.1 }
+			24 = { prowess = 1 monthly_prestige = 0.1 health = 0.15 life_expectancy = 3 }
+			32 = { prowess = 1 monthly_prestige = 0.1 }
+			40 = { prowess = 1 monthly_prestige = 0.1 health = 0.15 life_expectancy = 3 }
+			48 = { prowess = 1 monthly_prestige = 0.1 }
+			56 = { prowess = 1 monthly_prestige = 0.1 health = 0.15 life_expectancy = 3 }
+			64 = { prowess = 1 monthly_prestige = 0.1 }
+			72 = { prowess = 1 monthly_prestige = 0.1 health = 0.15 life_expectancy = 3 }
+		}
+	}
 }
 
 ac_style_akakiru = {

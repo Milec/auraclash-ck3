@@ -29,7 +29,7 @@ def fixture():
         check(f'scope:ac_test_student = {{ ac_mortal_limit_base = {limit} ac_mortal_limit = {limit} ac_potential_talent_xp_factor = {1+xp} has_trait_xp = {{ trait = ac_potential track = ac_potential_limit value = {threshold} }} has_trait_xp = {{ trait = ac_potential track = ac_potential_talent value = {threshold} }} }}')
     S = 'scope:ac_test_student = { '
     reset = ' '.join(f'add_trait_xp = {{ trait = ac_cultivator track = ac_core_{c} value = -100 }}' for c in ('soul','agility','power','fortitude'))
-    clear = ' '.join(f'remove_variable = {v}' for v in ('ac_aura_pressure', 'ac_allocated_ap', 'ac_core_soul_progress', 'ac_core_agility_progress', 'ac_core_soul_spent'))
+    clear = ' '.join(f'remove_variable = {v}' for v in ('ac_aura_pressure', 'ac_allocated_ap', 'ac_immortal_cores', 'ac_core_soul_progress', 'ac_core_agility_progress', 'ac_core_soul_spent'))
     # Earthly I limit (1,500 AP) and a 1.5x Talent keep every expected gain an integer.
     effect(S + 'set_variable = { name = ac_potential_limit_gene value = 4 } set_variable = { name = ac_potential_talent_gene value = 6 } ac_reveal_potential_effect = yes ' + reset + ' ' + clear + ' remove_trait = ac_immortal_core remove_trait = ac_immortal_method remove_trait = intellect_good_3 add_trait = ac_foundation_dragon remove_character_flag = ac_core_training_cooldown add_trait_xp = { trait = ac_cultivator track = ac_core_soul value = 35 } ac_init_aura_effect = yes }')
     check(S + 'ac_core_soul_rating = 7 ac_aura_pressure_value = 700 ac_allocated_ap_value = 700 ac_free_ap = 0 ac_mortal_limit = 1500 }')
@@ -49,9 +49,9 @@ def fixture():
     effect(S + 'ac_advance_core_effect = { CORE = soul } }')
     check(S + 'ac_core_soul_rating = 8 ac_allocated_ap_value = 700 NOT = { ac_can_advance_core_trigger = { CORE = soul } } }')
     effect(S + 'add_trait = ac_immortal_core ac_advance_core_effect = { CORE = soul } }')
-    check(S + 'ac_core_soul_rating = 9 ac_allocated_ap_value = 790 ac_core_soul_progress = 0 ac_free_ap = 210 }')
+    check(S + 'ac_core_soul_rating = 9 ac_allocated_ap_value = 790 ac_core_soul_progress = 0 ac_free_ap = 210 ac_immortal_core_count = 1 ac_mortal_core_count = 8 has_trait_xp = { trait = ac_immortal_core track = ac_immortal_cores value = 1 } }')
     effect(S + 'ac_advance_core_effect = { CORE = soul } }')
-    check(S + 'ac_core_soul_rating = 10 ac_allocated_ap_value = 890 ac_free_ap = 110 }')
+    check(S + 'ac_core_soul_rating = 10 ac_allocated_ap_value = 890 ac_free_ap = 110 ac_immortal_core_count = 2 }')
     # Mortal Limit: halved above 1,500 AP, quartered above 2,250 AP.
     effect(S + 'set_variable = { name = ac_aura_pressure value = 1600 } ac_gain_aura_pressure_effect = { AP = 20 } }')
     check(S + 'ac_aura_pressure_value = 1615 }')
@@ -67,7 +67,12 @@ def fixture():
     check(S + 'ac_core_soul_available = 10 }')
     # Auto-advance binds 139 free AP: 90 (progress 10), leaving 49.
     effect(S + 'add_character_flag = ac_core_advance_auto set_variable = { name = ac_core_last_advanced value = flag:soul } ac_core_auto_advance_effect = yes }')
-    check(S + 'ac_core_soul_rating = 11 ac_allocated_ap_value = 980 ac_free_ap = 49 }')
+    check(S + 'ac_core_soul_rating = 11 ac_allocated_ap_value = 980 ac_free_ap = 49 ac_immortal_core_count = 3 }')
+    # Seeded masters hold dozens of Immortal Cores: every Core beyond the eighth.
+    effect('create_character = { age = 60 gender = male random_traits = no culture = root.culture faith = root.faith employer = root trait = ac_cultivator save_scope_as = ac_test_sect_master } scope:ac_test_sect_master = { ac_develop_master_effect = yes }')
+    check('scope:ac_test_sect_master = { has_trait = ac_immortal_core ac_core_dots >= 48 ac_immortal_core_count >= 40 ac_mortal_core_count = 8 ac_aura_pressure_value = { value = ac_core_dots multiply = 100 } ac_free_ap = 0 has_trait_xp = { trait = ac_immortal_core track = ac_immortal_cores value >= 40 } }')
+    effect('create_character = { age = 30 gender = female random_traits = no culture = root.culture faith = root.faith employer = root trait = ac_cultivator save_scope_as = ac_test_upper } scope:ac_test_upper = { ac_develop_upper_effect = yes }')
+    check('scope:ac_test_upper = { has_trait = ac_immortal_core ac_immortal_core_count >= 16 ac_immortal_core_count <= 32 }')
     # Cultivation XP also raises AP: 300 XP / 5 x Talent 2.5 = 150 (below the limit).
     effect(S + 'remove_character_flag = ac_core_advance_auto set_variable = { name = ac_potential_talent_gene value = 9 } ac_reveal_potential_effect = yes ac_gain_cultivation_study_xp_effect = { XP = 300 } }')
     check(S + 'ac_cultivation_lifestyle_xp = 250 ac_martial_styles_lifestyle_xp = 250 ac_elements_lifestyle_xp = 250 ac_aura_pressure_value = 1179 }')

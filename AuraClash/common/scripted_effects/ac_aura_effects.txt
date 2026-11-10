@@ -8,6 +8,41 @@ ac_init_aura_effect = {
 		set_variable = { name = ac_aura_pressure value = { value = ac_core_dots multiply = ac_ap_per_core_dot } }
 		set_variable = { name = ac_allocated_ap value = var:ac_aura_pressure }
 	}
+	ac_sync_immortal_cores_effect = yes
+}
+
+# Cores beyond eight Mortal Cores can only be Immortal Cores: whoever holds them has the
+# ability. Legacy, seeded and historical characters are counted once.
+ac_sync_immortal_cores_effect = {
+	if = {
+		limit = { has_trait = ac_cultivator ac_core_dots > ac_mortal_core_peak }
+		if = {
+			limit = { NOT = { has_trait = ac_immortal_core } }
+			add_trait = ac_immortal_core
+			remove_trait = ac_immortal_method
+		}
+		if = {
+			limit = { NOT = { has_variable = ac_immortal_cores } }
+			set_variable = { name = ac_immortal_cores value = { value = ac_core_dots subtract = ac_mortal_core_peak } }
+			ac_refresh_immortal_core_track_effect = yes
+		}
+	}
+}
+
+ac_refresh_immortal_core_track_effect = {
+	if = {
+		limit = { has_trait = ac_immortal_core }
+		add_trait_xp = { trait = ac_immortal_core track = ac_immortal_cores value = -100 }
+		add_trait_xp = { trait = ac_immortal_core track = ac_immortal_cores value = ac_immortal_core_count }
+	}
+}
+
+# Recount after a character is developed to a rank (sect, roaming master, history).
+ac_resync_aura_effect = {
+	remove_variable = ac_aura_pressure
+	remove_variable = ac_allocated_ap
+	remove_variable = ac_immortal_cores
+	ac_init_aura_effect = yes
 }
 
 # $AP$ before Talent and the Mortal Limit.
@@ -82,7 +117,7 @@ ac_mortal_core_train_effect = {
 	}
 }
 
-# Immortal Core Advancement: bind (100 - progress) free Aura Pressure into one Core.
+# Immortal Core Advancement: bind (100 - progress) free Aura Pressure into one Core, forming an Immortal Core.
 ac_advance_core_effect = {
 	if = {
 		limit = { ac_can_advance_core_trigger = { CORE = $CORE$ } }
@@ -97,6 +132,13 @@ ac_advance_core_effect = {
 		}
 		add_trait_xp = { trait = ac_cultivator track = ac_core_$CORE$ value = 5 }
 		set_variable = { name = ac_core_last_advanced value = flag:$CORE$ }
+		# Each Advancement forms a new Immortal Core.
+		if = {
+			limit = { NOT = { has_variable = ac_immortal_cores } }
+			set_variable = { name = ac_immortal_cores value = 0 }
+		}
+		change_variable = { name = ac_immortal_cores add = 1 }
+		add_trait_xp = { trait = ac_immortal_core track = ac_immortal_cores value = 1 }
 	}
 }
 

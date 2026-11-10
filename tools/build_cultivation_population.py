@@ -37,7 +37,8 @@ ac_ensure_foundation_floor_effect = {
         lines.append('}')
         if profile != 'upper':
             lines.append('add_trait = ac_immortal_core')
-        lines += ['ac_update_visual_age_effect = yes', '}']
+        # Recount Aura Pressure and Immortal Cores for the developed rank.
+        lines += ['ac_resync_aura_effect = yes', 'ac_update_visual_age_effect = yes', '}']
         development.append('\n'.join(lines))
     development.append('''# Rank changes grant a baseline once; stronger progress is never reduced.
 ac_sect_develop_rank_effect = {
