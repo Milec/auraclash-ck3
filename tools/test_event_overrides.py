@@ -8,6 +8,9 @@ import re
 import unittest
 
 import build_event_overrides as builder
+
+if not builder.GAME_AVAILABLE:
+    raise unittest.SkipTest('CK3 game files not found; set CK3_GAME_ROOT to run these checks')
 from event_option_specs import LOCALIZATION, SPECS
 from event_activity_specs import SETUP_CHANGES, OPTION_CHANGES
 

@@ -79,9 +79,10 @@ class SectContentTests(unittest.TestCase):
         self.assertNotIn('give_noble_family_title', source)
         definitions = (MOD / 'common/domiciles/buildings/ac_sect_domicile_buildings.txt').read_text(encoding='utf-8-sig')
         self.assertEqual(len(re.findall(r'^ac_sect_\w+_0[123] =', definitions, re.M)), 18)
-        game = Path('C:/Program Files (x86)/Steam/steamapps/common/Crusader Kings III/game')
+        from build_event_overrides import DEFAULT_GAME as game, GAME_AVAILABLE
         for asset in re.findall(r'"(gfx/[^"\n]+)"', definitions):
-            self.assertTrue((game / asset).exists() or (MOD / asset).exists(), asset)
+            if GAME_AVAILABLE or (MOD / asset).exists():
+                self.assertTrue((game / asset).exists() or (MOD / asset).exists(), asset)
 
     def test_sect_landscape_reproduces(self):
         import build_sect_landscape

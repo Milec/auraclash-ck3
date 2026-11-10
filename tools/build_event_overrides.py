@@ -11,10 +11,13 @@ from functools import lru_cache
 import hashlib
 import json
 from pathlib import Path
+import os
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_GAME = Path(r'C:\Program Files (x86)\Steam\steamapps\common\Crusader Kings III\game')
+DEFAULT_GAME = Path(os.environ.get('CK3_GAME_ROOT') or r'C:\Program Files (x86)\Steam\steamapps\common\Crusader Kings III\game')
+# Generation and source-comparison checks need an installed copy of the game.
+GAME_AVAILABLE = (DEFAULT_GAME / 'events').is_dir()
 
 
 def masked(text: str) -> str:
