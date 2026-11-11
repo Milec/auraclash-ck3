@@ -8,6 +8,7 @@ ac_init_aura_effect = {
 		set_variable = { name = ac_aura_pressure value = { value = ac_core_dots multiply = ac_ap_per_core_dot } }
 		set_variable = { name = ac_allocated_ap value = var:ac_aura_pressure }
 	}
+	if = { limit = { has_trait = ac_cultivator } ac_init_conduct_effect = yes }
 	ac_sync_immortal_cores_effect = yes
 }
 

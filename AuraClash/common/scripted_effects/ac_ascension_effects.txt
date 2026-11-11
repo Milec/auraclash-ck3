@@ -112,6 +112,7 @@ ac_favor_impress_effect = {
 	ac_favor_change_effect = { LAND = $LAND$ AMOUNT = 1 }
 	set_variable = { name = ac_trial_impressed value = flag:$LAND$ }
 	custom_tooltip = ac_favor_$LAND$_up_tt
+	ac_conduct_from_land_$LAND$_effect = yes
 }
 
 ac_favor_offend_effect = {

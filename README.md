@@ -78,6 +78,16 @@ Use **Decisions → Cultivation → Consult the Sect Register** for membership, 
 
 The estate is a native CK3 domicile attached to a separate landless Sect Master title, with an original Chinese-inspired landscape and six building chains. It passes with sect leadership while rulers keep their lands, government and personal estate. The sect register opens illustrated building plots and sect-aware controls for the native construction queue; the vanilla editor assumes a ruler's personal domicile. Sect battles resolve as group clashes; they do not use ordinary single combat or conquer territory.
 
+### Honor and Ruthless
+As in Aura Clash, every cultivator has **Honor** and **Ruthless**, two 0–100 scales that start at 50.
+- **Starting values** are seeded once from personality: honest, just and brave raise Honor; deceitful, arbitrary and craven lower it; callous, sadistic, wrathful and vengeful raise Ruthless; compassionate and forgiving lower it.
+- **In the Trials**, impressing a land moves them the way that land judges: Bladed honour +2 Honor, Sacred compassion −2 Ruthless, Wild strength +2 Ruthless, Cursed practicality −1 Honor.
+- **Style harmony:** following the IF's style synergies, conduct in harmony with your path speeds Aura Pressure gains.
+  - +10% for each Style in harmony: Akakiru with Honor ≥ 70, Aoyusumu with Ruthless ≤ 30, Kurokonton with Intrigue ≥ 15, Kiihakai with Learning ≥ 15, Midorikatai with prowess ≥ 20.
+  - +5% for each Element in harmony: Light with Ruthless ≤ 35, Fire with Ruthless ≥ 75.
+
+The Mortal Core Training menu shows both values.
+
 ### Techniques, Focus and the Chi Pool
 This follows the Aura Clash game's technique menu.
 - **Techniques** are typed by Core: Power, Fortitude, Agility or Soul. A cultivator can know up to **25**. The mod includes 34 of the IF's Techniques with their original names and effects, such as Cleave, Hidden Dragon, Spiritwell, Palm of Endless Beating, Sacred Armor, Iaijutsu, Wavewalking, Zen Focus, Prayer Talisman and Tenebrous Rift. Some require a Style or Element, for example Inferno (Fire), Iaijutsu (Akakiru) and Combat Seals (Kiihakai).

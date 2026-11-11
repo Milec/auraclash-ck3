@@ -134,6 +134,7 @@ ac_mortal_limit = { value = ac_mortal_limit_base add = ac_mortal_limit_region_bo
 # Talent speeds growth; the Mortal Limit throttles it (halved above, quartered above 1.5x).
 ac_ap_gain_multiplier = {
 	value = ac_potential_talent_xp_factor
+	add = ac_conduct_ap_harmony
 	if = {
 		limit = { ac_aura_pressure_value >= { value = ac_mortal_limit multiply = 1.5 } }
 		multiply = 0.25
