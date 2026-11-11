@@ -48,6 +48,5 @@ ac_request_immortal_method_interaction = {
 		}
 	}
 
-	ai_frequency = 0
 	ai_will_do = { base = 100 }
 }

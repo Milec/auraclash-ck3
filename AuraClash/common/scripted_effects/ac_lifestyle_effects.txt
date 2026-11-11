@@ -7,7 +7,9 @@ ac_gain_cultivation_study_xp_effect = {
   add_ac_martial_styles_lifestyle_xp = { value = $XP$ multiply = ac_potential_talent_xp_factor divide = 3 }
   add_ac_elements_lifestyle_xp = { value = $XP$ multiply = ac_potential_talent_xp_factor divide = 3 }
   # Insight from the same experience also raises Aura Pressure (one fifth of the base XP).
-  ac_gain_aura_pressure_effect = { AP = { value = $XP$ divide = 5 } }
+  # Scripted-effect arguments cannot be inline math blocks, so compute the gain first.
+  save_temporary_scope_value_as = { name = ac_study_ap value = { value = $XP$ divide = 5 } }
+  ac_gain_aura_pressure_effect = { AP = scope:ac_study_ap }
  }
 }
 

@@ -42,13 +42,14 @@ ac_challenge_duel_interaction = {
 		scope:recipient = { add_prestige = -25 }
 	}
 
-	ai_targets = { ai_recipients = rivals }
+	# scripted_relations covers rivals; the AI only challenges an actual rival.
+	ai_targets = { ai_recipients = scripted_relations }
 	ai_frequency = 24
 	ai_potential = { has_trait = ac_cultivator NOT = { has_trait = craven } }
 	ai_will_do = {
 		base = 0
-		modifier = { add = 15 has_trait = wrathful }
-		modifier = { add = 15 has_trait = brave }
 		modifier = { add = 10 has_relation_rival = scope:recipient }
+		modifier = { add = 15 has_trait = wrathful has_relation_rival = scope:recipient }
+		modifier = { add = 15 has_trait = brave has_relation_rival = scope:recipient }
 	}
 }

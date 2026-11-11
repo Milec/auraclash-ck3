@@ -69,8 +69,8 @@ def fixture():
     effect(S + 'add_character_flag = ac_core_advance_auto set_variable = { name = ac_core_last_advanced value = flag:soul } ac_core_auto_advance_effect = yes }')
     check(S + 'ac_core_soul_rating = 11 ac_allocated_ap_value = 980 ac_free_ap = 49 ac_immortal_core_count = 3 }')
     # Seeded masters hold dozens of Immortal Cores: every Core beyond the eighth.
-    effect('create_character = { age = 60 gender = male random_traits = no culture = root.culture faith = root.faith employer = root trait = ac_cultivator save_scope_as = ac_test_sect_master } scope:ac_test_sect_master = { ac_develop_master_effect = yes }')
-    check('scope:ac_test_sect_master = { has_trait = ac_immortal_core ac_core_dots >= 48 ac_immortal_core_count >= 40 ac_mortal_core_count = 8 ac_aura_pressure_value = { value = ac_core_dots multiply = 100 } ac_free_ap = 0 has_trait_xp = { trait = ac_immortal_core track = ac_immortal_cores value >= 40 } }')
+    effect('create_character = { age = 60 gender = male random_traits = no culture = root.culture faith = root.faith employer = root trait = ac_cultivator save_scope_as = ac_test_sect_master } scope:ac_test_sect_master = { ac_develop_master_effect = yes set_variable = { name = ac_test_expected_ap value = { value = ac_core_dots multiply = 100 } } }')
+    check('scope:ac_test_sect_master = { has_trait = ac_immortal_core ac_core_dots >= 48 ac_immortal_core_count >= 40 ac_mortal_core_count = 8 ac_aura_pressure_value = var:ac_test_expected_ap ac_free_ap = 0 has_trait_xp = { trait = ac_immortal_core track = ac_immortal_cores value >= 40 } }')
     effect('create_character = { age = 30 gender = female random_traits = no culture = root.culture faith = root.faith employer = root trait = ac_cultivator save_scope_as = ac_test_upper } scope:ac_test_upper = { ac_develop_upper_effect = yes }')
     check('scope:ac_test_upper = { has_trait = ac_immortal_core ac_immortal_core_count >= 16 ac_immortal_core_count <= 32 }')
     # Techniques: learning grants passives, one Focus slot per Core, Chi pays for exertion.
@@ -80,8 +80,8 @@ def fixture():
     check(S + 'ac_core_power_surge_value = 3 }')
     effect(S + 'ac_focus_tech_spiritwell_effect = yes }')
     check(S + 'var:ac_focus_power = flag:spiritwell ac_core_power_surge_value = 3 }')
-    effect(S + 'ac_restore_cores_effect = yes set_variable = { name = ac_test_chi value = ac_chi_available } ac_event_exertion_effect = yes }')
-    check(S + 'ac_chi_available = { value = var:ac_test_chi subtract = 1 } NOT = { has_character_modifier = ac_event_chi_exertion_modifier } }')
+    effect(S + 'ac_restore_cores_effect = yes set_variable = { name = ac_test_chi value = { value = ac_chi_available subtract = 1 } } ac_event_exertion_effect = yes }')
+    check(S + 'ac_chi_available = var:ac_test_chi NOT = { has_character_modifier = ac_event_chi_exertion_modifier } }')
     effect(S + 'ac_restore_cores_effect = yes }')
 
     effect(S + 'remove_character_flag = ac_core_advance_auto set_variable = { name = ac_potential_talent_gene value = 9 } ac_reveal_potential_effect = yes ac_gain_cultivation_study_xp_effect = { XP = 300 } }')
@@ -105,7 +105,7 @@ def fixture():
 
 def main():
     source = fixture()
-    (ROOT / 'AuraClash/tests/ac_potential_tests.txt').write_text(source+'\n',encoding='utf-8-sig')
+    (ROOT / 'AuraClash/tests/ac_potential_tests.txt').write_text(source+'\n',encoding='utf-8-sig',newline='\n')
     checks = test_body('potential',source.replace('root.', 'scope:ac_potential_test_host.')).replace('title:k_england','scope:ac_potential_test_host')
     lifestyle = (ROOT/'AuraClash/tests/ac_lifestyle_tests.txt').read_text(encoding='utf-8-sig')
     checks += '\nsave_scope_as = ac_lifestyle_host\n' + test_body('potential_lifestyle_regression',lifestyle.replace('root.', 'scope:ac_lifestyle_host.')).replace('title:k_england','scope:ac_lifestyle_host')

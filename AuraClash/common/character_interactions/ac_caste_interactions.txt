@@ -30,6 +30,5 @@ ac_elevate_warrior_caste_interaction = {
 			add_opinion = { target = scope:actor modifier = grateful_opinion opinion = 30 }
 		}
 	}
-	ai_frequency = 0
 	ai_will_do = { base = 0 }
 }
