@@ -407,7 +407,7 @@ All script keys use the `ac_` prefix to avoid clashing with vanilla or other mod
 ---
 
 ## Imperial Rasen overhaul (in development)
-The mod is becoming a full overhaul set in Imperial Rasen, the spiral continent of Aura Clash. `tools/build_rasen_map.py` generates the map geometry (1,157 land provinces across the five Inner Kingdoms, Azuma Honsha and the four Outer provinces), title hierarchy and regions into `RasenMap/` from the painted world map. It includes the Exalted Council (five Exalts voting on imperial decrees every three years, and sponsoring favourites in the Trials), the Ice Incursions of Outer North, and races and castes by culture. `RasenMap/` is **not loadable yet**. See the [overhaul plan](docs/overhaul.md) for the setting, design and remaining steps.
+The mod is becoming a full overhaul set in Imperial Rasen, the spiral continent of Aura Clash. `tools/build_rasen_map.py` generates the map geometry (1,157 land provinces across the five Inner Kingdoms, Azuma Honsha and the four Outer provinces), title hierarchy and regions into `RasenMap/` from the painted world map. It includes the Exalted Council (five Exalts voting on imperial decrees every three years, and sponsoring favourites in the Trials), the Ice Incursions of Outer North, and races and castes by culture. `RasenMap/` loads and plays in CK3 1.20.1: load it after `AuraClash/` and pick the Heavenly Ascension Trials bookmark (3000.3.1). See the [overhaul plan](docs/overhaul.md) for the setting, design and remaining steps.
 
 ## Roadmap
 - Lore-accurate refinements of the current perks, plus capstone traits

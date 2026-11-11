@@ -125,7 +125,25 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
 
 ## Loading
 
-`RasenMap/` is not yet a loadable mod: it still needs the step 2 map assets. Until then, keep using `AuraClash/` alone. Its `descriptor.mod` loads after `AuraClash`, overrides the `map_data` files it generates, and replaces `common/landed_titles`, the bookmarks, `common/dynasties` and `history/{characters,provinces,titles}`. Vanilla cultures and religions stay loaded but unused.
+`RasenMap/` loads and plays in CK3 1.20.1.2 (alone or with `AuraClash/`, which it should follow in the load order).
+
+### Verified in-game (CK3 1.20.1.2, all DLC)
+`python tools/prepare_rasen_checks.py` prepares a separate user directory that starts the 3000.3.1 bookmark directly as the Bladed Exalt (`-skip -bookmark=bm_rasen_trials -play=k_bladed`). On game start it runs 20 checks, all passing:
+- Each Inner Kingdom and Azuma Honsha has a ruler.
+- The Bladed Exalt's cultivation, Immortal Core, race, faith and culture; Keiko; the Divine General; the seeded Akuma Lords; holdings.
+- An Exalted Council decree, an AI-versus-AI Clash of Auras, and an Ice Incursion.
+- Three simulated years of the Council, Akuma Lords, Ice Incursion and Trials yearly effects.
+
+No crash, and no runtime errors from the mods' own scripts. The base mod's fixtures also pass on the vanilla 1066 start: cultivation (59/59) and awakening and sects (62/62).
+
+Not yet verified by a person: the player-facing UI (duel rounds, Council voting, bookmark screen) and long play. The remaining `error.log` lines are vanilla scripts naming Earth's counties, baronies, characters and houses.
+
+### Total-conversion lessons (CK3 1.20)
+- Do **not** `replace_path` `history/province_mapping`: without it the game crashes (null read) as soon as any province has a holding.
+- `adjacencies.csv` needs its `-1;-1;...` end line, or loading spins forever.
+- `replace_path` is not recursive (`history/titles/ce3` needs its own entry).
+- Keep every vanilla realm title (landless stubs) and geographical region (stubs), and patch vanilla files that name provinces beyond the map (`tools/build_rasen_vanilla_patches.py`). The Atlantis template (github.com/bombusfrigidus/Atlantis) does the same.
+- `root` inside a scripted effect is the calling event's root, not the scope that called the effect.
 
 ### Vanilla keys (verified against CK3 1.20.1)
 `python tools/verify_vanilla_keys.py` checks every vanilla key the two mods name against the installed game; `tools/test_vanilla_keys.py` runs it whenever `CK3_GAME_ROOT` is set. All 172 references resolve:
@@ -139,4 +157,4 @@ Two 1.20 changes needed fixes:
   - Bookmarks still use `religion =`.
 - **`tenet_monasticism` is gone.** Monasticism is now a doctrine group. The Devanic Temple takes `doctrine_monasticism_encouraged` and `tenet_inner_journey` instead.
 
-Still unverified until the first launch: `NGame.START_DATE`/`END_DATE` at year 3000, `winter_severity_bias`, and the `add_matrilineal_spouse` history keyword. Check `error.log`.
+The year-3000 start date, `winter_severity_bias` and `add_matrilineal_spouse` all load without errors in 1.20.1.
