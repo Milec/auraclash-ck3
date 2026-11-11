@@ -67,6 +67,7 @@ CATALOGUE = {
     'midnight_blade': ('Midnight Blade', 'soul', 'surge', ('ap', 15), ELEMENT('darkness'), 'Melee Energy-Physical Attack.'),
     'searing_light': ('Searing Light', 'soul', 'surge', ('ap', 15), ELEMENT('light'), 'Ranged Energy Attack.'),
     'tenebrous_rift': ('Tenebrous Rift', 'soul', 'core', None, ELEMENT('darkness'), 'Melee Energy Attack.'),
+    'fox_charm': ('Fox Charm', 'soul', 'surge', ('deception', 1), 'has_trait = ac_race_kitsune', 'Kitsune Technique. Charms and illusions of the fox.'),
     'daggerfalling_hailstorm': ('Daggerfalling Hailstorm', 'soul', 'core', ('insight', 1), None, 'Ranged Energy Attack.'),
 }
 # Innate: granted when a Core reaches rating 5 through training; +1 Surge value.

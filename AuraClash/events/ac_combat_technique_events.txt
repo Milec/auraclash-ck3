@@ -51,6 +51,7 @@ ac_tech.0001 = {
 			triggered_desc = { trigger = { var:ac_focus_soul ?= flag:midnight_blade } desc = ac_tech.0001.focused_soul_midnight_blade }
 			triggered_desc = { trigger = { var:ac_focus_soul ?= flag:searing_light } desc = ac_tech.0001.focused_soul_searing_light }
 			triggered_desc = { trigger = { var:ac_focus_soul ?= flag:tenebrous_rift } desc = ac_tech.0001.focused_soul_tenebrous_rift }
+			triggered_desc = { trigger = { var:ac_focus_soul ?= flag:fox_charm } desc = ac_tech.0001.focused_soul_fox_charm }
 			triggered_desc = { trigger = { var:ac_focus_soul ?= flag:daggerfalling_hailstorm } desc = ac_tech.0001.focused_soul_daggerfalling_hailstorm }
 			desc = ac_tech.0001.unfocused_soul
 		}
@@ -88,6 +89,7 @@ ac_tech.0001 = {
 		triggered_desc = { trigger = { has_character_flag = ac_tech_midnight_blade } desc = ac_tech.0001.known_midnight_blade }
 		triggered_desc = { trigger = { has_character_flag = ac_tech_searing_light } desc = ac_tech.0001.known_searing_light }
 		triggered_desc = { trigger = { has_character_flag = ac_tech_tenebrous_rift } desc = ac_tech.0001.known_tenebrous_rift }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_fox_charm } desc = ac_tech.0001.known_fox_charm }
 		triggered_desc = { trigger = { has_character_flag = ac_tech_daggerfalling_hailstorm } desc = ac_tech.0001.known_daggerfalling_hailstorm }
 		triggered_desc = { trigger = { has_character_flag = ac_tech_thunderfall } desc = ac_tech.0001.known_thunderfall }
 		triggered_desc = { trigger = { has_character_flag = ac_tech_iron_body } desc = ac_tech.0001.known_iron_body }
@@ -114,7 +116,7 @@ ac_tech.0001 = {
 	}
 	option = {
 		name = ac_tech.0001.soul
-		trigger = { OR = { has_character_flag = ac_tech_zen_focus has_character_flag = ac_tech_commanding_presence has_character_flag = ac_tech_prayer_talisman has_character_flag = ac_tech_poisonmaster has_character_flag = ac_tech_combat_seals has_character_flag = ac_tech_midnight_blade has_character_flag = ac_tech_searing_light has_character_flag = ac_tech_tenebrous_rift has_character_flag = ac_tech_daggerfalling_hailstorm } }
+		trigger = { OR = { has_character_flag = ac_tech_zen_focus has_character_flag = ac_tech_commanding_presence has_character_flag = ac_tech_prayer_talisman has_character_flag = ac_tech_poisonmaster has_character_flag = ac_tech_combat_seals has_character_flag = ac_tech_midnight_blade has_character_flag = ac_tech_searing_light has_character_flag = ac_tech_tenebrous_rift has_character_flag = ac_tech_fox_charm has_character_flag = ac_tech_daggerfalling_hailstorm } }
 		trigger_event = ac_tech.0014
 	}
 	option = { name = ac_tech.0001.leave }
@@ -386,6 +388,13 @@ ac_tech.0014 = {
 		trigger = { has_character_flag = ac_tech_tenebrous_rift NOT = { var:ac_focus_soul ?= flag:tenebrous_rift } }
 		custom_tooltip = ac_tech_tenebrous_rift_focus_tt
 		ac_focus_tech_tenebrous_rift_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_fox_charm
+		trigger = { has_character_flag = ac_tech_fox_charm NOT = { var:ac_focus_soul ?= flag:fox_charm } }
+		custom_tooltip = ac_tech_fox_charm_focus_tt
+		ac_focus_tech_fox_charm_effect = yes
 		hidden_effect = { trigger_event = ac_tech.0001 }
 	}
 	option = {

@@ -68,7 +68,7 @@
 		dynasty = dynasty_rasen_kiba
 		dynasty_splendor_level = 1
 		type = male
-		birth = 2945.5.8
+		birth = 2945.4.20
 		title = k_wild
 		government = feudal_government
 		culture = yokai
@@ -83,7 +83,7 @@
 		dynasty = dynasty_rasen_amatsu
 		dynasty_splendor_level = 1
 		type = female
-		birth = 2940.6.1
+		birth = 2940.9.18
 		title = k_azuma
 		government = feudal_government
 		culture = zenshin

@@ -266,6 +266,14 @@ ac_learn_tech_tenebrous_rift_effect = {
 		send_interface_toast = { type = event_toast_effect_good title = ac_tech_tenebrous_rift left_icon = this custom_tooltip = ac_tech_tenebrous_rift_desc }
 	}
 }
+ac_learn_tech_fox_charm_effect = {
+	if = {
+		limit = { NOT = { has_character_flag = ac_tech_fox_charm } }
+		add_character_flag = ac_tech_fox_charm
+		send_interface_toast = { type = event_toast_effect_good title = ac_tech_fox_charm left_icon = this custom_tooltip = ac_tech_fox_charm_desc }
+		add_character_modifier = ac_tech_fox_charm_modifier
+	}
+}
 ac_learn_tech_daggerfalling_hailstorm_effect = {
 	if = {
 		limit = { NOT = { has_character_flag = ac_tech_daggerfalling_hailstorm } }
@@ -431,6 +439,10 @@ ac_focus_tech_tenebrous_rift_effect = {
 	set_variable = { name = ac_focus_soul value = flag:tenebrous_rift }
 	add_character_modifier = ac_tech_tenebrous_rift_focus_modifier
 }
+ac_focus_tech_fox_charm_effect = {
+	ac_unfocus_soul_effect = yes
+	set_variable = { name = ac_focus_soul value = flag:fox_charm }
+}
 ac_focus_tech_daggerfalling_hailstorm_effect = {
 	ac_unfocus_soul_effect = yes
 	set_variable = { name = ac_focus_soul value = flag:daggerfalling_hailstorm }
@@ -472,6 +484,7 @@ ac_learn_random_technique_effect = {
 		10 = { trigger = { ac_can_learn_tech_midnight_blade_trigger = yes } modifier = { add = 10 ac_core_soul_rating >= 4 } modifier = { add = 20 has_trait = ac_element_darkness } ac_learn_tech_midnight_blade_effect = yes }
 		10 = { trigger = { ac_can_learn_tech_searing_light_trigger = yes } modifier = { add = 10 ac_core_soul_rating >= 4 } modifier = { add = 20 has_trait = ac_element_light } ac_learn_tech_searing_light_effect = yes }
 		10 = { trigger = { ac_can_learn_tech_tenebrous_rift_trigger = yes } modifier = { add = 10 ac_core_soul_rating >= 4 } modifier = { add = 20 has_trait = ac_element_darkness } ac_learn_tech_tenebrous_rift_effect = yes }
+		10 = { trigger = { ac_can_learn_tech_fox_charm_trigger = yes } modifier = { add = 10 ac_core_soul_rating >= 4 } modifier = { add = 20 has_trait = ac_race_kitsune } ac_learn_tech_fox_charm_effect = yes }
 		10 = { trigger = { ac_can_learn_tech_daggerfalling_hailstorm_trigger = yes } modifier = { add = 10 ac_core_soul_rating >= 4 } modifier = { add = 20 always = no } ac_learn_tech_daggerfalling_hailstorm_effect = yes }
 	}
 }
@@ -555,6 +568,7 @@ ac_ai_focus_techniques_effect = {
 		else_if = { limit = { has_character_flag = ac_tech_midnight_blade } ac_focus_tech_midnight_blade_effect = yes }
 		else_if = { limit = { has_character_flag = ac_tech_searing_light } ac_focus_tech_searing_light_effect = yes }
 		else_if = { limit = { has_character_flag = ac_tech_tenebrous_rift } ac_focus_tech_tenebrous_rift_effect = yes }
+		else_if = { limit = { has_character_flag = ac_tech_fox_charm } ac_focus_tech_fox_charm_effect = yes }
 		else_if = { limit = { has_character_flag = ac_tech_daggerfalling_hailstorm } ac_focus_tech_daggerfalling_hailstorm_effect = yes }
 	}
 }

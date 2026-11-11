@@ -182,3 +182,8 @@ dynasty_rasen_sanada = {
 	name = "dynasty_rasen_sanada"
 	culture = zenshin
 }
+
+dynasty_rasen_dou = {
+	name = "dynasty_rasen_dou"
+	culture = cathayan
+}

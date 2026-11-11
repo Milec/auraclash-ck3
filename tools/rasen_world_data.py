@@ -249,3 +249,7 @@ INNOVATIONS = ['innovation_motte', 'innovation_catapult', 'innovation_barracks',
 # Emperor of all ten Provinces; the Council calls him its northern steward. (Name generated.)
 DIVINE_GENERAL = dict(name='Theodoric', house='Wintermantle', culture='lunargoth', faith='shugendo', age=64,
                       traits=('brave', 'diligent'))
+
+# Race by culture (the IF's races). Yokai take one of the five lineages at random.
+CULTURE_RACE = {'zenshin': 'human', 'cathayan': 'human', 'lunargoth': 'lunargoth', 'oni': 'oni', 'kitsune': 'kitsune', 'yokai': 'yokai'}
+YOKAI_KINDS = ['yokai_cat', 'yokai_wolf', 'yokai_reptile', 'yokai_monkey', 'yokai_bovine']

@@ -1,0 +1,33 @@
+﻿# A child takes the race of one parent (the IF's hereditary races). Inert where nobody has a race.
+ac_inherit_race_effect = {
+	if = {
+		limit = { NOT = { ac_has_race_trigger = yes } }
+		random_list = {
+			50 = {
+				trigger = { exists = real_mother real_mother = { ac_has_race_trigger = yes } }
+				if = { limit = { real_mother = { has_trait = ac_race_human } } add_trait = ac_race_human }
+				else_if = { limit = { real_mother = { has_trait = ac_race_oni } } add_trait = ac_race_oni }
+				else_if = { limit = { real_mother = { has_trait = ac_race_lunargoth } } add_trait = ac_race_lunargoth }
+				else_if = { limit = { real_mother = { has_trait = ac_race_kitsune } } add_trait = ac_race_kitsune }
+				else_if = { limit = { real_mother = { has_trait = ac_race_yokai_cat } } add_trait = ac_race_yokai_cat }
+				else_if = { limit = { real_mother = { has_trait = ac_race_yokai_wolf } } add_trait = ac_race_yokai_wolf }
+				else_if = { limit = { real_mother = { has_trait = ac_race_yokai_reptile } } add_trait = ac_race_yokai_reptile }
+				else_if = { limit = { real_mother = { has_trait = ac_race_yokai_monkey } } add_trait = ac_race_yokai_monkey }
+				else_if = { limit = { real_mother = { has_trait = ac_race_yokai_bovine } } add_trait = ac_race_yokai_bovine }
+			}
+			50 = {
+				trigger = { exists = real_father real_father = { ac_has_race_trigger = yes } }
+				if = { limit = { real_father = { has_trait = ac_race_human } } add_trait = ac_race_human }
+				else_if = { limit = { real_father = { has_trait = ac_race_oni } } add_trait = ac_race_oni }
+				else_if = { limit = { real_father = { has_trait = ac_race_lunargoth } } add_trait = ac_race_lunargoth }
+				else_if = { limit = { real_father = { has_trait = ac_race_kitsune } } add_trait = ac_race_kitsune }
+				else_if = { limit = { real_father = { has_trait = ac_race_yokai_cat } } add_trait = ac_race_yokai_cat }
+				else_if = { limit = { real_father = { has_trait = ac_race_yokai_wolf } } add_trait = ac_race_yokai_wolf }
+				else_if = { limit = { real_father = { has_trait = ac_race_yokai_reptile } } add_trait = ac_race_yokai_reptile }
+				else_if = { limit = { real_father = { has_trait = ac_race_yokai_monkey } } add_trait = ac_race_yokai_monkey }
+				else_if = { limit = { real_father = { has_trait = ac_race_yokai_bovine } } add_trait = ac_race_yokai_bovine }
+			}
+		}
+	}
+}
+# Kitsune grow tails with power: one, plus one per eight Immortal Cores, up to nine.

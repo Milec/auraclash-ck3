@@ -187,5 +187,6 @@ ac_aura_yearly_pulse = {
 		ac_practice_core_progress_effect = { PROGRESS = 10 }
 		ac_grant_innate_techniques_effect = yes
 		remove_variable = ac_chi_spent
+		if = { limit = { has_trait = ac_race_kitsune } ac_learn_tech_fox_charm_effect = yes }
 	}
 }

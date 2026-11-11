@@ -78,6 +78,14 @@ Use **Decisions → Cultivation → Consult the Sect Register** for membership, 
 
 The estate is a native CK3 domicile attached to a separate landless Sect Master title, with an original Chinese-inspired landscape and six building chains. It passes with sect leadership while rulers keep their lands, government and personal estate. The sect register opens illustrated building plots and sect-aware controls for the native construction queue; the vanilla editor assumes a ruler's personal domicile. Sect battles resolve as group clashes; they do not use ordinary single combat or conquer territory.
 
+### Races
+The IF's races, each with its racial bonus. A character has exactly one race, inherited from a parent at birth. Races only appear where characters are given one, as in the Imperial Rasen overhaul, which assigns them by culture.
+- **Human:** Lore (+1 Learning). "The Human body is designed perfectly for cycling chi", so Aura Pressure gains +10%.
+- **Oni:** Deception (+1 Intrigue). They control banks and trade in the cities (+5% domain tax) but are distrusted in rural lands (−5 county opinion). Ice and Fire chi come naturally (+5% AP).
+- **Lunargoth:** Craft (+1 Stewardship); said to have come down from the Moon.
+- **Yokai:** five lineages from the IF: Cat, Wolf, Reptile, Monkey and Bovine, each with its own small bonus. Midorikatai comes naturally (+10% AP).
+- **Kitsune:** +2 Intrigue and +10 attraction opinion, but distrusted as trickster spirits (−5 general opinion). They know the **Fox Charm** Technique, and grow a tail per eight Immortal Cores, up to nine.
+
 ### Soul Treasures
 As in Aura Clash, a slain chi-saturated beast leaves a **Soul Treasure** holding its Aura Pressure.
 - **Hunt a Spirit Beast** (yearly decision): Sabretooth (600 AP), Quadrafang (900), Mawcharger (1,300), Shakengara (1,800), Drake (2,200) or Wyrm (3,000).

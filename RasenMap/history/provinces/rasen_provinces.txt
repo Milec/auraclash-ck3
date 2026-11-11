@@ -5765,127 +5765,127 @@
 }
 
 961 = {
-	culture = oni
+	culture = yokai
 	religion = wild_pacts
 	holding = castle_holding
 }
 
 964 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = castle_holding
 }
 
 965 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = city_holding
 }
 
 963 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = church_holding
 }
 
 967 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = none
 }
 
 968 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = castle_holding
 }
 
 972 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = city_holding
 }
 
 974 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = church_holding
 }
 
 970 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = none
 }
 
 973 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = castle_holding
 }
 
 969 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = city_holding
 }
 
 971 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = church_holding
 }
 
 989 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = none
 }
 
 966 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = castle_holding
 }
 
 986 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = city_holding
 }
 
 984 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = church_holding
 }
 
 985 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = none
 }
 
 990 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = castle_holding
 }
 
 987 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = city_holding
 }
 
 991 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = church_holding
 }
 
 988 = {
-	culture = yokai
+	culture = zenshin
 	religion = wild_pacts
 	holding = none
 }

@@ -116,6 +116,10 @@ ac_can_learn_tech_tenebrous_rift_trigger = {
 	NOT = { has_character_flag = ac_tech_tenebrous_rift }
 	has_trait = ac_element_darkness
 }
+ac_can_learn_tech_fox_charm_trigger = {
+	NOT = { has_character_flag = ac_tech_fox_charm }
+	has_trait = ac_race_kitsune
+}
 ac_can_learn_tech_daggerfalling_hailstorm_trigger = {
 	NOT = { has_character_flag = ac_tech_daggerfalling_hailstorm }
 }
@@ -162,6 +166,7 @@ ac_can_learn_any_technique_trigger = {
 			ac_can_learn_tech_midnight_blade_trigger = yes
 			ac_can_learn_tech_searing_light_trigger = yes
 			ac_can_learn_tech_tenebrous_rift_trigger = yes
+			ac_can_learn_tech_fox_charm_trigger = yes
 			ac_can_learn_tech_daggerfalling_hailstorm_trigger = yes
 		}
 	}

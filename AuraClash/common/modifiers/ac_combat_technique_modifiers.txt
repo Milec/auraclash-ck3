@@ -23,5 +23,6 @@ ac_tech_prayer_talisman_modifier = { icon = learning_positive monthly_lifestyle_
 ac_tech_poisonmaster_modifier = { icon = learning_positive monthly_lifestyle_xp_gain_mult = 0.03 }
 ac_tech_combat_seals_modifier = { icon = learning_positive monthly_lifestyle_xp_gain_mult = 0.03 }
 ac_tech_tenebrous_rift_focus_modifier = { icon = martial_positive learning = 1 }
+ac_tech_fox_charm_modifier = { icon = learning_positive intrigue = 1 }
 ac_tech_daggerfalling_hailstorm_modifier = { icon = learning_positive learning = 1 }
 ac_tech_daggerfalling_hailstorm_focus_modifier = { icon = martial_positive learning = 1 }
