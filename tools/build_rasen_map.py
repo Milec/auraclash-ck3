@@ -616,6 +616,11 @@ def map_object_locators(provinces, land_ids, water_ids):
         ids = sorted(land_ids) if land_only else sorted(points)
         lines = ['game_object_locator={', f'\tname="{name}"', '\trender_pass=Map', f'\tclamp_to_water_level={clamp}',
                  '\tgenerated_content=no', f'\tlayer="{layer}"', '\tinstances={']
+        if not land_only:
+            # Vanilla's army and combat locators also carry id 0 (no province); CK3 asks for it.
+            lines += ['		{', '			id=0', '			position={ 0.000000 0.000000 0.000000 }',
+                      '			rotation={ -0.000000 0.000000 -0.000000 1.000000 }',
+                      '			scale={ 1.000000 1.000000 1.000000 }', '		}']
         for pid in ids:
             row, col, depth = points[pid]
             reach = min(1.0, depth / 8)  # keep offsets inside small provinces

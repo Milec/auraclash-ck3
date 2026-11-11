@@ -31,8 +31,10 @@ class LocatorTests(unittest.TestCase):
             found = re.findall(r'id=(\d+)\s*position=\{ ([\d.]+) [\d.]+ ([\d.]+) \}', text)
             ids = [int(i) for i, _, _ in found]
             self.assertEqual(ids, sorted(set(ids)), filename)
-            self.assertEqual(len(ids), self.land if land_only else len(self.colour), filename)
+            self.assertEqual(len(ids), self.land if land_only else len(self.colour) + 1, filename)
             for pid, x, z in found:
+                if pid == '0':
+                    continue
                 pixel = self.key[h - 1 - int(float(z)), int(float(x))]
                 self.assertEqual(pixel, self.colour[int(pid)], f'{filename} id {pid}')
 
