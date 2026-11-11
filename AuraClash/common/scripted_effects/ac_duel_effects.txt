@@ -23,7 +23,29 @@ ac_duel_prepare_effect = {
 	set_variable = { name = ac_duel_vitality value = ac_duel_max_vitality }
 	remove_variable = ac_duel_move
 	remove_variable = ac_duel_log
+	remove_variable = ac_duel_technique
+	remove_variable = ac_duel_tech_used
 	remove_character_flag = ac_duel_surging
+	remove_character_flag = ac_duel_unleashing
+}
+
+# Fighter scope: commit to the first attack Technique known, fighting through its Core.
+ac_duel_unleash_effect = {
+	if = { limit = { has_character_flag = ac_tech_cleave } set_variable = { name = ac_duel_move value = flag:strike } set_variable = { name = ac_duel_technique value = flag:cleave } }
+	else_if = { limit = { has_character_flag = ac_tech_wrathful_fist } set_variable = { name = ac_duel_move value = flag:strike } set_variable = { name = ac_duel_technique value = flag:wrathful_fist } }
+	else_if = { limit = { has_character_flag = ac_tech_inferno } set_variable = { name = ac_duel_move value = flag:strike } set_variable = { name = ac_duel_technique value = flag:inferno } }
+	else_if = { limit = { has_character_flag = ac_tech_shockblast } set_variable = { name = ac_duel_move value = flag:strike } set_variable = { name = ac_duel_technique value = flag:shockblast } }
+	else_if = { limit = { has_character_flag = ac_tech_arctic_pillar } set_variable = { name = ac_duel_move value = flag:strike } set_variable = { name = ac_duel_technique value = flag:arctic_pillar } }
+	else_if = { limit = { has_character_flag = ac_tech_blade_barrier } set_variable = { name = ac_duel_move value = flag:guard } set_variable = { name = ac_duel_technique value = flag:blade_barrier } }
+	else_if = { limit = { has_character_flag = ac_tech_seismic_closing_palms } set_variable = { name = ac_duel_move value = flag:guard } set_variable = { name = ac_duel_technique value = flag:seismic_closing_palms } }
+	else_if = { limit = { has_character_flag = ac_tech_grand_skyfall } set_variable = { name = ac_duel_move value = flag:step } set_variable = { name = ac_duel_technique value = flag:grand_skyfall } }
+	else_if = { limit = { has_character_flag = ac_tech_imbued_bodyhammer } set_variable = { name = ac_duel_move value = flag:step } set_variable = { name = ac_duel_technique value = flag:imbued_bodyhammer } }
+	else_if = { limit = { has_character_flag = ac_tech_midnight_blade } set_variable = { name = ac_duel_move value = flag:blast } set_variable = { name = ac_duel_technique value = flag:midnight_blade } }
+	else_if = { limit = { has_character_flag = ac_tech_searing_light } set_variable = { name = ac_duel_move value = flag:blast } set_variable = { name = ac_duel_technique value = flag:searing_light } }
+	else_if = { limit = { has_character_flag = ac_tech_tenebrous_rift } set_variable = { name = ac_duel_move value = flag:blast } set_variable = { name = ac_duel_technique value = flag:tenebrous_rift } }
+	else_if = { limit = { has_character_flag = ac_tech_daggerfalling_hailstorm } set_variable = { name = ac_duel_move value = flag:blast } set_variable = { name = ac_duel_technique value = flag:daggerfalling_hailstorm } }
+	set_variable = ac_duel_tech_used
+	add_character_flag = ac_duel_unleashing
 }
 
 # Fighter scope: the AI picks a move, favouring its strongest Cores, and may surge.
@@ -49,11 +71,16 @@ ac_duel_ai_choose_effect = {
 	}
 	remove_character_flag = ac_duel_surging
 	random = { chance = 35 add_character_flag = ac_duel_surging }
+	if = { limit = { ac_duel_can_unleash_trigger = yes } random = { chance = 30 ac_duel_unleash_effect = yes } }
 }
 
 # Fighter scope: pay for the chosen move (Chi, and a Core charge when surging).
 ac_duel_pay_effect = {
-	if = { limit = { var:ac_duel_move = flag:blast ac_chi_available >= 1 } ac_spend_chi_effect = { CHI = 1 } }
+	if = { limit = { has_character_flag = ac_duel_unleashing } ac_spend_chi_effect = { CHI = 1 } }
+	else = {
+		remove_variable = ac_duel_technique
+		if = { limit = { var:ac_duel_move = flag:blast ac_chi_available >= 1 } ac_spend_chi_effect = { CHI = 1 } }
+	}
 	remove_variable = ac_duel_surged
 	if = { limit = { has_character_flag = ac_duel_surging var:ac_duel_move = flag:strike ac_core_power_available >= 1 }
 		ac_surge_core_effect = { CORE = power }
@@ -101,7 +128,8 @@ ac_duel_roll_effect = {
 		if = { limit = { has_variable = ac_duel_surged } change_variable = { name = ac_duel_roll add = ac_core_soul_surge_value } }
 		if = { limit = { var:ac_duel_foe = { var:ac_duel_move = flag:step } } change_variable = { name = ac_duel_roll add = 2 } }
 	}
-	if = { limit = { var:ac_duel_move = flag:blast } change_variable = { name = ac_duel_roll add = 1 } }
+	if = { limit = { var:ac_duel_move = flag:blast NOT = { has_character_flag = ac_duel_unleashing } } change_variable = { name = ac_duel_roll add = 1 } }
+	if = { limit = { has_character_flag = ac_duel_unleashing } change_variable = { name = ac_duel_roll add = 3 } }
 	var:ac_duel_foe = { save_temporary_scope_value_as = { name = ac_duel_foe_ap value = ac_aura_pressure_value } }
 	if = {
 		limit = { ac_aura_pressure_value > 0 ac_aura_pressure_value >= { value = scope:ac_duel_foe_ap multiply = 2 } }
@@ -129,6 +157,7 @@ ac_duel_hit_effect = {
 		set_variable = { name = ac_duel_dealt value = 1 }
 		if = { limit = { var:ac_duel_roll >= { value = scope:ac_duel_foe_roll add = 5 } } change_variable = { name = ac_duel_dealt add = 1 } }
 		if = { limit = { has_variable = ac_duel_surged } change_variable = { name = ac_duel_dealt add = 1 } }
+		if = { limit = { has_character_flag = ac_duel_unleashing } change_variable = { name = ac_duel_dealt add = 1 } }
 		if = { limit = { var:ac_duel_foe = { var:ac_duel_move = flag:guard } } change_variable = { name = ac_duel_dealt add = -1 } }
 		save_temporary_scope_value_as = { name = ac_duel_damage value = var:ac_duel_dealt }
 		var:ac_duel_foe = { change_variable = { name = ac_duel_vitality subtract = scope:ac_duel_damage } }
@@ -160,6 +189,8 @@ ac_duel_round_effect = {
 		var:ac_duel_foe = { set_variable = { name = ac_duel_dealt value = 0 } }
 		set_variable = { name = ac_duel_log value = flag:tied }
 	}
+	remove_character_flag = ac_duel_unleashing
+	var:ac_duel_foe = { remove_character_flag = ac_duel_unleashing }
 }
 
 # Root fighter scope.
@@ -218,6 +249,9 @@ ac_duel_cleanup_effect = {
 	remove_variable = ac_duel_log
 	remove_variable = ac_duel_lethal
 	remove_character_flag = ac_duel_surging
+	remove_variable = ac_duel_technique
+	remove_variable = ac_duel_tech_used
+	remove_character_flag = ac_duel_unleashing
 }
 
 # Player fighter scope: resolve the round, then continue or end the duel.

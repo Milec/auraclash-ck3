@@ -18,11 +18,15 @@ Rules:
   + 2 if the move counters the foe's + 2 for Aura Pressure suppression (at least
   double the foe's) + the Core's Surge value when surging (spends a charge).
 - The higher roll hits for 1, +1 on a margin of 5 or more, +1 when surged. Ties trade nothing.
+- Unleash a Technique: once per duel a fighter may use an attack Technique they know (the
+  IF's "[Cleave!! +rank Battle Prowess]"). It costs 1 Chi, fights through the Technique's
+  Core, adds +3 to the roll and hits 1 harder.
 - The loser is wounded, or killed in a duel to the death; the winner gains prestige.
 
 Writes into AuraClash/:
   common/script_values/ac_duel_values.txt
   common/scripted_effects/ac_duel_effects.txt
+  common/scripted_triggers/ac_duel_triggers.txt
   common/character_interactions/ac_duel_interactions.txt
   events/ac_duel_events.txt
   localization/english/ac_duel_l_english.yml
@@ -55,6 +59,10 @@ COUNTER_BONUS = 2
 AURA_BONUS = 2
 WIN_PRESTIGE = 100
 LETHAL_PRESTIGE = 250
+TECHNIQUE_BONUS = 3
+CORE_MOVE = {core: move for move, core, _, _ in MOVES}
+# Attack Techniques (the IF marks them "... Attack") in catalogue order: key -> (name, Core).
+ATTACKS = {key: (entry[0], entry[1]) for key, entry in CATALOGUE.items() if 'Attack' in entry[5]}
 
 
 def techniques_by_core():
@@ -107,7 +115,19 @@ def effects():
            '\tset_variable = { name = ac_duel_vitality value = ac_duel_max_vitality }',
            '\tremove_variable = ac_duel_move',
            '\tremove_variable = ac_duel_log',
+           '\tremove_variable = ac_duel_technique',
+           '\tremove_variable = ac_duel_tech_used',
            '\tremove_character_flag = ac_duel_surging',
+           '\tremove_character_flag = ac_duel_unleashing',
+           '}', '',
+           '# Fighter scope: commit to the first attack Technique known, fighting through its Core.',
+           'ac_duel_unleash_effect = {',
+           *[f'\t{"if" if i == 0 else "else_if"} = {{ limit = {{ has_character_flag = ac_tech_{key} }} '
+             f'set_variable = {{ name = ac_duel_move value = flag:{CORE_MOVE[core]} }} '
+             f'set_variable = {{ name = ac_duel_technique value = flag:{key} }} }}'
+             for i, (key, (_, core)) in enumerate(ATTACKS.items())],
+           '\tset_variable = ac_duel_tech_used',
+           '\tadd_character_flag = ac_duel_unleashing',
            '}', '',
            '# Fighter scope: the AI picks a move, favouring its strongest Cores, and may surge.',
            'ac_duel_ai_choose_effect = {',
@@ -119,10 +139,15 @@ def effects():
     out += ['\t}',
             '\tremove_character_flag = ac_duel_surging',
             '\trandom = { chance = 35 add_character_flag = ac_duel_surging }',
+            '\tif = { limit = { ac_duel_can_unleash_trigger = yes } random = { chance = 30 ac_duel_unleash_effect = yes } }',
             '}', '',
             '# Fighter scope: pay for the chosen move (Chi, and a Core charge when surging).',
             'ac_duel_pay_effect = {',
-            '\tif = { limit = { var:ac_duel_move = flag:blast ac_chi_available >= 1 } ac_spend_chi_effect = { CHI = 1 } }',
+            '\tif = { limit = { has_character_flag = ac_duel_unleashing } ac_spend_chi_effect = { CHI = 1 } }',
+            '\telse = {',
+            '\t\tremove_variable = ac_duel_technique',
+            '\t\tif = { limit = { var:ac_duel_move = flag:blast ac_chi_available >= 1 } ac_spend_chi_effect = { CHI = 1 } }',
+            '\t}',
             '\tremove_variable = ac_duel_surged']
     for move, core, _, _ in MOVES:
         out += [f'\tif = {{ limit = {{ has_character_flag = ac_duel_surging {move_is(move)} ac_core_{core}_available >= 1 }}',
@@ -138,7 +163,8 @@ def effects():
                 f'\t\tif = {{ limit = {{ has_variable = ac_duel_surged }} change_variable = {{ name = ac_duel_roll add = ac_core_{core}_surge_value }} }}',
                 f'\t\tif = {{ limit = {{ {move_is(beats, "foe")} }} change_variable = {{ name = ac_duel_roll add = {COUNTER_BONUS} }} }}',
                 '\t}']
-    out += [f'\tif = {{ limit = {{ {move_is("blast")} }} change_variable = {{ name = ac_duel_roll add = {BLAST_BONUS} }} }}',
+    out += [f'\tif = {{ limit = {{ {move_is("blast")} NOT = {{ has_character_flag = ac_duel_unleashing }} }} change_variable = {{ name = ac_duel_roll add = {BLAST_BONUS} }} }}',
+            f'\tif = {{ limit = {{ has_character_flag = ac_duel_unleashing }} change_variable = {{ name = ac_duel_roll add = {TECHNIQUE_BONUS} }} }}',
             '\tvar:ac_duel_foe = { save_temporary_scope_value_as = { name = ac_duel_foe_ap value = ac_aura_pressure_value } }',
             '\tif = {',
             '\t\tlimit = { ac_aura_pressure_value > 0 ac_aura_pressure_value >= { value = scope:ac_duel_foe_ap multiply = 2 } }',
@@ -160,6 +186,7 @@ def effects():
             '\t\tset_variable = { name = ac_duel_dealt value = 1 }',
             '\t\tif = { limit = { var:ac_duel_roll >= { value = scope:ac_duel_foe_roll add = 5 } } change_variable = { name = ac_duel_dealt add = 1 } }',
             '\t\tif = { limit = { has_variable = ac_duel_surged } change_variable = { name = ac_duel_dealt add = 1 } }',
+            '\t\tif = { limit = { has_character_flag = ac_duel_unleashing } change_variable = { name = ac_duel_dealt add = 1 } }',
             f'\t\tif = {{ limit = {{ {move_is("guard", "foe")} }} change_variable = {{ name = ac_duel_dealt add = -1 }} }}',
             '\t\tsave_temporary_scope_value_as = { name = ac_duel_damage value = var:ac_duel_dealt }',
             '\t\tvar:ac_duel_foe = { change_variable = { name = ac_duel_vitality subtract = scope:ac_duel_damage } }',
@@ -190,6 +217,8 @@ def effects():
             '\t\tvar:ac_duel_foe = { set_variable = { name = ac_duel_dealt value = 0 } }',
             '\t\tset_variable = { name = ac_duel_log value = flag:tied }',
             '\t}',
+            '\tremove_character_flag = ac_duel_unleashing',
+            '\tvar:ac_duel_foe = { remove_character_flag = ac_duel_unleashing }',
             '}', '',
             '# Root fighter scope.',
             'ac_duel_is_over_trigger_effect = { }', '',
@@ -241,9 +270,28 @@ def effects():
             '\tremove_variable = ac_duel_move', '\tremove_variable = ac_duel_roll', '\tremove_variable = ac_duel_dealt',
             '\tremove_variable = ac_duel_surged', '\tremove_variable = ac_duel_round', '\tremove_variable = ac_duel_log',
             '\tremove_variable = ac_duel_lethal', '\tremove_character_flag = ac_duel_surging',
+            '\tremove_variable = ac_duel_technique', '\tremove_variable = ac_duel_tech_used',
+            '\tremove_character_flag = ac_duel_unleashing',
             '}']
     # Drop placeholder lines used while drafting.
     return '\n'.join(l for l in out if 'ac_duel_players_dummy' not in l and 'ac_duel_is_over_trigger_effect' not in l)
+
+
+def triggers():
+    out = ['# Generated by tools/build_duels.py. Fighter scope.',
+           'ac_duel_can_unleash_trigger = {',
+           '\tNOT = { has_variable = ac_duel_tech_used }',
+           '\tac_chi_available >= 1',
+           '\tOR = {', *[f'\t\thas_character_flag = ac_tech_{key}' for key in ATTACKS], '\t}',
+           '}']
+    earlier = []
+    for key in ATTACKS:
+        out += [f'# {ATTACKS[key][0]} is the first attack Technique known.', f'ac_duel_first_attack_{key}_trigger = {{',
+                f'\thas_character_flag = ac_tech_{key}',
+                *([('\tNOR = { ' + ' '.join(f'has_character_flag = ac_tech_{e}' for e in earlier) + ' }')] if earlier else []),
+                '}']
+        earlier.append(key)
+    return '\n'.join(out)
 
 
 def interactions():
@@ -325,6 +373,14 @@ def events():
         out.append(f'\t\t\ttriggered_desc = {{ trigger = {{ has_variable = ac_duel_log var:ac_duel_foe = {{ var:ac_duel_move = flag:{move} }} }} '
                    f'desc = ac_duel.0001.foe_{move} }}')
     out += ['\t\t\tdesc = ac_duel.0001.blank', '\t\t}',
+            '\t\tfirst_valid = {',
+            *[f'\t\t\ttriggered_desc = {{ trigger = {{ has_variable = ac_duel_log var:ac_duel_technique ?= flag:{key} }} desc = ac_duel.0001.mine_{key} }}'
+              for key in ATTACKS],
+            '\t\t\tdesc = ac_duel.0001.blank', '\t\t}',
+            '\t\tfirst_valid = {',
+            *[f'\t\t\ttriggered_desc = {{ trigger = {{ has_variable = ac_duel_log var:ac_duel_foe = {{ var:ac_duel_technique ?= flag:{key} }} }} desc = ac_duel.0001.theirs_{key} }}'
+              for key in ATTACKS],
+            '\t\t\tdesc = ac_duel.0001.blank', '\t\t}',
             '\t\ttriggered_desc = { trigger = { has_character_flag = ac_duel_surging } desc = ac_duel.0001.surging }',
             '\t}',
             '\ttheme = martial',
@@ -335,6 +391,10 @@ def events():
         trig = 'trigger = { ac_chi_available >= 1 }\n\t\t' if move == 'blast' else ''
         out += ['\toption = {', f'\t\tname = ac_duel.0001.{move}', f'\t\t{trig}custom_tooltip = ac_duel_{move}_tt',
                 f'\t\tset_variable = {{ name = ac_duel_move value = flag:{move} }}', '\t\tac_duel_next_effect = yes', '\t}']
+    out += ['\toption = {',
+            *[f'\t\tname = {{ trigger = {{ ac_duel_first_attack_{key}_trigger = yes }} text = ac_duel.0001.unleash_{key} }}' for key in ATTACKS],
+            '\t\ttrigger = { ac_duel_can_unleash_trigger = yes }',
+            '\t\tcustom_tooltip = ac_duel_unleash_tt', '\t\tac_duel_unleash_effect = yes', '\t\tac_duel_next_effect = yes', '\t}']
     out += ['\toption = {', '\t\tname = ac_duel.0001.surge',
             '\t\ttrigger = { NOT = { has_character_flag = ac_duel_surging } OR = {',
             *[f'\t\t\tac_core_{core}_available >= 1' for core in CORES],
@@ -413,6 +473,11 @@ def localization():
         'step': f'Roll with #V Agility#!. Counters Power Strike (+{COUNTER_BONUS}).',
         'blast': f'Roll with #V Soul#! +{BLAST_BONUS}, spending 1 Chi. Counters Flash Step (+{COUNTER_BONUS}).',
     }
+    out.append(f' ac_duel_unleash_tt:0 "Once per duel. Spend 1 Chi to fight through the Technique\'s Core with #V +{TECHNIQUE_BONUS}#! to the roll, hitting 1 harder."')
+    for key, (tech, core) in ATTACKS.items():
+        out += [f' ac_duel.0001.unleash_{key}:0 "Unleash {tech} ({core.title()})"',
+                f' ac_duel.0001.mine_{key}:0 " I unleashed #V {tech}!!#!"',
+                f' ac_duel.0001.theirs_{key}:0 " [ac_duel_foe.GetFirstName] unleashed #N {tech}!!#!"']
     for move, core, beats, name in MOVES:
         out += [f' ac_duel.0001.{move}:0 "{name}"', f' ac_duel_{move}_tt:0 "{tips[move]}"',
                 f' ac_duel.0001.foe_{move}:0 " [ac_duel_foe.GetFirstName] answered with #V {name}#!."']
@@ -423,6 +488,7 @@ def render():
     texts = {
         'common/script_values/ac_duel_values.txt': values(),
         'common/scripted_effects/ac_duel_effects.txt': effects() + '\n' + next_effect(),
+        'common/scripted_triggers/ac_duel_triggers.txt': triggers(),
         'common/character_interactions/ac_duel_interactions.txt': interactions(),
         'events/ac_duel_events.txt': events(),
         'localization/english/ac_duel_l_english.yml': localization(),

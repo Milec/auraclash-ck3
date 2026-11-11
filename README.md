@@ -128,6 +128,7 @@ The Mortal Core Training menu shows both values.
   - **Chi Blast** (Soul) beats Flash Step. It costs 1 Chi and rolls +1.
 - **The roll** is 2 x the Core's rating, + Prowess / 4, + that Core's known Techniques (up to 3), + d6. Countering the foe's move adds +2, and Aura Pressure suppression (at least double the foe's) adds +2.
 - **Surge my Cores** adds the Core's Surge value and hits 1 harder, spending a real Core charge.
+- **Unleash a Technique:** once per duel, a fighter who knows an attack Technique (Cleave, Inferno, Shockblast, Midnight Blade and nine others) can unleash it. It costs 1 Chi, fights through the Technique's Core, adds +3 to the roll and hits 1 harder.
 - **Damage:** the higher roll deals 1, +1 on a margin of 5 or more.
 - **Controls:** the round log shows both rolls and the foe's move. You can also auto-resolve or yield.
 - **AI:** AI-versus-AI duels resolve instantly with the same rules, and AI cultivators challenge their rivals.

@@ -21,6 +21,38 @@ ac_duel.0001 = {
 			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_foe = { var:ac_duel_move = flag:blast } } desc = ac_duel.0001.foe_blast }
 			desc = ac_duel.0001.blank
 		}
+		first_valid = {
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_technique ?= flag:cleave } desc = ac_duel.0001.mine_cleave }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_technique ?= flag:wrathful_fist } desc = ac_duel.0001.mine_wrathful_fist }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_technique ?= flag:inferno } desc = ac_duel.0001.mine_inferno }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_technique ?= flag:shockblast } desc = ac_duel.0001.mine_shockblast }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_technique ?= flag:arctic_pillar } desc = ac_duel.0001.mine_arctic_pillar }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_technique ?= flag:blade_barrier } desc = ac_duel.0001.mine_blade_barrier }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_technique ?= flag:seismic_closing_palms } desc = ac_duel.0001.mine_seismic_closing_palms }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_technique ?= flag:grand_skyfall } desc = ac_duel.0001.mine_grand_skyfall }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_technique ?= flag:imbued_bodyhammer } desc = ac_duel.0001.mine_imbued_bodyhammer }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_technique ?= flag:midnight_blade } desc = ac_duel.0001.mine_midnight_blade }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_technique ?= flag:searing_light } desc = ac_duel.0001.mine_searing_light }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_technique ?= flag:tenebrous_rift } desc = ac_duel.0001.mine_tenebrous_rift }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_technique ?= flag:daggerfalling_hailstorm } desc = ac_duel.0001.mine_daggerfalling_hailstorm }
+			desc = ac_duel.0001.blank
+		}
+		first_valid = {
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_foe = { var:ac_duel_technique ?= flag:cleave } } desc = ac_duel.0001.theirs_cleave }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_foe = { var:ac_duel_technique ?= flag:wrathful_fist } } desc = ac_duel.0001.theirs_wrathful_fist }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_foe = { var:ac_duel_technique ?= flag:inferno } } desc = ac_duel.0001.theirs_inferno }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_foe = { var:ac_duel_technique ?= flag:shockblast } } desc = ac_duel.0001.theirs_shockblast }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_foe = { var:ac_duel_technique ?= flag:arctic_pillar } } desc = ac_duel.0001.theirs_arctic_pillar }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_foe = { var:ac_duel_technique ?= flag:blade_barrier } } desc = ac_duel.0001.theirs_blade_barrier }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_foe = { var:ac_duel_technique ?= flag:seismic_closing_palms } } desc = ac_duel.0001.theirs_seismic_closing_palms }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_foe = { var:ac_duel_technique ?= flag:grand_skyfall } } desc = ac_duel.0001.theirs_grand_skyfall }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_foe = { var:ac_duel_technique ?= flag:imbued_bodyhammer } } desc = ac_duel.0001.theirs_imbued_bodyhammer }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_foe = { var:ac_duel_technique ?= flag:midnight_blade } } desc = ac_duel.0001.theirs_midnight_blade }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_foe = { var:ac_duel_technique ?= flag:searing_light } } desc = ac_duel.0001.theirs_searing_light }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_foe = { var:ac_duel_technique ?= flag:tenebrous_rift } } desc = ac_duel.0001.theirs_tenebrous_rift }
+			triggered_desc = { trigger = { has_variable = ac_duel_log var:ac_duel_foe = { var:ac_duel_technique ?= flag:daggerfalling_hailstorm } } desc = ac_duel.0001.theirs_daggerfalling_hailstorm }
+			desc = ac_duel.0001.blank
+		}
 		triggered_desc = { trigger = { has_character_flag = ac_duel_surging } desc = ac_duel.0001.surging }
 	}
 	theme = martial
@@ -50,6 +82,25 @@ ac_duel.0001 = {
 		trigger = { ac_chi_available >= 1 }
 		custom_tooltip = ac_duel_blast_tt
 		set_variable = { name = ac_duel_move value = flag:blast }
+		ac_duel_next_effect = yes
+	}
+	option = {
+		name = { trigger = { ac_duel_first_attack_cleave_trigger = yes } text = ac_duel.0001.unleash_cleave }
+		name = { trigger = { ac_duel_first_attack_wrathful_fist_trigger = yes } text = ac_duel.0001.unleash_wrathful_fist }
+		name = { trigger = { ac_duel_first_attack_inferno_trigger = yes } text = ac_duel.0001.unleash_inferno }
+		name = { trigger = { ac_duel_first_attack_shockblast_trigger = yes } text = ac_duel.0001.unleash_shockblast }
+		name = { trigger = { ac_duel_first_attack_arctic_pillar_trigger = yes } text = ac_duel.0001.unleash_arctic_pillar }
+		name = { trigger = { ac_duel_first_attack_blade_barrier_trigger = yes } text = ac_duel.0001.unleash_blade_barrier }
+		name = { trigger = { ac_duel_first_attack_seismic_closing_palms_trigger = yes } text = ac_duel.0001.unleash_seismic_closing_palms }
+		name = { trigger = { ac_duel_first_attack_grand_skyfall_trigger = yes } text = ac_duel.0001.unleash_grand_skyfall }
+		name = { trigger = { ac_duel_first_attack_imbued_bodyhammer_trigger = yes } text = ac_duel.0001.unleash_imbued_bodyhammer }
+		name = { trigger = { ac_duel_first_attack_midnight_blade_trigger = yes } text = ac_duel.0001.unleash_midnight_blade }
+		name = { trigger = { ac_duel_first_attack_searing_light_trigger = yes } text = ac_duel.0001.unleash_searing_light }
+		name = { trigger = { ac_duel_first_attack_tenebrous_rift_trigger = yes } text = ac_duel.0001.unleash_tenebrous_rift }
+		name = { trigger = { ac_duel_first_attack_daggerfalling_hailstorm_trigger = yes } text = ac_duel.0001.unleash_daggerfalling_hailstorm }
+		trigger = { ac_duel_can_unleash_trigger = yes }
+		custom_tooltip = ac_duel_unleash_tt
+		ac_duel_unleash_effect = yes
 		ac_duel_next_effect = yes
 	}
 	option = {
