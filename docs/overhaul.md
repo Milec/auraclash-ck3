@@ -128,15 +128,18 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
 `RasenMap/` loads and plays in CK3 1.20.1.2 (alone or with `AuraClash/`, which it should follow in the load order).
 
 ### Verified in-game (CK3 1.20.1.2, all DLC)
-`python tools/prepare_rasen_checks.py` prepares a separate user directory that starts the 3000.3.1 bookmark directly as the Bladed Exalt (`-skip -bookmark=bm_rasen_trials -play=k_bladed`). On game start it runs 20 checks, all passing:
+`python tools/prepare_rasen_checks.py` prepares a separate user directory that starts the 3000.3.1 bookmark directly as the Bladed Exalt (`-skip -bookmark=bm_rasen_trials -play=k_bladed`). On game start it runs 34 checks, all passing:
 - Each Inner Kingdom and Azuma Honsha has a ruler.
 - The Bladed Exalt's cultivation, Immortal Core, race, faith and culture; Keiko; the Divine General; the seeded Akuma Lords; holdings.
+- The 23 sects at their seats, with standing, treasury, roster and master strength by region; a duel between sects earning renown; renown raising a Frontier Sect one standing and no further; every sect-life event.
 - An Exalted Council decree, an AI-versus-AI Clash of Auras, and an Ice Incursion.
-- Three simulated years of the Council, Akuma Lords, Ice Incursion and Trials yearly effects.
+- Three simulated years of the Council, Akuma Lords, Ice Incursion, Trials and sect yearly effects.
 
-No crash, and no runtime errors from the mods' own scripts. The base mod's fixtures also pass on the vanilla 1066 start: cultivation (59/59) and awakening and sects (62/62).
+No crash, and no runtime errors from the mods' own scripts. The six featured rulers have bookmark portraits. The base mod's fixtures also pass on the vanilla 1066 start: cultivation (59/59) and awakening and sects (62/62; last run before sect standing was added).
 
-Not yet verified by a person: the player-facing UI (duel rounds, Council voting, bookmark screen) and long play. The remaining `error.log` lines are vanilla scripts naming Earth's counties, baronies, characters and houses.
+Not yet verified by a person: the player-facing UI (duel rounds, Council voting, bookmark screen, sect register and sect-life events) and long play. The game starts paused and nothing found unpauses it unattended: the `-handsoff` flags and an interface widget calling the pause button's action were both tried. Once someone unpauses a QA run, each in-game year logs `RASEN_QA YEAR` marks (tick, decree set, sects led, renown earned, sect ties, Exalt alive).
+
+`error.log` is about 7,300 lines after loading (down from 18,700): vanilla scripts naming Earth's counties, baronies, characters and houses.
 
 ### Total-conversion lessons (CK3 1.20)
 - Do **not** `replace_path` `history/province_mapping`: without it the game crashes (null read) as soon as any province has a holding.
