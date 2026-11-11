@@ -41,9 +41,9 @@ class ShadowTests(unittest.TestCase):
     def test_localization(self):
         loc = self.text['localization/english/rasen_shadows_l_english.yml']
         keys = set(re.findall(r'\b(?:title|desc|name)\s*=\s*(rasen_shadows\.[\w.]+)', self.text['events/rasen_shadow_events.txt']))
-        for relative in ('common/traits/rasen_shadow_traits.txt', 'common/modifiers/rasen_shadow_modifiers.txt',
-                         'common/secret_types/rasen_secret_types.txt'):
+        for relative in ('common/modifiers/rasen_shadow_modifiers.txt', 'common/secret_types/rasen_secret_types.txt'):
             keys |= set(re.findall(r'(?m)^(rasen_\w+) = \{', self.text[relative]))
+        keys |= {'trait_' + t for t in re.findall(r'(?m)^(rasen_\w+) = \{', self.text['common/traits/rasen_shadow_traits.txt'])}
         for key in keys:
             self.assertRegex(loc, rf'(?m)^ {re.escape(key)}:0 "', key)
 

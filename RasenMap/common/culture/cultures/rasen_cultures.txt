@@ -4,13 +4,14 @@
 	heritage = heritage_zenshin
 	language = language_zenshin
 	martial_custom = martial_custom_equal
+	head_determination = head_determination_domain
 	traditions = { tradition_martial_admiration tradition_ruling_caste tradition_castle_keepers tradition_legalistic }
 	name_list = name_list_zenshin
-	coa_gfx = { mongol_coa_gfx steppe_coa_gfx }
-	building_gfx = { steppe_building_gfx }
-	clothing_gfx = { mongol_clothing_gfx }
-	unit_gfx = { mongol_unit_gfx }
-	ethnicities = { 10 = asian }
+	coa_gfx = { japanese_coa_gfx }
+	building_gfx = { japanese_building_gfx }
+	clothing_gfx = { japanese_clothing_gfx }
+	unit_gfx = { japanese_unit_gfx }
+	ethnicities = { 10 = asian_japanese }
 }
 
 cathayan = {
@@ -19,13 +20,14 @@ cathayan = {
 	heritage = heritage_cathayan
 	language = language_cathayan
 	martial_custom = martial_custom_equal
+	head_determination = head_determination_domain
 	traditions = { tradition_philosopher_culture tradition_poetry tradition_legalistic }
 	name_list = name_list_cathayan
-	coa_gfx = { mongol_coa_gfx steppe_coa_gfx }
-	building_gfx = { steppe_building_gfx }
-	clothing_gfx = { mongol_clothing_gfx }
-	unit_gfx = { mongol_unit_gfx }
-	ethnicities = { 10 = asian }
+	coa_gfx = { chinese_group_coa_gfx }
+	building_gfx = { chinese_building_gfx }
+	clothing_gfx = { chinese_clothing_gfx }
+	unit_gfx = { chinese_unit_gfx }
+	ethnicities = { 10 = asian_han_chinese }
 }
 
 oni = {
@@ -34,13 +36,14 @@ oni = {
 	heritage = heritage_oni
 	language = language_zenshin
 	martial_custom = martial_custom_equal
+	head_determination = head_determination_domain
 	traditions = { tradition_warrior_culture tradition_mountain_homes tradition_stalwart_defenders }
 	name_list = name_list_zenshin
-	coa_gfx = { mongol_coa_gfx steppe_coa_gfx }
-	building_gfx = { steppe_building_gfx }
-	clothing_gfx = { mongol_clothing_gfx }
-	unit_gfx = { mongol_unit_gfx }
-	ethnicities = { 10 = asian }
+	coa_gfx = { japanese_coa_gfx }
+	building_gfx = { japanese_building_gfx }
+	clothing_gfx = { japanese_clothing_gfx }
+	unit_gfx = { japanese_unit_gfx }
+	ethnicities = { 10 = asian_japanese }
 }
 
 yokai = {
@@ -49,13 +52,14 @@ yokai = {
 	heritage = heritage_yokai
 	language = language_zenshin
 	martial_custom = martial_custom_equal
+	head_determination = head_determination_domain
 	traditions = { tradition_forest_folk tradition_hit_and_run tradition_warrior_culture }
 	name_list = name_list_zenshin
-	coa_gfx = { mongol_coa_gfx steppe_coa_gfx }
-	building_gfx = { steppe_building_gfx }
-	clothing_gfx = { mongol_clothing_gfx }
-	unit_gfx = { mongol_unit_gfx }
-	ethnicities = { 10 = asian }
+	coa_gfx = { japanese_coa_gfx }
+	building_gfx = { japanese_building_gfx }
+	clothing_gfx = { japanese_clothing_gfx }
+	unit_gfx = { japanese_unit_gfx }
+	ethnicities = { 10 = asian_japanese }
 }
 
 lunargoth = {
@@ -64,13 +68,14 @@ lunargoth = {
 	heritage = heritage_lunargoth
 	language = language_lunargoth
 	martial_custom = martial_custom_equal
+	head_determination = head_determination_domain
 	traditions = { tradition_stalwart_defenders tradition_warrior_culture tradition_mountain_homes }
 	name_list = name_list_lunargoth
-	coa_gfx = { mongol_coa_gfx steppe_coa_gfx }
-	building_gfx = { steppe_building_gfx }
-	clothing_gfx = { mongol_clothing_gfx }
-	unit_gfx = { mongol_unit_gfx }
-	ethnicities = { 10 = caucasian }
+	coa_gfx = { western_coa_gfx }
+	building_gfx = { western_building_gfx }
+	clothing_gfx = { northern_clothing_gfx }
+	unit_gfx = { northern_unit_gfx }
+	ethnicities = { 10 = caucasian_northern_blond }
 }
 
 kitsune = {
@@ -79,13 +84,14 @@ kitsune = {
 	heritage = heritage_kitsune
 	language = language_zenshin
 	martial_custom = martial_custom_equal
+	head_determination = head_determination_domain
 	traditions = { tradition_xenophilic tradition_hit_and_run tradition_poetry }
 	name_list = name_list_zenshin
-	coa_gfx = { mongol_coa_gfx steppe_coa_gfx }
-	building_gfx = { steppe_building_gfx }
-	clothing_gfx = { mongol_clothing_gfx }
-	unit_gfx = { mongol_unit_gfx }
-	ethnicities = { 10 = asian }
+	coa_gfx = { japanese_coa_gfx }
+	building_gfx = { japanese_building_gfx }
+	clothing_gfx = { japanese_clothing_gfx }
+	unit_gfx = { japanese_unit_gfx }
+	ethnicities = { 10 = asian_japanese }
 }
 
 ryugujin = {
@@ -94,11 +100,12 @@ ryugujin = {
 	heritage = heritage_ryugujin
 	language = language_ryugujin
 	martial_custom = martial_custom_equal
+	head_determination = head_determination_domain
 	traditions = { tradition_seafaring tradition_isolationist tradition_mystical_ancestors }
 	name_list = name_list_ryugujin
-	coa_gfx = { mongol_coa_gfx steppe_coa_gfx }
-	building_gfx = { steppe_building_gfx }
-	clothing_gfx = { mongol_clothing_gfx }
-	unit_gfx = { mongol_unit_gfx }
-	ethnicities = { 10 = asian }
+	coa_gfx = { japanese_coa_gfx }
+	building_gfx = { japanese_building_gfx }
+	clothing_gfx = { japanese_clothing_gfx }
+	unit_gfx = { japanese_unit_gfx }
+	ethnicities = { 10 = asian_japanese }
 }

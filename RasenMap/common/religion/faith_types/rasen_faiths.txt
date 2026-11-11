@@ -75,7 +75,7 @@ devanic_temple = {
 	}
 }
 
-shugendo = {
+rasen_shugendo = {
 	faith_details = {
 		religion = rasen_devanic_religion
 		color = { 150 200 230 }

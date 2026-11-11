@@ -1,29 +1,36 @@
 ﻿heritage_cathayan = {
 	type = heritage
+	audio_parameter = sea
 }
 
 heritage_kitsune = {
 	type = heritage
+	audio_parameter = sea
 }
 
 heritage_lunargoth = {
 	type = heritage
+	audio_parameter = sea
 }
 
 heritage_oni = {
 	type = heritage
+	audio_parameter = sea
 }
 
 heritage_ryugujin = {
 	type = heritage
+	audio_parameter = sea
 }
 
 heritage_yokai = {
 	type = heritage
+	audio_parameter = sea
 }
 
 heritage_zenshin = {
 	type = heritage
+	audio_parameter = sea
 }
 
 language_zenshin = {

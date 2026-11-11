@@ -198,7 +198,7 @@ def patronage_effects():
             '\t\t\t\tglobal_var:ac_ascension_champion = {',
             '\t\t\t\t\tadd_gold = 100',
             '\t\t\t\t\tadd_opinion = { target = scope:rasen_trial_patron modifier = rasen_trial_patron_opinion }',
-            '\t\t\t\t\tset_variable = { name = rasen_trial_patron value = scope:rasen_trial_patron years = 1 }']
+            ]
     for i, land in enumerate(KEYS):
         kw = 'if' if i == 0 else 'else_if'
         out.append(f'\t\t\t\t\t{kw} = {{ limit = {{ global_var:rasen_trial_patron_land = flag:{land} }} '

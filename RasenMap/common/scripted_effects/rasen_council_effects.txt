@@ -389,7 +389,6 @@ rasen_trial_patronage_effect = {
 				global_var:ac_ascension_champion = {
 					add_gold = 100
 					add_opinion = { target = scope:rasen_trial_patron modifier = rasen_trial_patron_opinion }
-					set_variable = { name = rasen_trial_patron value = scope:rasen_trial_patron years = 1 }
 					if = { limit = { global_var:rasen_trial_patron_land = flag:bladed } ac_favor_change_effect = { LAND = bladed AMOUNT = 2 } }
 					else_if = { limit = { global_var:rasen_trial_patron_land = flag:sacred } ac_favor_change_effect = { LAND = sacred AMOUNT = 2 } }
 					else_if = { limit = { global_var:rasen_trial_patron_land = flag:mystic } ac_favor_change_effect = { LAND = mystic AMOUNT = 2 } }

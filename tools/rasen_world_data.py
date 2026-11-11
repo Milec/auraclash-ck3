@@ -7,7 +7,7 @@ Masaru, the Wild Exalt); the Ozaki shinobi clan; Magistrates Khan and Fuyu.
 Names marked "generated" are placeholders for characters the game has not named.
 
 Vanilla graphics keys (coa/building/clothing/unit gfx) and doctrine/tenet keys must
-exist in CK3 1.20; verify them in-game and swap in East Asian assets when available.
+exist in CK3 1.20.1 (tools/verify_vanilla_keys.py checks them).
 """
 
 START = (3000, 3, 1)
@@ -20,51 +20,58 @@ TRAIT_GROUPS = [
     ['compassionate', 'callous'],
 ]
 
-STEPPE_GFX = {
-    'coa_gfx': ['mongol_coa_gfx', 'steppe_coa_gfx'],
-    'building_gfx': ['steppe_building_gfx'],
-    'clothing_gfx': ['mongol_clothing_gfx'],
-    'unit_gfx': ['mongol_unit_gfx'],
+# Graphics sets, verified against CK3 1.20.1 (All Under Heaven supplies the East Asian ones).
+JAPANESE_GFX = {
+    'coa_gfx': ['japanese_coa_gfx'], 'building_gfx': ['japanese_building_gfx'],
+    'clothing_gfx': ['japanese_clothing_gfx'], 'unit_gfx': ['japanese_unit_gfx'],
+}
+CHINESE_GFX = {
+    'coa_gfx': ['chinese_group_coa_gfx'], 'building_gfx': ['chinese_building_gfx'],
+    'clothing_gfx': ['chinese_clothing_gfx'], 'unit_gfx': ['chinese_unit_gfx'],
+}
+NORTHERN_GFX = {
+    'coa_gfx': ['western_coa_gfx'], 'building_gfx': ['western_building_gfx'],
+    'clothing_gfx': ['northern_clothing_gfx'], 'unit_gfx': ['northern_unit_gfx'],
 }
 
 CULTURES = {
     'zenshin': dict(name='Zenshin', prefix='Zen', plural='Zenshin', colour=(200, 60, 50),
                     desc='The people of Imperial Rasen, descended from Cathayan settlers. For three millennia the katana has set Zenshin warriors apart from their Cathayan forebears.',
                     heritage='heritage_zenshin', heritage_name='Zenshin', language='language_zenshin', language_name='Zenshin',
-                    ethos='ethos_bellicose', martial_custom='martial_custom_equal', name_list='name_list_zenshin', ethnicity='asian',
-                    traditions=['tradition_martial_admiration', 'tradition_ruling_caste', 'tradition_castle_keepers', 'tradition_legalistic'], **STEPPE_GFX),
+                    ethos='ethos_bellicose', martial_custom='martial_custom_equal', name_list='name_list_zenshin', ethnicity='asian_japanese',
+                    traditions=['tradition_martial_admiration', 'tradition_ruling_caste', 'tradition_castle_keepers', 'tradition_legalistic'], **JAPANESE_GFX),
     'cathayan': dict(name='Cathayan', prefix='Cathay', plural='Cathayans', colour=(210, 160, 60),
                      desc='Heirs of the Cathayan Empire, shattered by the Calamity. Their hanfu robes, qiang and jian survive across the Mystic and Sacred Lands.',
                      heritage='heritage_cathayan', heritage_name='Cathayan', language='language_cathayan', language_name='Old Cathayan',
-                     ethos='ethos_bureaucratic', martial_custom='martial_custom_equal', name_list='name_list_cathayan', ethnicity='asian',
-                     traditions=['tradition_philosopher_culture', 'tradition_poetry', 'tradition_legalistic'], **STEPPE_GFX),
+                     ethos='ethos_bureaucratic', martial_custom='martial_custom_equal', name_list='name_list_cathayan', ethnicity='asian_han_chinese',
+                     traditions=['tradition_philosopher_culture', 'tradition_poetry', 'tradition_legalistic'], **CHINESE_GFX),
     'oni': dict(name='Oni', prefix='Oni', plural='Oni', colour=(170, 40, 40),
                 desc='Spirits who longed for a human form. Oni are horned, often red-skinned, and formidable in body.',
                 heritage='heritage_oni', heritage_name='Oni', language='language_zenshin', language_name='Zenshin',
-                ethos='ethos_stoic', martial_custom='martial_custom_equal', name_list='name_list_zenshin', ethnicity='asian',
-                traditions=['tradition_warrior_culture', 'tradition_mountain_homes', 'tradition_stalwart_defenders'], **STEPPE_GFX),
+                ethos='ethos_stoic', martial_custom='martial_custom_equal', name_list='name_list_zenshin', ethnicity='asian_japanese',
+                traditions=['tradition_warrior_culture', 'tradition_mountain_homes', 'tradition_stalwart_defenders'], **JAPANESE_GFX),
     'yokai': dict(name='Yokai', prefix='Yokai', plural='Yokai', colour=(90, 130, 50),
                   desc='Beasts who longed for a human form: wolf, monkey and stranger kin. Many roam the Wild Lands, where strength alone earns respect.',
                   heritage='heritage_yokai', heritage_name='Yokai', language='language_zenshin', language_name='Zenshin',
-                  ethos='ethos_bellicose', martial_custom='martial_custom_equal', name_list='name_list_zenshin', ethnicity='asian',
-                  traditions=['tradition_forest_folk', 'tradition_hit_and_run', 'tradition_warrior_culture'], **STEPPE_GFX),
+                  ethos='ethos_bellicose', martial_custom='martial_custom_equal', name_list='name_list_zenshin', ethnicity='asian_japanese',
+                  traditions=['tradition_forest_folk', 'tradition_hit_and_run', 'tradition_warrior_culture'], **JAPANESE_GFX),
     'lunargoth': dict(name='Lunargoth', prefix='Luna', plural='Lunargoths', colour=(170, 190, 220),
                       desc='Fair-haired northerners of Outer North who fill the Northern Army. They answer to the Divine General, call him Emperor of all ten Provinces, and treat boons and debts as cowardice.',
                       heritage='heritage_lunargoth', heritage_name='Lunargoth', language='language_lunargoth', language_name='Lunargothic',
-                      ethos='ethos_stoic', martial_custom='martial_custom_equal', name_list='name_list_lunargoth', ethnicity='caucasian',
-                      traditions=['tradition_stalwart_defenders', 'tradition_warrior_culture', 'tradition_mountain_homes'], **STEPPE_GFX),
+                      ethos='ethos_stoic', martial_custom='martial_custom_equal', name_list='name_list_lunargoth', ethnicity='caucasian_northern_blond',
+                      traditions=['tradition_stalwart_defenders', 'tradition_warrior_culture', 'tradition_mountain_homes'], **NORTHERN_GFX),
     'kitsune': dict(name='Kitsune', prefix='Kitsune', plural='Kitsune', colour=(220, 120, 40),
                     desc='The rarest people of Rasen: part beast, part spirit, part human. Many sects treat Kitsune as trickster spirits rather than a race.',
                     heritage='heritage_kitsune', heritage_name='Kitsune', language='language_zenshin', language_name='Zenshin',
-                    ethos='ethos_courtly', martial_custom='martial_custom_equal', name_list='name_list_zenshin', ethnicity='asian',
-                    traditions=['tradition_xenophilic', 'tradition_hit_and_run', 'tradition_poetry'], **STEPPE_GFX),
+                    ethos='ethos_courtly', martial_custom='martial_custom_equal', name_list='name_list_zenshin', ethnicity='asian_japanese',
+                    traditions=['tradition_xenophilic', 'tradition_hit_and_run', 'tradition_poetry'], **JAPANESE_GFX),
     # Ch. 9: "the draconic underwater dome-cities of Ryugujo", a foreign nation to the southeast
     # whose city-states are ruled by Dragon Princes. Off the painted map; its people appear as envoys and spies.
     'ryugujin': dict(name='Ryugujin', prefix='Ryugu', plural='Ryugujin', colour=(40, 150, 160),
                      desc='The people of Ryugujo, whose draconic dome-cities lie beneath the sea southeast of Imperial Rasen. Each city-state is ruled from the seat of a Dragon Prince.',
                      heritage='heritage_ryugujin', heritage_name='Ryugujin', language='language_ryugujin', language_name='Ryugujin',
-                     ethos='ethos_courtly', martial_custom='martial_custom_equal', name_list='name_list_ryugujin', ethnicity='asian',
-                     traditions=['tradition_seafaring', 'tradition_isolationist', 'tradition_mystical_ancestors'], **STEPPE_GFX),
+                     ethos='ethos_courtly', martial_custom='martial_custom_equal', name_list='name_list_ryugujin', ethnicity='asian_japanese',
+                     traditions=['tradition_seafaring', 'tradition_isolationist', 'tradition_mystical_ancestors'], **JAPANESE_GFX),
 }
 
 NAME_LISTS = {
@@ -117,7 +124,7 @@ FAITHS = {
                            tenets=['tenet_inner_journey', 'tenet_unrelenting_faith', 'tenet_mendicant_preachers'],
                            doctrines=['doctrine_monasticism_encouraged'],
                            desc='Monks and shrinemaidens of the Devanic Temple have banished Fiends from the mortal world for all of written history. They value respectability, mercy to the innocent and retribution upon the wicked.'),
-    'shugendo': dict(religion='rasen_devanic_religion', name='Shugendō', adjective='Shugendō', adherent='Yamabushi', adherents='Yamabushi',
+    'rasen_shugendo': dict(religion='rasen_devanic_religion', name='Shugendō', adjective='Shugendō', adherent='Yamabushi', adherents='Yamabushi',
                      colour=(150, 200, 230), icon='custom_faith_5', holy_sites=['rasen_devanic_temple', 'rasen_dead_mountain', 'rasen_ice_front'],
                      tenets=['tenet_asceticism', 'tenet_sanctity_of_nature', 'tenet_esotericism'],
                      desc='Born of meditations across mountains that no longer exist, Shugendō binds one of nature\'s elements to the spirit.'),
@@ -212,10 +219,10 @@ HOLY_SITES = {
 # Peoples by region: culture and faith weights per duchy.
 REGION_PEOPLES = {
     'outer_west': dict(cultures={'zenshin': 8, 'oni': 1, 'cathayan': 1}, faiths={'ancestral_rites': 7, 'devanic_temple': 3}),
-    'outer_north': dict(cultures={'lunargoth': 6, 'zenshin': 3, 'oni': 1}, faiths={'shugendo': 6, 'ancestral_rites': 4}),
+    'outer_north': dict(cultures={'lunargoth': 6, 'zenshin': 3, 'oni': 1}, faiths={'rasen_shugendo': 6, 'ancestral_rites': 4}),
     'outer_east': dict(cultures={'zenshin': 6, 'oni': 3, 'kitsune': 1}, faiths={'ancestral_rites': 8, 'devanic_temple': 2}),
     'outer_south': dict(cultures={'zenshin': 7, 'cathayan': 3}, faiths={'ancestral_rites': 8, 'devanic_temple': 2}),
-    'sacred': dict(cultures={'cathayan': 5, 'zenshin': 5}, faiths={'devanic_temple': 8, 'shugendo': 2}),
+    'sacred': dict(cultures={'cathayan': 5, 'zenshin': 5}, faiths={'devanic_temple': 8, 'rasen_shugendo': 2}),
     'mystic': dict(cultures={'cathayan': 9, 'kitsune': 1}, faiths={'celestial_order': 1}),
     'cursed': dict(cultures={'zenshin': 7, 'kitsune': 3}, faiths={'veiled_ancestors': 1}),
     'bladed': dict(cultures={'zenshin': 1}, faiths={'ancestral_rites': 1}),
@@ -262,7 +269,7 @@ INNOVATIONS = ['innovation_motte', 'innovation_catapult', 'innovation_barracks',
 
 # The Divine General of the North: supreme commander of the Northern Army, who calls himself
 # Emperor of all ten Provinces; the Council calls him its northern steward. (Name generated.)
-DIVINE_GENERAL = dict(name='Theodoric', house='Wintermantle', culture='lunargoth', faith='shugendo', age=64,
+DIVINE_GENERAL = dict(name='Theodoric', house='Wintermantle', culture='lunargoth', faith='rasen_shugendo', age=64,
                       traits=('brave', 'diligent'))
 
 # Race by culture (the IF's races). Yokai take one of the five lineages at random.

@@ -45,7 +45,7 @@ class RasenMapTests(unittest.TestCase):
     def test_titles_balance_and_are_localized(self):
         parser.fields(self.titles)
         keys = set(re.findall(r'^\s*([ekdcb]_\w+) = \{', self.titles, re.M))
-        loc = (ROOT / 'localization/english/rasen_titles_l_english.yml').read_text(encoding='utf-8-sig')
+        loc = (ROOT / 'localization/replace/english/rasen_titles_l_english.yml').read_text(encoding='utf-8-sig')
         for key in keys:
             self.assertRegex(loc, rf'(?m)^ {key}:0 "', key)
         for capital in re.findall(r'capital = (c_\w+)', self.titles):

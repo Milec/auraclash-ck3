@@ -25,7 +25,7 @@ class IceIncursionTests(unittest.TestCase):
         self.assertIn('value = 20 }', effects)
         self.assertIn('value = 30 }', effects)
         self.assertIn('region = world_rasen_outer_north', effects)
-        self.assertIn('world_rasen_outer_north = {', read('map_data/geographical_region.txt'))
+        self.assertIn('world_rasen_outer_north = {', read('map_data/geographical_regions/rasen_geographical_regions.txt'))
 
     def test_events_and_localization(self):
         events = read('events/rasen_ice_incursion_events.txt')

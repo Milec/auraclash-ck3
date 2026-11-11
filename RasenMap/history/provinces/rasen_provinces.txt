@@ -1200,121 +1200,121 @@
 
 250 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 247 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 248 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 249 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
 252 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 253 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 284 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 285 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
 214 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 213 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 254 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 251 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
 256 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 258 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 255 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 257 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
 287 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 289 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 288 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 286 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1452,271 +1452,271 @@
 
 203 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 204 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 224 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 226 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
 206 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 205 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 230 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 229 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
 232 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 228 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 234 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 231 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
 207 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 208 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 233 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 235 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
 236 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 238 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 268 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 267 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
 209 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 211 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 210 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 240 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
 237 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
 239 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 242 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 241 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 270 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
 273 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 272 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 269 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 271 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
 275 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 277 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 276 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 274 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
 245 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 280 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 279 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 278 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
 283 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
 282 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = city_holding
 }
 
 281 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = church_holding
 }
 
 291 = {
 	culture = lunargoth
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1740,7 +1740,7 @@
 
 246 = {
 	culture = oni
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
@@ -3792,7 +3792,7 @@
 
 710 = {
 	culture = cathayan
-	rite = shugendo
+	rite = rasen_shugendo
 	holding = castle_holding
 }
 
