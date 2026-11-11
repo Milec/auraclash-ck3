@@ -103,10 +103,21 @@ def main():
     files = {
         'common/on_action/rasen_qa.txt': ('on_game_start_after_lobby = { on_actions = { rasen_qa } }\n'
                                           'rasen_qa = { effect = { title:k_bladed.holder = { trigger_event = rasen_qa.0001 } } }\n'
-                                          # When time runs (a played or hands-off game), each year leaves a mark.
+                                          # The game starts paused and cannot be unpaused unattended (launch flags
+                                          # and an interface widget calling the pause button's action were both
+                                          # tried). Once a person unpauses it, each year leaves these marks.
                                           'yearly_global_pulse = { on_actions = { rasen_qa_year } }\n'
                                           'rasen_qa_year = { effect = { debug_log = "RASEN_QA YEAR TICK" '
-                                          'if = { limit = { has_global_variable = rasen_decree } debug_log = "RASEN_QA YEAR DECREE_SET" } } }\n'),
+                                          'if = { limit = { has_global_variable = rasen_decree } debug_log = "RASEN_QA YEAR DECREE_SET" } '
+                                          'if = { limit = { any_in_global_list = { variable = ac_sects count >= 23 '
+                                          'exists = story_owner story_owner = { is_alive = yes has_trait = ac_sect_master } } } '
+                                          'debug_log = "RASEN_QA YEAR SECTS_LED" } '
+                                          'if = { limit = { any_in_global_list = { variable = ac_sects var:ac_renown > 0 } } '
+                                          'debug_log = "RASEN_QA YEAR RENOWN_EARNED" } '
+                                          'if = { limit = { any_in_global_list = { variable = ac_sects '
+                                          'OR = { has_variable_list = ac_allies has_variable_list = ac_rivals } } } '
+                                          'debug_log = "RASEN_QA YEAR SECT_TIES" } '
+                                          'if = { limit = { title:k_bladed.holder = { is_alive = yes } } debug_log = "RASEN_QA YEAR EXALT_ALIVE" } } }\n'),
         'events/rasen_qa.txt': event(),
     }
     for relative, text in files.items():

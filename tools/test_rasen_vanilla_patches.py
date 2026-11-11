@@ -11,7 +11,7 @@ import build_rasen_vanilla_patches as patches
 class VanillaPatchTests(unittest.TestCase):
     def test_patched_files_are_current_and_minimal(self):
         _, standin = patches.map_limits()
-        allowed = ('Imperial Rasen', f'province:{standin}', f'= {patches.SITE_COUNTY}', f'= {patches.SITE_BARONY}')
+        allowed = ('Imperial Rasen', f'province:{standin}', f'= {patches.SITE_COUNTY}', f'= {patches.SITE_BARONY}', f'title:{patches.TITLE_STANDIN}')
         for relative, data in patches.render(builder.DEFAULT_GAME).items():
             self.assertEqual((patches.OUT / relative).read_bytes(), data, relative)
             vanilla = (builder.DEFAULT_GAME / relative).read_text(encoding='utf-8-sig').replace('\r\n', '\n').split('\n')

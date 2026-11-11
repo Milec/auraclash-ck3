@@ -496,7 +496,7 @@ def render():
     files['localization/english/rasen_culture_l_english.yml'] = BOM + '\n'.join(culture_loc) + '\n'
     # Character names need a localization key each. Some also exist in vanilla, so these go in
     # replace/, which wins without duplicate-key errors.
-    names = sorted({n for nl in NAME_LISTS.values() for n in nl['male'] + nl['female']} | {c['name'] for c in CANON_CAST})
+    names = sorted({n for nl in NAME_LISTS.values() for n in nl['male'] + nl['female']} | {c['name'] for c in CANON_CAST} | {h['name'] for h in CANON_HOLDERS.values()})
     files['localization/replace/english/rasen_names_l_english.yml'] = BOM + 'l_english:\n' + ''.join(
         f' {re.sub(r"[^A-Za-z0-9_]", "_", n)}:0 "{n}"\n' for n in names)
     files['localization/english/rasen_religion_l_english.yml'] = BOM + '\n'.join(religion_loc) + '\n'
