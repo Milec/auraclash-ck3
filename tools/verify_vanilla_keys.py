@@ -72,8 +72,13 @@ SKIP_DIRS = {'map_data'}
 def mod_files():
     for mod in MODS:
         for path in mod.rglob('*.txt'):
-            if not SKIP_DIRS.intersection(path.relative_to(mod).parts):
-                yield path
+            if SKIP_DIRS.intersection(path.relative_to(mod).parts):
+                continue
+            # Patched copies of vanilla files are vanilla's own script, not ours to verify.
+            with path.open(encoding='utf-8-sig', errors='replace') as handle:
+                if 'build_rasen_vanilla_patches.py' in handle.readline():
+                    continue
+            yield path
 
 
 def references():
