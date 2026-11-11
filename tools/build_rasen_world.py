@@ -251,7 +251,8 @@ class People:
         for group in self.rng.sample(free, max(0, 3 - len(fixed))):
             personality.append(self.rng.choice(group))
         edu = self.rng.choice(['martial', 'stewardship', 'diplomacy', 'intrigue', 'learning'])
-        lines = [f'name = "{name}"', f'dynasty = {dynasty}', f'rite = {faith}', f'culture = {culture}']
+        # Names are localization keys; one with a space (Black Flower) uses underscores.
+        lines = [f'name = "{re.sub(r"[^A-Za-z0-9_]", "_", name)}"', f'dynasty = {dynasty}', f'rite = {faith}', f'culture = {culture}']
         race = CULTURE_RACE[culture]
         lines.append(f'trait = ac_race_{self.rng.choice(YOKAI_KINDS) if race == "yokai" else race}')
         if female:
@@ -451,6 +452,11 @@ def render():
     for part in (culture, religion, history, bookmark):
         files.update({k: BOM + v for k, v in part.items()})
     files['localization/english/rasen_culture_l_english.yml'] = BOM + '\n'.join(culture_loc) + '\n'
+    # Character names need a localization key each. Some also exist in vanilla, so these go in
+    # replace/, which wins without duplicate-key errors.
+    names = sorted({n for nl in NAME_LISTS.values() for n in nl['male'] + nl['female']} | {c['name'] for c in CANON_CAST})
+    files['localization/replace/english/rasen_names_l_english.yml'] = BOM + 'l_english:\n' + ''.join(
+        f' {re.sub(r"[^A-Za-z0-9_]", "_", n)}:0 "{n}"\n' for n in names)
     files['localization/english/rasen_religion_l_english.yml'] = BOM + '\n'.join(religion_loc) + '\n'
     files['localization/english/rasen_history_l_english.yml'] = BOM + '\n'.join(history_loc) + '\n'
     files['localization/english/rasen_bookmark_l_english.yml'] = BOM + '\n'.join(bookmark_loc) + '\n'

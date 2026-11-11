@@ -5534,7 +5534,7 @@ rasen_368 = {
 }
 
 rasen_369 = {
-	name = "Black Flower"
+	name = "Black_Flower"
 	dynasty = dynasty_rasen_akuma
 	rite = veiled_ancestors
 	culture = cathayan
