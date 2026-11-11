@@ -227,6 +227,7 @@ ac_duel_end_effect = {
 			if = { limit = { has_variable = ac_duel_lethal } add_prestige = 250 }
 			else = { add_prestige = 100 }
 			ac_add_core_progress_effect = { CORE = power PROGRESS = 10 }
+			ac_sect_duel_result_effect = yes
 		}
 		scope:ac_duel_loser = {
 			if = {

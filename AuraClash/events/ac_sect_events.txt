@@ -150,3 +150,11 @@ ac_sect.0030 = {
 	theme = martial
 	option = { name = ac_sect.0030.accept }
 }
+ac_sect.0040 = {
+	type = character_event
+	title = ac_sect.0040.t
+	desc = ac_sect.0040.desc
+	theme = learning
+	trigger = { ac_sect_member_trigger = yes }
+	option = { name = ac_sect.0040.accept }
+}

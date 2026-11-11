@@ -6,13 +6,34 @@ Sects are persistent provincial societies. Their members can also hold secular t
 
 Each eligible de-jure kingdom receives one sect at its historical capital county. The kingdom does not need to exist as a held title. Titular kingdoms, titles without a populated capital, and titles sharing a province already assigned to a sect are skipped. The headquarters remains in its original province through conquest and changes of master. Existing saves initialize on the next quarterly playable-character pulse; a new game is recommended for testing.
 
-A new sect starts with one Master, eight Upper Disciples and sixteen Lower Disciples. Recruitment can fill the ten upper and twenty lower places. All members are adult cultivators. A mortal who passes admission awakens as a cultivator. Joining preserves an existing foundation, style and elements; an untrained recruit learns the sect's lineage. A cultivator belongs to one sect at a time. Leaving clears contribution and merit and prevents rejoining for one year.
+On the Imperial Rasen map the 23 sects instead keep their halls where the story places them (`SECT_SEATS` in `tools/rasen_world_data.py`): Thunderfall, Sunbringer and Waverunner (Nanhou) in their own counties, seven more across Outer West, three in Outer South, two in Outer East, one in Outer North, six in the Inner Lands and one at Azuma Honsha. Each is registered under the duchy of its headquarters (Sunbringer, which shares Thunderfall's duchy, under its county). A ruler can found a further sect in any duchy where no sect keeps its halls.
 
-The geographic policy is isolated in `ac_sect_kingdom_eligible_trigger` and the initialization on-action. Replace that policy when the custom map is introduced, while retaining the society and province data model.
+An Established Sect starts with one Master, eight Upper Disciples and sixteen Lower Disciples (see Standing below for other sects). Recruitment can fill the ten upper and twenty lower places. All members are adult cultivators. A mortal who passes admission awakens as a cultivator. Joining preserves an existing foundation, style and elements; an untrained recruit learns the sect's lineage. A cultivator belongs to one sect at a time. Leaving clears contribution and merit and prevents rejoining for one year.
+
+The geographic policy is two files that a map mod replaces: `common/scripted_effects/ac_sect_world_effects.txt` (where sects are seeded) and `common/script_values/ac_sect_region_values.txt` (standing by region). The Imperial Rasen overhaul generates both.
+
+## Standing and renown
+
+A sect's **standing** follows the natural aura where its headquarters sits. On Imperial Rasen: Frontier Sects in Outer West and Outer South, Established Sects in Outer North (hardened by the Ice Incursions) and Outer East (the richest sects), Great Sects in the Inner Lands, and an Imperial Sect at Azuma Honsha. On the vanilla map standing follows the county's development (below 6, 6–14, 15–24, 25 and above).
+
+| Standing | Dots per Core: Upper / Master | Start roster (upper + lower) | Treasury | Yearly income | Admission / promotion score | Starting buildings |
+|---|---|---|---:|---:|---|---|
+| 1 Frontier | 4–8 / 9–13 | 5 + 11 | 150 | 40 | 32 / 47 | Cultivation Hall I, Training Ground I |
+| 2 Established | 6–10 / 12–16 | 8 + 16 | 300 | 60 | 40 / 55 | as Frontier |
+| 3 Great | 8–12 / 14–18 | 9 + 18 | 500 | 90 | 48 / 63 | adds Scripture Library I, Alchemy Pavilion I |
+| 4 Imperial | 10–14 / 17–20 | 9 + 18 | 800 | 130 | 56 / 71 | Hall II, Training Ground II, every other building I |
+
+Trade Sects (Choral Line, Thousand Lantern, Shielded Hull, Scarlet Sun, Forbidden Field) start with 200 more gold and earn 40 more a year. Standing also adds 6 battle strength per level.
+
+**Renown** is earned by the sect: +10 for winning a sect battle (−5 for losing), +1 per completed mission and per joint training, +2 for an admission and +3 for a promotion at a trial, and +2 when a member wins a Clash of Auras against another sect's member (−1 for the loser's sect). Every 10 renown adds 1 gold of yearly income, up to 60. Each year a sect with renown of 60 × its standing spends it to rise one standing, to at most one above what its region sustains. The register shows both.
+
+## Sect life
+
+Once a year a player member usually (70%) receives one scene of sect life: a junior's question, an insult from another sect's disciple (answer with a Clash of Auras, with wit, or walk away), the estate's request for coin or labour, or a season of insight in the Cultivation Hall. Masters also judge a wanderer at the gate and a disciple caught copying manuals; Trade Sect members share in the caravans' profits. NPC members do not receive these events.
 
 ## Rank development
 
-Upper Disciples and Masters have actual Combat Core and Foundation XP appropriate to their position:
+Upper Disciples and Masters have actual Combat Core and Foundation XP appropriate to their position. At an Established Sect:
 
 | Rank | Dots in each of the four Cores | Foundation | Immortal Cores |
 |---|---|---|---|
@@ -41,7 +62,7 @@ Annual world maintenance uses the vanilla wanderer relocation helper only for fr
 
 ## Martial identities
 
-Sects take the identities of Aura Clash's own sects and are named after them, for example "Thunderfall Sect" and "Thunderfall Sect Estate". Battle reports and the view of another sect still use the kingdom name. Several sects can share an identity on a large map. Style and Elements follow the IF where it states them; the rest are inferred.
+Sects take the identities of Aura Clash's own sects and are always called by them, for example "Thunderfall Sect", "Choral Line Trade Sect" and "Endless Beating School"; the kingdom's name is never used. A new sect takes a name no living sect uses, so names repeat only on a map with more than 23 sects. Style and Elements follow the IF where it states them; the rest are inferred. Besides the nine below there are eight sects the IF only names (Choral Line, Thousand Lantern, Shielded Hull, Scarlet Sun, Forbidden Field, Auroran Lights, Wandering Tear, Alluvial Fan) and six generated for the Inner Lands and the capital, where the IF names none (Ten Thousand Blades, Veiled Moon, Saint's Vigil, Endless Daylight, Great Arena, Heavenly Ascension); `IDENTITIES` in `tools/build_sect_content.py` lists them all.
 
 | Sect | Elements | Style | Foundation | Basis in the IF |
 |---|---|---|---|---|
@@ -88,7 +109,7 @@ For a nonmember, **Consult the Sect Register** records interest in joining. It d
 
 The sect treasury pays 50 gold when a trial is created. Applicants do not pay a hosting fee. All three phases use the same permanent headquarters, selected once by a player Master or automatically by the NPC master's planner. Native invitations and travel remain in use; the examinations test understanding, martial form and spiritual control.
 
-Admission requires 40 points and a lower-disciple vacancy. Promotion requires 55 points, a vacancy among upper disciples, a promotion request and 150 contribution. Candidates compete by examination score for available places. Promotions are resolved first, freeing lower-disciple places for admission. The fee is charged when the examination begins. An interrupted or invalid promotion trial refunds it once. A completed failed examination consumes the fee. Candidates have a one-year cooldown after a completed trial. A successful upper disciple can learn another sect element while respecting the mod's two-element limit.
+At an Established Sect, admission requires 40 points and a lower-disciple vacancy, and promotion 55 points (both change by 8 per standing; see Standing and renown). Promotion also requires a vacancy among upper disciples, a promotion request and 150 contribution. Candidates compete by examination score for available places. Promotions are resolved first, freeing lower-disciple places for admission. The fee is charged when the examination begins. An interrupted or invalid promotion trial refunds it once. A completed failed examination consumes the fee. Candidates have a one-year cooldown after a completed trial. A successful upper disciple can learn another sect element while respecting the mod's two-element limit.
 
 Native AI planning needs a ruler controller, so an unlanded master can use a ruler member, the ruler at the headquarters, or an available ruler in that realm or kingdom to arrange the activity. This also works when a player personally owns the headquarters. Once the activity exists, its actual host is transferred to the Sect Master. The society retains its buildings, membership and treasury. A request can be deferred by the ruler's other activity plans; an unfulfilled plan expires after 90 days so the master can try again.
 
@@ -119,7 +140,7 @@ Contribution and Sect Merit are saved separately on each member; they do not use
 
 ## Relationships, battle and joint training
 
-Alliances and rivalries link societies, so they survive a master's succession. Masters negotiate through character interactions or the ledger's neighboring-sect menu. An alliance replaces a rivalry; declaring rivalry ends an alliance. NPC sects occasionally form relationships with neighboring kingdoms' sects.
+Alliances and rivalries link societies, so they survive a master's succession. Masters negotiate through character interactions or the ledger's neighboring-sect menu. An alliance replaces a rivalry; declaring rivalry ends an alliance. NPC sects occasionally form relationships with one of the three sects nearest their own headquarters.
 
 A master may challenge a rival sect to battle. The clash resolves after 30 days on monthly maintenance, using available disciples' prowess, buildings, allied support and joint-training preparation. Winners earn contribution and Power XP, and take up to 75 gold from the defeated treasury. Participants risk nonfatal wounds. Both sects receive a two-year battle cooldown. An ally of both sides remains neutral. These are group sect clashes, without territorial conquest or the separate single-combat system.
 

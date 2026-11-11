@@ -78,3 +78,7 @@ ac_sect_battle_strength = {
 	if = { limit = { has_variable = ac_tier } add = { value = var:ac_tier multiply = 6 } }
 	if = { limit = { has_variable = ac_joint_drill } add = 15 }
 }
+# Story scope. Renown a sect must spend to rise one standing.
+ac_sect_rise_cost = { value = var:ac_tier multiply = 60 }
+# Character scope (a member): what a quiet season in the Cultivation Hall teaches.
+ac_sect_insight_xp = { value = var:ac_sect.var:ac_cultivation_hall multiply = 20 add = 60 }

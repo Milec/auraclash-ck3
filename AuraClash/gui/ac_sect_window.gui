@@ -29,7 +29,7 @@
 					size = { 550 180 }
 					background = { texture = "gfx/interface/illustrations/event_scenes/ep3_medi_estate.dds" fittype = centercrop }
 				}
-				text_multi = { size = { 550 100 } text = "ac_sect_window_summary" }
+				text_multi = { size = { 550 100 } text = "ac_sect_window_summary" tooltip = "ac_sect_window_standing_tt" }
 				text_multi = { size = { 550 60 } text = "[GetPlayer.Custom('AC_SectIdentity')]" }
 				text_multi = { size = { 550 150 } text = "ac_sect_window_buildings" }
 				button_standard = {
@@ -49,7 +49,7 @@
 				spacing = 8
 				text_single = { text = "ac_sect_roster" using = Font_Size_Medium }
 				scrollbox = {
-					size = { 480 300 }
+					size = { 480 210 }
 					blockoverride "scrollbox_content" {
 						vbox = {
 							datamodel = "[GetPlayer.MakeScope.Var('ac_sect').GetList('ac_members')]"
@@ -78,7 +78,23 @@
 							item = {
 								button_standard = {
 									size = { 440 35 }
-									text = "[Scope.Var('ac_master').Char.Custom('AC_SectName')]"
+									text = "ac_sect_window_relation_entry"
+									onclick = "[GetScriptedGui('ac_sect_view_foreign_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('ac_selected_sect', Scope.Self).End)]"
+								}
+							}
+						}
+					}
+				}
+				text_single = { text = "ac_sect_window_known" using = Font_Size_Medium tooltip = "ac_sect_window_standing_tt" }
+				scrollbox = {
+					size = { 480 110 }
+					blockoverride "scrollbox_content" {
+						vbox = {
+							datamodel = "[GetGlobalList('ac_sects')]"
+							item = {
+								button_standard = {
+									size = { 440 30 }
+									text = "ac_sect_window_known_entry"
 									onclick = "[GetScriptedGui('ac_sect_view_foreign_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('ac_selected_sect', Scope.Self).End)]"
 								}
 							}
@@ -94,7 +110,7 @@
 							item = {
 								button_standard = {
 									size = { 440 35 }
-									text = "[Scope.Var('ac_master').Char.Custom('AC_SectName')]"
+									text = "ac_sect_window_relation_entry"
 									onclick = "[GetScriptedGui('ac_sect_view_foreign_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('ac_selected_sect', Scope.Self).End)]"
 								}
 							}

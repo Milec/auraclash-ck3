@@ -56,3 +56,17 @@ ac_sect_contract_travel_aborted = {
  trigger = { has_variable = ac_sect_mission_journey exists = var:ac_sect_mission }
  effect = { ac_sect_cancel_mission_effect = yes }
 }
+
+# One scene of sect life a year for a player member (see ac_sect_yearly_effect).
+ac_sect_life_events = {
+	trigger = { ac_sect_member_trigger = yes ac_sect_available_trigger = yes }
+	random_events = {
+		100 = ac_sect_life.0001
+		100 = ac_sect_life.0002
+		100 = ac_sect_life.0003
+		100 = ac_sect_life.0004
+		100 = ac_sect_life.0005
+		100 = ac_sect_life.0006
+		100 = ac_sect_life.0007
+	}
+}

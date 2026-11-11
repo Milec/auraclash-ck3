@@ -57,6 +57,7 @@ ac_sect_complete_trial_effect = {
 					add_trait = ac_sect_upper_disciple
 					ac_sect_teach_second_element_effect = yes
 					ac_sect_develop_rank_effect = yes
+					scope:ac_join_sect = { ac_sect_change_renown_effect = { VALUE = 3 } }
 					trigger_event = ac_sect_trial.0004
 				}
 				else = { trigger_event = ac_sect_trial.0005 }
@@ -67,6 +68,7 @@ ac_sect_complete_trial_effect = {
 		else_if = {
 			limit = { ac_sect_candidate_trigger = yes var:ac_sect_trial_score >= scope:ac_join_sect.ac_sect_admission_score scope:ac_join_sect.var:ac_lower_count < ac_sect_lower_capacity }
 			ac_sect_join_effect = yes
+			scope:ac_join_sect = { ac_sect_change_renown_effect = { VALUE = 2 } }
 			trigger_event = ac_sect_trial.0003
 		}
 		else = { trigger_event = ac_sect_trial.0005 }

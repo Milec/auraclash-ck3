@@ -123,3 +123,10 @@ ac_sect_send_trial_notice_effect = {
 		trigger_event = ac_sect_trial.0020
 	}
 }
+
+# Sect Master scope. Admits one generated cultivator of the given rank.
+ac_sect_seed_one_effect = {
+	var:ac_sect = { save_scope_as = ac_seeded_sect }
+	ac_sect_seed_disciple_effect = { RANK = $RANK$ }
+	var:ac_sect = { ac_sect_recount_effect = yes }
+}

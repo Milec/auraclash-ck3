@@ -253,6 +253,7 @@ def effects():
             f'\t\t\tif = {{ limit = {{ has_variable = ac_duel_lethal }} add_prestige = {LETHAL_PRESTIGE} }}',
             f'\t\t\telse = {{ add_prestige = {WIN_PRESTIGE} }}',
             '\t\t\tac_add_core_progress_effect = { CORE = power PROGRESS = 10 }',
+            '\t\t\tac_sect_duel_result_effect = yes',
             '\t\t}',
             '\t\tscope:ac_duel_loser = {',
             '\t\t\tif = {',

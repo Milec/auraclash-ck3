@@ -232,6 +232,52 @@ ac_sect_yearly_effect = {
 			random = { chance = 30 ac_sect_start_patrol_effect = yes }
 		}
 	}
+	ac_sect_standing_effect = yes
+	# Sect life comes to players as events; NPC disciples live it silently.
+	every_in_list = {
+		variable = ac_members
+		limit = { is_alive = yes is_ai = no ac_sect_member_trigger = yes }
+		random = { chance = 70 trigger_event = { on_action = ac_sect_life_events days = { 30 300 } } }
+	}
 	ac_sect_ai_diplomacy_effect = yes
 	ac_sect_ai_management_effect = yes
+}
+
+# Story scope. Renown is earned by victories, missions, trials and duels; it never falls below zero.
+ac_sect_change_renown_effect = {
+	if = { limit = { NOT = { has_variable = ac_renown } } set_variable = { name = ac_renown value = 0 } }
+	change_variable = { name = ac_renown add = $VALUE$ }
+	if = { limit = { var:ac_renown < 0 } set_variable = { name = ac_renown value = 0 } }
+}
+
+# Story scope, yearly. Renown can lift a sect one standing above what its region's aura sustains.
+ac_sect_standing_effect = {
+	if = {
+		limit = {
+			var:ac_tier < 4
+			var:ac_tier <= var:ac_headquarters.ac_sect_region_tier
+			var:ac_renown >= ac_sect_rise_cost
+		}
+		change_variable = { name = ac_renown subtract = ac_sect_rise_cost }
+		change_variable = { name = ac_tier add = 1 }
+		every_in_list = {
+			variable = ac_members
+			limit = { is_alive = yes is_ai = no }
+			trigger_event = ac_sect.0040
+		}
+	}
+}
+
+# Winner of a Clash of Auras; scope:ac_duel_loser. Clashes between sects carry their names with them.
+ac_sect_duel_result_effect = {
+	if = {
+		limit = { has_variable = ac_sect scope:ac_duel_loser = { has_variable = ac_sect } }
+		if = {
+			limit = { NOT = { var:ac_sect = scope:ac_duel_loser.var:ac_sect } }
+			ac_sect_award_contribution_effect = { VALUE = 20 }
+			var:ac_sect = { ac_sect_change_renown_effect = { VALUE = 2 } }
+			scope:ac_duel_loser.var:ac_sect = { ac_sect_change_renown_effect = { VALUE = -1 } }
+		}
+		else = { ac_sect_award_contribution_effect = { VALUE = 10 } }
+	}
 }

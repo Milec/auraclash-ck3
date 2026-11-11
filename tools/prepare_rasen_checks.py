@@ -53,6 +53,28 @@ def event():
     body.append(check('sect_imperial_master', sect('c_azuma', 'story_owner = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 85 } }')))
     body.append(check('sect_frontier_roster', sect('c_thunderfall', 'var:ac_upper_count = 5 var:ac_lower_count = 11')))
     body.append(check('sect_great_roster', sect('c_gohara', 'var:ac_upper_count = 9 var:ac_lower_count = 18')))
+    # Sect life: every event runs for a disciple and a master, a duel between sects counts for
+    # the winner's sect, and renown lifts a Frontier Sect one standing.
+    body.append('\ttitle:c_thunderfall.title_province.var:ac_province_sect = {\n'
+                '\t\tsave_scope_as = qa_sect\n'
+                '\t\tstory_owner = { save_scope_as = qa_master }\n'
+                '\t\trandom_in_list = { variable = ac_members limit = { has_trait = ac_sect_upper_disciple } save_scope_as = qa_disciple }\n'
+                '\t}\n'
+                '\ttitle:c_ironrise.title_province.var:ac_province_sect.story_owner = { save_scope_as = qa_trader }\n'
+                '\ttitle:c_nanhou.title_province.var:ac_province_sect.story_owner = { save_scope_as = qa_rival }\n')
+    for n in (1, 2, 3, 4):
+        body.append(f'\tscope:qa_disciple = {{ trigger_event = ac_sect_life.000{n} }}\n')
+    body.append('\tscope:qa_master = { trigger_event = ac_sect_life.0005 trigger_event = ac_sect_life.0006 }\n'
+                '\tscope:qa_trader = { trigger_event = ac_sect_life.0007 }\n'
+                '\tscope:qa_sect = { set_variable = { name = ac_renown value = 0 } }\n'
+                '\tscope:qa_rival = { save_scope_as = ac_duel_foe }\n'
+                '\tscope:qa_master = { ac_duel_start_effect = { LETHAL = no } }\n')
+    body.append(check('sect_duel_renown', 'OR = { scope:qa_sect.var:ac_renown = 2 scope:qa_rival.var:ac_sect.var:ac_renown >= 2 }'))
+    body.append('\tscope:qa_sect = { set_variable = { name = ac_renown value = 70 } ac_sect_standing_effect = yes }\n')
+    body.append(check('sect_rises', 'scope:qa_sect = { var:ac_tier = 2 var:ac_renown = 10 }'))
+    body.append('\tscope:qa_sect = { set_variable = { name = ac_renown value = 500 } ac_sect_standing_effect = yes }\n')
+    body.append(check('sect_rise_capped', 'scope:qa_sect = { var:ac_tier = 2 }'))
+    body.append(check('sect_income', 'scope:qa_sect = { ac_sect_annual_income = 110 }'))
     # The Exalted Council: a session, then the decree.
     body.append('\trasen_council_session_effect = yes\n\trasen_council_enact_effect = yes\n')
     body.append(check('council_decree', 'has_global_variable = rasen_decree'))
@@ -67,6 +89,7 @@ def event():
     for year in range(1, 4):
         body.append('\trasen_council_yearly_effect = yes\n\trasen_shadows_yearly_effect = yes\n'
                     '\trasen_ice_incursion_yearly_effect = yes\n\tac_ascension_yearly_effect = yes\n'
+                    '\tevery_in_global_list = { variable = ac_sects ac_sect_yearly_effect = yes }\n'
                     f'\tdebug_log = "RASEN_QA YEAR {year} DONE"\n')
     body.append(check('council_countdown', 'has_global_variable = rasen_council_countdown'))
     body.append(check('trials_countdown', 'has_global_variable = ac_ascension_countdown'))

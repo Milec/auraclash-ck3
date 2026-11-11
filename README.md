@@ -72,7 +72,7 @@ Travel techniques can be performed by the ruler or a qualified cultivator in the
 
 ### Cultivation sects
 
-One provincial sect is seeded per eligible de-jure kingdom, with a Master, up to ten Upper Disciples and twenty Lower Disciples. Rulers can join while keeping their titles. Each sect has two elements, a martial style and a foundation, plus a persistent estate that passes to the next master.
+One provincial sect is seeded per eligible de-jure kingdom (on Imperial Rasen, the story's 23 sects at their own seats), with a Master, up to ten Upper Disciples and twenty Lower Disciples. Each is called by its own name, such as the Thunderfall Sect or the Choral Line Trade Sect, and has a standing from Frontier to Imperial set by its region, which decides how strong, rich and selective it is; renown earned in battles, missions, trials and duels can raise it. Rulers can join while keeping their titles. Each sect has two elements, a martial style and a foundation, plus a persistent estate that passes to the next master.
 
 Use **Decisions → Cultivation → Consult the Sect Register** for membership, six estate building lines, mission contracts and the contribution exchange. Public **Sect Trial** activities admit mortals and cultivators and examine disciples for promotion. Sects can form alliances and rivalries, fight group battles and host **Joint Sect Training**. See the [sect guide](docs/sects.md) for costs, succession, geography and testing.
 

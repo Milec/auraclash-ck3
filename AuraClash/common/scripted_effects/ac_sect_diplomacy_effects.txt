@@ -103,7 +103,9 @@ ac_sect_resolve_battle_effect = {
 	}
 }
 ac_sect_battle_outcome_effect = {
+	scope:ac_victorious_sect = { ac_sect_change_renown_effect = { VALUE = 10 } }
 	scope:ac_defeated_sect = {
+		ac_sect_change_renown_effect = { VALUE = -5 }
 		set_variable = { name = ac_battle_loot value = var:ac_treasury }
 		if = { limit = { var:ac_battle_loot > 75 } set_variable = { name = ac_battle_loot value = 75 } }
 		change_variable = { name = ac_treasury subtract = var:ac_battle_loot }

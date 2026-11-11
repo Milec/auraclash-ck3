@@ -34,7 +34,7 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
 | Exalted Council | Council of Exalts: a custom government or struggle-like mechanic over Azuma Honsha (phase 4) |
 | Archons and the Heavenly Ascension Trials | Already in the base mod (Archonate Disciple, the Trials event chain) |
 | Castes and Clans | Estates and houses; "Clanless" lowborn; promotion into the Warrior Caste via events |
-| Sects | The base mod's provincial sects, reseeded with canonical sects |
+| Sects | The story's 23 sects at their own seats, with standing by region (see [sects](sects.md)) |
 | Mortal Limit by region | Implemented: Aura Pressure gains halve above the Mortal Limit; `RasenMap` adds +700 in the Inner Kingdoms and +1,700 on Azuma Honsha (`ac_mortal_limit_region_values.txt`) |
 | Zenshin, Cathayan, Lunargoth, Oni, Yokai, Kitsune | Six cultures, each with its own heritage; Zenshin, Old Cathayan and Lunargothic languages |
 | Devanic Temple, Shugendō, Wild Gods | Religions and faiths |
@@ -77,7 +77,7 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
    - A High Steward of the Exalted Council holds Azuma Honsha. The Outer lands are independent duchies; Magistrates Khan (Thunderfall) and Fuyu (Nanhou) are canon.
    - Province culture, faith and holdings.
    - Every ruler has a spouse and one to three children (matrilineal for female rulers), 360 characters in all. Each culture starts in the Early Medieval era with first-tier innovations.
-   - Still to do: the canonical sects as seeded sects, and bookmark portraits.
+   - The canonical sects are seeded at their seats, and the six featured rulers have portraits.
 5. **Regional systems:**
    - **Regional Mortal Limit:** done.
    - **Ice Incursions:** done (`RasenMap/events/rasen_ice_incursion_events.txt`).
