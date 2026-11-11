@@ -22,9 +22,10 @@ class RaceTests(unittest.TestCase):
         for key in keys:
             self.assertRegex(loc, rf'(?m)^ trait_{key}:0 "')
         # IF racial bonuses: Lore (Human), Deception (Oni), Craft (Lunargoth).
-        self.assertIn('learning = 1', traits.split('ac_race_human = {')[1].split('}')[0])
-        self.assertIn('intrigue = 1', traits.split('ac_race_oni = {')[1].split('ac_race_lunargoth')[0])
-        self.assertIn('stewardship = 1', traits.split('ac_race_lunargoth = {')[1].split('}')[0])
+        body = lambda key: script.one('{' + traits + '}', key).body('{' + traits + '}')
+        self.assertIn('learning = 1', body('ac_race_human'))
+        self.assertIn('intrigue = 1', body('ac_race_oni'))
+        self.assertIn('stewardship = 1', body('ac_race_lunargoth'))
 
     def test_inheritance_assignment_and_fox_charm(self):
         self.assertIn('ac_inherit_race_effect', read('AuraClash/common/on_action/ac_race_on_actions.txt'))
