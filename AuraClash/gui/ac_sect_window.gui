@@ -78,7 +78,7 @@
 							item = {
 								button_standard = {
 									size = { 440 35 }
-									text = "[Scope.Var('ac_kingdom').Title.GetNameNoTier]"
+									text = "[Scope.Var('ac_master').Char.Custom('AC_SectName')]"
 									onclick = "[GetScriptedGui('ac_sect_view_foreign_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('ac_selected_sect', Scope.Self).End)]"
 								}
 							}
@@ -94,7 +94,7 @@
 							item = {
 								button_standard = {
 									size = { 440 35 }
-									text = "[Scope.Var('ac_kingdom').Title.GetNameNoTier]"
+									text = "[Scope.Var('ac_master').Char.Custom('AC_SectName')]"
 									onclick = "[GetScriptedGui('ac_sect_view_foreign_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('ac_selected_sect', Scope.Self).End)]"
 								}
 							}

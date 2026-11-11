@@ -1,0 +1,8 @@
+﻿# Province scope: the standing (1-4) of a sect founded here. On the vanilla map it follows the
+# county's development; the Imperial Rasen overhaul replaces this file with its regions' natural aura.
+ac_sect_region_tier = {
+	value = 2
+	if = { limit = { county.development_level < 6 } value = 1 }
+	else_if = { limit = { county.development_level >= 25 } value = 4 }
+	else_if = { limit = { county.development_level >= 15 } value = 3 }
+}

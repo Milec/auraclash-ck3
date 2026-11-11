@@ -6,6 +6,15 @@ PROFILES = {
     'master': (tuple(range(60, 81, 5)), (75, 85, 95)),
     'grandmaster': (tuple(range(85, 101, 5)), (100,)),
 }
+# A sect's standing follows the natural aura of its region (docs/sects.md). Standing 2 uses the
+# plain profiles above; a sect master of the highest standing matches a Grandmaster.
+STANDING_PROFILES = {
+    'upper_t1': (tuple(range(20, 41, 5)), (30, 40, 50)),
+    'upper_t3': (tuple(range(40, 61, 5)), (60, 70, 80)),
+    'upper_t4': (tuple(range(50, 71, 5)), (75, 85, 95)),
+    'master_t1': (tuple(range(45, 66, 5)), (60, 70, 80)),
+    'master_t3': (tuple(range(70, 91, 5)), (85, 95, 100)),
+}
 
 
 def render(identities):
@@ -25,7 +34,7 @@ ac_ensure_foundation_floor_effect = {
         ac_gain_foundation_xp_effect = { XP = 5 }
     }
 }''']
-    for profile, (cores, foundation) in PROFILES.items():
+    for profile, (cores, foundation) in {**PROFILES, **STANDING_PROFILES}.items():
         lines = [f'ac_develop_{profile}_effect = {{',
                  'if = { limit = { ac_has_foundation_trigger = no } ac_random_foundation_effect = yes }']
         for core in CORES:
@@ -35,7 +44,7 @@ ac_ensure_foundation_floor_effect = {
         lines.append('random_list = {')
         lines += [f'1 = {{ ac_ensure_foundation_floor_effect = {{ XP = {xp} }} }}' for xp in foundation]
         lines.append('}')
-        if profile != 'upper':
+        if not profile.startswith('upper'):
             lines.append('add_trait = ac_immortal_core')
         # Recount Aura Pressure and Immortal Cores for the developed rank.
         lines += ['ac_resync_aura_effect = yes', 'ac_update_visual_age_effect = yes', '}']
@@ -46,12 +55,18 @@ ac_sect_develop_rank_effect = {
         limit = { has_trait = ac_cultivator is_alive = yes age >= 16 }
         if = {
             limit = { has_trait = ac_sect_master OR = { NOT = { has_variable = ac_development_rank } var:ac_development_rank < 2 } }
-            ac_develop_master_effect = yes
+            if = { limit = { var:ac_sect.var:ac_tier ?= 1 } ac_develop_master_t1_effect = yes }
+            else_if = { limit = { var:ac_sect.var:ac_tier ?= 3 } ac_develop_master_t3_effect = yes }
+            else_if = { limit = { var:ac_sect.var:ac_tier ?= 4 } ac_develop_grandmaster_effect = yes }
+            else = { ac_develop_master_effect = yes }
             set_variable = { name = ac_development_rank value = 2 }
         }
         else_if = {
             limit = { has_trait = ac_sect_upper_disciple OR = { NOT = { has_variable = ac_development_rank } var:ac_development_rank < 1 } }
-            ac_develop_upper_effect = yes
+            if = { limit = { var:ac_sect.var:ac_tier ?= 1 } ac_develop_upper_t1_effect = yes }
+            else_if = { limit = { var:ac_sect.var:ac_tier ?= 3 } ac_develop_upper_t3_effect = yes }
+            else_if = { limit = { var:ac_sect.var:ac_tier ?= 4 } ac_develop_upper_t4_effect = yes }
+            else = { ac_develop_upper_effect = yes }
             set_variable = { name = ac_development_rank value = 1 }
         }
     }

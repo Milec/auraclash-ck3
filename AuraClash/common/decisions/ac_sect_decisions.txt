@@ -80,15 +80,17 @@ ac_sect_found_decision = {
 		has_trait = ac_cultivator
 		NOT = { has_variable = ac_sect }
 		is_landed = yes
-		capital_province.kingdom = { NOT = { has_variable = ac_kingdom_sect } }
-		capital_province = { NOT = { has_variable = ac_province_sect } }
+		capital_province.duchy = {
+			NOT = { has_variable = ac_kingdom_sect }
+			NOT = { any_de_jure_county = { title_province = { has_variable = ac_province_sect } } }
+		}
 	}
 	is_valid = { ac_sect_available_trigger = yes }
 	cost = { gold = 300 prestige = 500 }
 	ai_check_interval = 0
 	effect = {
 		capital_province = { save_scope_as = ac_sect_hq }
-		capital_province.kingdom = { save_scope_as = ac_sect_kingdom }
+		capital_province.duchy = { save_scope_as = ac_sect_kingdom }
 		ac_sect_found_effect = yes
 		ac_sect_seed_roster_effect = yes
 		trigger_event = ac_sect.0020

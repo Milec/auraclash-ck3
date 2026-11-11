@@ -37,6 +37,22 @@ def event():
     body.append(check('divine_general', 'any_living_character = { has_trait = rasen_divine_general }'))
     body.append(check('akuma_seeded', 'any_in_global_list = { variable = rasen_akuma_members count >= 5 }'))
     body.append(check('capital_holding', 'title:c_azuma.title_province = { has_holding = yes }'))
+    # The story's sects, each at its seat, with standing by region.
+    def sect(county, condition):
+        return f'title:{county}.title_province = {{ has_variable = ac_province_sect var:ac_province_sect = {{ {condition} }} }}'
+    body.append('\ttrigger_event = { on_action = ac_sect_initialize }\n')
+    body.append(check('sects_seeded', 'any_in_global_list = { variable = ac_sects count = 23 }'))
+    body.append(check('sect_thunderfall', sect('c_thunderfall', 'var:ac_identity = flag:thunderfall var:ac_tier = 1 var:ac_treasury = 150')))
+    body.append(check('sect_sunbringer', sect('c_sunbringer', 'var:ac_identity = flag:sunbringer')))
+    body.append(check('sect_trade', sect('c_ironrise', 'var:ac_identity = flag:choral_line has_variable = ac_trade_sect var:ac_treasury = 350')))
+    body.append(check('sect_outer_east', sect('c_sazawa', 'var:ac_tier = 2')))
+    body.append(check('sect_inner', sect('c_gohara', 'var:ac_identity = flag:ten_thousand_blades var:ac_tier = 3 var:ac_scripture_library = 1')))
+    body.append(check('sect_capital', sect('c_azuma', 'var:ac_tier = 4 var:ac_cultivation_hall = 2 exists = var:ac_estate_title')))
+    body.append(check('sect_frontier_master', sect('c_thunderfall', 'story_owner = { has_trait = ac_sect_master '
+                      'NOT = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 70 } } }')))
+    body.append(check('sect_imperial_master', sect('c_azuma', 'story_owner = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 85 } }')))
+    body.append(check('sect_frontier_roster', sect('c_thunderfall', 'var:ac_upper_count = 5 var:ac_lower_count = 11')))
+    body.append(check('sect_great_roster', sect('c_gohara', 'var:ac_upper_count = 9 var:ac_lower_count = 18')))
     # The Exalted Council: a session, then the decree.
     body.append('\trasen_council_session_effect = yes\n\trasen_council_enact_effect = yes\n')
     body.append(check('council_decree', 'has_global_variable = rasen_decree'))

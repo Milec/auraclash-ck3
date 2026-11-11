@@ -6,27 +6,7 @@ ac_sect_initialize = {
 	trigger = { NOT = { has_global_variable = ac_sects_initialized } }
 	effect = {
 		set_global_variable = { name = ac_sects_initialized value = 1 }
-		every_kingdom = {
-			limit = { ac_sect_kingdom_eligible_trigger = yes }
-			save_scope_as = ac_sect_kingdom
-			title_capital_county.title_province = { save_scope_as = ac_sect_hq }
-			title_capital_county.holder = {
-				create_character = {
-					gender_female_chance = 50
-					age = 45
-					culture = this.culture
-					faith = this.faith
-					location = scope:ac_sect_hq
-					random_traits = yes
-					save_scope_as = ac_founder
-				}
-			}
-			scope:ac_founder = {
-				add_gold = 100
-				ac_sect_found_effect = yes
-				ac_sect_seed_roster_effect = yes
-			}
-		}
+		ac_sect_seed_world_effect = yes
 		every_in_global_list = { variable = ac_sects ac_sect_ai_diplomacy_effect = yes }
 	}
 }

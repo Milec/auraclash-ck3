@@ -8,6 +8,20 @@
 	text = { trigger = { var:ac_sect.var:ac_identity = flag:endless_beating } localization_key = ac_sect_identity_endless_beating }
 	text = { trigger = { var:ac_sect.var:ac_identity = flag:windrising } localization_key = ac_sect_identity_windrising }
 	text = { trigger = { var:ac_sect.var:ac_identity = flag:hidden_coil } localization_key = ac_sect_identity_hidden_coil }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:choral_line } localization_key = ac_sect_identity_choral_line }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:thousand_lantern } localization_key = ac_sect_identity_thousand_lantern }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:shielded_hull } localization_key = ac_sect_identity_shielded_hull }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:scarlet_sun } localization_key = ac_sect_identity_scarlet_sun }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:forbidden_field } localization_key = ac_sect_identity_forbidden_field }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:auroran_lights } localization_key = ac_sect_identity_auroran_lights }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:wandering_tear } localization_key = ac_sect_identity_wandering_tear }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:alluvial_fan } localization_key = ac_sect_identity_alluvial_fan }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:ten_thousand_blades } localization_key = ac_sect_identity_ten_thousand_blades }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:veiled_moon } localization_key = ac_sect_identity_veiled_moon }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:saints_vigil } localization_key = ac_sect_identity_saints_vigil }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:endless_daylight } localization_key = ac_sect_identity_endless_daylight }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:great_arena } localization_key = ac_sect_identity_great_arena }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:heavenly_ascension } localization_key = ac_sect_identity_heavenly_ascension }
 	text = { localization_key = ac_sect_identity_unknown }
 }
 AC_SectName = {
@@ -21,7 +35,28 @@ AC_SectName = {
 	text = { trigger = { var:ac_sect.var:ac_identity = flag:endless_beating } localization_key = ac_sect_name_endless_beating }
 	text = { trigger = { var:ac_sect.var:ac_identity = flag:windrising } localization_key = ac_sect_name_windrising }
 	text = { trigger = { var:ac_sect.var:ac_identity = flag:hidden_coil } localization_key = ac_sect_name_hidden_coil }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:choral_line } localization_key = ac_sect_name_choral_line }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:thousand_lantern } localization_key = ac_sect_name_thousand_lantern }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:shielded_hull } localization_key = ac_sect_name_shielded_hull }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:scarlet_sun } localization_key = ac_sect_name_scarlet_sun }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:forbidden_field } localization_key = ac_sect_name_forbidden_field }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:auroran_lights } localization_key = ac_sect_name_auroran_lights }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:wandering_tear } localization_key = ac_sect_name_wandering_tear }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:alluvial_fan } localization_key = ac_sect_name_alluvial_fan }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:ten_thousand_blades } localization_key = ac_sect_name_ten_thousand_blades }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:veiled_moon } localization_key = ac_sect_name_veiled_moon }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:saints_vigil } localization_key = ac_sect_name_saints_vigil }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:endless_daylight } localization_key = ac_sect_name_endless_daylight }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:great_arena } localization_key = ac_sect_name_great_arena }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:heavenly_ascension } localization_key = ac_sect_name_heavenly_ascension }
 	text = { localization_key = ac_sect_name_unknown }
+}
+AC_SectStanding = {
+	type = character
+	text = { trigger = { var:ac_sect.var:ac_tier ?= 1 } localization_key = ac_sect_standing_1 }
+	text = { trigger = { var:ac_sect.var:ac_tier ?= 3 } localization_key = ac_sect_standing_3 }
+	text = { trigger = { var:ac_sect.var:ac_tier ?= 4 } localization_key = ac_sect_standing_4 }
+	text = { localization_key = ac_sect_standing_2 }
 }
 
 AC_SectRank = {

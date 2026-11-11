@@ -166,9 +166,10 @@ ac_sect_government = {
         sync.append(f'''if = {{
             limit = {{ var:ac_estate_title = {{ exists = title_domicile }} }}
             var:ac_estate_title.title_domicile = {{''')
-        for level in (3, 2, 1):
-            sync.append(f'''{'if' if level == 3 else 'else_if'} = {{
-                limit = {{ var:ac_domicile_sect.var:ac_{key} = {level} NOT = {{ has_domicile_building_or_higher = ac_sect_{key}_{level:02} }} }}
+        # Lowest level first: the game refuses an upgrade whose earlier level is not built.
+        for level in (1, 2, 3):
+            sync.append(f'''if = {{
+                limit = {{ var:ac_domicile_sect.var:ac_{key} >= {level} NOT = {{ has_domicile_building_or_higher = ac_sect_{key}_{level:02} }} }}
                 add_domicile_building = ac_sect_{key}_{level:02}
             }}''')
         sync += ['}', '}']

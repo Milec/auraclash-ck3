@@ -151,101 +151,101 @@ ac_sect_migrate_building_levels_effect = {
 		limit = { var:ac_estate_title = { exists = title_domicile } }
 		var:ac_estate_title.title_domicile = {
 			if = {
-				limit = { var:ac_domicile_sect.var:ac_cultivation_hall = 3 NOT = { has_domicile_building_or_higher = ac_sect_cultivation_hall_03 } }
-				add_domicile_building = ac_sect_cultivation_hall_03
-			}
-			else_if = {
-				limit = { var:ac_domicile_sect.var:ac_cultivation_hall = 2 NOT = { has_domicile_building_or_higher = ac_sect_cultivation_hall_02 } }
-				add_domicile_building = ac_sect_cultivation_hall_02
-			}
-			else_if = {
-				limit = { var:ac_domicile_sect.var:ac_cultivation_hall = 1 NOT = { has_domicile_building_or_higher = ac_sect_cultivation_hall_01 } }
+				limit = { var:ac_domicile_sect.var:ac_cultivation_hall >= 1 NOT = { has_domicile_building_or_higher = ac_sect_cultivation_hall_01 } }
 				add_domicile_building = ac_sect_cultivation_hall_01
 			}
+			if = {
+				limit = { var:ac_domicile_sect.var:ac_cultivation_hall >= 2 NOT = { has_domicile_building_or_higher = ac_sect_cultivation_hall_02 } }
+				add_domicile_building = ac_sect_cultivation_hall_02
+			}
+			if = {
+				limit = { var:ac_domicile_sect.var:ac_cultivation_hall >= 3 NOT = { has_domicile_building_or_higher = ac_sect_cultivation_hall_03 } }
+				add_domicile_building = ac_sect_cultivation_hall_03
+			}
 		}
 	}
 	if = {
 		limit = { var:ac_estate_title = { exists = title_domicile } }
 		var:ac_estate_title.title_domicile = {
 			if = {
-				limit = { var:ac_domicile_sect.var:ac_alchemy_pavilion = 3 NOT = { has_domicile_building_or_higher = ac_sect_alchemy_pavilion_03 } }
-				add_domicile_building = ac_sect_alchemy_pavilion_03
-			}
-			else_if = {
-				limit = { var:ac_domicile_sect.var:ac_alchemy_pavilion = 2 NOT = { has_domicile_building_or_higher = ac_sect_alchemy_pavilion_02 } }
-				add_domicile_building = ac_sect_alchemy_pavilion_02
-			}
-			else_if = {
-				limit = { var:ac_domicile_sect.var:ac_alchemy_pavilion = 1 NOT = { has_domicile_building_or_higher = ac_sect_alchemy_pavilion_01 } }
+				limit = { var:ac_domicile_sect.var:ac_alchemy_pavilion >= 1 NOT = { has_domicile_building_or_higher = ac_sect_alchemy_pavilion_01 } }
 				add_domicile_building = ac_sect_alchemy_pavilion_01
 			}
+			if = {
+				limit = { var:ac_domicile_sect.var:ac_alchemy_pavilion >= 2 NOT = { has_domicile_building_or_higher = ac_sect_alchemy_pavilion_02 } }
+				add_domicile_building = ac_sect_alchemy_pavilion_02
+			}
+			if = {
+				limit = { var:ac_domicile_sect.var:ac_alchemy_pavilion >= 3 NOT = { has_domicile_building_or_higher = ac_sect_alchemy_pavilion_03 } }
+				add_domicile_building = ac_sect_alchemy_pavilion_03
+			}
 		}
 	}
 	if = {
 		limit = { var:ac_estate_title = { exists = title_domicile } }
 		var:ac_estate_title.title_domicile = {
 			if = {
-				limit = { var:ac_domicile_sect.var:ac_training_ground = 3 NOT = { has_domicile_building_or_higher = ac_sect_training_ground_03 } }
-				add_domicile_building = ac_sect_training_ground_03
-			}
-			else_if = {
-				limit = { var:ac_domicile_sect.var:ac_training_ground = 2 NOT = { has_domicile_building_or_higher = ac_sect_training_ground_02 } }
-				add_domicile_building = ac_sect_training_ground_02
-			}
-			else_if = {
-				limit = { var:ac_domicile_sect.var:ac_training_ground = 1 NOT = { has_domicile_building_or_higher = ac_sect_training_ground_01 } }
+				limit = { var:ac_domicile_sect.var:ac_training_ground >= 1 NOT = { has_domicile_building_or_higher = ac_sect_training_ground_01 } }
 				add_domicile_building = ac_sect_training_ground_01
 			}
+			if = {
+				limit = { var:ac_domicile_sect.var:ac_training_ground >= 2 NOT = { has_domicile_building_or_higher = ac_sect_training_ground_02 } }
+				add_domicile_building = ac_sect_training_ground_02
+			}
+			if = {
+				limit = { var:ac_domicile_sect.var:ac_training_ground >= 3 NOT = { has_domicile_building_or_higher = ac_sect_training_ground_03 } }
+				add_domicile_building = ac_sect_training_ground_03
+			}
 		}
 	}
 	if = {
 		limit = { var:ac_estate_title = { exists = title_domicile } }
 		var:ac_estate_title.title_domicile = {
 			if = {
-				limit = { var:ac_domicile_sect.var:ac_scripture_library = 3 NOT = { has_domicile_building_or_higher = ac_sect_scripture_library_03 } }
-				add_domicile_building = ac_sect_scripture_library_03
-			}
-			else_if = {
-				limit = { var:ac_domicile_sect.var:ac_scripture_library = 2 NOT = { has_domicile_building_or_higher = ac_sect_scripture_library_02 } }
-				add_domicile_building = ac_sect_scripture_library_02
-			}
-			else_if = {
-				limit = { var:ac_domicile_sect.var:ac_scripture_library = 1 NOT = { has_domicile_building_or_higher = ac_sect_scripture_library_01 } }
+				limit = { var:ac_domicile_sect.var:ac_scripture_library >= 1 NOT = { has_domicile_building_or_higher = ac_sect_scripture_library_01 } }
 				add_domicile_building = ac_sect_scripture_library_01
 			}
+			if = {
+				limit = { var:ac_domicile_sect.var:ac_scripture_library >= 2 NOT = { has_domicile_building_or_higher = ac_sect_scripture_library_02 } }
+				add_domicile_building = ac_sect_scripture_library_02
+			}
+			if = {
+				limit = { var:ac_domicile_sect.var:ac_scripture_library >= 3 NOT = { has_domicile_building_or_higher = ac_sect_scripture_library_03 } }
+				add_domicile_building = ac_sect_scripture_library_03
+			}
 		}
 	}
 	if = {
 		limit = { var:ac_estate_title = { exists = title_domicile } }
 		var:ac_estate_title.title_domicile = {
 			if = {
-				limit = { var:ac_domicile_sect.var:ac_spirit_garden = 3 NOT = { has_domicile_building_or_higher = ac_sect_spirit_garden_03 } }
-				add_domicile_building = ac_sect_spirit_garden_03
-			}
-			else_if = {
-				limit = { var:ac_domicile_sect.var:ac_spirit_garden = 2 NOT = { has_domicile_building_or_higher = ac_sect_spirit_garden_02 } }
-				add_domicile_building = ac_sect_spirit_garden_02
-			}
-			else_if = {
-				limit = { var:ac_domicile_sect.var:ac_spirit_garden = 1 NOT = { has_domicile_building_or_higher = ac_sect_spirit_garden_01 } }
+				limit = { var:ac_domicile_sect.var:ac_spirit_garden >= 1 NOT = { has_domicile_building_or_higher = ac_sect_spirit_garden_01 } }
 				add_domicile_building = ac_sect_spirit_garden_01
 			}
+			if = {
+				limit = { var:ac_domicile_sect.var:ac_spirit_garden >= 2 NOT = { has_domicile_building_or_higher = ac_sect_spirit_garden_02 } }
+				add_domicile_building = ac_sect_spirit_garden_02
+			}
+			if = {
+				limit = { var:ac_domicile_sect.var:ac_spirit_garden >= 3 NOT = { has_domicile_building_or_higher = ac_sect_spirit_garden_03 } }
+				add_domicile_building = ac_sect_spirit_garden_03
+			}
 		}
 	}
 	if = {
 		limit = { var:ac_estate_title = { exists = title_domicile } }
 		var:ac_estate_title.title_domicile = {
 			if = {
-				limit = { var:ac_domicile_sect.var:ac_formation_hall = 3 NOT = { has_domicile_building_or_higher = ac_sect_formation_hall_03 } }
-				add_domicile_building = ac_sect_formation_hall_03
+				limit = { var:ac_domicile_sect.var:ac_formation_hall >= 1 NOT = { has_domicile_building_or_higher = ac_sect_formation_hall_01 } }
+				add_domicile_building = ac_sect_formation_hall_01
 			}
-			else_if = {
-				limit = { var:ac_domicile_sect.var:ac_formation_hall = 2 NOT = { has_domicile_building_or_higher = ac_sect_formation_hall_02 } }
+			if = {
+				limit = { var:ac_domicile_sect.var:ac_formation_hall >= 2 NOT = { has_domicile_building_or_higher = ac_sect_formation_hall_02 } }
 				add_domicile_building = ac_sect_formation_hall_02
 			}
-			else_if = {
-				limit = { var:ac_domicile_sect.var:ac_formation_hall = 1 NOT = { has_domicile_building_or_higher = ac_sect_formation_hall_01 } }
-				add_domicile_building = ac_sect_formation_hall_01
+			if = {
+				limit = { var:ac_domicile_sect.var:ac_formation_hall >= 3 NOT = { has_domicile_building_or_higher = ac_sect_formation_hall_03 } }
+				add_domicile_building = ac_sect_formation_hall_03
 			}
 		}
 	}

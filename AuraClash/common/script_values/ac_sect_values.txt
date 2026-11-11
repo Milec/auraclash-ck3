@@ -1,8 +1,43 @@
 ﻿# Balance and map policy are deliberately separate from the sect's persistent data.
 ac_sect_upper_capacity = 10
 ac_sect_lower_capacity = 20
-ac_sect_initial_upper = 8
-ac_sect_initial_lower = 16
+# Character scope (a member). Greater sects begin with fuller halls.
+ac_sect_initial_upper = {
+	value = 8
+	if = { limit = { var:ac_sect.var:ac_tier ?= 1 } value = 5 }
+	else_if = { limit = { var:ac_sect.var:ac_tier >= 3 } value = 9 }
+}
+ac_sect_initial_lower = {
+	value = 16
+	if = { limit = { var:ac_sect.var:ac_tier ?= 1 } value = 11 }
+	else_if = { limit = { var:ac_sect.var:ac_tier >= 3 } value = 18 }
+}
+# Story scope. Standing (ac_tier 1-4) follows the natural aura of the headquarters' region.
+ac_sect_start_treasury = {
+	value = 300
+	if = { limit = { var:ac_tier ?= 1 } value = 150 }
+	else_if = { limit = { var:ac_tier ?= 3 } value = 500 }
+	else_if = { limit = { var:ac_tier ?= 4 } value = 800 }
+	if = { limit = { has_variable = ac_trade_sect } add = 200 }
+}
+ac_sect_annual_income = {
+	value = 60
+	if = { limit = { var:ac_tier ?= 1 } value = 40 }
+	else_if = { limit = { var:ac_tier ?= 3 } value = 90 }
+	else_if = { limit = { var:ac_tier ?= 4 } value = 130 }
+	if = { limit = { has_variable = ac_trade_sect } add = 40 }
+	add = ac_sect_renown_income
+}
+ac_sect_renown_income = {
+	value = 0
+	if = { limit = { has_variable = ac_renown } add = { value = var:ac_renown divide = 10 floor = yes max = 60 } }
+}
+# Greater sects ask more of those who would enter and rise.
+ac_sect_admission_score = {
+	value = 24
+	add = { value = 2 if = { limit = { has_variable = ac_tier } value = var:ac_tier } multiply = 8 }
+}
+ac_sect_promotion_score = { value = ac_sect_admission_score add = 15 }
 ac_sect_promotion_cost = 150
 ac_sect_mission_reward = 50
 ac_sect_joint_host_gold = { value = 75 if = { limit = { is_ai = yes } multiply = 0 } }
@@ -40,5 +75,6 @@ ac_sect_battle_strength = {
 	add = var:ac_formation_hall
 	add = story_owner.prowess
 	add = story_owner.martial
+	if = { limit = { has_variable = ac_tier } add = { value = var:ac_tier multiply = 6 } }
 	if = { limit = { has_variable = ac_joint_drill } add = 15 }
 }

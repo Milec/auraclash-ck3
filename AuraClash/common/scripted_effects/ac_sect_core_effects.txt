@@ -10,7 +10,6 @@ ac_sect_found_effect = {
 			set_variable = { name = ac_master value = prev }
 			set_variable = { name = ac_headquarters value = scope:ac_sect_hq }
 			set_variable = { name = ac_kingdom value = scope:ac_sect_kingdom }
-			set_variable = { name = ac_treasury value = 300 }
 			set_variable = { name = ac_upper_count value = 0 }
 			set_variable = { name = ac_lower_count value = 0 }
 			set_variable = { name = ac_cultivation_hall value = 1 }
@@ -19,7 +18,28 @@ ac_sect_found_effect = {
 			set_variable = { name = ac_scripture_library value = 0 }
 			set_variable = { name = ac_spirit_garden value = 0 }
 			set_variable = { name = ac_formation_hall value = 0 }
-			ac_sect_random_identity_effect = yes
+			# A reserved name (the overhaul's canonical sects), else one no living sect uses.
+			if = {
+				limit = { scope:ac_sect_kingdom = { has_variable = ac_seed_identity } }
+				set_variable = { name = ac_identity value = scope:ac_sect_kingdom.var:ac_seed_identity }
+			}
+			else = { ac_sect_random_identity_effect = yes }
+			ac_sect_mark_kind_effect = yes
+			set_variable = { name = ac_tier value = scope:ac_sect_hq.ac_sect_region_tier }
+			set_variable = { name = ac_renown value = 0 }
+			set_variable = { name = ac_treasury value = ac_sect_start_treasury }
+			if = {
+				limit = { var:ac_tier >= 3 }
+				set_variable = { name = ac_scripture_library value = 1 }
+				set_variable = { name = ac_alchemy_pavilion value = 1 }
+			}
+			if = {
+				limit = { var:ac_tier >= 4 }
+				set_variable = { name = ac_cultivation_hall value = 2 }
+				set_variable = { name = ac_training_ground value = 2 }
+				set_variable = { name = ac_spirit_garden value = 1 }
+				set_variable = { name = ac_formation_hall value = 1 }
+			}
 			add_to_global_variable_list = { name = ac_sects target = this }
 		}
 		scope:ac_sect_hq = {
@@ -185,7 +205,10 @@ ac_sect_yearly_effect = {
 		scope:ac_maintained_sect = { remove_list_variable = { name = ac_members target = scope:ac_stale_member } }
 	}
 	ac_sect_recount_effect = yes
-	change_variable = { name = ac_treasury add = 60 }
+	# Saves from before sect standing: an Established Sect.
+	if = { limit = { NOT = { has_variable = ac_tier } } set_variable = { name = ac_tier value = 2 } }
+	if = { limit = { NOT = { has_variable = ac_renown } } set_variable = { name = ac_renown value = 0 } }
+	change_variable = { name = ac_treasury add = ac_sect_annual_income }
 	if = { limit = { var:ac_treasury > 2000 } set_variable = { name = ac_treasury value = 2000 } }
 	ac_sect_finish_construction_effect = yes
 	every_in_list = {

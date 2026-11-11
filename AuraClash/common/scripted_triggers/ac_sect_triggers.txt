@@ -101,7 +101,7 @@ ac_sect_trial_candidate_for_host_trigger = {
 		trigger_else = { var:ac_sect_application ?= scope:host.var:ac_sect }
 	}
 }
-# This is the only geographic policy: replace it when the custom map arrives.
+# Used by the vanilla-map seeding in ac_sect_world_effects.txt.
 ac_sect_kingdom_eligible_trigger = {
 	any_de_jure_county = { always = yes }
 	exists = title_capital_county.holder

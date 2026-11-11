@@ -1,4 +1,4 @@
-"""Lore data for Imperial Rasen: peoples, faiths, holy sites and the starting cast.
+﻿"""Lore data for Imperial Rasen: peoples, faiths, holy sites and the starting cast.
 
 Canon (from the Aura Clash game text): Zenshin culture and its Cathayan origins; Oni,
 Yokai and Kitsune; the Devanic Temple, its Saints and Fiend-hunters; Shugendo; Wild
@@ -260,6 +260,28 @@ BOOKMARK = dict(
     name='The Heavenly Ascension Trials',
     desc='The war in the north is won, and the Exalted Council has chosen the Outer West town of Nanhou to host the next Heavenly Ascension Trials. Ten thousand young martial artists converge on it, and the five Exalts watch for those worth claiming.',
 )
+
+# Where each sect keeps its halls: a county, or a kingdom (the generator picks a county in it).
+# From the IF: Thunderfall and Sunbringer contest the same mountains; Waverunner is Nanhou's sect;
+# Windrising holds the western coast (Harehama); Thousand Lantern belongs to a city on Outer West's
+# northern tip; Choral Line trades across Outer West; Hidden Coil is a Cursed Lands front there;
+# Scarlet Sun trades Outer South's desert and jungle goods; Forbidden Field seals goods in the
+# Mystic Lands. The rest are placed by inference, and the Inner Lands' sects are generated.
+SECT_SEATS = {
+    'thunderfall': 'c_thunderfall', 'sunbringer': 'c_sunbringer', 'waverunner': 'c_nanhou',
+    'windrising': 'k_outer_west', 'thousand_lantern': 'k_outer_west', 'choral_line': 'k_outer_west',
+    'hidden_coil': 'k_outer_west', 'mountain_hazard': 'k_outer_west', 'endless_beating': 'k_outer_west',
+    'dreamriver': 'k_outer_west',
+    'scarlet_sun': 'k_outer_south', 'lost_siren': 'k_outer_south', 'shielded_hull': 'k_outer_south',
+    'alluvial_fan': 'k_outer_east', 'wandering_tear': 'k_outer_east',
+    'auroran_lights': 'k_outer_north',
+    'forbidden_field': 'k_mystic', 'endless_daylight': 'k_mystic',
+    'saints_vigil': 'k_sacred', 'veiled_moon': 'k_cursed', 'ten_thousand_blades': 'k_bladed',
+    'great_arena': 'c_thornarena', 'heavenly_ascension': 'c_azuma',
+}
+# A sect's standing (1 Frontier to 4 Imperial) follows its region's natural aura. Outer North is
+# hardened by the Ice Incursions and Outer East has the richest sects; elsewhere defaults to 1.
+SECT_STANDING = {'world_rasen_azuma': 4, 'world_rasen_inner': 3, 'world_rasen_outer_north': 2, 'world_rasen_outer_east': 2}
 
 # Natural aura raises the Mortal Limit (AP). Outer lands are weakest; the leylines meet at Azuma Honsha.
 MORTAL_LIMIT_BONUS = {'world_rasen_azuma': 1700, 'world_rasen_inner': 700}

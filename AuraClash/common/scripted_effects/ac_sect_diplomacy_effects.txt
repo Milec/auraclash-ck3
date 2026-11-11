@@ -138,16 +138,23 @@ ac_sect_ai_diplomacy_effect = {
 		limit = { story_owner = { is_ai = yes } NOT = { has_variable = ac_opponent } }
 		story_owner = { save_scope_as = actor }
 		clear_saved_scope = recipient
-		var:ac_kingdom = {
-			random_title_to_title_neighboring_and_across_water_kingdom = {
-				limit = {
-					has_variable = ac_kingdom_sect
-					var:ac_kingdom_sect.story_owner = { is_ai = yes }
-					var:ac_kingdom_sect = { NOT = { has_variable = ac_opponent } }
-				}
-				var:ac_kingdom_sect.story_owner = { save_scope_as = recipient }
+		save_scope_as = ac_diplomat_sect
+		ordered_in_global_list = {
+			variable = ac_sects
+			limit = {
+				this != scope:ac_diplomat_sect
+				story_owner = { is_ai = yes }
+				NOT = { has_variable = ac_opponent }
 			}
+			order_by = {
+				value = 0
+				subtract = "var:ac_headquarters.squared_distance(scope:ac_diplomat_sect.var:ac_headquarters)"
+			}
+			max = 3
+			check_range_bounds = no
+			add_to_temporary_list = ac_near_sects
 		}
+		random_in_list = { list = ac_near_sects story_owner = { save_scope_as = recipient } }
 		if = {
 			limit = { exists = scope:recipient }
 			if = {

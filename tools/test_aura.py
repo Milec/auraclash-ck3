@@ -94,7 +94,7 @@ class AuraTests(unittest.TestCase):
         self.assertIn('ac_core_dots > ac_mortal_core_peak', sync)
         self.assertIn('subtract = ac_mortal_core_peak', sync)
         development = read('common/scripted_effects/ac_cultivation_development_effects.txt')
-        self.assertEqual(development.count('ac_resync_aura_effect = yes'), 3)
+        self.assertEqual(development.count('ac_resync_aura_effect = yes'), 8)  # three ranks and five standing variants
 
     def test_progress_sources_are_hooked(self):
         actions = read('common/on_action/ac_cultivation_on_actions.txt')
