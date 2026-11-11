@@ -36,7 +36,7 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
 | Castes and Clans | Estates and houses; "Clanless" lowborn; promotion into the Warrior Caste via events |
 | Sects | The base mod's provincial sects, reseeded with canonical sects |
 | Mortal Limit by region | Implemented: Aura Pressure gains halve above the Mortal Limit; `RasenMap` adds +700 in the Inner Kingdoms and +1,700 on Azuma Honsha (`ac_mortal_limit_region_values.txt`) |
-| Zenshin, Cathayan, Oni, Yokai, Kitsune | Five cultures, each with its own heritage; Zenshin and Old Cathayan languages |
+| Zenshin, Cathayan, Lunargoth, Oni, Yokai, Kitsune | Six cultures, each with its own heritage; Zenshin, Old Cathayan and Lunargothic languages |
 | Devanic Temple, Shugendō, Wild Gods | Religions and faiths |
 
 ## Roadmap
@@ -78,7 +78,17 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
    - Province culture, faith and holdings.
    - Every ruler has a spouse and one to three children (matrilineal for female rulers), 360 characters in all. Each culture starts in the Early Medieval era with first-tier innovations.
    - Still to do: the canonical sects as seeded sects, and bookmark portraits.
-5. **Regional systems:** (regional Mortal Limit done) Ice Incursions in Outer North, Inner Kingdom favour (honour, compassion, ruthlessness, intelligence, practicality) affecting Trial scoring, and caste promotion events.
+5. **Regional systems:**
+   - **Regional Mortal Limit:** done.
+   - **Ice Incursions:** done (`RasenMap/events/rasen_ice_incursion_events.txt`).
+     - Every 20–30 years, demonic ice and yin hordes invade Outer North for 3–6 years.
+     - Outer North counties suffer reduced development growth, opinion and levies.
+     - Outer North rulers may march to the front, fund the Northern Army or hold their own walls.
+     - The Council summons Archonate Disciples.
+     - Holding the line yields a 1,500 AP ice demon Soul Treasure, Aura Pressure, Core progress, Honor and the Veteran of the Ice War modifier.
+     - The **Divine General**, a generated Lunargoth grandmaster, leads Outer North. The new **Lunargoth** culture fills the north.
+   - Inner Kingdom Favor in the Trials: done (base mod).
+   - Still to do: the Exalted Council and caste promotion events.
 6. **Cleanup:** replace or guard vanilla content that assumes Earth's map (vanilla event overrides that reference real places, struggles, travel events).
 
 ## Loading

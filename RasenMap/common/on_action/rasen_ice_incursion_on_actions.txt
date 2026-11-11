@@ -1,0 +1,3 @@
+﻿# The Ice Incursions of Outer North. Lists append to vanilla and base-mod hooks.
+yearly_global_pulse = { on_actions = { rasen_ice_incursion_yearly } }
+rasen_ice_incursion_yearly = { effect = { rasen_ice_incursion_yearly_effect = yes } }

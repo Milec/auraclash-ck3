@@ -291,166 +291,179 @@ rasen_20 = {
 }
 
 rasen_21 = {
-	name = "Kagerou"
-	dynasty = dynasty_rasen_ishida
+	name = "Theodoric"
+	dynasty = dynasty_rasen_wintermantle
 	religion = shugendo
-	culture = zenshin
-	trait = impatient
-	trait = generous
-	trait = humble
-	trait = education_diplomacy_4
-	2974.3.25 = { birth = yes }
-	2992.1.1 = { add_spouse = rasen_155 }
+	culture = lunargoth
+	trait = patient
+	trait = education_learning_4
+	trait = brave
+	trait = diligent
+	trait = rasen_divine_general
+	trait = ac_cultivator
+	2936.1.18 = { birth = yes }
+	2954.1.1 = { add_spouse = rasen_155 }
+	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes add_trait = ac_immortal_core } }
 }
 
 rasen_22 = {
-	name = "Akane"
-	dynasty = dynasty_rasen_kiba
-	religion = shugendo
+	name = "Jiro"
+	dynasty = dynasty_rasen_hoshino
+	religion = ancestral_rites
 	culture = zenshin
-	female = yes
+	trait = humble
+	trait = lazy
 	trait = ambitious
-	trait = gregarious
-	trait = craven
-	trait = education_stewardship_4
+	trait = education_martial_2
 	trait = ac_cultivator
-	2943.6.2 = { birth = yes }
-	2961.1.1 = { add_matrilineal_spouse = rasen_157 }
+	2955.10.12 = { birth = yes }
+	2976.1.1 = { add_spouse = rasen_158 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
 rasen_23 = {
-	name = "Katsu"
-	dynasty = dynasty_rasen_fujiwara
+	name = "Wiliburga"
+	dynasty = dynasty_rasen_amaling
 	religion = ancestral_rites
-	culture = zenshin
+	culture = lunargoth
+	female = yes
+	trait = calm
 	trait = content
-	trait = diligent
-	trait = just
-	trait = education_stewardship_3
-	2964.3.27 = { birth = yes }
-	2982.1.1 = { add_spouse = rasen_159 }
+	trait = gregarious
+	trait = education_diplomacy_2
+	2966.10.12 = { birth = yes }
+	2987.1.1 = { add_matrilineal_spouse = rasen_162 }
 }
 
 rasen_24 = {
-	name = "Reiko"
-	dynasty = dynasty_rasen_fujiwara
+	name = "Roderic"
+	dynasty = dynasty_rasen_frostmark
 	religion = shugendo
-	culture = zenshin
-	female = yes
-	trait = arbitrary
-	trait = humble
-	trait = content
-	trait = education_stewardship_4
-	trait = ac_cultivator
-	2950.9.17 = { birth = yes }
-	2968.1.1 = { add_matrilineal_spouse = rasen_163 }
-	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+	culture = lunargoth
+	trait = zealous
+	trait = wrathful
+	trait = trusting
+	trait = education_learning_2
+	2949.10.19 = { birth = yes }
+	2971.1.1 = { add_spouse = rasen_165 }
 }
 
 rasen_25 = {
-	name = "Jiro"
-	dynasty = dynasty_rasen_kanzaki
-	religion = ancestral_rites
-	culture = zenshin
-	trait = content
-	trait = impatient
-	trait = craven
-	trait = education_diplomacy_4
-	trait = ac_cultivator
-	2951.5.13 = { birth = yes }
-	2970.1.1 = { add_spouse = rasen_166 }
-	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+	name = "Roderic"
+	dynasty = dynasty_rasen_northvale
+	religion = shugendo
+	culture = lunargoth
+	trait = arrogant
+	trait = ambitious
+	trait = shy
+	trait = education_stewardship_4
+	2951.9.17 = { birth = yes }
+	2969.1.1 = { add_spouse = rasen_169 }
 }
 
 rasen_26 = {
-	name = "Kazuki"
-	dynasty = dynasty_rasen_kanzaki
-	religion = shugendo
-	culture = zenshin
-	trait = lazy
-	trait = humble
-	trait = calm
-	trait = education_learning_2
+	name = "Ansgar"
+	dynasty = dynasty_rasen_northvale
+	religion = ancestral_rites
+	culture = lunargoth
+	trait = impatient
+	trait = craven
+	trait = content
+	trait = education_diplomacy_3
 	trait = ac_cultivator
-	2958.6.14 = { birth = yes }
-	2976.1.1 = { add_spouse = rasen_169 }
+	2957.4.19 = { birth = yes }
+	2979.1.1 = { add_spouse = rasen_172 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
 rasen_27 = {
-	name = "Haruto"
-	dynasty = dynasty_rasen_okami
-	religion = shugendo
-	culture = oni
-	trait = arbitrary
-	trait = shy
+	name = "Athanaric"
+	dynasty = dynasty_rasen_frostmark
+	religion = ancestral_rites
+	culture = lunargoth
+	trait = humble
+	trait = ambitious
 	trait = craven
-	trait = education_learning_2
-	2951.3.12 = { birth = yes }
-	2974.1.1 = { add_spouse = rasen_173 }
+	trait = education_intrigue_4
+	trait = ac_cultivator
+	2972.1.28 = { birth = yes }
+	2993.1.1 = { add_spouse = rasen_176 }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
 rasen_28 = {
-	name = "Aiko"
-	dynasty = dynasty_rasen_tsukimura
-	religion = ancestral_rites
-	culture = zenshin
-	female = yes
-	trait = arbitrary
-	trait = calm
-	trait = shy
-	trait = education_diplomacy_4
-	2952.9.12 = { birth = yes }
-	2970.1.1 = { add_matrilineal_spouse = rasen_175 }
+	name = "Ryo"
+	dynasty = dynasty_rasen_fujiwara
+	religion = shugendo
+	culture = oni
+	trait = generous
+	trait = impatient
+	trait = wrathful
+	trait = education_learning_2
+	trait = ac_cultivator
+	2946.5.18 = { birth = yes }
+	2967.1.1 = { add_spouse = rasen_178 }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
 rasen_29 = {
-	name = "Emi"
-	dynasty = dynasty_rasen_kiba
+	name = "Hayato"
+	dynasty = dynasty_rasen_takeda
 	religion = ancestral_rites
-	culture = zenshin
-	female = yes
-	trait = arrogant
+	culture = oni
+	trait = craven
+	trait = generous
 	trait = ambitious
-	trait = callous
-	trait = education_martial_2
-	trait = ac_cultivator
-	2976.9.15 = { birth = yes }
-	2997.1.1 = { add_matrilineal_spouse = rasen_177 }
-	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+	trait = education_diplomacy_4
+	2946.2.8 = { birth = yes }
+	2964.1.1 = { add_spouse = rasen_180 }
 }
 
 rasen_30 = {
-	name = "Mei"
-	dynasty = dynasty_rasen_kiba
+	name = "Kana"
+	dynasty = dynasty_rasen_yamabe
 	religion = ancestral_rites
 	culture = oni
 	female = yes
-	trait = greedy
+	trait = arrogant
 	trait = patient
-	trait = calm
-	trait = education_intrigue_4
-	trait = ac_cultivator
-	2951.12.18 = { birth = yes }
-	2969.1.1 = { add_matrilineal_spouse = rasen_179 }
-	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+	trait = brave
+	trait = education_learning_3
+	2947.11.7 = { birth = yes }
+	2968.1.1 = { add_matrilineal_spouse = rasen_183 }
 }
 
 rasen_31 = {
-	name = "Satoshi"
-	dynasty = dynasty_rasen_ishida
+	name = "Isamu"
+	dynasty = dynasty_rasen_amatsu
 	religion = ancestral_rites
 	culture = zenshin
-	trait = brave
-	trait = trusting
+	trait = patient
+	trait = calm
 	trait = greedy
-	trait = education_martial_3
-	2964.4.18 = { birth = yes }
-	2985.1.1 = { add_spouse = rasen_182 }
+	trait = education_learning_4
+	trait = ac_cultivator
+	2955.9.2 = { birth = yes }
+	2976.1.1 = { add_spouse = rasen_186 }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
 rasen_32 = {
+	name = "Yuto"
+	dynasty = dynasty_rasen_ishida
+	religion = ancestral_rites
+	culture = kitsune
+	trait = trusting
+	trait = generous
+	trait = impatient
+	trait = education_martial_3
+	trait = ac_cultivator
+	2976.4.18 = { birth = yes }
+	2996.1.1 = { add_spouse = rasen_188 }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_33 = {
 	name = "Midori"
 	dynasty = dynasty_rasen_mizuhara
 	religion = ancestral_rites
@@ -462,11 +475,11 @@ rasen_32 = {
 	trait = education_intrigue_3
 	trait = ac_cultivator
 	2959.8.2 = { birth = yes }
-	2980.1.1 = { add_matrilineal_spouse = rasen_185 }
+	2981.1.1 = { add_matrilineal_spouse = rasen_192 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
-rasen_33 = {
+rasen_34 = {
 	name = "Haruto"
 	dynasty = dynasty_rasen_matsuda
 	religion = ancestral_rites
@@ -476,10 +489,10 @@ rasen_33 = {
 	trait = craven
 	trait = education_martial_2
 	2970.4.1 = { birth = yes }
-	2990.1.1 = { add_spouse = rasen_187 }
+	2988.1.1 = { add_spouse = rasen_195 }
 }
 
-rasen_34 = {
+rasen_35 = {
 	name = "Takeshi"
 	dynasty = dynasty_rasen_fujiwara
 	religion = ancestral_rites
@@ -490,11 +503,11 @@ rasen_34 = {
 	trait = education_martial_4
 	trait = ac_cultivator
 	2968.2.10 = { birth = yes }
-	2990.1.1 = { add_spouse = rasen_191 }
+	2990.1.1 = { add_spouse = rasen_198 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
-rasen_35 = {
+rasen_36 = {
 	name = "Daisuke"
 	dynasty = dynasty_rasen_shimizu
 	religion = ancestral_rites
@@ -505,11 +518,11 @@ rasen_35 = {
 	trait = education_intrigue_2
 	trait = ac_cultivator
 	2961.3.24 = { birth = yes }
-	2979.1.1 = { add_spouse = rasen_194 }
+	2982.1.1 = { add_spouse = rasen_201 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
-rasen_36 = {
+rasen_37 = {
 	name = "Ran"
 	dynasty = dynasty_rasen_kanzaki
 	religion = ancestral_rites
@@ -521,11 +534,11 @@ rasen_36 = {
 	trait = education_diplomacy_4
 	trait = ac_cultivator
 	2976.11.25 = { birth = yes }
-	2999.1.1 = { add_matrilineal_spouse = rasen_197 }
+	2994.1.1 = { add_matrilineal_spouse = rasen_205 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
-rasen_37 = {
+rasen_38 = {
 	name = "Osamu"
 	dynasty = dynasty_rasen_fujiwara
 	religion = devanic_temple
@@ -535,10 +548,10 @@ rasen_37 = {
 	trait = honest
 	trait = education_diplomacy_3
 	2950.2.2 = { birth = yes }
-	2968.1.1 = { add_spouse = rasen_199 }
+	2974.1.1 = { add_spouse = rasen_207 }
 }
 
-rasen_38 = {
+rasen_39 = {
 	name = "Tetsuo"
 	dynasty = dynasty_rasen_kagemori
 	religion = ancestral_rites
@@ -548,10 +561,10 @@ rasen_38 = {
 	trait = craven
 	trait = education_diplomacy_4
 	2958.10.3 = { birth = yes }
-	2976.1.1 = { add_spouse = rasen_203 }
+	2981.1.1 = { add_spouse = rasen_209 }
 }
 
-rasen_39 = {
+rasen_40 = {
 	name = "Kaito"
 	dynasty = dynasty_rasen_nakamoto
 	religion = devanic_temple
@@ -562,11 +575,11 @@ rasen_39 = {
 	trait = education_diplomacy_4
 	trait = ac_cultivator
 	2973.11.14 = { birth = yes }
-	2997.1.1 = { add_spouse = rasen_205 }
+	2995.1.1 = { add_spouse = rasen_213 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
-rasen_40 = {
+rasen_41 = {
 	name = "Tomoya"
 	dynasty = dynasty_rasen_shimizu
 	religion = ancestral_rites
@@ -577,11 +590,11 @@ rasen_40 = {
 	trait = education_intrigue_4
 	trait = ac_cultivator
 	2966.9.1 = { birth = yes }
-	2989.1.1 = { add_spouse = rasen_207 }
+	2984.1.1 = { add_spouse = rasen_216 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
-rasen_41 = {
+rasen_42 = {
 	name = "Umeko"
 	dynasty = dynasty_rasen_okami
 	religion = ancestral_rites
@@ -592,10 +605,10 @@ rasen_41 = {
 	trait = wrathful
 	trait = education_learning_4
 	2942.2.6 = { birth = yes }
-	2964.1.1 = { add_matrilineal_spouse = rasen_211 }
+	2960.1.1 = { add_matrilineal_spouse = rasen_219 }
 }
 
-rasen_42 = {
+rasen_43 = {
 	name = "Sayuri"
 	dynasty = dynasty_rasen_ishida
 	religion = ancestral_rites
@@ -606,10 +619,10 @@ rasen_42 = {
 	trait = trusting
 	trait = education_martial_4
 	2968.1.17 = { birth = yes }
-	2986.1.1 = { add_matrilineal_spouse = rasen_214 }
+	2992.1.1 = { add_matrilineal_spouse = rasen_222 }
 }
 
-rasen_43 = {
+rasen_44 = {
 	name = "Sora"
 	dynasty = dynasty_rasen_matsuda
 	religion = ancestral_rites
@@ -620,11 +633,11 @@ rasen_43 = {
 	trait = education_martial_2
 	trait = ac_cultivator
 	2975.12.2 = { birth = yes }
-	2997.1.1 = { add_spouse = rasen_217 }
+	2999.1.1 = { add_spouse = rasen_224 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
-rasen_44 = {
+rasen_45 = {
 	name = "Yoko"
 	dynasty = dynasty_rasen_hayashi
 	religion = ancestral_rites
@@ -635,10 +648,10 @@ rasen_44 = {
 	trait = greedy
 	trait = education_stewardship_3
 	2958.7.8 = { birth = yes }
-	2982.1.1 = { add_matrilineal_spouse = rasen_220 }
+	2976.1.1 = { add_matrilineal_spouse = rasen_226 }
 }
 
-rasen_45 = {
+rasen_46 = {
 	name = "Sayuri"
 	dynasty = dynasty_rasen_fujiwara
 	religion = ancestral_rites
@@ -650,11 +663,11 @@ rasen_45 = {
 	trait = education_diplomacy_3
 	trait = ac_cultivator
 	2976.8.5 = { birth = yes }
-	2994.1.1 = { add_matrilineal_spouse = rasen_222 }
+	2998.1.1 = { add_matrilineal_spouse = rasen_228 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
-rasen_46 = {
+rasen_47 = {
 	name = "Hayato"
 	dynasty = dynasty_rasen_matsuda
 	religion = ancestral_rites
@@ -664,10 +677,10 @@ rasen_46 = {
 	trait = arrogant
 	trait = education_martial_4
 	2956.7.10 = { birth = yes }
-	2979.1.1 = { add_spouse = rasen_225 }
+	2974.1.1 = { add_spouse = rasen_232 }
 }
 
-rasen_47 = {
+rasen_48 = {
 	name = "Katsu"
 	dynasty = dynasty_rasen_kurosawa
 	religion = ancestral_rites
@@ -678,11 +691,11 @@ rasen_47 = {
 	trait = education_diplomacy_4
 	trait = ac_cultivator
 	2968.6.17 = { birth = yes }
-	2988.1.1 = { add_spouse = rasen_228 }
+	2992.1.1 = { add_spouse = rasen_234 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
-rasen_48 = {
+rasen_49 = {
 	name = "Yasuo"
 	dynasty = dynasty_rasen_kurosawa
 	religion = devanic_temple
@@ -692,10 +705,10 @@ rasen_48 = {
 	trait = zealous
 	trait = education_diplomacy_2
 	2954.1.15 = { birth = yes }
-	2975.1.1 = { add_spouse = rasen_230 }
+	2974.1.1 = { add_spouse = rasen_238 }
 }
 
-rasen_49 = {
+rasen_50 = {
 	name = "Ryo"
 	dynasty = dynasty_rasen_okami
 	religion = devanic_temple
@@ -706,11 +719,11 @@ rasen_49 = {
 	trait = education_intrigue_2
 	trait = ac_cultivator
 	2960.12.6 = { birth = yes }
-	2978.1.1 = { add_spouse = rasen_234 }
+	2978.1.1 = { add_spouse = rasen_242 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
-rasen_50 = {
+rasen_51 = {
 	name = "Ran"
 	dynasty = dynasty_rasen_ryuuzan
 	religion = devanic_temple
@@ -722,11 +735,11 @@ rasen_50 = {
 	trait = education_intrigue_4
 	trait = ac_cultivator
 	2965.2.7 = { birth = yes }
-	2989.1.1 = { add_matrilineal_spouse = rasen_236 }
+	2983.1.1 = { add_matrilineal_spouse = rasen_246 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
-rasen_51 = {
+rasen_52 = {
 	name = "Wenyao"
 	dynasty = dynasty_rasen_jin
 	religion = ancestral_rites
@@ -736,10 +749,10 @@ rasen_51 = {
 	trait = cynical
 	trait = education_learning_3
 	2948.5.16 = { birth = yes }
-	2966.1.1 = { add_spouse = rasen_240 }
+	2966.1.1 = { add_spouse = rasen_250 }
 }
 
-rasen_52 = {
+rasen_53 = {
 	name = "Isamu"
 	dynasty = dynasty_rasen_takeda
 	religion = devanic_temple
@@ -750,11 +763,11 @@ rasen_52 = {
 	trait = education_stewardship_2
 	trait = ac_cultivator
 	2967.6.24 = { birth = yes }
-	2986.1.1 = { add_spouse = rasen_243 }
+	2985.1.1 = { add_spouse = rasen_254 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
-rasen_53 = {
+rasen_54 = {
 	name = "Ayame"
 	dynasty = dynasty_rasen_arakawa
 	religion = ancestral_rites
@@ -765,10 +778,10 @@ rasen_53 = {
 	trait = arrogant
 	trait = education_learning_3
 	2970.2.16 = { birth = yes }
-	2988.1.1 = { add_matrilineal_spouse = rasen_247 }
+	2988.1.1 = { add_matrilineal_spouse = rasen_257 }
 }
 
-rasen_54 = {
+rasen_55 = {
 	name = "Katsu"
 	dynasty = dynasty_rasen_kiba
 	religion = ancestral_rites
@@ -778,23 +791,7 @@ rasen_54 = {
 	trait = ambitious
 	trait = education_diplomacy_3
 	2959.10.11 = { birth = yes }
-	2977.1.1 = { add_spouse = rasen_250 }
-}
-
-rasen_55 = {
-	name = "Amane"
-	dynasty = dynasty_rasen_mizuhara
-	religion = ancestral_rites
-	culture = zenshin
-	female = yes
-	trait = gregarious
-	trait = craven
-	trait = ambitious
-	trait = education_stewardship_3
-	trait = ac_cultivator
-	2974.5.19 = { birth = yes }
-	2995.1.1 = { add_matrilineal_spouse = rasen_253 }
-	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+	2979.1.1 = { add_spouse = rasen_259 }
 }
 
 rasen_56 = {
@@ -803,17 +800,33 @@ rasen_56 = {
 	religion = devanic_temple
 	culture = cathayan
 	female = yes
-	trait = greedy
-	trait = education_stewardship_3
+	trait = lazy
+	trait = education_intrigue_2
 	trait = compassionate
 	trait = zealous
 	trait = ac_cultivator
-	2934.1.10 = { birth = yes }
-	2958.1.1 = { add_matrilineal_spouse = rasen_257 }
+	2934.5.18 = { birth = yes }
+	2958.1.1 = { add_matrilineal_spouse = rasen_263 }
 	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes add_trait = ac_immortal_core } }
 }
 
 rasen_57 = {
+	name = "Hua"
+	dynasty = dynasty_rasen_xuan
+	religion = shugendo
+	culture = cathayan
+	female = yes
+	trait = lazy
+	trait = greedy
+	trait = ambitious
+	trait = education_diplomacy_2
+	trait = ac_cultivator
+	2972.5.4 = { birth = yes }
+	2990.1.1 = { add_matrilineal_spouse = rasen_265 }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_58 = {
 	name = "Raiden"
 	dynasty = dynasty_rasen_okami
 	religion = devanic_temple
@@ -824,11 +837,11 @@ rasen_57 = {
 	trait = education_martial_2
 	trait = ac_cultivator
 	2951.4.11 = { birth = yes }
-	2972.1.1 = { add_spouse = rasen_260 }
-	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+	2969.1.1 = { add_spouse = rasen_267 }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
-rasen_58 = {
+rasen_59 = {
 	name = "Isamu"
 	dynasty = dynasty_rasen_yamabe
 	religion = devanic_temple
@@ -839,11 +852,11 @@ rasen_58 = {
 	trait = education_diplomacy_2
 	trait = ac_cultivator
 	2973.6.7 = { birth = yes }
-	2995.1.1 = { add_spouse = rasen_264 }
+	2995.1.1 = { add_spouse = rasen_270 }
 	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
 }
 
-rasen_59 = {
+rasen_60 = {
 	name = "Yong"
 	dynasty = dynasty_rasen_su
 	religion = devanic_temple
@@ -854,11 +867,11 @@ rasen_59 = {
 	trait = education_intrigue_4
 	trait = ac_cultivator
 	2952.9.21 = { birth = yes }
-	2976.1.1 = { add_spouse = rasen_268 }
+	2974.1.1 = { add_spouse = rasen_272 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
-rasen_60 = {
+rasen_61 = {
 	name = "Zhen"
 	dynasty = dynasty_rasen_bai
 	religion = devanic_temple
@@ -869,11 +882,11 @@ rasen_60 = {
 	trait = education_diplomacy_2
 	trait = ac_cultivator
 	2967.11.25 = { birth = yes }
-	2985.1.1 = { add_spouse = rasen_270 }
+	2991.1.1 = { add_spouse = rasen_275 }
 	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
 }
 
-rasen_61 = {
+rasen_62 = {
 	name = "Mei"
 	dynasty = dynasty_rasen_zhou
 	religion = devanic_temple
@@ -885,11 +898,11 @@ rasen_61 = {
 	trait = education_diplomacy_4
 	trait = ac_cultivator
 	2971.4.1 = { birth = yes }
-	2989.1.1 = { add_matrilineal_spouse = rasen_272 }
+	2994.1.1 = { add_matrilineal_spouse = rasen_279 }
 	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
 }
 
-rasen_62 = {
+rasen_63 = {
 	name = "Yun"
 	dynasty = dynasty_rasen_hou
 	religion = devanic_temple
@@ -901,11 +914,11 @@ rasen_62 = {
 	trait = education_intrigue_3
 	trait = ac_cultivator
 	2972.3.26 = { birth = yes }
-	2992.1.1 = { add_matrilineal_spouse = rasen_274 }
+	2991.1.1 = { add_matrilineal_spouse = rasen_281 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
-rasen_63 = {
+rasen_64 = {
 	name = "Yun"
 	dynasty = dynasty_rasen_ming
 	religion = devanic_temple
@@ -917,23 +930,8 @@ rasen_63 = {
 	trait = education_martial_2
 	trait = ac_cultivator
 	2970.9.10 = { birth = yes }
-	2991.1.1 = { add_matrilineal_spouse = rasen_276 }
+	2993.1.1 = { add_matrilineal_spouse = rasen_284 }
 	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
-}
-
-rasen_64 = {
-	name = "Noboru"
-	dynasty = dynasty_rasen_takeda
-	religion = devanic_temple
-	culture = zenshin
-	trait = wrathful
-	trait = paranoid
-	trait = lazy
-	trait = education_martial_2
-	trait = ac_cultivator
-	2949.1.11 = { birth = yes }
-	2968.1.1 = { add_spouse = rasen_278 }
-	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
 rasen_65 = {
@@ -941,34 +939,47 @@ rasen_65 = {
 	dynasty = dynasty_rasen_lan
 	religion = celestial_order
 	culture = cathayan
-	trait = impatient
-	trait = education_stewardship_2
+	trait = just
+	trait = education_diplomacy_2
 	trait = diligent
 	trait = arrogant
 	trait = ac_cultivator
-	2930.5.27 = { birth = yes }
-	2952.1.1 = { add_spouse = rasen_280 }
+	2930.7.3 = { birth = yes }
+	2948.1.1 = { add_spouse = rasen_287 }
 	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes add_trait = ac_immortal_core } }
 }
 
 rasen_66 = {
-	name = "Zhao"
-	dynasty = dynasty_rasen_bai
+	name = "Kenji"
+	dynasty = dynasty_rasen_shimizu
 	religion = celestial_order
-	culture = cathayan
-	trait = calm
-	trait = ambitious
-	trait = greedy
-	trait = education_stewardship_4
+	culture = kitsune
+	trait = cynical
+	trait = deceitful
+	trait = diligent
+	trait = education_martial_4
 	trait = ac_cultivator
-	2944.10.10 = { birth = yes }
-	2962.1.1 = { add_spouse = rasen_282 }
+	2947.10.6 = { birth = yes }
+	2965.1.1 = { add_spouse = rasen_291 }
 	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
 }
 
 rasen_67 = {
-	name = "Zhao"
-	dynasty = dynasty_rasen_jin
+	name = "Riku"
+	dynasty = dynasty_rasen_kagemori
+	religion = celestial_order
+	culture = kitsune
+	trait = deceitful
+	trait = trusting
+	trait = shy
+	trait = education_martial_2
+	2966.2.20 = { birth = yes }
+	2986.1.1 = { add_spouse = rasen_293 }
+}
+
+rasen_68 = {
+	name = "Xun"
+	dynasty = dynasty_rasen_luo
 	religion = celestial_order
 	culture = cathayan
 	trait = wrathful
@@ -976,23 +987,7 @@ rasen_67 = {
 	trait = shy
 	trait = education_diplomacy_2
 	2949.6.7 = { birth = yes }
-	2972.1.1 = { add_spouse = rasen_284 }
-}
-
-rasen_68 = {
-	name = "Hua"
-	dynasty = dynasty_rasen_ming
-	religion = celestial_order
-	culture = cathayan
-	female = yes
-	trait = deceitful
-	trait = calm
-	trait = paranoid
-	trait = education_learning_3
-	trait = ac_cultivator
-	2960.4.5 = { birth = yes }
-	2981.1.1 = { add_matrilineal_spouse = rasen_287 }
-	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+	2967.1.1 = { add_spouse = rasen_296 }
 }
 
 rasen_69 = {
@@ -1000,57 +995,59 @@ rasen_69 = {
 	dynasty = dynasty_rasen_ozaki
 	religion = veiled_ancestors
 	culture = zenshin
-	trait = arbitrary
-	trait = education_intrigue_3
+	trait = shy
+	trait = education_martial_4
 	trait = deceitful
 	trait = patient
 	trait = ac_cultivator
-	2942.1.14 = { birth = yes }
-	2960.1.1 = { add_spouse = rasen_291 }
+	2942.6.19 = { birth = yes }
+	2963.1.1 = { add_spouse = rasen_298 }
 	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes add_trait = ac_immortal_core } }
 }
 
 rasen_70 = {
-	name = "Shin"
-	dynasty = dynasty_rasen_takeda
+	name = "Noriko"
+	dynasty = dynasty_rasen_nakamoto
 	religion = veiled_ancestors
-	culture = zenshin
-	trait = calm
-	trait = arbitrary
-	trait = greedy
-	trait = education_martial_4
+	culture = kitsune
+	female = yes
+	trait = humble
+	trait = cynical
+	trait = deceitful
+	trait = education_intrigue_3
 	trait = ac_cultivator
-	2946.9.15 = { birth = yes }
-	2964.1.1 = { add_spouse = rasen_295 }
+	2949.1.14 = { birth = yes }
+	2972.1.1 = { add_matrilineal_spouse = rasen_302 }
 	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
 }
 
 rasen_71 = {
-	name = "Hiroshi"
-	dynasty = dynasty_rasen_sanada
+	name = "Masaru"
+	dynasty = dynasty_rasen_yamabe
 	religion = veiled_ancestors
-	culture = zenshin
-	trait = wrathful
+	culture = kitsune
 	trait = diligent
-	trait = compassionate
-	trait = education_learning_2
+	trait = paranoid
+	trait = patient
+	trait = education_intrigue_3
 	trait = ac_cultivator
-	2971.2.27 = { birth = yes }
-	2991.1.1 = { add_spouse = rasen_297 }
+	2949.12.3 = { birth = yes }
+	2967.1.1 = { add_spouse = rasen_304 }
 	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
 }
 
 rasen_72 = {
-	name = "Ryo"
-	dynasty = dynasty_rasen_nakamoto
+	name = "Yuki"
+	dynasty = dynasty_rasen_kurosawa
 	religion = veiled_ancestors
-	culture = kitsune
-	trait = greedy
-	trait = humble
-	trait = trusting
-	trait = education_intrigue_3
-	2959.8.12 = { birth = yes }
-	2977.1.1 = { add_spouse = rasen_300 }
+	culture = zenshin
+	female = yes
+	trait = wrathful
+	trait = diligent
+	trait = compassionate
+	trait = education_learning_2
+	2971.2.27 = { birth = yes }
+	2994.1.1 = { add_matrilineal_spouse = rasen_308 }
 }
 
 rasen_73 = {
@@ -1058,58 +1055,59 @@ rasen_73 = {
 	dynasty = dynasty_rasen_ryuuzan
 	religion = ancestral_rites
 	culture = zenshin
-	trait = humble
-	trait = education_martial_3
+	trait = gregarious
+	trait = education_intrigue_4
 	trait = honest
 	trait = just
 	trait = ac_cultivator
-	2938.9.21 = { birth = yes }
-	2959.1.1 = { add_spouse = rasen_302 }
+	2938.9.6 = { birth = yes }
+	2959.1.1 = { add_spouse = rasen_310 }
 	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes add_trait = ac_immortal_core } }
 }
 
 rasen_74 = {
-	name = "Hideo"
-	dynasty = dynasty_rasen_takeda
+	name = "Ayame"
+	dynasty = dynasty_rasen_matsuda
 	religion = ancestral_rites
 	culture = zenshin
-	trait = trusting
+	female = yes
+	trait = zealous
 	trait = generous
-	trait = calm
-	trait = education_martial_3
+	trait = callous
+	trait = education_learning_4
 	trait = ac_cultivator
-	2956.10.24 = { birth = yes }
-	2979.1.1 = { add_spouse = rasen_306 }
+	2953.4.7 = { birth = yes }
+	2973.1.1 = { add_matrilineal_spouse = rasen_312 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
 rasen_75 = {
-	name = "Noriko"
-	dynasty = dynasty_rasen_hayashi
+	name = "Shin"
+	dynasty = dynasty_rasen_matsuda
 	religion = ancestral_rites
 	culture = zenshin
-	female = yes
-	trait = lazy
-	trait = patient
-	trait = just
-	trait = education_martial_2
-	2967.10.6 = { birth = yes }
-	2985.1.1 = { add_matrilineal_spouse = rasen_308 }
+	trait = callous
+	trait = arrogant
+	trait = calm
+	trait = education_stewardship_2
+	trait = ac_cultivator
+	2951.1.1 = { birth = yes }
+	2971.1.1 = { add_spouse = rasen_315 }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
 }
 
 rasen_76 = {
-	name = "Shizuka"
-	dynasty = dynasty_rasen_hoshino
+	name = "Kazuki"
+	dynasty = dynasty_rasen_yamabe
 	religion = ancestral_rites
 	culture = zenshin
-	female = yes
-	trait = shy
-	trait = greedy
-	trait = deceitful
-	trait = education_stewardship_2
+	trait = zealous
+	trait = humble
+	trait = impatient
+	trait = education_intrigue_2
 	trait = ac_cultivator
-	2962.3.21 = { birth = yes }
-	2985.1.1 = { add_matrilineal_spouse = rasen_312 }
+	2949.9.6 = { birth = yes }
+	2967.1.1 = { add_spouse = rasen_318 }
 	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
 }
 
@@ -1118,150 +1116,151 @@ rasen_77 = {
 	dynasty = dynasty_rasen_kiba
 	religion = wild_pacts
 	culture = yokai
-	trait = arrogant
-	trait = education_intrigue_3
+	trait = brave
+	trait = education_learning_2
 	trait = wrathful
 	trait = ambitious
 	trait = ac_cultivator
-	2945.9.16 = { birth = yes }
-	2966.1.1 = { add_spouse = rasen_314 }
+	2945.5.8 = { birth = yes }
+	2963.1.1 = { add_spouse = rasen_321 }
 	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes add_trait = ac_immortal_core } }
 }
 
 rasen_78 = {
-	name = "Akio"
-	dynasty = dynasty_rasen_nakamoto
+	name = "Tetsuo"
+	dynasty = dynasty_rasen_kiba
 	religion = wild_pacts
-	culture = yokai
-	trait = compassionate
-	trait = patient
-	trait = calm
-	trait = education_stewardship_2
+	culture = oni
+	trait = generous
+	trait = ambitious
+	trait = deceitful
+	trait = education_diplomacy_3
 	trait = ac_cultivator
-	2974.7.11 = { birth = yes }
-	2994.1.1 = { add_spouse = rasen_316 }
-	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+	2952.6.17 = { birth = yes }
+	2970.1.1 = { add_spouse = rasen_325 }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
 rasen_79 = {
-	name = "Akane"
-	dynasty = dynasty_rasen_hayashi
+	name = "Tomoya"
+	dynasty = dynasty_rasen_amatsu
 	religion = wild_pacts
-	culture = zenshin
-	female = yes
-	trait = ambitious
-	trait = greedy
-	trait = humble
-	trait = education_diplomacy_3
+	culture = yokai
+	trait = calm
+	trait = brave
+	trait = patient
+	trait = education_stewardship_2
 	trait = ac_cultivator
-	2962.1.10 = { birth = yes }
-	2982.1.1 = { add_matrilineal_spouse = rasen_319 }
-	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+	2953.4.13 = { birth = yes }
+	2973.1.1 = { add_spouse = rasen_328 }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
 rasen_80 = {
-	name = "Natsuki"
-	dynasty = dynasty_rasen_takeda
+	name = "Reiko"
+	dynasty = dynasty_rasen_nakamoto
 	religion = wild_pacts
 	culture = zenshin
 	female = yes
-	trait = craven
-	trait = gregarious
-	trait = greedy
-	trait = education_intrigue_2
+	trait = cynical
+	trait = paranoid
+	trait = honest
+	trait = education_intrigue_4
 	trait = ac_cultivator
-	2967.7.10 = { birth = yes }
-	2985.1.1 = { add_matrilineal_spouse = rasen_322 }
+	2953.11.21 = { birth = yes }
+	2976.1.1 = { add_matrilineal_spouse = rasen_330 }
 	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
 }
 
 rasen_81 = {
-	name = "Kana"
-	dynasty = dynasty_rasen_hayashi
+	name = "Fuyu"
+	dynasty = dynasty_rasen_matsuda
 	religion = wild_pacts
 	culture = zenshin
 	female = yes
-	trait = deceitful
-	trait = brave
-	trait = wrathful
-	trait = education_stewardship_4
-	2956.3.24 = { birth = yes }
-	2980.1.1 = { add_matrilineal_spouse = rasen_325 }
+	trait = zealous
+	trait = honest
+	trait = humble
+	trait = education_martial_4
+	trait = ac_cultivator
+	2965.6.11 = { birth = yes }
+	2988.1.1 = { add_matrilineal_spouse = rasen_333 }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
 rasen_82 = {
-	name = "Haruka"
-	dynasty = dynasty_rasen_takeda
+	name = "Reiko"
+	dynasty = dynasty_rasen_ryuuzan
 	religion = wild_pacts
-	culture = oni
+	culture = zenshin
 	female = yes
-	trait = callous
-	trait = ambitious
-	trait = greedy
-	trait = education_diplomacy_2
+	trait = arrogant
+	trait = lazy
+	trait = wrathful
+	trait = education_stewardship_2
 	trait = ac_cultivator
-	2954.7.12 = { birth = yes }
-	2972.1.1 = { add_matrilineal_spouse = rasen_328 }
+	2944.2.12 = { birth = yes }
+	2964.1.1 = { add_matrilineal_spouse = rasen_335 }
 	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
 }
 
 rasen_83 = {
-	name = "Rin"
-	dynasty = dynasty_rasen_nakamoto
+	name = "Ayame"
+	dynasty = dynasty_rasen_kanzaki
 	religion = wild_pacts
 	culture = oni
 	female = yes
-	trait = generous
-	trait = cynical
-	trait = brave
-	trait = education_diplomacy_3
-	trait = ac_cultivator
-	2948.3.6 = { birth = yes }
-	2967.1.1 = { add_matrilineal_spouse = rasen_332 }
-	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
-}
-
-rasen_84 = {
-	name = "Asuka"
-	dynasty = dynasty_rasen_matsuda
-	religion = wild_pacts
-	culture = yokai
-	female = yes
+	trait = patient
 	trait = lazy
-	trait = paranoid
-	trait = shy
-	trait = education_stewardship_2
+	trait = calm
+	trait = education_martial_3
 	trait = ac_cultivator
-	2974.2.14 = { birth = yes }
-	2995.1.1 = { add_matrilineal_spouse = rasen_336 }
+	2958.5.12 = { birth = yes }
+	2976.1.1 = { add_matrilineal_spouse = rasen_339 }
 	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
 }
 
-rasen_85 = {
-	name = "Kenji"
+rasen_84 = {
+	name = "Tetsuo"
 	dynasty = dynasty_rasen_ozaki
 	religion = wild_pacts
 	culture = yokai
-	trait = craven
-	trait = greedy
-	trait = compassionate
-	trait = education_stewardship_4
-	2950.9.15 = { birth = yes }
-	2973.1.1 = { add_spouse = rasen_338 }
+	trait = generous
+	trait = honest
+	trait = ambitious
+	trait = education_martial_2
+	2952.10.15 = { birth = yes }
+	2972.1.1 = { add_spouse = rasen_341 }
+}
+
+rasen_85 = {
+	name = "Midori"
+	dynasty = dynasty_rasen_ozaki
+	religion = wild_pacts
+	culture = yokai
+	female = yes
+	trait = content
+	trait = lazy
+	trait = trusting
+	trait = education_intrigue_2
+	trait = ac_cultivator
+	2955.2.21 = { birth = yes }
+	2973.1.1 = { add_matrilineal_spouse = rasen_345 }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
 }
 
 rasen_86 = {
-	name = "Sora"
-	dynasty = dynasty_rasen_arakawa
+	name = "Akio"
+	dynasty = dynasty_rasen_matsuda
 	religion = wild_pacts
 	culture = yokai
-	trait = honest
-	trait = paranoid
-	trait = gregarious
-	trait = education_intrigue_3
+	trait = diligent
+	trait = calm
+	trait = arbitrary
+	trait = education_diplomacy_4
 	trait = ac_cultivator
-	2951.3.18 = { birth = yes }
-	2971.1.1 = { add_spouse = rasen_340 }
+	2965.2.22 = { birth = yes }
+	2983.1.1 = { add_spouse = rasen_348 }
 	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
 }
 
@@ -1271,376 +1270,409 @@ rasen_87 = {
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = craven
-	trait = education_stewardship_3
+	trait = brave
+	trait = education_intrigue_2
 	trait = calm
 	trait = just
 	trait = ac_cultivator
-	2940.4.7 = { birth = yes }
-	2958.1.1 = { add_matrilineal_spouse = rasen_344 }
+	2940.6.1 = { birth = yes }
+	2961.1.1 = { add_matrilineal_spouse = rasen_352 }
 	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes add_trait = ac_immortal_core } }
 }
 
 rasen_88 = {
-	name = "Kasumi"
-	dynasty = dynasty_rasen_shimizu
+	name = "Minoru"
+	dynasty = dynasty_rasen_kurosawa
 	religion = ancestral_rites
 	culture = zenshin
-	female = yes
-	trait = callous
-	trait = ambitious
+	trait = lazy
 	trait = calm
-	trait = education_learning_3
+	trait = deceitful
+	trait = education_intrigue_2
 	trait = ac_cultivator
-	2976.7.5 = { birth = yes }
-	2996.1.1 = { add_matrilineal_spouse = rasen_346 }
+	2945.12.22 = { birth = yes }
+	2965.1.1 = { add_spouse = rasen_355 }
 	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
 }
 
 rasen_89 = {
-	name = "Kosuke"
-	dynasty = dynasty_rasen_matsuda
-	religion = ancestral_rites
-	culture = zenshin
-	trait = calm
-	trait = deceitful
-	trait = diligent
-	trait = education_stewardship_4
-	trait = ac_cultivator
-	2956.6.17 = { birth = yes }
-	2974.1.1 = { add_spouse = rasen_350 }
-	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
-}
-
-rasen_90 = {
-	name = "Shin"
-	dynasty = dynasty_rasen_okami
-	religion = ancestral_rites
-	culture = zenshin
-	trait = content
-	trait = deceitful
-	trait = patient
-	trait = education_diplomacy_3
-	2946.10.3 = { birth = yes }
-	2970.1.1 = { add_spouse = rasen_354 }
-}
-
-rasen_91 = {
-	name = "Kasumi"
-	dynasty = dynasty_rasen_sanada
+	name = "Misuka"
+	dynasty = dynasty_rasen_fujiwara
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = lazy
-	trait = trusting
+	trait = cynical
 	trait = honest
-	trait = education_diplomacy_4
+	trait = trusting
+	trait = education_intrigue_2
 	trait = ac_cultivator
-	2946.1.4 = { birth = yes }
-	2964.1.1 = { add_matrilineal_spouse = rasen_357 }
+	2967.4.14 = { birth = yes }
+	2989.1.1 = { add_matrilineal_spouse = rasen_358 }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_90 = {
+	name = "Noboru"
+	dynasty = dynasty_rasen_takeda
+	religion = ancestral_rites
+	culture = zenshin
+	trait = deceitful
+	trait = lazy
+	trait = patient
+	trait = education_learning_2
+	trait = ac_cultivator
+	2955.3.24 = { birth = yes }
+	2977.1.1 = { add_spouse = rasen_362 }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
+}
+
+rasen_91 = {
+	name = "Jing"
+	dynasty = dynasty_rasen_bai
+	religion = ancestral_rites
+	culture = cathayan
+	female = yes
+	trait = craven
+	trait = deceitful
+	trait = patient
+	trait = education_intrigue_4
+	trait = ac_cultivator
+	2947.10.17 = { birth = yes }
+	2965.1.1 = { add_matrilineal_spouse = rasen_365 }
 	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
 }
 
 rasen_92 = {
-	name = "Kaito"
+	name = "Yasuo"
 	dynasty = dynasty_rasen_tsukimura
 	religion = ancestral_rites
 	culture = zenshin
-	trait = content
-	trait = trusting
-	trait = impatient
-	trait = education_stewardship_3
-	2961.9.12 = { birth = yes }
-	2983.1.1 = { add_spouse = rasen_359 }
+	trait = ambitious
+	trait = arbitrary
+	trait = arrogant
+	trait = education_stewardship_2
+	trait = ac_cultivator
+	2967.4.22 = { birth = yes }
+	2985.1.1 = { add_spouse = rasen_368 }
+	3000.3.1 = { effect = { ac_develop_master_effect = yes } }
 }
 
 rasen_93 = {
-	name = "Tetsuo"
+	name = "Ryota"
 	dynasty = dynasty_rasen_hayashi
 	religion = ancestral_rites
 	culture = zenshin
-	trait = calm
-	trait = gregarious
-	trait = deceitful
-	trait = education_diplomacy_2
-	2953.2.3 = { birth = yes }
+	trait = patient
+	trait = trusting
+	trait = cynical
+	trait = education_stewardship_2
+	2953.12.9 = { birth = yes }
 }
 
 rasen_94 = {
-	name = "Tomoya"
+	name = "Takeshi"
 	father = rasen_93
 	mother = rasen_1
 	dynasty = dynasty_rasen_fuyu
 	religion = ancestral_rites
 	culture = zenshin
-	trait = arbitrary
-	trait = calm
-	trait = diligent
-	trait = education_diplomacy_3
-	2982.12.20 = { birth = yes }
+	trait = brave
+	trait = greedy
+	trait = humble
+	trait = education_diplomacy_4
+	2982.9.17 = { birth = yes }
 }
 
 rasen_95 = {
-	name = "Kiyomi"
+	name = "Noriko"
 	dynasty = dynasty_rasen_arakawa
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = compassionate
-	trait = calm
-	trait = diligent
-	trait = education_martial_2
-	2946.1.18 = { birth = yes }
+	trait = wrathful
+	trait = cynical
+	trait = deceitful
+	trait = education_martial_4
+	2946.4.2 = { birth = yes }
 }
 
 rasen_96 = {
-	name = "Ran"
+	name = "Amane"
 	father = rasen_2
 	mother = rasen_95
 	dynasty = dynasty_rasen_khan
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = greedy
-	trait = content
-	trait = arrogant
-	trait = education_stewardship_4
-	2965.1.21 = { birth = yes }
+	trait = generous
+	trait = deceitful
+	trait = calm
+	trait = education_stewardship_3
+	2965.2.2 = { birth = yes }
 }
 
 rasen_97 = {
-	name = "Mao"
+	name = "Yasuo"
 	father = rasen_2
 	mother = rasen_95
 	dynasty = dynasty_rasen_khan
 	religion = ancestral_rites
 	culture = zenshin
-	trait = lazy
-	trait = callous
+	trait = paranoid
 	trait = humble
-	trait = education_diplomacy_3
-	2976.9.24 = { birth = yes }
+	trait = patient
+	trait = education_martial_2
+	2976.9.22 = { birth = yes }
 }
 
 rasen_98 = {
-	name = "Ichiro"
+	name = "Ren"
 	dynasty = dynasty_rasen_arakawa
 	religion = ancestral_rites
 	culture = zenshin
+	trait = trusting
+	trait = brave
 	trait = deceitful
-	trait = compassionate
-	trait = craven
-	trait = education_stewardship_3
-	2961.9.8 = { birth = yes }
+	trait = education_diplomacy_4
+	2961.12.16 = { birth = yes }
 }
 
 rasen_99 = {
-	name = "Yasuo"
+	name = "Yoshiro"
 	father = rasen_98
 	mother = rasen_3
 	dynasty = dynasty_rasen_amatsu
 	religion = ancestral_rites
 	culture = zenshin
-	trait = wrathful
-	trait = cynical
-	trait = impatient
-	trait = education_learning_3
-	2981.6.6 = { birth = yes }
+	trait = generous
+	trait = compassionate
+	trait = honest
+	trait = education_stewardship_4
+	2981.7.9 = { birth = yes }
 }
 
 rasen_100 = {
-	name = "Umeko"
+	name = "Shizuka"
 	father = rasen_98
 	mother = rasen_3
 	dynasty = dynasty_rasen_amatsu
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = patient
-	trait = compassionate
-	trait = diligent
-	trait = education_intrigue_2
-	2989.12.10 = { birth = yes }
+	trait = impatient
+	trait = trusting
+	trait = gregarious
+	trait = education_martial_4
+	2989.7.17 = { birth = yes }
 }
 
 rasen_101 = {
-	name = "Isamu"
+	name = "Yoshiro"
 	dynasty = dynasty_rasen_nakamoto
 	religion = devanic_temple
 	culture = zenshin
-	trait = paranoid
-	trait = brave
 	trait = calm
-	trait = education_diplomacy_3
-	2945.3.4 = { birth = yes }
+	trait = arbitrary
+	trait = gregarious
+	trait = education_learning_3
+	2945.2.28 = { birth = yes }
 }
 
 rasen_102 = {
-	name = "Shuichi"
+	name = "Katsu"
 	father = rasen_101
 	mother = rasen_4
 	dynasty = dynasty_rasen_mizuhara
 	religion = devanic_temple
 	culture = zenshin
-	trait = calm
-	trait = generous
-	trait = trusting
-	trait = education_diplomacy_2
-	2965.3.14 = { birth = yes }
+	trait = cynical
+	trait = callous
+	trait = patient
+	trait = education_martial_3
+	2965.9.26 = { birth = yes }
 }
 
 rasen_103 = {
-	name = "Osamu"
+	name = "Hiroshi"
 	father = rasen_101
 	mother = rasen_4
 	dynasty = dynasty_rasen_mizuhara
 	religion = devanic_temple
 	culture = zenshin
-	trait = lazy
-	trait = calm
-	trait = arbitrary
-	trait = education_martial_4
-	2985.1.1 = { birth = yes }
+	trait = wrathful
+	trait = compassionate
+	trait = craven
+	trait = education_stewardship_4
+	2985.1.4 = { birth = yes }
 }
 
 rasen_104 = {
-	name = "Rin"
+	name = "Mei"
 	father = rasen_101
 	mother = rasen_4
 	dynasty = dynasty_rasen_mizuhara
 	religion = devanic_temple
 	culture = zenshin
 	female = yes
-	trait = humble
-	trait = content
-	trait = trusting
-	trait = education_martial_3
-	2964.9.3 = { birth = yes }
+	trait = arrogant
+	trait = honest
+	trait = ambitious
+	trait = education_learning_2
+	2964.2.12 = { birth = yes }
 }
 
 rasen_105 = {
-	name = "Noboru"
+	name = "Yasuo"
 	dynasty = dynasty_rasen_ryuuzan
 	religion = ancestral_rites
 	culture = zenshin
-	trait = cynical
-	trait = lazy
-	trait = content
-	trait = education_intrigue_3
-	2954.3.27 = { birth = yes }
+	trait = deceitful
+	trait = compassionate
+	trait = calm
+	trait = education_intrigue_4
+	2954.9.16 = { birth = yes }
 }
 
 rasen_106 = {
-	name = "Tomoya"
+	name = "Shuichi"
 	father = rasen_105
 	mother = rasen_5
 	dynasty = dynasty_rasen_kurosawa
 	religion = ancestral_rites
 	culture = zenshin
-	trait = zealous
-	trait = generous
-	trait = deceitful
-	trait = education_stewardship_3
-	2982.5.19 = { birth = yes }
+	trait = arbitrary
+	trait = ambitious
+	trait = brave
+	trait = education_martial_3
+	2982.1.20 = { birth = yes }
 }
 
 rasen_107 = {
-	name = "Reiko"
+	name = "Emi"
 	father = rasen_105
 	mother = rasen_5
 	dynasty = dynasty_rasen_kurosawa
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = arrogant
-	trait = trusting
-	trait = patient
-	trait = education_stewardship_2
-	2991.1.4 = { birth = yes }
+	trait = humble
+	trait = arbitrary
+	trait = diligent
+	trait = education_diplomacy_3
+	2991.3.10 = { birth = yes }
 }
 
 rasen_108 = {
-	name = "Haruka"
+	name = "Umeko"
 	dynasty = dynasty_rasen_tsukimura
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = shy
-	trait = content
+	trait = greedy
+	trait = ambitious
 	trait = arbitrary
-	trait = education_stewardship_2
-	2952.2.6 = { birth = yes }
+	trait = education_diplomacy_2
+	2952.1.2 = { birth = yes }
 }
 
 rasen_109 = {
-	name = "Ryo"
+	name = "Satoshi"
 	father = rasen_6
 	mother = rasen_108
 	dynasty = dynasty_rasen_yamabe
 	religion = ancestral_rites
 	culture = zenshin
-	trait = brave
 	trait = content
-	trait = humble
-	trait = education_diplomacy_3
-	2979.7.18 = { birth = yes }
+	trait = arrogant
+	trait = brave
+	trait = education_martial_2
+	2979.3.2 = { birth = yes }
 }
 
 rasen_110 = {
-	name = "Daisuke"
+	name = "Jun"
 	father = rasen_6
 	mother = rasen_108
 	dynasty = dynasty_rasen_yamabe
 	religion = ancestral_rites
 	culture = zenshin
-	trait = trusting
+	trait = wrathful
+	trait = shy
 	trait = content
-	trait = generous
-	trait = education_martial_4
-	2992.7.10 = { birth = yes }
+	trait = education_learning_3
+	2992.4.5 = { birth = yes }
 }
 
 rasen_111 = {
-	name = "Amane"
+	name = "Hana"
 	dynasty = dynasty_rasen_matsuda
 	religion = ancestral_rites
 	culture = oni
 	female = yes
-	trait = honest
-	trait = cynical
+	trait = diligent
+	trait = impatient
 	trait = brave
-	trait = education_stewardship_4
-	2968.10.2 = { birth = yes }
+	trait = education_intrigue_2
+	2968.6.10 = { birth = yes }
 }
 
 rasen_112 = {
-	name = "Sora"
+	name = "Isamu"
 	father = rasen_7
 	mother = rasen_111
 	dynasty = dynasty_rasen_kanzaki
 	religion = ancestral_rites
 	culture = oni
-	trait = gregarious
-	trait = greedy
-	trait = lazy
-	trait = education_learning_4
-	2995.12.10 = { birth = yes }
+	trait = arbitrary
+	trait = trusting
+	trait = content
+	trait = education_martial_2
+	2995.10.14 = { birth = yes }
 }
 
 rasen_113 = {
-	name = "Ayame"
+	name = "Reiko"
 	dynasty = dynasty_rasen_kagemori
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = ambitious
-	trait = just
-	trait = arrogant
-	trait = education_stewardship_4
-	2951.11.7 = { birth = yes }
+	trait = zealous
+	trait = honest
+	trait = callous
+	trait = education_stewardship_2
+	2951.9.20 = { birth = yes }
 }
 
 rasen_114 = {
+	name = "Chiyo"
+	father = rasen_8
+	mother = rasen_113
+	dynasty = dynasty_rasen_hoshino
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = gregarious
+	trait = greedy
+	trait = lazy
+	trait = education_learning_4
+	2986.12.10 = { birth = yes }
+}
+
+rasen_115 = {
+	name = "Noboru"
+	father = rasen_8
+	mother = rasen_113
+	dynasty = dynasty_rasen_hoshino
+	religion = ancestral_rites
+	culture = zenshin
+	trait = just
+	trait = humble
+	trait = impatient
+	trait = education_stewardship_4
+	2980.11.7 = { birth = yes }
+}
+
+rasen_116 = {
 	name = "Yasuo"
 	father = rasen_8
 	mother = rasen_113
@@ -1651,28 +1683,26 @@ rasen_114 = {
 	trait = trusting
 	trait = impatient
 	trait = education_martial_4
-	2986.9.20 = { birth = yes }
+	2978.9.20 = { birth = yes }
 }
 
-rasen_115 = {
+rasen_117 = {
 	name = "Osamu"
-	father = rasen_8
-	mother = rasen_113
-	dynasty = dynasty_rasen_hoshino
+	dynasty = dynasty_rasen_takeda
 	religion = ancestral_rites
 	culture = zenshin
 	trait = generous
 	trait = humble
 	trait = impatient
 	trait = education_diplomacy_4
-	2980.12.1 = { birth = yes }
+	2950.12.1 = { birth = yes }
 }
 
-rasen_116 = {
+rasen_118 = {
 	name = "Reiko"
-	father = rasen_8
-	mother = rasen_113
-	dynasty = dynasty_rasen_hoshino
+	father = rasen_117
+	mother = rasen_9
+	dynasty = dynasty_rasen_fujiwara
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
@@ -1680,226 +1710,201 @@ rasen_116 = {
 	trait = gregarious
 	trait = callous
 	trait = education_intrigue_4
-	2978.4.5 = { birth = yes }
-}
-
-rasen_117 = {
-	name = "Kosuke"
-	dynasty = dynasty_rasen_takeda
-	religion = ancestral_rites
-	culture = zenshin
-	trait = honest
-	trait = shy
-	trait = lazy
-	trait = education_learning_2
-	2950.12.28 = { birth = yes }
-}
-
-rasen_118 = {
-	name = "Shin"
-	father = rasen_117
-	mother = rasen_9
-	dynasty = dynasty_rasen_fujiwara
-	religion = ancestral_rites
-	culture = zenshin
-	trait = paranoid
-	trait = shy
-	trait = brave
-	trait = education_diplomacy_4
-	2991.3.26 = { birth = yes }
+	2991.4.5 = { birth = yes }
 }
 
 rasen_119 = {
-	name = "Nanami"
+	name = "Chiyo"
 	father = rasen_117
 	mother = rasen_9
 	dynasty = dynasty_rasen_fujiwara
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = honest
-	trait = arrogant
-	trait = cynical
-	trait = education_martial_2
-	2975.6.6 = { birth = yes }
+	trait = wrathful
+	trait = shy
+	trait = patient
+	trait = education_diplomacy_4
+	2975.11.26 = { birth = yes }
 }
 
 rasen_120 = {
-	name = "Tomoya"
+	name = "Ryo"
 	father = rasen_117
 	mother = rasen_9
 	dynasty = dynasty_rasen_fujiwara
 	religion = ancestral_rites
 	culture = zenshin
-	trait = compassionate
-	trait = content
-	trait = gregarious
-	trait = education_learning_4
-	2984.8.18 = { birth = yes }
+	trait = zealous
+	trait = shy
+	trait = ambitious
+	trait = education_diplomacy_2
+	2984.5.8 = { birth = yes }
 }
 
 rasen_121 = {
-	name = "Raiden"
+	name = "Mao"
 	dynasty = dynasty_rasen_kagemori
 	religion = devanic_temple
 	culture = zenshin
-	trait = diligent
 	trait = cynical
-	trait = brave
-	trait = education_martial_3
-	2945.11.22 = { birth = yes }
+	trait = arrogant
+	trait = diligent
+	trait = education_stewardship_3
+	2945.3.12 = { birth = yes }
 }
 
 rasen_122 = {
-	name = "Yoshiro"
+	name = "Makoto"
 	father = rasen_121
 	mother = rasen_10
 	dynasty = dynasty_rasen_tsukimura
 	religion = devanic_temple
 	culture = zenshin
-	trait = generous
-	trait = arrogant
-	trait = shy
-	trait = education_intrigue_2
-	2973.9.17 = { birth = yes }
+	trait = gregarious
+	trait = callous
+	trait = patient
+	trait = education_learning_4
+	2973.8.18 = { birth = yes }
 }
 
 rasen_123 = {
-	name = "Noriko"
+	name = "Ayame"
 	dynasty = dynasty_rasen_fujiwara
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = craven
+	trait = cynical
+	trait = brave
 	trait = calm
-	trait = deceitful
-	trait = education_learning_2
-	2969.1.28 = { birth = yes }
+	trait = education_intrigue_4
+	2969.11.12 = { birth = yes }
 }
 
 rasen_124 = {
-	name = "Mei"
+	name = "Yoshiro"
+	father = rasen_11
+	mother = rasen_123
+	dynasty = dynasty_rasen_amatsu
+	religion = ancestral_rites
+	culture = zenshin
+	trait = generous
+	trait = arrogant
+	trait = shy
+	trait = education_intrigue_2
+	2991.9.17 = { birth = yes }
+}
+
+rasen_125 = {
+	name = "Daichi"
+	father = rasen_11
+	mother = rasen_123
+	dynasty = dynasty_rasen_amatsu
+	religion = ancestral_rites
+	culture = zenshin
+	trait = honest
+	trait = greedy
+	trait = gregarious
+	trait = education_martial_2
+	2998.5.24 = { birth = yes }
+}
+
+rasen_126 = {
+	name = "Sayuri"
 	father = rasen_11
 	mother = rasen_123
 	dynasty = dynasty_rasen_amatsu
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = trusting
-	trait = generous
 	trait = arbitrary
-	trait = education_intrigue_2
-	2991.10.20 = { birth = yes }
-}
-
-rasen_125 = {
-	name = "Jiro"
-	father = rasen_11
-	mother = rasen_123
-	dynasty = dynasty_rasen_amatsu
-	religion = ancestral_rites
-	culture = zenshin
-	trait = content
-	trait = just
 	trait = craven
-	trait = education_intrigue_2
-	2998.2.26 = { birth = yes }
-}
-
-rasen_126 = {
-	name = "Minoru"
-	father = rasen_11
-	mother = rasen_123
-	dynasty = dynasty_rasen_amatsu
-	religion = ancestral_rites
-	culture = zenshin
-	trait = content
-	trait = impatient
-	trait = arrogant
-	trait = education_diplomacy_4
-	2991.5.26 = { birth = yes }
+	trait = calm
+	trait = education_learning_4
+	2991.11.7 = { birth = yes }
 }
 
 rasen_127 = {
-	name = "Yoshiro"
+	name = "Makoto"
 	dynasty = dynasty_rasen_arakawa
 	religion = ancestral_rites
 	culture = oni
-	trait = impatient
-	trait = ambitious
-	trait = wrathful
-	trait = education_martial_3
-	2952.11.23 = { birth = yes }
+	trait = arbitrary
+	trait = brave
+	trait = shy
+	trait = education_intrigue_2
+	2952.2.26 = { birth = yes }
 }
 
 rasen_128 = {
-	name = "Akio"
+	name = "Minoru"
 	father = rasen_127
 	mother = rasen_12
 	dynasty = dynasty_rasen_kagemori
 	religion = ancestral_rites
 	culture = oni
-	trait = craven
-	trait = ambitious
-	trait = shy
-	trait = education_learning_3
-	2984.5.8 = { birth = yes }
+	trait = content
+	trait = impatient
+	trait = arrogant
+	trait = education_diplomacy_4
+	2984.5.26 = { birth = yes }
 }
 
 rasen_129 = {
-	name = "Rin"
+	name = "Nanami"
 	dynasty = dynasty_rasen_inoue
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = wrathful
-	trait = shy
+	trait = calm
+	trait = impatient
 	trait = zealous
-	trait = education_stewardship_3
-	2951.12.19 = { birth = yes }
+	trait = education_diplomacy_4
+	2951.12.18 = { birth = yes }
 }
 
 rasen_130 = {
-	name = "Kaito"
-	father = rasen_13
-	mother = rasen_129
-	dynasty = dynasty_rasen_kanzaki
-	religion = ancestral_rites
-	culture = zenshin
-	trait = paranoid
-	trait = diligent
-	trait = craven
-	trait = education_intrigue_2
-	2974.6.19 = { birth = yes }
-}
-
-rasen_131 = {
-	name = "Katsu"
-	father = rasen_13
-	mother = rasen_129
-	dynasty = dynasty_rasen_kanzaki
-	religion = ancestral_rites
-	culture = zenshin
-	trait = content
-	trait = greedy
-	trait = callous
-	trait = education_diplomacy_2
-	2971.8.21 = { birth = yes }
-}
-
-rasen_132 = {
-	name = "Tomoe"
+	name = "Aiko"
 	father = rasen_13
 	mother = rasen_129
 	dynasty = dynasty_rasen_kanzaki
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = paranoid
-	trait = generous
+	trait = content
+	trait = trusting
+	trait = shy
+	trait = education_learning_3
+	2974.5.8 = { birth = yes }
+}
+
+rasen_131 = {
+	name = "Shizuka"
+	father = rasen_13
+	mother = rasen_129
+	dynasty = dynasty_rasen_kanzaki
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = ambitious
 	trait = compassionate
-	trait = education_stewardship_3
-	2986.5.1 = { birth = yes }
+	trait = shy
+	trait = education_learning_3
+	2971.9.28 = { birth = yes }
+}
+
+rasen_132 = {
+	name = "Ren"
+	father = rasen_13
+	mother = rasen_129
+	dynasty = dynasty_rasen_kanzaki
+	religion = ancestral_rites
+	culture = zenshin
+	trait = brave
+	trait = impatient
+	trait = arbitrary
+	trait = education_martial_3
+	2986.10.28 = { birth = yes }
 }
 
 rasen_133 = {
@@ -1908,103 +1913,130 @@ rasen_133 = {
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = patient
-	trait = paranoid
-	trait = compassionate
-	trait = education_stewardship_2
-	2945.5.21 = { birth = yes }
+	trait = content
+	trait = greedy
+	trait = callous
+	trait = education_diplomacy_2
+	2945.8.21 = { birth = yes }
 }
 
 rasen_134 = {
-	name = "Takeshi"
-	father = rasen_14
-	mother = rasen_133
-	dynasty = dynasty_rasen_takeda
-	religion = ancestral_rites
-	culture = zenshin
-	trait = calm
-	trait = zealous
-	trait = paranoid
-	trait = education_stewardship_4
-	2985.9.12 = { birth = yes }
-}
-
-rasen_135 = {
-	name = "Ayame"
+	name = "Tomoe"
 	father = rasen_14
 	mother = rasen_133
 	dynasty = dynasty_rasen_takeda
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
+	trait = paranoid
+	trait = generous
+	trait = compassionate
+	trait = education_stewardship_3
+	2985.5.1 = { birth = yes }
+}
+
+rasen_135 = {
+	name = "Kagerou"
+	father = rasen_14
+	mother = rasen_133
+	dynasty = dynasty_rasen_takeda
+	religion = ancestral_rites
+	culture = zenshin
+	trait = paranoid
+	trait = patient
+	trait = diligent
+	trait = education_martial_3
+	2981.11.26 = { birth = yes }
+}
+
+rasen_136 = {
+	name = "Shuichi"
+	father = rasen_14
+	mother = rasen_133
+	dynasty = dynasty_rasen_takeda
+	religion = ancestral_rites
+	culture = zenshin
+	trait = zealous
+	trait = callous
+	trait = calm
+	trait = education_learning_4
+	2974.6.9 = { birth = yes }
+}
+
+rasen_137 = {
+	name = "Ren"
+	dynasty = dynasty_rasen_kiba
+	religion = ancestral_rites
+	culture = zenshin
 	trait = greedy
 	trait = diligent
 	trait = deceitful
 	trait = education_diplomacy_2
-	2981.10.8 = { birth = yes }
+	2966.10.8 = { birth = yes }
 }
 
-rasen_136 = {
+rasen_138 = {
 	name = "Isamu"
-	father = rasen_14
-	mother = rasen_133
-	dynasty = dynasty_rasen_takeda
+	father = rasen_137
+	mother = rasen_15
+	dynasty = dynasty_rasen_fujiwara
 	religion = ancestral_rites
 	culture = zenshin
 	trait = ambitious
 	trait = arrogant
 	trait = cynical
 	trait = education_stewardship_2
-	2974.11.3 = { birth = yes }
+	2999.11.3 = { birth = yes }
 }
 
-rasen_137 = {
-	name = "Isamu"
-	dynasty = dynasty_rasen_kiba
-	religion = ancestral_rites
+rasen_139 = {
+	name = "Hikari"
+	dynasty = dynasty_rasen_fujiwara
+	religion = devanic_temple
 	culture = zenshin
+	female = yes
 	trait = callous
 	trait = humble
 	trait = gregarious
 	trait = education_learning_4
-	2966.12.10 = { birth = yes }
+	2975.12.10 = { birth = yes }
 }
 
-rasen_138 = {
+rasen_140 = {
 	name = "Reiko"
-	father = rasen_137
-	mother = rasen_15
-	dynasty = dynasty_rasen_fujiwara
-	religion = ancestral_rites
+	father = rasen_16
+	mother = rasen_139
+	dynasty = dynasty_rasen_kurosawa
+	religion = devanic_temple
 	culture = zenshin
 	female = yes
 	trait = calm
 	trait = callous
 	trait = zealous
 	trait = education_martial_4
-	2999.4.18 = { birth = yes }
+	2994.4.18 = { birth = yes }
 }
 
-rasen_139 = {
-	name = "Emi"
-	dynasty = dynasty_rasen_fujiwara
+rasen_141 = {
+	name = "Ling"
+	dynasty = dynasty_rasen_zhou
 	religion = devanic_temple
-	culture = zenshin
+	culture = cathayan
 	female = yes
 	trait = callous
 	trait = wrathful
 	trait = gregarious
 	trait = education_stewardship_3
-	2975.7.21 = { birth = yes }
+	2973.7.21 = { birth = yes }
 }
 
-rasen_140 = {
-	name = "Asuka"
-	father = rasen_16
-	mother = rasen_139
-	dynasty = dynasty_rasen_kurosawa
+rasen_142 = {
+	name = "Wen"
+	father = rasen_17
+	mother = rasen_141
+	dynasty = dynasty_rasen_luo
 	religion = devanic_temple
-	culture = zenshin
+	culture = cathayan
 	female = yes
 	trait = content
 	trait = generous
@@ -2013,61 +2045,64 @@ rasen_140 = {
 	2994.9.14 = { birth = yes }
 }
 
-rasen_141 = {
-	name = "Qing"
-	dynasty = dynasty_rasen_zhou
-	religion = devanic_temple
-	culture = cathayan
-	female = yes
-	trait = impatient
-	trait = honest
-	trait = arrogant
-	trait = education_diplomacy_2
-	2973.9.23 = { birth = yes }
-}
-
-rasen_142 = {
-	name = "Zhi"
-	father = rasen_17
-	mother = rasen_141
-	dynasty = dynasty_rasen_luo
-	religion = devanic_temple
-	culture = cathayan
-	female = yes
-	trait = brave
-	trait = zealous
-	trait = compassionate
-	trait = education_stewardship_3
-	2994.8.18 = { birth = yes }
-}
-
 rasen_143 = {
-	name = "Guang"
+	name = "Yun"
 	father = rasen_17
 	mother = rasen_141
 	dynasty = dynasty_rasen_luo
 	religion = devanic_temple
 	culture = cathayan
+	female = yes
+	trait = trusting
+	trait = arrogant
+	trait = arbitrary
+	trait = education_martial_4
+	2993.12.10 = { birth = yes }
+}
+
+rasen_144 = {
+	name = "Daichi"
+	dynasty = dynasty_rasen_kurosawa
+	religion = devanic_temple
+	culture = oni
+	trait = zealous
+	trait = brave
+	trait = compassionate
+	trait = education_stewardship_4
+	2975.4.28 = { birth = yes }
+}
+
+rasen_145 = {
+	name = "Asuka"
+	father = rasen_144
+	mother = rasen_18
+	dynasty = dynasty_rasen_arakawa
+	religion = devanic_temple
+	culture = oni
+	female = yes
 	trait = cynical
 	trait = impatient
 	trait = ambitious
 	trait = education_stewardship_4
-	2993.5.1 = { birth = yes }
+	2998.5.1 = { birth = yes }
 }
 
-rasen_144 = {
-	name = "Yuto"
-	dynasty = dynasty_rasen_kurosawa
+rasen_146 = {
+	name = "Fuyu"
+	father = rasen_144
+	mother = rasen_18
+	dynasty = dynasty_rasen_arakawa
 	religion = devanic_temple
 	culture = oni
-	trait = honest
-	trait = callous
-	trait = diligent
-	trait = education_learning_2
-	2975.2.22 = { birth = yes }
+	female = yes
+	trait = lazy
+	trait = patient
+	trait = calm
+	trait = education_martial_4
+	2998.7.22 = { birth = yes }
 }
 
-rasen_145 = {
+rasen_147 = {
 	name = "Daisuke"
 	father = rasen_144
 	mother = rasen_18
@@ -2078,1214 +2113,1253 @@ rasen_145 = {
 	trait = compassionate
 	trait = trusting
 	trait = education_stewardship_4
-	2998.7.24 = { birth = yes }
-}
-
-rasen_146 = {
-	name = "Shin"
-	father = rasen_144
-	mother = rasen_18
-	dynasty = dynasty_rasen_arakawa
-	religion = devanic_temple
-	culture = oni
-	trait = cynical
-	trait = just
-	trait = ambitious
-	trait = education_stewardship_2
-	2998.9.1 = { birth = yes }
-}
-
-rasen_147 = {
-	name = "Ren"
-	father = rasen_144
-	mother = rasen_18
-	dynasty = dynasty_rasen_arakawa
-	religion = devanic_temple
-	culture = oni
-	trait = deceitful
-	trait = lazy
-	trait = arbitrary
-	trait = education_stewardship_2
-	2999.1.7 = { birth = yes }
+	2999.7.24 = { birth = yes }
 }
 
 rasen_148 = {
-	name = "Jing"
+	name = "Ling"
 	dynasty = dynasty_rasen_hou
 	religion = ancestral_rites
 	culture = cathayan
 	female = yes
-	trait = content
-	trait = arbitrary
+	trait = impatient
 	trait = cynical
-	trait = education_learning_2
-	2976.5.13 = { birth = yes }
+	trait = just
+	trait = education_stewardship_2
+	2976.2.17 = { birth = yes }
 }
 
 rasen_149 = {
-	name = "Yong"
+	name = "Jing"
 	father = rasen_19
 	mother = rasen_148
 	dynasty = dynasty_rasen_lan
 	religion = ancestral_rites
 	culture = cathayan
-	trait = diligent
+	female = yes
 	trait = deceitful
-	trait = greedy
-	trait = education_martial_2
-	2998.2.20 = { birth = yes }
+	trait = lazy
+	trait = arbitrary
+	trait = education_stewardship_2
+	2998.1.7 = { birth = yes }
 }
 
 rasen_150 = {
-	name = "Liang"
+	name = "Qing"
 	father = rasen_19
 	mother = rasen_148
 	dynasty = dynasty_rasen_lan
 	religion = ancestral_rites
 	culture = cathayan
-	trait = content
-	trait = deceitful
+	female = yes
+	trait = callous
 	trait = arbitrary
-	trait = education_learning_4
-	2999.8.25 = { birth = yes }
+	trait = cynical
+	trait = education_learning_2
+	2999.5.13 = { birth = yes }
 }
 
 rasen_151 = {
-	name = "Tomoya"
+	name = "Mao"
 	dynasty = dynasty_rasen_fujiwara
 	religion = ancestral_rites
 	culture = zenshin
 	trait = arbitrary
-	trait = humble
-	trait = cynical
-	trait = education_stewardship_2
-	2977.10.19 = { birth = yes }
+	trait = diligent
+	trait = deceitful
+	trait = education_intrigue_4
+	2977.2.8 = { birth = yes }
 }
 
 rasen_152 = {
-	name = "Daichi"
+	name = "Kosuke"
+	father = rasen_151
+	mother = rasen_20
+	dynasty = dynasty_rasen_ryuuzan
+	religion = ancestral_rites
+	culture = zenshin
+	trait = arrogant
+	trait = trusting
+	trait = deceitful
+	trait = education_diplomacy_3
+	2997.12.26 = { birth = yes }
+}
+
+rasen_153 = {
+	name = "Raiden"
 	father = rasen_151
 	mother = rasen_20
 	dynasty = dynasty_rasen_ryuuzan
 	religion = ancestral_rites
 	culture = zenshin
 	trait = impatient
-	trait = shy
+	trait = cynical
 	trait = callous
-	trait = education_stewardship_2
-	2997.7.9 = { birth = yes }
-}
-
-rasen_153 = {
-	name = "Osamu"
-	father = rasen_151
-	mother = rasen_20
-	dynasty = dynasty_rasen_ryuuzan
-	religion = ancestral_rites
-	culture = zenshin
-	trait = lazy
-	trait = ambitious
-	trait = patient
-	trait = education_diplomacy_2
-	2996.8.7 = { birth = yes }
+	trait = education_stewardship_4
+	2996.10.19 = { birth = yes }
 }
 
 rasen_154 = {
-	name = "Ren"
+	name = "Tetsuo"
 	father = rasen_151
 	mother = rasen_20
 	dynasty = dynasty_rasen_ryuuzan
 	religion = ancestral_rites
 	culture = zenshin
+	trait = deceitful
+	trait = diligent
+	trait = humble
+	trait = education_learning_4
+	2998.9.26 = { birth = yes }
+}
+
+rasen_155 = {
+	name = "Ulfhild"
+	dynasty = dynasty_rasen_frostmark
+	religion = shugendo
+	culture = lunargoth
+	female = yes
+	trait = arbitrary
+	trait = shy
+	trait = humble
+	trait = education_stewardship_3
+	2933.5.27 = { birth = yes }
+}
+
+rasen_156 = {
+	name = "Ulfric"
+	father = rasen_21
+	mother = rasen_155
+	dynasty = dynasty_rasen_wintermantle
+	religion = shugendo
+	culture = lunargoth
+	trait = ambitious
+	trait = patient
+	trait = greedy
+	trait = education_martial_3
+	2964.4.26 = { birth = yes }
+}
+
+rasen_157 = {
+	name = "Wulfgar"
+	father = rasen_21
+	mother = rasen_155
+	dynasty = dynasty_rasen_wintermantle
+	religion = shugendo
+	culture = lunargoth
 	trait = callous
 	trait = honest
 	trait = lazy
 	trait = education_intrigue_2
-	2998.4.15 = { birth = yes }
+	2963.4.15 = { birth = yes }
 }
 
-rasen_155 = {
+rasen_158 = {
 	name = "Amane"
-	dynasty = dynasty_rasen_yamabe
-	religion = shugendo
+	dynasty = dynasty_rasen_kagemori
+	religion = ancestral_rites
 	culture = zenshin
 	female = yes
 	trait = craven
 	trait = diligent
 	trait = zealous
 	trait = education_learning_3
-	2971.10.28 = { birth = yes }
+	2958.10.28 = { birth = yes }
 }
 
-rasen_156 = {
+rasen_159 = {
 	name = "Kosuke"
-	father = rasen_21
-	mother = rasen_155
-	dynasty = dynasty_rasen_ishida
-	religion = shugendo
+	father = rasen_22
+	mother = rasen_158
+	dynasty = dynasty_rasen_hoshino
+	religion = ancestral_rites
 	culture = zenshin
 	trait = diligent
 	trait = cynical
 	trait = humble
 	trait = education_diplomacy_3
-	2994.9.23 = { birth = yes }
+	2996.9.23 = { birth = yes }
 }
 
-rasen_157 = {
-	name = "Masaru"
-	dynasty = dynasty_rasen_tsukimura
-	religion = shugendo
+rasen_160 = {
+	name = "Reiko"
+	father = rasen_22
+	mother = rasen_158
+	dynasty = dynasty_rasen_hoshino
+	religion = ancestral_rites
 	culture = zenshin
-	trait = ambitious
+	female = yes
 	trait = zealous
-	trait = lazy
+	trait = diligent
+	trait = impatient
 	trait = education_martial_2
-	2943.6.26 = { birth = yes }
+	2980.6.26 = { birth = yes }
 }
 
-rasen_158 = {
+rasen_161 = {
 	name = "Yoshiro"
-	father = rasen_157
-	mother = rasen_22
-	dynasty = dynasty_rasen_kiba
-	religion = shugendo
+	father = rasen_22
+	mother = rasen_158
+	dynasty = dynasty_rasen_hoshino
+	religion = ancestral_rites
 	culture = zenshin
 	trait = generous
 	trait = arbitrary
 	trait = lazy
 	trait = education_learning_2
-	2972.3.16 = { birth = yes }
+	2981.3.16 = { birth = yes }
 }
 
-rasen_159 = {
-	name = "Reiko"
-	dynasty = dynasty_rasen_nakamoto
+rasen_162 = {
+	name = "Athanaric"
+	dynasty = dynasty_rasen_amaling
 	religion = ancestral_rites
-	culture = zenshin
-	female = yes
+	culture = lunargoth
 	trait = impatient
 	trait = wrathful
 	trait = cynical
 	trait = education_stewardship_3
-	2961.2.1 = { birth = yes }
+	2969.2.1 = { birth = yes }
 }
 
-rasen_160 = {
-	name = "Tetsuo"
-	father = rasen_23
-	mother = rasen_159
-	dynasty = dynasty_rasen_fujiwara
+rasen_163 = {
+	name = "Fritigern"
+	father = rasen_162
+	mother = rasen_23
+	dynasty = dynasty_rasen_amaling
 	religion = ancestral_rites
-	culture = zenshin
+	culture = lunargoth
 	trait = paranoid
 	trait = ambitious
 	trait = gregarious
 	trait = education_diplomacy_3
-	2983.3.7 = { birth = yes }
-}
-
-rasen_161 = {
-	name = "Yoshiro"
-	father = rasen_23
-	mother = rasen_159
-	dynasty = dynasty_rasen_fujiwara
-	religion = ancestral_rites
-	culture = zenshin
-	trait = lazy
-	trait = greedy
-	trait = content
-	trait = education_stewardship_4
-	2994.7.23 = { birth = yes }
-}
-
-rasen_162 = {
-	name = "Daichi"
-	father = rasen_23
-	mother = rasen_159
-	dynasty = dynasty_rasen_fujiwara
-	religion = ancestral_rites
-	culture = zenshin
-	trait = gregarious
-	trait = deceitful
-	trait = generous
-	trait = education_martial_2
-	2999.2.9 = { birth = yes }
-}
-
-rasen_163 = {
-	name = "Kosuke"
-	dynasty = dynasty_rasen_mizuhara
-	religion = shugendo
-	culture = zenshin
-	trait = greedy
-	trait = honest
-	trait = trusting
-	trait = education_stewardship_3
-	2949.11.22 = { birth = yes }
+	2990.3.7 = { birth = yes }
 }
 
 rasen_164 = {
-	name = "Kagerou"
-	father = rasen_163
-	mother = rasen_24
-	dynasty = dynasty_rasen_fujiwara
-	religion = shugendo
-	culture = zenshin
-	trait = generous
-	trait = wrathful
-	trait = trusting
-	trait = education_diplomacy_4
-	2985.7.2 = { birth = yes }
+	name = "Wulfgar"
+	father = rasen_162
+	mother = rasen_23
+	dynasty = dynasty_rasen_amaling
+	religion = ancestral_rites
+	culture = lunargoth
+	trait = greedy
+	trait = content
+	trait = impatient
+	trait = education_stewardship_4
+	2995.7.23 = { birth = yes }
 }
 
 rasen_165 = {
-	name = "Reiko"
-	father = rasen_163
-	mother = rasen_24
-	dynasty = dynasty_rasen_fujiwara
+	name = "Sigrun"
+	dynasty = dynasty_rasen_amaling
 	religion = shugendo
-	culture = zenshin
+	culture = lunargoth
 	female = yes
+	trait = wrathful
+	trait = gregarious
 	trait = deceitful
-	trait = just
-	trait = paranoid
-	trait = education_learning_4
-	2990.5.18 = { birth = yes }
+	trait = education_martial_2
+	2953.2.3 = { birth = yes }
 }
 
 rasen_166 = {
-	name = "Suzume"
-	dynasty = dynasty_rasen_kurosawa
-	religion = ancestral_rites
-	culture = zenshin
+	name = "Matasuntha"
+	father = rasen_24
+	mother = rasen_165
+	dynasty = dynasty_rasen_frostmark
+	religion = shugendo
+	culture = lunargoth
 	female = yes
-	trait = content
-	trait = impatient
-	trait = zealous
-	trait = education_diplomacy_3
-	2952.12.9 = { birth = yes }
+	trait = deceitful
+	trait = trusting
+	trait = compassionate
+	trait = education_stewardship_3
+	2982.11.22 = { birth = yes }
 }
 
 rasen_167 = {
-	name = "Amane"
-	father = rasen_25
-	mother = rasen_166
-	dynasty = dynasty_rasen_kanzaki
-	religion = ancestral_rites
-	culture = zenshin
-	female = yes
-	trait = arbitrary
-	trait = callous
-	trait = generous
-	trait = education_diplomacy_2
-	2972.9.16 = { birth = yes }
+	name = "Fritigern"
+	father = rasen_24
+	mother = rasen_165
+	dynasty = dynasty_rasen_frostmark
+	religion = shugendo
+	culture = lunargoth
+	trait = wrathful
+	trait = compassionate
+	trait = deceitful
+	trait = education_intrigue_2
+	2989.5.26 = { birth = yes }
 }
 
 rasen_168 = {
-	name = "Hikari"
-	father = rasen_25
-	mother = rasen_166
-	dynasty = dynasty_rasen_kanzaki
-	religion = ancestral_rites
-	culture = zenshin
+	name = "Ragnhild"
+	father = rasen_24
+	mother = rasen_165
+	dynasty = dynasty_rasen_frostmark
+	religion = shugendo
+	culture = lunargoth
 	female = yes
-	trait = content
-	trait = zealous
-	trait = deceitful
-	trait = education_intrigue_2
-	2983.11.24 = { birth = yes }
+	trait = arbitrary
+	trait = callous
+	trait = craven
+	trait = education_learning_3
+	2983.8.20 = { birth = yes }
 }
 
 rasen_169 = {
-	name = "Tomoe"
-	dynasty = dynasty_rasen_ryuuzan
+	name = "Ragnhild"
+	dynasty = dynasty_rasen_wintermantle
 	religion = shugendo
-	culture = zenshin
+	culture = lunargoth
 	female = yes
-	trait = trusting
-	trait = deceitful
-	trait = greedy
-	trait = education_martial_2
-	2957.3.23 = { birth = yes }
+	trait = lazy
+	trait = generous
+	trait = just
+	trait = education_intrigue_3
+	2947.7.11 = { birth = yes }
 }
 
 rasen_170 = {
-	name = "Takeshi"
-	father = rasen_26
+	name = "Hildebrand"
+	father = rasen_25
 	mother = rasen_169
-	dynasty = dynasty_rasen_kanzaki
+	dynasty = dynasty_rasen_northvale
 	religion = shugendo
-	culture = zenshin
+	culture = lunargoth
 	trait = content
-	trait = wrathful
-	trait = greedy
-	trait = education_intrigue_3
-	2993.7.15 = { birth = yes }
+	trait = deceitful
+	trait = patient
+	trait = education_learning_2
+	2991.5.15 = { birth = yes }
 }
 
 rasen_171 = {
-	name = "Natsuki"
-	father = rasen_26
+	name = "Amalasuntha"
+	father = rasen_25
 	mother = rasen_169
-	dynasty = dynasty_rasen_kanzaki
+	dynasty = dynasty_rasen_northvale
 	religion = shugendo
-	culture = zenshin
+	culture = lunargoth
 	female = yes
-	trait = callous
-	trait = patient
-	trait = lazy
-	trait = education_martial_4
-	2993.7.3 = { birth = yes }
+	trait = zealous
+	trait = paranoid
+	trait = compassionate
+	trait = education_diplomacy_2
+	2970.5.17 = { birth = yes }
 }
 
 rasen_172 = {
-	name = "Kaito"
-	father = rasen_26
-	mother = rasen_169
-	dynasty = dynasty_rasen_kanzaki
-	religion = shugendo
-	culture = zenshin
-	trait = impatient
+	name = "Ingunde"
+	dynasty = dynasty_rasen_frostmark
+	religion = ancestral_rites
+	culture = lunargoth
+	female = yes
+	trait = brave
 	trait = compassionate
-	trait = arrogant
-	trait = education_learning_4
-	2981.4.21 = { birth = yes }
+	trait = lazy
+	trait = education_martial_3
+	2961.11.17 = { birth = yes }
 }
 
 rasen_173 = {
-	name = "Yoko"
-	dynasty = dynasty_rasen_nakamoto
-	religion = shugendo
-	culture = oni
-	female = yes
-	trait = wrathful
-	trait = zealous
-	trait = lazy
-	trait = education_intrigue_4
-	2956.1.28 = { birth = yes }
+	name = "Gaiseric"
+	father = rasen_26
+	mother = rasen_172
+	dynasty = dynasty_rasen_northvale
+	religion = ancestral_rites
+	culture = lunargoth
+	trait = cynical
+	trait = callous
+	trait = generous
+	trait = education_learning_2
+	2997.9.5 = { birth = yes }
 }
 
 rasen_174 = {
-	name = "Noboru"
-	father = rasen_27
-	mother = rasen_173
-	dynasty = dynasty_rasen_okami
-	religion = shugendo
-	culture = oni
-	trait = diligent
-	trait = humble
-	trait = trusting
+	name = "Fritigern"
+	father = rasen_26
+	mother = rasen_172
+	dynasty = dynasty_rasen_northvale
+	religion = ancestral_rites
+	culture = lunargoth
+	trait = brave
+	trait = paranoid
+	trait = just
 	trait = education_martial_2
-	2989.3.17 = { birth = yes }
+	2998.9.17 = { birth = yes }
 }
 
 rasen_175 = {
-	name = "Riku"
-	dynasty = dynasty_rasen_ryuuzan
+	name = "Roderic"
+	father = rasen_26
+	mother = rasen_172
+	dynasty = dynasty_rasen_northvale
 	religion = ancestral_rites
-	culture = zenshin
+	culture = lunargoth
+	trait = gregarious
+	trait = deceitful
+	trait = zealous
+	trait = education_intrigue_2
+	2999.6.18 = { birth = yes }
+}
+
+rasen_176 = {
+	name = "Amalasuntha"
+	dynasty = dynasty_rasen_amaling
+	religion = ancestral_rites
+	culture = lunargoth
+	female = yes
+	trait = arbitrary
+	trait = compassionate
+	trait = craven
+	trait = education_stewardship_4
+	2975.10.23 = { birth = yes }
+}
+
+rasen_177 = {
+	name = "Theodelinda"
+	father = rasen_27
+	mother = rasen_176
+	dynasty = dynasty_rasen_frostmark
+	religion = ancestral_rites
+	culture = lunargoth
+	female = yes
+	trait = humble
+	trait = diligent
+	trait = patient
+	trait = education_stewardship_4
+	2996.12.22 = { birth = yes }
+}
+
+rasen_178 = {
+	name = "Nanami"
+	dynasty = dynasty_rasen_mizuhara
+	religion = shugendo
+	culture = oni
+	female = yes
 	trait = callous
 	trait = generous
 	trait = just
 	trait = education_intrigue_4
-	2950.6.10 = { birth = yes }
+	2949.6.10 = { birth = yes }
 }
 
-rasen_176 = {
+rasen_179 = {
 	name = "Kagerou"
-	father = rasen_175
-	mother = rasen_28
-	dynasty = dynasty_rasen_tsukimura
-	religion = ancestral_rites
-	culture = zenshin
+	father = rasen_28
+	mother = rasen_178
+	dynasty = dynasty_rasen_fujiwara
+	religion = shugendo
+	culture = oni
 	trait = content
 	trait = gregarious
 	trait = patient
 	trait = education_intrigue_2
-	2973.11.20 = { birth = yes }
+	2989.11.20 = { birth = yes }
 }
 
-rasen_177 = {
-	name = "Yoshiro"
-	dynasty = dynasty_rasen_mizuhara
+rasen_180 = {
+	name = "Kana"
+	dynasty = dynasty_rasen_kurosawa
 	religion = ancestral_rites
-	culture = zenshin
-	trait = humble
-	trait = compassionate
-	trait = content
-	trait = education_diplomacy_3
-	2979.10.18 = { birth = yes }
-}
-
-rasen_178 = {
-	name = "Midori"
-	father = rasen_177
-	mother = rasen_29
-	dynasty = dynasty_rasen_kiba
-	religion = ancestral_rites
-	culture = zenshin
+	culture = oni
 	female = yes
+	trait = callous
+	trait = deceitful
+	trait = wrathful
+	trait = education_learning_4
+	2946.1.10 = { birth = yes }
+}
+
+rasen_181 = {
+	name = "Hayato"
+	father = rasen_29
+	mother = rasen_180
+	dynasty = dynasty_rasen_takeda
+	religion = ancestral_rites
+	culture = oni
 	trait = zealous
 	trait = arrogant
 	trait = craven
 	trait = education_stewardship_3
-	2999.8.22 = { birth = yes }
+	2970.8.22 = { birth = yes }
 }
 
-rasen_179 = {
-	name = "Isamu"
-	dynasty = dynasty_rasen_kurosawa
+rasen_182 = {
+	name = "Fuyu"
+	father = rasen_29
+	mother = rasen_180
+	dynasty = dynasty_rasen_takeda
 	religion = ancestral_rites
 	culture = oni
-	trait = just
-	trait = impatient
-	trait = humble
-	trait = education_intrigue_2
-	2951.3.11 = { birth = yes }
+	female = yes
+	trait = patient
+	trait = shy
+	trait = zealous
+	trait = education_stewardship_3
+	2981.7.14 = { birth = yes }
 }
 
-rasen_180 = {
+rasen_183 = {
 	name = "Raiden"
-	father = rasen_179
-	mother = rasen_30
-	dynasty = dynasty_rasen_kiba
+	dynasty = dynasty_rasen_fujiwara
 	religion = ancestral_rites
 	culture = oni
 	trait = craven
 	trait = calm
 	trait = just
 	trait = education_stewardship_2
-	2975.3.28 = { birth = yes }
+	2950.3.28 = { birth = yes }
 }
 
-rasen_181 = {
+rasen_184 = {
 	name = "Yoshiro"
-	father = rasen_179
+	father = rasen_183
 	mother = rasen_30
-	dynasty = dynasty_rasen_kiba
+	dynasty = dynasty_rasen_yamabe
 	religion = ancestral_rites
 	culture = oni
 	trait = trusting
 	trait = just
 	trait = cynical
 	trait = education_intrigue_3
-	2986.10.4 = { birth = yes }
+	2972.10.4 = { birth = yes }
 }
 
-rasen_182 = {
-	name = "Mei"
-	dynasty = dynasty_rasen_fujiwara
+rasen_185 = {
+	name = "Goro"
+	father = rasen_183
+	mother = rasen_30
+	dynasty = dynasty_rasen_yamabe
+	religion = ancestral_rites
+	culture = oni
+	trait = diligent
+	trait = generous
+	trait = just
+	trait = education_stewardship_2
+	2974.8.6 = { birth = yes }
+}
+
+rasen_186 = {
+	name = "Tomoe"
+	dynasty = dynasty_rasen_takeda
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = arbitrary
-	trait = diligent
-	trait = generous
-	trait = education_stewardship_2
-	2967.3.25 = { birth = yes }
-}
-
-rasen_183 = {
-	name = "Ren"
-	father = rasen_31
-	mother = rasen_182
-	dynasty = dynasty_rasen_ishida
-	religion = ancestral_rites
-	culture = zenshin
-	trait = paranoid
-	trait = generous
 	trait = arrogant
+	trait = compassionate
+	trait = shy
 	trait = education_diplomacy_2
-	2991.4.23 = { birth = yes }
+	2958.4.23 = { birth = yes }
 }
 
-rasen_184 = {
+rasen_187 = {
 	name = "Isamu"
 	father = rasen_31
-	mother = rasen_182
-	dynasty = dynasty_rasen_ishida
+	mother = rasen_186
+	dynasty = dynasty_rasen_amatsu
 	religion = ancestral_rites
 	culture = zenshin
 	trait = ambitious
 	trait = humble
 	trait = brave
 	trait = education_learning_4
-	2992.10.13 = { birth = yes }
+	2996.10.13 = { birth = yes }
 }
 
-rasen_185 = {
-	name = "Makoto"
-	dynasty = dynasty_rasen_takeda
+rasen_188 = {
+	name = "Kana"
+	dynasty = dynasty_rasen_nakamoto
 	religion = ancestral_rites
-	culture = zenshin
+	culture = kitsune
+	female = yes
 	trait = diligent
 	trait = arrogant
 	trait = ambitious
 	trait = education_martial_4
-	2962.12.4 = { birth = yes }
+	2978.12.4 = { birth = yes }
 }
 
-rasen_186 = {
+rasen_189 = {
 	name = "Kana"
-	father = rasen_185
-	mother = rasen_32
-	dynasty = dynasty_rasen_mizuhara
+	father = rasen_32
+	mother = rasen_188
+	dynasty = dynasty_rasen_ishida
 	religion = ancestral_rites
-	culture = zenshin
+	culture = kitsune
 	female = yes
 	trait = patient
 	trait = greedy
 	trait = paranoid
 	trait = education_martial_3
-	2998.12.17 = { birth = yes }
+	2999.12.17 = { birth = yes }
 }
 
-rasen_187 = {
-	name = "Misuka"
-	dynasty = dynasty_rasen_nakamoto
+rasen_190 = {
+	name = "Yoko"
+	father = rasen_32
+	mother = rasen_188
+	dynasty = dynasty_rasen_ishida
 	religion = ancestral_rites
 	culture = kitsune
 	female = yes
-	trait = cynical
 	trait = gregarious
+	trait = humble
 	trait = generous
-	trait = education_stewardship_4
-	2972.6.20 = { birth = yes }
+	trait = education_diplomacy_4
+	2998.2.26 = { birth = yes }
 }
 
-rasen_188 = {
-	name = "Hayato"
-	father = rasen_33
-	mother = rasen_187
-	dynasty = dynasty_rasen_matsuda
+rasen_191 = {
+	name = "Hideo"
+	father = rasen_32
+	mother = rasen_188
+	dynasty = dynasty_rasen_ishida
 	religion = ancestral_rites
 	culture = kitsune
-	trait = paranoid
-	trait = humble
+	trait = callous
+	trait = trusting
 	trait = arbitrary
 	trait = education_intrigue_2
 	2999.8.2 = { birth = yes }
 }
 
-rasen_189 = {
-	name = "Hana"
-	father = rasen_33
-	mother = rasen_187
-	dynasty = dynasty_rasen_matsuda
-	religion = ancestral_rites
-	culture = kitsune
-	female = yes
-	trait = calm
-	trait = craven
-	trait = ambitious
-	trait = education_martial_4
-	2995.12.6 = { birth = yes }
-}
-
-rasen_190 = {
-	name = "Haruto"
-	father = rasen_33
-	mother = rasen_187
-	dynasty = dynasty_rasen_matsuda
-	religion = ancestral_rites
-	culture = kitsune
-	trait = brave
-	trait = arbitrary
-	trait = arrogant
-	trait = education_learning_2
-	2997.11.27 = { birth = yes }
-}
-
-rasen_191 = {
-	name = "Chiyo"
+rasen_192 = {
+	name = "Noboru"
 	dynasty = dynasty_rasen_kanzaki
 	religion = ancestral_rites
-	culture = oni
-	female = yes
+	culture = zenshin
+	trait = ambitious
+	trait = trusting
+	trait = wrathful
+	trait = education_martial_3
+	2963.4.1 = { birth = yes }
+}
+
+rasen_193 = {
+	name = "Ren"
+	father = rasen_192
+	mother = rasen_33
+	dynasty = dynasty_rasen_mizuhara
+	religion = ancestral_rites
+	culture = zenshin
+	trait = patient
+	trait = arbitrary
+	trait = brave
+	trait = education_diplomacy_3
+	2997.9.8 = { birth = yes }
+}
+
+rasen_194 = {
+	name = "Sora"
+	father = rasen_192
+	mother = rasen_33
+	dynasty = dynasty_rasen_mizuhara
+	religion = ancestral_rites
+	culture = zenshin
 	trait = lazy
 	trait = content
 	trait = arrogant
 	trait = education_intrigue_4
-	2972.12.23 = { birth = yes }
+	2985.12.23 = { birth = yes }
 }
 
-rasen_192 = {
-	name = "Ran"
-	father = rasen_34
-	mother = rasen_191
-	dynasty = dynasty_rasen_fujiwara
-	religion = ancestral_rites
-	culture = oni
-	female = yes
-	trait = impatient
-	trait = arbitrary
-	trait = diligent
-	trait = education_stewardship_2
-	2999.12.14 = { birth = yes }
-}
-
-rasen_193 = {
-	name = "Kaito"
-	father = rasen_34
-	mother = rasen_191
-	dynasty = dynasty_rasen_fujiwara
-	religion = ancestral_rites
-	culture = oni
-	trait = content
-	trait = brave
-	trait = paranoid
-	trait = education_stewardship_2
-	2993.12.20 = { birth = yes }
-}
-
-rasen_194 = {
-	name = "Mariko"
+rasen_195 = {
+	name = "Sayuri"
 	dynasty = dynasty_rasen_arakawa
 	religion = ancestral_rites
-	culture = zenshin
+	culture = kitsune
 	female = yes
+	trait = shy
+	trait = compassionate
+	trait = impatient
+	trait = education_intrigue_2
+	2970.12.28 = { birth = yes }
+}
+
+rasen_196 = {
+	name = "Noriko"
+	father = rasen_34
+	mother = rasen_195
+	dynasty = dynasty_rasen_matsuda
+	religion = ancestral_rites
+	culture = kitsune
+	female = yes
+	trait = zealous
+	trait = diligent
+	trait = content
+	trait = education_martial_3
+	2991.4.8 = { birth = yes }
+}
+
+rasen_197 = {
+	name = "Noboru"
+	father = rasen_34
+	mother = rasen_195
+	dynasty = dynasty_rasen_matsuda
+	religion = ancestral_rites
+	culture = kitsune
 	trait = brave
 	trait = content
 	trait = just
 	trait = education_stewardship_4
-	2961.9.5 = { birth = yes }
+	2990.9.5 = { birth = yes }
 }
 
-rasen_195 = {
-	name = "Yoko"
+rasen_198 = {
+	name = "Misuka"
+	dynasty = dynasty_rasen_nakamoto
+	religion = ancestral_rites
+	culture = oni
+	female = yes
+	trait = shy
+	trait = generous
+	trait = arbitrary
+	trait = education_stewardship_2
+	2972.3.11 = { birth = yes }
+}
+
+rasen_199 = {
+	name = "Yasuo"
 	father = rasen_35
-	mother = rasen_194
+	mother = rasen_198
+	dynasty = dynasty_rasen_fujiwara
+	religion = ancestral_rites
+	culture = oni
+	trait = ambitious
+	trait = arrogant
+	trait = deceitful
+	trait = education_stewardship_4
+	2999.8.28 = { birth = yes }
+}
+
+rasen_200 = {
+	name = "Midori"
+	father = rasen_35
+	mother = rasen_198
+	dynasty = dynasty_rasen_fujiwara
+	religion = ancestral_rites
+	culture = oni
+	female = yes
+	trait = cynical
+	trait = deceitful
+	trait = paranoid
+	trait = education_intrigue_3
+	2991.6.14 = { birth = yes }
+}
+
+rasen_201 = {
+	name = "Yoko"
+	dynasty = dynasty_rasen_mizuhara
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = paranoid
+	trait = greedy
+	trait = humble
+	trait = education_diplomacy_4
+	2964.11.21 = { birth = yes }
+}
+
+rasen_202 = {
+	name = "Midori"
+	father = rasen_36
+	mother = rasen_201
 	dynasty = dynasty_rasen_shimizu
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = arbitrary
-	trait = ambitious
-	trait = brave
-	trait = education_stewardship_3
-	2982.1.12 = { birth = yes }
+	trait = gregarious
+	trait = arrogant
+	trait = lazy
+	trait = education_learning_4
+	2996.9.16 = { birth = yes }
 }
 
-rasen_196 = {
-	name = "Mao"
-	father = rasen_35
-	mother = rasen_194
+rasen_203 = {
+	name = "Kana"
+	father = rasen_36
+	mother = rasen_201
 	dynasty = dynasty_rasen_shimizu
 	religion = ancestral_rites
 	culture = zenshin
-	trait = callous
-	trait = deceitful
-	trait = calm
-	trait = education_intrigue_2
-	2995.7.15 = { birth = yes }
+	female = yes
+	trait = trusting
+	trait = gregarious
+	trait = brave
+	trait = education_diplomacy_3
+	2984.12.12 = { birth = yes }
 }
 
-rasen_197 = {
-	name = "Yuto"
-	dynasty = dynasty_rasen_fujiwara
+rasen_204 = {
+	name = "Tadashi"
+	father = rasen_36
+	mother = rasen_201
+	dynasty = dynasty_rasen_shimizu
 	religion = ancestral_rites
 	culture = zenshin
-	trait = deceitful
-	trait = content
-	trait = arbitrary
-	trait = education_diplomacy_3
-	2981.10.12 = { birth = yes }
+	trait = patient
+	trait = paranoid
+	trait = diligent
+	trait = education_diplomacy_2
+	2997.3.16 = { birth = yes }
 }
 
-rasen_198 = {
-	name = "Jun"
-	father = rasen_197
-	mother = rasen_36
+rasen_205 = {
+	name = "Kenji"
+	dynasty = dynasty_rasen_ishida
+	religion = ancestral_rites
+	culture = zenshin
+	trait = gregarious
+	trait = humble
+	trait = trusting
+	trait = education_martial_3
+	2973.8.24 = { birth = yes }
+}
+
+rasen_206 = {
+	name = "Haruto"
+	father = rasen_205
+	mother = rasen_37
 	dynasty = dynasty_rasen_kanzaki
 	religion = ancestral_rites
 	culture = zenshin
 	trait = greedy
-	trait = ambitious
-	trait = craven
-	trait = education_intrigue_4
-	2999.10.6 = { birth = yes }
-}
-
-rasen_199 = {
-	name = "Ayame"
-	dynasty = dynasty_rasen_sanada
-	religion = devanic_temple
-	culture = zenshin
-	female = yes
-	trait = impatient
-	trait = generous
-	trait = paranoid
-	trait = education_diplomacy_4
-	2946.11.1 = { birth = yes }
-}
-
-rasen_200 = {
-	name = "Kosuke"
-	father = rasen_37
-	mother = rasen_199
-	dynasty = dynasty_rasen_fujiwara
-	religion = devanic_temple
-	culture = zenshin
-	trait = impatient
+	trait = callous
 	trait = arrogant
-	trait = wrathful
 	trait = education_learning_3
-	2986.6.17 = { birth = yes }
-}
-
-rasen_201 = {
-	name = "Kaito"
-	father = rasen_37
-	mother = rasen_199
-	dynasty = dynasty_rasen_fujiwara
-	religion = devanic_temple
-	culture = zenshin
-	trait = deceitful
-	trait = generous
-	trait = brave
-	trait = education_intrigue_2
-	2974.11.19 = { birth = yes }
-}
-
-rasen_202 = {
-	name = "Sora"
-	father = rasen_37
-	mother = rasen_199
-	dynasty = dynasty_rasen_fujiwara
-	religion = devanic_temple
-	culture = zenshin
-	trait = wrathful
-	trait = callous
-	trait = trusting
-	trait = education_martial_3
-	2987.6.20 = { birth = yes }
-}
-
-rasen_203 = {
-	name = "Umeko"
-	dynasty = dynasty_rasen_ishida
-	religion = ancestral_rites
-	culture = oni
-	female = yes
-	trait = callous
-	trait = content
-	trait = arrogant
-	trait = education_intrigue_2
-	2955.5.10 = { birth = yes }
-}
-
-rasen_204 = {
-	name = "Shuichi"
-	father = rasen_38
-	mother = rasen_203
-	dynasty = dynasty_rasen_kagemori
-	religion = ancestral_rites
-	culture = oni
-	trait = content
-	trait = gregarious
-	trait = callous
-	trait = education_martial_4
-	2996.3.20 = { birth = yes }
-}
-
-rasen_205 = {
-	name = "Kaede"
-	dynasty = dynasty_rasen_inoue
-	religion = devanic_temple
-	culture = oni
-	female = yes
-	trait = impatient
-	trait = content
-	trait = trusting
-	trait = education_stewardship_3
-	2979.6.14 = { birth = yes }
-}
-
-rasen_206 = {
-	name = "Makoto"
-	father = rasen_39
-	mother = rasen_205
-	dynasty = dynasty_rasen_nakamoto
-	religion = devanic_temple
-	culture = oni
-	trait = honest
-	trait = diligent
-	trait = generous
-	trait = education_martial_2
-	2999.10.17 = { birth = yes }
+	2999.11.13 = { birth = yes }
 }
 
 rasen_207 = {
-	name = "Fuyu"
+	name = "Asuka"
+	dynasty = dynasty_rasen_inoue
+	religion = devanic_temple
+	culture = zenshin
+	female = yes
+	trait = callous
+	trait = deceitful
+	trait = ambitious
+	trait = education_diplomacy_4
+	2956.5.16 = { birth = yes }
+}
+
+rasen_208 = {
+	name = "Tadashi"
+	father = rasen_38
+	mother = rasen_207
+	dynasty = dynasty_rasen_fujiwara
+	religion = devanic_temple
+	culture = zenshin
+	trait = calm
+	trait = shy
+	trait = lazy
+	trait = education_diplomacy_3
+	2995.12.27 = { birth = yes }
+}
+
+rasen_209 = {
+	name = "Rin"
+	dynasty = dynasty_rasen_arakawa
+	religion = ancestral_rites
+	culture = oni
+	female = yes
+	trait = paranoid
+	trait = deceitful
+	trait = arbitrary
+	trait = education_diplomacy_2
+	2963.3.12 = { birth = yes }
+}
+
+rasen_210 = {
+	name = "Shin"
+	father = rasen_39
+	mother = rasen_209
+	dynasty = dynasty_rasen_kagemori
+	religion = ancestral_rites
+	culture = oni
+	trait = honest
+	trait = patient
+	trait = calm
+	trait = education_learning_4
+	2987.4.5 = { birth = yes }
+}
+
+rasen_211 = {
+	name = "Kiyomi"
+	father = rasen_39
+	mother = rasen_209
+	dynasty = dynasty_rasen_kagemori
+	religion = ancestral_rites
+	culture = oni
+	female = yes
+	trait = craven
+	trait = deceitful
+	trait = shy
+	trait = education_martial_2
+	2984.1.5 = { birth = yes }
+}
+
+rasen_212 = {
+	name = "Haruto"
+	father = rasen_39
+	mother = rasen_209
+	dynasty = dynasty_rasen_kagemori
+	religion = ancestral_rites
+	culture = oni
+	trait = just
+	trait = trusting
+	trait = gregarious
+	trait = education_intrigue_2
+	2987.1.22 = { birth = yes }
+}
+
+rasen_213 = {
+	name = "Haruka"
+	dynasty = dynasty_rasen_mizuhara
+	religion = devanic_temple
+	culture = oni
+	female = yes
+	trait = greedy
+	trait = patient
+	trait = deceitful
+	trait = education_diplomacy_3
+	2977.5.7 = { birth = yes }
+}
+
+rasen_214 = {
+	name = "Mao"
+	father = rasen_40
+	mother = rasen_213
+	dynasty = dynasty_rasen_nakamoto
+	religion = devanic_temple
+	culture = oni
+	trait = trusting
+	trait = arrogant
+	trait = honest
+	trait = education_martial_2
+	2996.6.19 = { birth = yes }
+}
+
+rasen_215 = {
+	name = "Sora"
+	father = rasen_40
+	mother = rasen_213
+	dynasty = dynasty_rasen_nakamoto
+	religion = devanic_temple
+	culture = oni
+	trait = paranoid
+	trait = calm
+	trait = patient
+	trait = education_learning_4
+	2999.3.3 = { birth = yes }
+}
+
+rasen_216 = {
+	name = "Kasumi"
+	dynasty = dynasty_rasen_kurosawa
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = arrogant
+	trait = callous
+	trait = trusting
+	trait = education_martial_4
+	2962.9.1 = { birth = yes }
+}
+
+rasen_217 = {
+	name = "Kiyomi"
+	father = rasen_41
+	mother = rasen_216
+	dynasty = dynasty_rasen_shimizu
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = humble
+	trait = wrathful
+	trait = impatient
+	trait = education_intrigue_4
+	2989.2.2 = { birth = yes }
+}
+
+rasen_218 = {
+	name = "Tetsuo"
+	father = rasen_41
+	mother = rasen_216
+	dynasty = dynasty_rasen_shimizu
+	religion = ancestral_rites
+	culture = zenshin
+	trait = gregarious
+	trait = honest
+	trait = arrogant
+	trait = education_martial_3
+	2995.10.27 = { birth = yes }
+}
+
+rasen_219 = {
+	name = "Hiroshi"
+	dynasty = dynasty_rasen_amatsu
+	religion = ancestral_rites
+	culture = oni
+	trait = honest
+	trait = generous
+	trait = content
+	trait = education_stewardship_2
+	2938.1.13 = { birth = yes }
+}
+
+rasen_220 = {
+	name = "Tetsuo"
+	father = rasen_219
+	mother = rasen_42
+	dynasty = dynasty_rasen_okami
+	religion = ancestral_rites
+	culture = oni
+	trait = paranoid
+	trait = patient
+	trait = cynical
+	trait = education_learning_2
+	2966.8.21 = { birth = yes }
+}
+
+rasen_221 = {
+	name = "Osamu"
+	father = rasen_219
+	mother = rasen_42
+	dynasty = dynasty_rasen_okami
+	religion = ancestral_rites
+	culture = oni
+	trait = wrathful
+	trait = honest
+	trait = cynical
+	trait = education_stewardship_4
+	2982.2.10 = { birth = yes }
+}
+
+rasen_222 = {
+	name = "Makoto"
+	dynasty = dynasty_rasen_takeda
+	religion = ancestral_rites
+	culture = zenshin
+	trait = trusting
+	trait = ambitious
+	trait = greedy
+	trait = education_stewardship_3
+	2974.2.19 = { birth = yes }
+}
+
+rasen_223 = {
+	name = "Haruka"
+	father = rasen_222
+	mother = rasen_43
+	dynasty = dynasty_rasen_ishida
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = craven
+	trait = gregarious
+	trait = callous
+	trait = education_stewardship_3
+	2994.10.2 = { birth = yes }
+}
+
+rasen_224 = {
+	name = "Natsuki"
 	dynasty = dynasty_rasen_arakawa
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = diligent
-	trait = calm
-	trait = arbitrary
-	trait = education_learning_3
-	2971.7.25 = { birth = yes }
-}
-
-rasen_208 = {
-	name = "Misuka"
-	father = rasen_40
-	mother = rasen_207
-	dynasty = dynasty_rasen_shimizu
-	religion = ancestral_rites
-	culture = zenshin
-	female = yes
-	trait = lazy
-	trait = trusting
-	trait = brave
-	trait = education_stewardship_3
-	2994.2.2 = { birth = yes }
-}
-
-rasen_209 = {
-	name = "Akio"
-	father = rasen_40
-	mother = rasen_207
-	dynasty = dynasty_rasen_shimizu
-	religion = ancestral_rites
-	culture = zenshin
-	trait = callous
-	trait = patient
-	trait = deceitful
-	trait = education_diplomacy_3
-	2992.5.7 = { birth = yes }
-}
-
-rasen_210 = {
-	name = "Mao"
-	father = rasen_40
-	mother = rasen_207
-	dynasty = dynasty_rasen_shimizu
-	religion = ancestral_rites
-	culture = zenshin
-	trait = trusting
-	trait = arrogant
 	trait = honest
-	trait = education_martial_2
-	2994.6.19 = { birth = yes }
-}
-
-rasen_211 = {
-	name = "Yasuo"
-	dynasty = dynasty_rasen_mizuhara
-	religion = ancestral_rites
-	culture = oni
-	trait = lazy
-	trait = compassionate
-	trait = calm
-	trait = education_learning_4
-	2946.3.3 = { birth = yes }
-}
-
-rasen_212 = {
-	name = "Mao"
-	father = rasen_211
-	mother = rasen_41
-	dynasty = dynasty_rasen_okami
-	religion = ancestral_rites
-	culture = oni
-	trait = arrogant
-	trait = compassionate
-	trait = just
-	trait = education_learning_2
-	2970.6.2 = { birth = yes }
-}
-
-rasen_213 = {
-	name = "Takeshi"
-	father = rasen_211
-	mother = rasen_41
-	dynasty = dynasty_rasen_okami
-	religion = ancestral_rites
-	culture = oni
-	trait = callous
-	trait = impatient
-	trait = deceitful
-	trait = education_learning_2
-	2981.1.14 = { birth = yes }
-}
-
-rasen_214 = {
-	name = "Satoshi"
-	dynasty = dynasty_rasen_kurosawa
-	religion = ancestral_rites
-	culture = zenshin
-	trait = generous
-	trait = gregarious
-	trait = deceitful
-	trait = education_martial_3
-	2964.10.27 = { birth = yes }
-}
-
-rasen_215 = {
-	name = "Yuto"
-	father = rasen_214
-	mother = rasen_42
-	dynasty = dynasty_rasen_ishida
-	religion = ancestral_rites
-	culture = zenshin
-	trait = compassionate
-	trait = generous
-	trait = content
-	trait = education_stewardship_2
-	2992.1.13 = { birth = yes }
-}
-
-rasen_216 = {
-	name = "Tetsuo"
-	father = rasen_214
-	mother = rasen_42
-	dynasty = dynasty_rasen_ishida
-	religion = ancestral_rites
-	culture = zenshin
-	trait = paranoid
-	trait = patient
-	trait = cynical
-	trait = education_learning_2
-	2995.8.21 = { birth = yes }
-}
-
-rasen_217 = {
-	name = "Misuka"
-	dynasty = dynasty_rasen_kanzaki
-	religion = ancestral_rites
-	culture = zenshin
-	female = yes
-	trait = cynical
-	trait = wrathful
-	trait = honest
-	trait = education_intrigue_2
-	2979.9.3 = { birth = yes }
-}
-
-rasen_218 = {
-	name = "Nanami"
-	father = rasen_43
-	mother = rasen_217
-	dynasty = dynasty_rasen_matsuda
-	religion = ancestral_rites
-	culture = zenshin
-	female = yes
-	trait = compassionate
-	trait = greedy
-	trait = brave
-	trait = education_intrigue_2
-	2999.10.6 = { birth = yes }
-}
-
-rasen_219 = {
-	name = "Masaru"
-	father = rasen_43
-	mother = rasen_217
-	dynasty = dynasty_rasen_matsuda
-	religion = ancestral_rites
-	culture = zenshin
-	trait = gregarious
-	trait = craven
-	trait = just
-	trait = education_intrigue_4
-	2998.1.5 = { birth = yes }
-}
-
-rasen_220 = {
-	name = "Isamu"
-	dynasty = dynasty_rasen_ryuuzan
-	religion = ancestral_rites
-	culture = zenshin
 	trait = zealous
 	trait = patient
-	trait = diligent
-	trait = education_martial_3
-	2964.3.10 = { birth = yes }
-}
-
-rasen_221 = {
-	name = "Jun"
-	father = rasen_220
-	mother = rasen_44
-	dynasty = dynasty_rasen_hayashi
-	religion = ancestral_rites
-	culture = zenshin
-	trait = trusting
-	trait = calm
-	trait = diligent
-	trait = education_martial_4
-	2993.5.23 = { birth = yes }
-}
-
-rasen_222 = {
-	name = "Hayato"
-	dynasty = dynasty_rasen_sanada
-	religion = ancestral_rites
-	culture = zenshin
-	trait = brave
-	trait = shy
-	trait = wrathful
-	trait = education_intrigue_2
-	2974.10.5 = { birth = yes }
-}
-
-rasen_223 = {
-	name = "Osamu"
-	father = rasen_222
-	mother = rasen_45
-	dynasty = dynasty_rasen_fujiwara
-	religion = ancestral_rites
-	culture = zenshin
-	trait = compassionate
-	trait = content
-	trait = generous
-	trait = education_stewardship_3
-	2999.11.24 = { birth = yes }
-}
-
-rasen_224 = {
-	name = "Ryota"
-	father = rasen_222
-	mother = rasen_45
-	dynasty = dynasty_rasen_fujiwara
-	religion = ancestral_rites
-	culture = zenshin
-	trait = deceitful
-	trait = calm
-	trait = arbitrary
-	trait = education_learning_4
-	2998.6.18 = { birth = yes }
+	trait = education_martial_2
+	2981.8.27 = { birth = yes }
 }
 
 rasen_225 = {
-	name = "Akane"
-	dynasty = dynasty_rasen_nakamoto
+	name = "Suzume"
+	father = rasen_44
+	mother = rasen_224
+	dynasty = dynasty_rasen_matsuda
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = zealous
-	trait = shy
+	trait = brave
+	trait = humble
 	trait = calm
-	trait = education_intrigue_4
-	2961.4.6 = { birth = yes }
+	trait = education_martial_2
+	2999.10.10 = { birth = yes }
 }
 
 rasen_226 = {
-	name = "Ren"
-	father = rasen_46
-	mother = rasen_225
-	dynasty = dynasty_rasen_matsuda
+	name = "Hayato"
+	dynasty = dynasty_rasen_nakamoto
 	religion = ancestral_rites
 	culture = zenshin
-	trait = honest
-	trait = paranoid
-	trait = cynical
-	trait = education_martial_3
-	2998.1.17 = { birth = yes }
+	trait = brave
+	trait = shy
+	trait = wrathful
+	trait = education_intrigue_2
+	2957.10.5 = { birth = yes }
 }
 
 rasen_227 = {
-	name = "Raiden"
-	father = rasen_46
-	mother = rasen_225
-	dynasty = dynasty_rasen_matsuda
+	name = "Osamu"
+	father = rasen_226
+	mother = rasen_45
+	dynasty = dynasty_rasen_hayashi
 	religion = ancestral_rites
 	culture = zenshin
-	trait = zealous
 	trait = compassionate
-	trait = craven
-	trait = education_diplomacy_4
-	2996.9.1 = { birth = yes }
+	trait = content
+	trait = generous
+	trait = education_stewardship_3
+	2990.11.24 = { birth = yes }
 }
 
 rasen_228 = {
-	name = "Noriko"
-	dynasty = dynasty_rasen_hoshino
+	name = "Osamu"
+	dynasty = dynasty_rasen_ryuuzan
 	religion = ancestral_rites
 	culture = zenshin
-	female = yes
-	trait = trusting
-	trait = shy
-	trait = ambitious
-	trait = education_martial_3
-	2970.5.13 = { birth = yes }
+	trait = zealous
+	trait = callous
+	trait = deceitful
+	trait = education_stewardship_4
+	2980.8.24 = { birth = yes }
 }
 
 rasen_229 = {
-	name = "Kenji"
-	father = rasen_47
-	mother = rasen_228
-	dynasty = dynasty_rasen_kurosawa
+	name = "Mao"
+	father = rasen_228
+	mother = rasen_46
+	dynasty = dynasty_rasen_fujiwara
 	religion = ancestral_rites
 	culture = zenshin
-	trait = paranoid
-	trait = compassionate
-	trait = impatient
-	trait = education_martial_4
-	2991.5.28 = { birth = yes }
+	trait = shy
+	trait = greedy
+	trait = patient
+	trait = education_martial_3
+	2999.12.26 = { birth = yes }
 }
 
 rasen_230 = {
+	name = "Izumi"
+	father = rasen_228
+	mother = rasen_46
+	dynasty = dynasty_rasen_fujiwara
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = diligent
+	trait = impatient
+	trait = compassionate
+	trait = education_intrigue_3
+	2999.1.15 = { birth = yes }
+}
+
+rasen_231 = {
+	name = "Tomoya"
+	father = rasen_228
+	mother = rasen_46
+	dynasty = dynasty_rasen_fujiwara
+	religion = ancestral_rites
+	culture = zenshin
+	trait = arrogant
+	trait = compassionate
+	trait = zealous
+	trait = education_martial_3
+	2999.6.21 = { birth = yes }
+}
+
+rasen_232 = {
+	name = "Misuka"
+	dynasty = dynasty_rasen_sanada
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = arbitrary
+	trait = trusting
+	trait = shy
+	trait = education_martial_2
+	2952.6.10 = { birth = yes }
+}
+
+rasen_233 = {
+	name = "Akio"
+	father = rasen_47
+	mother = rasen_232
+	dynasty = dynasty_rasen_matsuda
+	religion = ancestral_rites
+	culture = zenshin
+	trait = craven
+	trait = trusting
+	trait = impatient
+	trait = education_martial_4
+	2993.5.28 = { birth = yes }
+}
+
+rasen_234 = {
 	name = "Sayuri"
-	dynasty = dynasty_rasen_ryuuzan
-	religion = devanic_temple
+	dynasty = dynasty_rasen_okami
+	religion = ancestral_rites
 	culture = zenshin
 	female = yes
 	trait = ambitious
 	trait = deceitful
 	trait = patient
 	trait = education_martial_4
-	2957.9.9 = { birth = yes }
+	2974.9.9 = { birth = yes }
 }
 
-rasen_231 = {
+rasen_235 = {
 	name = "Makoto"
 	father = rasen_48
-	mother = rasen_230
+	mother = rasen_234
 	dynasty = dynasty_rasen_kurosawa
-	religion = devanic_temple
+	religion = ancestral_rites
 	culture = zenshin
 	trait = brave
 	trait = wrathful
 	trait = deceitful
 	trait = education_intrigue_2
-	2980.12.17 = { birth = yes }
+	2997.12.17 = { birth = yes }
 }
 
-rasen_232 = {
+rasen_236 = {
 	name = "Masaru"
 	father = rasen_48
-	mother = rasen_230
+	mother = rasen_234
 	dynasty = dynasty_rasen_kurosawa
-	religion = devanic_temple
+	religion = ancestral_rites
 	culture = zenshin
 	trait = gregarious
 	trait = brave
 	trait = greedy
 	trait = education_stewardship_2
-	2981.8.25 = { birth = yes }
+	2993.8.25 = { birth = yes }
 }
 
-rasen_233 = {
+rasen_237 = {
 	name = "Amane"
 	father = rasen_48
-	mother = rasen_230
+	mother = rasen_234
 	dynasty = dynasty_rasen_kurosawa
-	religion = devanic_temple
+	religion = ancestral_rites
 	culture = zenshin
 	female = yes
 	trait = deceitful
 	trait = arbitrary
 	trait = compassionate
 	trait = education_diplomacy_2
-	2984.4.18 = { birth = yes }
+	2993.4.18 = { birth = yes }
 }
 
-rasen_234 = {
+rasen_238 = {
 	name = "Midori"
-	dynasty = dynasty_rasen_sanada
+	dynasty = dynasty_rasen_ryuuzan
 	religion = devanic_temple
 	culture = zenshin
 	female = yes
@@ -3296,495 +3370,509 @@ rasen_234 = {
 	2956.7.25 = { birth = yes }
 }
 
-rasen_235 = {
+rasen_239 = {
 	name = "Hiroshi"
 	father = rasen_49
-	mother = rasen_234
-	dynasty = dynasty_rasen_okami
+	mother = rasen_238
+	dynasty = dynasty_rasen_kurosawa
 	religion = devanic_temple
 	culture = zenshin
 	trait = wrathful
 	trait = paranoid
 	trait = zealous
 	trait = education_learning_2
-	2997.4.7 = { birth = yes }
-}
-
-rasen_236 = {
-	name = "Hayato"
-	dynasty = dynasty_rasen_okami
-	religion = devanic_temple
-	culture = zenshin
-	trait = craven
-	trait = arbitrary
-	trait = patient
-	trait = education_diplomacy_3
-	2971.7.16 = { birth = yes }
-}
-
-rasen_237 = {
-	name = "Ryo"
-	father = rasen_236
-	mother = rasen_50
-	dynasty = dynasty_rasen_ryuuzan
-	religion = devanic_temple
-	culture = zenshin
-	trait = just
-	trait = deceitful
-	trait = wrathful
-	trait = education_stewardship_4
-	2991.12.15 = { birth = yes }
-}
-
-rasen_238 = {
-	name = "Umeko"
-	father = rasen_236
-	mother = rasen_50
-	dynasty = dynasty_rasen_ryuuzan
-	religion = devanic_temple
-	culture = zenshin
-	female = yes
-	trait = shy
-	trait = compassionate
-	trait = arbitrary
-	trait = education_diplomacy_2
-	2997.3.28 = { birth = yes }
-}
-
-rasen_239 = {
-	name = "Kaede"
-	father = rasen_236
-	mother = rasen_50
-	dynasty = dynasty_rasen_ryuuzan
-	religion = devanic_temple
-	culture = zenshin
-	female = yes
-	trait = just
-	trait = zealous
-	trait = patient
-	trait = education_learning_3
-	2992.10.11 = { birth = yes }
+	2986.4.7 = { birth = yes }
 }
 
 rasen_240 = {
-	name = "Qing"
-	dynasty = dynasty_rasen_xuan
-	religion = ancestral_rites
-	culture = cathayan
-	female = yes
+	name = "Goro"
+	father = rasen_49
+	mother = rasen_238
+	dynasty = dynasty_rasen_kurosawa
+	religion = devanic_temple
+	culture = zenshin
+	trait = patient
+	trait = arbitrary
 	trait = greedy
-	trait = zealous
-	trait = trusting
-	trait = education_stewardship_3
-	2947.4.18 = { birth = yes }
+	trait = education_intrigue_3
+	2981.9.2 = { birth = yes }
 }
 
 rasen_241 = {
-	name = "Zhen"
-	father = rasen_51
-	mother = rasen_240
-	dynasty = dynasty_rasen_jin
-	religion = ancestral_rites
-	culture = cathayan
-	trait = lazy
-	trait = calm
-	trait = deceitful
-	trait = education_intrigue_3
-	2988.1.3 = { birth = yes }
+	name = "Kosuke"
+	father = rasen_49
+	mother = rasen_238
+	dynasty = dynasty_rasen_kurosawa
+	religion = devanic_temple
+	culture = zenshin
+	trait = callous
+	trait = brave
+	trait = arbitrary
+	trait = education_martial_2
+	2975.8.22 = { birth = yes }
 }
 
 rasen_242 = {
-	name = "Yong"
-	father = rasen_51
-	mother = rasen_240
-	dynasty = dynasty_rasen_jin
-	religion = ancestral_rites
-	culture = cathayan
-	trait = wrathful
-	trait = honest
-	trait = arrogant
-	trait = education_learning_3
-	2968.9.17 = { birth = yes }
+	name = "Noriko"
+	dynasty = dynasty_rasen_amatsu
+	religion = devanic_temple
+	culture = zenshin
+	female = yes
+	trait = patient
+	trait = shy
+	trait = arbitrary
+	trait = education_stewardship_2
+	2957.5.16 = { birth = yes }
 }
 
 rasen_243 = {
-	name = "Nanami"
-	dynasty = dynasty_rasen_matsuda
+	name = "Hiroshi"
+	father = rasen_50
+	mother = rasen_242
+	dynasty = dynasty_rasen_okami
 	religion = devanic_temple
 	culture = zenshin
-	female = yes
-	trait = diligent
-	trait = generous
-	trait = impatient
-	trait = education_intrigue_4
-	2968.12.5 = { birth = yes }
+	trait = just
+	trait = zealous
+	trait = patient
+	trait = education_learning_3
+	2994.10.11 = { birth = yes }
 }
 
 rasen_244 = {
-	name = "Misuka"
-	father = rasen_52
-	mother = rasen_243
-	dynasty = dynasty_rasen_takeda
+	name = "Kasumi"
+	father = rasen_50
+	mother = rasen_242
+	dynasty = dynasty_rasen_okami
 	religion = devanic_temple
 	culture = zenshin
 	female = yes
-	trait = just
+	trait = zealous
+	trait = humble
 	trait = generous
-	trait = patient
-	trait = education_learning_2
-	2989.1.25 = { birth = yes }
+	trait = education_diplomacy_2
+	2987.9.9 = { birth = yes }
 }
 
 rasen_245 = {
-	name = "Ran"
-	father = rasen_52
-	mother = rasen_243
-	dynasty = dynasty_rasen_takeda
+	name = "Hikari"
+	father = rasen_50
+	mother = rasen_242
+	dynasty = dynasty_rasen_okami
 	religion = devanic_temple
 	culture = zenshin
 	female = yes
-	trait = arrogant
+	trait = paranoid
+	trait = humble
 	trait = impatient
-	trait = brave
-	trait = education_martial_2
-	2991.1.4 = { birth = yes }
+	trait = education_intrigue_3
+	2985.1.3 = { birth = yes }
 }
 
 rasen_246 = {
-	name = "Kaito"
-	father = rasen_52
-	mother = rasen_243
-	dynasty = dynasty_rasen_takeda
+	name = "Osamu"
+	dynasty = dynasty_rasen_matsuda
 	religion = devanic_temple
 	culture = zenshin
 	trait = brave
-	trait = ambitious
-	trait = just
-	trait = education_diplomacy_4
-	2994.6.12 = { birth = yes }
+	trait = arbitrary
+	trait = calm
+	trait = education_learning_3
+	2964.9.26 = { birth = yes }
 }
 
 rasen_247 = {
-	name = "Goro"
-	dynasty = dynasty_rasen_ishida
-	religion = ancestral_rites
+	name = "Yoshiro"
+	father = rasen_246
+	mother = rasen_51
+	dynasty = dynasty_rasen_ryuuzan
+	religion = devanic_temple
 	culture = zenshin
-	trait = just
+	trait = patient
+	trait = paranoid
 	trait = ambitious
-	trait = craven
-	trait = education_intrigue_3
-	2968.8.10 = { birth = yes }
+	trait = education_stewardship_4
+	2990.10.25 = { birth = yes }
 }
 
 rasen_248 = {
-	name = "Amane"
-	father = rasen_247
-	mother = rasen_53
-	dynasty = dynasty_rasen_arakawa
-	religion = ancestral_rites
+	name = "Katsu"
+	father = rasen_246
+	mother = rasen_51
+	dynasty = dynasty_rasen_ryuuzan
+	religion = devanic_temple
 	culture = zenshin
+	trait = patient
+	trait = paranoid
+	trait = diligent
+	trait = education_intrigue_3
+	2993.12.17 = { birth = yes }
+}
+
+rasen_249 = {
+	name = "Sakura"
+	father = rasen_246
+	mother = rasen_51
+	dynasty = dynasty_rasen_ryuuzan
+	religion = devanic_temple
+	culture = zenshin
+	female = yes
+	trait = gregarious
+	trait = brave
+	trait = humble
+	trait = education_diplomacy_4
+	2984.10.17 = { birth = yes }
+}
+
+rasen_250 = {
+	name = "Lan"
+	dynasty = dynasty_rasen_jin
+	religion = ancestral_rites
+	culture = cathayan
+	female = yes
+	trait = zealous
+	trait = compassionate
+	trait = humble
+	trait = education_martial_2
+	2946.4.5 = { birth = yes }
+}
+
+rasen_251 = {
+	name = "Xia"
+	father = rasen_52
+	mother = rasen_250
+	dynasty = dynasty_rasen_jin
+	religion = ancestral_rites
+	culture = cathayan
+	female = yes
+	trait = patient
+	trait = lazy
+	trait = deceitful
+	trait = education_diplomacy_4
+	2982.7.13 = { birth = yes }
+}
+
+rasen_252 = {
+	name = "Desdemona"
+	father = rasen_52
+	mother = rasen_250
+	dynasty = dynasty_rasen_jin
+	religion = ancestral_rites
+	culture = cathayan
+	female = yes
+	trait = diligent
+	trait = paranoid
+	trait = impatient
+	trait = education_intrigue_3
+	2988.5.3 = { birth = yes }
+}
+
+rasen_253 = {
+	name = "Zhi"
+	father = rasen_52
+	mother = rasen_250
+	dynasty = dynasty_rasen_jin
+	religion = ancestral_rites
+	culture = cathayan
 	female = yes
 	trait = paranoid
 	trait = craven
 	trait = arrogant
 	trait = education_learning_4
-	2993.9.15 = { birth = yes }
+	2969.9.15 = { birth = yes }
 }
 
-rasen_249 = {
-	name = "Kosuke"
-	father = rasen_247
-	mother = rasen_53
-	dynasty = dynasty_rasen_arakawa
-	religion = ancestral_rites
+rasen_254 = {
+	name = "Yuki"
+	dynasty = dynasty_rasen_takeda
+	religion = devanic_temple
 	culture = zenshin
+	female = yes
 	trait = wrathful
 	trait = diligent
 	trait = cynical
 	trait = education_diplomacy_4
-	2993.2.1 = { birth = yes }
+	2966.2.1 = { birth = yes }
 }
 
-rasen_250 = {
-	name = "Kasumi"
-	dynasty = dynasty_rasen_okami
-	religion = ancestral_rites
+rasen_255 = {
+	name = "Ryota"
+	father = rasen_53
+	mother = rasen_254
+	dynasty = dynasty_rasen_takeda
+	religion = devanic_temple
 	culture = zenshin
-	female = yes
 	trait = wrathful
 	trait = impatient
 	trait = greedy
 	trait = education_diplomacy_4
-	2958.10.7 = { birth = yes }
+	2986.10.7 = { birth = yes }
 }
 
-rasen_251 = {
+rasen_256 = {
 	name = "Yoko"
-	father = rasen_54
-	mother = rasen_250
-	dynasty = dynasty_rasen_kiba
-	religion = ancestral_rites
+	father = rasen_53
+	mother = rasen_254
+	dynasty = dynasty_rasen_takeda
+	religion = devanic_temple
 	culture = zenshin
 	female = yes
 	trait = wrathful
 	trait = greedy
 	trait = content
 	trait = education_stewardship_4
-	2981.3.7 = { birth = yes }
+	2997.3.7 = { birth = yes }
 }
 
-rasen_252 = {
-	name = "Natsuki"
-	father = rasen_54
-	mother = rasen_250
-	dynasty = dynasty_rasen_kiba
-	religion = ancestral_rites
-	culture = zenshin
-	female = yes
-	trait = lazy
-	trait = content
-	trait = calm
-	trait = education_learning_3
-	2982.2.14 = { birth = yes }
-}
-
-rasen_253 = {
-	name = "Kazuki"
+rasen_257 = {
+	name = "Kosuke"
 	dynasty = dynasty_rasen_okami
 	religion = ancestral_rites
 	culture = zenshin
+	trait = cynical
+	trait = diligent
+	trait = paranoid
+	trait = education_diplomacy_2
+	2966.9.10 = { birth = yes }
+}
+
+rasen_258 = {
+	name = "Izumi"
+	father = rasen_257
+	mother = rasen_54
+	dynasty = dynasty_rasen_arakawa
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
 	trait = paranoid
 	trait = arbitrary
 	trait = deceitful
 	trait = education_martial_2
-	2977.7.11 = { birth = yes }
+	2993.7.11 = { birth = yes }
 }
 
-rasen_254 = {
-	name = "Satoshi"
-	father = rasen_253
-	mother = rasen_55
-	dynasty = dynasty_rasen_mizuhara
+rasen_259 = {
+	name = "Noriko"
+	dynasty = dynasty_rasen_kurosawa
 	religion = ancestral_rites
 	culture = zenshin
+	female = yes
+	trait = patient
+	trait = content
 	trait = greedy
-	trait = lazy
-	trait = impatient
-	trait = education_stewardship_4
-	2996.3.20 = { birth = yes }
+	trait = education_learning_3
+	2961.4.22 = { birth = yes }
 }
 
-rasen_255 = {
-	name = "Ichiro"
-	father = rasen_253
-	mother = rasen_55
-	dynasty = dynasty_rasen_mizuhara
+rasen_260 = {
+	name = "Noriko"
+	father = rasen_55
+	mother = rasen_259
+	dynasty = dynasty_rasen_kiba
 	religion = ancestral_rites
 	culture = zenshin
+	female = yes
 	trait = calm
 	trait = arrogant
 	trait = zealous
 	trait = education_intrigue_3
-	2996.10.22 = { birth = yes }
+	2999.10.22 = { birth = yes }
 }
 
-rasen_256 = {
+rasen_261 = {
 	name = "Ryo"
-	father = rasen_253
-	mother = rasen_55
-	dynasty = dynasty_rasen_mizuhara
+	father = rasen_55
+	mother = rasen_259
+	dynasty = dynasty_rasen_kiba
 	religion = ancestral_rites
 	culture = zenshin
 	trait = trusting
 	trait = callous
 	trait = deceitful
 	trait = education_stewardship_4
-	2999.8.23 = { birth = yes }
+	2982.8.23 = { birth = yes }
 }
 
-rasen_257 = {
-	name = "Ming"
-	dynasty = dynasty_rasen_jin
-	religion = devanic_temple
-	culture = cathayan
+rasen_262 = {
+	name = "Riku"
+	father = rasen_55
+	mother = rasen_259
+	dynasty = dynasty_rasen_kiba
+	religion = ancestral_rites
+	culture = zenshin
 	trait = zealous
 	trait = patient
 	trait = trusting
 	trait = education_learning_2
-	2940.12.19 = { birth = yes }
+	2988.12.19 = { birth = yes }
 }
 
-rasen_258 = {
-	name = "Hua"
-	father = rasen_257
-	mother = rasen_56
-	dynasty = dynasty_rasen_hoshino
+rasen_263 = {
+	name = "Wei"
+	dynasty = dynasty_rasen_ming
 	religion = devanic_temple
 	culture = cathayan
-	female = yes
-	trait = lazy
-	trait = ambitious
-	trait = honest
-	trait = education_diplomacy_3
-	2977.1.22 = { birth = yes }
-}
-
-rasen_259 = {
-	name = "Yong"
-	father = rasen_257
-	mother = rasen_56
-	dynasty = dynasty_rasen_hoshino
-	religion = devanic_temple
-	culture = cathayan
-	trait = zealous
-	trait = brave
-	trait = honest
-	trait = education_intrigue_4
-	2968.8.14 = { birth = yes }
-}
-
-rasen_260 = {
-	name = "Shizuka"
-	dynasty = dynasty_rasen_kanzaki
-	religion = devanic_temple
-	culture = zenshin
-	female = yes
-	trait = humble
-	trait = gregarious
+	trait = deceitful
+	trait = diligent
 	trait = paranoid
-	trait = education_learning_3
-	2954.9.14 = { birth = yes }
+	trait = education_stewardship_2
+	2940.5.14 = { birth = yes }
 }
 
-rasen_261 = {
-	name = "Kosuke"
-	father = rasen_57
-	mother = rasen_260
-	dynasty = dynasty_rasen_okami
+rasen_264 = {
+	name = "Desdemona"
+	father = rasen_263
+	mother = rasen_56
+	dynasty = dynasty_rasen_hoshino
 	religion = devanic_temple
-	culture = zenshin
+	culture = cathayan
+	female = yes
+	trait = just
+	trait = compassionate
+	trait = zealous
+	trait = education_stewardship_2
+	2973.7.18 = { birth = yes }
+}
+
+rasen_265 = {
+	name = "Kun"
+	dynasty = dynasty_rasen_luo
+	religion = shugendo
+	culture = cathayan
+	trait = just
+	trait = zealous
+	trait = arrogant
+	trait = education_learning_3
+	2968.9.14 = { birth = yes }
+}
+
+rasen_266 = {
+	name = "Chu"
+	father = rasen_265
+	mother = rasen_57
+	dynasty = dynasty_rasen_xuan
+	religion = shugendo
+	culture = cathayan
 	trait = deceitful
 	trait = wrathful
 	trait = content
 	trait = education_intrigue_3
-	2987.1.5 = { birth = yes }
-}
-
-rasen_262 = {
-	name = "Noriko"
-	father = rasen_57
-	mother = rasen_260
-	dynasty = dynasty_rasen_okami
-	religion = devanic_temple
-	culture = zenshin
-	female = yes
-	trait = deceitful
-	trait = patient
-	trait = just
-	trait = education_learning_4
-	2979.11.23 = { birth = yes }
-}
-
-rasen_263 = {
-	name = "Kosuke"
-	father = rasen_57
-	mother = rasen_260
-	dynasty = dynasty_rasen_okami
-	religion = devanic_temple
-	culture = zenshin
-	trait = gregarious
-	trait = just
-	trait = brave
-	trait = education_diplomacy_3
-	2986.6.26 = { birth = yes }
-}
-
-rasen_264 = {
-	name = "Tomoe"
-	dynasty = dynasty_rasen_inoue
-	religion = devanic_temple
-	culture = zenshin
-	female = yes
-	trait = just
-	trait = greedy
-	trait = ambitious
-	trait = education_intrigue_3
-	2977.9.22 = { birth = yes }
-}
-
-rasen_265 = {
-	name = "Mao"
-	father = rasen_58
-	mother = rasen_264
-	dynasty = dynasty_rasen_yamabe
-	religion = devanic_temple
-	culture = zenshin
-	trait = ambitious
-	trait = paranoid
-	trait = callous
-	trait = education_stewardship_3
-	2999.7.9 = { birth = yes }
-}
-
-rasen_266 = {
-	name = "Jiro"
-	father = rasen_58
-	mother = rasen_264
-	dynasty = dynasty_rasen_yamabe
-	religion = devanic_temple
-	culture = zenshin
-	trait = arrogant
-	trait = zealous
-	trait = callous
-	trait = education_intrigue_4
-	2996.11.1 = { birth = yes }
+	2992.1.5 = { birth = yes }
 }
 
 rasen_267 = {
-	name = "Daisuke"
-	father = rasen_58
-	mother = rasen_264
-	dynasty = dynasty_rasen_yamabe
+	name = "Aiko"
+	dynasty = dynasty_rasen_kiba
 	religion = devanic_temple
 	culture = zenshin
-	trait = paranoid
-	trait = lazy
-	trait = zealous
-	trait = education_learning_2
-	2997.1.15 = { birth = yes }
+	female = yes
+	trait = content
+	trait = arbitrary
+	trait = honest
+	trait = education_martial_4
+	2951.9.22 = { birth = yes }
 }
 
 rasen_268 = {
-	name = "Qing"
+	name = "Osamu"
+	father = rasen_58
+	mother = rasen_267
+	dynasty = dynasty_rasen_okami
+	religion = devanic_temple
+	culture = zenshin
+	trait = calm
+	trait = gregarious
+	trait = just
+	trait = education_stewardship_3
+	2982.6.11 = { birth = yes }
+}
+
+rasen_269 = {
+	name = "Hayato"
+	father = rasen_58
+	mother = rasen_267
+	dynasty = dynasty_rasen_okami
+	religion = devanic_temple
+	culture = zenshin
+	trait = greedy
+	trait = ambitious
+	trait = lazy
+	trait = education_intrigue_4
+	2990.11.8 = { birth = yes }
+}
+
+rasen_270 = {
+	name = "Nanami"
+	dynasty = dynasty_rasen_fujiwara
+	religion = devanic_temple
+	culture = zenshin
+	female = yes
+	trait = paranoid
+	trait = content
+	trait = calm
+	trait = education_diplomacy_3
+	2977.5.17 = { birth = yes }
+}
+
+rasen_271 = {
+	name = "Mao"
+	father = rasen_59
+	mother = rasen_270
+	dynasty = dynasty_rasen_yamabe
+	religion = devanic_temple
+	culture = zenshin
+	trait = zealous
+	trait = arrogant
+	trait = greedy
+	trait = education_martial_4
+	2997.8.26 = { birth = yes }
+}
+
+rasen_272 = {
+	name = "Wen"
 	dynasty = dynasty_rasen_ming
 	religion = devanic_temple
 	culture = cathayan
 	female = yes
 	trait = paranoid
+	trait = lazy
 	trait = zealous
-	trait = ambitious
-	trait = education_stewardship_4
-	2958.5.1 = { birth = yes }
+	trait = education_learning_2
+	2956.1.15 = { birth = yes }
 }
 
-rasen_269 = {
-	name = "Yun"
-	father = rasen_59
-	mother = rasen_268
+rasen_273 = {
+	name = "Tao"
+	father = rasen_60
+	mother = rasen_272
+	dynasty = dynasty_rasen_su
+	religion = devanic_temple
+	culture = cathayan
+	trait = content
+	trait = paranoid
+	trait = zealous
+	trait = education_martial_2
+	2987.10.27 = { birth = yes }
+}
+
+rasen_274 = {
+	name = "Lan"
+	father = rasen_60
+	mother = rasen_272
 	dynasty = dynasty_rasen_su
 	religion = devanic_temple
 	culture = cathayan
 	female = yes
+	trait = deceitful
 	trait = impatient
-	trait = cynical
-	trait = gregarious
+	trait = zealous
 	trait = education_martial_3
-	2991.1.6 = { birth = yes }
+	2993.1.6 = { birth = yes }
 }
 
-rasen_270 = {
+rasen_275 = {
 	name = "Qing"
-	dynasty = dynasty_rasen_luo
+	dynasty = dynasty_rasen_bai
 	religion = devanic_temple
 	culture = cathayan
 	female = yes
@@ -3792,13 +3880,13 @@ rasen_270 = {
 	trait = diligent
 	trait = craven
 	trait = education_learning_3
-	2963.4.7 = { birth = yes }
+	2973.4.7 = { birth = yes }
 }
 
-rasen_271 = {
+rasen_276 = {
 	name = "Wen"
-	father = rasen_60
-	mother = rasen_270
+	father = rasen_61
+	mother = rasen_275
 	dynasty = dynasty_rasen_bai
 	religion = devanic_temple
 	culture = cathayan
@@ -3807,65 +3895,66 @@ rasen_271 = {
 	trait = lazy
 	trait = arbitrary
 	trait = education_stewardship_2
-	2986.1.3 = { birth = yes }
+	2997.1.3 = { birth = yes }
 }
 
-rasen_272 = {
-	name = "Lei"
-	dynasty = dynasty_rasen_long
+rasen_277 = {
+	name = "Taio"
+	father = rasen_61
+	mother = rasen_275
+	dynasty = dynasty_rasen_bai
 	religion = devanic_temple
 	culture = cathayan
-	trait = brave
 	trait = arbitrary
-	trait = compassionate
-	trait = education_intrigue_2
-	2969.8.9 = { birth = yes }
+	trait = brave
+	trait = deceitful
+	trait = education_stewardship_3
+	2993.5.16 = { birth = yes }
 }
 
-rasen_273 = {
-	name = "Liang"
-	father = rasen_272
-	mother = rasen_61
+rasen_278 = {
+	name = "Shen"
+	father = rasen_61
+	mother = rasen_275
+	dynasty = dynasty_rasen_bai
+	religion = devanic_temple
+	culture = cathayan
+	trait = content
+	trait = wrathful
+	trait = callous
+	trait = education_learning_3
+	2999.5.14 = { birth = yes }
+}
+
+rasen_279 = {
+	name = "Guang"
+	dynasty = dynasty_rasen_su
+	religion = devanic_temple
+	culture = cathayan
+	trait = callous
+	trait = patient
+	trait = brave
+	trait = education_stewardship_4
+	2976.11.2 = { birth = yes }
+}
+
+rasen_280 = {
+	name = "Xun"
+	father = rasen_279
+	mother = rasen_62
 	dynasty = dynasty_rasen_zhou
 	religion = devanic_temple
 	culture = cathayan
-	trait = compassionate
-	trait = impatient
-	trait = content
-	trait = education_intrigue_3
-	2994.9.11 = { birth = yes }
-}
-
-rasen_274 = {
-	name = "Ming"
-	dynasty = dynasty_rasen_lan
-	religion = devanic_temple
-	culture = cathayan
-	trait = just
-	trait = callous
-	trait = patient
-	trait = education_stewardship_2
-	2974.11.21 = { birth = yes }
-}
-
-rasen_275 = {
-	name = "Lan"
-	father = rasen_274
-	mother = rasen_62
-	dynasty = dynasty_rasen_hou
-	religion = devanic_temple
-	culture = cathayan
-	female = yes
-	trait = shy
 	trait = craven
-	trait = arrogant
+	trait = shy
+	trait = callous
 	trait = education_intrigue_4
-	2996.5.2 = { birth = yes }
+	2999.5.2 = { birth = yes }
 }
 
-rasen_276 = {
+rasen_281 = {
 	name = "Zhen"
-	dynasty = dynasty_rasen_xuan
+	dynasty = dynasty_rasen_hou
 	religion = devanic_temple
 	culture = cathayan
 	trait = craven
@@ -3875,270 +3964,272 @@ rasen_276 = {
 	2973.1.2 = { birth = yes }
 }
 
-rasen_277 = {
+rasen_282 = {
 	name = "Hao"
-	father = rasen_276
+	father = rasen_281
 	mother = rasen_63
-	dynasty = dynasty_rasen_ming
+	dynasty = dynasty_rasen_hou
 	religion = devanic_temple
 	culture = cathayan
 	trait = arrogant
 	trait = trusting
 	trait = calm
 	trait = education_martial_2
-	2992.3.20 = { birth = yes }
-}
-
-rasen_278 = {
-	name = "Yoko"
-	dynasty = dynasty_rasen_arakawa
-	religion = devanic_temple
-	culture = zenshin
-	female = yes
-	trait = patient
-	trait = trusting
-	trait = callous
-	trait = education_intrigue_4
-	2950.3.1 = { birth = yes }
-}
-
-rasen_279 = {
-	name = "Kaito"
-	father = rasen_64
-	mother = rasen_278
-	dynasty = dynasty_rasen_takeda
-	religion = devanic_temple
-	culture = zenshin
-	trait = callous
-	trait = content
-	trait = just
-	trait = education_stewardship_4
-	2990.10.6 = { birth = yes }
-}
-
-rasen_280 = {
-	name = "Ling"
-	dynasty = dynasty_rasen_ming
-	religion = celestial_order
-	culture = cathayan
-	female = yes
-	trait = diligent
-	trait = content
-	trait = callous
-	trait = education_martial_2
-	2934.6.26 = { birth = yes }
-}
-
-rasen_281 = {
-	name = "Heng"
-	father = rasen_65
-	mother = rasen_280
-	dynasty = dynasty_rasen_lan
-	religion = celestial_order
-	culture = cathayan
-	trait = wrathful
-	trait = paranoid
-	trait = lazy
-	trait = education_intrigue_2
-	2953.11.16 = { birth = yes }
-}
-
-rasen_282 = {
-	name = "Xiu"
-	dynasty = dynasty_rasen_dou
-	religion = celestial_order
-	culture = cathayan
-	female = yes
-	trait = deceitful
-	trait = arbitrary
-	trait = gregarious
-	trait = education_martial_4
-	2943.11.21 = { birth = yes }
+	2997.3.20 = { birth = yes }
 }
 
 rasen_283 = {
+	name = "Jun"
+	father = rasen_281
+	mother = rasen_63
+	dynasty = dynasty_rasen_hou
+	religion = devanic_temple
+	culture = cathayan
+	trait = patient
+	trait = arrogant
+	trait = wrathful
+	trait = education_learning_2
+	2997.1.22 = { birth = yes }
+}
+
+rasen_284 = {
+	name = "Lei"
+	dynasty = dynasty_rasen_xuan
+	religion = devanic_temple
+	culture = cathayan
+	trait = callous
+	trait = lazy
+	trait = content
+	trait = education_stewardship_2
+	2975.9.19 = { birth = yes }
+}
+
+rasen_285 = {
+	name = "Hua"
+	father = rasen_284
+	mother = rasen_64
+	dynasty = dynasty_rasen_ming
+	religion = devanic_temple
+	culture = cathayan
+	female = yes
+	trait = content
+	trait = lazy
+	trait = honest
+	trait = education_martial_3
+	2995.6.10 = { birth = yes }
+}
+
+rasen_286 = {
+	name = "Long"
+	father = rasen_284
+	mother = rasen_64
+	dynasty = dynasty_rasen_ming
+	religion = devanic_temple
+	culture = cathayan
+	trait = paranoid
+	trait = lazy
+	trait = greedy
+	trait = education_martial_4
+	2995.8.3 = { birth = yes }
+}
+
+rasen_287 = {
+	name = "Ling"
+	dynasty = dynasty_rasen_zhou
+	religion = celestial_order
+	culture = cathayan
+	female = yes
+	trait = arbitrary
+	trait = shy
+	trait = patient
+	trait = education_martial_4
+	2926.11.21 = { birth = yes }
+}
+
+rasen_288 = {
 	name = "Wenyao"
-	father = rasen_66
-	mother = rasen_282
-	dynasty = dynasty_rasen_bai
+	father = rasen_65
+	mother = rasen_287
+	dynasty = dynasty_rasen_lan
 	religion = celestial_order
 	culture = cathayan
 	trait = paranoid
 	trait = ambitious
 	trait = wrathful
 	trait = education_stewardship_3
-	2976.11.21 = { birth = yes }
+	2954.11.21 = { birth = yes }
 }
 
-rasen_284 = {
-	name = "Lian"
-	dynasty = dynasty_rasen_bai
+rasen_289 = {
+	name = "Zhao"
+	father = rasen_65
+	mother = rasen_287
+	dynasty = dynasty_rasen_lan
 	religion = celestial_order
 	culture = cathayan
-	female = yes
-	trait = humble
 	trait = calm
+	trait = humble
 	trait = compassionate
 	trait = education_martial_3
-	2954.4.11 = { birth = yes }
+	2950.4.11 = { birth = yes }
 }
 
-rasen_285 = {
+rasen_290 = {
 	name = "Zhao"
-	father = rasen_67
-	mother = rasen_284
-	dynasty = dynasty_rasen_jin
+	father = rasen_65
+	mother = rasen_287
+	dynasty = dynasty_rasen_lan
 	religion = celestial_order
 	culture = cathayan
 	trait = compassionate
 	trait = arrogant
 	trait = diligent
 	trait = education_learning_2
-	2984.8.12 = { birth = yes }
+	2952.8.12 = { birth = yes }
 }
 
-rasen_286 = {
-	name = "Yi"
-	father = rasen_67
-	mother = rasen_284
-	dynasty = dynasty_rasen_jin
+rasen_291 = {
+	name = "Midori"
+	dynasty = dynasty_rasen_inoue
 	religion = celestial_order
-	culture = cathayan
-	trait = craven
-	trait = patient
+	culture = kitsune
+	female = yes
 	trait = content
-	trait = education_learning_4
-	2985.5.22 = { birth = yes }
+	trait = arrogant
+	trait = brave
+	trait = education_intrigue_4
+	2946.10.10 = { birth = yes }
 }
 
-rasen_287 = {
-	name = "Ming"
-	dynasty = dynasty_rasen_zhou
+rasen_292 = {
+	name = "Riku"
+	father = rasen_66
+	mother = rasen_291
+	dynasty = dynasty_rasen_shimizu
 	religion = celestial_order
-	culture = cathayan
+	culture = kitsune
 	trait = paranoid
 	trait = craven
 	trait = arrogant
 	trait = education_learning_3
-	2963.9.7 = { birth = yes }
+	2970.9.7 = { birth = yes }
 }
 
-rasen_288 = {
-	name = "Wei"
-	father = rasen_287
-	mother = rasen_68
-	dynasty = dynasty_rasen_ming
+rasen_293 = {
+	name = "Natsuki"
+	dynasty = dynasty_rasen_mizuhara
 	religion = celestial_order
-	culture = cathayan
+	culture = kitsune
+	female = yes
 	trait = gregarious
 	trait = compassionate
 	trait = honest
 	trait = education_intrigue_4
-	2998.11.18 = { birth = yes }
+	2968.11.18 = { birth = yes }
 }
 
-rasen_289 = {
-	name = "Xia"
-	father = rasen_287
-	mother = rasen_68
-	dynasty = dynasty_rasen_ming
+rasen_294 = {
+	name = "Noriko"
+	father = rasen_67
+	mother = rasen_293
+	dynasty = dynasty_rasen_kagemori
 	religion = celestial_order
-	culture = cathayan
+	culture = kitsune
 	female = yes
 	trait = ambitious
 	trait = callous
 	trait = just
 	trait = education_stewardship_2
-	2985.9.9 = { birth = yes }
-}
-
-rasen_290 = {
-	name = "Jun"
-	father = rasen_287
-	mother = rasen_68
-	dynasty = dynasty_rasen_ming
-	religion = celestial_order
-	culture = cathayan
-	trait = shy
-	trait = just
-	trait = honest
-	trait = education_learning_4
-	2990.12.12 = { birth = yes }
-}
-
-rasen_291 = {
-	name = "Hana"
-	dynasty = dynasty_rasen_kiba
-	religion = veiled_ancestors
-	culture = zenshin
-	female = yes
-	trait = calm
-	trait = paranoid
-	trait = cynical
-	trait = education_stewardship_3
-	2938.1.4 = { birth = yes }
-}
-
-rasen_292 = {
-	name = "Kagerou"
-	father = rasen_69
-	mother = rasen_291
-	dynasty = dynasty_rasen_ozaki
-	religion = veiled_ancestors
-	culture = zenshin
-	trait = arbitrary
-	trait = cynical
-	trait = trusting
-	trait = education_stewardship_4
-	2966.8.16 = { birth = yes }
-}
-
-rasen_293 = {
-	name = "Shin"
-	father = rasen_69
-	mother = rasen_291
-	dynasty = dynasty_rasen_ozaki
-	religion = veiled_ancestors
-	culture = zenshin
-	trait = callous
-	trait = zealous
-	trait = impatient
-	trait = education_learning_2
-	2962.8.17 = { birth = yes }
-}
-
-rasen_294 = {
-	name = "Hideo"
-	father = rasen_69
-	mother = rasen_291
-	dynasty = dynasty_rasen_ozaki
-	religion = veiled_ancestors
-	culture = zenshin
-	trait = impatient
-	trait = content
-	trait = just
-	trait = education_learning_4
-	2964.9.18 = { birth = yes }
+	2993.9.9 = { birth = yes }
 }
 
 rasen_295 = {
-	name = "Mariko"
-	dynasty = dynasty_rasen_inoue
-	religion = veiled_ancestors
-	culture = zenshin
-	female = yes
-	trait = arrogant
+	name = "Hayato"
+	father = rasen_67
+	mother = rasen_293
+	dynasty = dynasty_rasen_kagemori
+	religion = celestial_order
+	culture = kitsune
 	trait = honest
-	trait = compassionate
-	trait = education_learning_4
-	2945.4.15 = { birth = yes }
+	trait = trusting
+	trait = greedy
+	trait = education_martial_2
+	2994.12.16 = { birth = yes }
 }
 
 rasen_296 = {
 	name = "Mei"
-	father = rasen_70
-	mother = rasen_295
-	dynasty = dynasty_rasen_takeda
+	dynasty = dynasty_rasen_su
+	religion = celestial_order
+	culture = cathayan
+	female = yes
+	trait = cynical
+	trait = humble
+	trait = impatient
+	trait = education_martial_2
+	2945.8.7 = { birth = yes }
+}
+
+rasen_297 = {
+	name = "Kun"
+	father = rasen_68
+	mother = rasen_296
+	dynasty = dynasty_rasen_luo
+	religion = celestial_order
+	culture = cathayan
+	trait = cynical
+	trait = paranoid
+	trait = humble
+	trait = education_stewardship_4
+	2989.8.16 = { birth = yes }
+}
+
+rasen_298 = {
+	name = "Kasumi"
+	dynasty = dynasty_rasen_ishida
+	religion = veiled_ancestors
+	culture = zenshin
+	female = yes
+	trait = deceitful
+	trait = shy
+	trait = patient
+	trait = education_diplomacy_4
+	2945.1.16 = { birth = yes }
+}
+
+rasen_299 = {
+	name = "Ryota"
+	father = rasen_69
+	mother = rasen_298
+	dynasty = dynasty_rasen_ozaki
+	religion = veiled_ancestors
+	culture = zenshin
+	trait = greedy
+	trait = arrogant
+	trait = impatient
+	trait = education_intrigue_2
+	2977.9.24 = { birth = yes }
+}
+
+rasen_300 = {
+	name = "Noboru"
+	father = rasen_69
+	mother = rasen_298
+	dynasty = dynasty_rasen_ozaki
+	religion = veiled_ancestors
+	culture = zenshin
+	trait = arrogant
+	trait = honest
+	trait = compassionate
+	trait = education_learning_4
+	2969.4.15 = { birth = yes }
+}
+
+rasen_301 = {
+	name = "Mei"
+	father = rasen_69
+	mother = rasen_298
+	dynasty = dynasty_rasen_ozaki
 	religion = veiled_ancestors
 	culture = zenshin
 	female = yes
@@ -4146,272 +4237,272 @@ rasen_296 = {
 	trait = generous
 	trait = trusting
 	trait = education_diplomacy_3
-	2969.11.23 = { birth = yes }
+	2972.11.23 = { birth = yes }
 }
 
-rasen_297 = {
-	name = "Mariko"
-	dynasty = dynasty_rasen_mizuhara
+rasen_302 = {
+	name = "Noboru"
+	dynasty = dynasty_rasen_fujiwara
 	religion = veiled_ancestors
-	culture = zenshin
-	female = yes
+	culture = kitsune
 	trait = content
 	trait = honest
 	trait = greedy
 	trait = education_diplomacy_3
-	2973.7.24 = { birth = yes }
+	2954.7.24 = { birth = yes }
 }
 
-rasen_298 = {
+rasen_303 = {
 	name = "Kagerou"
-	father = rasen_71
-	mother = rasen_297
-	dynasty = dynasty_rasen_sanada
+	father = rasen_302
+	mother = rasen_70
+	dynasty = dynasty_rasen_nakamoto
 	religion = veiled_ancestors
-	culture = zenshin
+	culture = kitsune
 	trait = diligent
 	trait = deceitful
 	trait = zealous
 	trait = education_stewardship_4
-	2993.3.25 = { birth = yes }
+	2982.3.25 = { birth = yes }
 }
 
-rasen_299 = {
-	name = "Tomoya"
-	father = rasen_71
-	mother = rasen_297
-	dynasty = dynasty_rasen_sanada
+rasen_304 = {
+	name = "Suzume"
+	dynasty = dynasty_rasen_fujiwara
 	religion = veiled_ancestors
-	culture = zenshin
+	culture = kitsune
+	female = yes
 	trait = paranoid
 	trait = greedy
 	trait = calm
 	trait = education_martial_2
-	2994.11.26 = { birth = yes }
+	2947.11.26 = { birth = yes }
 }
 
-rasen_300 = {
-	name = "Mei"
-	dynasty = dynasty_rasen_arakawa
+rasen_305 = {
+	name = "Reiko"
+	father = rasen_71
+	mother = rasen_304
+	dynasty = dynasty_rasen_yamabe
 	religion = veiled_ancestors
 	culture = kitsune
 	female = yes
-	trait = gregarious
-	trait = compassionate
-	trait = content
+	trait = humble
+	trait = patient
+	trait = paranoid
 	trait = education_martial_3
-	2955.8.9 = { birth = yes }
+	2971.8.9 = { birth = yes }
 }
 
-rasen_301 = {
+rasen_306 = {
 	name = "Satoshi"
-	father = rasen_72
-	mother = rasen_300
-	dynasty = dynasty_rasen_nakamoto
+	father = rasen_71
+	mother = rasen_304
+	dynasty = dynasty_rasen_yamabe
 	religion = veiled_ancestors
 	culture = kitsune
 	trait = arrogant
 	trait = just
 	trait = lazy
 	trait = education_stewardship_4
-	2999.8.18 = { birth = yes }
+	2971.8.18 = { birth = yes }
 }
 
-rasen_302 = {
-	name = "Misuka"
-	dynasty = dynasty_rasen_ishida
-	religion = ancestral_rites
-	culture = zenshin
+rasen_307 = {
+	name = "Asuka"
+	father = rasen_71
+	mother = rasen_304
+	dynasty = dynasty_rasen_yamabe
+	religion = veiled_ancestors
+	culture = kitsune
 	female = yes
-	trait = shy
-	trait = just
 	trait = greedy
-	trait = education_intrigue_2
-	2941.5.8 = { birth = yes }
+	trait = content
+	trait = calm
+	trait = education_diplomacy_2
+	2989.5.23 = { birth = yes }
 }
 
-rasen_303 = {
-	name = "Yuki"
-	father = rasen_73
-	mother = rasen_302
-	dynasty = dynasty_rasen_ryuuzan
-	religion = ancestral_rites
+rasen_308 = {
+	name = "Kosuke"
+	dynasty = dynasty_rasen_kagemori
+	religion = veiled_ancestors
 	culture = zenshin
-	female = yes
 	trait = brave
 	trait = deceitful
 	trait = just
 	trait = education_learning_3
-	2973.8.14 = { birth = yes }
+	2976.8.14 = { birth = yes }
 }
 
-rasen_304 = {
+rasen_309 = {
 	name = "Kosuke"
-	father = rasen_73
-	mother = rasen_302
-	dynasty = dynasty_rasen_ryuuzan
-	religion = ancestral_rites
+	father = rasen_308
+	mother = rasen_72
+	dynasty = dynasty_rasen_kurosawa
+	religion = veiled_ancestors
 	culture = zenshin
 	trait = ambitious
 	trait = cynical
 	trait = gregarious
 	trait = education_intrigue_2
-	2965.7.19 = { birth = yes }
+	2997.7.19 = { birth = yes }
 }
 
-rasen_305 = {
-	name = "Shizuka"
+rasen_310 = {
+	name = "Haruka"
+	dynasty = dynasty_rasen_sanada
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = arrogant
+	trait = paranoid
+	trait = cynical
+	trait = education_martial_4
+	2941.5.22 = { birth = yes }
+}
+
+rasen_311 = {
+	name = "Tomoya"
 	father = rasen_73
-	mother = rasen_302
+	mother = rasen_310
 	dynasty = dynasty_rasen_ryuuzan
 	religion = ancestral_rites
 	culture = zenshin
-	female = yes
-	trait = content
-	trait = impatient
-	trait = trusting
-	trait = education_diplomacy_4
-	2968.8.17 = { birth = yes }
-}
-
-rasen_306 = {
-	name = "Natsuki"
-	dynasty = dynasty_rasen_fujiwara
-	religion = ancestral_rites
-	culture = zenshin
-	female = yes
+	trait = diligent
 	trait = shy
 	trait = content
-	trait = wrathful
-	trait = education_intrigue_4
-	2961.3.26 = { birth = yes }
+	trait = education_diplomacy_3
+	2973.10.5 = { birth = yes }
 }
 
-rasen_307 = {
-	name = "Tetsuo"
-	father = rasen_74
-	mother = rasen_306
+rasen_312 = {
+	name = "Tomoya"
 	dynasty = dynasty_rasen_takeda
 	religion = ancestral_rites
 	culture = zenshin
-	trait = generous
 	trait = gregarious
-	trait = patient
+	trait = generous
+	trait = trusting
 	trait = education_stewardship_3
-	2988.10.18 = { birth = yes }
+	2955.10.18 = { birth = yes }
 }
 
-rasen_308 = {
-	name = "Goro"
-	dynasty = dynasty_rasen_fujiwara
+rasen_313 = {
+	name = "Akio"
+	father = rasen_312
+	mother = rasen_74
+	dynasty = dynasty_rasen_matsuda
 	religion = ancestral_rites
 	culture = zenshin
-	trait = greedy
 	trait = zealous
-	trait = callous
-	trait = education_stewardship_4
-	2965.12.16 = { birth = yes }
+	trait = greedy
+	trait = just
+	trait = education_intrigue_2
+	2995.6.23 = { birth = yes }
 }
 
-rasen_309 = {
-	name = "Hikari"
-	father = rasen_308
-	mother = rasen_75
-	dynasty = dynasty_rasen_hayashi
+rasen_314 = {
+	name = "Isamu"
+	father = rasen_312
+	mother = rasen_74
+	dynasty = dynasty_rasen_matsuda
 	religion = ancestral_rites
 	culture = zenshin
-	female = yes
 	trait = paranoid
 	trait = arbitrary
 	trait = patient
 	trait = education_intrigue_3
-	2991.12.3 = { birth = yes }
+	2989.12.3 = { birth = yes }
 }
 
-rasen_310 = {
-	name = "Ryota"
-	father = rasen_308
-	mother = rasen_75
-	dynasty = dynasty_rasen_hayashi
+rasen_315 = {
+	name = "Haruka"
+	dynasty = dynasty_rasen_arakawa
 	religion = ancestral_rites
 	culture = zenshin
-	trait = content
+	female = yes
 	trait = cynical
-	trait = impatient
+	trait = content
+	trait = callous
 	trait = education_learning_4
-	2991.7.27 = { birth = yes }
+	2953.7.27 = { birth = yes }
 }
 
-rasen_311 = {
+rasen_316 = {
 	name = "Daichi"
-	father = rasen_308
-	mother = rasen_75
-	dynasty = dynasty_rasen_hayashi
+	father = rasen_75
+	mother = rasen_315
+	dynasty = dynasty_rasen_matsuda
 	religion = ancestral_rites
 	culture = zenshin
 	trait = compassionate
 	trait = just
 	trait = cynical
 	trait = education_stewardship_4
-	2999.6.3 = { birth = yes }
+	2981.6.3 = { birth = yes }
 }
 
-rasen_312 = {
+rasen_317 = {
 	name = "Osamu"
-	dynasty = dynasty_rasen_kagemori
+	father = rasen_75
+	mother = rasen_315
+	dynasty = dynasty_rasen_matsuda
 	religion = ancestral_rites
 	culture = zenshin
 	trait = greedy
 	trait = diligent
 	trait = patient
 	trait = education_learning_4
-	2967.6.25 = { birth = yes }
+	2980.6.25 = { birth = yes }
 }
 
-rasen_313 = {
-	name = "Noboru"
-	father = rasen_312
-	mother = rasen_76
-	dynasty = dynasty_rasen_hoshino
+rasen_318 = {
+	name = "Kasumi"
+	dynasty = dynasty_rasen_okami
 	religion = ancestral_rites
 	culture = zenshin
+	female = yes
+	trait = content
 	trait = diligent
 	trait = craven
-	trait = ambitious
-	trait = education_martial_2
-	2994.8.7 = { birth = yes }
+	trait = education_learning_4
+	2945.12.27 = { birth = yes }
 }
 
-rasen_314 = {
-	name = "Ayame"
-	dynasty = dynasty_rasen_sanada
-	religion = wild_pacts
-	culture = yokai
+rasen_319 = {
+	name = "Misuka"
+	father = rasen_76
+	mother = rasen_318
+	dynasty = dynasty_rasen_yamabe
+	religion = ancestral_rites
+	culture = zenshin
 	female = yes
+	trait = calm
+	trait = zealous
 	trait = deceitful
-	trait = just
-	trait = shy
-	trait = education_diplomacy_3
-	2948.6.19 = { birth = yes }
+	trait = education_intrigue_2
+	2984.6.12 = { birth = yes }
 }
 
-rasen_315 = {
-	name = "Ren"
-	father = rasen_77
-	mother = rasen_314
-	dynasty = dynasty_rasen_kiba
-	religion = wild_pacts
-	culture = yokai
+rasen_320 = {
+	name = "Hana"
+	father = rasen_76
+	mother = rasen_318
+	dynasty = dynasty_rasen_yamabe
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = lazy
 	trait = zealous
 	trait = patient
-	trait = ambitious
-	trait = education_diplomacy_3
-	2980.8.24 = { birth = yes }
+	trait = education_martial_3
+	2988.5.15 = { birth = yes }
 }
 
-rasen_316 = {
+rasen_321 = {
 	name = "Yuki"
-	dynasty = dynasty_rasen_takeda
+	dynasty = dynasty_rasen_arakawa
 	religion = wild_pacts
 	culture = yokai
 	female = yes
@@ -4419,28 +4510,28 @@ rasen_316 = {
 	trait = arbitrary
 	trait = gregarious
 	trait = education_diplomacy_4
-	2976.6.26 = { birth = yes }
+	2943.6.26 = { birth = yes }
 }
 
-rasen_317 = {
+rasen_322 = {
 	name = "Daisuke"
-	father = rasen_78
-	mother = rasen_316
-	dynasty = dynasty_rasen_nakamoto
+	father = rasen_77
+	mother = rasen_321
+	dynasty = dynasty_rasen_kiba
 	religion = wild_pacts
 	culture = yokai
 	trait = greedy
 	trait = gregarious
 	trait = diligent
 	trait = education_learning_3
-	2999.2.28 = { birth = yes }
+	2965.2.28 = { birth = yes }
 }
 
-rasen_318 = {
+rasen_323 = {
 	name = "Yuki"
-	father = rasen_78
-	mother = rasen_316
-	dynasty = dynasty_rasen_nakamoto
+	father = rasen_77
+	mother = rasen_321
+	dynasty = dynasty_rasen_kiba
 	religion = wild_pacts
 	culture = yokai
 	female = yes
@@ -4448,256 +4539,258 @@ rasen_318 = {
 	trait = wrathful
 	trait = impatient
 	trait = education_stewardship_3
-	2999.2.19 = { birth = yes }
+	2969.2.19 = { birth = yes }
 }
 
-rasen_319 = {
+rasen_324 = {
 	name = "Sora"
-	dynasty = dynasty_rasen_arakawa
+	father = rasen_77
+	mother = rasen_321
+	dynasty = dynasty_rasen_kiba
 	religion = wild_pacts
-	culture = zenshin
+	culture = yokai
 	trait = shy
 	trait = paranoid
 	trait = arrogant
 	trait = education_intrigue_4
-	2964.3.15 = { birth = yes }
+	2969.3.15 = { birth = yes }
 }
 
-rasen_320 = {
-	name = "Aiko"
-	father = rasen_319
-	mother = rasen_79
+rasen_325 = {
+	name = "Ayame"
 	dynasty = dynasty_rasen_hayashi
 	religion = wild_pacts
-	culture = zenshin
+	culture = oni
 	female = yes
-	trait = craven
-	trait = humble
 	trait = impatient
+	trait = brave
+	trait = paranoid
 	trait = education_martial_3
-	2988.5.12 = { birth = yes }
+	2951.5.12 = { birth = yes }
 }
 
-rasen_321 = {
+rasen_326 = {
 	name = "Raiden"
-	father = rasen_319
-	mother = rasen_79
-	dynasty = dynasty_rasen_hayashi
+	father = rasen_78
+	mother = rasen_325
+	dynasty = dynasty_rasen_kiba
 	religion = wild_pacts
-	culture = zenshin
+	culture = oni
 	trait = content
 	trait = trusting
 	trait = brave
 	trait = education_learning_2
-	2987.9.16 = { birth = yes }
+	2977.9.16 = { birth = yes }
 }
 
-rasen_322 = {
+rasen_327 = {
 	name = "Isamu"
-	dynasty = dynasty_rasen_okami
+	father = rasen_78
+	mother = rasen_325
+	dynasty = dynasty_rasen_kiba
 	religion = wild_pacts
-	culture = zenshin
+	culture = oni
 	trait = humble
 	trait = cynical
 	trait = generous
 	trait = education_learning_3
-	2963.3.20 = { birth = yes }
+	2982.3.20 = { birth = yes }
 }
 
-rasen_323 = {
-	name = "Kazuki"
-	father = rasen_322
-	mother = rasen_80
-	dynasty = dynasty_rasen_takeda
+rasen_328 = {
+	name = "Kiyomi"
+	dynasty = dynasty_rasen_yamabe
 	religion = wild_pacts
-	culture = zenshin
-	trait = brave
-	trait = arrogant
-	trait = callous
-	trait = education_learning_2
-	2998.9.15 = { birth = yes }
-}
-
-rasen_324 = {
-	name = "Goro"
-	father = rasen_322
-	mother = rasen_80
-	dynasty = dynasty_rasen_takeda
-	religion = wild_pacts
-	culture = zenshin
-	trait = lazy
-	trait = compassionate
-	trait = content
-	trait = education_learning_4
-	2988.1.12 = { birth = yes }
-}
-
-rasen_325 = {
-	name = "Mao"
-	dynasty = dynasty_rasen_okami
-	religion = wild_pacts
-	culture = zenshin
-	trait = wrathful
-	trait = brave
-	trait = patient
-	trait = education_intrigue_2
-	2962.4.12 = { birth = yes }
-}
-
-rasen_326 = {
-	name = "Ren"
-	father = rasen_325
-	mother = rasen_81
-	dynasty = dynasty_rasen_hayashi
-	religion = wild_pacts
-	culture = zenshin
-	trait = just
-	trait = shy
-	trait = impatient
+	culture = yokai
+	female = yes
+	trait = trusting
+	trait = honest
+	trait = craven
 	trait = education_learning_3
-	2983.8.3 = { birth = yes }
+	2955.9.7 = { birth = yes }
 }
 
-rasen_327 = {
+rasen_329 = {
+	name = "Minoru"
+	father = rasen_79
+	mother = rasen_328
+	dynasty = dynasty_rasen_amatsu
+	religion = wild_pacts
+	culture = yokai
+	trait = zealous
+	trait = arbitrary
+	trait = lazy
+	trait = education_martial_4
+	2977.9.15 = { birth = yes }
+}
+
+rasen_330 = {
+	name = "Tomoya"
+	dynasty = dynasty_rasen_kiba
+	religion = wild_pacts
+	culture = zenshin
+	trait = humble
+	trait = brave
+	trait = greedy
+	trait = education_martial_2
+	2958.7.2 = { birth = yes }
+}
+
+rasen_331 = {
+	name = "Shizuka"
+	father = rasen_330
+	mother = rasen_80
+	dynasty = dynasty_rasen_nakamoto
+	religion = wild_pacts
+	culture = zenshin
+	female = yes
+	trait = humble
+	trait = lazy
+	trait = arbitrary
+	trait = education_learning_3
+	2998.8.3 = { birth = yes }
+}
+
+rasen_332 = {
 	name = "Hideo"
-	father = rasen_325
-	mother = rasen_81
-	dynasty = dynasty_rasen_hayashi
+	father = rasen_330
+	mother = rasen_80
+	dynasty = dynasty_rasen_nakamoto
 	religion = wild_pacts
 	culture = zenshin
 	trait = just
 	trait = honest
 	trait = craven
 	trait = education_intrigue_2
-	2984.2.3 = { birth = yes }
+	2979.2.3 = { birth = yes }
 }
 
-rasen_328 = {
+rasen_333 = {
 	name = "Takeshi"
-	dynasty = dynasty_rasen_matsuda
+	dynasty = dynasty_rasen_sanada
 	religion = wild_pacts
-	culture = oni
+	culture = zenshin
 	trait = arbitrary
 	trait = lazy
 	trait = deceitful
 	trait = education_martial_4
-	2952.7.1 = { birth = yes }
+	2970.7.1 = { birth = yes }
 }
 
-rasen_329 = {
+rasen_334 = {
 	name = "Osamu"
-	father = rasen_328
-	mother = rasen_82
-	dynasty = dynasty_rasen_takeda
+	father = rasen_333
+	mother = rasen_81
+	dynasty = dynasty_rasen_matsuda
 	religion = wild_pacts
-	culture = oni
+	culture = zenshin
 	trait = content
 	trait = arrogant
 	trait = craven
 	trait = education_intrigue_3
-	2980.9.11 = { birth = yes }
+	2999.9.11 = { birth = yes }
 }
 
-rasen_330 = {
-	name = "Shuichi"
-	father = rasen_328
-	mother = rasen_82
-	dynasty = dynasty_rasen_takeda
+rasen_335 = {
+	name = "Yasuo"
+	dynasty = dynasty_rasen_shimizu
 	religion = wild_pacts
-	culture = oni
-	trait = just
-	trait = diligent
+	culture = zenshin
 	trait = honest
-	trait = education_diplomacy_3
-	2979.7.27 = { birth = yes }
-}
-
-rasen_331 = {
-	name = "Kazuki"
-	father = rasen_328
-	mother = rasen_82
-	dynasty = dynasty_rasen_takeda
-	religion = wild_pacts
-	culture = oni
-	trait = generous
-	trait = trusting
+	trait = calm
 	trait = just
 	trait = education_stewardship_2
-	2979.12.27 = { birth = yes }
+	2946.5.11 = { birth = yes }
 }
 
-rasen_332 = {
-	name = "Yoshiro"
-	dynasty = dynasty_rasen_arakawa
+rasen_336 = {
+	name = "Hayato"
+	father = rasen_335
+	mother = rasen_82
+	dynasty = dynasty_rasen_ryuuzan
 	religion = wild_pacts
-	culture = oni
+	culture = zenshin
+	trait = paranoid
+	trait = arrogant
+	trait = honest
+	trait = education_stewardship_4
+	2977.1.6 = { birth = yes }
+}
+
+rasen_337 = {
+	name = "Sayuri"
+	father = rasen_335
+	mother = rasen_82
+	dynasty = dynasty_rasen_ryuuzan
+	religion = wild_pacts
+	culture = zenshin
+	female = yes
 	trait = generous
-	trait = callous
-	trait = diligent
+	trait = lazy
+	trait = humble
 	trait = education_diplomacy_3
-	2949.8.23 = { birth = yes }
+	2968.8.23 = { birth = yes }
 }
 
-rasen_333 = {
+rasen_338 = {
 	name = "Emi"
-	father = rasen_332
-	mother = rasen_83
-	dynasty = dynasty_rasen_nakamoto
+	father = rasen_335
+	mother = rasen_82
+	dynasty = dynasty_rasen_ryuuzan
 	religion = wild_pacts
-	culture = oni
+	culture = zenshin
 	female = yes
 	trait = compassionate
 	trait = shy
 	trait = arrogant
 	trait = education_intrigue_4
-	2984.4.17 = { birth = yes }
+	2979.4.17 = { birth = yes }
 }
 
-rasen_334 = {
-	name = "Ryo"
-	father = rasen_332
-	mother = rasen_83
-	dynasty = dynasty_rasen_nakamoto
+rasen_339 = {
+	name = "Shuichi"
+	dynasty = dynasty_rasen_hayashi
 	religion = wild_pacts
 	culture = oni
 	trait = brave
+	trait = compassionate
 	trait = content
-	trait = diligent
-	trait = education_intrigue_3
-	2971.2.9 = { birth = yes }
+	trait = education_stewardship_3
+	2955.5.3 = { birth = yes }
 }
 
-rasen_335 = {
-	name = "Sora"
-	father = rasen_332
+rasen_340 = {
+	name = "Noboru"
+	father = rasen_339
 	mother = rasen_83
-	dynasty = dynasty_rasen_nakamoto
+	dynasty = dynasty_rasen_kanzaki
 	religion = wild_pacts
 	culture = oni
-	trait = shy
-	trait = trusting
 	trait = callous
+	trait = trusting
+	trait = lazy
 	trait = education_intrigue_3
-	2986.8.23 = { birth = yes }
+	2990.8.23 = { birth = yes }
 }
 
-rasen_336 = {
-	name = "Masaru"
-	dynasty = dynasty_rasen_tsukimura
+rasen_341 = {
+	name = "Sakura"
+	dynasty = dynasty_rasen_arakawa
 	religion = wild_pacts
 	culture = yokai
+	female = yes
 	trait = cynical
 	trait = diligent
 	trait = gregarious
 	trait = education_martial_2
-	2977.6.20 = { birth = yes }
+	2954.6.20 = { birth = yes }
 }
 
-rasen_337 = {
+rasen_342 = {
 	name = "Emi"
-	father = rasen_336
-	mother = rasen_84
-	dynasty = dynasty_rasen_matsuda
+	father = rasen_84
+	mother = rasen_341
+	dynasty = dynasty_rasen_ozaki
 	religion = wild_pacts
 	culture = yokai
 	female = yes
@@ -4705,42 +4798,43 @@ rasen_337 = {
 	trait = deceitful
 	trait = paranoid
 	trait = education_stewardship_4
-	2996.5.27 = { birth = yes }
+	2986.5.27 = { birth = yes }
 }
 
-rasen_338 = {
-	name = "Hikari"
-	dynasty = dynasty_rasen_sanada
-	religion = wild_pacts
-	culture = yokai
-	female = yes
-	trait = trusting
-	trait = impatient
-	trait = ambitious
-	trait = education_martial_2
-	2955.3.23 = { birth = yes }
-}
-
-rasen_339 = {
-	name = "Daichi"
-	father = rasen_85
-	mother = rasen_338
+rasen_343 = {
+	name = "Suzume"
+	father = rasen_84
+	mother = rasen_341
 	dynasty = dynasty_rasen_ozaki
 	religion = wild_pacts
 	culture = yokai
-	trait = zealous
-	trait = honest
-	trait = patient
-	trait = education_stewardship_2
-	2994.6.17 = { birth = yes }
+	female = yes
+	trait = ambitious
+	trait = diligent
+	trait = generous
+	trait = education_stewardship_4
+	2983.11.5 = { birth = yes }
 }
 
-rasen_340 = {
-	name = "Natsuki"
-	dynasty = dynasty_rasen_shimizu
+rasen_344 = {
+	name = "Katsu"
+	father = rasen_84
+	mother = rasen_341
+	dynasty = dynasty_rasen_ozaki
 	religion = wild_pacts
 	culture = yokai
-	female = yes
+	trait = honest
+	trait = patient
+	trait = gregarious
+	trait = education_stewardship_2
+	2976.6.17 = { birth = yes }
+}
+
+rasen_345 = {
+	name = "Kaito"
+	dynasty = dynasty_rasen_ishida
+	religion = wild_pacts
+	culture = yokai
 	trait = greedy
 	trait = cynical
 	trait = deceitful
@@ -4748,25 +4842,25 @@ rasen_340 = {
 	2953.2.19 = { birth = yes }
 }
 
-rasen_341 = {
+rasen_346 = {
 	name = "Riku"
-	father = rasen_86
-	mother = rasen_340
-	dynasty = dynasty_rasen_arakawa
+	father = rasen_345
+	mother = rasen_85
+	dynasty = dynasty_rasen_ozaki
 	religion = wild_pacts
 	culture = yokai
 	trait = cynical
 	trait = honest
 	trait = trusting
 	trait = education_martial_3
-	2984.10.5 = { birth = yes }
+	2978.10.5 = { birth = yes }
 }
 
-rasen_342 = {
+rasen_347 = {
 	name = "Umeko"
-	father = rasen_86
-	mother = rasen_340
-	dynasty = dynasty_rasen_arakawa
+	father = rasen_345
+	mother = rasen_85
+	dynasty = dynasty_rasen_ozaki
 	religion = wild_pacts
 	culture = yokai
 	female = yes
@@ -4774,82 +4868,82 @@ rasen_342 = {
 	trait = ambitious
 	trait = cynical
 	trait = education_stewardship_3
-	2975.10.25 = { birth = yes }
+	2978.10.25 = { birth = yes }
 }
 
-rasen_343 = {
-	name = "Masaru"
-	father = rasen_86
-	mother = rasen_340
-	dynasty = dynasty_rasen_arakawa
+rasen_348 = {
+	name = "Akane"
+	dynasty = dynasty_rasen_nakamoto
 	religion = wild_pacts
 	culture = yokai
+	female = yes
 	trait = craven
+	trait = callous
 	trait = patient
-	trait = ambitious
-	trait = education_diplomacy_4
-	2986.11.23 = { birth = yes }
+	trait = education_martial_3
+	2964.12.22 = { birth = yes }
 }
 
-rasen_344 = {
+rasen_349 = {
 	name = "Ichiro"
-	dynasty = dynasty_rasen_hayashi
-	religion = ancestral_rites
-	culture = zenshin
+	father = rasen_86
+	mother = rasen_348
+	dynasty = dynasty_rasen_matsuda
+	religion = wild_pacts
+	culture = yokai
 	trait = content
 	trait = trusting
 	trait = arbitrary
 	trait = education_martial_3
-	2937.3.2 = { birth = yes }
+	2999.3.2 = { birth = yes }
 }
 
-rasen_345 = {
+rasen_350 = {
 	name = "Noriko"
-	father = rasen_344
-	mother = rasen_87
-	dynasty = dynasty_rasen_amatsu
-	religion = ancestral_rites
-	culture = zenshin
+	father = rasen_86
+	mother = rasen_348
+	dynasty = dynasty_rasen_matsuda
+	religion = wild_pacts
+	culture = yokai
 	female = yes
 	trait = honest
 	trait = generous
 	trait = arrogant
 	trait = education_intrigue_3
-	2972.6.18 = { birth = yes }
+	2987.6.18 = { birth = yes }
 }
 
-rasen_346 = {
-	name = "Tomoya"
-	dynasty = dynasty_rasen_arakawa
-	religion = ancestral_rites
-	culture = zenshin
-	trait = lazy
-	trait = brave
-	trait = greedy
-	trait = education_martial_2
-	2978.8.26 = { birth = yes }
+rasen_351 = {
+	name = "Haruto"
+	father = rasen_86
+	mother = rasen_348
+	dynasty = dynasty_rasen_matsuda
+	religion = wild_pacts
+	culture = yokai
+	trait = generous
+	trait = cynical
+	trait = humble
+	trait = education_martial_3
+	2985.5.3 = { birth = yes }
 }
 
-rasen_347 = {
-	name = "Fuyu"
-	father = rasen_346
-	mother = rasen_88
-	dynasty = dynasty_rasen_shimizu
+rasen_352 = {
+	name = "Jiro"
+	dynasty = dynasty_rasen_sanada
 	religion = ancestral_rites
 	culture = zenshin
-	female = yes
 	trait = cynical
 	trait = just
 	trait = trusting
 	trait = education_stewardship_3
-	2998.7.5 = { birth = yes }
+	2943.7.5 = { birth = yes }
 }
 
-rasen_348 = {
+rasen_353 = {
 	name = "Kaede"
-	father = rasen_346
-	mother = rasen_88
-	dynasty = dynasty_rasen_shimizu
+	father = rasen_352
+	mother = rasen_87
+	dynasty = dynasty_rasen_amatsu
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
@@ -4857,26 +4951,26 @@ rasen_348 = {
 	trait = zealous
 	trait = arbitrary
 	trait = education_learning_4
-	2998.7.5 = { birth = yes }
+	2978.7.5 = { birth = yes }
 }
 
-rasen_349 = {
+rasen_354 = {
 	name = "Masaru"
-	father = rasen_346
-	mother = rasen_88
-	dynasty = dynasty_rasen_shimizu
+	father = rasen_352
+	mother = rasen_87
+	dynasty = dynasty_rasen_amatsu
 	religion = ancestral_rites
 	culture = zenshin
 	trait = lazy
 	trait = wrathful
 	trait = humble
 	trait = education_diplomacy_2
-	2999.1.12 = { birth = yes }
+	2979.1.12 = { birth = yes }
 }
 
-rasen_350 = {
+rasen_355 = {
 	name = "Kaede"
-	dynasty = dynasty_rasen_sanada
+	dynasty = dynasty_rasen_hoshino
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
@@ -4884,111 +4978,110 @@ rasen_350 = {
 	trait = gregarious
 	trait = lazy
 	trait = education_intrigue_4
-	2955.4.24 = { birth = yes }
+	2947.4.24 = { birth = yes }
 }
 
-rasen_351 = {
+rasen_356 = {
 	name = "Tomoya"
-	father = rasen_89
-	mother = rasen_350
-	dynasty = dynasty_rasen_matsuda
+	father = rasen_88
+	mother = rasen_355
+	dynasty = dynasty_rasen_kurosawa
 	religion = ancestral_rites
 	culture = zenshin
 	trait = compassionate
 	trait = content
 	trait = patient
 	trait = education_stewardship_3
-	2981.8.27 = { birth = yes }
+	2984.8.27 = { birth = yes }
 }
 
-rasen_352 = {
+rasen_357 = {
 	name = "Haruto"
-	father = rasen_89
-	mother = rasen_350
-	dynasty = dynasty_rasen_matsuda
+	father = rasen_88
+	mother = rasen_355
+	dynasty = dynasty_rasen_kurosawa
 	religion = ancestral_rites
 	culture = zenshin
 	trait = patient
 	trait = greedy
 	trait = trusting
 	trait = education_learning_2
-	2994.7.12 = { birth = yes }
+	2986.7.12 = { birth = yes }
 }
 
-rasen_353 = {
-	name = "Yasuo"
-	father = rasen_89
-	mother = rasen_350
-	dynasty = dynasty_rasen_matsuda
+rasen_358 = {
+	name = "Tadashi"
+	dynasty = dynasty_rasen_fujiwara
 	religion = ancestral_rites
 	culture = zenshin
+	trait = generous
 	trait = honest
 	trait = arrogant
-	trait = lazy
-	trait = education_diplomacy_4
-	2978.4.15 = { birth = yes }
+	trait = education_intrigue_3
+	2971.12.8 = { birth = yes }
 }
 
-rasen_354 = {
-	name = "Mei"
-	dynasty = dynasty_rasen_tsukimura
+rasen_359 = {
+	name = "Hideo"
+	father = rasen_358
+	mother = rasen_89
+	dynasty = dynasty_rasen_fujiwara
 	religion = ancestral_rites
 	culture = zenshin
-	female = yes
-	trait = arrogant
 	trait = calm
 	trait = cynical
-	trait = education_diplomacy_4
-	2952.4.27 = { birth = yes }
+	trait = paranoid
+	trait = education_stewardship_2
+	2999.1.4 = { birth = yes }
 }
 
-rasen_355 = {
-	name = "Misuka"
-	father = rasen_90
-	mother = rasen_354
-	dynasty = dynasty_rasen_okami
+rasen_360 = {
+	name = "Hideo"
+	father = rasen_358
+	mother = rasen_89
+	dynasty = dynasty_rasen_fujiwara
 	religion = ancestral_rites
 	culture = zenshin
-	female = yes
-	trait = wrathful
 	trait = greedy
-	trait = arrogant
-	trait = education_martial_2
-	2985.10.1 = { birth = yes }
+	trait = humble
+	trait = ambitious
+	trait = education_learning_2
+	2999.5.1 = { birth = yes }
 }
 
-rasen_356 = {
-	name = "Kaede"
-	father = rasen_90
-	mother = rasen_354
-	dynasty = dynasty_rasen_okami
+rasen_361 = {
+	name = "Kana"
+	father = rasen_358
+	mother = rasen_89
+	dynasty = dynasty_rasen_fujiwara
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
-	trait = ambitious
 	trait = zealous
+	trait = trusting
 	trait = just
 	trait = education_martial_3
-	2975.8.4 = { birth = yes }
+	2998.8.4 = { birth = yes }
 }
 
-rasen_357 = {
-	name = "Jiro"
-	dynasty = dynasty_rasen_hoshino
+rasen_362 = {
+	name = "Fuyu"
+	dynasty = dynasty_rasen_takeda
 	religion = ancestral_rites
 	culture = zenshin
+	female = yes
 	trait = generous
 	trait = craven
 	trait = trusting
 	trait = education_stewardship_2
-	2946.7.15 = { birth = yes }
+	2959.7.15 = { birth = yes }
 }
 
-rasen_358 = {
+rasen_363 = {
 	name = "Yoko"
-	father = rasen_357
-	mother = rasen_91
-	dynasty = dynasty_rasen_sanada
+	father = rasen_90
+	mother = rasen_362
+	dynasty = dynasty_rasen_takeda
 	religion = ancestral_rites
 	culture = zenshin
 	female = yes
@@ -4996,32 +5089,117 @@ rasen_358 = {
 	trait = just
 	trait = zealous
 	trait = education_stewardship_2
-	2978.10.13 = { birth = yes }
+	2990.10.13 = { birth = yes }
 }
 
-rasen_359 = {
-	name = "Hikari"
-	dynasty = dynasty_rasen_fujiwara
+rasen_364 = {
+	name = "Isamu"
+	father = rasen_90
+	mother = rasen_362
+	dynasty = dynasty_rasen_takeda
 	religion = ancestral_rites
 	culture = zenshin
-	female = yes
 	trait = generous
 	trait = arbitrary
 	trait = gregarious
 	trait = education_stewardship_3
-	2965.5.12 = { birth = yes }
+	2995.5.12 = { birth = yes }
 }
 
-rasen_360 = {
-	name = "Raiden"
+rasen_365 = {
+	name = "Long"
+	dynasty = dynasty_rasen_xuan
+	religion = ancestral_rites
+	culture = cathayan
+	trait = brave
+	trait = humble
+	trait = deceitful
+	trait = education_martial_3
+	2946.11.23 = { birth = yes }
+}
+
+rasen_366 = {
+	name = "Mei"
+	father = rasen_365
+	mother = rasen_91
+	dynasty = dynasty_rasen_bai
+	religion = ancestral_rites
+	culture = cathayan
+	female = yes
+	trait = arbitrary
+	trait = diligent
+	trait = impatient
+	trait = education_diplomacy_2
+	2977.6.4 = { birth = yes }
+}
+
+rasen_367 = {
+	name = "Ling"
+	father = rasen_365
+	mother = rasen_91
+	dynasty = dynasty_rasen_bai
+	religion = ancestral_rites
+	culture = cathayan
+	female = yes
+	trait = impatient
+	trait = calm
+	trait = brave
+	trait = education_intrigue_4
+	2978.10.5 = { birth = yes }
+}
+
+rasen_368 = {
+	name = "Sayuri"
+	dynasty = dynasty_rasen_kurosawa
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = compassionate
+	trait = cynical
+	trait = arbitrary
+	trait = education_diplomacy_2
+	2964.6.16 = { birth = yes }
+}
+
+rasen_369 = {
+	name = "Masaru"
 	father = rasen_92
-	mother = rasen_359
+	mother = rasen_368
 	dynasty = dynasty_rasen_tsukimura
 	religion = ancestral_rites
 	culture = zenshin
-	trait = honest
-	trait = craven
+	trait = shy
+	trait = just
 	trait = patient
-	trait = education_intrigue_4
-	2999.12.10 = { birth = yes }
+	trait = education_diplomacy_3
+	2995.10.1 = { birth = yes }
+}
+
+rasen_370 = {
+	name = "Yuki"
+	father = rasen_92
+	mother = rasen_368
+	dynasty = dynasty_rasen_tsukimura
+	religion = ancestral_rites
+	culture = zenshin
+	female = yes
+	trait = callous
+	trait = shy
+	trait = diligent
+	trait = education_learning_2
+	2992.1.5 = { birth = yes }
+}
+
+rasen_371 = {
+	name = "Katsu"
+	father = rasen_92
+	mother = rasen_368
+	dynasty = dynasty_rasen_tsukimura
+	religion = ancestral_rites
+	culture = zenshin
+	trait = patient
+	trait = just
+	trait = shy
+	trait = education_learning_3
+	2991.1.23 = { birth = yes }
 }

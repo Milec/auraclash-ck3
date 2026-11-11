@@ -5,6 +5,13 @@
 	female_names = { Sakura Misuka Rin Aiko Hana Yuki Mei Haruka Kaede Natsuki Ayame Chiyo Emi Fuyu Hikari Izumi Kana Mariko Nanami Reiko Sayuri Tomoe Yoko Akane Asuka Kiyomi Midori Noriko Shizuka Umeko Amane Kasumi Ran Suzume }
 }
 
+name_list_lunargoth = {
+	cadet_dynasty_names = { "Amaling" "Balthing" "Frostmark" "Hrothing" "Wintermantle" "Icewarden" "Northvale" "Greycloak" }
+	dynasty_names = { "Amaling" "Balthing" "Frostmark" "Hrothing" "Wintermantle" "Icewarden" "Northvale" "Greycloak" }
+	male_names = { Rufus Alaric Theodoric Gunther Ulfric Wulfgar Ansgar Hildebrand Roderic Athanaric Fritigern Gaiseric Odvar Sigeric Thrasamund Brannoc }
+	female_names = { Brunhild Amalasuntha Gisela Hilda Ingunde Matasuntha Ragnhild Sigrun Theodelinda Ulfhild Wiliburga }
+}
+
 name_list_cathayan = {
 	cadet_dynasty_names = { "Lan" "Dou" "Bai" "Zhou" "Su" "Hou" "Long" "Xuan" "Ming" "Jin" "Luo" "Yao" }
 	dynasty_names = { "Lan" "Dou" "Bai" "Zhou" "Su" "Hou" "Long" "Xuan" "Ming" "Jin" "Luo" "Yao" }

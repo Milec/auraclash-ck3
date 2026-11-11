@@ -14,7 +14,7 @@ import random
 import re
 from pathlib import Path
 
-from rasen_world_data import (BOOKMARK, INNOVATIONS, MORTAL_LIMIT_BONUS, CANON_HOLDERS, CULTURES, EXALTS, FAITHS, HOLY_SITES,
+from rasen_world_data import (BOOKMARK, DIVINE_GENERAL, INNOVATIONS, MORTAL_LIMIT_BONUS, CANON_HOLDERS, CULTURES, EXALTS, FAITHS, HOLY_SITES,
                               NAME_LISTS, RELIGIONS, REGION_PEOPLES, RELIGION_LOC_KEYS, START, TRAIT_GROUPS)
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -306,6 +306,12 @@ def history_files(kingdoms):
             if king and di == 0:
                 duke = king
                 culture, faith = EXALTS[region]['culture'], EXALTS[region]['faith']
+            elif region == 'outer_north' and di == 0:
+                g = DIVINE_GENERAL
+                culture, faith = g['culture'], g['faith']
+                duke = people.person(culture, faith, name=g['name'], dynasty=people.dynasty(g['house'], culture), age=g['age'],
+                                     cultivator=3, traits=g['traits'] + ('rasen_divine_general',),
+                                     effects=('add_trait = ac_immortal_core',))
             elif canon:
                 duke = people.person(canon.get('culture', culture), canon.get('faith', faith), name=canon['name'],
                                      dynasty=people.dynasty(canon['house'], canon.get('culture', culture)),

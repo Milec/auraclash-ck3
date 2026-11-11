@@ -6,6 +6,10 @@ heritage_kitsune = {
 	type = heritage
 }
 
+heritage_lunargoth = {
+	type = heritage
+}
+
 heritage_oni = {
 	type = heritage
 }
@@ -26,4 +30,9 @@ language_zenshin = {
 language_cathayan = {
 	type = language
 	color = { 210 160 60 }
+}
+
+language_lunargoth = {
+	type = language
+	color = { 170 190 220 }
 }

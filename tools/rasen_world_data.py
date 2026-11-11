@@ -48,6 +48,11 @@ CULTURES = {
                   heritage='heritage_yokai', heritage_name='Yokai', language='language_zenshin', language_name='Zenshin',
                   ethos='ethos_bellicose', martial_custom='martial_custom_equal', name_list='name_list_zenshin', ethnicity='asian',
                   traditions=['tradition_forest_folk', 'tradition_hit_and_run', 'tradition_warrior_culture'], **STEPPE_GFX),
+    'lunargoth': dict(name='Lunargoth', prefix='Luna', plural='Lunargoths', colour=(170, 190, 220),
+                      desc='Fair-haired northerners of Outer North who fill the Northern Army. They answer to the Divine General, call him Emperor of all ten Provinces, and treat boons and debts as cowardice.',
+                      heritage='heritage_lunargoth', heritage_name='Lunargoth', language='language_lunargoth', language_name='Lunargothic',
+                      ethos='ethos_stoic', martial_custom='martial_custom_equal', name_list='name_list_lunargoth', ethnicity='caucasian',
+                      traditions=['tradition_stalwart_defenders', 'tradition_warrior_culture', 'tradition_mountain_homes'], **STEPPE_GFX),
     'kitsune': dict(name='Kitsune', prefix='Kitsune', plural='Kitsune', colour=(220, 120, 40),
                     desc='The rarest people of Rasen: part beast, part spirit, part human. Many sects treat Kitsune as trickster spirits rather than a race.',
                     heritage='heritage_kitsune', heritage_name='Kitsune', language='language_zenshin', language_name='Zenshin',
@@ -66,6 +71,12 @@ NAME_LISTS = {
                 'Noriko', 'Shizuka', 'Umeko', 'Amane', 'Kasumi', 'Ran', 'Suzume'],
         dynasties=['Ryuuzan', 'Ozaki', 'Nakamoto', 'Takeda', 'Kurosawa', 'Hoshino', 'Ishida', 'Kiba', 'Fujiwara', 'Arakawa', 'Shimizu',
                    'Kagemori', 'Amatsu', 'Tsukimura', 'Hayashi', 'Matsuda', 'Okami', 'Sanada', 'Yamabe', 'Inoue', 'Mizuhara', 'Kanzaki']),
+    'name_list_lunargoth': dict(
+        label='Lunargoth',
+        male=['Rufus', 'Alaric', 'Theodoric', 'Gunther', 'Ulfric', 'Wulfgar', 'Ansgar', 'Hildebrand', 'Roderic', 'Athanaric', 'Fritigern',
+              'Gaiseric', 'Odvar', 'Sigeric', 'Thrasamund', 'Brannoc'],
+        female=['Brunhild', 'Amalasuntha', 'Gisela', 'Hilda', 'Ingunde', 'Matasuntha', 'Ragnhild', 'Sigrun', 'Theodelinda', 'Ulfhild', 'Wiliburga'],
+        dynasties=['Amaling', 'Balthing', 'Frostmark', 'Hrothing', 'Wintermantle', 'Icewarden', 'Northvale', 'Greycloak']),
     'name_list_cathayan': dict(
         label='Cathayan',
         male=['Wenyao', 'Taio', 'Chu', 'Bo', 'Wei', 'Jian', 'Liang', 'Hao', 'Zhen', 'Ming', 'Rui', 'Feng', 'Guang', 'Yong', 'Kun', 'Lei',
@@ -186,7 +197,7 @@ HOLY_SITES = {
 # Peoples by region: culture and faith weights per duchy.
 REGION_PEOPLES = {
     'outer_west': dict(cultures={'zenshin': 8, 'oni': 1, 'cathayan': 1}, faiths={'ancestral_rites': 7, 'devanic_temple': 3}),
-    'outer_north': dict(cultures={'zenshin': 8, 'oni': 2}, faiths={'shugendo': 6, 'ancestral_rites': 4}),
+    'outer_north': dict(cultures={'lunargoth': 6, 'zenshin': 3, 'oni': 1}, faiths={'shugendo': 6, 'ancestral_rites': 4}),
     'outer_east': dict(cultures={'zenshin': 6, 'oni': 3, 'kitsune': 1}, faiths={'ancestral_rites': 8, 'devanic_temple': 2}),
     'outer_south': dict(cultures={'zenshin': 7, 'cathayan': 3}, faiths={'ancestral_rites': 8, 'devanic_temple': 2}),
     'sacred': dict(cultures={'cathayan': 5, 'zenshin': 5}, faiths={'devanic_temple': 8, 'shugendo': 2}),
@@ -233,3 +244,8 @@ INNOVATIONS = ['innovation_motte', 'innovation_catapult', 'innovation_barracks',
                'innovation_bannus', 'innovation_development_01', 'innovation_currency_01', 'innovation_gavelkind',
                'innovation_crop_rotation', 'innovation_city_planning', 'innovation_casus_belli', 'innovation_ledger',
                'innovation_manorialism']
+
+# The Divine General of the North: supreme commander of the Northern Army, who calls himself
+# Emperor of all ten Provinces; the Council calls him its northern steward. (Name generated.)
+DIVINE_GENERAL = dict(name='Theodoric', house='Wintermantle', culture='lunargoth', faith='shugendo', age=64,
+                      traits=('brave', 'diligent'))

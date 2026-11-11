@@ -58,6 +58,21 @@ yokai = {
 	ethnicities = { 10 = asian }
 }
 
+lunargoth = {
+	color = { 170 190 220 }
+	ethos = ethos_stoic
+	heritage = heritage_lunargoth
+	language = language_lunargoth
+	martial_custom = martial_custom_equal
+	traditions = { tradition_stalwart_defenders tradition_warrior_culture tradition_mountain_homes }
+	name_list = name_list_lunargoth
+	coa_gfx = { mongol_coa_gfx steppe_coa_gfx }
+	building_gfx = { steppe_building_gfx }
+	clothing_gfx = { mongol_clothing_gfx }
+	unit_gfx = { mongol_unit_gfx }
+	ethnicities = { 10 = caucasian }
+}
+
 kitsune = {
 	color = { 220 120 40 }
 	ethos = ethos_courtly
