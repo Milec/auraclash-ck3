@@ -47,11 +47,10 @@ class AuraTests(unittest.TestCase):
         self.assertLess(effect.index('change_variable = { name = ac_allocated_ap'), effect.index('add = -100'))
 
     def test_mortal_limit_halves_then_quarters(self):
-        gain = block(self.values, 'ac_ap_gain_multiplier')
-        self.assertIn('multiply = 1.5', gain)
-        self.assertIn('multiply = 0.25', gain)
-        self.assertIn('multiply = 0.5', gain)
-        self.assertLess(gain.index('multiply = 0.25'), gain.index('multiply = 0.5'))
+        factor = block(self.values, 'ac_mortal_limit_factor')
+        self.assertIn('multiply = 1.5', factor)
+        self.assertLess(factor.index('value = 0.25'), factor.index('value = 0.5'))
+        self.assertIn('multiply = ac_mortal_limit_factor', block(self.values, 'ac_ap_gain_multiplier'))
         self.assertIn('ac_mortal_limit = { value = ac_mortal_limit_base add = ac_mortal_limit_region_bonus }', self.values)
 
     def test_mortal_training_stops_at_eight_mortal_cores(self):

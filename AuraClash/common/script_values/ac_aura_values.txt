@@ -131,18 +131,24 @@ ac_free_ap = { value = ac_aura_pressure_value subtract = ac_allocated_ap_value m
 # Personal limit from Potential, plus the natural aura of the region (0 on the vanilla map).
 ac_mortal_limit = { value = ac_mortal_limit_base add = ac_mortal_limit_region_bonus }
 
-# Talent speeds growth; the Mortal Limit throttles it (halved above, quartered above 1.5x).
-ac_ap_gain_multiplier = {
-	value = ac_potential_talent_xp_factor
-	add = ac_conduct_ap_harmony
+# The Mortal Limit throttles growth: halved above it, quartered above 1.5x.
+ac_mortal_limit_factor = {
+	value = 1
 	if = {
 		limit = { ac_aura_pressure_value >= { value = ac_mortal_limit multiply = 1.5 } }
-		multiply = 0.25
+		value = 0.25
 	}
 	else_if = {
 		limit = { ac_aura_pressure_value >= ac_mortal_limit }
-		multiply = 0.5
+		value = 0.5
 	}
+}
+
+# Talent and conduct harmony speed growth; the Mortal Limit throttles it.
+ac_ap_gain_multiplier = {
+	value = ac_potential_talent_xp_factor
+	add = ac_conduct_ap_harmony
+	multiply = ac_mortal_limit_factor
 }
 ac_ap_pending_gain = {
 	value = 0

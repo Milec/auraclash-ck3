@@ -228,6 +228,11 @@ ac_ai_aura_routine_effect = {
 		ac_learn_random_technique_effect = yes
 	}
 	ac_ai_focus_techniques_effect = yes
+	# Soul Treasures: the strong hunt Spirit Beasts once a year.
+	if = {
+		limit = { is_imprisoned = no NOT = { has_trait = incapable } health >= 3 }
+		random = { chance = 40 ac_ai_hunt_spirit_beast_effect = yes }
+	}
 	if = {
 		limit = { ac_can_mortal_train_trigger = yes }
 		random_list = {

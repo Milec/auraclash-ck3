@@ -78,6 +78,19 @@ Use **Decisions → Cultivation → Consult the Sect Register** for membership, 
 
 The estate is a native CK3 domicile attached to a separate landless Sect Master title, with an original Chinese-inspired landscape and six building chains. It passes with sect leadership while rulers keep their lands, government and personal estate. The sect register opens illustrated building plots and sect-aware controls for the native construction queue; the vanilla editor assumes a ruler's personal domicile. Sect battles resolve as group clashes; they do not use ordinary single combat or conquer territory.
 
+### Soul Treasures
+As in Aura Clash, a slain chi-saturated beast leaves a **Soul Treasure** holding its Aura Pressure.
+- **Hunt a Spirit Beast** (yearly decision): Sabretooth (600 AP), Quadrafang (900), Mawcharger (1,300), Shakengara (1,800), Drake (2,200) or Wyrm (3,000).
+  - Success chance: 30% + 3% per Power and Agility rating, ±1% per 40 AP difference from the beast, between 5% and 95%.
+  - Victory yields the treasure, 8 Aura Pressure, Power progress and prestige. Defeat leaves you wounded.
+  - The Drake's 2,200 AP is stated in the IF; the other beasts' AP values are estimates.
+- **Buy a Fishbone Soul Treasure:** 75 gold, 300 AP, once a year. The game sells it for 75 Shards.
+- **Refine a Soul Treasure** into an Advancement Elixir:
+  - Formula: 11% of (treasure AP − your AP), clamped between 10 + 3 × Alchemy and 100. Alchemy is the number of Alchemy perks.
+  - Mortal Limits apply, except with 4+ Alchemy perks; Talent does not apply.
+  - You hold up to three treasures; extras are sold for a tenth of their AP in gold.
+- **AI cultivators** hunt beasts they can probably beat and refine their treasures.
+
 ### Honor and Ruthless
 As in Aura Clash, every cultivator has **Honor** and **Ruthless**, two 0–100 scales that start at 50.
 - **Starting values** are seeded once from personality: honest, just and brave raise Honor; deceitful, arbitrary and craven lower it; callous, sadistic, wrathful and vengeful raise Ruthless; compassionate and forgiving lower it.
