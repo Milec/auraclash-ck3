@@ -118,6 +118,22 @@ As in Aura Clash, every cultivator has **Honor** and **Ruthless**, two 0–100 s
 
 The Mortal Core Training menu shows both values.
 
+### Clash of Auras (duels)
+**Challenge to a Clash** (a hostile interaction, optionally to the death) starts a turn-based duel. It is inspired by Princes of Darkness's turn-based combat and built on the IF's own fights, where every exchange goes through a Core.
+- **Vitality** is 3 + the Fortitude rating. A duel lasts up to 8 rounds.
+- **Moves.** Each round both fighters pick one, and the moves counter each other in a cycle:
+  - **Power Strike** beats Iron Guard.
+  - **Iron Guard** (Fortitude) beats Chi Blast. It takes 1 less damage, and when it wins it restores 1 Vitality instead of striking.
+  - **Flash Step** (Agility) beats Power Strike.
+  - **Chi Blast** (Soul) beats Flash Step. It costs 1 Chi and rolls +1.
+- **The roll** is 2 x the Core's rating, + Prowess / 4, + that Core's known Techniques (up to 3), + d6. Countering the foe's move adds +2, and Aura Pressure suppression (at least double the foe's) adds +2.
+- **Surge my Cores** adds the Core's Surge value and hits 1 harder, spending a real Core charge.
+- **Damage:** the higher roll deals 1, +1 on a margin of 5 or more.
+- **Controls:** the round log shows both rolls and the foe's move. You can also auto-resolve or yield.
+- **AI:** AI-versus-AI duels resolve instantly with the same rules, and AI cultivators challenge their rivals.
+- **Outcome:** the loser is wounded, or killed in a duel to the death. The winner gains prestige and Power progress.
+- Vanilla duels and tournament contests are unchanged.
+
 ### Techniques, Focus and the Chi Pool
 This follows the Aura Clash game's technique menu.
 - **Techniques** are typed by Core: Power, Fortitude, Agility or Soul. A cultivator can know up to **25**. The mod includes 34 of the IF's Techniques with their original names and effects, such as Cleave, Hidden Dragon, Spiritwell, Palm of Endless Beating, Sacred Armor, Iaijutsu, Wavewalking, Zen Focus, Prayer Talisman and Tenebrous Rift. Some require a Style or Element, for example Inferno (Fire), Iaijutsu (Akakiru) and Combat Seals (Kiihakai).
