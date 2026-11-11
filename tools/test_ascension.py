@@ -53,7 +53,7 @@ class AscensionTests(unittest.TestCase):
         values = read('common/script_values/ac_ascension_values.txt')
         self.assertIn('ac_ascension_max_age = 24', values)
         trigger = read('common/scripted_triggers/ac_ascension_triggers.txt')
-        self.assertIn('exists = dynasty', trigger)
+        self.assertIn('ac_warrior_caste_or_above_trigger = yes', trigger)
         for land in ('bladed', 'sacred', 'mystic', 'cursed', 'wild'):
             self.assertIn(f'ac_favor_impress_effect = {{ LAND = {land} }}', self.events)
             self.assertRegex(self.loc, rf'(?m)^ ac_favor_{land}_up_tt:0 "')

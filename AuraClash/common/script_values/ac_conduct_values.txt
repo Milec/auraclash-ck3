@@ -12,6 +12,8 @@ ac_conduct_ap_harmony = {
 	if = { limit = { has_trait = ac_style_midorikatai prowess >= 20 } add = 0.1 }
 	if = { limit = { has_trait = ac_element_light ac_ruthless_value <= 35 } add = 0.05 }
 	if = { limit = { has_trait = ac_element_fire ac_ruthless_value >= 75 } add = 0.05 }
+	# The Warrior and Noble Castes "claim the land's natural aura".
+	if = { limit = { ac_warrior_caste_or_above_trigger = yes } add = 0.1 }
 	# Race (IF): Humans are made for cycling chi; Yokai take to Midorikatai; Oni to Ice and Fire.
 	if = { limit = { has_trait = ac_race_human } add = 0.1 }
 	if = { limit = { ac_is_yokai_trigger = yes has_trait = ac_style_midorikatai } add = 0.1 }

@@ -1,0 +1,37 @@
+﻿# Castes of Imperial Rasen (Aura Clash). A Clan is a dynasty: "Caste documents require a
+# Clan entry for Merchant Caste and above"; the lowborn are Clanless Laborers.
+ac_caste_noble_trigger = {
+	exists = dynasty
+	OR = {
+		is_landed = yes
+		father ?= { is_landed = yes dynasty = prev.dynasty }
+		mother ?= { is_landed = yes dynasty = prev.dynasty }
+		any_spouse = { is_landed = yes }
+	}
+}
+ac_caste_warrior_trigger = {
+	NOT = { ac_caste_noble_trigger = yes }
+	OR = {
+		has_character_flag = ac_elevated_warrior_caste
+		AND = {
+			exists = dynasty
+			OR = { has_trait = ac_cultivator prowess >= 12 }
+		}
+	}
+}
+ac_caste_merchant_trigger = {
+	exists = dynasty
+	NOT = { ac_caste_noble_trigger = yes }
+	NOT = { ac_caste_warrior_trigger = yes }
+}
+ac_caste_laborer_trigger = {
+	NOT = { exists = dynasty }
+	NOT = { has_character_flag = ac_elevated_warrior_caste }
+}
+# "Those under 25 from among the Warrior Caste" (and the Nobles above them).
+ac_warrior_caste_or_above_trigger = {
+	OR = {
+		ac_caste_noble_trigger = yes
+		ac_caste_warrior_trigger = yes
+	}
+}

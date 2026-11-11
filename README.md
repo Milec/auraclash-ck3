@@ -78,6 +78,15 @@ Use **Decisions → Cultivation → Consult the Sect Register** for membership, 
 
 The estate is a native CK3 domicile attached to a separate landless Sect Master title, with an original Chinese-inspired landscape and six building chains. It passes with sect leadership while rulers keep their lands, government and personal estate. The sect register opens illustrated building plots and sect-aware controls for the native construction queue; the vanilla editor assumes a ruler's personal domicile. Sect battles resolve as group clashes; they do not use ordinary single combat or conquer territory.
 
+### Castes
+Imperial Rasen's castes, from the IF, follow a character's Clan (a dynasty). "Caste documents require a Clan entry for Merchant Caste and above"; the lowborn are Clanless.
+- **Noble Caste:** a landed ruler of a Clan, or their parent or spouse.
+- **Warrior Caste:** a Clan member who is a cultivator or a strong fighter (prowess 12+). Any landed ruler can **Elevate to the Warrior Caste** a Clanless cultivator courtier or vassal and their children (100 prestige), as Magistrate Khan does in the IF.
+- **Merchant Caste:** other Clan members.
+- **Laborer Caste:** the Clanless.
+
+The Warrior and Noble Castes "claim the land's natural aura" (+10% Aura Pressure gains), and only they may enter the Heavenly Ascension Trials. The caste is shown in the Mortal Core Training menu.
+
 ### Races
 The IF's races, each with its racial bonus. A character has exactly one race, inherited from a parent at birth. Races only appear where characters are given one, as in the Imperial Rasen overhaul, which assigns them by culture.
 - **Human:** Lore (+1 Learning). "The Human body is designed perfectly for cycling chi", so Aura Pressure gains +10%.
@@ -128,7 +137,7 @@ This follows the Aura Clash game's technique menu.
 
 ### Heavenly Ascension Trials and the Archonate
 This follows the Aura Clash game. The Exalted Council drafts young martial artists to replenish the Archons, holding the **Heavenly Ascension Trials** in the Outer West town of **Nanhou**. They're held every 10 years, first after 3; the IF's 30-year gap is shortened for play.
-- **The draft:** cultivators **under 25 of the Warrior Caste** (a character with a dynasty, since the lowborn are Clanless) receive the Imperial draft letter, with 25 gold. Ignoring it costs 100 prestige.
+- **The draft:** cultivators **under 25 of the Warrior Caste** or above (see Castes) receive the Imperial draft letter, with 25 gold. Ignoring it costs 100 prestige.
 - **Three zodiac Trials**, each scored **0–7** by the Imperial clerks. A score of 5 is a pass, and no one is disqualified until all three are complete:
   1. **Tiger Trial**, strength: march weighted plates to the arena wall. The base score is (Power + Fortitude Core ratings) / 2 + 1. Choose a grip (back or legs, favouring Fortitude or Power), strap on all twenty plates, help a fallen contestant, or push your Power Core to the limit.
   2. **Rabbit Trial**, speed and evasion, "about being prey". The base score is (2 × Agility + Soul) / 3 + 1. Outrun everyone, find an escape route, crash through attacks, hold back a stronger attacker, trip your neighbours, or push your Agility Core to the limit.

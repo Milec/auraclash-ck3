@@ -1,0 +1,35 @@
+﻿# "As Magistrate, I hereby elevate you, and your family under you, into the Warrior Caste."
+ac_elevate_warrior_caste_interaction = {
+	category = interaction_category_friendly
+	common_interaction = no
+	icon = martial
+	desc = ac_elevate_warrior_caste_interaction_desc
+	auto_accept = yes
+
+	is_shown = {
+		NOT = { scope:actor = scope:recipient }
+		scope:actor = { is_landed = yes }
+		scope:recipient = {
+			has_trait = ac_cultivator
+			NOT = { ac_warrior_caste_or_above_trigger = yes }
+		}
+	}
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			OR = {
+				is_courtier_of = scope:actor
+				is_vassal_of = scope:actor
+			}
+		}
+	}
+	cost = { prestige = 100 }
+	on_accept = {
+		scope:recipient = {
+			add_character_flag = ac_elevated_warrior_caste
+			every_child = { add_character_flag = ac_elevated_warrior_caste }
+			add_opinion = { target = scope:actor modifier = grateful_opinion opinion = 30 }
+		}
+	}
+	ai_frequency = 0
+	ai_will_do = { base = 0 }
+}
