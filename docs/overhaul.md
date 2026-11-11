@@ -61,7 +61,9 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
 
    Still needs the CK3 install:
    - **Bake the heightmap.** CK3 reads a packed `heightmap.heightmap`, `packed_heightmap.png` and `indirection_heightmap.png`. Generate them from `heightmap.png` with the game's map tooling.
-   - **Painted rivers**, terrain detail masks under `gfx/map/terrain/`, flatmap and water.
+   - **Painted rivers** and water.
+
+   **Ground textures** (`python tools/build_rasen_terrain.py`, generated from the province map and terrain): `gfx/map/terrain/detail_index.tga` and `detail_intensity.tga` give every province the vanilla material of its terrain (snow on the highest mountain ground, soft blends at borders), `colormap.dds` tints it, and `flat_maps/flatmap.dds` is the source painting for the zoomed-out paper map. The game loads them without errors; how they look in-game has not been checked by a person (the index maps are run-length-encoded TGA, which vanilla's are not).
    - **Map object locators** (cities, units, combat) from the in-game map editor.
    - `map_data` is no longer replaced wholesale, so vanilla `seasons.txt` and `continent.txt` remain available to `default.map`.
 3. **Peoples and faiths (done, generated).** `tools/build_rasen_world.py`, with its data in `tools/rasen_world_data.py`:
