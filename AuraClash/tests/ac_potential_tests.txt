@@ -64,10 +64,19 @@ effect = { create_character = { age = 60 gender = male random_traits = no cultur
 assert = { scope:ac_test_sect_master = { has_trait = ac_immortal_core ac_core_dots >= 48 ac_immortal_core_count >= 40 ac_mortal_core_count = 8 ac_aura_pressure_value = { value = ac_core_dots multiply = 100 } ac_free_ap = 0 has_trait_xp = { trait = ac_immortal_core track = ac_immortal_cores value >= 40 } } }
 effect = { create_character = { age = 30 gender = female random_traits = no culture = root.culture faith = root.faith employer = root trait = ac_cultivator save_scope_as = ac_test_upper } scope:ac_test_upper = { ac_develop_upper_effect = yes } }
 assert = { scope:ac_test_upper = { has_trait = ac_immortal_core ac_immortal_core_count >= 16 ac_immortal_core_count <= 32 } }
+effect = { scope:ac_test_student = { ac_learn_tech_cleave_effect = yes ac_learn_tech_spiritwell_effect = yes } }
+assert = { scope:ac_test_student = { has_character_flag = ac_tech_cleave ac_known_technique_count = 2 has_character_modifier = ac_tech_cleave_modifier ac_can_learn_tech_apex_hunter_trigger = no ac_core_power_surge_value = 2 } }
+effect = { scope:ac_test_student = { ac_focus_tech_cleave_effect = yes } }
+assert = { scope:ac_test_student = { ac_core_power_surge_value = 3 } }
+effect = { scope:ac_test_student = { ac_focus_tech_spiritwell_effect = yes } }
+assert = { scope:ac_test_student = { var:ac_focus_power = flag:spiritwell ac_core_power_surge_value = 3 } }
+effect = { scope:ac_test_student = { ac_restore_cores_effect = yes set_variable = { name = ac_test_chi value = ac_chi_available } ac_event_exertion_effect = yes } }
+assert = { scope:ac_test_student = { ac_chi_available = { value = var:ac_test_chi subtract = 1 } NOT = { has_character_modifier = ac_event_chi_exertion_modifier } } }
+effect = { scope:ac_test_student = { ac_restore_cores_effect = yes } }
 effect = { scope:ac_test_student = { remove_character_flag = ac_core_advance_auto set_variable = { name = ac_potential_talent_gene value = 9 } ac_reveal_potential_effect = yes ac_gain_cultivation_study_xp_effect = { XP = 300 } } }
-assert = { scope:ac_test_student = { ac_cultivation_lifestyle_xp = 250 ac_martial_styles_lifestyle_xp = 250 ac_elements_lifestyle_xp = 250 ac_aura_pressure_value = 1179 } }
+assert = { scope:ac_test_student = { ac_cultivation_lifestyle_xp = 250 ac_martial_styles_lifestyle_xp = 250 ac_elements_lifestyle_xp = 250 ac_aura_pressure_value = 1189 } }
 effect = { scope:ac_test_student = { remove_character_flag = ac_core_training_cooldown add_character_flag = ac_path_study_cooldown ac_ai_yearly_cultivation_effect = yes } }
-assert = { scope:ac_test_student = { has_character_flag = ac_core_training_cooldown ac_aura_pressure_value > 1179 } }
+assert = { scope:ac_test_student = { has_character_flag = ac_core_training_cooldown ac_aura_pressure_value > 1189 } }
 effect = { scope:ac_test_mother = { set_variable = { name = ac_potential_limit_gene value = 1 } set_variable = { name = ac_potential_talent_gene value = 1 } } scope:ac_test_father = { set_variable = { name = ac_potential_limit_gene value = 1 } set_variable = { name = ac_potential_talent_gene value = 1 } } scope:ac_test_child = { ac_reinforce_potential_limit_effect = yes ac_reinforce_potential_talent_effect = yes } }
 assert = { scope:ac_test_child = { var:ac_potential_limit_gene = 4 var:ac_potential_talent_gene = 4 NOT = { has_trait = ac_cultivator } NOT = { has_trait = ac_potential } } }
 effect = { scope:ac_test_mother = { set_variable = { name = ac_potential_limit_gene value = 3 } set_variable = { name = ac_potential_talent_gene value = 3 } } scope:ac_test_father = { set_variable = { name = ac_potential_limit_gene value = 3 } set_variable = { name = ac_potential_talent_gene value = 3 } } scope:ac_test_child = { ac_reinforce_potential_limit_effect = yes ac_reinforce_potential_talent_effect = yes } }

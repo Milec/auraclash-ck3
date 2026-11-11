@@ -68,7 +68,7 @@ Cultivators aged 16+ can use relevant affinities, styles, trained Cores and perk
 
 The complete sorted register is available as an [Excel workbook](outputs/aura-clash-events/AuraClash-event-tracker.xlsx), an [event table](docs/events.csv), and an [option table](docs/event-options.csv). The workbook has filterable Events and Options tabs. It records event IDs, content families, added choices, ability references, outcomes, exertion and source locations. [The registry JSON](docs/event-registry.json) retains exact eligibility and effect scripts; the ability index is a readable index, not a replacement for AND/OR, presence and cooldown checks. Dynamic title placeholders depend on the save. Content families identify source content rather than asserting that every associated event requires owning a DLC.
 
-Travel techniques can be performed by the ruler or a qualified cultivator in the actual entourage. The practitioner gains 25 Cultivation XP, 15 stress and three months of Spent Chi (-2 prowess, +10% stress gain). An avalanche rescue or fatal-outcome intervention instead grants 100 XP, 40 stress and six months of Overextended Chi (-4 prowess, -0.25 health, +20% stress gain). Poison survivors also recover for six months with a further -0.25 health.
+Travel techniques can be performed by the ruler or a qualified cultivator in the actual entourage. Techniques draw on the practitioner's **Chi Pool** first. With chi available, the practitioner spends 1 chi and gains 25 Cultivation XP and 5 stress; with an empty pool, they suffer 15 stress and three months of Spent Chi (-2 prowess, +10% stress gain). An avalanche rescue or fatal-outcome intervention grants 100 XP and costs 2 chi and 20 stress, or with less chi, 40 stress and six months of Overextended Chi (-4 prowess, -0.25 health, +20% stress gain). Poison survivors also recover for six months with a further -0.25 health.
 
 ### Cultivation sects
 
@@ -77,6 +77,23 @@ One provincial sect is seeded per eligible de-jure kingdom, with a Master, up to
 Use **Decisions → Cultivation → Consult the Sect Register** for membership, six estate building lines, mission contracts and the contribution exchange. Public **Sect Trial** activities admit mortals and cultivators and examine disciples for promotion. Sects can form alliances and rivalries, fight group battles and host **Joint Sect Training**. See the [sect guide](docs/sects.md) for costs, succession, geography and testing.
 
 The estate is a native CK3 domicile attached to a separate landless Sect Master title, with an original Chinese-inspired landscape and six building chains. It passes with sect leadership while rulers keep their lands, government and personal estate. The sect register opens illustrated building plots and sect-aware controls for the native construction queue; the vanilla editor assumes a ruler's personal domicile. Sect battles resolve as group clashes; they do not use ordinary single combat or conquer territory.
+
+### Techniques, Focus and the Chi Pool
+This follows the Aura Clash game's technique menu.
+- **Techniques** are typed by Core: Power, Fortitude, Agility or Soul. A cultivator can know up to **25**. The mod includes 34 of the IF's Techniques with their original names and effects, such as Cleave, Hidden Dragon, Spiritwell, Palm of Endless Beating, Sacred Armor, Iaijutsu, Wavewalking, Zen Focus, Prayer Talisman and Tenebrous Rift. Some require a Style or Element, for example Inferno (Fire), Iaijutsu (Akakiru) and Combat Seals (Kiihakai).
+- **Learning** grants the passive effect:
+  - Aura Pressure +10 or +15.
+  - Chi Pool +1.
+  - Health Pool +1 (+0.2 health).
+  - +5 battle AP.
+  - +1 to an IF skill, mapped to CK3: Athletics → prowess, Insight → learning, Deception, Thievery and Stealth → intrigue, Persuasion → diplomacy, Craft → stewardship, Survival → epidemic resistance, Perception → scheme detection, Seals, Alchemy and Handseals → lifestyle XP.
+
+  Techniques are learned by **Study a Path Manual** (100 gold, yearly) or **Study the Sect Library** (50 sect contribution, yearly). Both pick a learnable Technique at random, favouring your strongest Cores, Style and Elements.
+- **Focus:** each Core has one Focus slot (**Meditate upon your Techniques**). A focused Technique grants **+1 Surge** to its Core or **+1 Core rating** (with +1 linked skill). Focusing a new Technique replaces the old one.
+- **Innate Techniques:** Thunderfall, Iron Body, Flash Step and Energy Tide awaken when Power, Fortitude, Agility or Soul reaches rating 5, each adding +1 Surge to its Core.
+- **Surge value** is 2 plus these bonuses. It is the score bonus when you push a Core to the limit in the Trials.
+- **Chi Pool:** 1 + half the Soul Core rating (Soul Cores give +0.5 chi), plus Techniques. Techniques used in vanilla events spend chi before your body pays in stress and Spent Chi. Meditation restores spent chi each quarter (yearly for AI).
+- **AI** cultivators study a Path Manual when they have spare gold, and fill empty Focus slots.
 
 ### Heavenly Ascension Trials and the Archonate
 This follows the Aura Clash game. The Exalted Council drafts young martial artists to replenish the Archons, holding the **Heavenly Ascension Trials** in the Outer West town of **Nanhou**. They're held every 10 years, first after 3; the IF's 30-year gap is shortened for play.

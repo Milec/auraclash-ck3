@@ -1,0 +1,400 @@
+﻿namespace = ac_tech
+
+# 0001 Focused Techniques and the Technique list
+# 0011-0014 focus a Technique into a Core
+
+ac_tech.0001 = {
+	type = character_event
+	title = ac_tech.0001.t
+	desc = {
+		desc = ac_tech.0001.desc
+		first_valid = {
+			triggered_desc = { trigger = { var:ac_focus_power ?= flag:cleave } desc = ac_tech.0001.focused_power_cleave }
+			triggered_desc = { trigger = { var:ac_focus_power ?= flag:hidden_dragon } desc = ac_tech.0001.focused_power_hidden_dragon }
+			triggered_desc = { trigger = { var:ac_focus_power ?= flag:spiritwell } desc = ac_tech.0001.focused_power_spiritwell }
+			triggered_desc = { trigger = { var:ac_focus_power ?= flag:palm_of_endless_beating } desc = ac_tech.0001.focused_power_palm_of_endless_beating }
+			triggered_desc = { trigger = { var:ac_focus_power ?= flag:wrathful_fist } desc = ac_tech.0001.focused_power_wrathful_fist }
+			triggered_desc = { trigger = { var:ac_focus_power ?= flag:inferno } desc = ac_tech.0001.focused_power_inferno }
+			triggered_desc = { trigger = { var:ac_focus_power ?= flag:shockblast } desc = ac_tech.0001.focused_power_shockblast }
+			triggered_desc = { trigger = { var:ac_focus_power ?= flag:apex_hunter } desc = ac_tech.0001.focused_power_apex_hunter }
+			triggered_desc = { trigger = { var:ac_focus_power ?= flag:arctic_pillar } desc = ac_tech.0001.focused_power_arctic_pillar }
+			desc = ac_tech.0001.unfocused_power
+		}
+		first_valid = {
+			triggered_desc = { trigger = { var:ac_focus_fortitude ?= flag:sacred_armor } desc = ac_tech.0001.focused_fortitude_sacred_armor }
+			triggered_desc = { trigger = { var:ac_focus_fortitude ?= flag:chi_hardened_skin } desc = ac_tech.0001.focused_fortitude_chi_hardened_skin }
+			triggered_desc = { trigger = { var:ac_focus_fortitude ?= flag:frostguard } desc = ac_tech.0001.focused_fortitude_frostguard }
+			triggered_desc = { trigger = { var:ac_focus_fortitude ?= flag:sandshield } desc = ac_tech.0001.focused_fortitude_sandshield }
+			triggered_desc = { trigger = { var:ac_focus_fortitude ?= flag:blade_barrier } desc = ac_tech.0001.focused_fortitude_blade_barrier }
+			triggered_desc = { trigger = { var:ac_focus_fortitude ?= flag:sacred_breathing } desc = ac_tech.0001.focused_fortitude_sacred_breathing }
+			triggered_desc = { trigger = { var:ac_focus_fortitude ?= flag:crouching_tiger } desc = ac_tech.0001.focused_fortitude_crouching_tiger }
+			triggered_desc = { trigger = { var:ac_focus_fortitude ?= flag:seismic_closing_palms } desc = ac_tech.0001.focused_fortitude_seismic_closing_palms }
+			desc = ac_tech.0001.unfocused_fortitude
+		}
+		first_valid = {
+			triggered_desc = { trigger = { var:ac_focus_agility ?= flag:danger_sense } desc = ac_tech.0001.focused_agility_danger_sense }
+			triggered_desc = { trigger = { var:ac_focus_agility ?= flag:iaijutsu } desc = ac_tech.0001.focused_agility_iaijutsu }
+			triggered_desc = { trigger = { var:ac_focus_agility ?= flag:bloodhunt } desc = ac_tech.0001.focused_agility_bloodhunt }
+			triggered_desc = { trigger = { var:ac_focus_agility ?= flag:wavewalking } desc = ac_tech.0001.focused_agility_wavewalking }
+			triggered_desc = { trigger = { var:ac_focus_agility ?= flag:grand_skyfall } desc = ac_tech.0001.focused_agility_grand_skyfall }
+			triggered_desc = { trigger = { var:ac_focus_agility ?= flag:imbued_bodyhammer } desc = ac_tech.0001.focused_agility_imbued_bodyhammer }
+			triggered_desc = { trigger = { var:ac_focus_agility ?= flag:mist_clone } desc = ac_tech.0001.focused_agility_mist_clone }
+			triggered_desc = { trigger = { var:ac_focus_agility ?= flag:apex_predator } desc = ac_tech.0001.focused_agility_apex_predator }
+			desc = ac_tech.0001.unfocused_agility
+		}
+		first_valid = {
+			triggered_desc = { trigger = { var:ac_focus_soul ?= flag:zen_focus } desc = ac_tech.0001.focused_soul_zen_focus }
+			triggered_desc = { trigger = { var:ac_focus_soul ?= flag:commanding_presence } desc = ac_tech.0001.focused_soul_commanding_presence }
+			triggered_desc = { trigger = { var:ac_focus_soul ?= flag:prayer_talisman } desc = ac_tech.0001.focused_soul_prayer_talisman }
+			triggered_desc = { trigger = { var:ac_focus_soul ?= flag:poisonmaster } desc = ac_tech.0001.focused_soul_poisonmaster }
+			triggered_desc = { trigger = { var:ac_focus_soul ?= flag:combat_seals } desc = ac_tech.0001.focused_soul_combat_seals }
+			triggered_desc = { trigger = { var:ac_focus_soul ?= flag:midnight_blade } desc = ac_tech.0001.focused_soul_midnight_blade }
+			triggered_desc = { trigger = { var:ac_focus_soul ?= flag:searing_light } desc = ac_tech.0001.focused_soul_searing_light }
+			triggered_desc = { trigger = { var:ac_focus_soul ?= flag:tenebrous_rift } desc = ac_tech.0001.focused_soul_tenebrous_rift }
+			triggered_desc = { trigger = { var:ac_focus_soul ?= flag:daggerfalling_hailstorm } desc = ac_tech.0001.focused_soul_daggerfalling_hailstorm }
+			desc = ac_tech.0001.unfocused_soul
+		}
+		desc = ac_tech.0001.list
+		triggered_desc = { trigger = { has_character_flag = ac_tech_cleave } desc = ac_tech.0001.known_cleave }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_hidden_dragon } desc = ac_tech.0001.known_hidden_dragon }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_spiritwell } desc = ac_tech.0001.known_spiritwell }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_palm_of_endless_beating } desc = ac_tech.0001.known_palm_of_endless_beating }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_wrathful_fist } desc = ac_tech.0001.known_wrathful_fist }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_inferno } desc = ac_tech.0001.known_inferno }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_shockblast } desc = ac_tech.0001.known_shockblast }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_apex_hunter } desc = ac_tech.0001.known_apex_hunter }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_arctic_pillar } desc = ac_tech.0001.known_arctic_pillar }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_sacred_armor } desc = ac_tech.0001.known_sacred_armor }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_chi_hardened_skin } desc = ac_tech.0001.known_chi_hardened_skin }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_frostguard } desc = ac_tech.0001.known_frostguard }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_sandshield } desc = ac_tech.0001.known_sandshield }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_blade_barrier } desc = ac_tech.0001.known_blade_barrier }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_sacred_breathing } desc = ac_tech.0001.known_sacred_breathing }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_crouching_tiger } desc = ac_tech.0001.known_crouching_tiger }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_seismic_closing_palms } desc = ac_tech.0001.known_seismic_closing_palms }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_danger_sense } desc = ac_tech.0001.known_danger_sense }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_iaijutsu } desc = ac_tech.0001.known_iaijutsu }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_bloodhunt } desc = ac_tech.0001.known_bloodhunt }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_wavewalking } desc = ac_tech.0001.known_wavewalking }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_grand_skyfall } desc = ac_tech.0001.known_grand_skyfall }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_imbued_bodyhammer } desc = ac_tech.0001.known_imbued_bodyhammer }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_mist_clone } desc = ac_tech.0001.known_mist_clone }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_apex_predator } desc = ac_tech.0001.known_apex_predator }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_zen_focus } desc = ac_tech.0001.known_zen_focus }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_commanding_presence } desc = ac_tech.0001.known_commanding_presence }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_prayer_talisman } desc = ac_tech.0001.known_prayer_talisman }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_poisonmaster } desc = ac_tech.0001.known_poisonmaster }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_combat_seals } desc = ac_tech.0001.known_combat_seals }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_midnight_blade } desc = ac_tech.0001.known_midnight_blade }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_searing_light } desc = ac_tech.0001.known_searing_light }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_tenebrous_rift } desc = ac_tech.0001.known_tenebrous_rift }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_daggerfalling_hailstorm } desc = ac_tech.0001.known_daggerfalling_hailstorm }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_thunderfall } desc = ac_tech.0001.known_thunderfall }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_iron_body } desc = ac_tech.0001.known_iron_body }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_flash_step } desc = ac_tech.0001.known_flash_step }
+		triggered_desc = { trigger = { has_character_flag = ac_tech_energy_tide } desc = ac_tech.0001.known_energy_tide }
+	}
+	theme = learning
+	left_portrait = { character = root animation = personality_rational }
+
+	option = {
+		name = ac_tech.0001.power
+		trigger = { OR = { has_character_flag = ac_tech_cleave has_character_flag = ac_tech_hidden_dragon has_character_flag = ac_tech_spiritwell has_character_flag = ac_tech_palm_of_endless_beating has_character_flag = ac_tech_wrathful_fist has_character_flag = ac_tech_inferno has_character_flag = ac_tech_shockblast has_character_flag = ac_tech_apex_hunter has_character_flag = ac_tech_arctic_pillar } }
+		trigger_event = ac_tech.0011
+	}
+	option = {
+		name = ac_tech.0001.fortitude
+		trigger = { OR = { has_character_flag = ac_tech_sacred_armor has_character_flag = ac_tech_chi_hardened_skin has_character_flag = ac_tech_frostguard has_character_flag = ac_tech_sandshield has_character_flag = ac_tech_blade_barrier has_character_flag = ac_tech_sacred_breathing has_character_flag = ac_tech_crouching_tiger has_character_flag = ac_tech_seismic_closing_palms } }
+		trigger_event = ac_tech.0012
+	}
+	option = {
+		name = ac_tech.0001.agility
+		trigger = { OR = { has_character_flag = ac_tech_danger_sense has_character_flag = ac_tech_iaijutsu has_character_flag = ac_tech_bloodhunt has_character_flag = ac_tech_wavewalking has_character_flag = ac_tech_grand_skyfall has_character_flag = ac_tech_imbued_bodyhammer has_character_flag = ac_tech_mist_clone has_character_flag = ac_tech_apex_predator } }
+		trigger_event = ac_tech.0013
+	}
+	option = {
+		name = ac_tech.0001.soul
+		trigger = { OR = { has_character_flag = ac_tech_zen_focus has_character_flag = ac_tech_commanding_presence has_character_flag = ac_tech_prayer_talisman has_character_flag = ac_tech_poisonmaster has_character_flag = ac_tech_combat_seals has_character_flag = ac_tech_midnight_blade has_character_flag = ac_tech_searing_light has_character_flag = ac_tech_tenebrous_rift has_character_flag = ac_tech_daggerfalling_hailstorm } }
+		trigger_event = ac_tech.0014
+	}
+	option = { name = ac_tech.0001.leave }
+}
+
+ac_tech.0011 = {
+	type = character_event
+	title = ac_tech.0011.t
+	desc = ac_tech.0011.desc
+	theme = learning
+	left_portrait = { character = root animation = personality_rational }
+
+	option = {
+		name = ac_tech.focus_cleave
+		trigger = { has_character_flag = ac_tech_cleave NOT = { var:ac_focus_power ?= flag:cleave } }
+		custom_tooltip = ac_tech_cleave_focus_tt
+		ac_focus_tech_cleave_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_hidden_dragon
+		trigger = { has_character_flag = ac_tech_hidden_dragon NOT = { var:ac_focus_power ?= flag:hidden_dragon } }
+		custom_tooltip = ac_tech_hidden_dragon_focus_tt
+		ac_focus_tech_hidden_dragon_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_spiritwell
+		trigger = { has_character_flag = ac_tech_spiritwell NOT = { var:ac_focus_power ?= flag:spiritwell } }
+		custom_tooltip = ac_tech_spiritwell_focus_tt
+		ac_focus_tech_spiritwell_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_palm_of_endless_beating
+		trigger = { has_character_flag = ac_tech_palm_of_endless_beating NOT = { var:ac_focus_power ?= flag:palm_of_endless_beating } }
+		custom_tooltip = ac_tech_palm_of_endless_beating_focus_tt
+		ac_focus_tech_palm_of_endless_beating_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_wrathful_fist
+		trigger = { has_character_flag = ac_tech_wrathful_fist NOT = { var:ac_focus_power ?= flag:wrathful_fist } }
+		custom_tooltip = ac_tech_wrathful_fist_focus_tt
+		ac_focus_tech_wrathful_fist_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_inferno
+		trigger = { has_character_flag = ac_tech_inferno NOT = { var:ac_focus_power ?= flag:inferno } }
+		custom_tooltip = ac_tech_inferno_focus_tt
+		ac_focus_tech_inferno_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_shockblast
+		trigger = { has_character_flag = ac_tech_shockblast NOT = { var:ac_focus_power ?= flag:shockblast } }
+		custom_tooltip = ac_tech_shockblast_focus_tt
+		ac_focus_tech_shockblast_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_apex_hunter
+		trigger = { has_character_flag = ac_tech_apex_hunter NOT = { var:ac_focus_power ?= flag:apex_hunter } }
+		custom_tooltip = ac_tech_apex_hunter_focus_tt
+		ac_focus_tech_apex_hunter_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_arctic_pillar
+		trigger = { has_character_flag = ac_tech_arctic_pillar NOT = { var:ac_focus_power ?= flag:arctic_pillar } }
+		custom_tooltip = ac_tech_arctic_pillar_focus_tt
+		ac_focus_tech_arctic_pillar_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = { name = ac_tech.back trigger_event = ac_tech.0001 }
+}
+
+ac_tech.0012 = {
+	type = character_event
+	title = ac_tech.0012.t
+	desc = ac_tech.0012.desc
+	theme = learning
+	left_portrait = { character = root animation = personality_rational }
+
+	option = {
+		name = ac_tech.focus_sacred_armor
+		trigger = { has_character_flag = ac_tech_sacred_armor NOT = { var:ac_focus_fortitude ?= flag:sacred_armor } }
+		custom_tooltip = ac_tech_sacred_armor_focus_tt
+		ac_focus_tech_sacred_armor_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_chi_hardened_skin
+		trigger = { has_character_flag = ac_tech_chi_hardened_skin NOT = { var:ac_focus_fortitude ?= flag:chi_hardened_skin } }
+		custom_tooltip = ac_tech_chi_hardened_skin_focus_tt
+		ac_focus_tech_chi_hardened_skin_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_frostguard
+		trigger = { has_character_flag = ac_tech_frostguard NOT = { var:ac_focus_fortitude ?= flag:frostguard } }
+		custom_tooltip = ac_tech_frostguard_focus_tt
+		ac_focus_tech_frostguard_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_sandshield
+		trigger = { has_character_flag = ac_tech_sandshield NOT = { var:ac_focus_fortitude ?= flag:sandshield } }
+		custom_tooltip = ac_tech_sandshield_focus_tt
+		ac_focus_tech_sandshield_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_blade_barrier
+		trigger = { has_character_flag = ac_tech_blade_barrier NOT = { var:ac_focus_fortitude ?= flag:blade_barrier } }
+		custom_tooltip = ac_tech_blade_barrier_focus_tt
+		ac_focus_tech_blade_barrier_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_sacred_breathing
+		trigger = { has_character_flag = ac_tech_sacred_breathing NOT = { var:ac_focus_fortitude ?= flag:sacred_breathing } }
+		custom_tooltip = ac_tech_sacred_breathing_focus_tt
+		ac_focus_tech_sacred_breathing_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_crouching_tiger
+		trigger = { has_character_flag = ac_tech_crouching_tiger NOT = { var:ac_focus_fortitude ?= flag:crouching_tiger } }
+		custom_tooltip = ac_tech_crouching_tiger_focus_tt
+		ac_focus_tech_crouching_tiger_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_seismic_closing_palms
+		trigger = { has_character_flag = ac_tech_seismic_closing_palms NOT = { var:ac_focus_fortitude ?= flag:seismic_closing_palms } }
+		custom_tooltip = ac_tech_seismic_closing_palms_focus_tt
+		ac_focus_tech_seismic_closing_palms_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = { name = ac_tech.back trigger_event = ac_tech.0001 }
+}
+
+ac_tech.0013 = {
+	type = character_event
+	title = ac_tech.0013.t
+	desc = ac_tech.0013.desc
+	theme = learning
+	left_portrait = { character = root animation = personality_rational }
+
+	option = {
+		name = ac_tech.focus_danger_sense
+		trigger = { has_character_flag = ac_tech_danger_sense NOT = { var:ac_focus_agility ?= flag:danger_sense } }
+		custom_tooltip = ac_tech_danger_sense_focus_tt
+		ac_focus_tech_danger_sense_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_iaijutsu
+		trigger = { has_character_flag = ac_tech_iaijutsu NOT = { var:ac_focus_agility ?= flag:iaijutsu } }
+		custom_tooltip = ac_tech_iaijutsu_focus_tt
+		ac_focus_tech_iaijutsu_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_bloodhunt
+		trigger = { has_character_flag = ac_tech_bloodhunt NOT = { var:ac_focus_agility ?= flag:bloodhunt } }
+		custom_tooltip = ac_tech_bloodhunt_focus_tt
+		ac_focus_tech_bloodhunt_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_wavewalking
+		trigger = { has_character_flag = ac_tech_wavewalking NOT = { var:ac_focus_agility ?= flag:wavewalking } }
+		custom_tooltip = ac_tech_wavewalking_focus_tt
+		ac_focus_tech_wavewalking_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_grand_skyfall
+		trigger = { has_character_flag = ac_tech_grand_skyfall NOT = { var:ac_focus_agility ?= flag:grand_skyfall } }
+		custom_tooltip = ac_tech_grand_skyfall_focus_tt
+		ac_focus_tech_grand_skyfall_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_imbued_bodyhammer
+		trigger = { has_character_flag = ac_tech_imbued_bodyhammer NOT = { var:ac_focus_agility ?= flag:imbued_bodyhammer } }
+		custom_tooltip = ac_tech_imbued_bodyhammer_focus_tt
+		ac_focus_tech_imbued_bodyhammer_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_mist_clone
+		trigger = { has_character_flag = ac_tech_mist_clone NOT = { var:ac_focus_agility ?= flag:mist_clone } }
+		custom_tooltip = ac_tech_mist_clone_focus_tt
+		ac_focus_tech_mist_clone_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_apex_predator
+		trigger = { has_character_flag = ac_tech_apex_predator NOT = { var:ac_focus_agility ?= flag:apex_predator } }
+		custom_tooltip = ac_tech_apex_predator_focus_tt
+		ac_focus_tech_apex_predator_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = { name = ac_tech.back trigger_event = ac_tech.0001 }
+}
+
+ac_tech.0014 = {
+	type = character_event
+	title = ac_tech.0014.t
+	desc = ac_tech.0014.desc
+	theme = learning
+	left_portrait = { character = root animation = personality_rational }
+
+	option = {
+		name = ac_tech.focus_zen_focus
+		trigger = { has_character_flag = ac_tech_zen_focus NOT = { var:ac_focus_soul ?= flag:zen_focus } }
+		custom_tooltip = ac_tech_zen_focus_focus_tt
+		ac_focus_tech_zen_focus_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_commanding_presence
+		trigger = { has_character_flag = ac_tech_commanding_presence NOT = { var:ac_focus_soul ?= flag:commanding_presence } }
+		custom_tooltip = ac_tech_commanding_presence_focus_tt
+		ac_focus_tech_commanding_presence_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_prayer_talisman
+		trigger = { has_character_flag = ac_tech_prayer_talisman NOT = { var:ac_focus_soul ?= flag:prayer_talisman } }
+		custom_tooltip = ac_tech_prayer_talisman_focus_tt
+		ac_focus_tech_prayer_talisman_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_poisonmaster
+		trigger = { has_character_flag = ac_tech_poisonmaster NOT = { var:ac_focus_soul ?= flag:poisonmaster } }
+		custom_tooltip = ac_tech_poisonmaster_focus_tt
+		ac_focus_tech_poisonmaster_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_combat_seals
+		trigger = { has_character_flag = ac_tech_combat_seals NOT = { var:ac_focus_soul ?= flag:combat_seals } }
+		custom_tooltip = ac_tech_combat_seals_focus_tt
+		ac_focus_tech_combat_seals_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_midnight_blade
+		trigger = { has_character_flag = ac_tech_midnight_blade NOT = { var:ac_focus_soul ?= flag:midnight_blade } }
+		custom_tooltip = ac_tech_midnight_blade_focus_tt
+		ac_focus_tech_midnight_blade_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_searing_light
+		trigger = { has_character_flag = ac_tech_searing_light NOT = { var:ac_focus_soul ?= flag:searing_light } }
+		custom_tooltip = ac_tech_searing_light_focus_tt
+		ac_focus_tech_searing_light_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_tenebrous_rift
+		trigger = { has_character_flag = ac_tech_tenebrous_rift NOT = { var:ac_focus_soul ?= flag:tenebrous_rift } }
+		custom_tooltip = ac_tech_tenebrous_rift_focus_tt
+		ac_focus_tech_tenebrous_rift_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = {
+		name = ac_tech.focus_daggerfalling_hailstorm
+		trigger = { has_character_flag = ac_tech_daggerfalling_hailstorm NOT = { var:ac_focus_soul ?= flag:daggerfalling_hailstorm } }
+		custom_tooltip = ac_tech_daggerfalling_hailstorm_focus_tt
+		ac_focus_tech_daggerfalling_hailstorm_effect = yes
+		hidden_effect = { trigger_event = ac_tech.0001 }
+	}
+	option = { name = ac_tech.back trigger_event = ac_tech.0001 }
+}
+

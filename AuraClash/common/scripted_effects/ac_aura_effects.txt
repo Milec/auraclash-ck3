@@ -100,6 +100,7 @@ ac_mortal_core_train_effect = {
 		if = {
 			limit = { ac_mortal_training_raises_core_trigger = { CORE = $CORE$ } }
 			add_trait_xp = { trait = ac_cultivator track = ac_core_$CORE$ value = 5 }
+			ac_grant_innate_techniques_effect = yes
 		}
 		else = {
 			custom_tooltip = ac_mortal_training_plateau_tt
@@ -132,6 +133,7 @@ ac_advance_core_effect = {
 		}
 		add_trait_xp = { trait = ac_cultivator track = ac_core_$CORE$ value = 5 }
 		set_variable = { name = ac_core_last_advanced value = flag:$CORE$ }
+		ac_grant_innate_techniques_effect = yes
 		# Each Advancement forms a new Immortal Core.
 		if = {
 			limit = { NOT = { has_variable = ac_immortal_cores } }
@@ -159,7 +161,17 @@ ac_surge_core_effect = {
 	ac_add_core_progress_effect = { CORE = $CORE$ PROGRESS = 10 }
 }
 
+ac_spend_chi_effect = {
+	if = {
+		limit = { NOT = { has_variable = ac_chi_spent } }
+		set_variable = { name = ac_chi_spent value = 0 }
+	}
+	change_variable = { name = ac_chi_spent add = $CHI$ }
+	custom_tooltip = ac_chi_spent_tt
+}
+
 ac_restore_cores_effect = {
+	remove_variable = ac_chi_spent
 	remove_variable = ac_core_soul_spent
 	remove_variable = ac_core_agility_spent
 	remove_variable = ac_core_power_spent
@@ -202,6 +214,19 @@ ac_core_auto_train_effect = {
 # AI: train, cycle Shards with spare gold, and bind free AP once Immortal Core Advancement is unlocked.
 ac_ai_aura_routine_effect = {
 	ac_init_aura_effect = yes
+	ac_grant_innate_techniques_effect = yes
+	# Techniques: a Path Manual with spare gold, then fill empty Focus slots.
+	if = {
+		limit = {
+			ac_can_learn_any_technique_trigger = yes
+			gold >= { value = ac_path_manual_gold add = 150 }
+			NOT = { has_character_flag = ac_ai_path_manual_cooldown }
+		}
+		add_character_flag = { flag = ac_ai_path_manual_cooldown years = 1 }
+		remove_short_term_gold = ac_path_manual_gold
+		ac_learn_random_technique_effect = yes
+	}
+	ac_ai_focus_techniques_effect = yes
 	if = {
 		limit = { ac_can_mortal_train_trigger = yes }
 		random_list = {
@@ -236,6 +261,10 @@ ac_battle_core_progress_effect = {
 		ac_add_core_progress_effect = { CORE = power PROGRESS = $POWER$ }
 		ac_add_core_progress_effect = { CORE = fortitude PROGRESS = $FORTITUDE$ }
 		ac_gain_aura_pressure_effect = { AP = $AP$ }
+		if = {
+			limit = { ac_battle_ap_bonus > 0 }
+			ac_gain_aura_pressure_effect = { AP = ac_battle_ap_bonus }
+		}
 	}
 }
 

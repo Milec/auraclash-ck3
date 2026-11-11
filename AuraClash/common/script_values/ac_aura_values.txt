@@ -30,6 +30,8 @@ ac_core_soul_rating = {
 	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 90 } } add = 1 }
 	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 95 } } add = 1 }
 	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 100 } } add = 1 }
+	# A focused Technique can raise the Core ("Increases Soul Core by +1 when focused").
+	add = ac_core_soul_focus_bonus
 }
 ac_core_soul_progress = { value = 0 if = { limit = { has_variable = ac_core_soul_progress } value = var:ac_core_soul_progress } }
 ac_core_soul_advance_cost = { value = ac_ap_per_core_dot subtract = ac_core_soul_progress min = 0 }
@@ -57,6 +59,8 @@ ac_core_agility_rating = {
 	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 90 } } add = 1 }
 	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 95 } } add = 1 }
 	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 100 } } add = 1 }
+	# A focused Technique can raise the Core ("Increases Agility Core by +1 when focused").
+	add = ac_core_agility_focus_bonus
 }
 ac_core_agility_progress = { value = 0 if = { limit = { has_variable = ac_core_agility_progress } value = var:ac_core_agility_progress } }
 ac_core_agility_advance_cost = { value = ac_ap_per_core_dot subtract = ac_core_agility_progress min = 0 }
@@ -84,6 +88,8 @@ ac_core_power_rating = {
 	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 90 } } add = 1 }
 	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 95 } } add = 1 }
 	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 100 } } add = 1 }
+	# A focused Technique can raise the Core ("Increases Power Core by +1 when focused").
+	add = ac_core_power_focus_bonus
 }
 ac_core_power_progress = { value = 0 if = { limit = { has_variable = ac_core_power_progress } value = var:ac_core_power_progress } }
 ac_core_power_advance_cost = { value = ac_ap_per_core_dot subtract = ac_core_power_progress min = 0 }
@@ -111,6 +117,8 @@ ac_core_fortitude_rating = {
 	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 90 } } add = 1 }
 	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 95 } } add = 1 }
 	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 100 } } add = 1 }
+	# A focused Technique can raise the Core ("Increases Fortitude Core by +1 when focused").
+	add = ac_core_fortitude_focus_bonus
 }
 ac_core_fortitude_progress = { value = 0 if = { limit = { has_variable = ac_core_fortitude_progress } value = var:ac_core_fortitude_progress } }
 ac_core_fortitude_advance_cost = { value = ac_ap_per_core_dot subtract = ac_core_fortitude_progress min = 0 }

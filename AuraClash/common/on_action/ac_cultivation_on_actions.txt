@@ -185,5 +185,7 @@ ac_aura_yearly_pulse = {
 		ac_init_aura_effect = yes
 		ac_gain_aura_pressure_effect = { AP = 10 }
 		ac_practice_core_progress_effect = { PROGRESS = 10 }
+		ac_grant_innate_techniques_effect = yes
+		remove_variable = ac_chi_spent
 	}
 }

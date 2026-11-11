@@ -1011,3 +1011,4 @@
  trait_ac_immortal_core_generic_desc:0 "This cultivator has achieved Immortal Core Advancement, seizing absolute control of the chi absorbed from the world. Every Advancement binds Aura Pressure into a Combat Core and forms another Immortal Core; powerful masters hold dozens."
  trait_track_ac_immortal_cores:0 "Immortal Cores"
  trait_track_ac_immortal_cores_desc:0 "One Immortal Core forms with each Immortal Core Advancement. Every eight add +1 [prowess|E] and +0.1 monthly [prestige|E]; at 8, 24, 40, 56 and 72 they also add health and 3 years of life expectancy."
+ ac_chi_spent_tt:0 "Chi from your #V Chi Pool#! powers the Technique instead of your body. Meditation restores spent Chi each quarter."
