@@ -5,8 +5,6 @@
 }
 
 48 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
@@ -17,20 +15,14 @@
 }
 
 23 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 25 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 22 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -41,20 +33,14 @@
 }
 
 29 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 26 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 27 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -65,20 +51,14 @@
 }
 
 31 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 51 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 54 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -89,20 +69,14 @@
 }
 
 30 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 35 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 32 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -113,20 +87,14 @@
 }
 
 34 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 58 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 60 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -143,20 +111,14 @@
 }
 
 116 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 118 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 117 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -167,20 +129,14 @@
 }
 
 93 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 94 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 97 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -191,20 +147,14 @@
 }
 
 120 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 122 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 119 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -215,20 +165,14 @@
 }
 
 126 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 124 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 125 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -239,20 +183,14 @@
 }
 
 99 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 104 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 101 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -263,20 +201,14 @@
 }
 
 73 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 92 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 95 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -287,20 +219,14 @@
 }
 
 81 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 98 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 100 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -311,20 +237,14 @@
 }
 
 76 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 74 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 77 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -335,20 +255,14 @@
 }
 
 82 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 80 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 83 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -359,20 +273,14 @@
 }
 
 55 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 50 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 53 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -383,20 +291,14 @@
 }
 
 8 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 5 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 7 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -407,20 +309,14 @@
 }
 
 1 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 3 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 9 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -431,26 +327,18 @@
 }
 
 14 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 11 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 13 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
 10 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -461,26 +349,18 @@
 }
 
 17 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 20 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 18 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
 19 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -491,26 +371,18 @@
 }
 
 41 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 37 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 39 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
 38 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -533,20 +405,14 @@
 }
 
 138 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 142 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 139 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -557,20 +423,14 @@
 }
 
 147 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 146 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 144 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -581,20 +441,14 @@
 }
 
 145 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 163 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 164 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -605,20 +459,14 @@
 }
 
 149 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 148 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 150 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -629,20 +477,14 @@
 }
 
 166 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 169 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 171 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -653,20 +495,14 @@
 }
 
 59 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 56 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 85 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -677,20 +513,14 @@
 }
 
 61 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 65 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 62 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -701,20 +531,14 @@
 }
 
 40 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 63 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 66 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -725,20 +549,14 @@
 }
 
 67 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 70 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 68 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -749,14 +567,10 @@
 }
 
 88 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 89 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
@@ -767,32 +581,22 @@
 }
 
 44 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 43 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 46 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
 47 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
 45 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -803,14 +607,10 @@
 }
 
 161 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 162 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
@@ -827,20 +627,14 @@
 }
 
 107 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 103 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 106 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -851,20 +645,14 @@
 }
 
 87 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 112 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 109 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -875,8 +663,6 @@
 }
 
 111 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
@@ -887,26 +673,18 @@
 }
 
 108 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 110 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 131 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
 133 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -917,20 +695,14 @@
 }
 
 132 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 127 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 129 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -941,20 +713,14 @@
 }
 
 165 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 170 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 167 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -965,20 +731,14 @@
 }
 
 191 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 188 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 186 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -989,20 +749,14 @@
 }
 
 185 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 189 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 199 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1013,38 +767,26 @@
 }
 
 197 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 190 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 192 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
 195 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
 193 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
 200 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1055,20 +797,14 @@
 }
 
 174 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 177 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 175 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1085,20 +821,14 @@
 }
 
 130 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 152 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 154 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -1109,20 +839,14 @@
 }
 
 156 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 157 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 153 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -1133,20 +857,14 @@
 }
 
 179 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 180 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 196 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -1157,8 +875,6 @@
 }
 
 114 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
@@ -1169,8 +885,6 @@
 }
 
 135 = {
-	culture = oni
-	rite = devanic_temple
 	holding = city_holding
 }
 
@@ -1187,14 +901,10 @@
 }
 
 182 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 183 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
@@ -1205,20 +915,14 @@
 }
 
 247 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 248 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 249 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1229,20 +933,14 @@
 }
 
 253 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 284 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 285 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1253,20 +951,14 @@
 }
 
 213 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 254 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 251 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1277,20 +969,14 @@
 }
 
 258 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 255 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 257 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1301,20 +987,14 @@
 }
 
 289 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 288 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 286 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1325,20 +1005,14 @@
 }
 
 218 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 217 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 215 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1349,20 +1023,14 @@
 }
 
 202 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 219 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 221 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1373,20 +1041,14 @@
 }
 
 223 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 220 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 263 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1397,26 +1059,18 @@
 }
 
 262 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 261 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 259 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
 264 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1427,20 +1081,14 @@
 }
 
 227 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 265 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 266 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1457,20 +1105,14 @@
 }
 
 204 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 224 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 226 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1481,20 +1123,14 @@
 }
 
 205 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 230 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 229 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1505,20 +1141,14 @@
 }
 
 228 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 234 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 231 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1529,20 +1159,14 @@
 }
 
 208 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 233 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 235 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1553,20 +1177,14 @@
 }
 
 238 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 268 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 267 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1577,26 +1195,18 @@
 }
 
 211 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 210 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 240 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
 237 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1607,20 +1217,14 @@
 }
 
 242 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 241 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 270 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1631,20 +1235,14 @@
 }
 
 272 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 269 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 271 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1655,20 +1253,14 @@
 }
 
 277 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 276 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 274 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1679,20 +1271,14 @@
 }
 
 280 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 279 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 278 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1703,20 +1289,14 @@
 }
 
 282 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = city_holding
 }
 
 281 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = church_holding
 }
 
 291 = {
-	culture = lunargoth
-	rite = rasen_shugendo
 	holding = none
 }
 
@@ -1727,8 +1307,6 @@
 }
 
 244 = {
-	culture = lunargoth
-	rite = ancestral_rites
 	holding = city_holding
 }
 
@@ -1751,20 +1329,14 @@
 }
 
 307 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 305 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 308 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1775,20 +1347,14 @@
 }
 
 311 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 310 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 312 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1799,20 +1365,14 @@
 }
 
 293 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 294 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 292 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1823,20 +1383,14 @@
 }
 
 297 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 299 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 298 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1847,26 +1401,18 @@
 }
 
 302 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 300 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 317 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = none
 }
 
 314 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1883,20 +1429,14 @@
 }
 
 332 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 328 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 330 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1907,20 +1447,14 @@
 }
 
 313 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 316 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 319 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1931,20 +1465,14 @@
 }
 
 324 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 337 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 335 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1955,20 +1483,14 @@
 }
 
 320 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 323 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 321 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -1979,20 +1501,14 @@
 }
 
 336 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 334 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 348 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2003,20 +1519,14 @@
 }
 
 329 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 345 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 346 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2027,8 +1537,6 @@
 }
 
 325 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
@@ -2045,20 +1553,14 @@
 }
 
 349 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 361 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 362 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2069,20 +1571,14 @@
 }
 
 366 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 363 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 365 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2093,20 +1589,14 @@
 }
 
 369 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 371 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 368 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2117,20 +1607,14 @@
 }
 
 353 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 351 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 354 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2141,20 +1625,14 @@
 }
 
 367 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 384 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 381 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2165,20 +1643,14 @@
 }
 
 343 = {
-	culture = kitsune
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 338 = {
-	culture = kitsune
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 341 = {
-	culture = kitsune
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2189,8 +1661,6 @@
 }
 
 342 = {
-	culture = kitsune
-	rite = ancestral_rites
 	holding = city_holding
 }
 
@@ -2201,20 +1671,14 @@
 }
 
 357 = {
-	culture = kitsune
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 355 = {
-	culture = kitsune
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 359 = {
-	culture = kitsune
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2225,20 +1689,14 @@
 }
 
 356 = {
-	culture = kitsune
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 358 = {
-	culture = kitsune
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 373 = {
-	culture = kitsune
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2249,20 +1707,14 @@
 }
 
 378 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 375 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 379 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2273,20 +1725,14 @@
 }
 
 382 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 395 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 393 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2297,20 +1743,14 @@
 }
 
 383 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 386 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 385 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2321,20 +1761,14 @@
 }
 
 399 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 400 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 398 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2345,20 +1779,14 @@
 }
 
 394 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 413 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 417 = {
-	culture = oni
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2369,20 +1797,14 @@
 }
 
 407 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 411 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 408 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2393,20 +1815,14 @@
 }
 
 416 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 412 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 415 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2417,20 +1833,14 @@
 }
 
 432 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 429 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 430 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2441,20 +1851,14 @@
 }
 
 436 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 431 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 433 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2465,20 +1869,14 @@
 }
 
 422 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 437 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 440 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2489,20 +1887,14 @@
 }
 
 372 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 390 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 388 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2513,20 +1905,14 @@
 }
 
 392 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 389 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 391 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2537,20 +1923,14 @@
 }
 
 404 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 403 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 406 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2561,20 +1941,14 @@
 }
 
 405 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 426 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 425 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2585,20 +1959,14 @@
 }
 
 424 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 419 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 421 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2609,20 +1977,14 @@
 }
 
 435 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 447 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 448 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -2633,20 +1995,14 @@
 }
 
 438 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 441 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 442 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -2657,14 +2013,10 @@
 }
 
 445 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 443 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
@@ -2699,20 +2051,14 @@
 }
 
 493 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 492 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 494 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2723,20 +2069,14 @@
 }
 
 563 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 562 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 561 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2747,20 +2087,14 @@
 }
 
 497 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 500 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 498 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2771,20 +2105,14 @@
 }
 
 504 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 501 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 567 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2795,20 +2123,14 @@
 }
 
 566 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 565 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 568 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2819,20 +2141,14 @@
 }
 
 457 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 454 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 456 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2843,26 +2159,18 @@
 }
 
 505 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 502 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 508 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
 506 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2873,20 +2181,14 @@
 }
 
 510 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 507 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 574 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2897,20 +2199,14 @@
 }
 
 572 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 570 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 573 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2921,20 +2217,14 @@
 }
 
 571 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 576 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 615 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2945,20 +2235,14 @@
 }
 
 577 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 579 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 578 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2969,26 +2253,18 @@
 }
 
 512 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 582 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 584 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
 583 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -2999,20 +2275,14 @@
 }
 
 616 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 619 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 617 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3023,20 +2293,14 @@
 }
 
 621 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 620 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 618 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3047,20 +2311,14 @@
 }
 
 589 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 586 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 588 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3071,20 +2329,14 @@
 }
 
 622 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 624 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 623 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3095,26 +2347,18 @@
 }
 
 591 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 593 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 594 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
 592 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3125,20 +2369,14 @@
 }
 
 596 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 595 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 625 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3149,20 +2387,14 @@
 }
 
 514 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 517 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 515 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3173,20 +2405,14 @@
 }
 
 518 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 516 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 519 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3197,20 +2423,14 @@
 }
 
 463 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 460 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 462 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3221,20 +2441,14 @@
 }
 
 521 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 525 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 523 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3245,20 +2459,14 @@
 }
 
 522 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 526 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 599 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3269,14 +2477,10 @@
 }
 
 626 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 628 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
@@ -3287,20 +2491,14 @@
 }
 
 466 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 467 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 528 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3311,20 +2509,14 @@
 }
 
 530 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 527 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 531 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3335,20 +2527,14 @@
 }
 
 470 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 468 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 535 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3359,20 +2545,14 @@
 }
 
 540 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 534 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 538 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3383,20 +2563,14 @@
 }
 
 536 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 602 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 603 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3407,20 +2581,14 @@
 }
 
 601 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 600 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 598 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3437,8 +2605,6 @@
 }
 
 631 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
@@ -3449,26 +2615,18 @@
 }
 
 472 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 473 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 539 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = none
 }
 
 542 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3479,20 +2637,14 @@
 }
 
 545 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 549 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 546 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3503,20 +2655,14 @@
 }
 
 544 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 541 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 608 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3527,20 +2673,14 @@
 }
 
 610 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 609 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 611 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3551,20 +2691,14 @@
 }
 
 607 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 604 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 606 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3575,20 +2709,14 @@
 }
 
 474 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 478 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 476 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3599,20 +2727,14 @@
 }
 
 452 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 453 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 481 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3623,20 +2745,14 @@
 }
 
 475 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 480 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 550 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3647,20 +2763,14 @@
 }
 
 484 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 482 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 485 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3671,20 +2781,14 @@
 }
 
 553 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 557 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 552 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3695,20 +2799,14 @@
 }
 
 551 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 613 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 612 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3719,20 +2817,14 @@
 }
 
 555 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 558 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 614 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3743,14 +2835,10 @@
 }
 
 489 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 560 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
@@ -3761,20 +2849,14 @@
 }
 
 486 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 488 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 487 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -3803,20 +2885,14 @@
 }
 
 656 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 652 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 654 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3827,20 +2903,14 @@
 }
 
 655 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 651 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 693 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3851,20 +2921,14 @@
 }
 
 657 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 660 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 658 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3875,20 +2939,14 @@
 }
 
 661 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 664 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 662 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3899,20 +2957,14 @@
 }
 
 666 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 699 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 702 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3923,20 +2975,14 @@
 }
 
 705 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 708 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 706 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3947,26 +2993,18 @@
 }
 
 715 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 711 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 733 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
 731 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -3977,20 +3015,14 @@
 }
 
 720 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 735 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 738 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4001,20 +3033,14 @@
 }
 
 734 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 737 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 732 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4025,20 +3051,14 @@
 }
 
 739 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 743 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 740 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4049,20 +3069,14 @@
 }
 
 727 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 741 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 745 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4073,20 +3087,14 @@
 }
 
 725 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 728 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
 729 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4097,14 +3105,10 @@
 }
 
 747 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = city_holding
 }
 
 746 = {
-	culture = zenshin
-	rite = devanic_temple
 	holding = church_holding
 }
 
@@ -4115,20 +3119,14 @@
 }
 
 716 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
 714 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = church_holding
 }
 
 718 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4139,20 +3137,14 @@
 }
 
 692 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
 690 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = church_holding
 }
 
 694 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4163,20 +3155,14 @@
 }
 
 697 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
 696 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = church_holding
 }
 
 698 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4187,20 +3173,14 @@
 }
 
 724 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
 719 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = church_holding
 }
 
 722 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4211,20 +3191,14 @@
 }
 
 703 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
 704 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = church_holding
 }
 
 701 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4235,26 +3209,18 @@
 }
 
 634 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
 633 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = church_holding
 }
 
 637 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = none
 }
 
 635 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4265,20 +3231,14 @@
 }
 
 670 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
 676 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = church_holding
 }
 
 673 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4289,20 +3249,14 @@
 }
 
 671 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
 665 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = church_holding
 }
 
 668 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4313,20 +3267,14 @@
 }
 
 675 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
 669 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = church_holding
 }
 
 709 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4337,20 +3285,14 @@
 }
 
 677 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
 680 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = church_holding
 }
 
 678 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4367,20 +3309,14 @@
 }
 
 642 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
 640 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = church_holding
 }
 
 643 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4391,20 +3327,14 @@
 }
 
 641 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
 684 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = church_holding
 }
 
 679 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4415,20 +3345,14 @@
 }
 
 647 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
 686 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = church_holding
 }
 
 687 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4439,20 +3363,14 @@
 }
 
 685 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
 682 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = church_holding
 }
 
 681 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = none
 }
 
@@ -4463,8 +3381,6 @@
 }
 
 688 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
@@ -4475,8 +3391,6 @@
 }
 
 648 = {
-	culture = cathayan
-	rite = devanic_temple
 	holding = city_holding
 }
 
@@ -4487,20 +3401,14 @@
 }
 
 750 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = city_holding
 }
 
 749 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = church_holding
 }
 
 756 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = none
 }
 
@@ -4511,20 +3419,14 @@
 }
 
 758 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = city_holding
 }
 
 759 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = church_holding
 }
 
 755 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = none
 }
 
@@ -4535,26 +3437,18 @@
 }
 
 751 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = city_holding
 }
 
 764 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = church_holding
 }
 
 760 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = none
 }
 
 762 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = none
 }
 
@@ -4565,20 +3459,14 @@
 }
 
 763 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = city_holding
 }
 
 765 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = church_holding
 }
 
 761 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = none
 }
 
@@ -4589,20 +3477,14 @@
 }
 
 757 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = city_holding
 }
 
 774 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = church_holding
 }
 
 776 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = none
 }
 
@@ -4613,20 +3495,14 @@
 }
 
 769 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = city_holding
 }
 
 771 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = church_holding
 }
 
 768 = {
-	culture = cathayan
-	rite = celestial_order
 	holding = none
 }
 
@@ -4637,20 +3513,14 @@
 }
 
 777 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = city_holding
 }
 
 775 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = church_holding
 }
 
 779 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = none
 }
 
@@ -4661,20 +3531,14 @@
 }
 
 784 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = city_holding
 }
 
 780 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = church_holding
 }
 
 783 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = none
 }
 
@@ -4685,20 +3549,14 @@
 }
 
 782 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = city_holding
 }
 
 797 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = church_holding
 }
 
 799 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = none
 }
 
@@ -4709,20 +3567,14 @@
 }
 
 770 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = city_holding
 }
 
 786 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = church_holding
 }
 
 788 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = none
 }
 
@@ -4733,20 +3585,14 @@
 }
 
 790 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = city_holding
 }
 
 792 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = church_holding
 }
 
 789 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = none
 }
 
@@ -4757,20 +3603,14 @@
 }
 
 798 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = city_holding
 }
 
 804 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = church_holding
 }
 
 800 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = none
 }
 
@@ -4781,14 +3621,10 @@
 }
 
 805 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = city_holding
 }
 
 801 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = church_holding
 }
 
@@ -4799,26 +3635,18 @@
 }
 
 803 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = city_holding
 }
 
 806 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = church_holding
 }
 
 810 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = none
 }
 
 807 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = none
 }
 
@@ -4829,8 +3657,6 @@
 }
 
 795 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = city_holding
 }
 
@@ -4841,20 +3667,14 @@
 }
 
 791 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = city_holding
 }
 
 794 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = church_holding
 }
 
 793 = {
-	culture = kitsune
-	rite = celestial_order
 	holding = none
 }
 
@@ -4871,20 +3691,14 @@
 }
 
 867 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 866 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 868 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -4895,20 +3709,14 @@
 }
 
 874 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 871 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 873 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -4919,20 +3727,14 @@
 }
 
 870 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 875 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 896 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -4943,20 +3745,14 @@
 }
 
 844 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 846 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 877 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -4967,20 +3763,14 @@
 }
 
 879 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 883 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 880 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -4991,20 +3781,14 @@
 }
 
 881 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 884 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 878 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5015,20 +3799,14 @@
 }
 
 847 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 889 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 885 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5039,26 +3817,18 @@
 }
 
 888 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 892 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 890 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = none
 }
 
 887 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5069,20 +3839,14 @@
 }
 
 852 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 854 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 850 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5093,20 +3857,14 @@
 }
 
 853 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 893 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 894 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5117,20 +3875,14 @@
 }
 
 816 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 813 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 815 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5141,20 +3893,14 @@
 }
 
 818 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 820 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 817 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5165,20 +3911,14 @@
 }
 
 830 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 831 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 827 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5189,20 +3929,14 @@
 }
 
 840 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 834 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 838 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5213,20 +3947,14 @@
 }
 
 829 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 833 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 835 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5237,20 +3965,14 @@
 }
 
 822 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 819 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 824 = {
-	culture = kitsune
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5261,20 +3983,14 @@
 }
 
 832 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 851 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 855 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5285,20 +4001,14 @@
 }
 
 860 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 856 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 859 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5309,20 +4019,14 @@
 }
 
 863 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 861 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 895 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5333,20 +4037,14 @@
 }
 
 842 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 865 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 862 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5357,20 +4055,14 @@
 }
 
 826 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = city_holding
 }
 
 843 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = church_holding
 }
 
 841 = {
-	culture = zenshin
-	rite = veiled_ancestors
 	holding = none
 }
 
@@ -5387,20 +4079,14 @@
 }
 
 913 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 909 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 911 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -5411,20 +4097,14 @@
 }
 
 925 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 926 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 922 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -5435,20 +4115,14 @@
 }
 
 914 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 919 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 930 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -5459,20 +4133,14 @@
 }
 
 928 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 931 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 932 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -5483,20 +4151,14 @@
 }
 
 924 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 929 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 939 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -5507,20 +4169,14 @@
 }
 
 899 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 915 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 912 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -5531,20 +4187,14 @@
 }
 
 918 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 916 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 920 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -5555,20 +4205,14 @@
 }
 
 901 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 902 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 905 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -5579,20 +4223,14 @@
 }
 
 907 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 908 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 906 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -5603,20 +4241,14 @@
 }
 
 935 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 936 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 934 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -5627,20 +4259,14 @@
 }
 
 943 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 938 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 941 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -5651,20 +4277,14 @@
 }
 
 945 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 942 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 956 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -5675,20 +4295,14 @@
 }
 
 949 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 947 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 951 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -5699,20 +4313,14 @@
 }
 
 958 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 959 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 957 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -5723,20 +4331,14 @@
 }
 
 952 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 955 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 960 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -5747,14 +4349,10 @@
 }
 
 953 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 954 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
@@ -5777,20 +4375,14 @@
 }
 
 965 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = city_holding
 }
 
 963 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = church_holding
 }
 
 967 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = none
 }
 
@@ -5801,20 +4393,14 @@
 }
 
 972 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = city_holding
 }
 
 974 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = church_holding
 }
 
 970 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = none
 }
 
@@ -5825,20 +4411,14 @@
 }
 
 969 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = city_holding
 }
 
 971 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = church_holding
 }
 
 989 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = none
 }
 
@@ -5849,20 +4429,14 @@
 }
 
 986 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = city_holding
 }
 
 984 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = church_holding
 }
 
 985 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = none
 }
 
@@ -5873,20 +4447,14 @@
 }
 
 987 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = city_holding
 }
 
 991 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = church_holding
 }
 
 988 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = none
 }
 
@@ -5909,20 +4477,14 @@
 }
 
 1004 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = city_holding
 }
 
 1008 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = church_holding
 }
 
 1005 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = none
 }
 
@@ -5933,20 +4495,14 @@
 }
 
 1009 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = city_holding
 }
 
 1012 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = church_holding
 }
 
 1031 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = none
 }
 
@@ -5957,20 +4513,14 @@
 }
 
 1010 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = city_holding
 }
 
 1015 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = church_holding
 }
 
 1013 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = none
 }
 
@@ -5981,20 +4531,14 @@
 }
 
 998 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = city_holding
 }
 
 994 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = church_holding
 }
 
 1011 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = none
 }
 
@@ -6005,20 +4549,14 @@
 }
 
 1037 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = city_holding
 }
 
 1042 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = church_holding
 }
 
 1039 = {
-	culture = zenshin
-	rite = wild_pacts
 	holding = none
 }
 
@@ -6029,20 +4567,14 @@
 }
 
 992 = {
-	culture = oni
-	rite = wild_pacts
 	holding = city_holding
 }
 
 995 = {
-	culture = oni
-	rite = wild_pacts
 	holding = church_holding
 }
 
 993 = {
-	culture = oni
-	rite = wild_pacts
 	holding = none
 }
 
@@ -6053,20 +4585,14 @@
 }
 
 983 = {
-	culture = oni
-	rite = wild_pacts
 	holding = city_holding
 }
 
 980 = {
-	culture = oni
-	rite = wild_pacts
 	holding = church_holding
 }
 
 997 = {
-	culture = oni
-	rite = wild_pacts
 	holding = none
 }
 
@@ -6077,26 +4603,18 @@
 }
 
 982 = {
-	culture = oni
-	rite = wild_pacts
 	holding = city_holding
 }
 
 979 = {
-	culture = oni
-	rite = wild_pacts
 	holding = church_holding
 }
 
 978 = {
-	culture = oni
-	rite = wild_pacts
 	holding = none
 }
 
 976 = {
-	culture = oni
-	rite = wild_pacts
 	holding = none
 }
 
@@ -6107,20 +4625,14 @@
 }
 
 1002 = {
-	culture = oni
-	rite = wild_pacts
 	holding = city_holding
 }
 
 999 = {
-	culture = oni
-	rite = wild_pacts
 	holding = church_holding
 }
 
 1001 = {
-	culture = oni
-	rite = wild_pacts
 	holding = none
 }
 
@@ -6131,20 +4643,14 @@
 }
 
 1017 = {
-	culture = oni
-	rite = wild_pacts
 	holding = city_holding
 }
 
 1021 = {
-	culture = oni
-	rite = wild_pacts
 	holding = church_holding
 }
 
 1018 = {
-	culture = oni
-	rite = wild_pacts
 	holding = none
 }
 
@@ -6155,20 +4661,14 @@
 }
 
 1032 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = city_holding
 }
 
 1035 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = church_holding
 }
 
 1033 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = none
 }
 
@@ -6179,20 +4679,14 @@
 }
 
 1036 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = city_holding
 }
 
 1041 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = church_holding
 }
 
 1038 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = none
 }
 
@@ -6203,20 +4697,14 @@
 }
 
 1046 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = city_holding
 }
 
 1044 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = church_holding
 }
 
 1047 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = none
 }
 
@@ -6227,20 +4715,14 @@
 }
 
 1056 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = city_holding
 }
 
 1055 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = church_holding
 }
 
 1054 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = none
 }
 
@@ -6251,20 +4733,14 @@
 }
 
 1019 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = city_holding
 }
 
 1025 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = church_holding
 }
 
 1045 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = none
 }
 
@@ -6275,26 +4751,18 @@
 }
 
 1026 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = city_holding
 }
 
 1024 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = church_holding
 }
 
 1027 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = none
 }
 
 1029 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = none
 }
 
@@ -6305,20 +4773,14 @@
 }
 
 1048 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = city_holding
 }
 
 1051 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = church_holding
 }
 
 1050 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = none
 }
 
@@ -6329,8 +4791,6 @@
 }
 
 1052 = {
-	culture = yokai
-	rite = wild_pacts
 	holding = city_holding
 }
 
@@ -6347,32 +4807,22 @@
 }
 
 1060 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1059 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1062 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
 1067 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
 1061 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6383,20 +4833,14 @@
 }
 
 1071 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1068 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1065 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6407,20 +4851,14 @@
 }
 
 1069 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1063 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1066 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6431,20 +4869,14 @@
 }
 
 1072 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1075 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1073 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6455,20 +4887,14 @@
 }
 
 1074 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1079 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1078 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6479,20 +4905,14 @@
 }
 
 1087 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1084 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1086 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6503,20 +4923,14 @@
 }
 
 1092 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1088 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1091 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6527,20 +4941,14 @@
 }
 
 1098 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1093 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1097 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6551,20 +4959,14 @@
 }
 
 1104 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1095 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1101 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6575,20 +4977,14 @@
 }
 
 1096 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1122 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1125 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6599,20 +4995,14 @@
 }
 
 1126 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1121 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1124 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6623,20 +5013,14 @@
 }
 
 1128 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1132 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1127 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6647,20 +5031,14 @@
 }
 
 1131 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1135 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1138 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6671,20 +5049,14 @@
 }
 
 1134 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1130 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1136 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6695,20 +5067,14 @@
 }
 
 1154 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1152 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1153 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6719,20 +5085,14 @@
 }
 
 1100 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1108 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1103 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6743,20 +5103,14 @@
 }
 
 1102 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1112 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1110 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6767,20 +5121,14 @@
 }
 
 1117 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1111 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1116 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6791,20 +5139,14 @@
 }
 
 1082 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1080 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1083 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6815,8 +5157,6 @@
 }
 
 1119 = {
-	culture = zenshin
-	rite = ancestral_rites
 	holding = city_holding
 }
 
@@ -6827,20 +5167,14 @@
 }
 
 1109 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1145 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1139 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6851,20 +5185,14 @@
 }
 
 1113 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1118 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1148 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6875,20 +5203,14 @@
 }
 
 1147 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1143 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1146 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = none
 }
 
@@ -6899,14 +5221,10 @@
 }
 
 1151 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1149 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = church_holding
 }
 
@@ -6917,20 +5235,14 @@
 }
 
 1141 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = city_holding
 }
 
 1156 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = church_holding
 }
 
 1155 = {
-	culture = cathayan
-	rite = ancestral_rites
 	holding = none
 }
 

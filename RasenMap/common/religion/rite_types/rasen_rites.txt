@@ -1,0 +1,62 @@
+﻿ancestral_rites = {
+	faith = ancestral_rites
+	color = { 190 50 50 }
+	tenets = {
+		tenet_ancestor_worship
+		tenet_ritual_hospitality
+		tenet_struggle_submission
+	}
+}
+
+celestial_order = {
+	faith = celestial_order
+	color = { 220 180 40 }
+	tenets = {
+		tenet_esotericism
+		tenet_ancestor_worship
+		tenet_ritual_celebrations
+	}
+}
+
+veiled_ancestors = {
+	faith = veiled_ancestors
+	color = { 130 60 150 }
+	tenets = {
+		tenet_sacred_shadows
+		tenet_ancestor_worship
+		tenet_esotericism
+	}
+}
+
+devanic_temple = {
+	faith = devanic_temple
+	color = { 70 130 210 }
+	tenets = {
+		tenet_inner_journey
+		tenet_unrelenting_faith
+		tenet_mendicant_preachers
+	}
+	doctrines = {
+		doctrine_monasticism_encouraged
+	}
+}
+
+rasen_shugendo = {
+	faith = rasen_shugendo
+	color = { 150 200 230 }
+	tenets = {
+		tenet_asceticism
+		tenet_sanctity_of_nature
+		tenet_esotericism
+	}
+}
+
+wild_pacts = {
+	faith = wild_pacts
+	color = { 60 140 50 }
+	tenets = {
+		tenet_warmonger
+		tenet_sanctity_of_nature
+		tenet_ritual_celebrations
+	}
+}

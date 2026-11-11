@@ -198,6 +198,9 @@ RELIGION_LOC_KEYS = [
     'DeathDeityName', 'DeathDeityNamePossessive', 'DeathDeitySheHe', 'DeathDeityHerHis', 'DeathDeityHerHim',
     'WitchGodName', 'WitchGodHerHis', 'WitchGodSheHe', 'WitchGodHerHim', 'WitchGodMistressMaster', 'WitchGodMotherFather',
     'GHWName', 'GHWNamePlural',
+    # Also required by CK3 1.20.1 (reported by error.log on the first load).
+    'HighGodName2', 'HouseOfWorship2', 'HouseOfWorship3', 'PantheonTerm2', 'PantheonTerm3', 'ReligiousHeadNameFemale',
+    'ReligiousSymbol2', 'ReligiousSymbol3', 'ReligiousText2', 'ReligiousText3', 'WitchGodNamePossessive',
 ]
 
 # Holy sites: a named barony, or the n-th county of a kingdom.
@@ -280,7 +283,7 @@ CULTURE_RACE = {'zenshin': 'human', 'cathayan': 'human', 'lunargoth': 'lunargoth
 # court = an Exalt's land: the character is a courtier there. child_of = that Exalt's daughter/son.
 CANON_CAST = [
     dict(key='keiko', name='Keiko', house='Ryuuzan', culture='zenshin', faith='ancestral_rites', female=True, age=23,
-         child_of='bladed', court='bladed', cultivator=1, traits=('ambitious', 'deceitful', 'compassionate', 'physician_2'),
+         child_of='bladed', court='bladed', cultivator=1, traits=('ambitious', 'deceitful', 'compassionate', 'lifestyle_physician'),
          desc='The only daughter of Bladed Exalt Ryuuzan Masaru, a Noble who works undercover as a head nurse and plays the Exalts against one another.'),
     dict(key='jahi', name='Jahi', house='Akuma', culture='cathayan', faith='veiled_ancestors', female=False, age=70, cultivator=3,
          traits=('ambitious', 'callous', 'arrogant', 'rasen_akuma_lord'), akuma=True,

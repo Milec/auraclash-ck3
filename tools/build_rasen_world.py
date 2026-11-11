@@ -115,7 +115,7 @@ def religion_files(kingdoms):
         sites.append(block(key, [f'county = {county_of[barony]}', f'barony = {barony}', 'faith_character_modifier = {',
                                  *[f'\t{k} = {v}' for k, v in site['modifier'].items()], '}']))
         loc += [f' holy_site_{key}_name:0 "{site["name"]}"']
-    religions, faiths = [], []
+    religions, faiths, rites = [], [], []
     for rkey, r in RELIGIONS.items():
         body = ['religion_details = {', f"\tfamily = {r['family']}", f"\tgraphical_faith = {r['graphical_faith']}",
                 f"\tpiety_icon_group = {r['piety_icon_group']}", '}', 'pagan_roots = yes' if r.get('pagan_roots') else '',
@@ -133,18 +133,21 @@ def religion_files(kingdoms):
                  '\tEvilGodNames = { ' + ' '.join(f'{rkey}_evil_god_{i}'.lower() for i in range(len(r['evil_gods']))) + ' }', '}']
         loc += [f' {rkey}_good_god_{i}:0 "{g}"' for i, g in enumerate(r['good_gods'])]
         loc += [f' {rkey}_evil_god_{i}:0 "{g}"' for i, g in enumerate(r['evil_gods'])]
-        # CK3 1.20: faiths are faith_types that name their religion. With no scripted Rite,
-        # the game creates a main Rite with the faith's key, which history assigns with `rite =`.
+        # CK3 1.20: faiths are faith_types that name their religion. Each has a scripted main Rite
+        # with the faith's own key (as vanilla does), which history assigns with `rite =`.
+        # The Rite owns the core tenets.
         for fkey, f in FAITHS.items():
             if f['religion'] != rkey:
                 continue
-            fbody = ['faith_details = {', f'\treligion = {rkey}',
-                     f"\tcolor = {{ {f['colour'][0]} {f['colour'][1]} {f['colour'][2]} }}", f"\ticon = {f['icon']}",
-                     f"\treformed_icon = {f['icon']}", '}',
-                     'eminent_holy_sites = {', *[f'\t{s}' for s in f['holy_sites']], '}',
+            rbody = [f'faith = {fkey}', f"color = {{ {f['colour'][0]} {f['colour'][1]} {f['colour'][2]} }}",
                      'tenets = {', *[f'\t{t}' for t in f['tenets']], '}']
             if f.get('doctrines'):
-                fbody += ['doctrines = {', *[f'\t{d}' for d in f['doctrines']], '}']
+                rbody += ['doctrines = {', *[f'\t{d}' for d in f['doctrines']], '}']
+            rites.append(block(fkey, rbody))
+            fbody = [f'main_rite = {fkey}', 'faith_details = {', f'\treligion = {rkey}',
+                     f"\tcolor = {{ {f['colour'][0]} {f['colour'][1]} {f['colour'][2]} }}", f"\ticon = {f['icon']}",
+                     f"\treformed_icon = {f['icon']}", '}',
+                     'eminent_holy_sites = {', *[f'\t{s}' for s in f['holy_sites']], '}']
             faiths.append(block(fkey, fbody))
             loc += [f' {fkey}:0 "{f["name"]}"', f' {fkey}_adj:0 "{f["adjective"]}"',
                     f' {fkey}_adherent:0 "{f["adherent"]}"', f' {fkey}_adherent_plural:0 "{f["adherents"]}"',
@@ -156,6 +159,7 @@ def religion_files(kingdoms):
     return {
         'common/religion/religion_types/rasen_religions.txt': '\n'.join(religions),
         'common/religion/faith_types/rasen_faiths.txt': '\n'.join(faiths),
+        'common/religion/rite_types/rasen_rites.txt': '\n'.join(rites),
         'common/religion/holy_site_types/rasen_holy_sites.txt': '\n'.join(sites),
     }, loc
 
@@ -202,6 +206,10 @@ def religion_text(r, key):
         return core['temple'] + ('s' if plural else '')
     if key == 'PantheonTermHasHave':
         return 'has'
+    # Numbered and gendered variants (ReligiousText2, ReligiousHeadNameFemale) reuse the base term.
+    base_key = re.sub(r'(\d|Female)$', '', key)
+    if base_key in core:
+        return core[base_key]
     return core.get('fallback', r['name'])
 
 
@@ -333,7 +341,9 @@ def history_files(kingdoms):
                 titles.append(block(county['key'], [f'{early} = {{ holder = {duke} }}']))
                 for bi, (barony, province) in enumerate(county['baronies']):
                     holding = ['castle_holding', 'city_holding', 'church_holding'][bi] if bi < 3 else 'none'
-                    provinces.append(block(str(province), [f'culture = {culture}', f'rite = {faith}', f'holding = {holding}']))
+                    # As in vanilla, only the county's capital province carries culture and rite.
+                    people_lines = [f'culture = {culture}', f'rite = {faith}'] if bi == 0 else []
+                    provinces.append(block(str(province), [*people_lines, f'holding = {holding}']))
     family_rng = random.Random(SEED + 1)
     for cid in sorted({h for h in re.findall(r'holder = (rasen_\d+)', '\n'.join(titles))}, key=lambda c: int(c.split('_')[1])):
         people.family(cid, family_rng)

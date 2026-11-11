@@ -5510,7 +5510,7 @@ rasen_367 = {
 	trait = ambitious
 	trait = deceitful
 	trait = compassionate
-	trait = physician_2
+	trait = lifestyle_physician
 	trait = ac_cultivator
 	2977.11.14 = { birth = yes }
 	2999.1.1 = { employer = rasen_73 }

@@ -1,4 +1,5 @@
 ﻿ancestral_rites = {
+	main_rite = ancestral_rites
 	faith_details = {
 		religion = rasen_ancestral_religion
 		color = { 190 50 50 }
@@ -10,14 +11,10 @@
 		rasen_bladed_forge
 		rasen_rabbit_trial_valley
 	}
-	tenets = {
-		tenet_ancestor_worship
-		tenet_ritual_hospitality
-		tenet_struggle_submission
-	}
 }
 
 celestial_order = {
+	main_rite = celestial_order
 	faith_details = {
 		religion = rasen_ancestral_religion
 		color = { 220 180 40 }
@@ -28,14 +25,10 @@ celestial_order = {
 		rasen_leyline_nexus
 		rasen_mystic_spires
 	}
-	tenets = {
-		tenet_esotericism
-		tenet_ancestor_worship
-		tenet_ritual_celebrations
-	}
 }
 
 veiled_ancestors = {
+	main_rite = veiled_ancestors
 	faith_details = {
 		religion = rasen_ancestral_religion
 		color = { 130 60 150 }
@@ -46,14 +39,10 @@ veiled_ancestors = {
 		rasen_leyline_nexus
 		rasen_cursed_hollow
 	}
-	tenets = {
-		tenet_sacred_shadows
-		tenet_ancestor_worship
-		tenet_esotericism
-	}
 }
 
 devanic_temple = {
+	main_rite = devanic_temple
 	faith_details = {
 		religion = rasen_devanic_religion
 		color = { 70 130 210 }
@@ -65,17 +54,10 @@ devanic_temple = {
 		rasen_sacred_sanctum
 		rasen_heavenly_storm_gate
 	}
-	tenets = {
-		tenet_inner_journey
-		tenet_unrelenting_faith
-		tenet_mendicant_preachers
-	}
-	doctrines = {
-		doctrine_monasticism_encouraged
-	}
 }
 
 rasen_shugendo = {
+	main_rite = rasen_shugendo
 	faith_details = {
 		religion = rasen_devanic_religion
 		color = { 150 200 230 }
@@ -87,14 +69,10 @@ rasen_shugendo = {
 		rasen_dead_mountain
 		rasen_ice_front
 	}
-	tenets = {
-		tenet_asceticism
-		tenet_sanctity_of_nature
-		tenet_esotericism
-	}
 }
 
 wild_pacts = {
+	main_rite = wild_pacts
 	faith_details = {
 		religion = rasen_wild_religion
 		color = { 60 140 50 }
@@ -104,10 +82,5 @@ wild_pacts = {
 	eminent_holy_sites = {
 		rasen_burning_forest
 		rasen_wild_arena
-	}
-	tenets = {
-		tenet_warmonger
-		tenet_sanctity_of_nature
-		tenet_ritual_celebrations
 	}
 }
