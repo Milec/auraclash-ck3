@@ -7,7 +7,6 @@ tags={
 }
 name="Aura Clash: Imperial Rasen (in development)"
 supported_version="1.20.*"
-replace_path="map_data"
 replace_path="common/landed_titles"
 replace_path="common/bookmarks/bookmarks"
 replace_path="common/bookmarks/groups"

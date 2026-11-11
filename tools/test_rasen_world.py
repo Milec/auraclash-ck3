@@ -65,6 +65,20 @@ class RasenWorldTests(unittest.TestCase):
         for key in keys:
             self.assertRegex(self.loc, rf'(?m)^ {re.escape(key)}:0 "', key)
 
+    def test_rulers_have_families_and_ordered_history(self):
+        chars = self.text['history/characters/rasen_characters.txt']
+        ids = set(re.findall(r'(?m)^(rasen_\d+) = \{', chars))
+        spouses = re.findall(r'add_(?:matrilineal_)?spouse = (rasen_\d+)', chars)
+        self.assertGreater(len(spouses), 80)
+        self.assertLessEqual(set(spouses) | set(re.findall(r'(?:father|mother) = (rasen_\d+)', chars)), ids)
+        for body in re.findall(r'(?ms)^rasen_\d+ = \{(.*?)^\}', chars):
+            dates = [tuple(map(int, d.split('.'))) for d in re.findall(r'(?m)^\t(\d+\.\d+\.\d+) =', body)]
+            self.assertEqual(dates, sorted(dates))
+            personality = [t for t in re.findall(r'trait = (\w+)', body) if any(t in g for g in world.TRAIT_GROUPS)]
+            self.assertLessEqual(len(personality), 3, body)
+        for culture in world.CULTURES:
+            self.assertIn('join_era = culture_era_early_medieval', self.text[f'history/cultures/{culture}.txt'])
+
     def test_exalts_rule_the_inner_kingdoms_at_the_bookmark(self):
         bookmark = self.text['common/bookmarks/bookmarks/rasen_bookmarks.txt']
         for region in ('bladed', 'sacred', 'mystic', 'cursed', 'wild'):

@@ -48,10 +48,22 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
    - Geographical regions and localization.
 
    Edit `tools/rasen_regions.json` (region geometry, densities, colours, canonical names) or `tools/rasen_names.py`, then rerun the script. `python tools/build_rasen_map.py --check` verifies the committed output, and `output/rasen-preview.png` shows the regions.
-2. **Map assets that need the CK3 install** (to do on a machine with CK3):
-   - Bake the heightmap. CK3 reads a packed `heightmap.heightmap`, `packed_heightmap.png` and `indirection_heightmap.png`, not the plain PNG. Generate them from `heightmap.png` with the game's map tooling, then verify that the game loads the result.
-   - `rivers.png` in CK3's indexed palette (a builder option will copy the palette from the vanilla file), plus terrain masks under `gfx/map/terrain/`, `province_terrain`, flatmap, water and climate.
-   - Map object locators (cities, units, combat) from the in-game map editor.
+2. **Map assets.** Generated so far:
+   - **Terrain** for every province (`common/province_terrain`), taken from the painting's relief and each region's character:
+     - snowy mountains and taiga in Outer North;
+     - mountains and forest in the Sacred Lands;
+     - jungle and forest in the Wild Lands;
+     - wetlands in the Cursed Lands;
+     - drylands and hills in the Bladed Lands;
+     - farmland on Azuma Honsha.
+   - **Winter severity** for the north (Outer North, Sacred mountains).
+   - A blank, valid **`rivers.png`** (index 255 land, 254 water).
+
+   Still needs the CK3 install:
+   - **Bake the heightmap.** CK3 reads a packed `heightmap.heightmap`, `packed_heightmap.png` and `indirection_heightmap.png`. Generate them from `heightmap.png` with the game's map tooling.
+   - **Painted rivers**, terrain detail masks under `gfx/map/terrain/`, flatmap and water.
+   - **Map object locators** (cities, units, combat) from the in-game map editor.
+   - `map_data` is no longer replaced wholesale, so vanilla `seasons.txt` and `continent.txt` remain available to `default.map`.
 3. **Peoples and faiths (done, generated).** `tools/build_rasen_world.py`, with its data in `tools/rasen_world_data.py`:
    - **Cultures:** Zenshin, Cathayan, Oni, Yokai and Kitsune, each with its own heritage and Zenshin-style or Cathayan name lists.
    - **Rasenese Rites:** Ancestral Rites (the Outer lands, Azuma Honsha and the Bladed Lands), the Celestial Order (Mystic) and the Veiled Ancestors (Cursed).
@@ -64,13 +76,14 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
    - The five Exalts hold the Inner Kingdoms as grandmaster cultivators with Immortal Cores: Bladed Exalt Ryuuzan Masaru (canon); the Wild, Cursed (Ozaki), Mystic and Sacred Exalts (generated names).
    - A High Steward of the Exalted Council holds Azuma Honsha. The Outer lands are independent duchies; Magistrates Khan (Thunderfall) and Fuyu (Nanhou) are canon.
    - Province culture, faith and holdings.
-   - Still to do: spouses and heirs, the canonical sects as seeded sects, culture innovations (`history/cultures`), and bookmark portraits.
+   - Every ruler has a spouse and one to three children (matrilineal for female rulers), 360 characters in all. Each culture starts in the Early Medieval era with first-tier innovations.
+   - Still to do: the canonical sects as seeded sects, and bookmark portraits.
 5. **Regional systems:** (regional Mortal Limit done) Ice Incursions in Outer North, Inner Kingdom favour (honour, compassion, ruthlessness, intelligence, practicality) affecting Trial scoring, and caste promotion events.
 6. **Cleanup:** replace or guard vanilla content that assumes Earth's map (vanilla event overrides that reference real places, struggles, travel events).
 
 ## Loading
 
-`RasenMap/` is not yet a loadable mod: it still needs the step 2 map assets. Until then, keep using `AuraClash/` alone. Its `descriptor.mod` loads after `AuraClash` and replaces `map_data`, `common/landed_titles`, the bookmarks, `common/dynasties` and `history/{characters,provinces,titles}`. Vanilla cultures and religions stay loaded but unused.
+`RasenMap/` is not yet a loadable mod: it still needs the step 2 map assets. Until then, keep using `AuraClash/` alone. Its `descriptor.mod` loads after `AuraClash`, overrides the `map_data` files it generates, and replaces `common/landed_titles`, the bookmarks, `common/dynasties` and `history/{characters,provinces,titles}`. Vanilla cultures and religions stay loaded but unused.
 
 ### Verify in-game first
 The generated scripts use vanilla keys that cannot be checked without the game files:
@@ -78,5 +91,7 @@ The generated scripts use vanilla keys that cannot be checked without the game f
 - Traditions, tenets and doctrines.
 - `graphical_faith` and `piety_icon_group`, and the `custom_faith_N` icons.
 - `NGame.START_DATE` and `NGame.END_DATE`.
+- Innovation keys and `culture_era_early_medieval` in `history/cultures`.
+- Terrain keys and `winter_severity_bias`.
 
 Check `error.log` for unknown keys on the first launch, and correct them in `tools/rasen_world_data.py`.

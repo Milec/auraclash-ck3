@@ -51,6 +51,18 @@ class RasenMapTests(unittest.TestCase):
         for capital in re.findall(r'capital = (c_\w+)', self.titles):
             self.assertIn(capital, keys)
 
+    def test_every_land_province_has_terrain_and_rivers_use_ck3_indices(self):
+        terrain = (ROOT / 'common/province_terrain/00_rasen_province_terrain.txt').read_text(encoding='utf-8')
+        assigned = {int(p) for p in re.findall(r'(?m)^(\d+)=\w+$', terrain)}
+        provinces = {int(p) for p in re.findall(r'province = (\d+)', self.titles)}
+        self.assertEqual(assigned, provinces)
+        valid = {'plains', 'farmlands', 'hills', 'mountains', 'desert', 'desert_mountains', 'oasis', 'jungle', 'forest',
+                 'taiga', 'wetlands', 'steppe', 'floodplains', 'drylands'}
+        self.assertLessEqual(set(re.findall(r'(?m)^\d+=(\w+)$', terrain)), valid)
+        rivers = Image.open(ROOT / 'map_data/rivers.png')
+        self.assertEqual((rivers.mode, rivers.size), ('P', (8192, 4096)))
+        self.assertLessEqual(set(np.unique(np.asarray(rivers)).tolist()), {254, 255})
+
     def test_heightmap_matches_canvas(self):
         height = Image.open(ROOT / 'map_data/heightmap.png')
         self.assertEqual((height.mode, height.size), ('L', (8192, 4096)))

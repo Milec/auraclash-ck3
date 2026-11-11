@@ -8,48 +8,33 @@ dynasty_rasen_khan = {
 	culture = zenshin
 }
 
-dynasty_rasen_kurosawa = {
-	name = "dynasty_rasen_kurosawa"
+dynasty_rasen_amatsu = {
+	name = "dynasty_rasen_amatsu"
 	culture = zenshin
 }
 
 dynasty_rasen_mizuhara = {
 	name = "dynasty_rasen_mizuhara"
+	culture = zenshin
+}
+
+dynasty_rasen_kurosawa = {
+	name = "dynasty_rasen_kurosawa"
+	culture = zenshin
+}
+
+dynasty_rasen_yamabe = {
+	name = "dynasty_rasen_yamabe"
+	culture = zenshin
+}
+
+dynasty_rasen_kanzaki = {
+	name = "dynasty_rasen_kanzaki"
 	culture = oni
 }
 
-dynasty_rasen_sanada = {
-	name = "dynasty_rasen_sanada"
-	culture = zenshin
-}
-
-dynasty_rasen_kagemori = {
-	name = "dynasty_rasen_kagemori"
-	culture = zenshin
-}
-
-dynasty_rasen_tsukimura = {
-	name = "dynasty_rasen_tsukimura"
-	culture = zenshin
-}
-
-dynasty_rasen_takeda = {
-	name = "dynasty_rasen_takeda"
-	culture = zenshin
-}
-
-dynasty_rasen_ishida = {
-	name = "dynasty_rasen_ishida"
-	culture = zenshin
-}
-
-dynasty_rasen_ryuuzan = {
-	name = "dynasty_rasen_ryuuzan"
-	culture = zenshin
-}
-
-dynasty_rasen_ozaki = {
-	name = "dynasty_rasen_ozaki"
+dynasty_rasen_hoshino = {
+	name = "dynasty_rasen_hoshino"
 	culture = zenshin
 }
 
@@ -58,39 +43,54 @@ dynasty_rasen_fujiwara = {
 	culture = zenshin
 }
 
-dynasty_rasen_hoshino = {
-	name = "dynasty_rasen_hoshino"
+dynasty_rasen_tsukimura = {
+	name = "dynasty_rasen_tsukimura"
 	culture = zenshin
 }
 
-dynasty_rasen_hayashi = {
-	name = "dynasty_rasen_hayashi"
+dynasty_rasen_kagemori = {
+	name = "dynasty_rasen_kagemori"
 	culture = oni
+}
+
+dynasty_rasen_takeda = {
+	name = "dynasty_rasen_takeda"
+	culture = zenshin
+}
+
+dynasty_rasen_luo = {
+	name = "dynasty_rasen_luo"
+	culture = cathayan
 }
 
 dynasty_rasen_arakawa = {
 	name = "dynasty_rasen_arakawa"
-	culture = zenshin
-}
-
-dynasty_rasen_kanzaki = {
-	name = "dynasty_rasen_kanzaki"
-	culture = zenshin
-}
-
-dynasty_rasen_yamabe = {
-	name = "dynasty_rasen_yamabe"
 	culture = oni
 }
 
-dynasty_rasen_okami = {
-	name = "dynasty_rasen_okami"
-	culture = oni
+dynasty_rasen_lan = {
+	name = "dynasty_rasen_lan"
+	culture = cathayan
+}
+
+dynasty_rasen_ryuuzan = {
+	name = "dynasty_rasen_ryuuzan"
+	culture = zenshin
+}
+
+dynasty_rasen_ishida = {
+	name = "dynasty_rasen_ishida"
+	culture = zenshin
 }
 
 dynasty_rasen_kiba = {
 	name = "dynasty_rasen_kiba"
 	culture = zenshin
+}
+
+dynasty_rasen_okami = {
+	name = "dynasty_rasen_okami"
+	culture = oni
 }
 
 dynasty_rasen_matsuda = {
@@ -108,18 +108,18 @@ dynasty_rasen_nakamoto = {
 	culture = oni
 }
 
+dynasty_rasen_hayashi = {
+	name = "dynasty_rasen_hayashi"
+	culture = zenshin
+}
+
 dynasty_rasen_jin = {
 	name = "dynasty_rasen_jin"
 	culture = cathayan
 }
 
-dynasty_rasen_dou = {
-	name = "dynasty_rasen_dou"
-	culture = cathayan
-}
-
-dynasty_rasen_long = {
-	name = "dynasty_rasen_long"
+dynasty_rasen_su = {
+	name = "dynasty_rasen_su"
 	culture = cathayan
 }
 
@@ -128,17 +128,47 @@ dynasty_rasen_bai = {
 	culture = cathayan
 }
 
-dynasty_rasen_lan = {
-	name = "dynasty_rasen_lan"
+dynasty_rasen_zhou = {
+	name = "dynasty_rasen_zhou"
 	culture = cathayan
 }
 
-dynasty_rasen_amatsu = {
-	name = "dynasty_rasen_amatsu"
+dynasty_rasen_hou = {
+	name = "dynasty_rasen_hou"
+	culture = cathayan
+}
+
+dynasty_rasen_ming = {
+	name = "dynasty_rasen_ming"
+	culture = cathayan
+}
+
+dynasty_rasen_ozaki = {
+	name = "dynasty_rasen_ozaki"
 	culture = zenshin
 }
 
-dynasty_rasen_luo = {
-	name = "dynasty_rasen_luo"
+dynasty_rasen_sanada = {
+	name = "dynasty_rasen_sanada"
+	culture = zenshin
+}
+
+dynasty_rasen_inoue = {
+	name = "dynasty_rasen_inoue"
+	culture = zenshin
+}
+
+dynasty_rasen_xuan = {
+	name = "dynasty_rasen_xuan"
+	culture = cathayan
+}
+
+dynasty_rasen_long = {
+	name = "dynasty_rasen_long"
+	culture = cathayan
+}
+
+dynasty_rasen_dou = {
+	name = "dynasty_rasen_dou"
 	culture = cathayan
 }

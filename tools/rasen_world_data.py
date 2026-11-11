@@ -227,3 +227,9 @@ BOOKMARK = dict(
 
 # Natural aura raises the Mortal Limit (AP). Outer lands are weakest; the leylines meet at Azuma Honsha.
 MORTAL_LIMIT_BONUS = {'world_rasen_azuma': 1700, 'world_rasen_inner': 700}
+
+# Imperial Rasen is an old, organised empire: cultures begin in the Early Medieval era.
+INNOVATIONS = ['innovation_motte', 'innovation_catapult', 'innovation_barracks', 'innovation_mustering_grounds',
+               'innovation_bannus', 'innovation_development_01', 'innovation_currency_01', 'innovation_gavelkind',
+               'innovation_crop_rotation', 'innovation_city_planning', 'innovation_casus_belli', 'innovation_ledger',
+               'innovation_manorialism']

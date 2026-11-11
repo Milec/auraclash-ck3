@@ -14,7 +14,7 @@ import random
 import re
 from pathlib import Path
 
-from rasen_world_data import (BOOKMARK, MORTAL_LIMIT_BONUS, CANON_HOLDERS, CULTURES, EXALTS, FAITHS, HOLY_SITES,
+from rasen_world_data import (BOOKMARK, INNOVATIONS, MORTAL_LIMIT_BONUS, CANON_HOLDERS, CULTURES, EXALTS, FAITHS, HOLY_SITES,
                               NAME_LISTS, RELIGIONS, REGION_PEOPLES, RELIGION_LOC_KEYS, START, TRAIT_GROUPS)
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -91,7 +91,12 @@ def culture_files():
                 'female_names = { ' + ' '.join(n['female']) + ' }']
         names.append(block(key, body))
         loc.append(f' {key}:0 "{n["label"]}"')
+    histories = {}
+    for key in CULTURES:
+        histories[f'history/cultures/{key}.txt'] = (f'{START[0] - 100}.1.1 = {{\n\tjoin_era = culture_era_early_medieval\n'
+                                                   + ''.join(f'\tdiscover_innovation = {i}\n' for i in INNOVATIONS) + '}\n')
     return {
+        **histories,
         'common/culture/pillars/rasen_pillars.txt': '\n'.join(pillars),
         'common/culture/cultures/rasen_cultures.txt': '\n'.join(cultures),
         'common/culture/name_lists/rasen_name_lists.txt': '\n'.join(names),
@@ -211,6 +216,7 @@ class People:
         self.characters = []
         self.dynasties = {}
         self.next_id = 1
+        self.info = {}
 
     def dynasty(self, name, culture):
         key = 'dynasty_rasen_' + re.sub(r'[^a-z0-9]+', '_', name.lower()).strip('_')
@@ -228,7 +234,8 @@ class People:
         self.next_id += 1
         personality = []
         free = [g for g in TRAIT_GROUPS if not set(g) & set(traits)]
-        for group in self.rng.sample(free, 3):
+        fixed = [t for t in traits if any(t in g for g in TRAIT_GROUPS)]
+        for group in self.rng.sample(free, max(0, 3 - len(fixed))):
             personality.append(self.rng.choice(group))
         edu = self.rng.choice(['martial', 'stewardship', 'diplomacy', 'intrigue', 'learning'])
         lines = [f'name = "{name}"', f'dynasty = {dynasty}', f'religion = {faith}', f'culture = {culture}']
@@ -245,7 +252,31 @@ class People:
         if effect_lines:
             lines.append(f'{year}.{month}.{day} = {{ effect = {{ ' + ' '.join(effect_lines) + ' } }')
         self.characters.append((cid, lines))
+        self.info[cid] = dict(culture=culture, faith=faith, dynasty=dynasty, female=female, age=age, lines=lines)
         return cid
+
+    def family(self, cid, rng):
+        """A spouse and one to three children, so the house survives its founder."""
+        ruler = self.info[cid]
+        if ruler['age'] < 22:
+            return
+        year = START[0]
+        n = NAME_LISTS[CULTURES[ruler['culture']]['name_list']]
+        spouse_age = max(18, ruler['age'] + rng.randint(-6, 4))
+        spouse_dynasty = self.dynasty(rng.choice([d for d in n['dynasties']]), ruler['culture'])
+        spouse = self.person(ruler['culture'], ruler['faith'], female=not ruler['female'], age=spouse_age, dynasty=spouse_dynasty)
+        married = year - min(ruler['age'], spouse_age) + 18
+        verb = 'add_matrilineal_spouse' if ruler['female'] else 'add_spouse'
+        ruler['lines'].append(f'{married}.1.1 = {{ {verb} = {spouse} }}')
+        mother, father = (cid, spouse) if ruler['female'] else (spouse, cid)
+        youngest = max(0, min(ruler['age'], spouse_age) - 40)
+        oldest = min(ruler['age'], spouse_age) - 19
+        if oldest < youngest:
+            return
+        for _ in range(rng.randint(1, 3)):
+            child_age = rng.randint(youngest, oldest)
+            child = self.person(ruler['culture'], ruler['faith'], age=max(child_age, 1), dynasty=ruler['dynasty'])
+            self.info[child]['lines'][1:1] = [f'father = {father}', f'mother = {mother}']
 
 
 def history_files(kingdoms):
@@ -290,7 +321,14 @@ def history_files(kingdoms):
                 for bi, (barony, province) in enumerate(county['baronies']):
                     holding = ['castle_holding', 'city_holding', 'church_holding'][bi] if bi < 3 else 'none'
                     provinces.append(block(str(province), [f'culture = {culture}', f'religion = {faith}', f'holding = {holding}']))
-    chars = [block(cid, lines) for cid, lines in people.characters]
+    family_rng = random.Random(SEED + 1)
+    for cid in sorted({h for h in re.findall(r'holder = (rasen_\d+)', '\n'.join(titles))}, key=lambda c: int(c.split('_')[1])):
+        people.family(cid, family_rng)
+    def ordered(lines):
+        dated = sorted((l for l in lines if re.match(r'\d+\.\d+\.\d+ =', l)),
+                       key=lambda l: tuple(int(x) for x in l.split(' ')[0].split('.')))
+        return [l for l in lines if not re.match(r'\d+\.\d+\.\d+ =', l)] + dated
+    chars = [block(cid, ordered(lines)) for cid, lines in people.characters]
     dynasties = []
     for key, (name, culture) in people.dynasties.items():
         dynasties.append(block(key, [f'name = "{key}"', f'culture = {culture}']))
