@@ -1,0 +1,465 @@
+﻿# "All five maintain shaky peace through a seat on the Exalted Council that rules from the capital."
+# Global scope, yearly.
+rasen_council_yearly_effect = {
+	if = {
+		limit = { NOT = { has_global_variable = rasen_council_countdown } }
+		set_global_variable = { name = rasen_council_countdown value = 2 }
+	}
+	change_global_variable = { name = rasen_council_countdown add = -1 }
+	if = {
+		limit = { global_var:rasen_council_countdown <= 0 }
+		set_global_variable = { name = rasen_council_countdown value = 3 }
+		rasen_council_session_effect = yes
+	}
+	# Patronage is checked after the Trials (base mod) have had their own yearly pulse.
+	if = { limit = { exists = title:k_azuma.holder } title:k_azuma.holder = { trigger_event = { id = rasen_council.0080 days = 45 } } }
+	else_if = { limit = { exists = title:k_bladed.holder } title:k_bladed.holder = { trigger_event = { id = rasen_council.0080 days = 45 } } }
+	else_if = { limit = { exists = title:k_sacred.holder } title:k_sacred.holder = { trigger_event = { id = rasen_council.0080 days = 45 } } }
+	else_if = { limit = { exists = title:k_mystic.holder } title:k_mystic.holder = { trigger_event = { id = rasen_council.0080 days = 45 } } }
+	else_if = { limit = { exists = title:k_cursed.holder } title:k_cursed.holder = { trigger_event = { id = rasen_council.0080 days = 45 } } }
+	else_if = { limit = { exists = title:k_wild.holder } title:k_wild.holder = { trigger_event = { id = rasen_council.0080 days = 45 } } }
+}
+
+# Global scope. Count the votes; player Exalts have 30 days to cast theirs.
+rasen_council_session_effect = {
+	set_global_variable = { name = rasen_votes_bladed value = 0 }
+	set_global_variable = { name = rasen_votes_sacred value = 0 }
+	set_global_variable = { name = rasen_votes_mystic value = 0 }
+	set_global_variable = { name = rasen_votes_cursed value = 0 }
+	set_global_variable = { name = rasen_votes_wild value = 0 }
+	title:k_bladed.holder ?= {
+		if = {
+			limit = { is_ai = no }
+			trigger_event = rasen_council.0001
+		}
+		else = {
+			random_list = {
+				60 = { change_global_variable = { name = rasen_votes_bladed add = 1 } }
+				6 = {
+					modifier = { factor = 3 exists = title:k_sacred.holder opinion = { target = title:k_sacred.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_sacred.holder has_relation_rival = title:k_sacred.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_sacred.holder } }
+					change_global_variable = { name = rasen_votes_sacred add = 1 }
+				}
+				6 = {
+					modifier = { factor = 3 exists = title:k_mystic.holder opinion = { target = title:k_mystic.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_mystic.holder has_relation_rival = title:k_mystic.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_mystic.holder } }
+					change_global_variable = { name = rasen_votes_mystic add = 1 }
+				}
+				6 = {
+					modifier = { factor = 3 exists = title:k_cursed.holder opinion = { target = title:k_cursed.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_cursed.holder has_relation_rival = title:k_cursed.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_cursed.holder } }
+					change_global_variable = { name = rasen_votes_cursed add = 1 }
+				}
+				6 = {
+					modifier = { factor = 3 exists = title:k_wild.holder opinion = { target = title:k_wild.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_wild.holder has_relation_rival = title:k_wild.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_wild.holder } }
+					change_global_variable = { name = rasen_votes_wild add = 1 }
+				}
+			}
+		}
+	}
+	title:k_sacred.holder ?= {
+		if = {
+			limit = { is_ai = no }
+			trigger_event = rasen_council.0001
+		}
+		else = {
+			random_list = {
+				60 = { change_global_variable = { name = rasen_votes_sacred add = 1 } }
+				6 = {
+					modifier = { factor = 3 exists = title:k_bladed.holder opinion = { target = title:k_bladed.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_bladed.holder has_relation_rival = title:k_bladed.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_bladed.holder } }
+					change_global_variable = { name = rasen_votes_bladed add = 1 }
+				}
+				6 = {
+					modifier = { factor = 3 exists = title:k_mystic.holder opinion = { target = title:k_mystic.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_mystic.holder has_relation_rival = title:k_mystic.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_mystic.holder } }
+					change_global_variable = { name = rasen_votes_mystic add = 1 }
+				}
+				6 = {
+					modifier = { factor = 3 exists = title:k_cursed.holder opinion = { target = title:k_cursed.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_cursed.holder has_relation_rival = title:k_cursed.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_cursed.holder } }
+					change_global_variable = { name = rasen_votes_cursed add = 1 }
+				}
+				6 = {
+					modifier = { factor = 3 exists = title:k_wild.holder opinion = { target = title:k_wild.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_wild.holder has_relation_rival = title:k_wild.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_wild.holder } }
+					change_global_variable = { name = rasen_votes_wild add = 1 }
+				}
+			}
+		}
+	}
+	title:k_mystic.holder ?= {
+		if = {
+			limit = { is_ai = no }
+			trigger_event = rasen_council.0001
+		}
+		else = {
+			random_list = {
+				60 = { change_global_variable = { name = rasen_votes_mystic add = 1 } }
+				6 = {
+					modifier = { factor = 3 exists = title:k_bladed.holder opinion = { target = title:k_bladed.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_bladed.holder has_relation_rival = title:k_bladed.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_bladed.holder } }
+					change_global_variable = { name = rasen_votes_bladed add = 1 }
+				}
+				6 = {
+					modifier = { factor = 3 exists = title:k_sacred.holder opinion = { target = title:k_sacred.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_sacred.holder has_relation_rival = title:k_sacred.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_sacred.holder } }
+					change_global_variable = { name = rasen_votes_sacred add = 1 }
+				}
+				6 = {
+					modifier = { factor = 3 exists = title:k_cursed.holder opinion = { target = title:k_cursed.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_cursed.holder has_relation_rival = title:k_cursed.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_cursed.holder } }
+					change_global_variable = { name = rasen_votes_cursed add = 1 }
+				}
+				6 = {
+					modifier = { factor = 3 exists = title:k_wild.holder opinion = { target = title:k_wild.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_wild.holder has_relation_rival = title:k_wild.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_wild.holder } }
+					change_global_variable = { name = rasen_votes_wild add = 1 }
+				}
+			}
+		}
+	}
+	title:k_cursed.holder ?= {
+		if = {
+			limit = { is_ai = no }
+			trigger_event = rasen_council.0001
+		}
+		else = {
+			random_list = {
+				60 = { change_global_variable = { name = rasen_votes_cursed add = 1 } }
+				6 = {
+					modifier = { factor = 3 exists = title:k_bladed.holder opinion = { target = title:k_bladed.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_bladed.holder has_relation_rival = title:k_bladed.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_bladed.holder } }
+					change_global_variable = { name = rasen_votes_bladed add = 1 }
+				}
+				6 = {
+					modifier = { factor = 3 exists = title:k_sacred.holder opinion = { target = title:k_sacred.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_sacred.holder has_relation_rival = title:k_sacred.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_sacred.holder } }
+					change_global_variable = { name = rasen_votes_sacred add = 1 }
+				}
+				6 = {
+					modifier = { factor = 3 exists = title:k_mystic.holder opinion = { target = title:k_mystic.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_mystic.holder has_relation_rival = title:k_mystic.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_mystic.holder } }
+					change_global_variable = { name = rasen_votes_mystic add = 1 }
+				}
+				6 = {
+					modifier = { factor = 3 exists = title:k_wild.holder opinion = { target = title:k_wild.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_wild.holder has_relation_rival = title:k_wild.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_wild.holder } }
+					change_global_variable = { name = rasen_votes_wild add = 1 }
+				}
+			}
+		}
+	}
+	title:k_wild.holder ?= {
+		if = {
+			limit = { is_ai = no }
+			trigger_event = rasen_council.0001
+		}
+		else = {
+			random_list = {
+				60 = { change_global_variable = { name = rasen_votes_wild add = 1 } }
+				6 = {
+					modifier = { factor = 3 exists = title:k_bladed.holder opinion = { target = title:k_bladed.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_bladed.holder has_relation_rival = title:k_bladed.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_bladed.holder } }
+					change_global_variable = { name = rasen_votes_bladed add = 1 }
+				}
+				6 = {
+					modifier = { factor = 3 exists = title:k_sacred.holder opinion = { target = title:k_sacred.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_sacred.holder has_relation_rival = title:k_sacred.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_sacred.holder } }
+					change_global_variable = { name = rasen_votes_sacred add = 1 }
+				}
+				6 = {
+					modifier = { factor = 3 exists = title:k_mystic.holder opinion = { target = title:k_mystic.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_mystic.holder has_relation_rival = title:k_mystic.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_mystic.holder } }
+					change_global_variable = { name = rasen_votes_mystic add = 1 }
+				}
+				6 = {
+					modifier = { factor = 3 exists = title:k_cursed.holder opinion = { target = title:k_cursed.holder value >= 25 } }
+					modifier = { factor = 0 exists = title:k_cursed.holder has_relation_rival = title:k_cursed.holder }
+					modifier = { factor = 0 NOT = { exists = title:k_cursed.holder } }
+					change_global_variable = { name = rasen_votes_cursed add = 1 }
+				}
+			}
+		}
+	}
+	if = { limit = { exists = title:k_azuma.holder } title:k_azuma.holder = { trigger_event = { id = rasen_council.0090 days = 30 } } }
+	else_if = { limit = { exists = title:k_bladed.holder } title:k_bladed.holder = { trigger_event = { id = rasen_council.0090 days = 30 } } }
+	else_if = { limit = { exists = title:k_sacred.holder } title:k_sacred.holder = { trigger_event = { id = rasen_council.0090 days = 30 } } }
+	else_if = { limit = { exists = title:k_mystic.holder } title:k_mystic.holder = { trigger_event = { id = rasen_council.0090 days = 30 } } }
+	else_if = { limit = { exists = title:k_cursed.holder } title:k_cursed.holder = { trigger_event = { id = rasen_council.0090 days = 30 } } }
+	else_if = { limit = { exists = title:k_wild.holder } title:k_wild.holder = { trigger_event = { id = rasen_council.0090 days = 30 } } }
+}
+
+# Global scope. Draw the decree in proportion to the votes and enact it.
+rasen_council_enact_effect = {
+	random_list = {
+		0 = {
+			modifier = { add = global_var:rasen_votes_bladed }
+			set_global_variable = { name = rasen_decree value = flag:bladed }
+		}
+		0 = {
+			modifier = { add = global_var:rasen_votes_sacred }
+			set_global_variable = { name = rasen_decree value = flag:sacred }
+		}
+		0 = {
+			modifier = { add = global_var:rasen_votes_mystic }
+			set_global_variable = { name = rasen_decree value = flag:mystic }
+		}
+		0 = {
+			modifier = { add = global_var:rasen_votes_cursed }
+			set_global_variable = { name = rasen_decree value = flag:cursed }
+		}
+		0 = {
+			modifier = { add = global_var:rasen_votes_wild }
+			set_global_variable = { name = rasen_decree value = flag:wild }
+		}
+		# Nobody voted: the Bladed Exalt's decree stands by default.
+		1 = {
+			modifier = { factor = 0 OR = {
+				global_var:rasen_votes_bladed > 0
+				global_var:rasen_votes_sacred > 0
+				global_var:rasen_votes_mystic > 0
+				global_var:rasen_votes_cursed > 0
+				global_var:rasen_votes_wild > 0
+			} }
+			set_global_variable = { name = rasen_decree value = flag:bladed }
+		}
+	}
+	if = {
+		limit = { global_var:rasen_decree = flag:bladed }
+		rasen_decree_archons_effect = yes
+		title:k_bladed.holder ?= { save_scope_as = rasen_council_winner }
+	}
+	else_if = {
+		limit = { global_var:rasen_decree = flag:sacred }
+		rasen_decree_fiends_effect = yes
+		title:k_sacred.holder ?= { save_scope_as = rasen_council_winner }
+	}
+	else_if = {
+		limit = { global_var:rasen_decree = flag:mystic }
+		rasen_decree_archives_effect = yes
+		title:k_mystic.holder ?= { save_scope_as = rasen_council_winner }
+	}
+	else_if = {
+		limit = { global_var:rasen_decree = flag:cursed }
+		rasen_decree_levy_effect = yes
+		title:k_cursed.holder ?= { save_scope_as = rasen_council_winner }
+	}
+	else_if = {
+		limit = { global_var:rasen_decree = flag:wild }
+		rasen_decree_trials_effect = yes
+		title:k_wild.holder ?= { save_scope_as = rasen_council_winner }
+	}
+	# The winning Exalt gains standing. Exalts outvoted on their own decree resent the winner.
+	scope:rasen_council_winner ?= { add_prestige = 100 }
+	if = {
+		limit = { exists = scope:rasen_council_winner exists = title:k_bladed.holder NOT = { global_var:rasen_decree = flag:bladed }
+			global_var:rasen_votes_bladed > 0 NOT = { title:k_bladed.holder = scope:rasen_council_winner } }
+		title:k_bladed.holder = { add_opinion = { target = scope:rasen_council_winner modifier = rasen_council_outvoted_opinion } }
+	}
+	if = {
+		limit = { exists = scope:rasen_council_winner exists = title:k_sacred.holder NOT = { global_var:rasen_decree = flag:sacred }
+			global_var:rasen_votes_sacred > 0 NOT = { title:k_sacred.holder = scope:rasen_council_winner } }
+		title:k_sacred.holder = { add_opinion = { target = scope:rasen_council_winner modifier = rasen_council_outvoted_opinion } }
+	}
+	if = {
+		limit = { exists = scope:rasen_council_winner exists = title:k_mystic.holder NOT = { global_var:rasen_decree = flag:mystic }
+			global_var:rasen_votes_mystic > 0 NOT = { title:k_mystic.holder = scope:rasen_council_winner } }
+		title:k_mystic.holder = { add_opinion = { target = scope:rasen_council_winner modifier = rasen_council_outvoted_opinion } }
+	}
+	if = {
+		limit = { exists = scope:rasen_council_winner exists = title:k_cursed.holder NOT = { global_var:rasen_decree = flag:cursed }
+			global_var:rasen_votes_cursed > 0 NOT = { title:k_cursed.holder = scope:rasen_council_winner } }
+		title:k_cursed.holder = { add_opinion = { target = scope:rasen_council_winner modifier = rasen_council_outvoted_opinion } }
+	}
+	if = {
+		limit = { exists = scope:rasen_council_winner exists = title:k_wild.holder NOT = { global_var:rasen_decree = flag:wild }
+			global_var:rasen_votes_wild > 0 NOT = { title:k_wild.holder = scope:rasen_council_winner } }
+		title:k_wild.holder = { add_opinion = { target = scope:rasen_council_winner modifier = rasen_council_outvoted_opinion } }
+	}
+	every_player = { trigger_event = rasen_council.0002 }
+}
+
+rasen_decree_archons_effect = {
+	every_county_in_region = {
+		region = world_rasen_outer
+		add_county_modifier = { modifier = rasen_archon_patrols_modifier years = 3 }
+	}
+	if = {
+		limit = { has_global_variable = rasen_ice_incursion_active global_var:rasen_ice_remaining > 1 }
+		change_global_variable = { name = rasen_ice_remaining add = -1 }
+	}
+}
+
+rasen_decree_fiends_effect = {
+	every_county_in_region = { region = world_rasen_inner add_county_modifier = { modifier = rasen_fiend_purge_modifier years = 3 } }
+	every_county_in_region = { region = world_rasen_outer add_county_modifier = { modifier = rasen_fiend_purge_modifier years = 3 } }
+	every_ruler = { limit = { faith = faith:devanic_temple } add_piety = 100 }
+}
+
+# Read by ac_path_manual_gold in the base mod.
+rasen_decree_archives_effect = {
+	set_global_variable = { name = rasen_archives_open value = yes years = 3 }
+}
+
+rasen_decree_levy_effect = {
+	every_county_in_region = { region = world_rasen_outer add_county_modifier = { modifier = rasen_imperial_levy_modifier years = 3 } }
+	title:k_bladed.holder ?= { add_gold = 150 }
+	title:k_sacred.holder ?= { add_gold = 150 }
+	title:k_mystic.holder ?= { add_gold = 150 }
+	title:k_cursed.holder ?= { add_gold = 150 }
+	title:k_wild.holder ?= { add_gold = 150 }
+}
+
+# The Trials open on the next yearly pulse.
+rasen_decree_trials_effect = {
+	if = {
+		limit = { OR = { NOT = { has_global_variable = ac_ascension_countdown } global_var:ac_ascension_countdown > 1 } }
+		set_global_variable = { name = ac_ascension_countdown value = 1 }
+	}
+}
+
+# Global scope, 45 days after a yearly pulse. When the Trials have just opened,
+# "the Exalts themselves are sending customary gifts to their favored among the Top Five".
+rasen_trial_patronage_effect = {
+	if = {
+		limit = {
+			has_global_variable = ac_ascension_countdown
+			global_var:ac_ascension_countdown = ac_ascension_interval_years
+			NOT = { has_global_variable = rasen_patronage_this_trials }
+		}
+		set_global_variable = { name = rasen_patronage_this_trials value = yes years = 1 }
+		# One AI Exalt sponsors the favourite, tilting the scales in their land's eyes.
+		if = {
+			limit = { has_global_variable = ac_ascension_champion }
+			random_list = {
+				1 = {
+					modifier = { factor = 0 NOT = { exists = title:k_bladed.holder } }
+					modifier = { factor = 0 exists = title:k_bladed.holder title:k_bladed.holder = { is_ai = no } }
+					set_global_variable = { name = rasen_trial_patron_land value = flag:bladed }
+					title:k_bladed.holder ?= { save_scope_as = rasen_trial_patron }
+				}
+				1 = {
+					modifier = { factor = 0 NOT = { exists = title:k_sacred.holder } }
+					modifier = { factor = 0 exists = title:k_sacred.holder title:k_sacred.holder = { is_ai = no } }
+					set_global_variable = { name = rasen_trial_patron_land value = flag:sacred }
+					title:k_sacred.holder ?= { save_scope_as = rasen_trial_patron }
+				}
+				1 = {
+					modifier = { factor = 0 NOT = { exists = title:k_mystic.holder } }
+					modifier = { factor = 0 exists = title:k_mystic.holder title:k_mystic.holder = { is_ai = no } }
+					set_global_variable = { name = rasen_trial_patron_land value = flag:mystic }
+					title:k_mystic.holder ?= { save_scope_as = rasen_trial_patron }
+				}
+				1 = {
+					modifier = { factor = 0 NOT = { exists = title:k_cursed.holder } }
+					modifier = { factor = 0 exists = title:k_cursed.holder title:k_cursed.holder = { is_ai = no } }
+					set_global_variable = { name = rasen_trial_patron_land value = flag:cursed }
+					title:k_cursed.holder ?= { save_scope_as = rasen_trial_patron }
+				}
+				1 = {
+					modifier = { factor = 0 NOT = { exists = title:k_wild.holder } }
+					modifier = { factor = 0 exists = title:k_wild.holder title:k_wild.holder = { is_ai = no } }
+					set_global_variable = { name = rasen_trial_patron_land value = flag:wild }
+					title:k_wild.holder ?= { save_scope_as = rasen_trial_patron }
+				}
+			}
+			if = {
+				limit = { exists = scope:rasen_trial_patron }
+				global_var:ac_ascension_champion = {
+					add_gold = 100
+					add_opinion = { target = scope:rasen_trial_patron modifier = rasen_trial_patron_opinion }
+					set_variable = { name = rasen_trial_patron value = scope:rasen_trial_patron years = 1 }
+					if = { limit = { global_var:rasen_trial_patron_land = flag:bladed } ac_favor_change_effect = { LAND = bladed AMOUNT = 2 } }
+					else_if = { limit = { global_var:rasen_trial_patron_land = flag:sacred } ac_favor_change_effect = { LAND = sacred AMOUNT = 2 } }
+					else_if = { limit = { global_var:rasen_trial_patron_land = flag:mystic } ac_favor_change_effect = { LAND = mystic AMOUNT = 2 } }
+					else_if = { limit = { global_var:rasen_trial_patron_land = flag:cursed } ac_favor_change_effect = { LAND = cursed AMOUNT = 2 } }
+					else_if = { limit = { global_var:rasen_trial_patron_land = flag:wild } ac_favor_change_effect = { LAND = wild AMOUNT = 2 } }
+				}
+				# Another Exalt counters the interference through the players in the Trials.
+				every_player = {
+					limit = { has_character_flag = ac_ascension_entrant }
+					trigger_event = rasen_council.0081
+				}
+			}
+		}
+	}
+}
+
+# Entrant scope: pick the counter-patron, an Exalt other than the favourite's patron.
+rasen_pick_counter_patron_effect = {
+	random_list = {
+		1 = {
+			modifier = { factor = 0 NOT = { exists = title:k_bladed.holder } }
+			modifier = { factor = 0 global_var:rasen_trial_patron_land = flag:bladed }
+			modifier = { factor = 0 exists = title:k_bladed.holder title:k_bladed.holder = root }
+			modifier = { factor = 3 exists = title:k_bladed.holder has_variable = ac_favor_bladed var:ac_favor_bladed > 0 }
+			set_variable = { name = rasen_counter_patron_land value = flag:bladed years = 1 }
+			title:k_bladed.holder ?= { save_scope_as = rasen_counter_patron }
+		}
+		1 = {
+			modifier = { factor = 0 NOT = { exists = title:k_sacred.holder } }
+			modifier = { factor = 0 global_var:rasen_trial_patron_land = flag:sacred }
+			modifier = { factor = 0 exists = title:k_sacred.holder title:k_sacred.holder = root }
+			modifier = { factor = 3 exists = title:k_sacred.holder has_variable = ac_favor_sacred var:ac_favor_sacred > 0 }
+			set_variable = { name = rasen_counter_patron_land value = flag:sacred years = 1 }
+			title:k_sacred.holder ?= { save_scope_as = rasen_counter_patron }
+		}
+		1 = {
+			modifier = { factor = 0 NOT = { exists = title:k_mystic.holder } }
+			modifier = { factor = 0 global_var:rasen_trial_patron_land = flag:mystic }
+			modifier = { factor = 0 exists = title:k_mystic.holder title:k_mystic.holder = root }
+			modifier = { factor = 3 exists = title:k_mystic.holder has_variable = ac_favor_mystic var:ac_favor_mystic > 0 }
+			set_variable = { name = rasen_counter_patron_land value = flag:mystic years = 1 }
+			title:k_mystic.holder ?= { save_scope_as = rasen_counter_patron }
+		}
+		1 = {
+			modifier = { factor = 0 NOT = { exists = title:k_cursed.holder } }
+			modifier = { factor = 0 global_var:rasen_trial_patron_land = flag:cursed }
+			modifier = { factor = 0 exists = title:k_cursed.holder title:k_cursed.holder = root }
+			modifier = { factor = 3 exists = title:k_cursed.holder has_variable = ac_favor_cursed var:ac_favor_cursed > 0 }
+			set_variable = { name = rasen_counter_patron_land value = flag:cursed years = 1 }
+			title:k_cursed.holder ?= { save_scope_as = rasen_counter_patron }
+		}
+		1 = {
+			modifier = { factor = 0 NOT = { exists = title:k_wild.holder } }
+			modifier = { factor = 0 global_var:rasen_trial_patron_land = flag:wild }
+			modifier = { factor = 0 exists = title:k_wild.holder title:k_wild.holder = root }
+			modifier = { factor = 3 exists = title:k_wild.holder has_variable = ac_favor_wild var:ac_favor_wild > 0 }
+			set_variable = { name = rasen_counter_patron_land value = flag:wild years = 1 }
+			title:k_wild.holder ?= { save_scope_as = rasen_counter_patron }
+		}
+	}
+}
+
+# Entrant scope: accept the counter-patron's offer.
+rasen_accept_counter_patron_effect = {
+	add_gold = 100
+	add_opinion = { target = scope:rasen_counter_patron modifier = rasen_trial_patron_opinion }
+	scope:rasen_counter_patron = { add_opinion = { target = root modifier = rasen_trial_protege_opinion } }
+	if = { limit = { var:rasen_counter_patron_land = flag:bladed } ac_favor_change_effect = { LAND = bladed AMOUNT = 1 } }
+	else_if = { limit = { var:rasen_counter_patron_land = flag:sacred } ac_favor_change_effect = { LAND = sacred AMOUNT = 1 } }
+	else_if = { limit = { var:rasen_counter_patron_land = flag:mystic } ac_favor_change_effect = { LAND = mystic AMOUNT = 1 } }
+	else_if = { limit = { var:rasen_counter_patron_land = flag:cursed } ac_favor_change_effect = { LAND = cursed AMOUNT = 1 } }
+	else_if = { limit = { var:rasen_counter_patron_land = flag:wild } ac_favor_change_effect = { LAND = wild AMOUNT = 1 } }
+}

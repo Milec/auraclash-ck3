@@ -1,0 +1,19 @@
+﻿# "Inter-council conflicts are not uncommon."
+rasen_council_outvoted_opinion = {
+	opinion = -15
+	years = 6
+	decaying = yes
+}
+
+# An Exalt's sponsorship in the Heavenly Ascension Trials.
+rasen_trial_patron_opinion = {
+	opinion = 20
+	years = 10
+	decaying = yes
+}
+
+rasen_trial_protege_opinion = {
+	opinion = 15
+	years = 10
+	decaying = yes
+}

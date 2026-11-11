@@ -88,7 +88,26 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
      - Holding the line yields a 1,500 AP ice demon Soul Treasure, Aura Pressure, Core progress, Honor and the Veteran of the Ice War modifier.
      - The **Divine General**, a generated Lunargoth grandmaster, leads Outer North. The new **Lunargoth** culture fills the north.
    - Inner Kingdom Favor in the Trials: done (base mod).
-   - Still to do: the Exalted Council and caste promotion events.
+   - **Castes:** done (Noble, Warrior, Merchant and Clanless Laborer, plus elevation to the Warrior Caste).
+   - **Exalted Council:** done (`tools/build_rasen_council.py`).
+     - Every three years the five Exalts (holders of the Inner Kingdoms) vote on an imperial decree.
+     - AI Exalts back their own land's decree, lean towards Exalts they like (opinion 25+) and never back a rival.
+     - Player Exalts vote, or spend 150 prestige to cast two votes for their own land's decree.
+     - The decree is drawn in proportion to the votes, reflecting the IF's "shaky peace".
+     - The winner gains 100 prestige. Exalts outvoted on their own decree resent the winner ("inter-council conflicts are not uncommon", ch. 9).
+     - Decrees:
+       - Dispatch the Archons: patrols in the Outer provinces, and a shorter Ice Incursion.
+       - Purge the Fiends: disease resistance, and piety for Devanic rulers.
+       - Open the Imperial Archives: half-price Path Manuals.
+       - Levy the Outer Provinces: gold for the Exalts, taxes on the Outer provinces.
+       - Call the Trials: the Heavenly Ascension Trials next year.
+     - **Trial patronage** (ch. 9):
+       - When the Trials open, an AI Exalt sponsors the year's favourite with gold and +2 Favor with that land.
+       - A different Exalt then offers each player entrant counter-patronage, as the Bladed Exalt uses the protagonist against the Wild Exalt.
+       - Accepting gives gold, Favor and the Exalt's goodwill.
+     - Approximations:
+       - The decrees and the vote weights are design, not IF text.
+       - The Council could later move onto Roads to Power's administrative government and influence.
 6. **Cleanup:** replace or guard vanilla content that assumes Earth's map (vanilla event overrides that reference real places, struggles, travel events).
 
 ## Loading

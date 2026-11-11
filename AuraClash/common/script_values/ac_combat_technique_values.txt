@@ -114,5 +114,6 @@ ac_battle_ap_bonus = {
 	value = 0
 	if = { limit = { has_character_flag = ac_tech_palm_of_endless_beating } add = 5 }
 }
-ac_path_manual_gold = 100
+# Imperial Rasen: while the Exalted Council opens the Imperial Archives, Path Manuals cost half.
+ac_path_manual_gold = { value = 100 if = { limit = { has_global_variable = rasen_archives_open } value = 50 } }
 ac_sect_library_contribution = 50

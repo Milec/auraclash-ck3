@@ -1,0 +1,10 @@
+﻿# Character scope: holds a seat on the Exalted Council.
+rasen_is_exalt_trigger = {
+	OR = {
+		has_title = title:k_bladed
+		has_title = title:k_sacred
+		has_title = title:k_mystic
+		has_title = title:k_cursed
+		has_title = title:k_wild
+	}
+}
