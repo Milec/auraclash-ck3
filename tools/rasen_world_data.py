@@ -100,7 +100,9 @@ FAITHS = {
                              desc='In the Cursed Lands, the ancestors are honoured in secret, and results matter more than how they are achieved.'),
     'devanic_temple': dict(religion='rasen_devanic_religion', name='Devanic Temple', adjective='Devanic', adherent='Devanite', adherents='Devanites',
                            colour=(70, 130, 210), icon='custom_faith_4', holy_sites=['rasen_devanic_temple', 'rasen_sacred_sanctum', 'rasen_heavenly_storm_gate'],
-                           tenets=['tenet_monasticism', 'tenet_unrelenting_faith', 'tenet_mendicant_preachers'],
+                           # CK3 1.20 made monasticism a doctrine; tenet_monasticism no longer exists.
+                           tenets=['tenet_inner_journey', 'tenet_unrelenting_faith', 'tenet_mendicant_preachers'],
+                           doctrines=['doctrine_monasticism_encouraged'],
                            desc='Monks and shrinemaidens of the Devanic Temple have banished Fiends from the mortal world for all of written history. They value respectability, mercy to the innocent and retribution upon the wicked.'),
     'shugendo': dict(religion='rasen_devanic_religion', name='Shugendō', adjective='Shugendō', adherent='Yamabushi', adherents='Yamabushi',
                      colour=(150, 200, 230), icon='custom_faith_5', holy_sites=['rasen_devanic_temple', 'rasen_dead_mountain', 'rasen_ice_front'],

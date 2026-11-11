@@ -1,0 +1,113 @@
+﻿ancestral_rites = {
+	faith_details = {
+		religion = rasen_ancestral_religion
+		color = { 190 50 50 }
+		icon = custom_faith_1
+		reformed_icon = custom_faith_1
+	}
+	eminent_holy_sites = {
+		rasen_leyline_nexus
+		rasen_bladed_forge
+		rasen_rabbit_trial_valley
+	}
+	tenets = {
+		tenet_ancestor_worship
+		tenet_ritual_hospitality
+		tenet_struggle_submission
+	}
+}
+
+celestial_order = {
+	faith_details = {
+		religion = rasen_ancestral_religion
+		color = { 220 180 40 }
+		icon = custom_faith_2
+		reformed_icon = custom_faith_2
+	}
+	eminent_holy_sites = {
+		rasen_leyline_nexus
+		rasen_mystic_spires
+	}
+	tenets = {
+		tenet_esotericism
+		tenet_ancestor_worship
+		tenet_ritual_celebrations
+	}
+}
+
+veiled_ancestors = {
+	faith_details = {
+		religion = rasen_ancestral_religion
+		color = { 130 60 150 }
+		icon = custom_faith_3
+		reformed_icon = custom_faith_3
+	}
+	eminent_holy_sites = {
+		rasen_leyline_nexus
+		rasen_cursed_hollow
+	}
+	tenets = {
+		tenet_sacred_shadows
+		tenet_ancestor_worship
+		tenet_esotericism
+	}
+}
+
+devanic_temple = {
+	faith_details = {
+		religion = rasen_devanic_religion
+		color = { 70 130 210 }
+		icon = custom_faith_4
+		reformed_icon = custom_faith_4
+	}
+	eminent_holy_sites = {
+		rasen_devanic_temple
+		rasen_sacred_sanctum
+		rasen_heavenly_storm_gate
+	}
+	tenets = {
+		tenet_inner_journey
+		tenet_unrelenting_faith
+		tenet_mendicant_preachers
+	}
+	doctrines = {
+		doctrine_monasticism_encouraged
+	}
+}
+
+shugendo = {
+	faith_details = {
+		religion = rasen_devanic_religion
+		color = { 150 200 230 }
+		icon = custom_faith_5
+		reformed_icon = custom_faith_5
+	}
+	eminent_holy_sites = {
+		rasen_devanic_temple
+		rasen_dead_mountain
+		rasen_ice_front
+	}
+	tenets = {
+		tenet_asceticism
+		tenet_sanctity_of_nature
+		tenet_esotericism
+	}
+}
+
+wild_pacts = {
+	faith_details = {
+		religion = rasen_wild_religion
+		color = { 60 140 50 }
+		icon = custom_faith_6
+		reformed_icon = custom_faith_6
+	}
+	eminent_holy_sites = {
+		rasen_burning_forest
+		rasen_wild_arena
+	}
+	tenets = {
+		tenet_warmonger
+		tenet_sanctity_of_nature
+		tenet_ritual_celebrations
+	}
+}

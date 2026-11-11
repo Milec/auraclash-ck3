@@ -1,7 +1,9 @@
 ﻿rasen_ancestral_religion = {
-	family = rf_eastern
-	graphical_faith = "dharmic_gfx"
-	piety_icon_group = "eastern"
+	religion_details = {
+		family = rf_eastern
+		graphical_faith = dharmic_gfx
+		piety_icon_group = eastern
+	}
 	doctrine = doctrine_no_head
 	doctrine = doctrine_concubines
 	doctrine = doctrine_clerical_function_taxation
@@ -147,45 +149,14 @@
 		GoodGodNames = { rasen_ancestral_religion_good_god_0 rasen_ancestral_religion_good_god_1 }
 		EvilGodNames = { rasen_ancestral_religion_evil_god_0 }
 	}
-	faiths = {
-		ancestral_rites = {
-		color = { 190 50 50 }
-		icon = custom_faith_1
-		reformed_icon = custom_faith_1
-		holy_site = rasen_leyline_nexus
-		holy_site = rasen_bladed_forge
-		holy_site = rasen_rabbit_trial_valley
-		doctrine = tenet_ancestor_worship
-		doctrine = tenet_ritual_hospitality
-		doctrine = tenet_struggle_submission
-	}
-		celestial_order = {
-		color = { 220 180 40 }
-		icon = custom_faith_2
-		reformed_icon = custom_faith_2
-		holy_site = rasen_leyline_nexus
-		holy_site = rasen_mystic_spires
-		doctrine = tenet_esotericism
-		doctrine = tenet_ancestor_worship
-		doctrine = tenet_ritual_celebrations
-	}
-		veiled_ancestors = {
-		color = { 130 60 150 }
-		icon = custom_faith_3
-		reformed_icon = custom_faith_3
-		holy_site = rasen_leyline_nexus
-		holy_site = rasen_cursed_hollow
-		doctrine = tenet_sacred_shadows
-		doctrine = tenet_ancestor_worship
-		doctrine = tenet_esotericism
-	}
-	}
 }
 
 rasen_devanic_religion = {
-	family = rf_eastern
-	graphical_faith = "dharmic_gfx"
-	piety_icon_group = "eastern"
+	religion_details = {
+		family = rf_eastern
+		graphical_faith = dharmic_gfx
+		piety_icon_group = eastern
+	}
 	doctrine = doctrine_spiritual_head
 	doctrine = doctrine_monogamy
 	doctrine = doctrine_clerical_function_alms_and_pacification
@@ -331,36 +302,14 @@ rasen_devanic_religion = {
 		GoodGodNames = { rasen_devanic_religion_good_god_0 rasen_devanic_religion_good_god_1 }
 		EvilGodNames = { rasen_devanic_religion_evil_god_0 rasen_devanic_religion_evil_god_1 }
 	}
-	faiths = {
-		devanic_temple = {
-		color = { 70 130 210 }
-		icon = custom_faith_4
-		reformed_icon = custom_faith_4
-		holy_site = rasen_devanic_temple
-		holy_site = rasen_sacred_sanctum
-		holy_site = rasen_heavenly_storm_gate
-		doctrine = tenet_monasticism
-		doctrine = tenet_unrelenting_faith
-		doctrine = tenet_mendicant_preachers
-	}
-		shugendo = {
-		color = { 150 200 230 }
-		icon = custom_faith_5
-		reformed_icon = custom_faith_5
-		holy_site = rasen_devanic_temple
-		holy_site = rasen_dead_mountain
-		holy_site = rasen_ice_front
-		doctrine = tenet_asceticism
-		doctrine = tenet_sanctity_of_nature
-		doctrine = tenet_esotericism
-	}
-	}
 }
 
 rasen_wild_religion = {
-	family = rf_pagan
-	graphical_faith = "pagan_gfx"
-	piety_icon_group = "pagan"
+	religion_details = {
+		family = rf_pagan
+		graphical_faith = pagan_gfx
+		piety_icon_group = pagan
+	}
 	pagan_roots = yes
 	doctrine = doctrine_no_head
 	doctrine = doctrine_polygamy
@@ -506,17 +455,5 @@ rasen_wild_religion = {
 		GHWNamePlural = rasen_wild_religion_ghwnameplural
 		GoodGodNames = { rasen_wild_religion_good_god_0 rasen_wild_religion_good_god_1 }
 		EvilGodNames = { rasen_wild_religion_evil_god_0 }
-	}
-	faiths = {
-		wild_pacts = {
-		color = { 60 140 50 }
-		icon = custom_faith_6
-		reformed_icon = custom_faith_6
-		holy_site = rasen_burning_forest
-		holy_site = rasen_wild_arena
-		doctrine = tenet_warmonger
-		doctrine = tenet_sanctity_of_nature
-		doctrine = tenet_ritual_celebrations
-	}
 	}
 }

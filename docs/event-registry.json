@@ -5010,7 +5010,7 @@
       "event_name": "Poison!",
       "event_id": "host_dinner_events.1091",
       "added_option": "Force the poison out before it reaches my heart.",
-      "ability_index": "Flame Purge; Grandmaster Alchemist; Immortal Core; Purifying Light; Toxicology",
+      "ability_index": "Flame Purge; Grandmaster Alchemist; Immortal Cores; Purifying Light; Toxicology",
       "outcome": "You survive the poisoning, expose your host's attack, and spend six months recovering.",
       "exertion": "Major: +40 stress; 6 months Overextended Chi; +100 cultivation XP (other native costs may apply)",
       "option_key": "ac_event_purge_poison",

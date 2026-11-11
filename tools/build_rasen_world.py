@@ -111,14 +111,14 @@ def religion_files(kingdoms):
     sites, loc = [], ['l_english:']
     for key, site in HOLY_SITES.items():
         barony = site['barony'] if site['barony'] in county_of else resolve_site(kingdoms, site)
-        sites.append(block(key, [f'county = {county_of[barony]}', f'barony = {barony}',
-                                 'character_modifier = {', f'\tname = holy_site_{key}_effect_name',
+        # CK3 1.20: holy_site_types. Every Rasen site is eminent, so faith_character_modifier applies.
+        sites.append(block(key, [f'county = {county_of[barony]}', f'barony = {barony}', 'faith_character_modifier = {',
                                  *[f'\t{k} = {v}' for k, v in site['modifier'].items()], '}']))
-        loc += [f' holy_site_{key}_name:0 "{site["name"]}"', f' holy_site_{key}_effect_name:0 "From {site["name"]}"']
-    religions = []
+        loc += [f' holy_site_{key}_name:0 "{site["name"]}"']
+    religions, faiths = [], []
     for rkey, r in RELIGIONS.items():
-        body = [f"family = {r['family']}", f"graphical_faith = \"{r['graphical_faith']}\"",
-                f"piety_icon_group = \"{r['piety_icon_group']}\"", 'pagan_roots = yes' if r.get('pagan_roots') else '',
+        body = ['religion_details = {', f"\tfamily = {r['family']}", f"\tgraphical_faith = {r['graphical_faith']}",
+                f"\tpiety_icon_group = {r['piety_icon_group']}", '}', 'pagan_roots = yes' if r.get('pagan_roots') else '',
                 *[f'doctrine = {x}' for x in r['doctrines']],
                 'traits = {', '\tvirtues = { ' + ' '.join(r['virtues']) + ' }',
                 '\tsins = { ' + ' '.join(r['sins']) + ' }', '}',
@@ -133,25 +133,30 @@ def religion_files(kingdoms):
                  '\tEvilGodNames = { ' + ' '.join(f'{rkey}_evil_god_{i}'.lower() for i in range(len(r['evil_gods']))) + ' }', '}']
         loc += [f' {rkey}_good_god_{i}:0 "{g}"' for i, g in enumerate(r['good_gods'])]
         loc += [f' {rkey}_evil_god_{i}:0 "{g}"' for i, g in enumerate(r['evil_gods'])]
-        body.append('faiths = {')
+        # CK3 1.20: faiths are faith_types that name their religion. With no scripted Rite,
+        # the game creates a main Rite with the faith's key, which history assigns with `rite =`.
         for fkey, f in FAITHS.items():
             if f['religion'] != rkey:
                 continue
-            fbody = [f"color = {{ {f['colour'][0]} {f['colour'][1]} {f['colour'][2]} }}", f"icon = {f['icon']}",
-                     f"reformed_icon = {f['icon']}", *[f'holy_site = {s}' for s in f['holy_sites']],
-                     *[f'doctrine = {t}' for t in f['tenets']]]
-            body.append(block(fkey, fbody, 1).rstrip('\n'))
+            fbody = ['faith_details = {', f'\treligion = {rkey}',
+                     f"\tcolor = {{ {f['colour'][0]} {f['colour'][1]} {f['colour'][2]} }}", f"\ticon = {f['icon']}",
+                     f"\treformed_icon = {f['icon']}", '}',
+                     'eminent_holy_sites = {', *[f'\t{s}' for s in f['holy_sites']], '}',
+                     'tenets = {', *[f'\t{t}' for t in f['tenets']], '}']
+            if f.get('doctrines'):
+                fbody += ['doctrines = {', *[f'\t{d}' for d in f['doctrines']], '}']
+            faiths.append(block(fkey, fbody))
             loc += [f' {fkey}:0 "{f["name"]}"', f' {fkey}_adj:0 "{f["adjective"]}"',
                     f' {fkey}_adherent:0 "{f["adherent"]}"', f' {fkey}_adherent_plural:0 "{f["adherents"]}"',
                     f' {fkey}_desc:0 "{f["desc"]}"']
-        body.append('}')
         religions.append(block(rkey, [x for x in body if x]))
         loc += [f' {rkey}:0 "{r["name"]}"', f' {rkey}_adj:0 "{r["adjective"]}"',
                 f' {rkey}_adherent:0 "{r["adherent"]}"', f' {rkey}_adherent_plural:0 "{r["adherents"]}"',
                 f' {rkey}_desc:0 "{r["desc"]}"', f' {r["holy_order"]}:0 "{r["holy_order_name"]}"']
     return {
-        'common/religion/religions/rasen_religions.txt': '\n'.join(religions),
-        'common/religion/holy_sites/rasen_holy_sites.txt': '\n'.join(sites),
+        'common/religion/religion_types/rasen_religions.txt': '\n'.join(religions),
+        'common/religion/faith_types/rasen_faiths.txt': '\n'.join(faiths),
+        'common/religion/holy_site_types/rasen_holy_sites.txt': '\n'.join(sites),
     }, loc
 
 
@@ -238,7 +243,7 @@ class People:
         for group in self.rng.sample(free, max(0, 3 - len(fixed))):
             personality.append(self.rng.choice(group))
         edu = self.rng.choice(['martial', 'stewardship', 'diplomacy', 'intrigue', 'learning'])
-        lines = [f'name = "{name}"', f'dynasty = {dynasty}', f'religion = {faith}', f'culture = {culture}']
+        lines = [f'name = "{name}"', f'dynasty = {dynasty}', f'rite = {faith}', f'culture = {culture}']
         race = CULTURE_RACE[culture]
         lines.append(f'trait = ac_race_{self.rng.choice(YOKAI_KINDS) if race == "yokai" else race}')
         if female:
@@ -328,7 +333,7 @@ def history_files(kingdoms):
                 titles.append(block(county['key'], [f'{early} = {{ holder = {duke} }}']))
                 for bi, (barony, province) in enumerate(county['baronies']):
                     holding = ['castle_holding', 'city_holding', 'church_holding'][bi] if bi < 3 else 'none'
-                    provinces.append(block(str(province), [f'culture = {culture}', f'religion = {faith}', f'holding = {holding}']))
+                    provinces.append(block(str(province), [f'culture = {culture}', f'rite = {faith}', f'holding = {holding}']))
     family_rng = random.Random(SEED + 1)
     for cid in sorted({h for h in re.findall(r'holder = (rasen_\d+)', '\n'.join(titles))}, key=lambda c: int(c.split('_')[1])):
         people.family(cid, family_rng)
@@ -373,7 +378,7 @@ def bookmark_files(bookmark_ids, people):
         entries += ['character = {', f'\tname = "bm_rasen_{region}"', f'\tdynasty = {value("dynasty")}',
                     '\tdynasty_splendor_level = 1', f'\ttype = {"female" if female else "male"}', f'\tbirth = {birth}',
                     f'\ttitle = k_{region}', '\tgovernment = feudal_government', f'\tculture = {value("culture")}',
-                    f'\treligion = {value("religion")}', '\tdifficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"',
+                    f'\treligion = {value("rite")}', '\tdifficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"',
                     f'\thistory_id = {cid}', '\tposition = { 900 500 }', '\tanimation = personality_bold', '}']
         loc += [f' bm_rasen_{region}:0 "{value("name").strip(chr(34))}"',
                 f' bm_rasen_{region}_desc:0 "{EXALTS[region]["desc"]}"']

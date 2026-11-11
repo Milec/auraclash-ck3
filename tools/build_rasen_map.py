@@ -631,13 +631,27 @@ def preview(provinces, region_of, labels, kingdoms, centre):
     small.save(PREVIEW)
 
 
+def _same(path, data):
+    """True when path holds data. PNGs compare decoded pixels, since Pillow
+    versions compress identical images to different bytes."""
+    if not path.exists():
+        return False
+    current = path.read_bytes()
+    if current == data or path.suffix != '.png':
+        return current == data
+    a, b = Image.open(path), Image.open(io.BytesIO(data))
+    with a, b:
+        return (a.mode == b.mode and a.size == b.size and a.getpalette() == b.getpalette()
+                and np.array_equal(np.asarray(a), np.asarray(b)))
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--check', action='store_true', help='Fail if the generated files differ from RasenMap/.')
     args = parser.parse_args()
     files, summary = render(write=not args.check)
     if args.check:
-        stale = [r for r, d in files.items() if not (OUT / r).exists() or (OUT / r).read_bytes() != d]
+        stale = [r for r, d in files.items() if not _same(OUT / r, d)]
         if stale:
             raise SystemExit('Stale generated files: ' + ', '.join(stale))
     print(json.dumps(summary, indent=1))

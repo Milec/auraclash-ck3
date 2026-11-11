@@ -31,10 +31,12 @@ class RasenWorldTests(unittest.TestCase):
 
     def test_history_uses_defined_cultures_and_faiths(self):
         cultures = set(re.findall(r'(?m)^(\w+) = \{', self.text['common/culture/cultures/rasen_cultures.txt']))
-        faiths = set(re.findall(r'(?m)^\t\t(\w+) = \{', self.text['common/religion/religions/rasen_religions.txt']))
+        faiths = set(re.findall(r'(?m)^(\w+) = \{', self.text['common/religion/faith_types/rasen_faiths.txt']))
         for relative in ('history/provinces/rasen_provinces.txt', 'history/characters/rasen_characters.txt'):
             self.assertLessEqual(set(re.findall(r'culture = (\w+)', self.text[relative])), cultures, relative)
-            self.assertLessEqual(set(re.findall(r'religion = (\w+)', self.text[relative])), faiths, relative)
+            # CK3 1.20 assigns faiths through their (dynamic, same-key) main Rite.
+            self.assertLessEqual(set(re.findall(r'rite = (\w+)', self.text[relative])), faiths, relative)
+            self.assertNotIn('religion = ', self.text[relative], relative)
 
     def test_every_county_and_province_has_history(self):
         titles = read('common/landed_titles/00_rasen_titles.txt')
@@ -50,15 +52,17 @@ class RasenWorldTests(unittest.TestCase):
         dynasties = set(re.findall(r'(?m)^(dynasty_\w+) = \{', self.text['common/dynasties/rasen_dynasties.txt']))
         self.assertLessEqual(set(re.findall(r'dynasty = (dynasty_\w+)', self.text['history/characters/rasen_characters.txt'])), dynasties)
 
-    def test_holy_sites_exist_and_faiths_have_at_most_five(self):
-        sites = set(re.findall(r'(?m)^(rasen_\w+) = \{', self.text['common/religion/holy_sites/rasen_holy_sites.txt']))
-        religions = self.text['common/religion/religions/rasen_religions.txt']
-        self.assertLessEqual(set(re.findall(r'holy_site = (\w+)', religions)), sites)
+    def test_holy_sites_exist_and_faiths_have_at_most_three(self):
+        sites = set(re.findall(r'(?m)^(rasen_\w+) = \{', self.text['common/religion/holy_site_types/rasen_holy_sites.txt']))
+        faiths = self.text['common/religion/faith_types/rasen_faiths.txt']
+        self.assertLessEqual(set(re.findall(r'(?m)^		(rasen_\w+)$', faiths)), sites)
         for faith in world.FAITHS.values():
-            self.assertLessEqual(len(faith['holy_sites']), 5)
+            # All are eminent, so FAITH_EMINENT_HOLY_SITES_MAX_DEFAULT (3) applies.
+            self.assertLessEqual(len(faith['holy_sites']), 3)
+            self.assertLessEqual(set(faith['holy_sites']), sites)
 
     def test_localization_covers_keys(self):
-        keys = set(re.findall(r'= (rasen_\w+_religion_\w+)$', self.text['common/religion/religions/rasen_religions.txt'], re.M))
+        keys = set(re.findall(r'= (rasen_\w+_religion_\w+)$', self.text['common/religion/religion_types/rasen_religions.txt'], re.M))
         keys |= set(world.CULTURES) | set(world.FAITHS) | set(world.RELIGIONS)
         keys |= set(re.findall(r'(?m)^(dynasty_\w+) = \{', self.text['common/dynasties/rasen_dynasties.txt']))
         keys |= {f'holy_site_{s}_name' for s in world.HOLY_SITES}

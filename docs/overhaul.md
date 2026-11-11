@@ -95,13 +95,16 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
 
 `RasenMap/` is not yet a loadable mod: it still needs the step 2 map assets. Until then, keep using `AuraClash/` alone. Its `descriptor.mod` loads after `AuraClash`, overrides the `map_data` files it generates, and replaces `common/landed_titles`, the bookmarks, `common/dynasties` and `history/{characters,provinces,titles}`. Vanilla cultures and religions stay loaded but unused.
 
-### Verify in-game first
-The generated scripts use vanilla keys that cannot be checked without the game files:
-- Graphics sets (`mongol_*_gfx`, `steppe_*_gfx`) and the `asian` ethnicity.
-- Traditions, tenets and doctrines.
-- `graphical_faith` and `piety_icon_group`, and the `custom_faith_N` icons.
-- `NGame.START_DATE` and `NGame.END_DATE`.
-- Innovation keys and `culture_era_early_medieval` in `history/cultures`.
-- Terrain keys and `winter_severity_bias`.
+### Vanilla keys (verified against CK3 1.20.1)
+`python tools/verify_vanilla_keys.py` checks every vanilla key the two mods name against the installed game; `tools/test_vanilla_keys.py` runs it whenever `CK3_GAME_ROOT` is set. All 172 references resolve:
+- The graphics sets (`mongol_*_gfx`, `steppe_*_gfx`) and the `asian` ethnicity exist. They are still placeholders for All Under Heaven's East Asian sets.
+- Traditions, ethos, martial customs, tenets and doctrines exist.
+- So do `graphical_faith`, `piety_icon_group`, the `custom_faith_N` icons, innovations, `culture_era_early_medieval`, terrain types, event themes and modifier icons.
 
-Check `error.log` for unknown keys on the first launch, and correct them in `tools/rasen_world_data.py`.
+Two 1.20 changes needed fixes:
+- **The religion rework.** Religions moved to `common/religion/religion_types`, faiths to `faith_types` (each naming its `religion`, with `tenets = { }` and `eminent_holy_sites = { }`), and holy sites to `holy_site_types` (`faith_character_modifier`).
+  - History now assigns faiths through Rites (`rite = <key>`). A faith with no scripted Rite gets a main Rite with the faith's own key, so `rite = ancestral_rites` works.
+  - Bookmarks still use `religion =`.
+- **`tenet_monasticism` is gone.** Monasticism is now a doctrine group. The Devanic Temple takes `doctrine_monasticism_encouraged` and `tenet_inner_journey` instead.
+
+Still unverified until the first launch: `NGame.START_DATE`/`END_DATE` at year 3000, `winter_severity_bias`, and the `add_matrilineal_spouse` history keyword. Check `error.log`.
