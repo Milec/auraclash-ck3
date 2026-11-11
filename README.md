@@ -79,14 +79,16 @@ Use **Decisions → Cultivation → Consult the Sect Register** for membership, 
 The estate is a native CK3 domicile attached to a separate landless Sect Master title, with an original Chinese-inspired landscape and six building chains. It passes with sect leadership while rulers keep their lands, government and personal estate. The sect register opens illustrated building plots and sect-aware controls for the native construction queue; the vanilla editor assumes a ruler's personal domicile. Sect battles resolve as group clashes; they do not use ordinary single combat or conquer territory.
 
 ### Heavenly Ascension Trials and the Archonate
-Every 8 years (first after 3), heralds announce the **Heavenly Ascension Trials** in Nanhou. Player cultivators aged 16–40 can pay 100 gold to enter; three months later they face three rounds:
-1. **The Gate of Ten Thousand Steps:** endure (Stewardship), slip through the formation (Intrigue), or shove rivals aside (Martial + prowess, +2 points, dread). Failing eliminates you. Carrying a fallen competitor always passes, scores nothing, and earns prestige and your rival's gratitude.
-2. **The Mirror of the Heart Demon:** still the mind (Learning; Aoyusumu and Kiihakai +15%), shatter it with an element, or embrace the demon for 2 certain points, heavy stress and dread.
-3. **The Heavenly Stage:** a duel against the year's favourite, the strongest eligible AI cultivator, or a wandering prodigy. Style techniques add 15%, elements 10%; the base is 50% ± 2% per point of difference in prowess, half of Core dots, path and Immortal Core bonuses. You can bow out with honour.
-
-Each round also lets you push a Combat Core to the limit (Fortitude, Soul, and Power and Agility together), spending a Core charge for better odds.
-
-Winning the duel with 3+ points earns the **Archonate Disciple** trait (+1 monthly prestige, +3 prowess, +1 Diplomacy, +5 general opinion, 500 prestige, two Core dots, 100 cultivation XP a year). 2+ points earn 300 prestige and a Core dot. The three strongest AI entrants also join the Archonate each time.
+This follows the Aura Clash game. The Exalted Council drafts young martial artists to replenish the Archons, holding the **Heavenly Ascension Trials** in the Outer West town of **Nanhou**. They're held every 10 years, first after 3; the IF's 30-year gap is shortened for play.
+- **The draft:** cultivators **under 25 of the Warrior Caste** (a character with a dynasty, since the lowborn are Clanless) receive the Imperial draft letter, with 25 gold. Ignoring it costs 100 prestige.
+- **Three zodiac Trials**, each scored **0–7** by the Imperial clerks. A score of 5 is a pass, and no one is disqualified until all three are complete:
+  1. **Tiger Trial**, strength: march weighted plates to the arena wall. The base score is (Power + Fortitude Core ratings) / 2 + 1. Choose a grip (back or legs, favouring Fortitude or Power), strap on all twenty plates, help a fallen contestant, or push your Power Core to the limit.
+  2. **Rabbit Trial**, speed and evasion, "about being prey". The base score is (2 × Agility + Soul) / 3 + 1. Outrun everyone, find an escape route, crash through attacks, hold back a stronger attacker, trip your neighbours, or push your Agility Core to the limit.
+  3. **Dragon Trial:** medallions measure **Aura Pressure**, from 2 points below 500 AP to 7 points at 2,500 AP. Cycle quietly, defend your medallion fairly, ambush the weak, shadow a stronger group, protect a weaker contestant, or study the counting formation.
+- Each score varies by ±1 with the day's luck.
+- **Favor of the five Inner Kingdoms:** masked Judges watch every choice. Bladed rewards honour, Sacred compassion (Divine Favor), Mystic intelligence, Cursed practicality, and Wild ruthless strength. Choices raise or lower that land's Favor, which persists. If a choice impresses a land and you score a perfect 7, that land expends its limited pool to grant an **eighth point**.
+- **Results:** a total of **15+** joins the **Archonate** with the Archonate Disciple trait (+1 monthly prestige, +3 prowess, +1 Diplomacy, +5 general opinion, 500 prestige, two Core dots, 100 cultivation XP a year). **21+** places you among the **Top Five** for another 300 prestige. The results compare you with the crowd's favourite, the strongest eligible AI entrant or a wandering prodigy.
+- **AI entrants:** the three best-scoring AI entrants whose expected total passes also join the Archonate.
 
 ### Developed ranks and roaming masters
 

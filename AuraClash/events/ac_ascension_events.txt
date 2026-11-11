@@ -1,11 +1,11 @@
 ﻿namespace = ac_ascend
 
-# 0001 heralds announce the Heavenly Ascension Trials (players)
-# 0010 round one: the Gate of Ten Thousand Steps
-# 0020 round two: the Mirror of the Heart Demon
-# 0030 round three: the Heavenly Stage
-# 0050 results
-# 0090 AI admissions (hidden, on the year's favourite)
+# The Heavenly Ascension Trials at Nanhou, following Aura Clash.
+# 0001 the Imperial draft letter (players)
+# 0010 Tiger Trial: strength (weighted plates)
+# 0020 Rabbit Trial: speed and evasion (survive as prey)
+# 0030 Dragon Trial: medallions measure Aura Pressure
+# 0050 results; 0090 AI admissions (hidden, on the year's favourite)
 
 ac_ascend.0001 = {
 	type = character_event
@@ -14,18 +14,18 @@ ac_ascend.0001 = {
 	theme = martial
 	left_portrait = { character = root animation = personality_bold }
 	trigger = { ac_ascension_eligible_trigger = yes }
+	immediate = { add_gold = ac_ascension_draft_gold }
 
 	option = {
 		name = ac_ascend.0001.enter
-		trigger = { gold >= ac_ascension_entry_gold }
-		show_as_unavailable = { always = yes }
-		remove_short_term_gold = ac_ascension_entry_gold
 		add_character_flag = { flag = ac_ascension_entrant days = 365 }
 		custom_tooltip = ac_ascend.0001.enter_tt
 		hidden_effect = { trigger_event = { id = ac_ascend.0010 days = 90 } }
 	}
 	option = {
 		name = ac_ascend.0001.decline
+		add_prestige = -100
+		custom_tooltip = ac_ascend.0001.decline_tt
 	}
 }
 
@@ -38,51 +38,35 @@ ac_ascend.0010 = {
 	trigger = { ac_ascension_competing_trigger = yes }
 	immediate = { ac_ascension_assign_rival_effect = yes }
 
-	option = { # Endure: Stewardship
-		name = ac_ascend.0010.endure
-		random_list = {
-			0 = { modifier = { add = ac_ascension_endure_chance } desc = ac_ascend.round.pass
-				ac_ascension_add_score_effect = { POINTS = 1 } trigger_event = { id = ac_ascend.0020 days = 7 } }
-			0 = { modifier = { add = ac_ascension_endure_failure } desc = ac_ascend.round.fail
-				increase_wounds_no_death_effect = { REASON = fight } trigger_event = { id = ac_ascend.0050 days = 3 } }
-		}
+	option = {
+		name = ac_ascend.0010.back
+		ac_trial_score_effect = { TRIAL = tiger BONUS = ac_trial_grip_back_bonus }
+		trigger_event = { id = ac_ascend.0020 days = 7 }
 	}
-	option = { # Surge the Fortitude Core
+	option = {
+		name = ac_ascend.0010.legs
+		ac_trial_score_effect = { TRIAL = tiger BONUS = ac_trial_grip_legs_bonus }
+		trigger_event = { id = ac_ascend.0020 days = 7 }
+	}
+	option = {
+		name = ac_ascend.0010.twenty
+		ac_favor_impress_effect = { LAND = wild }
+		ac_trial_score_effect = { TRIAL = tiger BONUS = 1 }
+		random = { chance = 30 increase_wounds_no_death_effect = { REASON = fight } }
+		trigger_event = { id = ac_ascend.0020 days = 7 }
+	}
+	option = {
+		name = ac_ascend.0010.help
+		ac_favor_impress_effect = { LAND = sacred } add_prestige = 50
+		ac_trial_score_effect = { TRIAL = tiger BONUS = -2 }
+		trigger_event = { id = ac_ascend.0020 days = 7 }
+	}
+	option = {
 		name = ac_ascend.0010.surge
-		trigger = { ac_can_surge_core_trigger = { CORE = fortitude } }
+		trigger = { ac_can_surge_core_trigger = { CORE = power } }
 		show_as_unavailable = { has_trait = ac_cultivator }
-		ac_surge_core_effect = { CORE = fortitude }
-		random_list = {
-			0 = { modifier = { add = ac_ascension_endure_surge_chance } desc = ac_ascend.round.pass
-				ac_ascension_add_score_effect = { POINTS = 1 } trigger_event = { id = ac_ascend.0020 days = 7 } }
-			0 = { modifier = { add = ac_ascension_endure_surge_failure } desc = ac_ascend.round.fail
-				increase_wounds_no_death_effect = { REASON = fight } trigger_event = { id = ac_ascend.0050 days = 3 } }
-		}
-	}
-	option = { # Flow: Intrigue
-		name = ac_ascend.0010.flow
-		random_list = {
-			0 = { modifier = { add = ac_ascension_flow_chance } desc = ac_ascend.round.pass
-				ac_ascension_add_score_effect = { POINTS = 1 } trigger_event = { id = ac_ascend.0020 days = 7 } }
-			0 = { modifier = { add = ac_ascension_flow_failure } desc = ac_ascend.round.fail
-				add_stress = 15 trigger_event = { id = ac_ascend.0050 days = 3 } }
-		}
-	}
-	option = { # Ruthless: shove rivals from the stair
-		name = ac_ascend.0010.shove
-		add_dread = 5
-		random_list = {
-			0 = { modifier = { add = ac_ascension_shove_chance } desc = ac_ascend.round.pass
-				ac_ascension_add_score_effect = { POINTS = 2 } trigger_event = { id = ac_ascend.0020 days = 7 } }
-			0 = { modifier = { add = ac_ascension_shove_failure } desc = ac_ascend.round.fail
-				add_prestige = -100 trigger_event = { id = ac_ascend.0050 days = 3 } }
-		}
-	}
-	option = { # Honourable: carry a fallen competitor
-		name = ac_ascend.0010.carry
-		add_prestige = 100
-		custom_tooltip = ac_ascend.0010.carry_tt
-		var:ac_ascension_rival = { add_opinion = { target = root modifier = grateful_opinion opinion = 30 } }
+		ac_surge_core_effect = { CORE = power }
+		ac_trial_score_effect = { TRIAL = tiger BONUS = 2 }
 		trigger_event = { id = ac_ascend.0020 days = 7 }
 	}
 }
@@ -91,43 +75,46 @@ ac_ascend.0020 = {
 	type = character_event
 	title = ac_ascend.0020.t
 	desc = ac_ascend.0020.desc
-	theme = learning
+	theme = martial
 	left_portrait = { character = root animation = worry }
 	trigger = { ac_ascension_competing_trigger = yes }
 
-	option = { # Still the mind: Learning
-		name = ac_ascend.0020.still
-		random_list = {
-			0 = { modifier = { add = ac_ascension_mind_chance } desc = ac_ascend.round.pass ac_ascension_add_score_effect = { POINTS = 1 } }
-			0 = { modifier = { add = ac_ascension_mind_failure } desc = ac_ascend.round.fail add_stress = 20 }
-		}
+	option = {
+		name = ac_ascend.0020.run
+		ac_trial_score_effect = { TRIAL = rabbit BONUS = 0 }
 		trigger_event = { id = ac_ascend.0030 days = 7 }
 	}
-	option = { # Surge the Soul Core
+	option = {
+		name = ac_ascend.0020.route
+		ac_favor_impress_effect = { LAND = mystic }
+		ac_trial_score_effect = { TRIAL = rabbit BONUS = ac_trial_route_bonus }
+		trigger_event = { id = ac_ascend.0030 days = 7 }
+	}
+	option = {
+		name = ac_ascend.0020.crash
+		ac_favor_impress_effect = { LAND = wild }
+		ac_trial_score_effect = { TRIAL = rabbit BONUS = ac_trial_crash_bonus }
+		random = { chance = 25 increase_wounds_no_death_effect = { REASON = fight } }
+		trigger_event = { id = ac_ascend.0030 days = 7 }
+	}
+	option = {
+		name = ac_ascend.0020.delay
+		ac_favor_impress_effect = { LAND = sacred }
+		ac_trial_score_effect = { TRIAL = rabbit BONUS = 0 }
+		trigger_event = { id = ac_ascend.0030 days = 7 }
+	}
+	option = {
+		name = ac_ascend.0020.trip
+		ac_favor_impress_effect = { LAND = cursed } ac_favor_offend_effect = { LAND = bladed }
+		ac_trial_score_effect = { TRIAL = rabbit BONUS = 1 }
+		trigger_event = { id = ac_ascend.0030 days = 7 }
+	}
+	option = {
 		name = ac_ascend.0020.surge
-		trigger = { ac_can_surge_core_trigger = { CORE = soul } }
+		trigger = { ac_can_surge_core_trigger = { CORE = agility } }
 		show_as_unavailable = { has_trait = ac_cultivator }
-		ac_surge_core_effect = { CORE = soul }
-		random_list = {
-			0 = { modifier = { add = ac_ascension_mind_surge_chance } desc = ac_ascend.round.pass ac_ascension_add_score_effect = { POINTS = 1 } }
-			0 = { modifier = { add = ac_ascension_mind_surge_failure } desc = ac_ascend.round.fail add_stress = 20 }
-		}
-		trigger_event = { id = ac_ascend.0030 days = 7 }
-	}
-	option = { # Burn the illusion with an element
-		name = ac_ascend.0020.element
-		trigger = { ac_has_element_trigger = yes }
-		random_list = {
-			0 = { modifier = { add = ac_ascension_element_chance } desc = ac_ascend.round.pass ac_ascension_add_score_effect = { POINTS = 1 } }
-			0 = { modifier = { add = ac_ascension_element_failure } desc = ac_ascend.round.fail add_stress = 20 }
-		}
-		trigger_event = { id = ac_ascend.0030 days = 7 }
-	}
-	option = { # Feed the demon: certain points at a cost
-		name = ac_ascend.0020.embrace
-		ac_ascension_add_score_effect = { POINTS = 2 }
-		add_stress = 40
-		add_dread = 10
+		ac_surge_core_effect = { CORE = agility }
+		ac_trial_score_effect = { TRIAL = rabbit BONUS = 2 }
 		trigger_event = { id = ac_ascend.0030 days = 7 }
 	}
 }
@@ -147,59 +134,42 @@ ac_ascend.0030 = {
 		}
 	}
 
-	option = { # Martial Style technique
-		name = ac_ascend.0030.style
-		trigger = { ac_has_martial_style_trigger = yes }
-		random_list = {
-			0 = { modifier = { add = ac_ascension_duel_style_chance } desc = ac_ascend.duel.win
-				ac_ascension_add_score_effect = { POINTS = 2 } add_character_flag = ac_ascension_duel_won }
-			0 = { modifier = { add = ac_ascension_duel_style_failure } desc = ac_ascend.duel.loss
-				increase_wounds_no_death_effect = { REASON = fight } }
-		}
+	option = {
+		name = ac_ascend.0030.cycle
+		ac_trial_score_effect = { TRIAL = dragon BONUS = 0 }
 		trigger_event = { id = ac_ascend.0050 days = 3 }
 	}
-	option = { # Elemental technique
-		name = ac_ascend.0030.element
-		trigger = { ac_has_element_trigger = yes }
-		random_list = {
-			0 = { modifier = { add = ac_ascension_duel_element_chance } desc = ac_ascend.duel.win
-				ac_ascension_add_score_effect = { POINTS = 2 } add_character_flag = ac_ascension_duel_won }
-			0 = { modifier = { add = ac_ascension_duel_element_failure } desc = ac_ascend.duel.loss
-				increase_wounds_no_death_effect = { REASON = fight } }
-		}
+	option = {
+		name = ac_ascend.0030.defend
+		ac_favor_impress_effect = { LAND = bladed }
+		ac_trial_score_effect = { TRIAL = dragon BONUS = ac_trial_duel_bonus }
+		random = { chance = 20 increase_wounds_no_death_effect = { REASON = fight } }
 		trigger_event = { id = ac_ascend.0050 days = 3 }
 	}
-	option = { # Surge Power and Agility together
-		name = ac_ascend.0030.surge
-		trigger = {
-			ac_can_surge_core_trigger = { CORE = power }
-			ac_can_surge_core_trigger = { CORE = agility }
-		}
+	option = {
+		name = ac_ascend.0030.ambush
+		ac_favor_impress_effect = { LAND = wild } ac_favor_offend_effect = { LAND = sacred } ac_favor_offend_effect = { LAND = bladed } add_dread = 3
+		ac_trial_score_effect = { TRIAL = dragon BONUS = 1 }
+		trigger_event = { id = ac_ascend.0050 days = 3 }
+	}
+	option = {
+		name = ac_ascend.0030.shadow
+		ac_favor_impress_effect = { LAND = cursed } ac_favor_offend_effect = { LAND = bladed }
+		ac_trial_score_effect = { TRIAL = dragon BONUS = 1 }
+		trigger_event = { id = ac_ascend.0050 days = 3 }
+	}
+	option = {
+		name = ac_ascend.0030.protect
+		ac_favor_impress_effect = { LAND = sacred } ac_favor_offend_effect = { LAND = wild }
+		ac_trial_score_effect = { TRIAL = dragon BONUS = -1 }
+		trigger_event = { id = ac_ascend.0050 days = 3 }
+	}
+	option = {
+		name = ac_ascend.0030.study
+		trigger = { learning >= 10 }
 		show_as_unavailable = { has_trait = ac_cultivator }
-		ac_surge_core_effect = { CORE = power }
-		ac_surge_core_effect = { CORE = agility }
-		random_list = {
-			0 = { modifier = { add = ac_ascension_duel_surge_chance } desc = ac_ascend.duel.win
-				ac_ascension_add_score_effect = { POINTS = 2 } add_character_flag = ac_ascension_duel_won }
-			0 = { modifier = { add = ac_ascension_duel_surge_failure } desc = ac_ascend.duel.loss
-				increase_wounds_no_death_effect = { REASON = fight } }
-		}
-		trigger_event = { id = ac_ascend.0050 days = 3 }
-	}
-	option = { # Raw strength
-		name = ac_ascend.0030.strength
-		random_list = {
-			0 = { modifier = { add = ac_ascension_duel_chance } desc = ac_ascend.duel.win
-				ac_ascension_add_score_effect = { POINTS = 2 } add_character_flag = ac_ascension_duel_won }
-			0 = { modifier = { add = ac_ascension_duel_failure } desc = ac_ascend.duel.loss
-				increase_wounds_no_death_effect = { REASON = fight } }
-		}
-		trigger_event = { id = ac_ascend.0050 days = 3 }
-	}
-	option = { # Bow out with honour
-		name = ac_ascend.0030.yield
-		add_prestige = 150
-		var:ac_ascension_rival = { add_opinion = { target = root modifier = respect_opinion opinion = 20 } }
+		ac_favor_impress_effect = { LAND = mystic }
+		ac_trial_score_effect = { TRIAL = dragon BONUS = ac_trial_formation_bonus }
 		trigger_event = { id = ac_ascend.0050 days = 3 }
 	}
 }
@@ -208,17 +178,29 @@ ac_ascend.0050 = {
 	type = character_event
 	title = ac_ascend.0050.t
 	desc = {
+		desc = ac_ascend.0050.desc_scores
 		first_valid = {
 			triggered_desc = {
-				trigger = { has_character_flag = ac_ascension_duel_won ac_ascension_score_value >= ac_ascension_admission_score }
-				desc = ac_ascend.0050.desc_admitted
+				trigger = { ac_ascension_total >= ac_ascension_top_total }
+				desc = ac_ascend.0050.desc_top
 			}
 			triggered_desc = {
-				trigger = { ac_ascension_score_value >= ac_ascension_mention_score }
-				desc = ac_ascend.0050.desc_mention
+				trigger = { ac_ascension_total >= ac_ascension_pass_total }
+				desc = ac_ascend.0050.desc_admitted
 			}
 			desc = ac_ascend.0050.desc_eliminated
 		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = var:ac_ascension_rival ac_ascension_total > var:ac_ascension_rival.ac_ascension_expected_total }
+				desc = ac_ascend.0050.desc_beat_rival
+			}
+			triggered_desc = {
+				trigger = { exists = var:ac_ascension_rival }
+				desc = ac_ascend.0050.desc_lost_rival
+			}
+		}
+		desc = ac_ascend.0050.desc_favor
 	}
 	theme = martial
 	left_portrait = { character = root animation = personality_honorable }
@@ -227,15 +209,18 @@ ac_ascend.0050 = {
 	option = {
 		name = ac_ascend.0050.ok
 		if = {
-			limit = { has_character_flag = ac_ascension_duel_won ac_ascension_score_value >= ac_ascension_admission_score }
+			limit = { ac_ascension_total >= ac_ascension_pass_total }
 			ac_join_archonate_effect = yes
+			if = {
+				limit = { ac_ascension_total >= ac_ascension_top_total }
+				add_prestige = 300
+				custom_tooltip = ac_ascend.0050.top_tt
+			}
 		}
-		else_if = {
-			limit = { ac_ascension_score_value >= ac_ascension_mention_score }
-			add_prestige = 300
-			ac_add_random_core_dot_effect = yes
+		else = {
+			add_prestige = 50
+			ac_gain_aura_pressure_effect = { AP = 10 }
 		}
-		else = { add_prestige = 50 }
 		hidden_effect = { ac_ascension_finish_effect = yes }
 	}
 }

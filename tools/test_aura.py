@@ -107,7 +107,7 @@ class AuraTests(unittest.TestCase):
 
     def test_trials_surges_spend_cores(self):
         events = read('events/ac_ascension_events.txt')
-        self.assertEqual(len(re.findall(r'ac_surge_core_effect = \{ CORE = \w+ \}', events)), 4)
+        self.assertEqual(len(re.findall(r'ac_surge_core_effect = \{ CORE = \w+ \}', events)), 2)
 
     def test_localization_present(self):
         loc = '\n'.join(p.read_text(encoding='utf-8-sig') for p in (MOD / 'localization/english').glob('*.yml'))
