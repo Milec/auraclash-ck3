@@ -63,7 +63,11 @@ def main():
     overlay = OUT / 'qa-mod'
     files = {
         'common/on_action/rasen_qa.txt': ('on_game_start_after_lobby = { on_actions = { rasen_qa } }\n'
-                                          'rasen_qa = { effect = { title:k_bladed.holder = { trigger_event = rasen_qa.0001 } } }\n'),
+                                          'rasen_qa = { effect = { title:k_bladed.holder = { trigger_event = rasen_qa.0001 } } }\n'
+                                          # When time runs (a played or hands-off game), each year leaves a mark.
+                                          'yearly_global_pulse = { on_actions = { rasen_qa_year } }\n'
+                                          'rasen_qa_year = { effect = { debug_log = "RASEN_QA YEAR TICK" '
+                                          'if = { limit = { has_global_variable = rasen_decree } debug_log = "RASEN_QA YEAR DECREE_SET" } } }\n'),
         'events/rasen_qa.txt': event(),
     }
     for relative, text in files.items():
