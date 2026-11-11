@@ -187,3 +187,13 @@ dynasty_rasen_dou = {
 	name = "dynasty_rasen_dou"
 	culture = cathayan
 }
+
+dynasty_rasen_akuma = {
+	name = "dynasty_rasen_akuma"
+	culture = cathayan
+}
+
+dynasty_rasen_ryugu = {
+	name = "dynasty_rasen_ryugu"
+	culture = ryugujin
+}

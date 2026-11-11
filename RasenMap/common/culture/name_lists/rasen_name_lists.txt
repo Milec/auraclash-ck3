@@ -18,3 +18,10 @@ name_list_cathayan = {
 	male_names = { Wenyao Taio Chu Bo Wei Jian Liang Hao Zhen Ming Rui Feng Guang Yong Kun Lei Shen Tao Xun Yi Zhao Heng Jun Long }
 	female_names = { Lan Mei Xiu Lian Hua Jing Ling Yun Qing Ruolan Shu Ting Wen Xia Yan Zhi Desdemona }
 }
+
+name_list_ryugujin = {
+	cadet_dynasty_names = { "Ryugu" "Watatsumi" "Kaitei" "Shiotsuchi" "Uminari" }
+	dynasty_names = { "Ryugu" "Watatsumi" "Kaitei" "Shiotsuchi" "Uminari" }
+	male_names = { Tenkairyu Kairyu Suiryu Seiryu Hakuryu Kokuryu Shinryu Umihiko Watatsu Kaien }
+	female_names = { Otohime Toyotama Tamayori Shiohime Namiko Ryuko Mizuha Kaiko }
+}

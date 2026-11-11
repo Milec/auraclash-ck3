@@ -1,0 +1,87 @@
+﻿namespace = rasen_shadows
+
+# 0001 a Clone of Taio offers Blood Chi; 0010 the Akuma Lords strike; 0020 a Ryugujo spy.
+
+rasen_shadows.0001 = {
+	type = character_event
+	title = rasen_shadows.0001.t
+	desc = rasen_shadows.0001.desc
+	theme = intrigue
+	trigger = { NOT = { has_variable = rasen_akuma_member } }
+	left_portrait = { character = root animation = worry }
+	option = {
+		name = rasen_shadows.0001.accept
+		rasen_join_akuma_effect = yes
+		ai_chance = { base = 0 }
+	}
+	option = {
+		name = rasen_shadows.0001.refuse
+		add_prestige = 50
+	}
+	option = {
+		name = rasen_shadows.0001.report
+		trigger = { has_trait = ac_archonate_disciple }
+		add_prestige = 150
+		ac_favor_change_effect = { LAND = bladed AMOUNT = 1 }
+	}
+}
+
+rasen_shadows.0010 = {
+	type = character_event
+	title = rasen_shadows.0010.t
+	desc = rasen_shadows.0010.desc
+	theme = war
+	left_portrait = { character = root animation = shock }
+	option = {
+		name = rasen_shadows.0010.archons
+		trigger = { rasen_is_exalt_trigger = yes gold >= 100 }
+		remove_short_term_gold = 100
+		scope:rasen_akuma_target ?= { add_county_modifier = { modifier = rasen_archon_patrols_modifier years = 3 } }
+		rasen_archons_hunt_akuma_effect = yes
+	}
+	option = {
+		name = rasen_shadows.0010.ok
+	}
+}
+
+rasen_shadows.0020 = {
+	type = character_event
+	title = rasen_shadows.0020.t
+	desc = rasen_shadows.0020.desc
+	theme = intrigue
+	immediate = {
+		create_character = {
+			age = { 18 30 }
+			gender_female_chance = 50
+			culture = culture:ryugujin
+			faith = root.faith
+			location = root.location
+			trait = ac_cultivator
+			save_scope_as = rasen_ryugujo_spy
+		}
+	}
+	left_portrait = { character = root animation = personality_rational }
+	right_portrait = { character = scope:rasen_ryugujo_spy animation = worry }
+	option = {
+		name = rasen_shadows.0020.expose
+		add_prestige = 100
+		# "Was Tenkairyu your only connection to Ryugujo?" The spy names the Dragon Prince.
+		random_in_global_list = {
+			variable = rasen_akuma_members
+			limit = { is_alive = yes has_trait = rasen_dragon_blood }
+			random_secret = { limit = { secret_type = rasen_secret_akuma } reveal_to = root }
+		}
+		scope:rasen_ryugujo_spy = { death = { death_reason = death_execution killer = root } }
+	}
+	option = {
+		name = rasen_shadows.0020.turn
+		add_gold = 100
+		add_hook = { type = favor_hook target = scope:rasen_ryugujo_spy }
+		add_courtier = scope:rasen_ryugujo_spy
+	}
+	option = {
+		name = rasen_shadows.0020.release
+		add_piety = 50
+		scope:rasen_ryugujo_spy = { death = { death_reason = death_vanished } }
+	}
+}

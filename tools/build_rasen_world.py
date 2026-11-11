@@ -14,7 +14,7 @@ import random
 import re
 from pathlib import Path
 
-from rasen_world_data import (BOOKMARK, CULTURE_RACE, DIVINE_GENERAL, YOKAI_KINDS, INNOVATIONS, MORTAL_LIMIT_BONUS, CANON_HOLDERS, CULTURES, EXALTS, FAITHS, HOLY_SITES,
+from rasen_world_data import (BOOKMARK, CANON_CAST, CULTURE_RACE, DIVINE_GENERAL, YOKAI_KINDS, INNOVATIONS, MORTAL_LIMIT_BONUS, CANON_HOLDERS, CULTURES, EXALTS, FAITHS, HOLY_SITES,
                               NAME_LISTS, RELIGIONS, REGION_PEOPLES, RELIGION_LOC_KEYS, START, TRAIT_GROUPS)
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -337,6 +337,22 @@ def history_files(kingdoms):
     family_rng = random.Random(SEED + 1)
     for cid in sorted({h for h in re.findall(r'holder = (rasen_\d+)', '\n'.join(titles))}, key=lambda c: int(c.split('_')[1])):
         people.family(cid, family_rng)
+    # Unlanded canon from the IF's chapter 9. Added last so the generated cast keeps its ids.
+    for canon in CANON_CAST:
+        effects = ['rasen_join_akuma_effect = yes'] if canon.get('akuma') else []
+        dynasty = people.info[bookmark_ids[canon['child_of']]]['dynasty'] if canon.get('child_of') else \
+            people.dynasty(canon['house'], canon['culture'])
+        cid = people.person(canon['culture'], canon['faith'], name=canon['name'], dynasty=dynasty, female=canon['female'],
+                            age=canon['age'], cultivator=canon.get('cultivator', 0), traits=canon.get('traits', ()), effects=effects)
+        lines = people.info[cid]['lines']
+        if canon.get('child_of'):
+            parent = bookmark_ids[canon['child_of']]
+            spouse = next((l.split(' = ')[-1].rstrip(' }') for l in people.info[parent]['lines'] if 'spouse = ' in l), None)
+            father, mother = (spouse, parent) if people.info[parent]['female'] else (parent, spouse)
+            lines[1:1] = [f'father = {father}'] + ([f'mother = {mother}'] if mother else [])
+        if canon.get('court'):
+            lines.append(f'{START[0] - 1}.1.1 = {{ employer = {bookmark_ids[canon["court"]]} }}')
+
     def ordered(lines):
         dated = sorted((l for l in lines if re.match(r'\d+\.\d+\.\d+ =', l)),
                        key=lambda l: tuple(int(x) for x in l.split(' ')[0].split('.')))

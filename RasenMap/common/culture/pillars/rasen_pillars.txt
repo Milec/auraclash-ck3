@@ -14,6 +14,10 @@ heritage_oni = {
 	type = heritage
 }
 
+heritage_ryugujin = {
+	type = heritage
+}
+
 heritage_yokai = {
 	type = heritage
 }
@@ -35,4 +39,9 @@ language_cathayan = {
 language_lunargoth = {
 	type = language
 	color = { 170 190 220 }
+}
+
+language_ryugujin = {
+	type = language
+	color = { 40 150 160 }
 }

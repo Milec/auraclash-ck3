@@ -108,6 +108,19 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
      - Approximations:
        - The decrees and the vote weights are design, not IF text.
        - The Council could later move onto Roads to Power's administrative government and influence.
+   - **Chapter 9 of the IF** (the Patreon build): done (`tools/build_rasen_shadows.py`, `CANON_CAST` in `tools/rasen_world_data.py`).
+     - **Ryuuzan Keiko:** the Bladed Exalt's only daughter, a Noble undercover as a head nurse. She is a courtier at her father's court (physician, intrigue).
+     - **The Akuma Lords:**
+       - The cast: Jahi, Black Flower and a third Lord (generated name), plus Taio, all seeded as cult members.
+       - Membership is a secret (`rasen_secret_akuma`), criminal to all outsiders. Members gain Blood Chi (+3 prowess, -0.5 health).
+       - Each year every Lord may recruit an ambitious, callous or stressed AI cultivator, and a Clone of Taio may tempt players.
+       - With 12 or more living members the cult strikes an Outer county (Akuma Terror). Exalts may then pay 100 gold to dispatch Archons, which exposes one member.
+     - **Ryugujo:**
+       - A Ryugujin culture (off the painted map) and Dragon Prince Tenkairyu, who has Dragon Blood and is secretly in league with the Akuma Lords.
+       - Archonate disciples and Exalts may uncover a Ryugujo spy, then expose them (which reveals the Dragon Prince's secret), turn them or release them.
+     - Approximations:
+       - The cult's faith, the Lords' ages and traits, and Ryugujin traditions and faith are design choices.
+       - Masaru's twenty-three sons are not all generated.
 6. **Cleanup:** replace or guard vanilla content that assumes Earth's map (vanilla event overrides that reference real places, struggles, travel events).
 
 ## Loading

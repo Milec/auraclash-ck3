@@ -58,6 +58,13 @@ CULTURES = {
                     heritage='heritage_kitsune', heritage_name='Kitsune', language='language_zenshin', language_name='Zenshin',
                     ethos='ethos_courtly', martial_custom='martial_custom_equal', name_list='name_list_zenshin', ethnicity='asian',
                     traditions=['tradition_xenophilic', 'tradition_hit_and_run', 'tradition_poetry'], **STEPPE_GFX),
+    # Ch. 9: "the draconic underwater dome-cities of Ryugujo", a foreign nation to the southeast
+    # whose city-states are ruled by Dragon Princes. Off the painted map; its people appear as envoys and spies.
+    'ryugujin': dict(name='Ryugujin', prefix='Ryugu', plural='Ryugujin', colour=(40, 150, 160),
+                     desc='The people of Ryugujo, whose draconic dome-cities lie beneath the sea southeast of Imperial Rasen. Each city-state is ruled from the seat of a Dragon Prince.',
+                     heritage='heritage_ryugujin', heritage_name='Ryugujin', language='language_ryugujin', language_name='Ryugujin',
+                     ethos='ethos_courtly', martial_custom='martial_custom_equal', name_list='name_list_ryugujin', ethnicity='asian',
+                     traditions=['tradition_seafaring', 'tradition_isolationist', 'tradition_mystical_ancestors'], **STEPPE_GFX),
 }
 
 NAME_LISTS = {
@@ -83,6 +90,12 @@ NAME_LISTS = {
               'Shen', 'Tao', 'Xun', 'Yi', 'Zhao', 'Heng', 'Jun', 'Long'],
         female=['Lan', 'Mei', 'Xiu', 'Lian', 'Hua', 'Jing', 'Ling', 'Yun', 'Qing', 'Ruolan', 'Shu', 'Ting', 'Wen', 'Xia', 'Yan', 'Zhi', 'Desdemona'],
         dynasties=['Lan', 'Dou', 'Bai', 'Zhou', 'Su', 'Hou', 'Long', 'Xuan', 'Ming', 'Jin', 'Luo', 'Yao']),
+    # Tenkairyu is canon; the rest follow Japanese sea-dragon folklore (generated).
+    'name_list_ryugujin': dict(
+        label='Ryugujin',
+        male=['Tenkairyu', 'Kairyu', 'Suiryu', 'Seiryu', 'Hakuryu', 'Kokuryu', 'Shinryu', 'Umihiko', 'Watatsu', 'Kaien'],
+        female=['Otohime', 'Toyotama', 'Tamayori', 'Shiohime', 'Namiko', 'Ryuko', 'Mizuha', 'Kaiko'],
+        dynasties=['Ryugu', 'Watatsumi', 'Kaitei', 'Shiotsuchi', 'Uminari']),
 }
 
 FAITHS = {
@@ -253,5 +266,29 @@ DIVINE_GENERAL = dict(name='Theodoric', house='Wintermantle', culture='lunargoth
                       traits=('brave', 'diligent'))
 
 # Race by culture (the IF's races). Yokai take one of the five lineages at random.
-CULTURE_RACE = {'zenshin': 'human', 'cathayan': 'human', 'lunargoth': 'lunargoth', 'oni': 'oni', 'kitsune': 'kitsune', 'yokai': 'yokai'}
+CULTURE_RACE = {'zenshin': 'human', 'cathayan': 'human', 'lunargoth': 'lunargoth', 'oni': 'oni', 'kitsune': 'kitsune', 'yokai': 'yokai',
+                'ryugujin': 'human'}  # Ryugujin: draconic kin are marked by rasen_dragon_blood, not a race (approximation)
+
+# Unlanded canon characters from the IF's chapter 9, added after the generated cast.
+# court = an Exalt's land: the character is a courtier there. child_of = that Exalt's daughter/son.
+CANON_CAST = [
+    dict(key='keiko', name='Keiko', house='Ryuuzan', culture='zenshin', faith='ancestral_rites', female=True, age=23,
+         child_of='bladed', court='bladed', cultivator=1, traits=('ambitious', 'deceitful', 'compassionate', 'physician_2'),
+         desc='The only daughter of Bladed Exalt Ryuuzan Masaru, a Noble who works undercover as a head nurse and plays the Exalts against one another.'),
+    dict(key='jahi', name='Jahi', house='Akuma', culture='cathayan', faith='veiled_ancestors', female=False, age=70, cultivator=3,
+         traits=('ambitious', 'callous', 'arrogant', 'rasen_akuma_lord'), akuma=True,
+         desc='An Akuma Lord, seated on an azure crystal throne.'),
+    dict(key='black_flower', name='Black Flower', house='Akuma', culture='cathayan', faith='veiled_ancestors', female=True, age=55, cultivator=3,
+         traits=('ambitious', 'deceitful', 'wrathful', 'rasen_akuma_lord'), akuma=True,
+         desc='An Akuma Lord, seated on an azure crystal throne.'),
+    dict(key='akuma_third', name='Kurogane', house='Akuma', culture='zenshin', faith='veiled_ancestors', female=False, age=62, cultivator=3,
+         traits=('paranoid', 'callous', 'patient', 'rasen_akuma_lord'), akuma=True,
+         desc='The third Akuma Lord (generated name).'),
+    dict(key='taio', name='Taio', house='Akuma', culture='cathayan', faith='veiled_ancestors', female=False, age=48, cultivator=3,
+         traits=('ambitious', 'callous', 'deceitful', 'rasen_akuma_acolyte'), akuma=True,
+         desc='Taio of the Akuma Lords, who spreads his will through Clones and draws power from blood.'),
+    dict(key='tenkairyu', name='Tenkairyu', house='Ryugu', culture='ryugujin', faith='wild_pacts', female=False, age=80, cultivator=3,
+         traits=('arrogant', 'ambitious', 'wrathful', 'rasen_dragon_blood'), akuma=True,
+         desc='Dragon Prince of Ryugujo, heir to one of its ruling seats, and secretly in league with the Akuma Lords.'),
+]
 YOKAI_KINDS = ['yokai_cat', 'yokai_wolf', 'yokai_reptile', 'yokai_monkey', 'yokai_bovine']

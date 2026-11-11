@@ -5496,3 +5496,104 @@ rasen_366 = {
 	trait = education_diplomacy_3
 	2991.10.1 = { birth = yes }
 }
+
+rasen_367 = {
+	name = "Keiko"
+	father = rasen_73
+	mother = rasen_310
+	dynasty = dynasty_rasen_ryuuzan
+	rite = ancestral_rites
+	culture = zenshin
+	trait = ac_race_human
+	female = yes
+	trait = education_intrigue_4
+	trait = ambitious
+	trait = deceitful
+	trait = compassionate
+	trait = physician_2
+	trait = ac_cultivator
+	2977.11.14 = { birth = yes }
+	2999.1.1 = { employer = rasen_73 }
+	3000.3.1 = { effect = { ac_develop_upper_effect = yes } }
+}
+
+rasen_368 = {
+	name = "Jahi"
+	dynasty = dynasty_rasen_akuma
+	rite = veiled_ancestors
+	culture = cathayan
+	trait = ac_race_human
+	trait = education_martial_2
+	trait = ambitious
+	trait = callous
+	trait = arrogant
+	trait = rasen_akuma_lord
+	trait = ac_cultivator
+	2930.5.16 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes rasen_join_akuma_effect = yes } }
+}
+
+rasen_369 = {
+	name = "Black Flower"
+	dynasty = dynasty_rasen_akuma
+	rite = veiled_ancestors
+	culture = cathayan
+	trait = ac_race_human
+	female = yes
+	trait = education_learning_2
+	trait = ambitious
+	trait = deceitful
+	trait = wrathful
+	trait = rasen_akuma_lord
+	trait = ac_cultivator
+	2945.2.22 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes rasen_join_akuma_effect = yes } }
+}
+
+rasen_370 = {
+	name = "Kurogane"
+	dynasty = dynasty_rasen_akuma
+	rite = veiled_ancestors
+	culture = zenshin
+	trait = ac_race_human
+	trait = education_martial_4
+	trait = paranoid
+	trait = callous
+	trait = patient
+	trait = rasen_akuma_lord
+	trait = ac_cultivator
+	2938.3.18 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes rasen_join_akuma_effect = yes } }
+}
+
+rasen_371 = {
+	name = "Taio"
+	dynasty = dynasty_rasen_akuma
+	rite = veiled_ancestors
+	culture = cathayan
+	trait = ac_race_human
+	trait = education_diplomacy_3
+	trait = ambitious
+	trait = callous
+	trait = deceitful
+	trait = rasen_akuma_acolyte
+	trait = ac_cultivator
+	2952.2.20 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes rasen_join_akuma_effect = yes } }
+}
+
+rasen_372 = {
+	name = "Tenkairyu"
+	dynasty = dynasty_rasen_ryugu
+	rite = wild_pacts
+	culture = ryugujin
+	trait = ac_race_human
+	trait = education_stewardship_2
+	trait = arrogant
+	trait = ambitious
+	trait = wrathful
+	trait = rasen_dragon_blood
+	trait = ac_cultivator
+	2920.3.15 = { birth = yes }
+	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes rasen_join_akuma_effect = yes } }
+}

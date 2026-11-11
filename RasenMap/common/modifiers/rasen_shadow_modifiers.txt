@@ -1,0 +1,14 @@
+﻿# "A cult that uses people's blood for power and might turn into Fiends."
+rasen_blood_chi_modifier = {
+	icon = health_negative
+	prowess = 3
+	health = -0.5
+	stress_gain_mult = 0.1
+}
+
+rasen_akuma_terror_modifier = {
+	icon = county_modifier_development_negative
+	county_opinion_add = -15
+	development_growth_factor = -0.2
+	monthly_county_control_growth_add = -0.5
+}

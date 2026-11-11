@@ -87,3 +87,18 @@ kitsune = {
 	unit_gfx = { mongol_unit_gfx }
 	ethnicities = { 10 = asian }
 }
+
+ryugujin = {
+	color = { 40 150 160 }
+	ethos = ethos_courtly
+	heritage = heritage_ryugujin
+	language = language_ryugujin
+	martial_custom = martial_custom_equal
+	traditions = { tradition_seafaring tradition_isolationist tradition_mystical_ancestors }
+	name_list = name_list_ryugujin
+	coa_gfx = { mongol_coa_gfx steppe_coa_gfx }
+	building_gfx = { steppe_building_gfx }
+	clothing_gfx = { mongol_clothing_gfx }
+	unit_gfx = { mongol_unit_gfx }
+	ethnicities = { 10 = asian }
+}
