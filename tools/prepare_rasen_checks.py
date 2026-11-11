@@ -47,6 +47,13 @@ def event():
     # The Akuma Lords recruit; an Ice Incursion begins.
     body.append('\trasen_shadows_yearly_effect = yes\n\trasen_begin_ice_incursion_effect = yes\n')
     body.append(check('ice_incursion', 'has_global_variable = rasen_ice_incursion_active'))
+    # Every yearly system, three years running, as the yearly pulse would (the game starts paused).
+    for year in range(1, 4):
+        body.append('\trasen_council_yearly_effect = yes\n\trasen_shadows_yearly_effect = yes\n'
+                    '\trasen_ice_incursion_yearly_effect = yes\n\tac_ascension_yearly_effect = yes\n'
+                    f'\tdebug_log = "RASEN_QA YEAR {year} DONE"\n')
+    body.append(check('council_countdown', 'has_global_variable = rasen_council_countdown'))
+    body.append(check('trials_countdown', 'has_global_variable = ac_ascension_countdown'))
     body.append('\tdebug_log = "RASEN_QA COMPLETE"\n')
     return ('namespace = rasen_qa\n\nrasen_qa.0001 = {\n\ttype = character_event\n\thidden = yes\n\timmediate = {\n'
             + ''.join('\t' + line for line in ''.join(body).splitlines(True)) + '\t}\n}\n')
