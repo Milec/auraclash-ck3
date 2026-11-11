@@ -33,6 +33,12 @@ LINE_EDITS = {
         ('\t\tbarony ?= title:b_constantinople\n', '\t\talways = no # Imperial Rasen: no Constantinople\n'),
         ('\t\tbarony ?= title:b_roma\n', '\t\talways = no # Imperial Rasen: no Rome\n'),
     ],
+    # New courtiers take a culture chosen by Earth region, with the ruler's own culture only for
+    # pagans; on this map no region matches and generation fails. Always allow the ruler's culture.
+    'common/scripted_character_templates/00_pool_repopulation_character_templates.txt': [
+        ('\t\troot.culture = {\n\t\t\ttrigger = {\n\t\t\t\troot.faith = { religion = { is_in_family = rf_pagan } }\n',
+         '\t\troot.culture = {\n\t\t\ttrigger = {\n\t\t\t\talways = yes # Imperial Rasen: the ruler\'s own culture\n'),
+    ],
 }
 PROVINCE = re.compile(r'province:(\d+)')
 HOLY_SITES = 'common/religion/holy_site_types/00_holy_site_types.txt'
