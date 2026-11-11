@@ -7,5 +7,5 @@ adjacencies = "adjacencies.csv"
 island_region = "island_region.txt"
 seasons = "seasons.txt"
 
-sea_zones = RANGE { 1158 1306 }
-impassable_seas = RANGE { 1307 1322 }
+sea_zones = RANGE { 1158 1314 }
+impassable_seas = RANGE { 1315 1330 }

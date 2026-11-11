@@ -8,1122 +8,1122 @@ e_rasen = {
 		capital = c_nanhou
 
 		d_cedarvale = {
-			color = { 73 126 44 }
+			color = { 77 133 55 }
 			capital = c_nanhou
 
 			c_nanhou = {
-				color = { 51 142 39 }
+				color = { 95 121 54 }
 
 				b_nanhou = {
 					province = 49
-					color = { 100 148 64 }
+					color = { 86 148 59 }
 				}
 				b_devanic_temple = {
 					province = 48
-					color = { 63 125 54 }
+					color = { 92 157 52 }
 				}
 			}
 		}
 		d_kohara = {
-			color = { 97 155 67 }
+			color = { 80 180 60 }
 			capital = c_thunderfall
 
 			c_thunderfall = {
-				color = { 118 188 60 }
+				color = { 109 163 45 }
 
 				b_thunderfall = {
 					province = 24
-					color = { 124 180 81 }
+					color = { 63 120 52 }
 				}
 				b_huahou = {
 					province = 23
-					color = { 96 119 60 }
+					color = { 111 174 84 }
 				}
 				b_somahara = {
 					province = 25
-					color = { 95 137 70 }
+					color = { 71 131 51 }
 				}
 				b_shiseyama = {
 					province = 22
-					color = { 112 168 74 }
+					color = { 125 164 75 }
 				}
 			}
 			c_sunbringer = {
-				color = { 109 136 58 }
+				color = { 99 122 62 }
 
 				b_sunbringer = {
 					province = 4
-					color = { 109 144 73 }
+					color = { 68 112 44 }
 				}
 				b_cedarreach = {
 					province = 29
-					color = { 135 170 87 }
+					color = { 138 172 72 }
 				}
 				b_longford = {
 					province = 26
-					color = { 81 158 43 }
+					color = { 87 163 79 }
 				}
 				b_semoyama = {
 					province = 27
-					color = { 80 162 47 }
+					color = { 74 118 47 }
 				}
 			}
 			c_ironfield = {
-				color = { 48 122 41 }
+				color = { 52 153 48 }
 
 				b_yuyama = {
 					province = 28
-					color = { 63 132 62 }
+					color = { 86 184 58 }
 				}
 				b_dead_mountain = {
 					province = 31
-					color = { 69 151 53 }
+					color = { 50 136 39 }
 				}
 				b_ronasaka = {
 					province = 51
-					color = { 121 179 55 }
+					color = { 109 183 87 }
 				}
 				b_suhou = {
 					province = 54
-					color = { 71 177 67 }
+					color = { 94 124 56 }
 				}
 			}
 			c_emberwatch = {
-				color = { 52 116 37 }
+				color = { 43 121 35 }
 
 				b_brightbrook = {
 					province = 33
-					color = { 100 166 85 }
+					color = { 60 132 46 }
 				}
 				b_copperstead = {
 					province = 30
-					color = { 100 186 55 }
+					color = { 136 164 91 }
 				}
 				b_thundercrest = {
 					province = 35
-					color = { 65 160 61 }
+					color = { 82 177 64 }
 				}
 				b_kishihara = {
 					province = 32
-					color = { 73 145 71 }
+					color = { 125 164 60 }
 				}
 			}
 			c_cedarfall = {
-				color = { 101 168 54 }
+				color = { 134 162 82 }
 
 				b_sakomura = {
 					province = 36
-					color = { 97 162 82 }
+					color = { 88 151 67 }
 				}
 				b_rohara = {
 					province = 34
-					color = { 97 137 57 }
+					color = { 106 156 70 }
 				}
 				b_rabbit_trial_valley = {
 					province = 58
-					color = { 131 182 59 }
+					color = { 84 119 59 }
 				}
 				b_ruiling = {
 					province = 60
-					color = { 53 141 46 }
+					color = { 85 119 55 }
 				}
 			}
 		}
 		d_mistgate = {
-			color = { 69 123 52 }
+			color = { 117 170 74 }
 			capital = c_ruian
 
 			c_ruian = {
-				color = { 96 158 48 }
+				color = { 108 154 86 }
 
 				b_xuanan = {
 					province = 115
-					color = { 73 119 46 }
+					color = { 51 133 49 }
 				}
 			}
 		}
 		d_thundergate = {
-			color = { 86 127 47 }
+			color = { 93 148 81 }
 			capital = c_monahara
 
 			c_monahara = {
-				color = { 99 147 59 }
+				color = { 148 181 96 }
 
 				b_meian = {
 					province = 91
-					color = { 81 135 45 }
+					color = { 75 151 63 }
 				}
 				b_roromura = {
 					province = 116
-					color = { 59 124 57 }
+					color = { 149 180 91 }
 				}
 				b_romimura = {
 					province = 118
-					color = { 91 155 67 }
+					color = { 80 146 51 }
 				}
 				b_copperford = {
 					province = 117
-					color = { 129 158 79 }
+					color = { 115 154 74 }
 				}
 			}
 			c_rarayama = {
-				color = { 43 123 43 }
+				color = { 93 128 36 }
 
 				b_copperrise = {
 					province = 96
-					color = { 66 183 55 }
+					color = { 119 175 53 }
 				}
 				b_qingan = {
 					province = 93
-					color = { 78 154 68 }
+					color = { 45 124 42 }
 				}
 				b_fufusaka = {
 					province = 94
-					color = { 105 126 68 }
+					color = { 84 128 55 }
 				}
 				b_longrise = {
 					province = 97
-					color = { 98 179 77 }
+					color = { 107 136 63 }
 				}
 			}
 			c_soyasaka = {
-				color = { 56 117 47 }
+				color = { 45 118 33 }
 
 				b_embergate = {
 					province = 121
-					color = { 80 143 74 }
+					color = { 71 134 50 }
 				}
 				b_hisahara = {
 					province = 120
-					color = { 85 154 81 }
+					color = { 69 112 47 }
 				}
 				b_rollingreach = {
 					province = 122
-					color = { 103 138 53 }
+					color = { 76 125 55 }
 				}
 				b_mistreach = {
 					province = 119
-					color = { 113 151 52 }
+					color = { 89 161 66 }
 				}
 			}
 			c_wamohara = {
-				color = { 129 157 85 }
+				color = { 137 185 60 }
 
 				b_moyamura = {
 					province = 123
-					color = { 95 131 54 }
+					color = { 63 180 56 }
 				}
 				b_brightgate = {
 					province = 126
-					color = { 47 126 45 }
+					color = { 115 154 64 }
 				}
 				b_rikuhara = {
 					province = 124
-					color = { 51 126 48 }
+					color = { 88 130 72 }
 				}
 				b_kuhara = {
 					province = 125
-					color = { 115 138 76 }
+					color = { 57 112 45 }
 				}
 			}
 			c_komasaka = {
-				color = { 111 141 75 }
+				color = { 123 173 76 }
 
 				b_guanghou = {
 					province = 102
-					color = { 121 159 81 }
+					color = { 73 148 50 }
 				}
 				b_bamura = {
 					province = 99
-					color = { 135 162 89 }
+					color = { 129 186 100 }
 				}
 				b_zhenan = {
 					province = 104
-					color = { 115 154 88 }
+					color = { 86 164 84 }
 				}
 				b_stonereach = {
 					province = 101
-					color = { 134 178 61 }
+					color = { 93 120 53 }
 				}
 			}
 		}
 		d_kunan = {
-			color = { 80 123 58 }
+			color = { 99 185 75 }
 			capital = c_dahoyama
 
 			c_dahoyama = {
-				color = { 117 163 86 }
+				color = { 135 173 94 }
 
 				b_mahara = {
 					province = 72
-					color = { 85 167 58 }
+					color = { 147 183 88 }
 				}
 				b_kunhou = {
 					province = 73
-					color = { 69 119 58 }
+					color = { 73 140 39 }
 				}
 				b_kugasaka = {
 					province = 92
-					color = { 54 121 49 }
+					color = { 82 117 55 }
 				}
 				b_thunderfield = {
 					province = 95
-					color = { 87 148 72 }
+					color = { 57 174 57 }
 				}
 			}
 			c_emberstead = {
-				color = { 68 132 51 }
+				color = { 102 170 76 }
 
 				b_momiyama = {
 					province = 78
-					color = { 94 154 82 }
+					color = { 53 162 52 }
 				}
 				b_jiyohara = {
 					province = 81
-					color = { 107 180 85 }
+					color = { 97 134 44 }
 				}
 				b_cedarrise = {
 					province = 98
-					color = { 87 156 85 }
+					color = { 41 116 40 }
 				}
 				b_mingling = {
 					province = 100
-					color = { 91 161 52 }
+					color = { 122 187 77 }
 				}
 			}
 			c_gashihara = {
-				color = { 82 156 73 }
+				color = { 59 182 59 }
 
 				b_windbrook = {
 					province = 75
-					color = { 95 138 78 }
+					color = { 114 171 78 }
 				}
 				b_windvale = {
 					province = 76
-					color = { 67 117 57 }
+					color = { 68 178 60 }
 				}
 				b_mistvale = {
 					province = 74
-					color = { 98 145 82 }
+					color = { 102 152 85 }
 				}
 				b_yarasaka = {
 					province = 77
-					color = { 122 154 64 }
+					color = { 73 142 65 }
 				}
 			}
 			c_luozhou = {
-				color = { 58 115 51 }
+				color = { 95 122 52 }
 
 				b_takihara = {
 					province = 79
-					color = { 85 163 84 }
+					color = { 67 116 33 }
 				}
 				b_redstead = {
 					province = 82
-					color = { 110 161 91 }
+					color = { 104 153 83 }
 				}
 				b_fujihara = {
 					province = 80
-					color = { 130 175 71 }
+					color = { 68 175 51 }
 				}
 				b_gasusaka = {
 					province = 83
-					color = { 98 164 89 }
+					color = { 97 130 74 }
 				}
 			}
 			c_meizhou = {
-				color = { 67 145 40 }
+				color = { 88 185 78 }
 
 				b_ramura = {
 					province = 52
-					color = { 125 171 83 }
+					color = { 44 117 35 }
 				}
 				b_hisomura = {
 					province = 55
-					color = { 126 187 68 }
+					color = { 82 115 47 }
 				}
 				b_rollingwatch = {
 					province = 50
-					color = { 81 148 65 }
+					color = { 89 117 54 }
 				}
 				b_suwahara = {
 					province = 53
-					color = { 98 135 54 }
+					color = { 89 120 40 }
 				}
 			}
 		}
 		d_cedargate = {
-			color = { 112 175 86 }
+			color = { 87 151 67 }
 			capital = c_kirihara
 
 			c_kirihara = {
-				color = { 72 112 53 }
+				color = { 81 127 62 }
 
 				b_luoling = {
 					province = 6
-					color = { 144 180 92 }
+					color = { 91 127 50 }
 				}
 				b_hasohara = {
 					province = 8
-					color = { 133 171 82 }
+					color = { 125 166 94 }
 				}
 				b_zhaohou = {
 					province = 5
-					color = { 86 170 67 }
+					color = { 115 147 60 }
 				}
 				b_qinghou = {
 					province = 7
-					color = { 82 160 53 }
+					color = { 117 162 75 }
 				}
 			}
 			c_zhenling = {
-				color = { 136 183 51 }
+				color = { 86 119 59 }
 
 				b_nanling = {
 					province = 2
-					color = { 57 146 52 }
+					color = { 100 125 55 }
 				}
 				b_kukamura = {
 					province = 1
-					color = { 95 185 94 }
+					color = { 88 144 48 }
 				}
 				b_guangzhou = {
 					province = 3
-					color = { 95 152 72 }
+					color = { 75 170 66 }
 				}
 				b_hualing = {
 					province = 9
-					color = { 97 158 64 }
+					color = { 91 139 39 }
 				}
 			}
 			c_tanahara = {
-				color = { 102 127 56 }
+				color = { 64 129 61 }
 
 				b_linghou = {
 					province = 12
-					color = { 128 177 66 }
+					color = { 91 143 51 }
 				}
 				b_hehou = {
 					province = 14
-					color = { 94 140 66 }
+					color = { 89 151 59 }
 				}
 				b_baizhou = {
 					province = 11
-					color = { 129 183 66 }
+					color = { 74 132 47 }
 				}
 				b_yamura = {
 					province = 13
-					color = { 77 146 65 }
+					color = { 119 159 51 }
 				}
 				b_ironcrest = {
 					province = 10
-					color = { 134 170 95 }
+					color = { 63 143 52 }
 				}
 			}
 			c_highbrook = {
-				color = { 128 179 75 }
+				color = { 65 151 42 }
 
 				b_emberrise = {
 					province = 15
-					color = { 88 133 45 }
+					color = { 73 163 53 }
 				}
 				b_ironbrook = {
 					province = 17
-					color = { 89 145 83 }
+					color = { 63 127 49 }
 				}
 				b_tianling = {
 					province = 20
-					color = { 92 177 88 }
+					color = { 92 153 85 }
 				}
 				b_jihara = {
 					province = 18
-					color = { 67 140 63 }
+					color = { 76 112 45 }
 				}
 				b_highwatch = {
 					province = 19
-					color = { 94 153 74 }
+					color = { 55 159 44 }
 				}
 			}
 			c_highcrest = {
-				color = { 93 143 68 }
+				color = { 55 147 47 }
 
 				b_thunderreach = {
 					province = 16
-					color = { 125 170 88 }
+					color = { 104 162 90 }
 				}
 				b_sehara = {
 					province = 41
-					color = { 126 165 92 }
+					color = { 78 131 47 }
 				}
 				b_qingling = {
 					province = 37
-					color = { 84 113 51 }
+					color = { 86 124 65 }
 				}
 				b_morisaka = {
 					province = 39
-					color = { 60 126 61 }
+					color = { 77 124 57 }
 				}
 				b_fenghou = {
 					province = 38
-					color = { 116 176 70 }
+					color = { 145 185 106 }
 				}
 			}
 		}
 		d_redrise = {
-			color = { 95 163 81 }
+			color = { 121 187 88 }
 			capital = c_xuanling
 
 			c_xuanling = {
-				color = { 110 142 68 }
+				color = { 61 144 44 }
 
 				b_nagosaka = {
 					province = 137
-					color = { 124 163 66 }
+					color = { 95 141 40 }
 				}
 			}
 		}
 		d_ribayama = {
-			color = { 78 137 38 }
+			color = { 120 183 87 }
 			capital = c_ironrise
 
 			c_ironrise = {
-				color = { 81 161 59 }
+				color = { 94 135 40 }
 
 				b_lanhou = {
 					province = 159
-					color = { 60 154 48 }
+					color = { 98 154 79 }
 				}
 			}
 		}
 		d_mahisaka = {
-			color = { 97 162 84 }
+			color = { 81 117 57 }
 			capital = c_hasaka
 
 			c_hasaka = {
-				color = { 116 143 72 }
+				color = { 109 182 104 }
 
 				b_embervale = {
 					province = 140
-					color = { 90 135 66 }
+					color = { 93 140 58 }
 				}
 				b_luoan = {
 					province = 138
-					color = { 133 174 69 }
+					color = { 88 181 81 }
 				}
 				b_emberbrook = {
 					province = 142
-					color = { 126 175 99 }
+					color = { 100 161 80 }
 				}
 				b_misaka = {
 					province = 139
-					color = { 67 137 38 }
+					color = { 118 156 45 }
 				}
 			}
 			c_yaoling = {
-				color = { 85 113 61 }
+				color = { 78 136 42 }
 
 				b_rollingcrest = {
 					province = 143
-					color = { 124 152 83 }
+					color = { 65 140 52 }
 				}
 				b_rollinghollow = {
 					province = 147
-					color = { 118 163 51 }
+					color = { 102 152 84 }
 				}
 				b_lingling = {
 					province = 146
-					color = { 87 165 70 }
+					color = { 54 115 40 }
 				}
 				b_tabesaka = {
 					province = 144
-					color = { 63 134 63 }
+					color = { 60 127 51 }
 				}
 			}
 			c_qingzhou = {
-				color = { 75 115 50 }
+				color = { 110 162 92 }
 
 				b_sayomura = {
 					province = 141
-					color = { 101 162 60 }
+					color = { 117 181 62 }
 				}
 				b_guangan = {
 					province = 145
-					color = { 120 168 96 }
+					color = { 89 180 68 }
 				}
 				b_chizesaka = {
 					province = 163
-					color = { 125 153 80 }
+					color = { 105 181 79 }
 				}
 				b_huazhou = {
 					province = 164
-					color = { 70 125 60 }
+					color = { 95 147 63 }
 				}
 			}
 			c_damihara = {
-				color = { 93 156 74 }
+				color = { 139 182 66 }
 
 				b_kifuyama = {
 					province = 151
-					color = { 89 155 65 }
+					color = { 121 148 73 }
 				}
 				b_jinan = {
 					province = 149
-					color = { 98 140 55 }
+					color = { 91 130 60 }
 				}
 				b_shuan = {
 					province = 148
-					color = { 67 160 55 }
+					color = { 78 124 34 }
 				}
 				b_houan = {
 					province = 150
-					color = { 75 118 55 }
+					color = { 107 152 78 }
 				}
 			}
 			c_kimahara = {
-				color = { 97 170 59 }
+				color = { 93 169 84 }
 
 				b_yaoan = {
 					province = 172
-					color = { 91 183 74 }
+					color = { 123 185 101 }
 				}
 				b_lanling = {
 					province = 166
-					color = { 80 117 64 }
+					color = { 112 149 73 }
 				}
 				b_mimura = {
 					province = 169
-					color = { 96 165 89 }
+					color = { 101 168 94 }
 				}
 				b_stonegate = {
 					province = 171
-					color = { 84 182 77 }
+					color = { 139 173 80 }
 				}
 			}
 		}
 		d_rasaka = {
-			color = { 100 146 77 }
+			color = { 97 185 53 }
 			capital = c_wamura
 
 			c_wamura = {
-				color = { 87 116 61 }
+				color = { 106 142 62 }
 
 				b_copperfall = {
 					province = 57
-					color = { 99 176 53 }
+					color = { 127 179 87 }
 				}
 				b_yusaka = {
 					province = 59
-					color = { 42 116 35 }
+					color = { 41 131 41 }
 				}
 				b_tsumohara = {
 					province = 56
-					color = { 109 185 53 }
+					color = { 97 156 48 }
 				}
 				b_windstead = {
 					province = 85
-					color = { 49 125 49 }
+					color = { 129 161 73 }
 				}
 			}
 			c_shuhou = {
-				color = { 94 128 65 }
+				color = { 76 120 58 }
 
 				b_rainford = {
 					province = 64
-					color = { 57 118 48 }
+					color = { 56 126 52 }
 				}
 				b_besohara = {
 					province = 61
-					color = { 140 184 86 }
+					color = { 101 162 85 }
 				}
 				b_tsujisaka = {
 					province = 65
-					color = { 116 172 63 }
+					color = { 54 114 37 }
 				}
 				b_minghou = {
 					province = 62
-					color = { 100 125 52 }
+					color = { 89 173 59 }
 				}
 			}
 			c_highgate = {
-				color = { 69 139 66 }
+				color = { 40 129 39 }
 
 				b_redreach = {
 					province = 42
-					color = { 76 182 56 }
+					color = { 70 128 62 }
 				}
 				b_zhaozhou = {
 					province = 40
-					color = { 111 148 62 }
+					color = { 133 166 93 }
 				}
 				b_totoyama = {
 					province = 63
-					color = { 49 126 44 }
+					color = { 111 156 86 }
 				}
 				b_stonecrest = {
 					province = 66
-					color = { 101 139 58 }
+					color = { 100 128 46 }
 				}
 			}
 			c_gashisaka = {
-				color = { 79 147 76 }
+				color = { 63 162 56 }
 
 				b_chigamura = {
 					province = 69
-					color = { 99 147 77 }
+					color = { 79 119 45 }
 				}
 				b_highfall = {
 					province = 67
-					color = { 121 171 64 }
+					color = { 44 118 43 }
 				}
 				b_rahara = {
 					province = 70
-					color = { 74 149 64 }
+					color = { 81 159 63 }
 				}
 				b_rochimura = {
 					province = 68
-					color = { 98 139 44 }
+					color = { 108 149 81 }
 				}
 			}
 			c_yubehara = {
-				color = { 64 137 54 }
+				color = { 70 115 63 }
 
 				b_xian = {
 					province = 71
-					color = { 72 182 50 }
+					color = { 101 169 77 }
 				}
 				b_tofuyama = {
 					province = 88
-					color = { 71 155 43 }
+					color = { 56 157 49 }
 				}
 				b_yowayama = {
 					province = 89
-					color = { 108 183 51 }
+					color = { 63 140 42 }
 				}
 			}
 			c_fengzhou = {
-				color = { 133 186 78 }
+				color = { 43 144 42 }
 
 				b_windhollow = {
 					province = 21
-					color = { 94 122 60 }
+					color = { 108 185 83 }
 				}
 				b_watsusaka = {
 					province = 44
-					color = { 84 140 78 }
+					color = { 134 174 89 }
 				}
 				b_coppervale = {
 					province = 43
-					color = { 81 132 61 }
+					color = { 55 137 55 }
 				}
 				b_fusasaka = {
 					province = 46
-					color = { 101 146 78 }
+					color = { 141 178 97 }
 				}
 				b_wayama = {
 					province = 47
-					color = { 137 183 63 }
+					color = { 81 124 47 }
 				}
 				b_wasaka = {
 					province = 45
-					color = { 79 168 60 }
+					color = { 49 113 44 }
 				}
 			}
 		}
 		d_fukasaka = {
-			color = { 104 145 72 }
+			color = { 77 161 51 }
 			capital = c_highford
 
 			c_highford = {
-				color = { 84 129 68 }
+				color = { 58 147 52 }
 
 				b_yuhara = {
 					province = 160
-					color = { 85 148 78 }
+					color = { 107 132 61 }
 				}
 				b_nogomura = {
 					province = 161
-					color = { 72 125 66 }
+					color = { 109 145 69 }
 				}
 				b_lingzhou = {
 					province = 162
-					color = { 109 173 94 }
+					color = { 79 135 64 }
 				}
 			}
 		}
 		d_cedarhollow = {
-			color = { 75 125 53 }
+			color = { 104 171 65 }
 			capital = c_gasaka
 
 			c_gasaka = {
-				color = { 120 183 53 }
+				color = { 59 129 43 }
 
 				b_takisaka = {
 					province = 184
-					color = { 70 112 64 }
+					color = { 68 146 41 }
 				}
 			}
 		}
 		d_redgate = {
-			color = { 70 159 50 }
+			color = { 136 181 99 }
 			capital = c_rollingfall
 
 			c_rollingfall = {
-				color = { 83 132 61 }
+				color = { 81 123 54 }
 
 				b_mosaka = {
 					province = 84
-					color = { 113 176 77 }
+					color = { 96 135 45 }
 				}
 				b_yogoyama = {
 					province = 107
-					color = { 104 131 60 }
+					color = { 136 174 91 }
 				}
 				b_redford = {
 					province = 103
-					color = { 59 163 60 }
+					color = { 51 122 49 }
 				}
 				b_goyama = {
 					province = 106
-					color = { 96 149 53 }
+					color = { 79 124 60 }
 				}
 			}
 			c_shuzhou = {
-				color = { 135 178 98 }
+				color = { 86 158 75 }
 
 				b_rainreach = {
 					province = 86
-					color = { 44 114 36 }
+					color = { 122 179 84 }
 				}
 				b_notsusaka = {
 					province = 87
-					color = { 66 117 43 }
+					color = { 106 153 59 }
 				}
 				b_sewamura = {
 					province = 112
-					color = { 88 114 60 }
+					color = { 75 151 50 }
 				}
 				b_huaan = {
 					province = 109
-					color = { 123 182 88 }
+					color = { 138 187 76 }
 				}
 			}
 			c_mistford = {
-				color = { 69 114 46 }
+				color = { 66 151 53 }
 
 				b_jingzhou = {
 					province = 113
-					color = { 89 129 64 }
+					color = { 83 186 82 }
 				}
 				b_longhou = {
 					province = 111
-					color = { 123 181 69 }
+					color = { 73 129 58 }
 				}
 			}
 			c_masaka = {
-				color = { 69 115 65 }
+				color = { 91 114 59 }
 
 				b_sokusaka = {
 					province = 105
-					color = { 76 169 66 }
+					color = { 70 142 41 }
 				}
 				b_stoneford = {
 					province = 108
-					color = { 138 179 82 }
+					color = { 97 135 57 }
 				}
 				b_stonehollow = {
 					province = 110
-					color = { 108 175 75 }
+					color = { 93 156 85 }
 				}
 				b_copperfield = {
 					province = 131
-					color = { 71 130 56 }
+					color = { 86 132 75 }
 				}
 				b_gosaka = {
 					province = 133
-					color = { 106 158 77 }
+					color = { 90 158 74 }
 				}
 			}
 			c_tasaka = {
-				color = { 113 169 63 }
+				color = { 85 180 80 }
 
 				b_thunderfall_2 = {
 					province = 128
-					color = { 83 178 62 }
+					color = { 53 119 35 }
 				}
 				b_suzhou = {
 					province = 132
-					color = { 94 139 55 }
+					color = { 81 149 77 }
 				}
 				b_shirihara = {
 					province = 127
-					color = { 90 174 81 }
+					color = { 102 184 71 }
 				}
 				b_zhenzhou = {
 					province = 129
-					color = { 89 112 60 }
+					color = { 105 136 74 }
 				}
 			}
 		}
 		d_longreach = {
-			color = { 79 163 52 }
+			color = { 91 159 68 }
 			capital = c_houzhou
 
 			c_houzhou = {
-				color = { 74 127 65 }
+				color = { 54 117 54 }
 
 				b_brightrise = {
 					province = 168
-					color = { 91 157 88 }
+					color = { 45 121 34 }
 				}
 				b_hadamura = {
 					province = 165
-					color = { 111 146 77 }
+					color = { 96 168 49 }
 				}
 				b_hayusaka = {
 					province = 170
-					color = { 75 160 48 }
+					color = { 54 136 39 }
 				}
 				b_yaohou = {
 					province = 167
-					color = { 99 137 48 }
+					color = { 103 149 46 }
 				}
 			}
 			c_tsurahara = {
-				color = { 113 146 61 }
+				color = { 70 118 64 }
 
 				b_funomura = {
 					province = 173
-					color = { 138 180 95 }
+					color = { 112 147 73 }
 				}
 				b_redvale = {
 					province = 191
-					color = { 97 180 65 }
+					color = { 81 136 61 }
 				}
 				b_mistfall = {
 					province = 188
-					color = { 105 168 86 }
+					color = { 89 123 68 }
 				}
 				b_windfall = {
 					province = 186
-					color = { 66 148 65 }
+					color = { 111 179 66 }
 				}
 			}
 			c_nayama = {
-				color = { 69 143 40 }
+				color = { 106 151 45 }
 
 				b_sazeyama = {
 					province = 187
-					color = { 96 167 90 }
+					color = { 107 144 61 }
 				}
 				b_baian = {
 					province = 185
-					color = { 83 134 60 }
+					color = { 73 130 57 }
 				}
 				b_windford = {
 					province = 189
-					color = { 67 121 42 }
+					color = { 88 127 49 }
 				}
 				b_thundervale = {
 					province = 199
-					color = { 81 137 65 }
+					color = { 108 142 75 }
 				}
 			}
 			c_baromura = {
-				color = { 88 123 61 }
+				color = { 97 178 94 }
 
 				b_susaka = {
 					province = 194
-					color = { 81 125 54 }
+					color = { 135 188 58 }
 				}
 				b_behara = {
 					province = 197
-					color = { 110 151 70 }
+					color = { 82 170 52 }
 				}
 				b_tianzhou = {
 					province = 190
-					color = { 91 172 79 }
+					color = { 104 186 72 }
 				}
 				b_heling = {
 					province = 192
-					color = { 64 164 48 }
+					color = { 43 136 39 }
 				}
 				b_embercrest = {
 					province = 195
-					color = { 58 153 55 }
+					color = { 92 142 71 }
 				}
 				b_stonefield = {
 					province = 193
-					color = { 67 123 55 }
+					color = { 102 139 72 }
 				}
 				b_kayahara = {
 					province = 200
-					color = { 76 120 60 }
+					color = { 57 132 42 }
 				}
 			}
 			c_nihara = {
-				color = { 77 148 73 }
+				color = { 73 158 73 }
 
 				b_cedarstead = {
 					province = 176
-					color = { 100 136 73 }
+					color = { 117 155 84 }
 				}
 				b_longzhou = {
 					province = 174
-					color = { 91 174 57 }
+					color = { 107 152 57 }
 				}
 				b_watasaka = {
 					province = 177
-					color = { 101 157 57 }
+					color = { 88 154 46 }
 				}
 				b_risemura = {
 					province = 175
-					color = { 121 187 77 }
+					color = { 104 144 72 }
 				}
 			}
 		}
 		d_tsusohara = {
-			color = { 92 128 53 }
+			color = { 69 113 60 }
 			capital = c_rainbrook
 
 			c_rainbrook = {
-				color = { 109 158 61 }
+				color = { 133 175 56 }
 
 				b_rainwatch = {
 					province = 198
-					color = { 106 171 75 }
+					color = { 96 166 89 }
 				}
 			}
 		}
 		d_windcrest = {
-			color = { 101 154 75 }
+			color = { 82 119 51 }
 			capital = c_zhaoling
 
 			c_zhaoling = {
-				color = { 108 153 60 }
+				color = { 104 125 68 }
 
 				b_windgate = {
 					province = 134
-					color = { 103 138 67 }
+					color = { 129 162 85 }
 				}
 				b_yakoyama = {
 					province = 130
-					color = { 99 128 43 }
+					color = { 118 148 66 }
 				}
 				b_tosaka = {
 					province = 152
-					color = { 107 143 75 }
+					color = { 83 156 47 }
 				}
 				b_rainhollow = {
 					province = 154
-					color = { 90 182 55 }
+					color = { 96 143 71 }
 				}
 			}
 			c_yuyuyama = {
-				color = { 109 173 84 }
+				color = { 68 116 66 }
 
 				b_jinhou = {
 					province = 155
-					color = { 98 186 85 }
+					color = { 70 130 44 }
 				}
 				b_yoyama = {
 					province = 156
-					color = { 77 128 65 }
+					color = { 135 187 54 }
 				}
 				b_monohara = {
 					province = 157
-					color = { 82 152 57 }
+					color = { 105 142 73 }
 				}
 				b_hikosaka = {
 					province = 153
-					color = { 102 159 67 }
+					color = { 118 140 76 }
 				}
 			}
 			c_mistrise = {
-				color = { 88 147 71 }
+				color = { 66 155 45 }
 
 				b_thunderstead = {
 					province = 178
-					color = { 65 119 36 }
+					color = { 115 165 90 }
 				}
 				b_kunzhou = {
 					province = 179
-					color = { 86 151 81 }
+					color = { 106 161 79 }
 				}
 				b_cedarcrest = {
 					province = 180
-					color = { 105 172 77 }
+					color = { 76 146 71 }
 				}
 				b_copperreach = {
 					province = 196
-					color = { 97 131 55 }
+					color = { 73 170 68 }
 				}
 			}
 		}
 		d_mamomura = {
-			color = { 70 152 54 }
+			color = { 96 131 63 }
 			capital = c_wenan
 
 			c_wenan = {
-				color = { 104 177 66 }
+				color = { 101 177 84 }
 
 				b_longhollow = {
 					province = 90
-					color = { 57 127 56 }
+					color = { 109 135 75 }
 				}
 				b_sesosaka = {
 					province = 114
-					color = { 69 172 56 }
+					color = { 95 136 52 }
 				}
 			}
 		}
 		d_wenhou = {
-			color = { 83 162 66 }
+			color = { 101 162 80 }
 			capital = c_takimura
 
 			c_takimura = {
-				color = { 114 179 99 }
+				color = { 107 155 78 }
 
 				b_windfield = {
 					province = 136
-					color = { 71 112 60 }
+					color = { 99 131 60 }
 				}
 				b_jingan = {
 					province = 135
-					color = { 99 164 52 }
+					color = { 90 116 62 }
 				}
 			}
 		}
 		d_yunhou = {
-			color = { 104 163 87 }
+			color = { 98 184 75 }
 			capital = c_hayama
 
 			c_hayama = {
-				color = { 93 141 50 }
+				color = { 89 115 65 }
 
 				b_fuyama = {
 					province = 158
-					color = { 94 124 58 }
+					color = { 113 174 82 }
 				}
 			}
 		}
 		d_pinewatch = {
-			color = { 87 176 52 }
+			color = { 81 183 53 }
 			capital = c_mingan
 
 			c_mingan = {
-				color = { 74 173 51 }
+				color = { 83 115 60 }
 
 				b_emberfall = {
 					province = 181
-					color = { 75 155 69 }
+					color = { 56 122 46 }
 				}
 				b_mistbrook = {
 					province = 182
-					color = { 111 181 57 }
+					color = { 59 163 46 }
 				}
 				b_shihara = {
 					province = 183
-					color = { 96 170 54 }
+					color = { 74 129 70 }
 				}
 			}
 		}
@@ -1133,506 +1133,506 @@ e_rasen = {
 		capital = c_winterpeak
 
 		d_togomine = {
-			color = { 152 170 190 }
+			color = { 153 171 192 }
 			capital = c_winterpeak
 
 			c_winterpeak = {
-				color = { 154 173 193 }
+				color = { 175 204 240 }
 
 				b_winterfort = {
 					province = 250
-					color = { 136 157 192 }
+					color = { 173 210 216 }
 				}
 				b_hailpass = {
 					province = 247
-					color = { 166 235 243 }
+					color = { 201 239 252 }
 				}
 				b_rimewatch = {
 					province = 248
-					color = { 202 232 253 }
+					color = { 168 188 210 }
 				}
 				b_semine = {
 					province = 249
-					color = { 203 250 254 }
+					color = { 164 187 205 }
 				}
 			}
 			c_yasawa = {
-				color = { 193 223 242 }
+				color = { 186 218 236 }
 
 				b_greymarch = {
 					province = 252
-					color = { 187 213 253 }
+					color = { 160 198 201 }
 				}
 				b_rosawa = {
 					province = 253
-					color = { 171 191 214 }
+					color = { 167 200 216 }
 				}
 				b_tatomine = {
 					province = 284
-					color = { 181 214 226 }
+					color = { 165 199 206 }
 				}
 				b_himine = {
 					province = 285
-					color = { 165 182 206 }
+					color = { 177 212 222 }
 				}
 			}
 			c_gayamine = {
-				color = { 191 219 252 }
+				color = { 185 210 248 }
 
 				b_stormwall = {
 					province = 214
-					color = { 181 212 227 }
+					color = { 153 180 192 }
 				}
 				b_rodake = {
 					province = 213
-					color = { 175 222 224 }
+					color = { 198 220 248 }
 				}
 				b_tamine = {
 					province = 254
-					color = { 202 239 253 }
+					color = { 204 223 255 }
 				}
 				b_greyspire = {
 					province = 251
-					color = { 204 224 255 }
+					color = { 161 185 201 }
 				}
 			}
 			c_brasspeak = {
-				color = { 180 201 225 }
+				color = { 176 205 254 }
 
 				b_whitepass = {
 					province = 256
-					color = { 199 232 255 }
+					color = { 167 200 219 }
 				}
 				b_yosuyuki = {
 					province = 258
-					color = { 171 205 214 }
+					color = { 204 245 255 }
 				}
 				b_winterfang = {
 					province = 255
-					color = { 172 187 217 }
+					color = { 166 194 208 }
 				}
 				b_haildrift = {
 					province = 257
-					color = { 173 189 216 }
+					color = { 164 217 230 }
 				}
 			}
 			c_glacierbastion = {
-				color = { 187 233 237 }
+				color = { 162 196 202 }
 
 				b_frostpeak = {
 					province = 287
-					color = { 154 178 194 }
+					color = { 182 231 246 }
 				}
 				b_rimidake = {
 					province = 289
-					color = { 173 198 218 }
+					color = { 196 226 245 }
 				}
 				b_noyuki = {
 					province = 288
-					color = { 148 201 210 }
+					color = { 180 243 255 }
 				}
 				b_snowspire = {
 					province = 286
-					color = { 149 193 209 }
+					color = { 199 226 248 }
 				}
 			}
 		}
 		d_stormmarch = {
-			color = { 164 204 238 }
+			color = { 169 200 227 }
 			capital = c_greyhold
 
 			c_greyhold = {
-				color = { 185 216 231 }
+				color = { 204 238 255 }
 
 				b_jinisawa = {
 					province = 216
-					color = { 171 208 214 }
+					color = { 195 241 244 }
 				}
 				b_hailwall = {
 					province = 218
-					color = { 159 188 213 }
+					color = { 180 213 236 }
 				}
 				b_brassdrift = {
 					province = 217
-					color = { 147 175 197 }
+					color = { 150 177 216 }
 				}
 				b_icebastion = {
 					province = 215
-					color = { 178 198 227 }
+					color = { 154 189 193 }
 				}
 			}
 			c_glacierdrift = {
-				color = { 164 190 205 }
+				color = { 180 252 255 }
 
 				b_bakimine = {
 					province = 201
-					color = { 159 196 199 }
+					color = { 182 227 239 }
 				}
 				b_snowbastion = {
 					province = 202
-					color = { 172 213 215 }
+					color = { 154 208 220 }
 				}
 				b_kishiyuki = {
 					province = 219
-					color = { 173 211 217 }
+					color = { 201 249 255 }
 				}
 				b_kogasawa = {
 					province = 221
-					color = { 171 190 214 }
+					color = { 192 220 240 }
 				}
 			}
 			c_gawadake = {
-				color = { 178 219 250 }
+				color = { 170 189 213 }
 
 				b_kayuki = {
 					province = 222
-					color = { 179 210 224 }
+					color = { 151 201 221 }
 				}
 				b_winterwall = {
 					province = 223
-					color = { 177 197 242 }
+					color = { 175 204 228 }
 				}
 				b_funayuki = {
 					province = 220
-					color = { 157 195 202 }
+					color = { 137 181 196 }
 				}
 				b_yodake = {
 					province = 263
-					color = { 171 196 214 }
+					color = { 195 217 245 }
 				}
 			}
 			c_bekadake = {
-				color = { 179 198 224 }
+				color = { 170 192 213 }
 
 				b_bebedake = {
 					province = 260
-					color = { 144 161 194 }
+					color = { 202 247 253 }
 				}
 				b_kuyamine = {
 					province = 262
-					color = { 194 217 255 }
+					color = { 167 195 208 }
 				}
 				b_rasawa = {
 					province = 261
-					color = { 162 182 202 }
+					color = { 161 214 217 }
 				}
 				b_brasswatch = {
 					province = 259
-					color = { 186 228 233 }
+					color = { 204 229 255 }
 				}
 				b_palepeak = {
 					province = 264
-					color = { 182 232 249 }
+					color = { 191 213 253 }
 				}
 			}
 			c_greybastion = {
-				color = { 172 197 215 }
+				color = { 204 226 255 }
 
 				b_glacierfort = {
 					province = 225
-					color = { 157 211 225 }
+					color = { 154 169 193 }
 				}
 				b_nogoyuki = {
 					province = 227
-					color = { 186 212 233 }
+					color = { 158 172 198 }
 				}
 				b_gotsusawa = {
 					province = 265
-					color = { 175 217 227 }
+					color = { 193 212 241 }
 				}
 				b_whitereach = {
 					province = 266
-					color = { 136 184 192 }
+					color = { 204 248 255 }
 				}
 			}
 		}
 		d_notamine = {
-			color = { 154 175 192 }
+			color = { 199 232 255 }
 			capital = c_glaciermarch
 
 			c_glaciermarch = {
-				color = { 169 189 212 }
+				color = { 176 208 220 }
 
 				b_berimine = {
 					province = 290
-					color = { 178 221 226 }
+					color = { 185 249 253 }
 				}
 			}
 		}
 		d_dahadake = {
-			color = { 194 241 255 }
+			color = { 204 242 255 }
 			capital = c_glacierwatch
 
 			c_glacierwatch = {
-				color = { 158 196 198 }
+				color = { 159 177 205 }
 
 				b_nagodake = {
 					province = 203
-					color = { 163 219 235 }
+					color = { 188 229 235 }
 				}
 				b_icewall = {
 					province = 204
-					color = { 190 231 238 }
+					color = { 175 192 219 }
 				}
 				b_snowmarch = {
 					province = 224
-					color = { 204 232 255 }
+					color = { 189 248 255 }
 				}
 				b_icewatch = {
 					province = 226
-					color = { 150 179 192 }
+					color = { 198 246 248 }
 				}
 			}
 			c_homine = {
-				color = { 142 176 206 }
+				color = { 170 183 212 }
 
 				b_komine = {
 					province = 206
-					color = { 179 242 245 }
+					color = { 144 194 202 }
 				}
 				b_radake = {
 					province = 205
-					color = { 165 207 219 }
+					color = { 144 197 206 }
 				}
 				b_marodake = {
 					province = 230
-					color = { 161 189 230 }
+					color = { 172 195 215 }
 				}
 				b_stormspire = {
 					province = 229
-					color = { 157 182 213 }
+					color = { 204 222 255 }
 				}
 			}
 			c_greypass = {
-				color = { 173 213 220 }
+				color = { 199 215 248 }
 
 				b_dahamine = {
 					province = 232
-					color = { 169 187 212 }
+					color = { 143 192 205 }
 				}
 				b_moyuki = {
 					province = 228
-					color = { 173 191 216 }
+					color = { 204 222 255 }
 				}
 				b_besasawa = {
 					province = 234
-					color = { 187 217 253 }
+					color = { 193 230 242 }
 				}
 				b_gobayuki = {
 					province = 231
-					color = { 141 185 190 }
+					color = { 144 185 194 }
 				}
 			}
 			c_stormfort = {
-				color = { 173 221 234 }
+				color = { 204 226 255 }
 
 				b_snowreach = {
 					province = 207
-					color = { 185 227 231 }
+					color = { 187 231 234 }
 				}
 				b_rimefort = {
 					province = 208
-					color = { 173 228 231 }
+					color = { 164 182 214 }
 				}
 				b_winterreach = {
 					province = 233
-					color = { 165 184 207 }
+					color = { 183 214 245 }
 				}
 				b_sayuyuki = {
 					province = 235
-					color = { 204 231 255 }
+					color = { 155 191 193 }
 				}
 			}
 			c_tayuki = {
-				color = { 179 215 255 }
+				color = { 175 232 255 }
 
 				b_hohimine = {
 					province = 236
-					color = { 196 213 245 }
+					color = { 204 235 255 }
 				}
 				b_kimine = {
 					province = 238
-					color = { 170 196 213 }
+					color = { 173 228 249 }
 				}
 				b_whitefort = {
 					province = 268
-					color = { 175 230 251 }
+					color = { 146 184 197 }
 				}
 				b_icefang = {
 					province = 267
-					color = { 160 185 201 }
+					color = { 173 189 224 }
 				}
 			}
 		}
 		d_nayayuki = {
-			color = { 173 211 242 }
+			color = { 181 214 227 }
 			capital = c_whitemarch
 
 			c_whitemarch = {
-				color = { 175 197 219 }
+				color = { 177 210 222 }
 
 				b_nisawa = {
 					province = 209
-					color = { 151 182 192 }
+					color = { 153 182 191 }
 				}
 				b_stormpeak = {
 					province = 211
-					color = { 204 237 255 }
+					color = { 188 212 235 }
 				}
 				b_rohayuki = {
 					province = 210
-					color = { 176 230 255 }
+					color = { 167 201 208 }
 				}
 				b_brassfang = {
 					province = 240
-					color = { 171 190 214 }
+					color = { 176 208 238 }
 				}
 				b_kusawa = {
 					province = 237
-					color = { 166 192 210 }
+					color = { 138 159 201 }
 				}
 			}
 			c_frostwatch = {
-				color = { 167 182 208 }
+				color = { 189 204 237 }
 
 				b_frostreach = {
 					province = 239
-					color = { 204 222 255 }
+					color = { 152 187 191 }
 				}
 				b_icedrift = {
 					province = 242
-					color = { 192 232 240 }
+					color = { 175 211 226 }
 				}
 				b_greyfort = {
 					province = 241
-					color = { 147 170 205 }
+					color = { 185 205 238 }
 				}
 				b_greywall = {
 					province = 270
-					color = { 180 201 225 }
+					color = { 199 219 249 }
 				}
 			}
 			c_besawa = {
-				color = { 158 182 197 }
+				color = { 175 201 219 }
 
 				b_hidake = {
 					province = 273
-					color = { 204 240 255 }
+					color = { 192 226 255 }
 				}
 				b_frostfort = {
 					province = 272
-					color = { 186 217 255 }
+					color = { 157 182 197 }
 				}
 				b_yoyomine = {
 					province = 269
-					color = { 153 173 191 }
+					color = { 158 187 230 }
 				}
 				b_sumadake = {
 					province = 271
-					color = { 195 211 244 }
+					color = { 169 218 220 }
 				}
 			}
 			c_snowpeak = {
-				color = { 199 219 249 }
+				color = { 164 196 205 }
 
 				b_frostmarch = {
 					province = 275
-					color = { 186 226 233 }
+					color = { 154 195 222 }
 				}
 				b_bahimine = {
 					province = 277
-					color = { 199 232 248 }
+					color = { 173 200 217 }
 				}
 				b_somine = {
 					province = 276
-					color = { 155 175 210 }
+					color = { 153 171 203 }
 				}
 				b_winterspire = {
 					province = 274
-					color = { 188 212 255 }
+					color = { 197 227 246 }
 				}
 			}
 			c_kudake = {
-				color = { 171 196 217 }
+				color = { 201 230 251 }
 
 				b_jimine = {
 					province = 245
-					color = { 189 232 247 }
+					color = { 202 246 253 }
 				}
 				b_kokuyuki = {
 					province = 280
-					color = { 190 231 240 }
+					color = { 179 196 224 }
 				}
 				b_brassreach = {
 					province = 279
-					color = { 165 193 207 }
+					color = { 195 225 250 }
 				}
 				b_stormfang = {
 					province = 278
-					color = { 154 179 220 }
+					color = { 192 231 241 }
 				}
 			}
 			c_rigadake = {
-				color = { 197 236 247 }
+				color = { 204 238 255 }
 
 				b_goyuki = {
 					province = 283
-					color = { 158 190 198 }
+					color = { 168 202 219 }
 				}
 				b_brassspire = {
 					province = 282
-					color = { 149 183 191 }
+					color = { 202 244 252 }
 				}
 				b_kiyuki = {
 					province = 281
-					color = { 169 206 218 }
+					color = { 145 167 192 }
 				}
 				b_palemarch = {
 					province = 291
-					color = { 204 245 255 }
+					color = { 175 207 219 }
 				}
 			}
 		}
 		d_kisamine = {
-			color = { 166 200 207 }
+			color = { 201 236 252 }
 			capital = c_palewatch
 
 			c_palewatch = {
-				color = { 179 221 224 }
+				color = { 161 189 235 }
 
 				b_niwayuki = {
 					province = 243
-					color = { 193 225 242 }
+					color = { 191 234 239 }
 				}
 				b_winterpass = {
 					province = 244
-					color = { 202 232 253 }
+					color = { 197 214 247 }
 				}
 			}
 		}
 		d_ritosawa = {
-			color = { 181 212 226 }
+			color = { 166 191 215 }
 			capital = c_saridake
 
 			c_saridake = {
-				color = { 162 178 202 }
+				color = { 167 203 209 }
 
 				b_yukimine = {
 					province = 212
-					color = { 177 211 252 }
+					color = { 185 251 255 }
 				}
 			}
 		}
 		d_fuhamine = {
-			color = { 151 183 196 }
+			color = { 176 206 220 }
 			capital = c_babadake
 
 			c_babadake = {
-				color = { 186 208 242 }
+				color = { 137 168 197 }
 
 				b_stormreach = {
 					province = 246
-					color = { 176 194 220 }
+					color = { 182 209 227 }
 				}
 			}
 		}
@@ -1642,884 +1642,884 @@ e_rasen = {
 		capital = c_sazawa
 
 		d_shino = {
-			color = { 159 118 59 }
+			color = { 214 188 135 }
 			capital = c_sazawa
 
 			c_sazawa = {
-				color = { 158 121 83 }
+				color = { 187 164 111 }
 
 				b_tosaki = {
 					province = 306
-					color = { 142 125 63 }
+					color = { 192 121 75 }
 				}
 				b_sonogura = {
 					province = 307
-					color = { 137 111 64 }
+					color = { 189 173 102 }
 				}
 				b_rotsuoka = {
 					province = 305
-					color = { 213 168 103 }
+					color = { 198 158 124 }
 				}
 				b_wahazawa = {
 					province = 308
-					color = { 138 106 54 }
+					color = { 192 128 82 }
 				}
 			}
 			c_waichi = {
-				color = { 209 164 95 }
+				color = { 175 172 72 }
 
 				b_gorisaki = {
 					province = 309
-					color = { 147 127 83 }
+					color = { 183 146 88 }
 				}
 				b_wahama = {
 					province = 311
-					color = { 209 193 98 }
+					color = { 148 117 83 }
 				}
 				b_tsusuzawa = {
 					province = 310
-					color = { 148 109 64 }
+					color = { 172 160 113 }
 				}
 				b_besano = {
 					province = 312
-					color = { 143 138 95 }
+					color = { 188 187 115 }
 				}
 			}
 			c_razawa = {
-				color = { 191 152 119 }
+				color = { 141 126 66 }
 
 				b_sesaki = {
 					province = 295
-					color = { 170 136 109 }
+					color = { 152 115 67 }
 				}
 				b_wafuno = {
 					province = 293
-					color = { 204 175 98 }
+					color = { 138 132 73 }
 				}
 				b_maseoka = {
 					province = 294
-					color = { 161 159 71 }
+					color = { 176 145 80 }
 				}
 				b_yufumura = {
 					province = 292
-					color = { 182 123 82 }
+					color = { 177 178 83 }
 				}
 			}
 			c_mikigura = {
-				color = { 173 158 82 }
+				color = { 162 133 94 }
 
 				b_tatasaki = {
 					province = 296
-					color = { 178 140 82 }
+					color = { 142 142 67 }
 				}
 				b_yatsuzawa = {
 					province = 297
-					color = { 181 117 75 }
+					color = { 156 140 97 }
 				}
 				b_sohoichi = {
 					province = 299
-					color = { 153 144 97 }
+					color = { 149 127 59 }
 				}
 				b_goichi = {
 					province = 298
-					color = { 150 118 94 }
+					color = { 191 167 122 }
 				}
 			}
 			c_gogahama = {
-				color = { 152 143 81 }
+				color = { 156 153 60 }
 
 				b_maoka = {
 					province = 301
-					color = { 155 106 78 }
+					color = { 164 140 69 }
 				}
 				b_katsuzawa = {
 					province = 302
-					color = { 191 193 103 }
+					color = { 165 116 87 }
 				}
 				b_mifuno = {
 					province = 300
-					color = { 177 167 80 }
+					color = { 186 130 90 }
 				}
 				b_bahizawa = {
 					province = 317
-					color = { 205 186 134 }
+					color = { 168 159 65 }
 				}
 				b_yuyahama = {
 					province = 314
-					color = { 195 185 83 }
+					color = { 209 195 119 }
 				}
 			}
 		}
 		d_rimono = {
-			color = { 207 182 110 }
+			color = { 193 175 94 }
 			capital = c_sutaichi
 
 			c_sutaichi = {
-				color = { 203 197 99 }
+				color = { 137 113 77 }
 
 				b_tamura = {
 					province = 327
-					color = { 166 158 109 }
+					color = { 205 163 110 }
 				}
 			}
 		}
 		d_hokoichi = {
-			color = { 171 134 68 }
+			color = { 157 144 94 }
 			capital = c_hisaki
 
 			c_hisaki = {
-				color = { 206 185 113 }
+				color = { 213 210 88 }
 
 				b_yazawa = {
 					province = 315
-					color = { 139 133 84 }
+					color = { 169 146 89 }
 				}
 				b_senino = {
 					province = 332
-					color = { 146 135 88 }
+					color = { 141 101 77 }
 				}
 				b_fukono = {
 					province = 328
-					color = { 148 139 75 }
+					color = { 147 141 55 }
 				}
 				b_rihihama = {
 					province = 330
-					color = { 203 200 136 }
+					color = { 212 194 117 }
 				}
 			}
 			c_shigoichi = {
-				color = { 198 197 119 }
+				color = { 162 154 80 }
 
 				b_migura = {
 					province = 318
-					color = { 167 152 65 }
+					color = { 200 198 132 }
 				}
 				b_suzawa = {
 					province = 313
-					color = { 164 139 73 }
+					color = { 166 129 69 }
 				}
 				b_hagagura = {
 					province = 316
-					color = { 143 134 74 }
+					color = { 212 203 133 }
 				}
 				b_torosaki = {
 					province = 319
-					color = { 160 126 104 }
+					color = { 202 194 135 }
 				}
 			}
 			c_sehisaki = {
-				color = { 189 166 115 }
+				color = { 169 106 64 }
 
 				b_kumizawa = {
 					province = 322
-					color = { 207 178 91 }
+					color = { 161 147 87 }
 				}
 				b_behama = {
 					province = 324
-					color = { 163 159 68 }
+					color = { 139 97 63 }
 				}
 				b_chino = {
 					province = 337
-					color = { 201 170 112 }
+					color = { 145 140 72 }
 				}
 				b_kimasaki = {
 					province = 335
-					color = { 178 178 85 }
+					color = { 184 171 104 }
 				}
 			}
 			c_sohama = {
-				color = { 140 136 55 }
+				color = { 168 134 86 }
 
 				b_takooka = {
 					province = 303
-					color = { 167 159 63 }
+					color = { 175 151 102 }
 				}
 				b_kasohama = {
 					province = 320
-					color = { 167 159 92 }
+					color = { 196 167 116 }
 				}
 				b_shikimura = {
 					province = 323
-					color = { 150 112 59 }
+					color = { 212 153 119 }
 				}
 				b_rimura = {
 					province = 321
-					color = { 139 98 60 }
+					color = { 138 129 88 }
 				}
 			}
 			c_nagura = {
-				color = { 159 160 80 }
+				color = { 154 136 94 }
 
 				b_hosaki = {
 					province = 333
-					color = { 198 179 126 }
+					color = { 137 132 90 }
 				}
 				b_miichi = {
 					province = 336
-					color = { 200 160 95 }
+					color = { 176 120 68 }
 				}
 				b_mosaki = {
 					province = 334
-					color = { 166 141 108 }
+					color = { 196 179 102 }
 				}
 				b_hafuno = {
 					province = 348
-					color = { 199 146 99 }
+					color = { 170 154 83 }
 				}
 			}
 			c_mirisaki = {
-				color = { 213 188 107 }
+				color = { 181 163 83 }
 
 				b_sobasaki = {
 					province = 331
-					color = { 205 180 135 }
+					color = { 144 103 76 }
 				}
 				b_sayozawa = {
 					province = 329
-					color = { 139 115 83 }
+					color = { 199 198 120 }
 				}
 				b_romura = {
 					province = 345
-					color = { 159 141 63 }
+					color = { 140 90 56 }
 				}
 				b_gakuzawa = {
 					province = 346
-					color = { 141 113 63 }
+					color = { 146 110 89 }
 				}
 			}
 			c_yakuzawa = {
-				color = { 148 100 68 }
+				color = { 138 127 83 }
 
 				b_nigura = {
 					province = 326
-					color = { 180 167 111 }
+					color = { 149 144 60 }
 				}
 				b_mirohama = {
 					province = 325
-					color = { 208 149 91 }
+					color = { 164 151 89 }
 				}
 			}
 		}
 		d_kono = {
-			color = { 205 168 90 }
+			color = { 169 151 67 }
 			capital = c_kiichi
 
 			c_kiichi = {
-				color = { 160 153 102 }
+				color = { 192 182 98 }
 
 				b_gaichi = {
 					province = 304
-					color = { 150 132 79 }
+					color = { 213 139 82 }
 				}
 			}
 		}
 		d_bazawa = {
-			color = { 189 142 77 }
+			color = { 148 133 92 }
 			capital = c_dafuoka
 
 			c_dafuoka = {
-				color = { 207 201 135 }
+				color = { 213 169 136 }
 
 				b_sukono = {
 					province = 347
-					color = { 168 151 87 }
+					color = { 170 170 105 }
 				}
 				b_gowahama = {
 					province = 349
-					color = { 186 163 124 }
+					color = { 139 113 59 }
 				}
 				b_yaichi = {
 					province = 361
-					color = { 163 129 107 }
+					color = { 205 178 90 }
 				}
 				b_chiniichi = {
 					province = 362
-					color = { 193 134 89 }
+					color = { 176 170 78 }
 				}
 			}
 			c_kuno = {
-				color = { 182 162 104 }
+				color = { 168 108 64 }
 
 				b_rohagura = {
 					province = 364
-					color = { 149 120 91 }
+					color = { 204 153 110 }
 				}
 				b_chiyumura = {
 					province = 366
-					color = { 204 178 137 }
+					color = { 214 186 133 }
 				}
 				b_gahagura = {
 					province = 363
-					color = { 186 183 107 }
+					color = { 179 175 75 }
 				}
 				b_kohihama = {
 					province = 365
-					color = { 205 198 120 }
+					color = { 152 139 71 }
 				}
 			}
 			c_gooka = {
-				color = { 149 144 93 }
+				color = { 158 134 70 }
 
 				b_rosamura = {
 					province = 352
-					color = { 182 160 106 }
+					color = { 185 179 102 }
 				}
 				b_yatazawa = {
 					province = 369
-					color = { 211 211 126 }
+					color = { 197 171 98 }
 				}
 				b_sanazawa = {
 					province = 371
-					color = { 183 143 73 }
+					color = { 186 146 122 }
 				}
 				b_chihosaki = {
 					province = 368
-					color = { 171 138 66 }
+					color = { 181 157 82 }
 				}
 			}
 			c_yumura = {
-				color = { 176 155 95 }
+				color = { 149 120 94 }
 
 				b_yuno = {
 					province = 350
-					color = { 203 197 77 }
+					color = { 144 112 86 }
 				}
 				b_kagasaki = {
 					province = 353
-					color = { 145 139 79 }
+					color = { 205 172 122 }
 				}
 				b_wanihama = {
 					province = 351
-					color = { 178 170 104 }
+					color = { 194 151 87 }
 				}
 				b_garosaki = {
 					province = 354
-					color = { 198 163 95 }
+					color = { 205 193 111 }
 				}
 			}
 			c_gobaoka = {
-				color = { 169 129 94 }
+				color = { 169 158 79 }
 
 				b_gorosaki = {
 					province = 370
-					color = { 212 166 93 }
+					color = { 185 147 89 }
 				}
 				b_mogogura = {
 					province = 367
-					color = { 145 137 63 }
+					color = { 155 136 66 }
 				}
 				b_rokisaki = {
 					province = 384
-					color = { 183 142 109 }
+					color = { 198 159 110 }
 				}
 				b_natozawa = {
 					province = 381
-					color = { 159 151 94 }
+					color = { 171 126 78 }
 				}
 			}
 		}
 		d_moichi = {
-			color = { 174 155 88 }
+			color = { 145 109 74 }
 			capital = c_wamogura
 
 			c_wamogura = {
-				color = { 146 128 78 }
+				color = { 155 142 97 }
 
 				b_fuhama = {
 					province = 339
-					color = { 148 112 90 }
+					color = { 190 172 88 }
 				}
 				b_zemura = {
 					province = 343
-					color = { 212 193 120 }
+					color = { 143 118 64 }
 				}
 				b_nihoichi = {
 					province = 338
-					color = { 195 162 96 }
+					color = { 202 135 96 }
 				}
 				b_tsuoka = {
 					province = 341
-					color = { 196 151 74 }
+					color = { 190 150 126 }
 				}
 			}
 			c_manizawa = {
-				color = { 198 189 89 }
+				color = { 188 136 91 }
 
 				b_roichi = {
 					province = 340
-					color = { 193 189 98 }
+					color = { 161 132 61 }
 				}
 				b_yahama = {
 					province = 342
-					color = { 180 133 83 }
+					color = { 181 165 121 }
 				}
 			}
 			c_tsuhano = {
-				color = { 151 104 77 }
+				color = { 167 129 87 }
 
 				b_tsumooka = {
 					province = 344
-					color = { 199 128 78 }
+					color = { 183 162 106 }
 				}
 				b_benamura = {
 					province = 357
-					color = { 187 170 78 }
+					color = { 189 166 102 }
 				}
 				b_makihama = {
 					province = 355
-					color = { 196 170 107 }
+					color = { 168 143 91 }
 				}
 				b_gachino = {
 					province = 359
-					color = { 189 174 85 }
+					color = { 186 162 111 }
 				}
 			}
 			c_nisaki = {
-				color = { 151 144 74 }
+				color = { 158 153 94 }
 
 				b_gosozawa = {
 					province = 360
-					color = { 153 134 69 }
+					color = { 144 144 89 }
 				}
 				b_suno = {
 					province = 356
-					color = { 165 165 71 }
+					color = { 204 147 112 }
 				}
 				b_matsuzawa = {
 					province = 358
-					color = { 182 178 120 }
+					color = { 183 142 112 }
 				}
 				b_nahozawa = {
 					province = 373
-					color = { 183 152 92 }
+					color = { 149 146 88 }
 				}
 			}
 		}
 		d_haoka = {
-			color = { 165 138 95 }
+			color = { 147 120 77 }
 			capital = c_beno
 
 			c_beno = {
-				color = { 196 139 97 }
+				color = { 190 186 84 }
 
 				b_rosaki = {
 					province = 377
-					color = { 210 156 114 }
+					color = { 151 134 86 }
 				}
 				b_suoka = {
 					province = 378
-					color = { 179 132 89 }
+					color = { 169 123 91 }
 				}
 				b_horisaki = {
 					province = 375
-					color = { 139 126 83 }
+					color = { 154 117 69 }
 				}
 				b_jirosaki = {
 					province = 379
-					color = { 190 176 119 }
+					color = { 160 133 67 }
 				}
 			}
 			c_gamisaki = {
-				color = { 188 146 105 }
+				color = { 168 132 101 }
 
 				b_sachizawa = {
 					province = 376
-					color = { 190 154 93 }
+					color = { 212 188 115 }
 				}
 				b_sasozawa = {
 					province = 382
-					color = { 162 147 76 }
+					color = { 170 148 96 }
 				}
 				b_gochigura = {
 					province = 395
-					color = { 154 155 79 }
+					color = { 175 156 103 }
 				}
 				b_misaki = {
 					province = 393
-					color = { 179 170 97 }
+					color = { 199 174 128 }
 				}
 			}
 			c_kokahama = {
-				color = { 146 143 91 }
+				color = { 159 142 65 }
 
 				b_gotsumura = {
 					province = 380
-					color = { 212 186 120 }
+					color = { 150 132 75 }
 				}
 				b_benahama = {
 					province = 383
-					color = { 139 96 58 }
+					color = { 179 165 103 }
 				}
 				b_sooka = {
 					province = 386
-					color = { 184 176 117 }
+					color = { 193 135 91 }
 				}
 				b_makano = {
 					province = 385
-					color = { 152 121 63 }
+					color = { 199 175 125 }
 				}
 			}
 			c_rozawa = {
-				color = { 207 198 136 }
+				color = { 193 187 119 }
 
 				b_hozesaki = {
 					province = 397
-					color = { 153 110 59 }
+					color = { 140 133 78 }
 				}
 				b_bemino = {
 					province = 399
-					color = { 188 151 74 }
+					color = { 159 143 67 }
 				}
 				b_ramohama = {
 					province = 400
-					color = { 196 179 124 }
+					color = { 197 176 92 }
 				}
 				b_kugagura = {
 					province = 398
-					color = { 175 141 95 }
+					color = { 142 126 75 }
 				}
 			}
 			c_futazawa = {
-				color = { 159 119 91 }
+				color = { 174 132 98 }
 
 				b_sezesaki = {
 					province = 396
-					color = { 201 158 123 }
+					color = { 197 162 109 }
 				}
 				b_komigura = {
 					province = 394
-					color = { 174 139 76 }
+					color = { 196 194 128 }
 				}
 				b_yosegura = {
 					province = 413
-					color = { 143 138 62 }
+					color = { 201 161 120 }
 				}
 				b_sobegura = {
 					province = 417
-					color = { 191 189 91 }
+					color = { 166 151 69 }
 				}
 			}
 		}
 		d_jiichi = {
-			color = { 168 137 67 }
+			color = { 141 116 80 }
 			capital = c_fubahama
 
 			c_fubahama = {
-				color = { 155 138 60 }
+				color = { 173 129 77 }
 
 				b_ninano = {
 					province = 410
-					color = { 184 141 95 }
+					color = { 169 134 98 }
 				}
 				b_hahigura = {
 					province = 407
-					color = { 209 168 83 }
+					color = { 176 178 69 }
 				}
 				b_bano = {
 					province = 411
-					color = { 177 173 108 }
+					color = { 162 149 62 }
 				}
 				b_kunioka = {
 					province = 408
-					color = { 189 173 104 }
+					color = { 185 160 93 }
 				}
 			}
 			c_sarino = {
-				color = { 162 113 68 }
+				color = { 172 159 77 }
 
 				b_chikizawa = {
 					province = 414
-					color = { 213 212 82 }
+					color = { 152 128 71 }
 				}
 				b_hakahama = {
 					province = 416
-					color = { 173 125 85 }
+					color = { 203 170 116 }
 				}
 				b_nayamura = {
 					province = 412
-					color = { 210 175 128 }
+					color = { 201 141 99 }
 				}
 				b_hotooka = {
 					province = 415
-					color = { 171 135 88 }
+					color = { 164 163 66 }
 				}
 			}
 			c_bewagura = {
-				color = { 193 132 86 }
+				color = { 143 111 78 }
 
 				b_jino = {
 					province = 409
-					color = { 142 109 85 }
+					color = { 202 186 113 }
 				}
 				b_moriichi = {
 					province = 432
-					color = { 142 116 65 }
+					color = { 143 115 74 }
 				}
 				b_yayozawa = {
 					province = 429
-					color = { 178 154 88 }
+					color = { 177 120 67 }
 				}
 				b_zeyono = {
 					province = 430
-					color = { 160 124 79 }
+					color = { 206 204 128 }
 				}
 			}
 			c_nobazawa = {
-				color = { 157 151 82 }
+				color = { 165 139 86 }
 
 				b_chihama = {
 					province = 434
-					color = { 141 141 81 }
+					color = { 175 169 117 }
 				}
 				b_rohano = {
 					province = 436
-					color = { 191 139 78 }
+					color = { 182 140 105 }
 				}
 				b_nano = {
 					province = 431
-					color = { 141 105 71 }
+					color = { 184 141 89 }
 				}
 				b_rakosaki = {
 					province = 433
-					color = { 185 173 117 }
+					color = { 149 135 62 }
 				}
 			}
 			c_rihama = {
-				color = { 207 207 103 }
+				color = { 160 127 68 }
 
 				b_kizawa = {
 					province = 418
-					color = { 197 143 73 }
+					color = { 158 138 74 }
 				}
 				b_hohaoka = {
 					province = 422
-					color = { 175 158 81 }
+					color = { 183 171 86 }
 				}
 				b_gozawa = {
 					province = 437
-					color = { 170 155 106 }
+					color = { 196 139 103 }
 				}
 				b_kogano = {
 					province = 440
-					color = { 178 128 91 }
+					color = { 212 143 104 }
 				}
 			}
 		}
 		d_bemamura = {
-			color = { 155 116 74 }
+			color = { 175 145 89 }
 			capital = c_shimagura
 
 			c_shimagura = {
-				color = { 146 124 55 }
+				color = { 210 207 128 }
 
 				b_bayohama = {
 					province = 374
-					color = { 203 202 84 }
+					color = { 147 140 84 }
 				}
 				b_darioka = {
 					province = 372
-					color = { 206 201 112 }
+					color = { 193 171 111 }
 				}
 				b_yazehama = {
 					province = 390
-					color = { 208 172 118 }
+					color = { 152 101 67 }
 				}
 				b_sosooka = {
 					province = 388
-					color = { 179 168 110 }
+					color = { 201 164 107 }
 				}
 			}
 			c_sanamura = {
-				color = { 197 137 93 }
+				color = { 178 168 80 }
 
 				b_satogura = {
 					province = 387
-					color = { 202 192 80 }
+					color = { 138 113 59 }
 				}
 				b_bahiichi = {
 					province = 392
-					color = { 167 111 70 }
+					color = { 180 160 82 }
 				}
 				b_nohama = {
 					province = 389
-					color = { 189 188 93 }
+					color = { 189 143 102 }
 				}
 				b_zeichi = {
 					province = 391
-					color = { 158 145 62 }
+					color = { 179 159 104 }
 				}
 			}
 			c_rishigura = {
-				color = { 168 164 98 }
+				color = { 188 167 121 }
 
 				b_mahaichi = {
 					province = 401
-					color = { 157 147 91 }
+					color = { 182 136 98 }
 				}
 				b_hojioka = {
 					province = 404
-					color = { 145 138 69 }
+					color = { 203 199 135 }
 				}
 				b_susaki = {
 					province = 403
-					color = { 176 171 114 }
+					color = { 187 169 113 }
 				}
 				b_motahama = {
 					province = 406
-					color = { 184 165 118 }
+					color = { 172 148 114 }
 				}
 			}
 			c_bemura = {
-				color = { 146 135 74 }
+				color = { 202 166 132 }
 
 				b_yoyuzawa = {
 					province = 402
-					color = { 196 194 83 }
+					color = { 182 158 92 }
 				}
 				b_susahama = {
 					province = 405
-					color = { 210 198 89 }
+					color = { 143 140 80 }
 				}
 				b_nihano = {
 					province = 426
-					color = { 152 106 79 }
+					color = { 202 174 123 }
 				}
 				b_moyugura = {
 					province = 425
-					color = { 184 186 121 }
+					color = { 203 171 86 }
 				}
 			}
 			c_yusaki = {
-				color = { 187 140 95 }
+				color = { 168 127 91 }
 
 				b_sayosaki = {
 					province = 420
-					color = { 148 128 83 }
+					color = { 196 190 111 }
 				}
 				b_tokusaki = {
 					province = 424
-					color = { 178 168 102 }
+					color = { 188 150 114 }
 				}
 				b_bebesaki = {
 					province = 419
-					color = { 158 115 80 }
+					color = { 181 152 82 }
 				}
 				b_tsukiichi = {
 					province = 421
-					color = { 180 132 102 }
+					color = { 164 134 107 }
 				}
 			}
 		}
 		d_futomura = {
-			color = { 187 148 81 }
+			color = { 168 146 102 }
 			capital = c_besaki
 
 			c_besaki = {
-				color = { 153 154 68 }
+				color = { 150 151 67 }
 
 				b_tsuyoichi = {
 					province = 439
-					color = { 177 151 81 }
+					color = { 180 148 104 }
 				}
 				b_rijino = {
 					province = 435
-					color = { 172 146 106 }
+					color = { 174 169 96 }
 				}
 				b_ritazawa = {
 					province = 447
-					color = { 182 145 121 }
+					color = { 197 176 113 }
 				}
 				b_gamihama = {
 					province = 448
-					color = { 186 143 74 }
+					color = { 163 151 85 }
 				}
 			}
 			c_goyosaki = {
-				color = { 213 190 81 }
+				color = { 178 159 100 }
 
 				b_tamiichi = {
 					province = 444
-					color = { 178 120 76 }
+					color = { 146 122 66 }
 				}
 				b_tsujimura = {
 					province = 438
-					color = { 143 108 64 }
+					color = { 180 160 84 }
 				}
 				b_yakumura = {
 					province = 441
-					color = { 138 115 69 }
+					color = { 209 206 89 }
 				}
 				b_minoichi = {
 					province = 442
-					color = { 161 150 107 }
+					color = { 208 194 132 }
 				}
 			}
 			c_gokaoka = {
-				color = { 198 197 84 }
+				color = { 170 159 95 }
 
 				b_tahama = {
 					province = 423
-					color = { 165 133 68 }
+					color = { 186 152 111 }
 				}
 				b_nibano = {
 					province = 445
-					color = { 195 188 117 }
+					color = { 194 162 120 }
 				}
 				b_dahahama = {
 					province = 443
-					color = { 141 132 62 }
+					color = { 166 156 85 }
 				}
 			}
 		}
 		d_goyono = {
-			color = { 146 125 60 }
+			color = { 201 168 107 }
 			capital = c_jizeichi
 
 			c_jizeichi = {
-				color = { 177 169 98 }
+				color = { 196 149 108 }
 
 				b_tsudahama = {
 					province = 449
-					color = { 178 134 94 }
+					color = { 152 119 93 }
 				}
 			}
 		}
 		d_chinimura = {
-			color = { 150 133 75 }
+			color = { 155 131 68 }
 			capital = c_chirimura
 
 			c_chirimura = {
-				color = { 158 130 97 }
+				color = { 175 132 89 }
 
 				b_fumura = {
 					province = 427
-					color = { 140 122 93 }
+					color = { 152 112 85 }
 				}
 			}
 		}
 		d_sumura = {
-			color = { 158 147 66 }
+			color = { 210 172 102 }
 			capital = c_kohasaki
 
 			c_kohasaki = {
-				color = { 180 164 100 }
+				color = { 208 204 118 }
 
 				b_nakigura = {
 					province = 446
-					color = { 196 142 77 }
+					color = { 162 123 95 }
 				}
 			}
 		}
 		d_kitsuno = {
-			color = { 165 149 98 }
+			color = { 203 188 121 }
 			capital = c_kosuzawa
 
 			c_kosuzawa = {
-				color = { 193 129 85 }
+				color = { 192 141 90 }
 
 				b_minioka = {
 					province = 428
-					color = { 140 96 69 }
+					color = { 182 142 83 }
 				}
 			}
 		}
@@ -2529,983 +2529,983 @@ e_rasen = {
 		capital = c_higoshima
 
 		d_gotsuhama = {
-			color = { 117 147 66 }
+			color = { 137 144 79 }
 			capital = c_higoshima
 
 			c_higoshima = {
-				color = { 79 102 56 }
+				color = { 111 116 55 }
 
 				b_tata = {
 					province = 495
-					color = { 139 157 49 }
+					color = { 106 107 56 }
 				}
 				b_nijita = {
 					province = 493
-					color = { 138 156 76 }
+					color = { 94 102 56 }
 				}
 				b_coralshore = {
 					province = 492
-					color = { 167 169 65 }
+					color = { 120 134 61 }
 				}
 				b_sunbay = {
 					province = 494
-					color = { 135 140 75 }
+					color = { 100 124 43 }
 				}
 			}
 			c_kishishima = {
-				color = { 122 117 45 }
+				color = { 115 119 53 }
 
 				b_kota = {
 					province = 496
-					color = { 92 125 51 }
+					color = { 99 135 64 }
 				}
 				b_mossgrove = {
 					province = 563
-					color = { 111 176 57 }
+					color = { 161 159 74 }
 				}
 				b_sojita = {
 					province = 562
-					color = { 138 132 46 }
+					color = { 132 168 47 }
 				}
 				b_mosscove = {
 					province = 561
-					color = { 133 177 74 }
+					color = { 85 108 49 }
 				}
 			}
 			c_chiura = {
-				color = { 148 161 86 }
+				color = { 145 142 51 }
 
 				b_hokohama = {
 					province = 499
-					color = { 113 122 62 }
+					color = { 104 117 46 }
 				}
 				b_sunhaven = {
 					province = 497
-					color = { 140 152 49 }
+					color = { 105 118 57 }
 				}
 				b_kazeura = {
 					province = 500
-					color = { 119 139 74 }
+					color = { 78 116 35 }
 				}
 				b_mohoshima = {
 					province = 498
-					color = { 104 99 47 }
+					color = { 106 118 65 }
 				}
 			}
 			c_roura = {
-				color = { 112 135 56 }
+				color = { 119 129 46 }
 
 				b_mosshaven = {
 					province = 503
-					color = { 128 138 69 }
+					color = { 138 141 66 }
 				}
 				b_bagaura = {
 					province = 504
-					color = { 105 126 36 }
+					color = { 150 163 91 }
 				}
 				b_reedshore = {
 					province = 501
-					color = { 140 135 75 }
+					color = { 96 117 47 }
 				}
 				b_saltpoint = {
 					province = 567
-					color = { 161 166 62 }
+					color = { 111 133 75 }
 				}
 			}
 			c_lotusterrace = {
-				color = { 111 134 66 }
+				color = { 145 177 52 }
 
 				b_lotushaven = {
 					province = 564
-					color = { 175 170 68 }
+					color = { 95 103 45 }
 				}
 				b_goura = {
 					province = 566
-					color = { 160 173 66 }
+					color = { 96 137 44 }
 				}
 				b_noshima = {
 					province = 565
-					color = { 114 119 46 }
+					color = { 132 168 55 }
 				}
 				b_roshima = {
 					province = 568
-					color = { 114 123 52 }
+					color = { 94 101 47 }
 				}
 			}
 		}
 		d_silkmarsh = {
-			color = { 132 158 77 }
+			color = { 115 121 45 }
 			capital = c_lotuscove
 
 			c_lotuscove = {
-				color = { 84 107 57 }
+				color = { 114 132 42 }
 
 				b_jadedale = {
 					province = 455
-					color = { 110 158 57 }
+					color = { 112 173 61 }
 				}
 				b_tidehaven = {
 					province = 457
-					color = { 170 166 73 }
+					color = { 98 115 40 }
 				}
 				b_youra = {
 					province = 454
-					color = { 119 130 52 }
+					color = { 152 173 82 }
 				}
 				b_yakuura = {
 					province = 456
-					color = { 145 158 73 }
+					color = { 153 155 49 }
 				}
 			}
 			c_mossshore = {
-				color = { 154 153 58 }
+				color = { 114 113 38 }
 
 				b_wavecove = {
 					province = 458
-					color = { 112 168 48 }
+					color = { 77 108 53 }
 				}
 				b_jadewell = {
 					province = 505
-					color = { 85 118 42 }
+					color = { 150 156 46 }
 				}
 				b_wavewell = {
 					province = 502
-					color = { 132 154 46 }
+					color = { 139 149 76 }
 				}
 				b_kihama = {
 					province = 508
-					color = { 166 174 60 }
+					color = { 135 168 64 }
 				}
 				b_himoura = {
 					province = 506
-					color = { 154 169 83 }
+					color = { 104 145 42 }
 				}
 			}
 			c_tidemarsh = {
-				color = { 124 135 40 }
+				color = { 115 112 60 }
 
 				b_sokuhama = {
 					province = 509
-					color = { 99 127 62 }
+					color = { 96 127 52 }
 				}
 				b_suura = {
 					province = 510
-					color = { 130 165 57 }
+					color = { 96 138 64 }
 				}
 				b_jadecove = {
 					province = 507
-					color = { 157 164 62 }
+					color = { 108 163 66 }
 				}
 				b_nimota = {
 					province = 574
-					color = { 115 111 60 }
+					color = { 126 133 50 }
 				}
 			}
 			c_kinita = {
-				color = { 91 129 62 }
+				color = { 163 157 78 }
 
 				b_silkfield = {
 					province = 569
-					color = { 76 106 49 }
+					color = { 122 135 74 }
 				}
 				b_hitsushima = {
 					province = 572
-					color = { 122 155 65 }
+					color = { 121 126 64 }
 				}
 				b_tidegrove = {
 					province = 570
-					color = { 155 177 87 }
+					color = { 132 132 48 }
 				}
 				b_torihama = {
 					province = 573
-					color = { 132 168 90 }
+					color = { 96 105 54 }
 				}
 			}
 			c_goldgrove = {
-				color = { 167 173 51 }
+				color = { 130 138 60 }
 
 				b_kuzeura = {
 					province = 575
-					color = { 145 170 51 }
+					color = { 141 177 91 }
 				}
 				b_sunmarsh = {
 					province = 571
-					color = { 157 177 53 }
+					color = { 120 150 69 }
 				}
 				b_jadefield = {
 					province = 576
-					color = { 138 153 72 }
+					color = { 147 148 80 }
 				}
 				b_silkdale = {
 					province = 615
-					color = { 142 164 86 }
+					color = { 153 148 82 }
 				}
 			}
 		}
 		d_salthaven = {
-			color = { 98 107 41 }
+			color = { 105 123 56 }
 			capital = c_nisuura
 
 			c_nisuura = {
-				color = { 108 109 53 }
+				color = { 83 132 44 }
 
 				b_gata = {
 					province = 580
-					color = { 152 152 45 }
+					color = { 116 155 50 }
 				}
 				b_tohama = {
 					province = 577
-					color = { 174 170 87 }
+					color = { 141 153 62 }
 				}
 				b_kahama = {
 					province = 579
-					color = { 93 118 52 }
+					color = { 120 119 46 }
 				}
 				b_goldharbour = {
 					province = 578
-					color = { 121 153 75 }
+					color = { 139 144 57 }
 				}
 			}
 			c_yumota = {
-				color = { 114 113 31 }
+				color = { 130 177 71 }
 
 				b_nigota = {
 					province = 511
-					color = { 123 164 50 }
+					color = { 140 144 60 }
 				}
 				b_ambergrove = {
 					province = 512
-					color = { 112 138 80 }
+					color = { 138 172 55 }
 				}
 				b_coralhaven = {
 					province = 582
-					color = { 153 159 83 }
+					color = { 116 159 46 }
 				}
 				b_mossmarsh = {
 					province = 584
-					color = { 106 108 32 }
+					color = { 161 164 50 }
 				}
 				b_coralgrove = {
 					province = 583
-					color = { 118 123 48 }
+					color = { 120 148 56 }
 				}
 			}
 			c_jadepoint = {
-				color = { 133 135 78 }
+				color = { 130 164 92 }
 
 				b_hishima = {
 					province = 581
-					color = { 95 127 43 }
+					color = { 128 161 78 }
 				}
 				b_goseta = {
 					province = 616
-					color = { 133 152 63 }
+					color = { 128 137 55 }
 				}
 				b_kitahama = {
 					province = 619
-					color = { 123 133 69 }
+					color = { 120 127 38 }
 				}
 				b_katohama = {
 					province = 617
-					color = { 109 166 66 }
+					color = { 140 173 80 }
 				}
 			}
 			c_goldshore = {
-				color = { 171 174 87 }
+				color = { 120 133 66 }
 
 				b_moshima = {
 					province = 585
-					color = { 172 169 60 }
+					color = { 98 135 71 }
 				}
 				b_saltbay = {
 					province = 621
-					color = { 97 118 44 }
+					color = { 89 128 38 }
 				}
 				b_coralcove = {
 					province = 620
-					color = { 93 111 61 }
+					color = { 97 138 67 }
 				}
 				b_jadegrove = {
 					province = 618
-					color = { 91 119 36 }
+					color = { 147 144 71 }
 				}
 			}
 			c_goldfield = {
-				color = { 128 146 81 }
+				color = { 126 164 73 }
 
 				b_mosehama = {
 					province = 587
-					color = { 81 108 51 }
+					color = { 122 157 60 }
 				}
 				b_chiriura = {
 					province = 589
-					color = { 90 105 30 }
+					color = { 101 147 42 }
 				}
 				b_tidedale = {
 					province = 586
-					color = { 132 172 95 }
+					color = { 145 152 81 }
 				}
 				b_suncove = {
 					province = 588
-					color = { 90 151 44 }
+					color = { 81 116 34 }
 				}
 			}
 		}
 		d_nososhima = {
-			color = { 93 115 32 }
+			color = { 104 109 57 }
 			capital = c_wavepoint
 
 			c_wavepoint = {
-				color = { 165 168 90 }
+				color = { 122 139 78 }
 
 				b_kuchihama = {
 					province = 590
-					color = { 117 128 70 }
+					color = { 107 156 61 }
 				}
 				b_amberbay = {
 					province = 622
-					color = { 168 162 93 }
+					color = { 107 130 75 }
 				}
 				b_silkwell = {
 					province = 624
-					color = { 162 161 58 }
+					color = { 111 133 67 }
 				}
 				b_kahihama = {
 					province = 623
-					color = { 117 127 57 }
+					color = { 151 171 54 }
 				}
 			}
 			c_kakohama = {
-				color = { 145 164 62 }
+				color = { 106 142 46 }
 
 				b_saltterrace = {
 					province = 513
-					color = { 138 146 73 }
+					color = { 94 152 50 }
 				}
 				b_tidecove = {
 					province = 591
-					color = { 143 173 77 }
+					color = { 95 107 40 }
 				}
 				b_rota = {
 					province = 593
-					color = { 90 124 63 }
+					color = { 113 136 59 }
 				}
 				b_lotusfield = {
 					province = 594
-					color = { 146 159 69 }
+					color = { 141 138 64 }
 				}
 				b_goyoura = {
 					province = 592
-					color = { 87 122 55 }
+					color = { 104 129 43 }
 				}
 			}
 			c_reedharbour = {
-				color = { 129 154 56 }
+				color = { 121 137 39 }
 
 				b_kitoura = {
 					province = 597
-					color = { 90 129 55 }
+					color = { 103 153 44 }
 				}
 				b_wagohama = {
 					province = 596
-					color = { 137 137 72 }
+					color = { 116 138 47 }
 				}
 				b_kufushima = {
 					province = 595
-					color = { 118 134 64 }
+					color = { 133 141 54 }
 				}
 				b_sunwell = {
 					province = 625
-					color = { 128 160 88 }
+					color = { 137 145 79 }
 				}
 			}
 		}
 		d_mossfield = {
-			color = { 85 114 45 }
+			color = { 127 138 59 }
 			capital = c_himiura
 
 			c_himiura = {
-				color = { 97 111 59 }
+				color = { 109 112 62 }
 
 				b_jisoura = {
 					province = 459
-					color = { 103 113 50 }
+					color = { 133 136 66 }
 				}
 				b_ribeura = {
 					province = 514
-					color = { 115 152 65 }
+					color = { 113 168 61 }
 				}
 				b_jiwahama = {
 					province = 517
-					color = { 122 143 42 }
+					color = { 80 107 40 }
 				}
 				b_sunshore = {
 					province = 515
-					color = { 116 159 59 }
+					color = { 120 124 69 }
 				}
 			}
 			c_riura = {
-				color = { 99 113 43 }
+				color = { 124 133 58 }
 
 				b_chinishima = {
 					province = 520
-					color = { 141 175 89 }
+					color = { 130 174 98 }
 				}
 				b_jadeharbour = {
 					province = 518
-					color = { 73 120 39 }
+					color = { 125 162 92 }
 				}
 				b_komaura = {
 					province = 516
-					color = { 130 160 87 }
+					color = { 143 168 73 }
 				}
 				b_sunfield = {
 					province = 519
-					color = { 149 171 79 }
+					color = { 147 141 42 }
 				}
 			}
 			c_jinihama = {
-				color = { 86 110 46 }
+				color = { 68 105 37 }
 
 				b_natahama = {
 					province = 461
-					color = { 155 156 77 }
+					color = { 127 123 39 }
 				}
 				b_goshiura = {
 					province = 463
-					color = { 160 161 64 }
+					color = { 88 128 37 }
 				}
 				b_komoshima = {
 					province = 460
-					color = { 74 102 52 }
+					color = { 82 108 53 }
 				}
 				b_reeddale = {
 					province = 462
-					color = { 126 151 69 }
+					color = { 120 130 60 }
 				}
 			}
 			c_hohama = {
-				color = { 108 104 45 }
+				color = { 93 107 56 }
 
 				b_fukoura = {
 					province = 464
-					color = { 87 139 46 }
+					color = { 137 138 54 }
 				}
 				b_jadeshore = {
 					province = 521
-					color = { 138 152 59 }
+					color = { 155 166 62 }
 				}
 				b_soyuhama = {
 					province = 525
-					color = { 170 164 78 }
+					color = { 139 164 81 }
 				}
 				b_noroshima = {
 					province = 523
-					color = { 114 117 58 }
+					color = { 117 158 44 }
 				}
 			}
 			c_nofushima = {
-				color = { 113 154 47 }
+				color = { 93 103 52 }
 
 				b_yuhama = {
 					province = 524
-					color = { 126 147 68 }
+					color = { 165 167 73 }
 				}
 				b_tideterrace = {
 					province = 522
-					color = { 99 109 34 }
+					color = { 73 109 44 }
 				}
 				b_coraldale = {
 					province = 526
-					color = { 129 124 36 }
+					color = { 139 139 60 }
 				}
 				b_raura = {
 					province = 599
-					color = { 106 107 57 }
+					color = { 147 150 66 }
 				}
 			}
 		}
 		d_saltwell = {
-			color = { 159 168 79 }
+			color = { 112 135 38 }
 			capital = c_amberwell
 
 			c_amberwell = {
-				color = { 113 130 46 }
+				color = { 147 164 82 }
 
 				b_tideharbour = {
 					province = 627
-					color = { 135 151 49 }
+					color = { 114 133 71 }
 				}
 				b_nita = {
 					province = 626
-					color = { 112 130 56 }
+					color = { 103 120 60 }
 				}
 				b_kohashima = {
 					province = 628
-					color = { 168 159 50 }
+					color = { 81 106 34 }
 				}
 			}
 		}
 		d_jademarsh = {
-			color = { 106 117 62 }
+			color = { 112 152 48 }
 			capital = c_chizeta
 
 			c_chizeta = {
-				color = { 166 167 88 }
+				color = { 144 172 51 }
 
 				b_coralpoint = {
 					province = 465
-					color = { 172 167 76 }
+					color = { 127 162 71 }
 				}
 				b_chita = {
 					province = 466
-					color = { 96 124 60 }
+					color = { 141 170 70 }
 				}
 				b_silkbay = {
 					province = 467
-					color = { 126 153 48 }
+					color = { 88 109 57 }
 				}
 				b_saltshore = {
 					province = 528
-					color = { 89 110 61 }
+					color = { 152 166 54 }
 				}
 			}
 			c_saltdale = {
-				color = { 127 122 69 }
+				color = { 165 171 89 }
 
 				b_mita = {
 					province = 532
-					color = { 77 105 48 }
+					color = { 72 103 30 }
 				}
 				b_sundale = {
 					province = 530
-					color = { 157 169 62 }
+					color = { 114 156 68 }
 				}
 				b_shinihama = {
 					province = 527
-					color = { 97 123 67 }
+					color = { 135 173 53 }
 				}
 				b_sasahama = {
 					province = 531
-					color = { 128 174 94 }
+					color = { 93 103 49 }
 				}
 			}
 			c_wavegrove = {
-				color = { 94 114 53 }
+				color = { 114 165 50 }
 
 				b_tsuchihama = {
 					province = 469
-					color = { 91 108 42 }
+					color = { 112 115 32 }
 				}
 				b_zeta = {
 					province = 470
-					color = { 142 155 80 }
+					color = { 96 108 60 }
 				}
 				b_hayoura = {
 					province = 468
-					color = { 125 119 49 }
+					color = { 101 125 38 }
 				}
 				b_mossdale = {
 					province = 535
-					color = { 135 140 75 }
+					color = { 98 132 64 }
 				}
 			}
 			c_tsuta = {
-				color = { 116 139 61 }
+				color = { 135 143 53 }
 
 				b_mihahama = {
 					province = 537
-					color = { 132 131 75 }
+					color = { 92 102 32 }
 				}
 				b_reedfield = {
 					province = 540
-					color = { 146 157 55 }
+					color = { 98 141 49 }
 				}
 				b_reedbay = {
 					province = 534
-					color = { 96 107 41 }
+					color = { 161 156 66 }
 				}
 				b_hashiura = {
 					province = 538
-					color = { 106 113 53 }
+					color = { 166 161 84 }
 				}
 			}
 			c_sutashima = {
-				color = { 83 138 39 }
+				color = { 117 146 69 }
 
 				b_sayuura = {
 					province = 533
-					color = { 98 140 55 }
+					color = { 70 106 29 }
 				}
 				b_silkshore = {
 					province = 536
-					color = { 147 172 87 }
+					color = { 137 140 67 }
 				}
 				b_kaura = {
 					province = 602
-					color = { 140 133 45 }
+					color = { 109 151 77 }
 				}
 				b_rabeshima = {
 					province = 603
-					color = { 130 151 87 }
+					color = { 113 123 69 }
 				}
 			}
 			c_coralwell = {
-				color = { 121 142 46 }
+				color = { 108 136 72 }
 
 				b_lotusgrove = {
 					province = 529
-					color = { 97 133 63 }
+					color = { 78 115 46 }
 				}
 				b_wavefield = {
 					province = 601
-					color = { 114 114 45 }
+					color = { 76 103 52 }
 				}
 				b_lotusshore = {
 					province = 600
-					color = { 84 108 59 }
+					color = { 69 107 32 }
 				}
 				b_chiyushima = {
 					province = 598
-					color = { 160 175 95 }
+					color = { 141 143 52 }
 				}
 			}
 		}
 		d_yoyoshima = {
-			color = { 105 137 48 }
+			color = { 102 135 42 }
 			capital = c_lotusdale
 
 			c_lotusdale = {
-				color = { 111 113 40 }
+				color = { 112 150 74 }
 
 				b_silkcove = {
 					province = 629
-					color = { 126 144 54 }
+					color = { 154 146 53 }
 				}
 			}
 		}
 		d_sutaura = {
-			color = { 132 152 48 }
+			color = { 106 136 59 }
 			capital = c_goldwell
 
 			c_goldwell = {
-				color = { 131 168 62 }
+				color = { 84 109 40 }
 
 				b_goldmarsh = {
 					province = 630
-					color = { 110 163 69 }
+					color = { 143 149 56 }
 				}
 				b_tokata = {
 					province = 631
-					color = { 114 126 55 }
+					color = { 110 105 40 }
 				}
 			}
 		}
 		d_bagota = {
-			color = { 102 125 53 }
+			color = { 85 104 56 }
 			capital = c_sahama
 
 			c_sahama = {
-				color = { 140 158 85 }
+				color = { 162 162 81 }
 
 				b_hisoshima = {
 					province = 471
-					color = { 135 163 82 }
+					color = { 129 130 73 }
 				}
 				b_mossterrace = {
 					province = 472
-					color = { 111 114 58 }
+					color = { 111 150 58 }
 				}
 				b_goldcove = {
 					province = 473
-					color = { 112 147 74 }
+					color = { 101 131 57 }
 				}
 				b_rashima = {
 					province = 539
-					color = { 136 176 101 }
+					color = { 109 124 48 }
 				}
 				b_shiyota = {
 					province = 542
-					color = { 120 130 36 }
+					color = { 125 134 67 }
 				}
 			}
 			c_hafuta = {
-				color = { 154 163 60 }
+				color = { 92 121 46 }
 
 				b_coralbay = {
 					province = 547
-					color = { 157 152 87 }
+					color = { 110 123 57 }
 				}
 				b_hakushima = {
 					province = 545
-					color = { 89 114 59 }
+					color = { 166 159 78 }
 				}
 				b_tokuhama = {
 					province = 549
-					color = { 146 154 51 }
+					color = { 108 147 69 }
 				}
 				b_fuura = {
 					province = 546
-					color = { 142 151 51 }
+					color = { 152 149 71 }
 				}
 			}
 			c_sunharbour = {
-				color = { 103 164 51 }
+				color = { 115 138 74 }
 
 				b_hahishima = {
 					province = 543
-					color = { 113 111 33 }
+					color = { 117 132 49 }
 				}
 				b_wavebay = {
 					province = 544
-					color = { 150 149 71 }
+					color = { 76 117 43 }
 				}
 				b_nihota = {
 					province = 541
-					color = { 141 147 64 }
+					color = { 130 151 54 }
 				}
 				b_mishima = {
 					province = 608
-					color = { 86 121 58 }
+					color = { 170 169 95 }
 				}
 			}
 			c_lotuspoint = {
-				color = { 89 107 58 }
+				color = { 148 176 83 }
 
 				b_miraura = {
 					province = 548
-					color = { 116 146 51 }
+					color = { 74 106 30 }
 				}
 				b_tsukuura = {
 					province = 610
-					color = { 95 109 54 }
+					color = { 133 143 76 }
 				}
 				b_tideshore = {
 					province = 609
-					color = { 119 119 68 }
+					color = { 112 126 65 }
 				}
 				b_mosswell = {
 					province = 611
-					color = { 81 111 54 }
+					color = { 131 141 68 }
 				}
 			}
 			c_dasahama = {
-				color = { 94 121 47 }
+				color = { 101 111 35 }
 
 				b_niura = {
 					province = 605
-					color = { 116 144 67 }
+					color = { 162 177 68 }
 				}
 				b_zetaura = {
 					province = 607
-					color = { 79 114 53 }
+					color = { 104 107 48 }
 				}
 				b_amberfield = {
 					province = 604
-					color = { 101 130 49 }
+					color = { 112 107 39 }
 				}
 				b_golddale = {
 					province = 606
-					color = { 103 128 74 }
+					color = { 105 131 60 }
 				}
 			}
 		}
 		d_rakiura = {
-			color = { 123 164 72 }
+			color = { 139 171 90 }
 			capital = c_zehama
 
 			c_zehama = {
-				color = { 166 177 93 }
+				color = { 112 176 58 }
 
 				b_lotusmarsh = {
 					province = 450
-					color = { 105 107 39 }
+					color = { 91 120 35 }
 				}
 				b_yota = {
 					province = 474
-					color = { 106 171 59 }
+					color = { 150 165 61 }
 				}
 				b_reedcove = {
 					province = 478
-					color = { 93 160 44 }
+					color = { 134 173 93 }
 				}
 				b_seshima = {
 					province = 476
-					color = { 123 136 69 }
+					color = { 136 138 52 }
 				}
 			}
 			c_saltfield = {
-				color = { 107 107 34 }
+				color = { 83 128 42 }
 
 				b_tashima = {
 					province = 451
-					color = { 132 160 78 }
+					color = { 120 152 63 }
 				}
 				b_manahama = {
 					province = 452
-					color = { 105 138 60 }
+					color = { 127 134 54 }
 				}
 				b_jihama = {
 					province = 453
-					color = { 127 128 43 }
+					color = { 107 114 45 }
 				}
 				b_jadeterrace = {
 					province = 481
-					color = { 137 174 49 }
+					color = { 94 120 58 }
 				}
 			}
 			c_jadehaven = {
-				color = { 110 130 62 }
+				color = { 96 103 58 }
 
 				b_kobeura = {
 					province = 477
-					color = { 79 128 40 }
+					color = { 90 121 51 }
 				}
 				b_kotahama = {
 					province = 475
-					color = { 78 120 37 }
+					color = { 108 141 44 }
 				}
 				b_nowashima = {
 					province = 480
-					color = { 106 155 60 }
+					color = { 119 125 53 }
 				}
 				b_sutoshima = {
 					province = 550
-					color = { 126 132 47 }
+					color = { 95 110 62 }
 				}
 			}
 			c_nanota = {
-				color = { 91 141 51 }
+				color = { 121 161 90 }
 
 				b_hasoshima = {
 					province = 479
-					color = { 114 112 58 }
+					color = { 113 116 56 }
 				}
 				b_saltgrove = {
 					province = 484
-					color = { 82 107 46 }
+					color = { 171 177 102 }
 				}
 				b_namoshima = {
 					province = 482
-					color = { 139 171 51 }
+					color = { 112 144 74 }
 				}
 				b_reedhaven = {
 					province = 485
-					color = { 126 152 79 }
+					color = { 139 165 47 }
 				}
 			}
 			c_goldbay = {
-				color = { 106 122 44 }
+				color = { 146 151 63 }
 
 				b_yubashima = {
 					province = 556
-					color = { 114 173 70 }
+					color = { 87 107 35 }
 				}
 				b_yakata = {
 					province = 553
-					color = { 138 153 56 }
+					color = { 99 135 54 }
 				}
 				b_hogoura = {
 					province = 557
-					color = { 117 153 82 }
+					color = { 93 118 56 }
 				}
 				b_yuchiura = {
 					province = 552
-					color = { 92 124 68 }
+					color = { 94 156 47 }
 				}
 			}
 		}
 		d_moura = {
-			color = { 148 167 57 }
+			color = { 161 167 91 }
 			capital = c_jadebay
 
 			c_jadebay = {
-				color = { 87 108 57 }
+				color = { 84 111 53 }
 
 				b_tsumohama = {
 					province = 554
-					color = { 96 155 52 }
+					color = { 122 131 49 }
 				}
 				b_data = {
 					province = 551
-					color = { 148 166 55 }
+					color = { 139 134 75 }
 				}
 				b_gota = {
 					province = 613
-					color = { 174 171 70 }
+					color = { 152 152 65 }
 				}
 				b_amberdale = {
 					province = 612
-					color = { 125 123 57 }
+					color = { 145 145 67 }
 				}
 			}
 			c_gamoshima = {
-				color = { 123 160 57 }
+				color = { 140 162 80 }
 
 				b_saseta = {
 					province = 559
-					color = { 149 151 52 }
+					color = { 115 164 52 }
 				}
 				b_homahama = {
 					province = 555
-					color = { 82 119 49 }
+					color = { 165 174 91 }
 				}
 				b_coralmarsh = {
 					province = 558
-					color = { 167 160 67 }
+					color = { 106 120 62 }
 				}
 				b_mossbay = {
 					province = 614
-					color = { 116 119 45 }
+					color = { 119 115 46 }
 				}
 			}
 			c_sozeshima = {
-				color = { 128 168 83 }
+				color = { 102 128 36 }
 
 				b_hamota = {
 					province = 490
-					color = { 174 176 51 }
+					color = { 122 142 62 }
 				}
 				b_reedterrace = {
 					province = 489
-					color = { 160 166 66 }
+					color = { 109 175 50 }
 				}
 				b_hozeshima = {
 					province = 560
-					color = { 119 119 64 }
+					color = { 126 157 66 }
 				}
 			}
 			c_baura = {
-				color = { 127 128 47 }
+				color = { 103 111 56 }
 
 				b_beta = {
 					province = 483
-					color = { 136 169 78 }
+					color = { 76 113 38 }
 				}
 				b_shichita = {
 					province = 486
-					color = { 135 163 77 }
+					color = { 82 106 59 }
 				}
 				b_seyuhama = {
 					province = 488
-					color = { 162 174 87 }
+					color = { 111 118 60 }
 				}
 				b_setota = {
 					province = 487
-					color = { 128 160 83 }
+					color = { 145 156 67 }
 				}
 			}
 		}
 		d_wahoshima = {
-			color = { 109 125 58 }
+			color = { 114 138 43 }
 			capital = c_kohama
 
 			c_kohama = {
-				color = { 147 173 81 }
+				color = { 71 105 42 }
 
 				b_hanita = {
 					province = 491
-					color = { 138 163 80 }
+					color = { 151 174 81 }
 				}
 			}
 		}
@@ -3515,639 +3515,639 @@ e_rasen = {
 		capital = c_todamine
 
 		d_todera = {
-			color = { 44 81 170 }
+			color = { 77 137 206 }
 			capital = c_todamine
 
 			c_todamine = {
-				color = { 91 169 200 }
+				color = { 71 106 237 }
 
 				b_hiwayama = {
 					province = 649
-					color = { 46 59 166 }
+					color = { 45 99 167 }
 				}
 			}
 		}
 		d_chiriyama = {
-			color = { 78 156 213 }
+			color = { 54 109 182 }
 			capital = c_chiyama
 
 			c_chiyama = {
-				color = { 60 113 218 }
+				color = { 64 139 236 }
 
 				b_mahamiya = {
 					province = 710
-					color = { 77 112 227 }
+					color = { 66 126 164 }
 				}
 			}
 		}
 		d_rokaji = {
-			color = { 83 125 180 }
+			color = { 42 80 196 }
 			capital = c_zemiya
 
 			c_zemiya = {
-				color = { 50 96 173 }
+				color = { 80 115 179 }
 
 				b_chimine = {
 					province = 653
-					color = { 68 104 162 }
+					color = { 60 137 168 }
 				}
 				b_hawayama = {
 					province = 656
-					color = { 95 132 211 }
+					color = { 54 118 200 }
 				}
 				b_jimiya = {
 					province = 652
-					color = { 59 140 208 }
+					color = { 53 88 233 }
 				}
 				b_momiji = {
 					province = 654
-					color = { 96 131 210 }
+					color = { 67 78 163 }
 				}
 			}
 			c_kigasan = {
-				color = { 85 94 225 }
+				color = { 58 86 223 }
 
 				b_dasawa = {
 					province = 650
-					color = { 38 129 173 }
+					color = { 87 152 186 }
 				}
 				b_yamine = {
 					province = 655
-					color = { 72 112 213 }
+					color = { 91 125 202 }
 				}
 				b_masedera = {
 					province = 651
-					color = { 56 156 213 }
+					color = { 42 154 205 }
 				}
 				b_yumadera = {
 					province = 693
-					color = { 83 168 202 }
+					color = { 97 153 199 }
 				}
 			}
 			c_royodera = {
-				color = { 58 162 208 }
+				color = { 95 191 234 }
 
 				b_beyama = {
 					province = 659
-					color = { 79 97 192 }
+					color = { 65 106 169 }
 				}
 				b_satodera = {
 					province = 657
-					color = { 50 75 186 }
+					color = { 83 178 218 }
 				}
 				b_kogosawa = {
 					province = 660
-					color = { 77 166 214 }
+					color = { 61 71 202 }
 				}
 				b_nomamiya = {
 					province = 658
-					color = { 90 145 231 }
+					color = { 69 122 176 }
 				}
 			}
 			c_watake = {
-				color = { 44 162 217 }
+				color = { 98 145 204 }
 
 				b_gasodera = {
 					province = 632
-					color = { 95 156 230 }
+					color = { 52 119 212 }
 				}
 				b_seyosawa = {
 					province = 661
-					color = { 81 125 223 }
+					color = { 75 144 185 }
 				}
 				b_chifusawa = {
 					province = 664
-					color = { 45 126 209 }
+					color = { 55 141 207 }
 				}
 				b_kimasan = {
 					province = 662
-					color = { 91 97 202 }
+					color = { 51 91 174 }
 				}
 			}
 			c_tarasan = {
-				color = { 72 104 170 }
+				color = { 56 100 169 }
 
 				b_hodera = {
 					province = 663
-					color = { 40 60 189 }
+					color = { 67 117 187 }
 				}
 				b_bamine = {
 					province = 666
-					color = { 99 111 212 }
+					color = { 56 167 222 }
 				}
 				b_kokimine = {
 					province = 699
-					color = { 76 113 174 }
+					color = { 86 153 187 }
 				}
 				b_tayasawa = {
 					province = 702
-					color = { 81 113 202 }
+					color = { 94 107 200 }
 				}
 			}
 			c_ratasan = {
-				color = { 103 143 237 }
+				color = { 43 80 215 }
 
 				b_togoji = {
 					province = 707
-					color = { 62 68 170 }
+					color = { 93 153 204 }
 				}
 				b_sodasawa = {
 					province = 705
-					color = { 72 156 190 }
+					color = { 73 138 182 }
 				}
 				b_suwamiya = {
 					province = 708
-					color = { 85 169 227 }
+					color = { 88 164 196 }
 				}
 				b_ragamine = {
 					province = 706
-					color = { 92 99 197 }
+					color = { 58 104 173 }
 				}
 			}
 		}
 		d_gazeji = {
-			color = { 97 137 232 }
+			color = { 87 115 188 }
 			capital = c_hogosawa
 
 			c_hogosawa = {
-				color = { 65 90 199 }
+				color = { 52 108 184 }
 
 				b_moyomine = {
 					province = 712
-					color = { 100 107 209 }
+					color = { 82 172 229 }
 				}
 				b_hotosawa = {
 					province = 715
-					color = { 53 63 175 }
+					color = { 76 128 229 }
 				}
 				b_hisemiya = {
 					province = 711
-					color = { 68 98 202 }
+					color = { 55 88 174 }
 				}
 				b_wakimiya = {
 					province = 733
-					color = { 47 89 219 }
+					color = { 65 124 198 }
 				}
 				b_behadera = {
 					province = 731
-					color = { 92 135 209 }
+					color = { 71 105 163 }
 				}
 			}
 			c_rotake = {
-				color = { 109 131 228 }
+				color = { 55 114 234 }
 
 				b_nikayama = {
 					province = 717
-					color = { 103 114 223 }
+					color = { 61 104 181 }
 				}
 				b_noyoji = {
 					province = 720
-					color = { 54 100 189 }
+					color = { 111 179 234 }
 				}
 				b_tsubedera = {
 					province = 735
-					color = { 66 78 164 }
+					color = { 42 131 174 }
 				}
 				b_yokamiya = {
 					province = 738
-					color = { 69 103 217 }
+					color = { 59 72 162 }
 				}
 			}
 			c_nimodera = {
-				color = { 46 144 199 }
+				color = { 65 176 230 }
 
 				b_hamayama = {
 					province = 736
-					color = { 45 73 185 }
+					color = { 86 120 190 }
 				}
 				b_kuyudera = {
 					province = 734
-					color = { 55 171 229 }
+					color = { 71 87 172 }
 				}
 				b_batsutake = {
 					province = 737
-					color = { 46 139 181 }
+					color = { 43 91 205 }
 				}
 				b_godasan = {
 					province = 732
-					color = { 69 121 163 }
+					color = { 38 59 188 }
 				}
 			}
 			c_bemiya = {
-				color = { 71 133 162 }
+				color = { 77 124 212 }
 
 				b_bebetake = {
 					province = 742
-					color = { 64 152 187 }
+					color = { 49 109 222 }
 				}
 				b_nomiya = {
 					province = 739
-					color = { 60 142 187 }
+					color = { 44 122 162 }
 				}
 				b_somotake = {
 					province = 743
-					color = { 98 146 202 }
+					color = { 54 157 224 }
 				}
 				b_wadera = {
 					province = 740
-					color = { 73 164 227 }
+					color = { 62 100 168 }
 				}
 			}
 			c_romisan = {
-				color = { 88 129 226 }
+				color = { 45 100 229 }
 
 				b_kowayama = {
 					province = 723
-					color = { 65 113 175 }
+					color = { 55 63 188 }
 				}
 				b_makisan = {
 					province = 727
-					color = { 86 99 189 }
+					color = { 60 87 175 }
 				}
 				b_kudera = {
 					province = 741
-					color = { 40 84 174 }
+					color = { 103 140 228 }
 				}
 				b_rodera = {
 					province = 745
-					color = { 66 115 204 }
+					color = { 41 86 190 }
 				}
 			}
 			c_mihamiya = {
-				color = { 67 126 171 }
+				color = { 55 69 185 }
 
 				b_naniyama = {
 					province = 726
-					color = { 74 145 178 }
+					color = { 73 87 234 }
 				}
 				b_yuzedera = {
 					province = 725
-					color = { 55 138 187 }
+					color = { 74 113 192 }
 				}
 				b_makumiya = {
 					province = 728
-					color = { 77 150 191 }
+					color = { 58 76 165 }
 				}
 				b_mowadera = {
 					province = 729
-					color = { 52 122 194 }
+					color = { 68 166 227 }
 				}
 			}
 			c_hasasan = {
-				color = { 94 163 216 }
+				color = { 42 97 184 }
 
 				b_hasadera = {
 					province = 744
-					color = { 87 102 203 }
+					color = { 67 156 196 }
 				}
 				b_kabayama = {
 					province = 747
-					color = { 52 110 188 }
+					color = { 95 124 197 }
 				}
 				b_hishimiya = {
 					province = 746
-					color = { 32 73 162 }
+					color = { 38 51 189 }
 				}
 			}
 		}
 		d_kuji = {
-			color = { 84 109 171 }
+			color = { 72 124 170 }
 			capital = c_susawa
 
 			c_susawa = {
-				color = { 70 141 200 }
+				color = { 43 89 170 }
 
 				b_soyama = {
 					province = 713
-					color = { 101 182 220 }
+					color = { 79 133 166 }
 				}
 				b_shisawa = {
 					province = 716
-					color = { 92 150 220 }
+					color = { 83 122 222 }
 				}
 				b_kayumiya = {
 					province = 714
-					color = { 51 103 170 }
+					color = { 68 74 176 }
 				}
 				b_suyomine = {
 					province = 718
-					color = { 37 110 168 }
+					color = { 62 110 205 }
 				}
 			}
 			c_hiramine = {
-				color = { 42 67 166 }
+				color = { 89 155 182 }
 
 				b_sosan = {
 					province = 691
-					color = { 49 139 233 }
+					color = { 65 103 218 }
 				}
 				b_kudasan = {
 					province = 692
-					color = { 71 151 210 }
+					color = { 97 105 205 }
 				}
 				b_kichitake = {
 					province = 690
-					color = { 73 120 181 }
+					color = { 67 83 174 }
 				}
 				b_naji = {
 					province = 694
-					color = { 56 86 189 }
+					color = { 64 144 186 }
 				}
 			}
 			c_nakatake = {
-				color = { 76 133 172 }
+				color = { 56 114 180 }
 
 				b_sakimine = {
 					province = 695
-					color = { 81 92 168 }
+					color = { 39 115 171 }
 				}
 				b_nitake = {
 					province = 697
-					color = { 64 84 212 }
+					color = { 86 114 190 }
 				}
 				b_rinamiya = {
 					province = 696
-					color = { 53 120 215 }
+					color = { 69 97 177 }
 				}
 				b_wasosan = {
 					province = 698
-					color = { 55 94 173 }
+					color = { 66 90 205 }
 				}
 			}
 			c_baji = {
-				color = { 71 153 192 }
+				color = { 65 106 202 }
 
 				b_gachidera = {
 					province = 721
-					color = { 53 116 210 }
+					color = { 65 123 188 }
 				}
 				b_tagoyama = {
 					province = 724
-					color = { 74 110 170 }
+					color = { 87 98 208 }
 				}
 				b_nagotake = {
 					province = 719
-					color = { 58 81 211 }
+					color = { 73 100 229 }
 				}
 				b_masawa = {
 					province = 722
-					color = { 79 113 224 }
+					color = { 82 90 185 }
 				}
 			}
 			c_soyutake = {
-				color = { 49 98 220 }
+				color = { 68 89 190 }
 
 				b_gosan = {
 					province = 700
-					color = { 107 162 221 }
+					color = { 40 119 182 }
 				}
 				b_tahiyama = {
 					province = 703
-					color = { 97 110 196 }
+					color = { 62 155 212 }
 				}
 				b_hozedera = {
 					province = 704
-					color = { 52 94 176 }
+					color = { 55 102 234 }
 				}
 				b_risumine = {
 					province = 701
-					color = { 64 111 210 }
+					color = { 41 146 191 }
 				}
 			}
 		}
 		d_hitake = {
-			color = { 39 71 171 }
+			color = { 96 152 223 }
 			capital = c_nijiyama
 
 			c_nijiyama = {
-				color = { 67 147 188 }
+				color = { 102 154 216 }
 
 				b_niwatake = {
 					province = 636
-					color = { 82 159 205 }
+					color = { 65 137 195 }
 				}
 				b_koji = {
 					province = 634
-					color = { 63 104 171 }
+					color = { 47 100 188 }
 				}
 				b_soyosawa = {
 					province = 633
-					color = { 40 71 173 }
+					color = { 85 163 235 }
 				}
 				b_sumine = {
 					province = 637
-					color = { 55 126 185 }
+					color = { 112 181 232 }
 				}
 				b_ribesan = {
 					province = 635
-					color = { 112 168 230 }
+					color = { 76 128 215 }
 				}
 			}
 			c_yosadera = {
-				color = { 97 171 201 }
+				color = { 68 88 187 }
 
 				b_gosuyama = {
 					province = 638
-					color = { 85 137 197 }
+					color = { 70 118 178 }
 				}
 				b_zetake = {
 					province = 670
-					color = { 69 122 165 }
+					color = { 45 68 162 }
 				}
 				b_hosoji = {
 					province = 676
-					color = { 64 152 232 }
+					color = { 49 74 236 }
 				}
 				b_nifutake = {
 					province = 673
-					color = { 75 118 201 }
+					color = { 94 178 223 }
 				}
 			}
 			c_tsukaji = {
-				color = { 91 119 202 }
+				color = { 94 184 231 }
 
 				b_dadatake = {
 					province = 667
-					color = { 99 134 220 }
+					color = { 95 153 196 }
 				}
 				b_nichiji = {
 					province = 671
-					color = { 46 124 168 }
+					color = { 64 125 165 }
 				}
 				b_suhosan = {
 					province = 665
-					color = { 82 90 210 }
+					color = { 60 76 174 }
 				}
 				b_moyamiya = {
 					province = 668
-					color = { 57 125 182 }
+					color = { 57 104 228 }
 				}
 			}
 			c_hoshimiya = {
-				color = { 93 109 217 }
+				color = { 57 92 195 }
 
 				b_nawamine = {
 					province = 672
-					color = { 46 101 175 }
+					color = { 47 110 174 }
 				}
 				b_gamoji = {
 					province = 675
-					color = { 86 104 208 }
+					color = { 52 82 215 }
 				}
 				b_gorasawa = {
 					province = 669
-					color = { 73 149 184 }
+					color = { 81 147 220 }
 				}
 				b_miwadera = {
 					province = 709
-					color = { 95 185 230 }
+					color = { 40 77 195 }
 				}
 			}
 			c_shidera = {
-				color = { 38 56 179 }
+				color = { 83 115 225 }
 
 				b_higasan = {
 					province = 674
-					color = { 76 125 197 }
+					color = { 45 74 190 }
 				}
 				b_tsurosan = {
 					province = 677
-					color = { 76 116 164 }
+					color = { 48 93 228 }
 				}
 				b_rototake = {
 					province = 680
-					color = { 67 138 181 }
+					color = { 57 128 177 }
 				}
 				b_sonasawa = {
 					province = 678
-					color = { 78 119 169 }
+					color = { 59 78 194 }
 				}
 			}
 		}
 		d_sochiyama = {
-			color = { 57 87 190 }
+			color = { 74 115 225 }
 			capital = c_notake
 
 			c_notake = {
-				color = { 57 119 184 }
+				color = { 70 141 237 }
 
 				b_tsuhadera = {
 					province = 730
-					color = { 64 100 218 }
+					color = { 63 133 196 }
 				}
 			}
 		}
 		d_homidera = {
-			color = { 83 134 220 }
+			color = { 99 124 211 }
 			capital = c_yumoyama
 
 			c_yumoyama = {
-				color = { 85 147 177 }
+				color = { 42 59 187 }
 
 				b_yurasawa = {
 					province = 639
-					color = { 81 146 193 }
+					color = { 41 77 196 }
 				}
 				b_rakoji = {
 					province = 642
-					color = { 96 144 214 }
+					color = { 69 131 189 }
 				}
 				b_kigamiya = {
 					province = 640
-					color = { 60 124 205 }
+					color = { 81 160 202 }
 				}
 				b_chidaji = {
 					province = 643
-					color = { 35 69 164 }
+					color = { 46 60 175 }
 				}
 			}
 			c_dashidera = {
-				color = { 105 139 218 }
+				color = { 78 147 210 }
 
 				b_bamoyama = {
 					province = 644
-					color = { 87 170 235 }
+					color = { 52 166 214 }
 				}
 				b_wasosawa = {
 					province = 641
-					color = { 88 96 225 }
+					color = { 63 117 184 }
 				}
 				b_fukosawa = {
 					province = 684
-					color = { 96 104 235 }
+					color = { 101 134 237 }
 				}
 				b_midera = {
 					province = 679
-					color = { 57 68 181 }
+					color = { 55 100 182 }
 				}
 			}
 			c_hiyama = {
-				color = { 111 180 237 }
+				color = { 39 98 169 }
 
 				b_hayusawa = {
 					province = 645
-					color = { 51 79 170 }
+					color = { 74 145 220 }
 				}
 				b_sojisawa = {
 					province = 647
-					color = { 44 103 173 }
+					color = { 74 125 185 }
 				}
 				b_takusawa = {
 					province = 686
-					color = { 55 75 218 }
+					color = { 92 143 192 }
 				}
 				b_rogoji = {
 					province = 687
-					color = { 75 129 222 }
+					color = { 90 113 234 }
 				}
 			}
 			c_kamotake = {
-				color = { 63 94 210 }
+				color = { 98 123 219 }
 
 				b_hisomine = {
 					province = 683
-					color = { 42 92 190 }
+					color = { 72 174 222 }
 				}
 				b_shimitake = {
 					province = 685
-					color = { 59 142 225 }
+					color = { 59 128 194 }
 				}
 				b_dajimiya = {
 					province = 682
-					color = { 93 121 220 }
+					color = { 76 140 207 }
 				}
 				b_satasan = {
 					province = 681
-					color = { 103 120 207 }
+					color = { 47 96 193 }
 				}
 			}
 			c_rifudera = {
-				color = { 48 135 200 }
+				color = { 61 91 213 }
 
 				b_damiji = {
 					province = 689
-					color = { 104 120 211 }
+					color = { 43 114 214 }
 				}
 				b_mizemine = {
 					province = 688
-					color = { 55 68 165 }
+					color = { 56 120 163 }
 				}
 			}
 		}
 		d_yanasan = {
-			color = { 79 122 218 }
+			color = { 97 158 220 }
 			capital = c_rabadera
 
 			c_rabadera = {
-				color = { 79 129 201 }
+				color = { 69 89 237 }
 
 				b_tsuhasawa = {
 					province = 646
-					color = { 60 79 225 }
+					color = { 38 125 171 }
 				}
 				b_benomiya = {
 					province = 648
-					color = { 96 117 216 }
+					color = { 93 101 226 }
 				}
 			}
 		}
@@ -4157,346 +4157,346 @@ e_rasen = {
 		capital = c_luohe
 
 		d_suyuan = {
-			color = { 218 172 55 }
+			color = { 197 177 57 }
 			capital = c_luohe
 
 			c_luohe = {
-				color = { 186 155 60 }
+				color = { 190 160 26 }
 
 				b_houhe = {
 					province = 748
-					color = { 177 202 19 }
+					color = { 223 207 28 }
 				}
 				b_xuanzhou = {
 					province = 750
-					color = { 231 247 81 }
+					color = { 227 240 60 }
 				}
 				b_tiancheng = {
 					province = 749
-					color = { 230 168 56 }
+					color = { 214 124 40 }
 				}
 				b_kunlou = {
 					province = 756
-					color = { 249 204 81 }
+					color = { 230 239 30 }
 				}
 			}
 			c_hehe = {
-				color = { 223 181 25 }
+				color = { 232 245 66 }
 
 				b_huahe = {
 					province = 754
-					color = { 225 217 22 }
+					color = { 186 150 15 }
 				}
 				b_ruizhou = {
 					province = 758
-					color = { 221 193 30 }
+					color = { 209 172 55 }
 				}
 				b_suhe = {
 					province = 759
-					color = { 251 223 24 }
+					color = { 254 166 59 }
 				}
 				b_sushan = {
 					province = 755
-					color = { 235 170 69 }
+					color = { 178 200 15 }
 				}
 			}
 			c_baicheng = {
-				color = { 212 194 68 }
+				color = { 197 222 22 }
 
 				b_xuanhe = {
 					province = 752
-					color = { 203 146 53 }
+					color = { 206 173 55 }
 				}
 				b_longyuan = {
 					province = 751
-					color = { 221 174 18 }
+					color = { 230 211 13 }
 				}
 				b_tianyuan = {
 					province = 764
-					color = { 198 146 61 }
+					color = { 221 202 27 }
 				}
 				b_jinling = {
 					province = 760
-					color = { 226 170 40 }
+					color = { 186 127 60 }
 				}
 				b_luoyuan = {
 					province = 762
-					color = { 195 197 17 }
+					color = { 184 140 30 }
 				}
 			}
 			c_zhenyuan = {
-				color = { 188 114 37 }
+				color = { 195 174 32 }
 
 				b_fengyuan = {
 					province = 766
-					color = { 238 165 59 }
+					color = { 193 196 43 }
 				}
 				b_zhaotai = {
 					province = 763
-					color = { 228 219 68 }
+					color = { 249 186 45 }
 				}
 				b_longtai = {
 					province = 765
-					color = { 221 248 41 }
+					color = { 200 131 44 }
 				}
 				b_yuncheng = {
 					province = 761
-					color = { 208 166 10 }
+					color = { 225 228 71 }
 				}
 			}
 			c_ruitai = {
-				color = { 184 194 39 }
+				color = { 255 147 49 }
 
 				b_xiling = {
 					province = 753
-					color = { 209 143 25 }
+					color = { 210 209 56 }
 				}
 				b_baishan = {
 					province = 757
-					color = { 219 148 18 }
+					color = { 249 194 33 }
 				}
 				b_ruihe = {
 					province = 774
-					color = { 245 236 59 }
+					color = { 181 140 14 }
 				}
 				b_minghe = {
 					province = 776
-					color = { 208 112 8 }
+					color = { 235 255 55 }
 				}
 			}
 			c_xuancheng = {
-				color = { 206 205 27 }
+				color = { 195 202 64 }
 
 				b_jingyuan = {
 					province = 767
-					color = { 211 192 39 }
+					color = { 240 146 40 }
 				}
 				b_qinghe = {
 					province = 769
-					color = { 197 147 28 }
+					color = { 195 128 25 }
 				}
 				b_xuanlou = {
 					province = 771
-					color = { 188 168 37 }
+					color = { 252 207 28 }
 				}
 				b_fengling = {
 					province = 768
-					color = { 252 224 15 }
+					color = { 178 183 7 }
 				}
 			}
 		}
 		d_yaoyuan = {
-			color = { 240 221 22 }
+			color = { 228 194 34 }
 			capital = c_qinglou
 
 			c_qinglou = {
-				color = { 193 129 37 }
+				color = { 184 179 52 }
 
 				b_yaozhou = {
 					province = 778
-					color = { 182 185 23 }
+					color = { 183 182 7 }
 				}
 				b_shuhe = {
 					province = 777
-					color = { 244 241 65 }
+					color = { 186 118 44 }
 				}
 				b_sutai = {
 					province = 775
-					color = { 194 205 25 }
+					color = { 191 168 35 }
 				}
 				b_nanshan = {
 					province = 779
-					color = { 221 229 68 }
+					color = { 186 198 16 }
 				}
 			}
 			c_jinzhou = {
-				color = { 231 173 35 }
+				color = { 213 132 15 }
 
 				b_houshan = {
 					province = 781
-					color = { 176 185 27 }
+					color = { 224 252 50 }
 				}
 				b_longcheng = {
 					province = 784
-					color = { 214 200 64 }
+					color = { 237 211 67 }
 				}
 				b_mingshan = {
 					province = 780
-					color = { 230 228 69 }
+					color = { 189 201 9 }
 				}
 				b_jinlou = {
 					province = 783
-					color = { 210 225 31 }
+					color = { 189 135 51 }
 				}
 			}
 			c_guangyuan = {
-				color = { 204 146 21 }
+				color = { 191 143 9 }
 
 				b_yaocheng = {
 					province = 785
-					color = { 185 181 50 }
+					color = { 204 129 38 }
 				}
 				b_yunling = {
 					province = 782
-					color = { 182 128 9 }
+					color = { 245 167 13 }
 				}
 				b_yunyuan = {
 					province = 797
-					color = { 239 195 75 }
+					color = { 177 187 21 }
 				}
 				b_xicheng = {
 					province = 799
-					color = { 186 125 10 }
+					color = { 201 159 29 }
 				}
 			}
 			c_luoshan = {
-				color = { 184 122 15 }
+				color = { 198 163 29 }
 
 				b_fenghe = {
 					province = 772
-					color = { 201 157 25 }
+					color = { 186 149 22 }
 				}
 				b_yunhe = {
 					province = 770
-					color = { 238 235 53 }
+					color = { 221 170 48 }
 				}
 				b_houcheng = {
 					province = 786
-					color = { 199 190 41 }
+					color = { 186 196 39 }
 				}
 				b_tianshan = {
 					province = 788
-					color = { 228 155 8 }
+					color = { 212 231 19 }
 				}
 			}
 			c_jinhe = {
-				color = { 228 195 69 }
+				color = { 212 170 18 }
 
 				b_jingtai = {
 					province = 787
-					color = { 229 219 64 }
+					color = { 239 164 49 }
 				}
 				b_jingshan = {
 					province = 790
-					color = { 243 238 47 }
+					color = { 220 145 66 }
 				}
 				b_jincheng = {
 					province = 792
-					color = { 225 247 76 }
+					color = { 226 154 36 }
 				}
 				b_ruiyuan = {
 					province = 789
-					color = { 202 103 9 }
+					color = { 225 233 70 }
 				}
 			}
 		}
 		d_lancheng = {
-			color = { 200 174 59 }
+			color = { 204 201 18 }
 			capital = c_houlou
 
 			c_houlou = {
-				color = { 216 168 31 }
+				color = { 190 178 55 }
 
 				b_yaolou = {
 					province = 802
-					color = { 193 210 50 }
+					color = { 254 200 67 }
 				}
 				b_yaotai = {
 					province = 798
-					color = { 173 193 25 }
+					color = { 241 160 48 }
 				}
 				b_mingcheng = {
 					province = 804
-					color = { 225 208 40 }
+					color = { 231 237 65 }
 				}
 				b_huacheng = {
 					province = 800
-					color = { 186 190 23 }
+					color = { 231 197 59 }
 				}
 			}
 			c_wenhe = {
-				color = { 190 185 58 }
+				color = { 220 144 15 }
 
 				b_kunling = {
 					province = 808
-					color = { 205 226 30 }
+					color = { 235 165 71 }
 				}
 				b_xishan = {
 					province = 805
-					color = { 187 131 6 }
+					color = { 211 144 8 }
 				}
 				b_lanshan = {
 					province = 801
-					color = { 245 252 52 }
+					color = { 235 197 66 }
 				}
 			}
 			c_xihe = {
-				color = { 218 176 60 }
+				color = { 212 151 31 }
 
 				b_bailing = {
 					province = 809
-					color = { 239 246 58 }
+					color = { 197 196 44 }
 				}
 				b_meiyuan = {
 					province = 803
-					color = { 218 236 10 }
+					color = { 227 181 44 }
 				}
 				b_lanzhou = {
 					province = 806
-					color = { 202 186 26 }
+					color = { 235 149 45 }
 				}
 				b_kuncheng = {
 					province = 810
-					color = { 214 140 23 }
+					color = { 184 170 28 }
 				}
 				b_helou = {
 					province = 807
-					color = { 255 151 9 }
+					color = { 209 147 53 }
 				}
 			}
 			c_xuantai = {
-				color = { 187 140 32 }
+				color = { 250 178 23 }
 
 				b_zhaoyuan = {
 					province = 796
-					color = { 228 238 10 }
+					color = { 198 119 22 }
 				}
 				b_longling = {
 					province = 795
-					color = { 217 144 62 }
+					color = { 181 187 45 }
 				}
 			}
 			c_hualou = {
-				color = { 188 211 38 }
+				color = { 254 212 57 }
 
 				b_wenzhou = {
 					province = 773
-					color = { 210 186 48 }
+					color = { 230 239 66 }
 				}
 				b_zhenlou = {
 					province = 791
-					color = { 226 221 58 }
+					color = { 186 135 31 }
 				}
 				b_lingyuan = {
 					province = 794
-					color = { 249 174 55 }
+					color = { 255 211 54 }
 				}
 				b_luolou = {
 					province = 793
-					color = { 190 149 20 }
+					color = { 214 178 40 }
 				}
 			}
 		}
 		d_yaohe = {
-			color = { 222 175 29 }
+			color = { 253 227 11 }
 			capital = c_houling
 
 			c_houling = {
-				color = { 210 156 18 }
+				color = { 234 151 57 }
 
 				b_guangcheng = {
 					province = 811
-					color = { 184 126 12 }
+					color = { 195 124 22 }
 				}
 			}
 		}
@@ -4506,446 +4506,446 @@ e_rasen = {
 		capital = c_rahokubo
 
 		d_semonuma = {
-			color = { 117 63 154 }
+			color = { 158 76 165 }
 			capital = c_rahokubo
 
 			c_rahokubo = {
-				color = { 195 74 182 }
+				color = { 150 90 197 }
 
 				b_hahamori = {
 					province = 869
-					color = { 102 65 122 }
+					color = { 94 60 127 }
 				}
 				b_hichikubo = {
 					province = 867
-					color = { 130 54 165 }
+					color = { 189 59 187 }
 				}
 				b_romori = {
 					province = 866
-					color = { 129 94 161 }
+					color = { 177 70 188 }
 				}
 				b_chimori = {
 					province = 868
-					color = { 140 74 147 }
+					color = { 161 57 189 }
 				}
 			}
 			c_shinuma = {
-				color = { 120 69 170 }
+				color = { 140 83 157 }
 
 				b_gonayami = {
 					province = 872
-					color = { 133 51 174 }
+					color = { 196 98 197 }
 				}
 				b_goyamura = {
 					province = 874
-					color = { 158 52 175 }
+					color = { 98 66 137 }
 				}
 				b_yokatani = {
 					province = 871
-					color = { 157 108 193 }
+					color = { 129 91 168 }
 				}
 				b_benotani = {
 					province = 873
-					color = { 113 67 168 }
+					color = { 163 86 164 }
 				}
 			}
 			c_dahozaka = {
-				color = { 191 78 190 }
+				color = { 109 53 137 }
 
 				b_momanuma = {
 					province = 876
-					color = { 133 82 141 }
+					color = { 176 58 194 }
 				}
 				b_hakomori = {
 					province = 870
-					color = { 151 73 145 }
+					color = { 116 75 142 }
 				}
 				b_mamura = {
 					province = 875
-					color = { 139 78 159 }
+					color = { 171 88 192 }
 				}
 				b_jizaka = {
 					province = 896
-					color = { 130 78 145 }
+					color = { 116 67 141 }
 				}
 			}
 			c_hasamura = {
-				color = { 125 49 125 }
+				color = { 89 43 138 }
 
 				b_riranuma = {
 					province = 845
-					color = { 135 78 188 }
+					color = { 99 55 128 }
 				}
 				b_yazezaka = {
 					province = 844
-					color = { 178 58 173 }
+					color = { 179 53 166 }
 				}
 				b_nayami = {
 					province = 846
-					color = { 183 67 188 }
+					color = { 155 80 160 }
 				}
 				b_kushiyami = {
 					province = 877
-					color = { 164 61 155 }
+					color = { 153 92 187 }
 				}
 			}
 			c_rananuma = {
-				color = { 169 76 190 }
+				color = { 150 51 140 }
 
 				b_damakubo = {
 					province = 882
-					color = { 126 83 168 }
+					color = { 100 58 122 }
 				}
 				b_yanuma = {
 					province = 879
-					color = { 149 64 151 }
+					color = { 146 97 174 }
 				}
 				b_nasekage = {
 					province = 883
-					color = { 130 69 142 }
+					color = { 132 63 160 }
 				}
 				b_nironuma = {
 					province = 880
-					color = { 147 69 141 }
+					color = { 99 60 146 }
 				}
 			}
 		}
 		d_zezaka = {
-			color = { 151 78 187 }
+			color = { 152 68 183 }
 			capital = c_fukitani
 
 			c_fukitani = {
-				color = { 154 79 166 }
+				color = { 131 78 156 }
 
 				b_tosomori = {
 					province = 886
-					color = { 98 53 132 }
+					color = { 123 66 137 }
 				}
 				b_sonimura = {
 					province = 881
-					color = { 164 97 181 }
+					color = { 91 49 133 }
 				}
 				b_tsukage = {
 					province = 884
-					color = { 107 41 134 }
+					color = { 100 64 131 }
 				}
 				b_namozaka = {
 					province = 878
-					color = { 123 82 158 }
+					color = { 162 88 162 }
 				}
 			}
 			c_hochizaka = {
-				color = { 144 92 195 }
+				color = { 98 50 126 }
 
 				b_kahotani = {
 					province = 848
-					color = { 148 56 165 }
+					color = { 180 70 179 }
 				}
 				b_hitamori = {
 					province = 847
-					color = { 133 65 164 }
+					color = { 127 75 148 }
 				}
 				b_setani = {
 					province = 889
-					color = { 118 50 142 }
+					color = { 181 64 178 }
 				}
 				b_takubo = {
 					province = 885
-					color = { 128 66 136 }
+					color = { 104 72 128 }
 				}
 			}
 			c_taromura = {
-				color = { 131 59 127 }
+				color = { 159 50 173 }
 
 				b_suyami = {
 					province = 891
-					color = { 120 75 170 }
+					color = { 120 67 133 }
 				}
 				b_hihoyami = {
 					province = 888
-					color = { 88 43 133 }
+					color = { 150 82 178 }
 				}
 				b_tabakubo = {
 					province = 892
-					color = { 136 70 134 }
+					color = { 136 62 138 }
 				}
 				b_ratani = {
 					province = 890
-					color = { 102 51 162 }
+					color = { 143 94 193 }
 				}
 				b_betsuyami = {
 					province = 887
-					color = { 85 38 129 }
+					color = { 169 77 170 }
 				}
 			}
 			c_gamimura = {
-				color = { 84 38 128 }
+				color = { 127 48 140 }
 
 				b_zesonuma = {
 					province = 849
-					color = { 118 55 139 }
+					color = { 190 88 188 }
 				}
 				b_rokubo = {
 					province = 852
-					color = { 113 72 154 }
+					color = { 180 54 178 }
 				}
 				b_fufuyami = {
 					province = 854
-					color = { 112 58 143 }
+					color = { 174 58 161 }
 				}
 				b_futozaka = {
 					province = 850
-					color = { 121 55 186 }
+					color = { 152 96 197 }
 				}
 			}
 			c_shisomori = {
-				color = { 103 50 136 }
+				color = { 121 80 152 }
 
 				b_madakubo = {
 					province = 857
-					color = { 130 93 172 }
+					color = { 141 78 140 }
 				}
 				b_jikubo = {
 					province = 853
-					color = { 187 108 193 }
+					color = { 127 37 125 }
 				}
 				b_zechimori = {
 					province = 893
-					color = { 104 68 140 }
+					color = { 126 82 147 }
 				}
 				b_mahazaka = {
 					province = 894
-					color = { 147 75 150 }
+					color = { 130 67 126 }
 				}
 			}
 		}
 		d_gomura = {
-			color = { 135 58 160 }
+			color = { 150 57 161 }
 			capital = c_jimori
 
 			c_jimori = {
-				color = { 167 52 172 }
+				color = { 169 64 185 }
 
 				b_zeyazaka = {
 					province = 814
-					color = { 157 53 150 }
+					color = { 125 52 165 }
 				}
 				b_gomiyami = {
 					province = 816
-					color = { 169 79 171 }
+					color = { 133 80 170 }
 				}
 				b_tosuyami = {
 					province = 813
-					color = { 185 100 197 }
+					color = { 108 50 174 }
 				}
 				b_zetoyami = {
 					province = 815
-					color = { 113 70 156 }
+					color = { 132 78 142 }
 				}
 			}
 			c_behamura = {
-				color = { 126 80 139 }
+				color = { 124 40 138 }
 
 				b_jiyami = {
 					province = 821
-					color = { 112 69 124 }
+					color = { 134 63 156 }
 				}
 				b_kakubo = {
 					province = 818
-					color = { 93 45 140 }
+					color = { 146 76 158 }
 				}
 				b_gokage = {
 					province = 820
-					color = { 166 98 197 }
+					color = { 95 46 148 }
 				}
 				b_takitani = {
 					province = 817
-					color = { 144 75 140 }
+					color = { 121 54 145 }
 				}
 			}
 			c_benuma = {
-				color = { 183 92 174 }
+				color = { 133 54 160 }
 
 				b_fuhozaka = {
 					province = 812
-					color = { 152 51 170 }
+					color = { 177 99 187 }
 				}
 				b_tachinuma = {
 					province = 830
-					color = { 139 70 187 }
+					color = { 155 94 165 }
 				}
 				b_shisumura = {
 					province = 831
-					color = { 173 74 169 }
+					color = { 129 70 185 }
 				}
 				b_mirotani = {
 					province = 827
-					color = { 142 56 164 }
+					color = { 141 84 183 }
 				}
 			}
 			c_tosozaka = {
-				color = { 146 71 191 }
+				color = { 106 66 146 }
 
 				b_kuzaka = {
 					province = 837
-					color = { 123 52 150 }
+					color = { 141 93 171 }
 				}
 				b_himori = {
 					province = 840
-					color = { 177 79 167 }
+					color = { 101 36 125 }
 				}
 				b_magamura = {
 					province = 834
-					color = { 104 55 126 }
+					color = { 153 45 149 }
 				}
 				b_damotani = {
 					province = 838
-					color = { 137 42 145 }
+					color = { 136 95 184 }
 				}
 			}
 			c_togamori = {
-				color = { 144 95 186 }
+				color = { 188 82 178 }
 
 				b_yufutani = {
 					province = 836
-					color = { 114 58 136 }
+					color = { 96 63 127 }
 				}
 				b_wahazaka = {
 					province = 829
-					color = { 134 55 176 }
+					color = { 197 73 197 }
 				}
 				b_yuratani = {
 					province = 833
-					color = { 133 62 138 }
+					color = { 142 74 161 }
 				}
 				b_washimori = {
 					province = 835
-					color = { 108 51 148 }
+					color = { 136 67 169 }
 				}
 			}
 			c_bakazaka = {
-				color = { 142 82 182 }
+				color = { 92 46 124 }
 
 				b_yonuma = {
 					province = 825
-					color = { 186 89 178 }
+					color = { 154 83 152 }
 				}
 				b_sokazaka = {
 					province = 822
-					color = { 130 75 169 }
+					color = { 147 98 172 }
 				}
 				b_rikage = {
 					province = 819
-					color = { 129 51 141 }
+					color = { 126 71 131 }
 				}
 				b_yuyazaka = {
 					province = 824
-					color = { 166 90 170 }
+					color = { 151 52 176 }
 				}
 			}
 		}
 		d_gokubo = {
-			color = { 129 71 132 }
+			color = { 105 53 125 }
 			capital = c_nihimura
 
 			c_nihimura = {
-				color = { 94 43 129 }
+				color = { 157 83 186 }
 
 				b_nomura = {
 					province = 828
-					color = { 146 52 140 }
+					color = { 177 79 191 }
 				}
 				b_razaka = {
 					province = 832
-					color = { 137 68 144 }
+					color = { 117 55 148 }
 				}
 				b_darokage = {
 					province = 851
-					color = { 111 68 122 }
+					color = { 160 77 176 }
 				}
 				b_kikikage = {
 					province = 855
-					color = { 144 59 140 }
+					color = { 104 45 139 }
 				}
 			}
 			c_dahazaka = {
-				color = { 113 81 147 }
+				color = { 115 36 126 }
 
 				b_chiyamori = {
 					province = 858
-					color = { 149 83 179 }
+					color = { 152 81 197 }
 				}
 				b_gokotani = {
 					province = 860
-					color = { 134 72 136 }
+					color = { 119 80 163 }
 				}
 				b_ritamura = {
 					province = 856
-					color = { 144 60 170 }
+					color = { 136 68 184 }
 				}
 				b_romomori = {
 					province = 859
-					color = { 148 86 197 }
+					color = { 135 64 174 }
 				}
 			}
 			c_mayami = {
-				color = { 100 56 129 }
+				color = { 140 65 177 }
 
 				b_kukutani = {
 					province = 864
-					color = { 127 50 130 }
+					color = { 152 56 156 }
 				}
 				b_shirinuma = {
 					province = 863
-					color = { 106 51 136 }
+					color = { 131 49 158 }
 				}
 				b_yatsukage = {
 					province = 861
-					color = { 168 98 161 }
+					color = { 142 77 149 }
 				}
 				b_mohayami = {
 					province = 895
-					color = { 186 84 192 }
+					color = { 157 98 177 }
 				}
 			}
 			c_koyukage = {
-				color = { 162 87 154 }
+				color = { 162 84 192 }
 
 				b_mogakubo = {
 					province = 839
-					color = { 141 73 173 }
+					color = { 83 39 133 }
 				}
 				b_kukubo = {
 					province = 842
-					color = { 97 66 135 }
+					color = { 104 67 151 }
 				}
 				b_setakage = {
 					province = 865
-					color = { 136 80 143 }
+					color = { 114 69 155 }
 				}
 				b_totsukage = {
 					province = 862
-					color = { 112 68 140 }
+					color = { 176 80 185 }
 				}
 			}
 			c_kokage = {
-				color = { 126 60 156 }
+				color = { 185 85 194 }
 
 				b_basonuma = {
 					province = 823
-					color = { 87 54 126 }
+					color = { 182 78 184 }
 				}
 				b_fukanuma = {
 					province = 826
-					color = { 170 67 180 }
+					color = { 133 68 151 }
 				}
 				b_hazaka = {
 					province = 843
-					color = { 169 52 178 }
+					color = { 97 64 125 }
 				}
 				b_hanotani = {
 					province = 841
-					color = { 138 83 186 }
+					color = { 160 62 192 }
 				}
 			}
 		}
@@ -4955,346 +4955,346 @@ e_rasen = {
 		capital = c_gohara
 
 		d_narijo = {
-			color = { 215 56 55 }
+			color = { 171 28 25 }
 			capital = c_gohara
 
 			c_gohara = {
-				color = { 222 121 51 }
+				color = { 178 43 7 }
 
 				b_seyujo = {
 					province = 898
-					color = { 218 102 53 }
+					color = { 229 32 20 }
 				}
 			}
 		}
 		d_sazaki = {
-			color = { 218 63 18 }
+			color = { 174 50 19 }
 			capital = c_moyagawa
 
 			c_moyagawa = {
-				color = { 205 63 4 }
+				color = { 217 39 77 }
 
 				b_nikumori = {
 					province = 910
-					color = { 177 102 52 }
+					color = { 231 89 55 }
 				}
 				b_howakawa = {
 					province = 913
-					color = { 188 74 53 }
+					color = { 237 8 2 }
 				}
 				b_bahogawa = {
 					province = 909
-					color = { 188 11 19 }
+					color = { 194 25 21 }
 				}
 				b_yumori = {
 					province = 911
-					color = { 211 64 63 }
+					color = { 183 34 31 }
 				}
 			}
 			c_kojo = {
-				color = { 218 52 36 }
+				color = { 231 40 62 }
 
 				b_mazaki = {
 					province = 923
-					color = { 193 86 33 }
+					color = { 170 29 39 }
 				}
 				b_wagozaki = {
 					province = 925
-					color = { 185 67 38 }
+					color = { 168 8 1 }
 				}
 				b_sutamori = {
 					province = 926
-					color = { 196 91 13 }
+					color = { 220 58 67 }
 				}
 				b_sozekawa = {
 					province = 922
-					color = { 233 136 63 }
+					color = { 202 70 8 }
 				}
 			}
 			c_yazaki = {
-				color = { 235 102 68 }
+				color = { 192 67 21 }
 
 				b_hobekawa = {
 					province = 917
-					color = { 162 65 14 }
+					color = { 177 39 28 }
 				}
 				b_zeyayama = {
 					province = 914
-					color = { 233 50 23 }
+					color = { 220 17 30 }
 				}
 				b_gabeyama = {
 					province = 919
-					color = { 203 83 8 }
+					color = { 236 64 99 }
 				}
 				b_shigawa = {
 					province = 930
-					color = { 179 62 36 }
+					color = { 222 106 60 }
 				}
 			}
 			c_kojidake = {
-				color = { 166 64 35 }
+				color = { 236 89 17 }
 
 				b_kihajo = {
 					province = 933
-					color = { 174 69 20 }
+					color = { 190 29 47 }
 				}
 				b_serigawa = {
 					province = 928
-					color = { 211 60 56 }
+					color = { 207 68 15 }
 				}
 				b_mojo = {
 					province = 931
-					color = { 199 14 10 }
+					color = { 210 13 29 }
 				}
 				b_tsuwadake = {
 					province = 932
-					color = { 225 120 53 }
+					color = { 209 33 64 }
 				}
 			}
 			c_marayama = {
-				color = { 232 33 29 }
+				color = { 183 6 10 }
 
 				b_sohara = {
 					province = 927
-					color = { 213 109 39 }
+					color = { 165 5 27 }
 				}
 				b_zekagawa = {
 					province = 924
-					color = { 168 56 25 }
+					color = { 238 117 43 }
 				}
 				b_makokawa = {
 					province = 929
-					color = { 215 56 24 }
+					color = { 201 103 50 }
 				}
 				b_chigokawa = {
 					province = 939
-					color = { 190 38 16 }
+					color = { 172 36 24 }
 				}
 			}
 		}
 		d_benikawa = {
-			color = { 224 74 11 }
+			color = { 176 31 37 }
 			capital = c_kakojo
 
 			c_kakojo = {
-				color = { 204 65 57 }
+				color = { 205 47 50 }
 
 				b_royadake = {
 					province = 900
-					color = { 187 2 34 }
+					color = { 182 4 35 }
 				}
 				b_jitogawa = {
 					province = 899
-					color = { 195 111 51 }
+					color = { 226 82 7 }
 				}
 				b_shigojo = {
 					province = 915
-					color = { 166 50 48 }
+					color = { 170 32 13 }
 				}
 				b_katohara = {
 					province = 912
-					color = { 172 76 38 }
+					color = { 182 56 41 }
 				}
 			}
 			c_ninoyama = {
-				color = { 180 65 0 }
+				color = { 170 79 20 }
 
 				b_yumogawa = {
 					province = 903
-					color = { 172 38 19 }
+					color = { 162 43 61 }
 				}
 				b_tasehara = {
 					province = 918
-					color = { 216 52 87 }
+					color = { 219 109 41 }
 				}
 				b_hachijo = {
 					province = 916
-					color = { 164 31 47 }
+					color = { 189 25 45 }
 				}
 				b_yubeyama = {
 					province = 920
-					color = { 168 31 1 }
+					color = { 168 78 29 }
 				}
 			}
 			c_seyama = {
-				color = { 163 58 17 }
+				color = { 186 46 24 }
 
 				b_bafugawa = {
 					province = 904
-					color = { 230 87 24 }
+					color = { 236 20 66 }
 				}
 				b_niwayama = {
 					province = 901
-					color = { 228 19 52 }
+					color = { 219 74 46 }
 				}
 				b_majiyama = {
 					province = 902
-					color = { 223 96 18 }
+					color = { 229 129 51 }
 				}
 				b_rikihara = {
 					province = 905
-					color = { 207 60 37 }
+					color = { 171 24 4 }
 				}
 			}
 			c_zemori = {
-				color = { 221 61 21 }
+				color = { 208 104 53 }
 
 				b_tsujizaki = {
 					province = 897
-					color = { 206 46 44 }
+					color = { 215 51 34 }
 				}
 				b_chifukawa = {
 					province = 907
-					color = { 221 53 54 }
+					color = { 162 69 35 }
 				}
 				b_hagawa = {
 					province = 908
-					color = { 194 71 0 }
+					color = { 233 80 34 }
 				}
 				b_hisegawa = {
 					province = 906
-					color = { 233 72 2 }
+					color = { 175 44 54 }
 				}
 			}
 			c_samomori = {
-				color = { 166 49 46 }
+				color = { 216 64 89 }
 
 				b_tosojo = {
 					province = 921
-					color = { 207 14 56 }
+					color = { 187 42 40 }
 				}
 				b_tsuwagawa = {
 					province = 935
-					color = { 185 11 15 }
+					color = { 223 102 6 }
 				}
 				b_sonohara = {
 					province = 936
-					color = { 221 16 25 }
+					color = { 206 72 57 }
 				}
 				b_yokawa = {
 					province = 934
-					color = { 178 75 33 }
+					color = { 199 48 69 }
 				}
 			}
 		}
 		d_shigayama = {
-			color = { 199 47 52 }
+			color = { 162 73 47 }
 			capital = c_yagadake
 
 			c_yagadake = {
-				color = { 212 53 27 }
+				color = { 186 10 22 }
 
 				b_kotsuhara = {
 					province = 940
-					color = { 202 61 27 }
+					color = { 180 28 28 }
 				}
 				b_bemori = {
 					province = 943
-					color = { 171 70 50 }
+					color = { 187 11 25 }
 				}
 				b_chigawa = {
 					province = 938
-					color = { 223 110 29 }
+					color = { 176 51 38 }
 				}
 				b_sanahara = {
 					province = 941
-					color = { 232 122 56 }
+					color = { 197 96 32 }
 				}
 			}
 			c_nibagawa = {
-				color = { 173 49 22 }
+				color = { 235 67 61 }
 
 				b_zedake = {
 					province = 944
-					color = { 194 8 37 }
+					color = { 230 139 68 }
 				}
 				b_nikijo = {
 					province = 945
-					color = { 188 96 41 }
+					color = { 224 99 9 }
 				}
 				b_tokawa = {
 					province = 942
-					color = { 163 80 23 }
+					color = { 193 1 39 }
 				}
 				b_hochikawa = {
 					province = 956
-					color = { 223 102 57 }
+					color = { 171 68 36 }
 				}
 			}
 			c_wachimori = {
-				color = { 216 33 14 }
+				color = { 187 86 23 }
 
 				b_yahara = {
 					province = 946
-					color = { 193 83 43 }
+					color = { 172 21 41 }
 				}
 				b_nibajo = {
 					province = 949
-					color = { 191 81 51 }
+					color = { 207 52 76 }
 				}
 				b_samori = {
 					province = 947
-					color = { 232 12 29 }
+					color = { 211 35 43 }
 				}
 				b_yasajo = {
 					province = 951
-					color = { 195 69 53 }
+					color = { 206 61 17 }
 				}
 			}
 			c_yakodake = {
-				color = { 219 23 42 }
+				color = { 184 9 36 }
 
 				b_tsuridake = {
 					province = 950
-					color = { 173 61 4 }
+					color = { 209 16 19 }
 				}
 				b_yomori = {
 					province = 958
-					color = { 209 19 10 }
+					color = { 221 61 66 }
 				}
 				b_yuyazaki = {
 					province = 959
-					color = { 231 81 60 }
+					color = { 218 45 72 }
 				}
 				b_susoyama = {
 					province = 957
-					color = { 226 46 82 }
+					color = { 191 35 59 }
 				}
 			}
 			c_kisejo = {
-				color = { 191 5 14 }
+				color = { 208 49 71 }
 
 				b_zehara = {
 					province = 948
-					color = { 165 39 47 }
+					color = { 216 15 56 }
 				}
 				b_fukawa = {
 					province = 952
-					color = { 236 10 35 }
+					color = { 203 31 51 }
 				}
 				b_yokiyama = {
 					province = 955
-					color = { 211 75 29 }
+					color = { 193 104 36 }
 				}
 				b_narikawa = {
 					province = 960
-					color = { 188 39 8 }
+					color = { 212 118 62 }
 				}
 			}
 			c_chitakawa = {
-				color = { 237 74 25 }
+				color = { 171 49 63 }
 
 				b_kagogawa = {
 					province = 937
-					color = { 193 34 64 }
+					color = { 166 39 10 }
 				}
 				b_mizaki = {
 					province = 953
-					color = { 171 64 20 }
+					color = { 223 82 63 }
 				}
 				b_wamori = {
 					province = 954
-					color = { 199 12 18 }
+					color = { 232 16 10 }
 				}
 			}
 		}
@@ -5304,552 +5304,552 @@ e_rasen = {
 		capital = c_bloodrun
 
 		d_rifuno = {
-			color = { 35 106 30 }
+			color = { 45 114 38 }
 			capital = c_bloodrun
 
 			c_bloodrun = {
-				color = { 42 117 27 }
+				color = { 57 143 37 }
 
 				b_thornthicket = {
 					province = 962
-					color = { 22 141 60 }
+					color = { 53 109 38 }
 				}
 			}
 		}
 		d_thorntangle = {
-			color = { 47 140 32 }
+			color = { 30 97 28 }
 			capital = c_ironhide
 
 			c_ironhide = {
-				color = { 39 131 31 }
+				color = { 47 114 23 }
 
 				b_bloodhide = {
 					province = 961
-					color = { 20 125 20 }
+					color = { 47 96 36 }
 				}
 			}
 		}
 		d_wildarena = {
-			color = { 64 155 68 }
+			color = { 47 116 33 }
 			capital = c_gabemori
 
 			c_gabemori = {
-				color = { 16 99 31 }
+				color = { 52 141 69 }
 
 				b_howlclaw = {
 					province = 964
-					color = { 69 132 48 }
+					color = { 59 140 49 }
 				}
 				b_burning_forest = {
 					province = 965
-					color = { 33 153 42 }
+					color = { 46 131 64 }
 				}
 				b_greatclaw = {
 					province = 963
-					color = { 20 103 25 }
+					color = { 65 166 55 }
 				}
 				b_fuyumori = {
 					province = 967
-					color = { 22 124 20 }
+					color = { 38 153 56 }
 				}
 			}
 			c_wildhide = {
-				color = { 33 167 41 }
+				color = { 82 159 47 }
 
 				b_tuskarena = {
 					province = 968
-					color = { 85 143 59 }
+					color = { 62 135 43 }
 				}
 				b_boneroar = {
 					province = 972
-					color = { 30 122 28 }
+					color = { 40 138 40 }
 				}
 				b_ironrun = {
 					province = 974
-					color = { 24 92 34 }
+					color = { 74 119 54 }
 				}
 				b_bloodgrove = {
 					province = 970
-					color = { 46 150 34 }
+					color = { 55 134 52 }
 				}
 			}
 			c_zekukiba = {
-				color = { 61 162 48 }
+				color = { 19 96 15 }
 
 				b_eldergrove = {
 					province = 973
-					color = { 76 137 50 }
+					color = { 61 152 77 }
 				}
 				b_howlhide = {
 					province = 969
-					color = { 60 124 35 }
+					color = { 46 154 51 }
 				}
 				b_kifuno = {
 					province = 971
-					color = { 21 115 28 }
+					color = { 43 128 61 }
 				}
 				b_rootpit = {
 					province = 989
-					color = { 47 105 43 }
+					color = { 26 141 27 }
 				}
 			}
 			c_horimori = {
-				color = { 52 115 43 }
+				color = { 30 141 24 }
 
 				b_takono = {
 					province = 966
-					color = { 67 160 77 }
+					color = { 70 165 55 }
 				}
 				b_ironroot = {
 					province = 986
-					color = { 42 93 56 }
+					color = { 77 149 60 }
 				}
 				b_moyogari = {
 					province = 984
-					color = { 31 93 29 }
+					color = { 38 113 44 }
 				}
 				b_zetono = {
 					province = 985
-					color = { 21 113 29 }
+					color = { 33 104 22 }
 				}
 			}
 			c_nogari = {
-				color = { 42 94 48 }
+				color = { 51 103 30 }
 
 				b_kigogari = {
 					province = 990
-					color = { 29 134 32 }
+					color = { 36 92 46 }
 				}
 				b_hoyugari = {
 					province = 987
-					color = { 66 162 35 }
+					color = { 54 152 72 }
 				}
 				b_nochikiba = {
 					province = 991
-					color = { 71 140 42 }
+					color = { 35 129 56 }
 				}
 				b_kikakiba = {
 					province = 988
-					color = { 51 115 21 }
+					color = { 38 152 62 }
 				}
 			}
 		}
 		d_greenclaw = {
-			color = { 40 110 33 }
+			color = { 36 92 44 }
 			capital = c_rahagari
 
 			c_rahagari = {
-				color = { 60 140 31 }
+				color = { 61 133 27 }
 
 				b_bloodroot = {
 					province = 1003
-					color = { 56 147 41 }
+					color = { 36 103 37 }
 				}
 			}
 		}
 		d_elderroot = {
-			color = { 39 152 51 }
+			color = { 37 106 38 }
 			capital = c_greentangle
 
 			c_greentangle = {
-				color = { 26 102 20 }
+				color = { 62 144 44 }
 
 				b_mikugari = {
 					province = 1030
-					color = { 62 155 58 }
+					color = { 38 99 56 }
 				}
 			}
 		}
 		d_benagari = {
-			color = { 20 120 26 }
+			color = { 46 122 33 }
 			capital = c_hayakiba
 
 			c_hayakiba = {
-				color = { 52 168 52 }
+				color = { 25 142 59 }
 
 				b_hochigari = {
 					province = 1006
-					color = { 58 136 59 }
+					color = { 61 158 60 }
 				}
 				b_tuskrun = {
 					province = 1004
-					color = { 47 119 47 }
+					color = { 84 154 65 }
 				}
 				b_yurino = {
 					province = 1008
-					color = { 25 100 21 }
+					color = { 56 131 41 }
 				}
 				b_totano = {
 					province = 1005
-					color = { 42 128 25 }
+					color = { 52 138 25 }
 				}
 			}
 			c_nirakiba = {
-				color = { 38 113 55 }
+				color = { 57 146 39 }
 
 				b_rokiba = {
 					province = 1007
-					color = { 33 118 20 }
+					color = { 72 134 61 }
 				}
 				b_monano = {
 					province = 1009
-					color = { 50 114 39 }
+					color = { 58 154 39 }
 				}
 				b_boneclaw = {
 					province = 1012
-					color = { 28 114 30 }
+					color = { 34 92 28 }
 				}
 				b_kutokiba = {
 					province = 1031
-					color = { 33 92 29 }
+					color = { 45 147 53 }
 				}
 			}
 			c_greatthicket = {
-				color = { 35 149 32 }
+				color = { 38 152 35 }
 
 				b_ironden = {
 					province = 1014
-					color = { 25 154 48 }
+					color = { 35 124 28 }
 				}
 				b_rootthicket = {
 					province = 1010
-					color = { 30 165 63 }
+					color = { 26 93 36 }
 				}
 				b_mimori = {
 					province = 1015
-					color = { 36 125 22 }
+					color = { 34 117 41 }
 				}
 				b_fanggrove = {
 					province = 1013
-					color = { 74 145 41 }
+					color = { 23 140 56 }
 				}
 			}
 			c_hirano = {
-				color = { 52 137 25 }
+				color = { 79 160 48 }
 
 				b_howlgrove = {
 					province = 996
-					color = { 46 157 55 }
+					color = { 43 118 27 }
 				}
 				b_yarikiba = {
 					province = 998
-					color = { 22 117 25 }
+					color = { 23 96 30 }
 				}
 				b_fukumori = {
 					province = 994
-					color = { 42 101 23 }
+					color = { 56 133 72 }
 				}
 				b_dagokiba = {
 					province = 1011
-					color = { 63 135 55 }
+					color = { 61 167 61 }
 				}
 			}
 			c_yakiba = {
-				color = { 27 121 47 }
+				color = { 50 111 36 }
 
 				b_hosuno = {
 					province = 1016
-					color = { 44 143 48 }
+					color = { 67 152 73 }
 				}
 				b_howlroar = {
 					province = 1037
-					color = { 38 106 57 }
+					color = { 70 162 34 }
 				}
 				b_greatgrove = {
 					province = 1042
-					color = { 56 165 81 }
+					color = { 65 137 47 }
 				}
 				b_greatrun = {
 					province = 1039
-					color = { 63 121 49 }
+					color = { 24 143 50 }
 				}
 			}
 		}
 		d_badakiba = {
-			color = { 44 147 54 }
+			color = { 22 94 18 }
 			capital = c_howlroot
 
 			c_howlroot = {
-				color = { 23 116 31 }
+				color = { 52 115 36 }
 
 				b_nibakiba = {
 					province = 977
-					color = { 26 151 42 }
+					color = { 96 164 66 }
 				}
 				b_wildclaw = {
 					province = 992
-					color = { 56 120 31 }
+					color = { 38 100 23 }
 				}
 				b_thornroot = {
 					province = 995
-					color = { 33 148 64 }
+					color = { 27 148 24 }
 				}
 				b_ironthicket = {
 					province = 993
-					color = { 61 137 78 }
+					color = { 58 132 80 }
 				}
 			}
 			c_hitokiba = {
-				color = { 46 166 51 }
+				color = { 39 128 35 }
 
 				b_eldertangle = {
 					province = 981
-					color = { 85 161 67 }
+					color = { 22 97 38 }
 				}
 				b_fangpit = {
 					province = 983
-					color = { 35 138 45 }
+					color = { 41 107 62 }
 				}
 				b_kusano = {
 					province = 980
-					color = { 36 150 65 }
+					color = { 29 94 16 }
 				}
 				b_fangthicket = {
 					province = 997
-					color = { 44 103 48 }
+					color = { 97 154 70 }
 				}
 			}
 			c_nachimori = {
-				color = { 28 137 59 }
+				color = { 39 128 47 }
 
 				b_sakukiba = {
 					province = 975
-					color = { 23 120 45 }
+					color = { 23 126 46 }
 				}
 				b_shitsuno = {
 					province = 982
-					color = { 38 110 47 }
+					color = { 57 133 61 }
 				}
 				b_greenrun = {
 					province = 979
-					color = { 43 165 27 }
+					color = { 75 132 60 }
 				}
 				b_bonearena = {
 					province = 978
-					color = { 55 102 40 }
+					color = { 47 117 21 }
 				}
 				b_irontangle = {
 					province = 976
-					color = { 50 150 38 }
+					color = { 26 106 18 }
 				}
 			}
 			c_fangtangle = {
-				color = { 42 149 61 }
+				color = { 72 167 48 }
 
 				b_elderclaw = {
 					province = 1000
-					color = { 55 131 35 }
+					color = { 28 97 48 }
 				}
 				b_hasukiba = {
 					province = 1002
-					color = { 61 151 50 }
+					color = { 38 143 48 }
 				}
 				b_datsukiba = {
 					province = 999
-					color = { 54 120 68 }
+					color = { 36 101 57 }
 				}
 				b_rinamori = {
 					province = 1001
-					color = { 60 152 79 }
+					color = { 55 155 57 }
 				}
 			}
 			c_thornarena = {
-				color = { 40 136 33 }
+				color = { 60 134 63 }
 
 				b_dano = {
 					province = 1020
-					color = { 54 144 51 }
+					color = { 33 116 39 }
 				}
 				b_shirakiba = {
 					province = 1017
-					color = { 28 133 37 }
+					color = { 37 132 39 }
 				}
 				b_ragari = {
 					province = 1021
-					color = { 32 136 38 }
+					color = { 43 93 41 }
 				}
 				b_dayogari = {
 					province = 1018
-					color = { 38 111 60 }
+					color = { 46 118 57 }
 				}
 			}
 		}
 		d_suyamori = {
-			color = { 48 101 35 }
+			color = { 31 123 22 }
 			capital = c_wildtangle
 
 			c_wildtangle = {
-				color = { 30 113 57 }
+				color = { 58 119 29 }
 
 				b_gobegari = {
 					province = 1034
-					color = { 20 95 28 }
+					color = { 31 124 60 }
 				}
 				b_hano = {
 					province = 1032
-					color = { 54 130 60 }
+					color = { 24 156 42 }
 				}
 				b_zeno = {
 					province = 1035
-					color = { 40 156 70 }
+					color = { 52 158 31 }
 				}
 				b_gahigari = {
 					province = 1033
-					color = { 48 132 68 }
+					color = { 63 163 28 }
 				}
 			}
 			c_nahigari = {
-				color = { 69 159 97 }
+				color = { 53 140 38 }
 
 				b_greattangle = {
 					province = 1040
-					color = { 50 119 49 }
+					color = { 56 138 49 }
 				}
 				b_sesamori = {
 					province = 1036
-					color = { 52 137 47 }
+					color = { 34 127 21 }
 				}
 				b_nomogari = {
 					province = 1041
-					color = { 48 113 32 }
+					color = { 29 113 51 }
 				}
 				b_gomimori = {
 					province = 1038
-					color = { 58 107 37 }
+					color = { 22 139 25 }
 				}
 			}
 			c_beastpit = {
-				color = { 39 99 25 }
+				color = { 36 150 71 }
 
 				b_beastarena = {
 					province = 1043
-					color = { 60 160 88 }
+					color = { 32 137 61 }
 				}
 				b_mayuno = {
 					province = 1046
-					color = { 27 143 41 }
+					color = { 18 116 35 }
 				}
 				b_fudamori = {
 					province = 1044
-					color = { 22 117 23 }
+					color = { 56 164 77 }
 				}
 				b_jikomori = {
 					province = 1047
-					color = { 37 102 17 }
+					color = { 55 155 75 }
 				}
 			}
 			c_greatden = {
-				color = { 26 132 35 }
+				color = { 39 160 48 }
 
 				b_begano = {
 					province = 1049
-					color = { 46 109 48 }
+					color = { 33 92 51 }
 				}
 				b_wasekiba = {
 					province = 1056
-					color = { 68 159 78 }
+					color = { 64 125 56 }
 				}
 				b_howlthicket = {
 					province = 1055
-					color = { 40 155 46 }
+					color = { 48 150 52 }
 				}
 				b_wanigari = {
 					province = 1054
-					color = { 55 165 35 }
+					color = { 54 162 67 }
 				}
 			}
 			c_howlpit = {
-				color = { 60 158 46 }
+				color = { 51 121 40 }
 
 				b_sanono = {
 					province = 1022
-					color = { 60 142 49 }
+					color = { 52 99 32 }
 				}
 				b_beastthicket = {
 					province = 1019
-					color = { 25 93 38 }
+					color = { 74 145 43 }
 				}
 				b_homori = {
 					province = 1025
-					color = { 35 121 47 }
+					color = { 66 150 53 }
 				}
 				b_nomori = {
 					province = 1045
-					color = { 56 168 31 }
+					color = { 38 166 42 }
 				}
 			}
 		}
 		d_elderden = {
-			color = { 41 130 38 }
+			color = { 42 137 57 }
 			capital = c_tuskpit
 
 			c_tuskpit = {
-				color = { 29 115 37 }
+				color = { 75 164 44 }
 
 				b_romamori = {
 					province = 1023
-					color = { 53 124 75 }
+					color = { 57 126 50 }
 				}
 				b_rorano = {
 					province = 1026
-					color = { 33 133 50 }
+					color = { 50 165 31 }
 				}
 				b_beastrun = {
 					province = 1024
-					color = { 38 93 49 }
+					color = { 22 139 34 }
 				}
 				b_howlmaw = {
 					province = 1027
-					color = { 41 99 24 }
+					color = { 55 119 40 }
 				}
 				b_chirakiba = {
 					province = 1029
-					color = { 23 129 37 }
+					color = { 53 134 55 }
 				}
 			}
 			c_rigari = {
-				color = { 48 92 29 }
+				color = { 49 120 41 }
 
 				b_thornclaw = {
 					province = 1028
-					color = { 48 125 25 }
+					color = { 54 114 36 }
 				}
 				b_bonerun = {
 					province = 1048
-					color = { 58 132 75 }
+					color = { 49 156 77 }
 				}
 				b_howlarena = {
 					province = 1051
-					color = { 71 132 55 }
+					color = { 49 142 63 }
 				}
 				b_rootgrove = {
 					province = 1050
-					color = { 78 153 45 }
+					color = { 52 124 44 }
 				}
 			}
 			c_jimigari = {
-				color = { 27 112 33 }
+				color = { 24 141 63 }
 
 				b_kuyomori = {
 					province = 1053
-					color = { 82 165 73 }
+					color = { 40 99 21 }
 				}
 				b_nitakiba = {
 					province = 1052
-					color = { 73 124 54 }
+					color = { 71 134 40 }
 				}
 			}
 		}
 		d_zeyomori = {
-			color = { 37 103 33 }
+			color = { 16 102 27 }
 			capital = c_sobegari
 
 			c_sobegari = {
-				color = { 38 138 51 }
+				color = { 30 133 41 }
 
 				b_bloodarena = {
 					province = 1057
-					color = { 47 159 28 }
+					color = { 51 122 39 }
 				}
 			}
 		}
@@ -5859,536 +5859,536 @@ e_rasen = {
 		capital = c_azuma
 
 		d_ramon = {
-			color = { 229 211 179 }
+			color = { 237 205 161 }
 			capital = c_azuma
 
 			c_azuma = {
-				color = { 210 186 126 }
+				color = { 255 205 160 }
 
 				b_azuma = {
 					province = 1058
-					color = { 248 182 127 }
+					color = { 199 162 135 }
 				}
 				b_tsuden = {
 					province = 1060
-					color = { 254 222 185 }
+					color = { 229 193 152 }
 				}
 				b_tomon = {
 					province = 1059
-					color = { 246 207 161 }
+					color = { 255 238 136 }
 				}
 				b_sojikyo = {
 					province = 1062
-					color = { 211 215 127 }
+					color = { 199 180 128 }
 				}
 				b_dakaden = {
 					province = 1067
-					color = { 203 178 138 }
+					color = { 233 199 150 }
 				}
 				b_yozeza = {
 					province = 1061
-					color = { 206 195 159 }
+					color = { 255 248 135 }
 				}
 			}
 			c_kicho = {
-				color = { 246 235 159 }
+				color = { 206 201 106 }
 
 				b_tsuura = {
 					province = 1070
-					color = { 231 221 174 }
+					color = { 242 229 172 }
 				}
 				b_gaura = {
 					province = 1071
-					color = { 230 223 157 }
+					color = { 208 166 123 }
 				}
 				b_tsuhobashi = {
 					province = 1068
-					color = { 255 220 167 }
+					color = { 229 187 142 }
 				}
 				b_subashi = {
 					province = 1065
-					color = { 242 208 180 }
+					color = { 230 229 114 }
 				}
 			}
 			c_monoura = {
-				color = { 213 203 146 }
+				color = { 222 186 148 }
 
 				b_yuyakyo = {
 					province = 1064
-					color = { 198 169 120 }
+					color = { 222 185 144 }
 				}
 				b_tsuyamon = {
 					province = 1069
-					color = { 223 198 160 }
+					color = { 253 234 152 }
 				}
 				b_koza = {
 					province = 1063
-					color = { 247 235 175 }
+					color = { 221 176 133 }
 				}
 				b_tosamachi = {
 					province = 1066
-					color = { 251 225 139 }
+					color = { 227 227 151 }
 				}
 			}
 			c_sofumachi = {
-				color = { 255 238 143 }
+				color = { 214 207 143 }
 
 				b_nabamon = {
 					province = 1076
-					color = { 212 183 153 }
+					color = { 234 207 168 }
 				}
 				b_jirimachi = {
 					province = 1072
-					color = { 199 178 108 }
+					color = { 213 161 112 }
 				}
 				b_zemikyo = {
 					province = 1075
-					color = { 210 166 111 }
+					color = { 204 197 128 }
 				}
 				b_nowamachi = {
 					province = 1073
-					color = { 255 214 156 }
+					color = { 255 217 188 }
 				}
 			}
 			c_goden = {
-				color = { 201 189 144 }
+				color = { 241 185 120 }
 
 				b_yunoza = {
 					province = 1077
-					color = { 212 168 125 }
+					color = { 255 225 191 }
 				}
 				b_jimachi = {
 					province = 1074
-					color = { 228 176 121 }
+					color = { 216 207 154 }
 				}
 				b_gorobashi = {
 					province = 1079
-					color = { 202 188 124 }
+					color = { 247 222 193 }
 				}
 				b_nimachi = {
 					province = 1078
-					color = { 251 233 196 }
+					color = { 224 225 132 }
 				}
 			}
 		}
 		d_yabashi = {
-			color = { 218 210 120 }
+			color = { 203 190 131 }
 			capital = c_bebashi
 
 			c_bebashi = {
-				color = { 248 248 141 }
+				color = { 216 179 117 }
 
 				b_yamachi = {
 					province = 1085
-					color = { 255 219 138 }
+					color = { 211 202 115 }
 				}
 				b_jikuza = {
 					province = 1087
-					color = { 194 200 108 }
+					color = { 255 213 171 }
 				}
 				b_yorimon = {
 					province = 1084
-					color = { 255 253 195 }
+					color = { 225 225 136 }
 				}
 				b_shizemachi = {
 					province = 1086
-					color = { 255 247 190 }
+					color = { 249 200 148 }
 				}
 			}
 			c_takobashi = {
-				color = { 242 238 178 }
+				color = { 198 173 145 }
 
 				b_mikiden = {
 					province = 1090
-					color = { 202 201 135 }
+					color = { 255 198 128 }
 				}
 				b_wacho = {
 					province = 1092
-					color = { 255 232 197 }
+					color = { 207 200 134 }
 				}
 				b_yacho = {
 					province = 1088
-					color = { 241 224 172 }
+					color = { 253 255 174 }
 				}
 				b_namon = {
 					province = 1091
-					color = { 255 227 154 }
+					color = { 255 251 165 }
 				}
 			}
 			c_kuura = {
-				color = { 255 190 126 }
+				color = { 213 206 128 }
 
 				b_zehicho = {
 					province = 1094
-					color = { 219 200 141 }
+					color = { 255 225 197 }
 				}
 				b_nokukyo = {
 					province = 1098
-					color = { 238 238 146 }
+					color = { 206 152 109 }
 				}
 				b_tsutsuura = {
 					province = 1093
-					color = { 214 212 107 }
+					color = { 231 221 140 }
 				}
 				b_senakyo = {
 					province = 1097
-					color = { 204 178 103 }
+					color = { 215 173 129 }
 				}
 			}
 			c_moniura = {
-				color = { 255 248 160 }
+				color = { 230 201 171 }
 
 				b_yocho = {
 					province = 1099
-					color = { 248 197 156 }
+					color = { 208 189 163 }
 				}
 				b_mamachi = {
 					province = 1104
-					color = { 255 253 144 }
+					color = { 209 168 110 }
 				}
 				b_chifubashi = {
 					province = 1095
-					color = { 255 253 156 }
+					color = { 237 227 143 }
 				}
 				b_beyukyo = {
 					province = 1101
-					color = { 235 175 125 }
+					color = { 209 186 159 }
 				}
 			}
 			c_totobashi = {
-				color = { 254 226 157 }
+				color = { 232 221 182 }
 
 				b_kuwabashi = {
 					province = 1089
-					color = { 252 216 134 }
+					color = { 232 209 162 }
 				}
 				b_naden = {
 					province = 1096
-					color = { 255 246 133 }
+					color = { 234 228 161 }
 				}
 				b_sotsuura = {
 					province = 1122
-					color = { 255 234 185 }
+					color = { 211 195 156 }
 				}
 				b_nakyo = {
 					province = 1125
-					color = { 215 180 116 }
+					color = { 228 204 157 }
 				}
 			}
 		}
 		d_betomon = {
-			color = { 243 195 127 }
+			color = { 203 178 130 }
 			capital = c_basomachi
 
 			c_basomachi = {
-				color = { 255 227 127 }
+				color = { 226 193 149 }
 
 				b_chihimachi = {
 					province = 1123
-					color = { 254 235 195 }
+					color = { 247 229 141 }
 				}
 				b_hohokyo = {
 					province = 1126
-					color = { 201 176 129 }
+					color = { 255 218 156 }
 				}
 				b_beza = {
 					province = 1121
-					color = { 200 198 156 }
+					color = { 254 255 137 }
 				}
 				b_kumon = {
 					province = 1124
-					color = { 209 182 160 }
+					color = { 235 219 153 }
 				}
 			}
 			c_hanoden = {
-				color = { 209 191 120 }
+				color = { 247 183 127 }
 
 				b_nabemon = {
 					province = 1133
-					color = { 243 208 183 }
+					color = { 255 238 144 }
 				}
 				b_jijiza = {
 					province = 1128
-					color = { 255 234 159 }
+					color = { 255 222 160 }
 				}
 				b_yuden = {
 					province = 1132
-					color = { 204 194 109 }
+					color = { 255 201 146 }
 				}
 				b_yohoden = {
 					province = 1127
-					color = { 210 210 152 }
+					color = { 238 211 177 }
 				}
 			}
 			c_maura = {
-				color = { 210 185 132 }
+				color = { 208 200 111 }
 
 				b_nasubashi = {
 					province = 1140
-					color = { 227 191 152 }
+					color = { 221 207 170 }
 				}
 				b_tonacho = {
 					province = 1131
-					color = { 244 234 144 }
+					color = { 231 198 132 }
 				}
 				b_semachi = {
 					province = 1135
-					color = { 205 202 151 }
+					color = { 204 186 138 }
 				}
 				b_nogabashi = {
 					province = 1138
-					color = { 250 204 155 }
+					color = { 199 183 153 }
 				}
 			}
 			c_jiyuza = {
-				color = { 230 227 128 }
+				color = { 238 195 152 }
 
 				b_kubamon = {
 					province = 1129
-					color = { 255 223 153 }
+					color = { 218 221 166 }
 				}
 				b_yuwaura = {
 					province = 1134
-					color = { 255 236 164 }
+					color = { 245 227 171 }
 				}
 				b_yutobashi = {
 					province = 1130
-					color = { 240 238 125 }
+					color = { 216 153 109 }
 				}
 				b_nikicho = {
 					province = 1136
-					color = { 205 201 104 }
+					color = { 255 242 151 }
 				}
 			}
 			c_nabashi = {
-				color = { 228 231 143 }
+				color = { 234 228 170 }
 
 				b_mozemon = {
 					province = 1137
-					color = { 255 226 191 }
+					color = { 255 236 186 }
 				}
 				b_macho = {
 					province = 1154
-					color = { 255 236 194 }
+					color = { 255 206 138 }
 				}
 				b_gakyo = {
 					province = 1152
-					color = { 233 214 114 }
+					color = { 217 213 144 }
 				}
 				b_dahacho = {
 					province = 1153
-					color = { 220 167 128 }
+					color = { 209 198 155 }
 				}
 			}
 		}
 		d_shihibashi = {
-			color = { 235 198 153 }
+			color = { 217 187 118 }
 			capital = c_nomobashi
 
 			c_nomobashi = {
-				color = { 240 208 184 }
+				color = { 215 162 105 }
 
 				b_tsunakyo = {
 					province = 1105
-					color = { 213 202 105 }
+					color = { 245 237 169 }
 				}
 				b_nicho = {
 					province = 1100
-					color = { 255 213 166 }
+					color = { 244 233 151 }
 				}
 				b_tazeden = {
 					province = 1108
-					color = { 247 212 171 }
+					color = { 209 176 143 }
 				}
 				b_rachiura = {
 					province = 1103
-					color = { 209 203 108 }
+					color = { 219 203 124 }
 				}
 			}
 			c_sokyo = {
-				color = { 224 210 132 }
+				color = { 255 211 152 }
 
 				b_tsuza = {
 					province = 1107
-					color = { 227 177 134 }
+					color = { 255 220 143 }
 				}
 				b_sabacho = {
 					province = 1102
-					color = { 255 230 177 }
+					color = { 219 199 154 }
 				}
 				b_gamon = {
 					province = 1112
-					color = { 228 214 147 }
+					color = { 255 196 137 }
 				}
 				b_miden = {
 					province = 1110
-					color = { 215 220 129 }
+					color = { 219 198 142 }
 				}
 			}
 			c_rotoura = {
-				color = { 222 201 161 }
+				color = { 209 194 150 }
 
 				b_kokyo = {
 					province = 1114
-					color = { 255 251 139 }
+					color = { 208 169 101 }
 				}
 				b_nasecho = {
 					province = 1117
-					color = { 255 246 165 }
+					color = { 215 204 143 }
 				}
 				b_wagomachi = {
 					province = 1111
-					color = { 239 194 129 }
+					color = { 253 244 171 }
 				}
 				b_mocho = {
 					province = 1116
-					color = { 225 213 154 }
+					color = { 225 185 141 }
 				}
 			}
 			c_sadakyo = {
-				color = { 200 202 139 }
+				color = { 248 233 170 }
 
 				b_baza = {
 					province = 1081
-					color = { 246 239 168 }
+					color = { 226 194 169 }
 				}
 				b_fukabashi = {
 					province = 1082
-					color = { 243 187 137 }
+					color = { 198 182 140 }
 				}
 				b_mirimon = {
 					province = 1080
-					color = { 210 198 135 }
+					color = { 201 173 138 }
 				}
 				b_daza = {
 					province = 1083
-					color = { 255 249 197 }
+					color = { 220 182 150 }
 				}
 			}
 			c_soyucho = {
-				color = { 207 212 118 }
+				color = { 255 233 133 }
 
 				b_sokacho = {
 					province = 1120
-					color = { 217 174 136 }
+					color = { 255 239 166 }
 				}
 				b_sumoza = {
 					province = 1119
-					color = { 202 202 146 }
+					color = { 251 255 157 }
 				}
 			}
 		}
 		d_kidaura = {
-			color = { 209 172 113 }
+			color = { 255 210 142 }
 			capital = c_yaden
 
 			c_yaden = {
-				color = { 254 213 153 }
+				color = { 255 236 187 }
 
 				b_somachi = {
 					province = 1106
-					color = { 249 197 156 }
+					color = { 255 253 162 }
 				}
 				b_ribashi = {
 					province = 1109
-					color = { 253 222 184 }
+					color = { 225 216 141 }
 				}
 				b_damon = {
 					province = 1145
-					color = { 255 238 151 }
+					color = { 201 173 127 }
 				}
 				b_shiden = {
 					province = 1139
-					color = { 255 248 162 }
+					color = { 234 205 144 }
 				}
 			}
 			c_hiura = {
-				color = { 254 247 179 }
+				color = { 255 241 198 }
 
 				b_shikiura = {
 					province = 1115
-					color = { 251 199 149 }
+					color = { 255 238 195 }
 				}
 				b_motsuden = {
 					province = 1113
-					color = { 232 179 114 }
+					color = { 218 216 108 }
 				}
 				b_yuyomachi = {
 					province = 1118
-					color = { 255 224 188 }
+					color = { 255 240 185 }
 				}
 				b_kacho = {
 					province = 1148
-					color = { 242 178 126 }
+					color = { 239 241 146 }
 				}
 			}
 			c_yumon = {
-				color = { 222 173 131 }
+				color = { 206 208 132 }
 
 				b_nayoden = {
 					province = 1144
-					color = { 217 218 165 }
+					color = { 242 241 176 }
 				}
 				b_kugamachi = {
 					province = 1147
-					color = { 225 214 123 }
+					color = { 211 212 119 }
 				}
 				b_chiraza = {
 					province = 1143
-					color = { 236 205 161 }
+					color = { 201 175 140 }
 				}
 				b_homon = {
 					province = 1146
-					color = { 236 180 119 }
+					color = { 240 203 125 }
 				}
 			}
 			c_tomachi = {
-				color = { 247 238 188 }
+				color = { 222 192 165 }
 
 				b_jisomachi = {
 					province = 1150
-					color = { 251 181 128 }
+					color = { 210 181 155 }
 				}
 				b_rofuura = {
 					province = 1151
-					color = { 255 217 168 }
+					color = { 250 194 155 }
 				}
 				b_shikimon = {
 					province = 1149
-					color = { 210 171 130 }
+					color = { 231 208 134 }
 				}
 			}
 			c_miyucho = {
-				color = { 255 187 125 }
+				color = { 255 191 132 }
 
 				b_tamon = {
 					province = 1142
-					color = { 217 194 122 }
+					color = { 203 194 130 }
 				}
 				b_furaza = {
 					province = 1141
-					color = { 225 200 123 }
+					color = { 255 204 157 }
 				}
 				b_ninoura = {
 					province = 1156
-					color = { 250 255 172 }
+					color = { 255 234 187 }
 				}
 				b_kagakyo = {
 					province = 1155
-					color = { 255 198 130 }
+					color = { 212 187 123 }
 				}
 			}
 		}
 		d_dazemon = {
-			color = { 255 217 161 }
+			color = { 207 187 143 }
 			capital = c_hibashi
 
 			c_hibashi = {
-				color = { 201 155 116 }
+				color = { 237 213 173 }
 
 				b_batsumon = {
 					province = 1157
-					color = { 253 195 148 }
+					color = { 226 195 173 }
 				}
 			}
 		}

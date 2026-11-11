@@ -23,6 +23,7 @@ import hashlib
 import io
 import json
 import math
+import re
 from pathlib import Path
 
 import numpy as np
@@ -39,7 +40,9 @@ OUT = ROOT / 'RasenMap'
 PREVIEW = ROOT / 'output/rasen-preview.png'
 SPEC = json.loads((Path(__file__).with_name('rasen_regions.json')).read_text(encoding='utf-8'))
 
-WIDTH, HEIGHT = 8192, 4096
+WIDTH, HEIGHT = 8192, 4096            # the painted world
+MAP_WIDTH, MAP_HEIGHT = 9216, 4608    # vanilla CK3 1.20 map size
+PAD_X, PAD_Y = (MAP_WIDTH - WIDTH) // 2, (MAP_HEIGHT - HEIGHT) // 2
 SEED = 1066
 SEA_LEVEL = 18          # heightmap value at the coast; CK3's water plane sits just above it
 TARGET_PROVINCE_PX = SPEC['target_province_px']
@@ -483,8 +486,9 @@ def heightmap(labels, rock, rng):
     land = labels > 0
     coast = nd.distance_transform_edt(land).astype(np.float32)
     depth = nd.distance_transform_edt(~land).astype(np.float32)
-    noise = nd.gaussian_filter(rng.standard_normal((HEIGHT // 8, WIDTH // 8)).astype(np.float32), 3)
-    noise = np.asarray(Image.fromarray(noise).resize((WIDTH, HEIGHT), Image.BICUBIC))
+    h, w = labels.shape
+    noise = nd.gaussian_filter(rng.standard_normal((h // 8, w // 8)).astype(np.float32), 3)
+    noise = np.asarray(Image.fromarray(noise).resize((w, h), Image.BICUBIC))
     mountains = nd.gaussian_filter(rock, 10) * 2.2
     raised = np.zeros_like(coast)
     for region in REGIONS:
@@ -577,12 +581,64 @@ def rivers_png(labels):
     return buf.getvalue()
 
 
+# Map object locators: where CK3 draws holdings, armies, sieges and activities for each province.
+# Vanilla's files place Earth's province ids, many outside this smaller map, which crashes the load.
+# name, clamp_to_water_level, layer, land only?, (dx, dz) offset from the province's interior point
+LOCATORS = {
+    'building_locators': ('buildings', 'yes', 'building_layer', True, (0, 0)),
+    'special_building_locators': ('special_building', 'yes', 'building_layer', True, (0, 0)),
+    'siege_locators': ('siege', 'no', 'unit_layer', True, (6, -4)),
+    'activities': ('activities', 'no', 'activities_layer', True, (-6, 4)),
+    'combat_locators': ('combat', 'yes', 'unit_layer', False, (0, 6)),
+    'stack_locators': ('unit_stack', 'yes', 'unit_layer', False, (-5, -5)),
+    'player_stack_locators': ('unit_stack_player_owned', 'yes', 'unit_layer', False, (-5, -5)),
+    'other_stack_locators': ('unit_stack_other_owner', 'yes', 'unit_layer', False, (5, -5)),
+}
+
+
+def interior_points(provinces, ids):
+    """For each province, the pixel farthest from its border (so objects sit well inside it)."""
+    edge = np.zeros(provinces.shape, bool)
+    edge[:, :-1] |= provinces[:, :-1] != provinces[:, 1:]
+    edge[:-1, :] |= provinces[:-1, :] != provinces[1:, :]
+    edge[:, 1:] |= provinces[:, :-1] != provinces[:, 1:]
+    edge[1:, :] |= provinces[:-1, :] != provinces[1:, :]
+    depth = nd.distance_transform_edt(~edge)
+    positions = nd.maximum_position(depth, labels=provinces, index=ids)
+    return {pid: (int(row), int(col), float(depth[row, col])) for pid, (row, col) in zip(ids, positions)}
+
+
+def map_object_locators(provinces, land_ids, water_ids):
+    h, w = provinces.shape
+    points = interior_points(provinces, sorted(land_ids) + sorted(water_ids))
+    files = {}
+    for filename, (name, clamp, layer, land_only, (dx, dz)) in LOCATORS.items():
+        ids = sorted(land_ids) if land_only else sorted(points)
+        lines = ['game_object_locator={', f'\tname="{name}"', '\trender_pass=Map', f'\tclamp_to_water_level={clamp}',
+                 '\tgenerated_content=no', f'\tlayer="{layer}"', '\tinstances={']
+        for pid in ids:
+            row, col, depth = points[pid]
+            reach = min(1.0, depth / 8)  # keep offsets inside small provinces
+            x = min(max(col + 0.5 + dx * reach, 0.0), w - 1.0)
+            z = min(max((h - 1 - row) + 0.5 + dz * reach, 0.0), h - 1.0)  # CK3's z runs bottom-up
+            lines += ['\t\t{', f'\t\t\tid={pid}', f'\t\t\tposition={{ {x:.6f} 0.000000 {z:.6f} }}',
+                      '\t\t\trotation={ -0.000000 0.000000 -0.000000 1.000000 }',
+                      '\t\t\tscale={ 1.000000 1.000000 1.000000 }', '\t\t}']
+        lines += ['\t}', '}']
+        files[f'gfx/map/map_object_data/{filename}.txt'] = ('﻿' + '\n'.join(lines) + '\n').encode('utf-8')
+    return files
+
+
 def render(write=True):
     rng = np.random.default_rng(SEED)
     rgb, hue, sat, val = load_source()
     labels, land = classify(hue, sat, val)
     labels = smooth_regions(labels, land)
     target, rock, transform = project(labels, land, val, sat)
+    # CK3's terrain textures, masks and colormap are all vanilla-sized: centre the painted world
+    # in open ocean at 9216 x 4608 (a smaller map crashes the load as soon as holdings exist).
+    pad = ((PAD_Y, MAP_HEIGHT - HEIGHT - PAD_Y), (PAD_X, MAP_WIDTH - WIDTH - PAD_X))
+    target, rock = np.pad(target, pad), np.pad(rock, pad)
     provinces, region_of, centre = build_provinces(target, rng)
     count = int(provinces.max())
     graph = adjacency(provinces)
@@ -613,6 +669,14 @@ def render(write=True):
     files['map_data/island_region.txt'] = b'# No island regions yet.\n'
     titles, loc = landed_titles(kingdoms, rng)
     files['common/landed_titles/00_rasen_titles.txt'] = ('﻿' + titles).encode('utf-8')
+    # Vanilla scripts name Earth's realms (title:e_byzantium, h_china ...). As the Atlantis
+    # total-conversion template does, keep each vanilla hegemony, empire, kingdom and duchy
+    # defined as a landless title, so those scripts find a title instead of crashing.
+    ours = set(re.findall(r'\b([hekd]_\w+) = \{', titles))
+    vanilla = json.loads(Path(__file__).with_name('vanilla_landed_titles.json').read_text(encoding='utf-8'))
+    stubs = ['# Generated by tools/build_rasen_map.py from tools/vanilla_landed_titles.json']
+    stubs += [f'{key} = {{\n\tcapital = c_azuma\n\tlandless = yes\n}}' for key in vanilla if key not in ours]
+    files['common/landed_titles/zz_rasen_vanilla_title_stubs.txt'] = ('﻿' + '\n'.join(stubs) + '\n').encode('utf-8')
     files['localization/replace/english/rasen_titles_l_english.yml'] = ('﻿' + loc).encode('utf-8')
     regions = ['# Generated by tools/build_rasen_map.py']
     for region in REGIONS:
@@ -621,11 +685,23 @@ def render(write=True):
     regions += ['world_rasen_inner = { regions = { ' + ' '.join(f"world_rasen_{r['key']}" for r in REGIONS if r['ring'] == 'inner') + ' } }',
                 'world_rasen_outer = { regions = { ' + ' '.join(f"world_rasen_{r['key']}" for r in REGIONS if r['ring'] == 'outer') + ' } }']
     # Buildings and units take their look from graphical regions, which must cover the map.
-    regions += ['graphical_rasen = {', '	graphical = yes', '	color = { 200 60 50 }',
+    # Vanilla keys building models and illustrations to its seven graphical regions; reuse East Asia's.
+    regions += ['graphical_east_asia = {', '	graphical = yes', '	color = { 200 60 50 }',
                 '	regions = { world_rasen_inner world_rasen_outer world_rasen_azuma }', '}']
     files['map_data/geographical_regions/rasen_geographical_regions.txt'] = ('\ufeff' + '\n'.join(regions) + '\n').encode('utf-8')
+    # Vanilla scripts name Earth's regions (building rules, decisions, achievements). Keep every
+    # vanilla key defined, holding only one impassable ocean zone, so those triggers fail cleanly.
+    ours = {line.split(' = ')[0] for line in regions if ' = {' in line}
+    vanilla = json.loads(Path(__file__).with_name('vanilla_geographical_regions.json').read_text(encoding='utf-8'))
+    stubs = ['# Generated by tools/build_rasen_map.py from tools/vanilla_geographical_regions.json']
+    # The few that generate development modifiers keep doing so: buildings and traits name those modifiers.
+    generated = set(json.loads(Path(__file__).with_name('vanilla_generated_modifier_regions.json').read_text(encoding='utf-8')))
+    stubs += [f'{key} = {{ provinces = {{ {max(ocean_ids)} }}' + (' generate_modifiers = yes' if key in generated else '') + ' }'
+              for key in vanilla if key not in ours]
+    files['map_data/geographical_regions/00_rasen_vanilla_region_stubs.txt'] = ('﻿' + '\n'.join(stubs) + '\n').encode('utf-8')
     files['map_data/seasons.txt'] = SEASONS.encode('utf-8')
     files['map_data/climate.txt'] = climate(region_of).encode('utf-8')
+    files.update(map_object_locators(provinces, land_ids, sea_ids + ocean_ids))
     summary = {
         'land_provinces': len(land_ids), 'sea_zones': len(sea_ids), 'impassable_seas': len(ocean_ids),
         'kingdoms': {k['key']: {'duchies': len(k['duchies']),
@@ -657,7 +733,7 @@ def preview(provinces, region_of, labels, kingdoms, centre):
     image[:, 1:][edges] = image[:, 1:][edges] // 2
     edges = (provinces[1:, :] != provinces[:-1, :])
     image[1:, :][edges] = image[1:, :][edges] // 2
-    small = Image.fromarray(image).resize((WIDTH // 2, HEIGHT // 2), Image.NEAREST)
+    small = Image.fromarray(image).resize((image.shape[1] // 2, image.shape[0] // 2), Image.NEAREST)
     draw = ImageDraw.Draw(small)
     for kingdom in kingdoms:
         for duchy in kingdom['duchies']:

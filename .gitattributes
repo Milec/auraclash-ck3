@@ -25,3 +25,5 @@ AuraClash/common/**/ac_duel*.txt text eol=lf
 AuraClash/events/ac_duel*.txt text eol=lf
 AuraClash/localization/english/ac_duel*.yml text eol=lf
 RasenMap/**/*.heightmap text eol=lf
+RasenMap/gfx/**/*.txt text eol=lf
+RasenMap/common/buildings/*.txt text eol=lf

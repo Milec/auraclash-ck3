@@ -7,6 +7,7 @@ import numpy as np
 from PIL import Image
 
 import build_event_overrides as parser
+import build_rasen_map as rasen
 
 ROOT = Path(__file__).resolve().parents[1] / 'RasenMap'
 
@@ -27,7 +28,7 @@ class RasenMapTests(unittest.TestCase):
 
     def test_provinces_png_uses_exactly_the_defined_colours(self):
         image = np.asarray(Image.open(ROOT / 'map_data/provinces.png').convert('RGB'))
-        self.assertEqual(image.shape[:2], (4096, 8192))
+        self.assertEqual(image.shape[:2], (rasen.MAP_HEIGHT, rasen.MAP_WIDTH))
         packed = (image[..., 0].astype(np.int64) << 16) | (image[..., 1].astype(np.int64) << 8) | image[..., 2]
         used = set(np.unique(packed).tolist())
         defined = {(int(r) << 16) | (int(g) << 8) | int(b) for _, r, g, b, *_ in self.defs}
@@ -60,12 +61,12 @@ class RasenMapTests(unittest.TestCase):
                  'taiga', 'wetlands', 'steppe', 'floodplains', 'drylands'}
         self.assertLessEqual(set(re.findall(r'(?m)^\d+=(\w+)$', terrain)), valid)
         rivers = Image.open(ROOT / 'map_data/rivers.png')
-        self.assertEqual((rivers.mode, rivers.size), ('P', (8192, 4096)))
+        self.assertEqual((rivers.mode, rivers.size), ('P', (rasen.MAP_WIDTH, rasen.MAP_HEIGHT)))
         self.assertLessEqual(set(np.unique(np.asarray(rivers)).tolist()), {254, 255})
 
     def test_heightmap_matches_canvas(self):
         height = Image.open(ROOT / 'map_data/heightmap.png')
-        self.assertEqual((height.mode, height.size), ('L', (8192, 4096)))
+        self.assertEqual((height.mode, height.size), ('L', (rasen.MAP_WIDTH, rasen.MAP_HEIGHT)))
 
 
 if __name__ == '__main__':
