@@ -150,7 +150,7 @@ ac_sect_government = {
         'ac_sect_estate_domicile_type_tooltip': 'The permanent headquarters of a cultivation sect. Its buildings and construction pass with the Sect Master title.',
         'ac_sect_native_title_name': "[ac_domicile_kingdom.GetNameNoTier] Sect",
         'ac_sect_native_title_adj': 'Sect',
-        'domicile_ac_sect_estate': "[CHARACTER.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_kingdom').Title.GetNameNoTier] Sect Estate",
+        'domicile_ac_sect_estate': "[CHARACTER.Custom('AC_SectName')] Estate",
         'ac_sect_native_master_required_tt': 'Only this sect\'s Master can commission construction.',
         'ac_sect_native_no_legacy_queue_tt': 'No other sect building is under construction.',
         'ac_sect_open_native_estate': 'Open the sect domicile.',

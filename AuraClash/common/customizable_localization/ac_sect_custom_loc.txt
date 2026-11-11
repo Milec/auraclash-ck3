@@ -1,13 +1,27 @@
 ﻿AC_SectIdentity = { type = character
-	text = { trigger = { var:ac_sect.var:ac_identity = flag:ember_peak } localization_key = ac_sect_identity_ember_peak }
-	text = { trigger = { var:ac_sect.var:ac_identity = flag:mirror_tide } localization_key = ac_sect_identity_mirror_tide }
-	text = { trigger = { var:ac_sect.var:ac_identity = flag:thunder_hoof } localization_key = ac_sect_identity_thunder_hoof }
-	text = { trigger = { var:ac_sect.var:ac_identity = flag:jade_mountain } localization_key = ac_sect_identity_jade_mountain }
-	text = { trigger = { var:ac_sect.var:ac_identity = flag:veiled_moon } localization_key = ac_sect_identity_veiled_moon }
-	text = { trigger = { var:ac_sect.var:ac_identity = flag:dawn_lotus } localization_key = ac_sect_identity_dawn_lotus }
-	text = { trigger = { var:ac_sect.var:ac_identity = flag:ashen_blade } localization_key = ac_sect_identity_ashen_blade }
-	text = { trigger = { var:ac_sect.var:ac_identity = flag:sky_palm } localization_key = ac_sect_identity_sky_palm }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:thunderfall } localization_key = ac_sect_identity_thunderfall }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:sunbringer } localization_key = ac_sect_identity_sunbringer }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:mountain_hazard } localization_key = ac_sect_identity_mountain_hazard }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:dreamriver } localization_key = ac_sect_identity_dreamriver }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:waverunner } localization_key = ac_sect_identity_waverunner }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:lost_siren } localization_key = ac_sect_identity_lost_siren }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:endless_beating } localization_key = ac_sect_identity_endless_beating }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:windrising } localization_key = ac_sect_identity_windrising }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:hidden_coil } localization_key = ac_sect_identity_hidden_coil }
 	text = { localization_key = ac_sect_identity_unknown }
+}
+AC_SectName = {
+	type = character
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:thunderfall } localization_key = ac_sect_name_thunderfall }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:sunbringer } localization_key = ac_sect_name_sunbringer }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:mountain_hazard } localization_key = ac_sect_name_mountain_hazard }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:dreamriver } localization_key = ac_sect_name_dreamriver }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:waverunner } localization_key = ac_sect_name_waverunner }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:lost_siren } localization_key = ac_sect_name_lost_siren }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:endless_beating } localization_key = ac_sect_name_endless_beating }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:windrising } localization_key = ac_sect_name_windrising }
+	text = { trigger = { var:ac_sect.var:ac_identity = flag:hidden_coil } localization_key = ac_sect_name_hidden_coil }
+	text = { localization_key = ac_sect_name_unknown }
 }
 
 AC_SectRank = {

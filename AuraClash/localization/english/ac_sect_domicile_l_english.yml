@@ -9,7 +9,7 @@
  ac_sect_estate_domicile_type_tooltip:0 "The permanent headquarters of a cultivation sect. Its buildings and construction pass with the Sect Master title."
  ac_sect_native_title_name:0 "[ac_domicile_kingdom.GetNameNoTier] Sect"
  ac_sect_native_title_adj:0 "Sect"
- domicile_ac_sect_estate:0 "[CHARACTER.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_kingdom').Title.GetNameNoTier] Sect Estate"
+ domicile_ac_sect_estate:0 "[CHARACTER.Custom('AC_SectName')] Estate"
  ac_sect_native_master_required_tt:0 "Only this sect's Master can commission construction."
  ac_sect_native_no_legacy_queue_tt:0 "No other sect building is under construction."
  ac_sect_open_native_estate:0 "Open the sect domicile."

@@ -41,18 +41,19 @@ Annual world maintenance uses the vanilla wanderer relocation helper only for fr
 
 ## Martial identities
 
-These are initial templates, not unique global organizations. A kingdom name distinguishes sects sharing a template.
+Sects take the identities of Aura Clash's own sects and are named after them, for example "Thunderfall Sect" and "Thunderfall Sect Estate". Battle reports and the view of another sect still use the kingdom name. Several sects can share an identity on a large map. Style and Elements follow the IF where it states them; the rest are inferred.
 
-| Lineage | Elements | Style | Foundation |
-|---|---|---|---|
-| Ember Peak | Fire, Earth | Akakiru | Tiger |
-| Mirror Tide | Water, Ice | Aoyusumu | Crane |
-| Thunder Hoof | Storm, Wind | Kiihakai | Stallion |
-| Jade Mountain | Earth, Light | Midorikatai | Ox |
-| Veiled Moon | Darkness, Ice | Kurokonton | Snake |
-| Dawn Lotus | Light, Water | Aoyusumu | Dragon |
-| Ashen Blade | Fire, Darkness | Akakiru | Wolf |
-| Sky Palm | Wind, Storm | Midorikatai | Monkey |
+| Sect | Elements | Style | Foundation | Basis in the IF |
+|---|---|---|---|---|
+| Thunderfall | Storm, Earth | Midorikatai | Tiger | Registered under the Wild Lands; Crusher Mao |
+| Sunbringer | Light, Fire | Kiihakai | Dragon | "An entire Sect of Kiihakai practitioners"; Light chi blasts |
+| Mountain Hazard | Ice, Earth | Midorikatai | Wolf | Tian Fang channels Ice, Wild and Earth chi |
+| Dreamriver | Fire, Water | Kiihakai | Monkey | "Every Seal is a Dreamriver specialty"; fire-elemental binding |
+| Waverunner | Water, Ice | Akakiru | Stallion | Nanhou swordsmen; Water chi and Bladed chi slashes |
+| Lost Siren | Water, Ice | Aoyusumu | Crane | Water and Ice disciples; Sacred chi |
+| Endless Beating | Water, Earth | Midorikatai | Ox | Water-chi students; Palm of Endless Beating (style inferred) |
+| Windrising | Wind, Water | Aoyusumu | Ram | Coastal sect with a pact with the holy Gazhurra (style inferred) |
+| Hidden Coil | Darkness, Water | Kurokonton | Snake | Named only (inferred) |
 
 ## Provincial estate
 

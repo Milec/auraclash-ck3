@@ -23,7 +23,7 @@ def render(buildings, sprites):
     }''', '''ac_sect_estate_close_panel = { scope = character is_shown = { ac_sect_member_trigger = yes } effect = { remove_variable = ac_sect_estate_selected } }''']
     cancel = []
     loc = {
-        'ac_sect_domicile_heading': "[GetPlayer.MakeScope.Var('ac_sect').Var('ac_kingdom').Title.GetNameNoTier] Sect Estate",
+        'ac_sect_domicile_heading': "[GetPlayer.Custom('AC_SectName')] Estate",
         'ac_sect_domicile_budget': "Sect treasury: #P [GetPlayer.MakeScope.Var('ac_sect').Var('ac_treasury').GetValue|0]#! gold",
         'ac_sect_domicile_commission': 'Commission construction',
         'ac_sect_domicile_cancel': 'Cancel project (refund sect gold)',

@@ -12,15 +12,17 @@ from build_event_overrides import masked
 ROOT = Path(__file__).resolve().parents[1]
 MOD = ROOT / 'AuraClash'
 
+# Canonical Aura Clash sects (Style/Elements from the IF where it states them; see docs/sects.md).
 IDENTITIES = [
-    ('ember_peak', 'Ember Peak', 'fire', 'earth', 'akakiru', 'tiger'),
-    ('mirror_tide', 'Mirror Tide', 'water', 'ice', 'aoyusumu', 'crane'),
-    ('thunder_hoof', 'Thunder Hoof', 'storm', 'wind', 'kiihakai', 'stallion'),
-    ('jade_mountain', 'Jade Mountain', 'earth', 'light', 'midorikatai', 'ox'),
-    ('veiled_moon', 'Veiled Moon', 'darkness', 'ice', 'kurokonton', 'snake'),
-    ('dawn_lotus', 'Dawn Lotus', 'light', 'water', 'aoyusumu', 'dragon'),
-    ('ashen_blade', 'Ashen Blade', 'fire', 'darkness', 'akakiru', 'wolf'),
-    ('sky_palm', 'Sky Palm', 'wind', 'storm', 'midorikatai', 'monkey'),
+    ('thunderfall', 'Thunderfall', 'storm', 'earth', 'midorikatai', 'tiger'),
+    ('sunbringer', 'Sunbringer', 'light', 'fire', 'kiihakai', 'dragon'),
+    ('mountain_hazard', 'Mountain Hazard', 'ice', 'earth', 'midorikatai', 'wolf'),
+    ('dreamriver', 'Dreamriver', 'fire', 'water', 'kiihakai', 'monkey'),
+    ('waverunner', 'Waverunner', 'water', 'ice', 'akakiru', 'stallion'),
+    ('lost_siren', 'Lost Siren', 'water', 'ice', 'aoyusumu', 'crane'),
+    ('endless_beating', 'Endless Beating', 'water', 'earth', 'midorikatai', 'ox'),
+    ('windrising', 'Windrising', 'wind', 'water', 'aoyusumu', 'ram'),
+    ('hidden_coil', 'Hidden Coil', 'darkness', 'water', 'kurokonton', 'snake'),
 ]
 BUILDINGS = [
     ('cultivation_hall', 'Cultivation Hall', 'Quiet chambers for meditation and core advancement.', 'Annual cultivation lifestyle experience: 20 per level.'),
@@ -118,8 +120,13 @@ ac_sect_seed_disciple_effect = {
     custom = ['AC_SectIdentity = { type = character']
     for key, name, e1, e2, style, foundation in IDENTITIES:
         loc[f'ac_sect_identity_{key}'] = f'{name}: {e1.title()} and {e2.title()}, $trait_ac_style_{style}$, {foundation.title()} Foundation'
+        loc[f'ac_sect_name_{key}'] = f'{name} Sect'
         custom.append(f'text = {{ trigger = {{ var:ac_sect.var:ac_identity = flag:{key} }} localization_key = ac_sect_identity_{key} }}')
-    custom += ['text = { localization_key = ac_sect_identity_unknown }', '}', '''
+    custom += ['text = { localization_key = ac_sect_identity_unknown }', '}', 'AC_SectName = {', '\ttype = character']
+    for key, *_ in IDENTITIES:
+        custom.append(f'\ttext = {{ trigger = {{ var:ac_sect.var:ac_identity = flag:{key} }} localization_key = ac_sect_name_{key} }}')
+    loc['ac_sect_name_unknown'] = 'Cultivation Sect'
+    custom += ['\ttext = { localization_key = ac_sect_name_unknown }', '}', '''
 AC_SectRank = {
     type = character
     text = { trigger = { has_trait = ac_sect_master } localization_key = trait_ac_sect_master }

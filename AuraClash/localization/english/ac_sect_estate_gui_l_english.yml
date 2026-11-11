@@ -1,5 +1,5 @@
 ﻿l_english:
- ac_sect_domicile_heading:0 "[GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_kingdom').Title.GetNameNoTier] Sect Estate"
+ ac_sect_domicile_heading:0 "[GetPlayer.Custom('AC_SectName')] Estate"
  ac_sect_domicile_budget:0 "Sect treasury: #P [GetPlayer.MakeScope.Var('ac_sect').Story.MakeScope.Var('ac_treasury').GetValue|0]#! gold"
  ac_sect_domicile_commission:0 "Commission construction"
  ac_sect_domicile_cancel:0 "Cancel project (refund sect gold)"
