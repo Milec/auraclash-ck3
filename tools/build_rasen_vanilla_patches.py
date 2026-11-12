@@ -55,6 +55,10 @@ LINE_EDITS['common/on_action/game_start.txt'] = [
 TITLE_STANDIN_FILES = ('common/scripted_effects/10_dlc_tgp_japan_scripted_effects.txt',)
 TITLE_STANDIN = 'k_yamato'
 COUNTY = re.compile(r'title:(c_\w+)')
+# Files whose checks for one of Earth's dynasties become plainly false (each logged an error
+# every time the game looked for legends, thousands of times over a few years).
+DYNASTY_FILES = ('common/legends/legend_seeds/00_legend_seeds.txt',)
+DYNASTY = re.compile(r'dynasty = dynasty:\w+')
 PROVINCE = re.compile(r'province:(\d+)')
 HOLY_SITES = 'common/religion/holy_site_types/00_holy_site_types.txt'
 SITE_COUNTY, SITE_BARONY = 'c_azuma', 'b_azuma'
@@ -73,7 +77,7 @@ def map_limits():
 
 
 def affected(game: Path, last: int):
-    found = set(LINE_EDITS) | {HOLY_SITES} | set(TITLE_STANDIN_FILES)
+    found = set(LINE_EDITS) | {HOLY_SITES} | set(TITLE_STANDIN_FILES) | set(DYNASTY_FILES)
     for folder in SCAN:
         for path in (game / folder).rglob('*.txt'):
             text = path.read_text(encoding='utf-8-sig', errors='replace')
@@ -95,6 +99,8 @@ def render(game: Path):
         ours = our_titles()
         if relative in TITLE_STANDIN_FILES:
             text = COUNTY.sub(lambda m: m.group(0) if m.group(1) in ours else f'title:{TITLE_STANDIN}', text)
+        if relative in DYNASTY_FILES:
+            text = DYNASTY.sub('always = no # Imperial Rasen: none of Earth\'s dynasties', text)
         if relative == HOLY_SITES:
             text = re.sub(r'(\bcounty = )(c_\w+)', lambda m: m.group(0) if m.group(2) in ours else m.group(1) + SITE_COUNTY, text)
             text = re.sub(r'(\bbarony = )(b_\w+)', lambda m: m.group(0) if m.group(2) in ours else m.group(1) + SITE_BARONY, text)

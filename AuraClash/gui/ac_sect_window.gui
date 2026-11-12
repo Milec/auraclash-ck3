@@ -2,7 +2,7 @@
 	name = "ac_sect_window"
 	layer = windows_layer
 	parentanchor = center
-	size = { 1120 760 }
+	size = { 1120 830 }
 	allow_outside = no
 	using = Window_Movable
 	using = Window_Background
@@ -27,7 +27,7 @@
 				spacing = 10
 				widget = {
 					size = { 550 180 }
-					background = { texture = "gfx/interface/illustrations/event_scenes/ep3_medi_estate.dds" fittype = centercrop }
+					background = { texture = "gfx/interface/window_domiciles/ac_sect_landscape.dds" fittype = centercrop }
 				}
 				text_multi = { size = { 550 100 } text = "ac_sect_window_summary" tooltip = "ac_sect_window_standing_tt" }
 				text_multi = { size = { 550 60 } text = "[GetPlayer.Custom('AC_SectIdentity')]" }

@@ -56,6 +56,11 @@ ac_sect_government = {
         type = character special = holder tier = county priority = 500
         governments = { ac_sect_government }
         flavourization_rules = { top_liege = no spouse_takes_title = no }
+    }
+    ac_sect_master_holder_female = {
+        type = character gender = female special = holder tier = county priority = 500
+        governments = { ac_sect_government }
+        flavourization_rules = { top_liege = no spouse_takes_title = no }
     }"""
     files['common/laws/ac_sect_office_laws.txt'] = """ac_sect_office_succession_law = {
         law_group_type = succession_order_laws
@@ -142,13 +147,14 @@ ac_sect_government = {
     loc = {
         'ac_sect_government': 'Sect Leadership',
         'ac_sect_master_holder': 'Sect Master',
+        'ac_sect_master_holder_female': 'Sect Master',
         'ac_sect_government_adjective': 'Sect',
         'ac_sect_government_realm': 'Cultivation Sect',
         'ac_sect_government_desc': 'A landless cultivation office whose title carries the sect domicile. A landed Master retains their secular government.',
         'ac_sect_estate_domicile_type': 'Sect Estate',
         'ac_sect_estate_domicile_type_possessive': "Sect Estate's",
         'ac_sect_estate_domicile_type_tooltip': 'The permanent headquarters of a cultivation sect. Its buildings and construction pass with the Sect Master title.',
-        'ac_sect_native_title_name': "[ac_domicile_kingdom.GetNameNoTier] Sect",
+        'ac_sect_native_title_name': "[ac_domicile_master.Custom('AC_SectName')]",
         'ac_sect_native_title_adj': 'Sect',
         'domicile_ac_sect_estate': "[CHARACTER.Custom('AC_SectName')] Estate",
         'ac_sect_native_master_required_tt': 'Only this sect\'s Master can commission construction.',

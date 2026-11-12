@@ -7,3 +7,8 @@ ac_sect_master_holder = {
 	governments = { ac_sect_government }
 	flavourization_rules = { top_liege = no spouse_takes_title = no }
 }
+ac_sect_master_holder_female = {
+	type = character gender = female special = holder tier = county priority = 500
+	governments = { ac_sect_government }
+	flavourization_rules = { top_liege = no spouse_takes_title = no }
+}

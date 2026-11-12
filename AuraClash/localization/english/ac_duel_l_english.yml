@@ -9,7 +9,7 @@
  ac_duel_ai_weaker_reason:0 "Outmatched"
  ac_duel_ai_lethal_reason:0 "A duel to the death"
  ac_duel.0001.t:0 "Clash of Auras"
- ac_duel.0001.status:0 "#bold Round [ROOT.Char.MakeScope.Var('ac_duel_round').GetValue|0]#!  My Vitality: #V [ROOT.Char.MakeScope.Var('ac_duel_vitality').GetValue|0]#!  [ac_duel_foe.GetFirstName]'s Vitality: #V [ac_duel_foe.MakeScope.Var('ac_duel_vitality').GetValue|0]#!\n\n"
+ ac_duel.0001.status:0 "#bold Exchanges fought: [ROOT.Char.MakeScope.Var('ac_duel_round').GetValue|0]#!  My Vitality: #V [ROOT.Char.MakeScope.Var('ac_duel_vitality').GetValue|0]#!  [ac_duel_foe.GetFirstName]'s Vitality: #V [ac_duel_foe.MakeScope.Var('ac_duel_vitality').GetValue|0]#!\n\n"
  ac_duel.0001.opening:0 "[ac_duel_foe.GetFirstName] and I face each other, auras flaring. Every exchange will be fought through a Core: Power breaks a guard, Agility outpaces brute force, Soul blasts catch the evasive, and Fortitude absorbs chi."
  ac_duel.0001.won:0 "I won the last exchange (#V [ROOT.Char.MakeScope.Var('ac_duel_roll').GetValue|0]#! against [ac_duel_foe.MakeScope.Var('ac_duel_roll').GetValue|0]), dealing #V [ROOT.Char.MakeScope.Var('ac_duel_dealt').GetValue|0]#! damage."
  ac_duel.0001.lost:0 "[ac_duel_foe.GetFirstName] won the last exchange (#N [ac_duel_foe.MakeScope.Var('ac_duel_roll').GetValue|0]#! against [ROOT.Char.MakeScope.Var('ac_duel_roll').GetValue|0]), dealing #N [ac_duel_foe.MakeScope.Var('ac_duel_dealt').GetValue|0]#! damage."
