@@ -140,7 +140,7 @@ ac_sect_test_06_relationships_and_succession = {
         }
 		var:ac_kingdom_sect = { is_target_in_variable_list = { name = ac_allies target = scope:recipient.var:ac_sect } }
 		scope:recipient.var:ac_sect = { is_target_in_variable_list = { name = ac_allies target = scope:ac_inherited_sect } }
-		scope:ac_test_ruler = { has_trait = ac_sect_master primary_title = title:d_mistgate has_government = feudal_government }
+		scope:ac_test_ruler = { has_trait = ac_sect_master primary_title = title:d_mistgate has_government = meritocratic_government }
 	}
 }
 ac_sect_test_09_preserve_existing_paths = {
