@@ -335,7 +335,7 @@ ac_ai_seek_immortal_method_effect = {
 				if = { limit = { NOT = { exists = scope:ac_immortal_master } } random_hooked_character = { limit = { scope:ac_immortal_learner = { ac_immortal_method_master_trigger = { TEACHER = prev } } } save_scope_as = ac_immortal_master } }
 			}
 			if = {
-				limit = { exists = scope:ac_immortal_master }
+				limit = { exists = scope:ac_immortal_master scope:ac_immortal_master = { in_diplomatic_range = scope:ac_immortal_learner } }
 				run_interaction = {
 					interaction = ac_request_immortal_method_interaction
 					actor = this

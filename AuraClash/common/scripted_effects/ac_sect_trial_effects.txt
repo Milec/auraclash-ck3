@@ -11,7 +11,7 @@ ac_sect_begin_trial_effect = {
 			OR = {
 				ac_sect_interested_candidate_trigger = yes
 				AND = {
-					var:ac_sect = scope:activity.var:ac_trial_sect
+					var:ac_sect ?= scope:activity.var:ac_trial_sect
 					ac_sect_promotion_ready_trigger = yes
 					has_variable = ac_sect_promotion_requested
 				}

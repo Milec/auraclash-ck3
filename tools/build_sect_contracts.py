@@ -149,8 +149,9 @@ option = {{ name = ac_sect_mission.0002.abandon ac_sect_cancel_mission_effect = 
     effects.append('''ac_sect_contract_cleanup_effect = {
 save_scope_as = ac_cleaned_contract
 clear_saved_scope = ac_cleaned_disciple
-if = { limit = { exists = var:ac_contract_disciple } var:ac_contract_disciple = { save_scope_as = ac_cleaned_disciple } }
-else = { task_contract_taker ?= { save_scope_as = ac_cleaned_disciple } }
+# The taker may have died on the road.
+if = { limit = { exists = var:ac_contract_disciple } var:ac_contract_disciple = { if = { limit = { is_alive = yes } save_scope_as = ac_cleaned_disciple } } }
+else = { task_contract_taker ?= { if = { limit = { is_alive = yes } save_scope_as = ac_cleaned_disciple } } }
 scope:ac_cleaned_disciple ?= {
     remove_list_variable = { name = ac_sect_offers target = scope:ac_cleaned_contract }
 
