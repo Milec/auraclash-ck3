@@ -11,6 +11,8 @@ Everything is derived from files already generated for the map:
 - gfx/map/terrain/colormap.dds: a soft colour tint per terrain.
 - gfx/map/terrain/flat_maps/flatmap.dds and flatmap_tgp.dds: the source painting, placed where
   the map generator placed the continent; beyond the coastal waters it fades to open sea.
+- gfx/map/water/watercolor_rgb_waterspec_a.dds, foam_map.dds and flowmap.dds: the sea's colour,
+  foam mask and (still) currents for this coastline. Vanilla's carry Earth's continents.
 
 Usage: python tools/build_rasen_terrain.py [--check]
 """
@@ -57,6 +59,9 @@ COLORMAP_SCALE = 4        # colormap.dds is a quarter of the map's size
 FLATMAP_SCALE = 2
 FLATMAP_SHORE, FLATMAP_FADE = 110, 60   # flatmap pixels of painted sea kept off the coast, then faded
 STRIP = 256
+# Water textures (RGBA), from vanilla's open-ocean and shallow-sea values.
+WATER_DEEP, WATER_SHALLOW, WATER_SHELF = (22, 56, 60, 90), (34, 72, 76, 70), 40
+FOAM_WATER, FOAM_LAND = (18, 255, 140, 255), (71, 0, 140, 255)
 
 
 def province_materials():
@@ -150,6 +155,30 @@ def flatmap(land):
     return Image.fromarray((painted * keep + sea * (1 - keep)).astype(np.uint8), 'RGB')
 
 
+def water(land):
+    """The sea's colour, foam and flow maps. Vanilla's have Earth's continents painted into them,
+    so without these the sea is tinted like land wherever Earth has land."""
+    size = (rasen.MAP_WIDTH // 2, rasen.MAP_HEIGHT // 2)
+    small = np.asarray(Image.fromarray((land * 255).astype(np.uint8), 'L').resize(size, Image.BILINEAR)) > 127
+    offshore = nd.distance_transform_edt(~small)
+    # Colour (and specular in alpha): shallow teal at the coast, deepening over WATER_SHELF pixels.
+    depth = np.clip(offshore / WATER_SHELF, 0, 1)[..., None]
+    colour = (np.array(WATER_SHALLOW) * (1 - depth) + np.array(WATER_DEEP) * depth).astype(np.uint8)
+    # Foam map: green marks water, as in vanilla's; the mask is softened at the shore.
+    wet = np.asarray(Image.fromarray((~small).astype(np.uint8) * 255, 'L').filter(ImageFilter.GaussianBlur(2)))[..., None] / 255
+    foam = (np.array(FOAM_WATER) * wet + np.array(FOAM_LAND) * (1 - wet)).astype(np.uint8)
+    # Flow map: still water everywhere (neutral direction); alpha marks land.
+    tiny = np.asarray(Image.fromarray(small.astype(np.uint8) * 255, 'L').resize((2048, 1024), Image.BILINEAR))
+    flow = np.empty((1024, 2048, 4), np.uint8)
+    flow[..., :3] = (127, 129, 255)
+    flow[..., 3] = (tiny.astype(np.uint16) * 248 // 255).astype(np.uint8)
+    return {
+        '../water/watercolor_rgb_waterspec_a.dds': encode(Image.fromarray(colour, 'RGBA'), 'DDS', pixel_format='DXT5'),
+        '../water/foam_map.dds': encode(Image.fromarray(foam, 'RGBA'), 'DDS', pixel_format='DXT5'),
+        '../water/flowmap.dds': encode(Image.fromarray(flow, 'RGBA'), 'DDS', pixel_format='DXT5'),
+    }
+
+
 def encode(image, fmt, **options):
     buf = io.BytesIO()
     image.save(buf, format=fmt, **options)
@@ -159,8 +188,9 @@ def encode(image, fmt, **options):
 def render():
     material, used = material_map()
     index, intensity = detail_maps(material, used)
-    paper = encode(flatmap(material != used.index(WATER)).convert('RGBA'), 'DDS', pixel_format='DXT1')
-    return {
+    land = material != used.index(WATER)
+    paper = encode(flatmap(land).convert('RGBA'), 'DDS', pixel_format='DXT1')
+    return water(land) | {
         # Run-length encoded, bottom-left origin like vanilla's: about 1% of the uncompressed size.
         'detail_index.tga': encode(Image.fromarray(index, 'RGBA'), 'TGA', compression='tga_rle', orientation=-1),
         'detail_intensity.tga': encode(Image.fromarray(intensity, 'RGBA'), 'TGA', compression='tga_rle', orientation=-1),

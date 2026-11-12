@@ -495,7 +495,9 @@ def heightmap(labels, rock, rng):
         raised[labels == REGION_INDEX[region['key']]] = region.get('elevation', 0)
     raised = nd.gaussian_filter(raised, 25)
     land_h = SEA_LEVEL + 3 + np.minimum(coast, 120) * 0.12 + raised + mountains * 90 + noise * 6
-    sea_h = SEA_LEVEL - 2 - np.minimum(depth, 300) * 0.05
+    # The water plane sits at about 15 (WATERLEVEL in the game's defines): drop the sea floor well
+    # below it right at the coast, or a wide shelf of bare sand shows above the water.
+    sea_h = SEA_LEVEL - 7 - np.minimum(depth, 45) * 0.2
     height = np.where(land, land_h, sea_h)
     height = nd.gaussian_filter(height, 1.2)
     return np.clip(height, 0, 255).astype(np.uint8)
