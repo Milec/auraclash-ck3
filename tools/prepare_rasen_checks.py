@@ -50,6 +50,10 @@ def event():
     body.append(check('magistrate_estate', 'title:d_kohara.holder = { has_domicile = yes }'))
     body.append(check('county_magistrate_families', 'title:k_outer_west = { any_de_jure_county = { count >= 20 holder = { '
                       'highest_held_title_tier = tier_county any_held_title = { is_noble_family_title = yes } } } }'))
+    # The Wild Lands are thirteen Maos: the Wild Exalt and twelve who answer only to the hegemony.
+    body.append(check('wild_maos', 'title:h_rasen.holder = { any_vassal = { count = 12 '
+                      'capital_county.kingdom = title:k_wild NOT = { this = title:k_wild.holder } } }'))
+    body.append(check('wild_exalt_small', 'title:k_wild.holder = { any_vassal = { count = 0 highest_held_title_tier >= tier_duchy } }'))
     body.append(check('divine_general_free', 'any_living_character = { has_trait = rasen_divine_general is_independent_ruler = yes }'))
     # The story's sects, each at its seat, with standing by region.
     def sect(county, condition):
@@ -65,6 +69,16 @@ def event():
     body.append(check('sect_frontier_master', sect('c_thunderfall', 'story_owner = { has_trait = ac_sect_master '
                       'NOT = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 70 } } }')))
     body.append(check('sect_imperial_master', sect('c_azuma', 'story_owner = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 85 } }')))
+    # Aura Pressure by rank and region, after the author's figures.
+    body.append(check('ap_exalt', 'title:k_bladed.holder = { var:ac_aura_pressure >= 15000 }'))
+    body.append(check('ap_outer_master', sect('c_thunderfall', 'story_owner = { var:ac_aura_pressure >= 3200 var:ac_aura_pressure <= 4000 }')))
+    body.append(check('ap_inner_master', sect('c_gohara', 'story_owner = { var:ac_aura_pressure >= 6800 var:ac_aura_pressure <= 7200 }')))
+    body.append(check('ap_outer_upper', sect('c_thunderfall', 'any_in_list = { variable = ac_members count >= 5 has_trait = ac_sect_upper_disciple '
+                      'var:ac_aura_pressure >= 800 var:ac_aura_pressure <= 1600 }')))
+    body.append(check('ap_outer_lower', sect('c_thunderfall', 'any_in_list = { variable = ac_members count >= 11 has_trait = ac_sect_lower_disciple '
+                      'var:ac_aura_pressure >= 400 var:ac_aura_pressure <= 800 }')))
+    body.append(check('ap_inner_lower', sect('c_gohara', 'any_in_list = { variable = ac_members count >= 18 has_trait = ac_sect_lower_disciple '
+                      'var:ac_aura_pressure >= 1200 var:ac_aura_pressure <= 1600 }')))
     body.append(check('sect_frontier_roster', sect('c_thunderfall', 'var:ac_upper_count = 5 var:ac_lower_count = 11')))
     body.append(check('sect_great_roster', sect('c_gohara', 'var:ac_upper_count = 9 var:ac_lower_count = 18')))
     # Sect life: every event runs for a disciple and a master, a duel between sects counts for

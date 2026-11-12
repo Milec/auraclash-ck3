@@ -6,15 +6,27 @@ PROFILES = {
     'master': (tuple(range(60, 81, 5)), (75, 85, 95)),
     'grandmaster': (tuple(range(85, 101, 5)), (100,)),
 }
-# A sect's standing follows the natural aura of its region (docs/sects.md). Standing 2 uses the
-# plain profiles above; a sect master of the highest standing matches a Grandmaster.
+# A sect's standing follows the natural aura of its region (docs/sects.md), and the strength of
+# its ranks follows the author's Aura Pressure figures (one Core dot is 5 XP and 100 AP):
+#   Outer Province: Lower Disciple 500, Upper Disciple 1,200, Sect Master 3,500
+#   Inner Kingdom:  Lower Disciple 1,500, Upper Disciple 4,000, Sect Master 7,000
+# Standing 1 is the Outer figure and 3 the Inner; 2 sits between and 4 (the capital) just above.
 STANDING_PROFILES = {
-    'upper_t1': (tuple(range(20, 41, 5)), (30, 40, 50)),
-    'upper_t3': (tuple(range(40, 61, 5)), (60, 70, 80)),
-    'upper_t4': (tuple(range(50, 71, 5)), (75, 85, 95)),
-    'master_t1': (tuple(range(45, 66, 5)), (60, 70, 80)),
-    'master_t3': (tuple(range(70, 91, 5)), (85, 95, 100)),
+    'lower_t1': ((5, 5, 5, 10), (10, 15, 20)),             # 4-8 dots: about 500 AP
+    'lower_t2': ((10, 10, 15), (15, 20, 25)),              # about 1,000 AP
+    'lower_t3': ((15, 20), (25, 30, 35)),                  # 12-16 dots: about 1,500 AP
+    'lower_t4': ((20, 25), (30, 35, 40)),                  # about 1,800 AP
+    'upper_t1': ((10, 15, 20), (30, 40, 50)),              # 8-16 dots: about 1,200 AP
+    'upper_t2': ((25, 30, 35), (45, 55, 65)),              # about 2,400 AP
+    'upper_t3': ((45, 50, 55), (60, 70, 80)),              # 36-44 dots: about 4,000 AP
+    'upper_t4': ((55, 60, 65), (75, 85, 95)),              # about 4,800 AP
+    'master_t1': ((40, 45, 50), (60, 70, 80)),             # 32-40 dots: about 3,500 AP
+    'master_t2': ((60, 65, 70), (75, 85, 95)),             # about 5,200 AP
+    'master_t3': ((85, 90), (85, 95, 100)),                # 68-72 dots: about 7,000 AP
+    'master_t4': ((90, 95, 100), (100,)),                  # about 7,600 AP
 }
+# Aura Pressure beyond what twenty dots in every Core can hold (the Core tracks stop at 8,000).
+AP_FLOORS = {'saint': 8000, 'archon': 10000, 'divine_general': 13000, 'exalt': 15000}
 
 
 def render(identities):
@@ -44,7 +56,7 @@ ac_ensure_foundation_floor_effect = {
         lines.append('random_list = {')
         lines += [f'1 = {{ ac_ensure_foundation_floor_effect = {{ XP = {xp} }} }}' for xp in foundation]
         lines.append('}')
-        if not profile.startswith('upper'):
+        if profile.startswith(('master', 'grandmaster')):
             lines.append('add_trait = ac_immortal_core')
         # Recount Aura Pressure and Immortal Cores for the developed rank.
         lines += ['ac_resync_aura_effect = yes', 'ac_update_visual_age_effect = yes', '}']
@@ -55,20 +67,28 @@ ac_sect_develop_rank_effect = {
         limit = { has_trait = ac_cultivator is_alive = yes age >= 16 }
         if = {
             limit = { has_trait = ac_sect_master OR = { NOT = { has_variable = ac_development_rank } var:ac_development_rank < 2 } }
-            if = { limit = { var:ac_sect.var:ac_tier ?= 1 } ac_develop_master_t1_effect = yes }
-            else_if = { limit = { var:ac_sect.var:ac_tier ?= 3 } ac_develop_master_t3_effect = yes }
-            else_if = { limit = { var:ac_sect.var:ac_tier ?= 4 } ac_develop_grandmaster_effect = yes }
-            else = { ac_develop_master_effect = yes }
+            if = { limit = { var:ac_sect.var:ac_tier ?= 1 } ac_develop_master_t1_effect = yes } else_if = { limit = { var:ac_sect.var:ac_tier ?= 3 } ac_develop_master_t3_effect = yes } else_if = { limit = { var:ac_sect.var:ac_tier ?= 4 } ac_develop_master_t4_effect = yes } else = { ac_develop_master_t2_effect = yes }
             set_variable = { name = ac_development_rank value = 2 }
         }
         else_if = {
             limit = { has_trait = ac_sect_upper_disciple OR = { NOT = { has_variable = ac_development_rank } var:ac_development_rank < 1 } }
-            if = { limit = { var:ac_sect.var:ac_tier ?= 1 } ac_develop_upper_t1_effect = yes }
-            else_if = { limit = { var:ac_sect.var:ac_tier ?= 3 } ac_develop_upper_t3_effect = yes }
-            else_if = { limit = { var:ac_sect.var:ac_tier ?= 4 } ac_develop_upper_t4_effect = yes }
-            else = { ac_develop_upper_effect = yes }
+            if = { limit = { var:ac_sect.var:ac_tier ?= 1 } ac_develop_upper_t1_effect = yes } else_if = { limit = { var:ac_sect.var:ac_tier ?= 3 } ac_develop_upper_t3_effect = yes } else_if = { limit = { var:ac_sect.var:ac_tier ?= 4 } ac_develop_upper_t4_effect = yes } else = { ac_develop_upper_t2_effect = yes }
             set_variable = { name = ac_development_rank value = 1 }
         }
+        else_if = {
+            limit = { has_trait = ac_sect_lower_disciple NOT = { has_variable = ac_development_rank } }
+            if = { limit = { var:ac_sect.var:ac_tier ?= 1 } ac_develop_lower_t1_effect = yes } else_if = { limit = { var:ac_sect.var:ac_tier ?= 3 } ac_develop_lower_t3_effect = yes } else_if = { limit = { var:ac_sect.var:ac_tier ?= 4 } ac_develop_lower_t4_effect = yes } else = { ac_develop_lower_t2_effect = yes }
+            set_variable = { name = ac_development_rank value = 0 }
+        }
+    }
+}
+# Raise Aura Pressure to at least $AP$ (Saints, Archons, the Divine General and the Exalts stand
+# far above what the Core tracks alone express). The extra is unallocated.
+ac_aura_floor_effect = {
+    if = {
+        limit = { has_trait = ac_cultivator }
+        ac_init_aura_effect = yes
+        if = { limit = { var:ac_aura_pressure < $AP$ } set_variable = { name = ac_aura_pressure value = $AP$ } }
     }
 }''')
     paths = ['ac_roaming_choose_path_effect = {', 'ac_random_foundation_effect = yes', 'random_list = {']

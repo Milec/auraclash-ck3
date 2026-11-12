@@ -88,7 +88,7 @@ The overhaul and the cultivation mechanics are one mod, in `AuraClash/`: a total
      - Outer North rulers may march to the front, fund the Northern Army or hold their own walls.
      - The Council summons Archonate Disciples.
      - Holding the line yields a 1,500 AP ice demon Soul Treasure, Aura Pressure, Core progress, Honor and the Veteran of the Ice War modifier.
-     - The **Divine General**, a generated Lunargoth grandmaster, leads Outer North. The new **Lunargoth** culture fills the north.
+     - The **Divine General**, a generated Lunargoth grandmaster, leads Outer North. Per the Core Rulebook, **Lunargoths** live in Outer East and the Mystic Lands, **Oni** in the Cursed Lands and Outer South, and **Yokai** in the Wild Lands and Outer North; Humans are everywhere.
    - Inner Kingdom Favor in the Trials: done (base mod).
    - **Castes:** done (Noble, Warrior, Merchant and Clanless Laborer, plus elevation to the Warrior Caste).
    - **Exalted Council:** done (`tools/build_rasen_council.py`).
@@ -133,11 +133,12 @@ The overhaul and the cultivation mechanics are one mod, in `AuraClash/`: a total
 All of Rasen is one hegemony, **Imperial Rasen** (`h_rasen`), held for the Exalted Council by the High Steward at Azuma Honsha: the IF has had no Emperor for centuries. It uses All Under Heaven's merit bureaucracy (`meritocratic_government`: appointed governors, merit ranks and a treasury; China's own `celestial_government` is tied to the dynastic cycle and `h_china`).
 - The five **Exalts** rule their Inner Kingdoms as hereditary (feudal) kings under the hegemony.
 - The Outer Lands have no kings. The Council appoints a **Magistrate** to each duchy and to each county in it, as in the IF, where Magistrates govern towns. Canonical Magistrates (Khan of Thunderfall, Fuyu of Nanhou) keep their seats.
+- The **Wild Lands** are not unified: thirteen **Maos** each run a faction. The strongest holds the Wild seat on the Council as Wild Exalt with only his own duchy; nine hold the other duchies and three have carved counties out of the largest ones. All answer only to the hegemony.
 - The **Divine General** of the north answers to no one and stays independent.
 - Rulers are titled Exalt, High Steward and Magistrate (`common/flavorization/rasen_title_holders.txt`).
 
 ### Verified in-game (CK3 1.20.1.2, all DLC)
-`python tools/prepare_rasen_checks.py` prepares a separate user directory that starts the 3000.3.1 bookmark directly as the Bladed Exalt (`-skip -bookmark=bm_rasen_trials -play=k_bladed`). On game start it runs 44 checks, all passing:
+`python tools/prepare_rasen_checks.py` prepares a separate user directory that starts the 3000.3.1 bookmark directly as the Bladed Exalt (`-skip -bookmark=bm_rasen_trials -play=k_bladed`). On game start it runs 52 checks, all passing:
 - Each Inner Kingdom and Azuma Honsha has a ruler.
 - The Bladed Exalt's cultivation, Immortal Core, race, faith and culture; Keiko; the Divine General; the seeded Akuma Lords; holdings.
 - The 23 sects at their seats, with standing, treasury, roster and master strength by region; a duel between sects earning renown; renown raising a Frontier Sect one standing and no further; every sect-life event.

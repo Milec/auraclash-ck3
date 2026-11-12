@@ -71,3 +71,39 @@ rasen_magistrate_county_female = {
 	governments = { meritocratic_government }
 	flavourization_rules = { top_liege = no }
 }
+rasen_mao_duchy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 600
+	titles = { d_thorntangle d_wildarena d_greenclaw d_elderroot d_benagari d_badakiba d_suyamori d_elderden d_zeyomori }
+	flavourization_rules = { top_liege = no }
+}
+rasen_mao_duchy_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 600
+	titles = { d_thorntangle d_wildarena d_greenclaw d_elderroot d_benagari d_badakiba d_suyamori d_elderden d_zeyomori }
+	flavourization_rules = { top_liege = no }
+}
+rasen_mao_county_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 600
+	titles = { c_horimori c_nogari c_hirano c_yakiba c_fangtangle c_thornarena }
+	flavourization_rules = { top_liege = no }
+}
+rasen_mao_county_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 600
+	titles = { c_horimori c_nogari c_hirano c_yakiba c_fangtangle c_thornarena }
+	flavourization_rules = { top_liege = no }
+}

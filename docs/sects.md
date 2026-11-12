@@ -16,12 +16,14 @@ The geographic policy is two files that a map mod replaces: `common/scripted_eff
 
 A sect's **standing** follows the natural aura where its headquarters sits. On Imperial Rasen: Frontier Sects in Outer West and Outer South, Established Sects in Outer North (hardened by the Ice Incursions) and Outer East (the richest sects), Great Sects in the Inner Lands, and an Imperial Sect at Azuma Honsha. On the vanilla map standing follows the county's development (below 6, 6–14, 15–24, 25 and above).
 
-| Standing | Dots per Core: Upper / Master | Start roster (upper + lower) | Treasury | Yearly income | Admission / promotion score | Starting buildings |
+| Standing | Lower / Upper / Master Aura Pressure (about) | Start roster (upper + lower) | Treasury | Yearly income | Admission / promotion score | Starting buildings |
 |---|---|---|---:|---:|---|---|
-| 1 Frontier | 4–8 / 9–13 | 5 + 11 | 150 | 40 | 32 / 47 | Cultivation Hall I, Training Ground I |
-| 2 Established | 6–10 / 12–16 | 8 + 16 | 300 | 60 | 40 / 55 | as Frontier |
-| 3 Great | 8–12 / 14–18 | 9 + 18 | 500 | 90 | 48 / 63 | adds Scripture Library I, Alchemy Pavilion I |
-| 4 Imperial | 10–14 / 17–20 | 9 + 18 | 800 | 130 | 56 / 71 | Hall II, Training Ground II, every other building I |
+| 1 Frontier | 500 / 1,200 / 3,500 | 5 + 11 | 150 | 40 | 32 / 47 | Cultivation Hall I, Training Ground I |
+| 2 Established | 1,000 / 2,400 / 5,200 | 8 + 16 | 300 | 60 | 40 / 55 | as Frontier |
+| 3 Great | 1,500 / 4,000 / 7,000 | 9 + 18 | 500 | 90 | 48 / 63 | adds Scripture Library I, Alchemy Pavilion I |
+| 4 Imperial | 1,800 / 4,800 / 7,600 | 9 + 18 | 800 | 130 | 56 / 71 | Hall II, Training Ground II, every other building I |
+
+The Frontier and Great figures are the author's: an Outer Province Lower Disciple has 500 AP, an Upper Disciple 1,200 and a Sect Master 3,500; in the Inner Kingdoms 1,500, 4,000 and 7,000. One Core dot is 100 AP, so a rank's baseline is set by its dots across the four Cores (`STANDING_PROFILES` in `tools/build_cultivation_population.py`). Above the sects stand Devanic Saints (8,000), Archons (10,000, ranging from 8,000 to about 19,000) and Exalted Councilors (15,000 or more); the Exalts and the High Steward start at 15,000 and the Divine General at 13,000, held as Aura Pressure beyond what the Core tracks express.
 
 Trade Sects (Choral Line, Thousand Lantern, Shielded Hull, Scarlet Sun, Forbidden Field) start with 200 more gold and earn 40 more a year. Standing also adds 6 battle strength per level.
 

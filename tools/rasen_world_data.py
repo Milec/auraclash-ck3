@@ -219,17 +219,19 @@ HOLY_SITES = {
     'rasen_wild_arena': dict(name='The Great Arena', barony='-', kingdom='k_wild', modifier={'martial': 1}),
 }
 
-# Peoples by region: culture and faith weights per duchy.
+# Peoples by region: culture and faith weights per duchy. From the Core Rulebook: Lunargoths live in
+# Outer East and the Mystic Lands, Oni in the Cursed Lands and Outer South, Yokai in the Wild Lands
+# and Outer North; Humans are everywhere and outnumber the Lunargoths even in Outer East.
 REGION_PEOPLES = {
-    'outer_west': dict(cultures={'zenshin': 8, 'oni': 1, 'cathayan': 1}, faiths={'ancestral_rites': 7, 'devanic_temple': 3}),
-    'outer_north': dict(cultures={'lunargoth': 6, 'zenshin': 3, 'oni': 1}, faiths={'rasen_shugendo': 6, 'ancestral_rites': 4}),
-    'outer_east': dict(cultures={'zenshin': 6, 'oni': 3, 'kitsune': 1}, faiths={'ancestral_rites': 8, 'devanic_temple': 2}),
-    'outer_south': dict(cultures={'zenshin': 7, 'cathayan': 3}, faiths={'ancestral_rites': 8, 'devanic_temple': 2}),
+    'outer_west': dict(cultures={'zenshin': 9, 'cathayan': 1}, faiths={'ancestral_rites': 7, 'devanic_temple': 3}),
+    'outer_north': dict(cultures={'zenshin': 6, 'yokai': 4}, faiths={'rasen_shugendo': 6, 'ancestral_rites': 4}),
+    'outer_east': dict(cultures={'zenshin': 6, 'lunargoth': 4}, faiths={'ancestral_rites': 8, 'devanic_temple': 2}),
+    'outer_south': dict(cultures={'zenshin': 6, 'oni': 4}, faiths={'ancestral_rites': 8, 'devanic_temple': 2}),
     'sacred': dict(cultures={'cathayan': 5, 'zenshin': 5}, faiths={'devanic_temple': 8, 'rasen_shugendo': 2}),
-    'mystic': dict(cultures={'cathayan': 9, 'kitsune': 1}, faiths={'celestial_order': 1}),
-    'cursed': dict(cultures={'zenshin': 7, 'kitsune': 3}, faiths={'veiled_ancestors': 1}),
+    'mystic': dict(cultures={'cathayan': 6, 'lunargoth': 3, 'kitsune': 1}, faiths={'celestial_order': 1}),
+    'cursed': dict(cultures={'zenshin': 5, 'oni': 4, 'kitsune': 1}, faiths={'veiled_ancestors': 1}),
     'bladed': dict(cultures={'zenshin': 1}, faiths={'ancestral_rites': 1}),
-    'wild': dict(cultures={'yokai': 5, 'oni': 3, 'zenshin': 2}, faiths={'wild_pacts': 1}),
+    'wild': dict(cultures={'yokai': 6, 'zenshin': 3, 'oni': 1}, faiths={'wild_pacts': 1}),
     'azuma': dict(cultures={'zenshin': 9, 'cathayan': 1}, faiths={'ancestral_rites': 1}),
 }
 

@@ -1,5 +1,5 @@
 ﻿h_rasen = {
-	2980.1.1 = { holder = rasen_200 government = meritocratic_government }
+	2980.1.1 = { holder = rasen_203 government = meritocratic_government }
 }
 
 d_cedarvale = {
@@ -1371,7 +1371,7 @@ c_bloodrun = {
 }
 
 d_thorntangle = {
-	2990.1.1 = { holder = rasen_191 liege = k_wild }
+	2990.1.1 = { holder = rasen_191 liege = h_rasen }
 }
 
 c_ironhide = {
@@ -1379,7 +1379,7 @@ c_ironhide = {
 }
 
 d_wildarena = {
-	2990.1.1 = { holder = rasen_192 liege = k_wild }
+	2990.1.1 = { holder = rasen_192 liege = h_rasen }
 }
 
 c_gabemori = {
@@ -1395,253 +1395,253 @@ c_zekukiba = {
 }
 
 c_horimori = {
-	2990.1.1 = { holder = rasen_192 }
+	2990.1.1 = { holder = rasen_193 liege = h_rasen }
 }
 
 c_nogari = {
-	2990.1.1 = { holder = rasen_192 }
+	2990.1.1 = { holder = rasen_193 liege = h_rasen }
 }
 
 d_greenclaw = {
-	2990.1.1 = { holder = rasen_193 liege = k_wild }
+	2990.1.1 = { holder = rasen_194 liege = h_rasen }
 }
 
 c_rahagari = {
-	2990.1.1 = { holder = rasen_193 }
-}
-
-d_elderroot = {
-	2990.1.1 = { holder = rasen_194 liege = k_wild }
-}
-
-c_greentangle = {
 	2990.1.1 = { holder = rasen_194 }
 }
 
+d_elderroot = {
+	2990.1.1 = { holder = rasen_195 liege = h_rasen }
+}
+
+c_greentangle = {
+	2990.1.1 = { holder = rasen_195 }
+}
+
 d_benagari = {
-	2990.1.1 = { holder = rasen_195 liege = k_wild }
+	2990.1.1 = { holder = rasen_196 liege = h_rasen }
 }
 
 c_hayakiba = {
-	2990.1.1 = { holder = rasen_195 }
+	2990.1.1 = { holder = rasen_196 }
 }
 
 c_nirakiba = {
-	2990.1.1 = { holder = rasen_195 }
+	2990.1.1 = { holder = rasen_196 }
 }
 
 c_greatthicket = {
-	2990.1.1 = { holder = rasen_195 }
+	2990.1.1 = { holder = rasen_196 }
 }
 
 c_hirano = {
-	2990.1.1 = { holder = rasen_195 }
+	2990.1.1 = { holder = rasen_197 liege = h_rasen }
 }
 
 c_yakiba = {
-	2990.1.1 = { holder = rasen_195 }
+	2990.1.1 = { holder = rasen_197 liege = h_rasen }
 }
 
 d_badakiba = {
-	2990.1.1 = { holder = rasen_196 liege = k_wild }
+	2990.1.1 = { holder = rasen_198 liege = h_rasen }
 }
 
 c_howlroot = {
-	2990.1.1 = { holder = rasen_196 }
+	2990.1.1 = { holder = rasen_198 }
 }
 
 c_hitokiba = {
-	2990.1.1 = { holder = rasen_196 }
+	2990.1.1 = { holder = rasen_198 }
 }
 
 c_nachimori = {
-	2990.1.1 = { holder = rasen_196 }
+	2990.1.1 = { holder = rasen_198 }
 }
 
 c_fangtangle = {
-	2990.1.1 = { holder = rasen_196 }
+	2990.1.1 = { holder = rasen_199 liege = h_rasen }
 }
 
 c_thornarena = {
-	2990.1.1 = { holder = rasen_196 }
+	2990.1.1 = { holder = rasen_199 liege = h_rasen }
 }
 
 d_suyamori = {
-	2990.1.1 = { holder = rasen_197 liege = k_wild }
+	2990.1.1 = { holder = rasen_200 liege = h_rasen }
 }
 
 c_wildtangle = {
-	2990.1.1 = { holder = rasen_197 }
+	2990.1.1 = { holder = rasen_200 }
 }
 
 c_nahigari = {
-	2990.1.1 = { holder = rasen_197 }
+	2990.1.1 = { holder = rasen_200 }
 }
 
 c_beastpit = {
-	2990.1.1 = { holder = rasen_197 }
+	2990.1.1 = { holder = rasen_200 }
 }
 
 c_greatden = {
-	2990.1.1 = { holder = rasen_197 }
+	2990.1.1 = { holder = rasen_200 }
 }
 
 c_howlpit = {
-	2990.1.1 = { holder = rasen_197 }
+	2990.1.1 = { holder = rasen_200 }
 }
 
 d_elderden = {
-	2990.1.1 = { holder = rasen_198 liege = k_wild }
+	2990.1.1 = { holder = rasen_201 liege = h_rasen }
 }
 
 c_tuskpit = {
-	2990.1.1 = { holder = rasen_198 }
+	2990.1.1 = { holder = rasen_201 }
 }
 
 c_rigari = {
-	2990.1.1 = { holder = rasen_198 }
+	2990.1.1 = { holder = rasen_201 }
 }
 
 c_jimigari = {
-	2990.1.1 = { holder = rasen_198 }
+	2990.1.1 = { holder = rasen_201 }
 }
 
 d_zeyomori = {
-	2990.1.1 = { holder = rasen_199 liege = k_wild }
+	2990.1.1 = { holder = rasen_202 liege = h_rasen }
 }
 
 c_sobegari = {
-	2990.1.1 = { holder = rasen_199 }
+	2990.1.1 = { holder = rasen_202 }
 }
 
 k_azuma = {
-	2990.1.1 = { holder = rasen_200 }
+	2990.1.1 = { holder = rasen_203 }
 }
 
 d_ramon = {
-	2990.1.1 = { holder = rasen_200 }
+	2990.1.1 = { holder = rasen_203 }
 }
 
 c_azuma = {
-	2990.1.1 = { holder = rasen_200 }
+	2990.1.1 = { holder = rasen_203 }
 }
 
 c_kicho = {
-	2990.1.1 = { holder = rasen_200 }
+	2990.1.1 = { holder = rasen_203 }
 }
 
 c_monoura = {
-	2990.1.1 = { holder = rasen_200 }
+	2990.1.1 = { holder = rasen_203 }
 }
 
 c_sofumachi = {
-	2990.1.1 = { holder = rasen_200 }
+	2990.1.1 = { holder = rasen_203 }
 }
 
 c_goden = {
-	2990.1.1 = { holder = rasen_200 }
+	2990.1.1 = { holder = rasen_203 }
 }
 
 d_yabashi = {
-	2990.1.1 = { holder = rasen_201 liege = k_azuma }
-}
-
-c_bebashi = {
-	2990.1.1 = { holder = rasen_201 }
-}
-
-c_takobashi = {
-	2990.1.1 = { holder = rasen_201 }
-}
-
-c_kuura = {
-	2990.1.1 = { holder = rasen_201 }
-}
-
-c_moniura = {
-	2990.1.1 = { holder = rasen_201 }
-}
-
-c_totobashi = {
-	2990.1.1 = { holder = rasen_201 }
-}
-
-d_betomon = {
-	2990.1.1 = { holder = rasen_202 liege = k_azuma }
-}
-
-c_basomachi = {
-	2990.1.1 = { holder = rasen_202 }
-}
-
-c_hanoden = {
-	2990.1.1 = { holder = rasen_202 }
-}
-
-c_maura = {
-	2990.1.1 = { holder = rasen_202 }
-}
-
-c_jiyuza = {
-	2990.1.1 = { holder = rasen_202 }
-}
-
-c_nabashi = {
-	2990.1.1 = { holder = rasen_202 }
-}
-
-d_shihibashi = {
-	2990.1.1 = { holder = rasen_203 liege = k_azuma }
-}
-
-c_nomobashi = {
-	2990.1.1 = { holder = rasen_203 }
-}
-
-c_sokyo = {
-	2990.1.1 = { holder = rasen_203 }
-}
-
-c_rotoura = {
-	2990.1.1 = { holder = rasen_203 }
-}
-
-c_sadakyo = {
-	2990.1.1 = { holder = rasen_203 }
-}
-
-c_soyucho = {
-	2990.1.1 = { holder = rasen_203 }
-}
-
-d_kidaura = {
 	2990.1.1 = { holder = rasen_204 liege = k_azuma }
 }
 
-c_yaden = {
+c_bebashi = {
 	2990.1.1 = { holder = rasen_204 }
 }
 
-c_hiura = {
+c_takobashi = {
 	2990.1.1 = { holder = rasen_204 }
 }
 
-c_yumon = {
+c_kuura = {
 	2990.1.1 = { holder = rasen_204 }
 }
 
-c_tomachi = {
+c_moniura = {
 	2990.1.1 = { holder = rasen_204 }
 }
 
-c_miyucho = {
+c_totobashi = {
 	2990.1.1 = { holder = rasen_204 }
 }
 
-d_dazemon = {
+d_betomon = {
 	2990.1.1 = { holder = rasen_205 liege = k_azuma }
 }
 
-c_hibashi = {
+c_basomachi = {
 	2990.1.1 = { holder = rasen_205 }
+}
+
+c_hanoden = {
+	2990.1.1 = { holder = rasen_205 }
+}
+
+c_maura = {
+	2990.1.1 = { holder = rasen_205 }
+}
+
+c_jiyuza = {
+	2990.1.1 = { holder = rasen_205 }
+}
+
+c_nabashi = {
+	2990.1.1 = { holder = rasen_205 }
+}
+
+d_shihibashi = {
+	2990.1.1 = { holder = rasen_206 liege = k_azuma }
+}
+
+c_nomobashi = {
+	2990.1.1 = { holder = rasen_206 }
+}
+
+c_sokyo = {
+	2990.1.1 = { holder = rasen_206 }
+}
+
+c_rotoura = {
+	2990.1.1 = { holder = rasen_206 }
+}
+
+c_sadakyo = {
+	2990.1.1 = { holder = rasen_206 }
+}
+
+c_soyucho = {
+	2990.1.1 = { holder = rasen_206 }
+}
+
+d_kidaura = {
+	2990.1.1 = { holder = rasen_207 liege = k_azuma }
+}
+
+c_yaden = {
+	2990.1.1 = { holder = rasen_207 }
+}
+
+c_hiura = {
+	2990.1.1 = { holder = rasen_207 }
+}
+
+c_yumon = {
+	2990.1.1 = { holder = rasen_207 }
+}
+
+c_tomachi = {
+	2990.1.1 = { holder = rasen_207 }
+}
+
+c_miyucho = {
+	2990.1.1 = { holder = rasen_207 }
+}
+
+d_dazemon = {
+	2990.1.1 = { holder = rasen_208 liege = k_azuma }
+}
+
+c_hibashi = {
+	2990.1.1 = { holder = rasen_208 }
 }

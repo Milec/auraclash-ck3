@@ -146,6 +146,7 @@ ac_sect_seed_disciple_effect = {
             ac_sect_teach_second_element_effect = yes
             ac_sect_develop_rank_effect = yes
         }
+        else = { ac_sect_develop_rank_effect = yes }
     }
     scope:ac_seeded_sect = { add_to_variable_list = { name = ac_members target = scope:ac_seeded_member } }
 }

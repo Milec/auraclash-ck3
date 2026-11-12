@@ -299,6 +299,10 @@ class People:
 # cycle (appointed governors, merit ranks, a treasury). The Exalts keep their own kingdoms as kings.
 OUTER_GOVERNMENT = 'meritocratic_government'
 STEWARD_REGION = 'azuma'
+# The Wild Lands are not unified: about thirteen Maos each run a faction and threaten the others.
+# The strongest holds the Wild seat on the Council; the rest answer only to the hegemony.
+UNRULY_REGION, RIVAL_MAOS = 'wild', 3
+MAO_TITLES = {'duchy': [], 'county': []}
 
 
 def history_files(kingdoms):
@@ -308,6 +312,9 @@ def history_files(kingdoms):
     early = f'{START[0] - 10}.1.1'
     titles, provinces, loc = [], [], ['l_english:']
     bookmark_ids = {}
+    rivals = {}
+    MAO_TITLES['duchy'].clear()
+    MAO_TITLES['county'].clear()
     for kingdom, duchies in kingdoms.items():
         region = kingdom[2:]
         peoples = REGION_PEOPLES[region]
@@ -317,7 +324,8 @@ def history_files(kingdoms):
             culture, faith = exalt['culture'], exalt['faith']
             king = people.person(culture, faith, name=exalt['name'], dynasty=people.dynasty(exalt['house'], culture),
                                  female=exalt.get('female', False), age=exalt['age'], cultivator=3,
-                                 traits=exalt.get('traits', ()), effects=('add_trait = ac_immortal_core',))
+                                 traits=exalt.get('traits', ()),
+                                 effects=('add_trait = ac_immortal_core', 'ac_aura_floor_effect = { AP = 15000 }'))
             bookmark_ids[region] = king
             if region == STEWARD_REGION:
                 # No Emperor has sat at Azuma Honsha for centuries: the High Steward holds the realm for the Council.
@@ -339,7 +347,7 @@ def history_files(kingdoms):
                 culture, faith = g['culture'], g['faith']
                 duke = people.person(culture, faith, name=g['name'], dynasty=people.dynasty(g['house'], culture), age=g['age'],
                                      cultivator=3, traits=g['traits'] + ('rasen_divine_general',),
-                                     effects=('add_trait = ac_immortal_core',))
+                                     effects=('add_trait = ac_immortal_core', 'ac_aura_floor_effect = { AP = 13000 }'))
             elif canon:
                 duke = people.person(canon.get('culture', culture), canon.get('faith', faith), name=canon['name'],
                                      dynasty=people.dynasty(canon['house'], canon.get('culture', culture)),
@@ -352,8 +360,12 @@ def history_files(kingdoms):
             # The Outer Lands have no kings: the Council appoints a Magistrate to each duchy and county.
             # (The Divine General answers to no one.)
             appointed = not king and not general
+            mao = region == UNRULY_REGION and duke != king
             if appointed:
                 liege = f' government = {OUTER_GOVERNMENT} liege = h_rasen'
+            elif mao:
+                liege = ' liege = h_rasen'
+                MAO_TITLES['duchy'].append(duchy['key'])
             else:
                 liege = f' liege = {kingdom}' if king and duke != king else ''
             titles.append(block(duchy['key'], [f'{early} = {{ holder = {duke}{liege} }}']))
@@ -363,6 +375,13 @@ def history_files(kingdoms):
                 if appointed and county['key'] != canon_county and county is not counties[0]:
                     holder = people.person(culture, faith, cultivator=1 if rng.random() < 0.4 else 0)
                     county_liege = f" government = {OUTER_GOVERNMENT} liege = {duchy['key']}"
+                # In the largest Wild duchies a rival Mao has carved out the far counties.
+                if mao and len(counties) >= 5 and county in counties[3:] and (
+                        duchy['key'] in rivals or len(rivals) < RIVAL_MAOS):
+                    if duchy['key'] not in rivals:
+                        rivals[duchy['key']] = people.person(culture, faith, cultivator=2)
+                    holder, county_liege = rivals[duchy['key']], ' liege = h_rasen'
+                    MAO_TITLES['county'].append(county['key'])
                 titles.append(block(county['key'], [f'{early} = {{ holder = {holder}{county_liege} }}']))
                 for bi, (barony, province) in enumerate(county['baronies']):
                     holding = ['castle_holding', 'city_holding', 'church_holding'][bi] if bi < 3 else 'none'
@@ -513,7 +532,9 @@ def rank_files():
     ranks = [('rasen_exalt', 'kingdom', f'titles = {{ {exalted} }}', 'Exalt'),
              ('rasen_high_steward', 'hegemony', 'titles = { h_rasen }', 'High Steward'),
              ('rasen_magistrate_duchy', 'duchy', f'governments = {{ {OUTER_GOVERNMENT} }}', 'Magistrate'),
-             ('rasen_magistrate_county', 'county', f'governments = {{ {OUTER_GOVERNMENT} }}', 'Magistrate')]
+             ('rasen_magistrate_county', 'county', f'governments = {{ {OUTER_GOVERNMENT} }}', 'Magistrate'),
+             ('rasen_mao_duchy', 'duchy', 'titles = { ' + ' '.join(MAO_TITLES['duchy']) + ' }', 'Mao'),
+             ('rasen_mao_county', 'county', 'titles = { ' + ' '.join(MAO_TITLES['county']) + ' }', 'Mao')]
     script, loc = ['# Generated by tools/build_rasen_world.py.'], ['l_english:']
     for key, tier, where, name in ranks:
         for gender in ('male', 'female'):
@@ -527,11 +548,11 @@ def rank_files():
 def render():
     kingdoms = parse_titles()
     files = {}
-    files.update({k: BOM + v for k, v in rank_files().items()})
     files.update({k: BOM + v for k, v in sect_files(kingdoms).items()})
     culture, culture_loc = culture_files()
     religion, religion_loc = religion_files(kingdoms)
     history, history_loc, bookmark_ids, people = history_files(kingdoms)
+    files.update({k: BOM + v for k, v in rank_files().items()})
     bookmark, bookmark_loc = bookmark_files(bookmark_ids, people)
     for part in (culture, religion, history, bookmark):
         files.update({k: BOM + v for k, v in part.items()})

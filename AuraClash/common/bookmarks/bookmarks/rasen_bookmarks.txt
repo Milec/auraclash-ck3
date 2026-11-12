@@ -8,7 +8,7 @@
 		dynasty = dynasty_rasen_hoshino
 		dynasty_splendor_level = 1
 		type = female
-		birth = 2934.10.11
+		birth = 2934.1.9
 		title = k_sacred
 		government = feudal_government
 		culture = cathayan
@@ -23,7 +23,7 @@
 		dynasty = dynasty_rasen_lan
 		dynasty_splendor_level = 1
 		type = male
-		birth = 2930.3.7
+		birth = 2930.10.15
 		title = k_mystic
 		government = feudal_government
 		culture = cathayan
@@ -38,7 +38,7 @@
 		dynasty = dynasty_rasen_ozaki
 		dynasty_splendor_level = 1
 		type = male
-		birth = 2942.2.2
+		birth = 2942.11.7
 		title = k_cursed
 		government = feudal_government
 		culture = zenshin
@@ -53,7 +53,7 @@
 		dynasty = dynasty_rasen_ryuuzan
 		dynasty_splendor_level = 1
 		type = male
-		birth = 2938.3.3
+		birth = 2938.5.11
 		title = k_bladed
 		government = feudal_government
 		culture = zenshin
@@ -68,7 +68,7 @@
 		dynasty = dynasty_rasen_kiba
 		dynasty_splendor_level = 1
 		type = male
-		birth = 2945.8.28
+		birth = 2945.12.6
 		title = k_wild
 		government = feudal_government
 		culture = yokai
@@ -83,13 +83,13 @@
 		dynasty = dynasty_rasen_amatsu
 		dynasty_splendor_level = 1
 		type = female
-		birth = 2940.6.3
+		birth = 2940.3.28
 		title = h_rasen
 		government = meritocratic_government
 		culture = zenshin
 		religion = ancestral_rites
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
-		history_id = rasen_200
+		history_id = rasen_203
 		position = { 900 500 }
 		animation = personality_bold
 	}

@@ -30,17 +30,17 @@ dynasty_rasen_yamabe = {
 
 dynasty_rasen_kanzaki = {
 	name = "dynasty_rasen_kanzaki"
-	culture = oni
+	culture = zenshin
 }
 
 dynasty_rasen_amatsu = {
 	name = "dynasty_rasen_amatsu"
-	culture = oni
+	culture = zenshin
 }
 
 dynasty_rasen_ryuuzan = {
 	name = "dynasty_rasen_ryuuzan"
-	culture = oni
+	culture = zenshin
 }
 
 dynasty_rasen_hou = {
@@ -138,33 +138,13 @@ dynasty_rasen_wintermantle = {
 	culture = lunargoth
 }
 
-dynasty_rasen_greycloak = {
-	name = "dynasty_rasen_greycloak"
-	culture = lunargoth
-}
-
-dynasty_rasen_northvale = {
-	name = "dynasty_rasen_northvale"
-	culture = lunargoth
-}
-
-dynasty_rasen_icewarden = {
-	name = "dynasty_rasen_icewarden"
-	culture = lunargoth
+dynasty_rasen_shimizu = {
+	name = "dynasty_rasen_shimizu"
+	culture = yokai
 }
 
 dynasty_rasen_amaling = {
 	name = "dynasty_rasen_amaling"
-	culture = lunargoth
-}
-
-dynasty_rasen_shimizu = {
-	name = "dynasty_rasen_shimizu"
-	culture = zenshin
-}
-
-dynasty_rasen_frostmark = {
-	name = "dynasty_rasen_frostmark"
 	culture = lunargoth
 }
 
@@ -173,9 +153,29 @@ dynasty_rasen_nakamoto = {
 	culture = zenshin
 }
 
-dynasty_rasen_jin = {
-	name = "dynasty_rasen_jin"
-	culture = cathayan
+dynasty_rasen_northvale = {
+	name = "dynasty_rasen_northvale"
+	culture = lunargoth
+}
+
+dynasty_rasen_frostmark = {
+	name = "dynasty_rasen_frostmark"
+	culture = lunargoth
+}
+
+dynasty_rasen_icewarden = {
+	name = "dynasty_rasen_icewarden"
+	culture = lunargoth
+}
+
+dynasty_rasen_hrothing = {
+	name = "dynasty_rasen_hrothing"
+	culture = lunargoth
+}
+
+dynasty_rasen_greycloak = {
+	name = "dynasty_rasen_greycloak"
+	culture = lunargoth
 }
 
 dynasty_rasen_yao = {
@@ -188,19 +188,29 @@ dynasty_rasen_su = {
 	culture = cathayan
 }
 
-dynasty_rasen_dou = {
-	name = "dynasty_rasen_dou"
+dynasty_rasen_bai = {
+	name = "dynasty_rasen_bai"
 	culture = cathayan
-}
-
-dynasty_rasen_hrothing = {
-	name = "dynasty_rasen_hrothing"
-	culture = lunargoth
 }
 
 dynasty_rasen_balthing = {
 	name = "dynasty_rasen_balthing"
 	culture = lunargoth
+}
+
+dynasty_rasen_jin = {
+	name = "dynasty_rasen_jin"
+	culture = cathayan
+}
+
+dynasty_rasen_dou = {
+	name = "dynasty_rasen_dou"
+	culture = cathayan
+}
+
+dynasty_rasen_zhou = {
+	name = "dynasty_rasen_zhou"
+	culture = cathayan
 }
 
 dynasty_rasen_akuma = {

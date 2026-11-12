@@ -44,9 +44,9 @@ def main():
                # Check actual founders and roster, not only synthetic profiles.
                '''effect = { set_global_variable = { name = ac_population_invalid value = 0 }
                  every_in_global_list = { variable = ac_sects
-                  story_owner = { if = { limit = { NOT = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 45 } ac_foundation_xp_trigger = { XP = 60 } } } change_global_variable = { name = ac_population_invalid add = 1 } } }
+                  story_owner = { if = { limit = { NOT = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 40 } ac_foundation_xp_trigger = { XP = 60 } } } change_global_variable = { name = ac_population_invalid add = 1 } } }
                   every_in_list = { variable = ac_members limit = { has_trait = ac_sect_upper_disciple }
-                   if = { limit = { NOT = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 20 } ac_foundation_xp_trigger = { XP = 30 } } } change_global_variable = { name = ac_population_invalid add = 1 } }
+                   if = { limit = { NOT = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 10 } ac_foundation_xp_trigger = { XP = 30 } } } change_global_variable = { name = ac_population_invalid add = 1 } }
                   }
                  }
                }''',
