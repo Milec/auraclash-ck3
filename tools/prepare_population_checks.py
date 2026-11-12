@@ -44,9 +44,9 @@ def main():
                # Check actual founders and roster, not only synthetic profiles.
                '''effect = { set_global_variable = { name = ac_population_invalid value = 0 }
                  every_in_global_list = { variable = ac_sects
-                  story_owner = { if = { limit = { NOT = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 60 } ac_foundation_xp_trigger = { XP = 75 } } } change_global_variable = { name = ac_population_invalid add = 1 } } }
+                  story_owner = { if = { limit = { NOT = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 45 } ac_foundation_xp_trigger = { XP = 60 } } } change_global_variable = { name = ac_population_invalid add = 1 } } }
                   every_in_list = { variable = ac_members limit = { has_trait = ac_sect_upper_disciple }
-                   if = { limit = { NOT = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 30 } ac_foundation_xp_trigger = { XP = 50 } } } change_global_variable = { name = ac_population_invalid add = 1 } }
+                   if = { limit = { NOT = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 20 } ac_foundation_xp_trigger = { XP = 30 } } } change_global_variable = { name = ac_population_invalid add = 1 } }
                   }
                  }
                }''',
@@ -62,13 +62,13 @@ def main():
         source += [f'''if = {{ limit = {{ var:ac_roaming_grade = {grade} NOT = {{ {core_range(low, high)} ac_foundation_xp_trigger = {{ XP = {foundation} }} }} }} change_global_variable = {{ name = ac_population_invalid add = 1 }} }}''']
     source += ['} }', 'assert = { global_var:ac_population_invalid = 0 }',
                '''effect = {
-                 title:d_cedarvale.var:ac_roaming_master = { save_scope_as = ac_test_original_roamer }
+                 title:k_outer_west.var:ac_roaming_master = { save_scope_as = ac_test_original_roamer }
                  scope:ac_population_test_host = { add_courtier = scope:ac_test_original_roamer }
                  ac_roaming_world_maintenance_effect = yes
                }''',
-               'assert = { title:d_cedarvale.var:ac_roaming_master = scope:ac_test_original_roamer scope:ac_test_original_roamer = { is_courtier_of = scope:ac_population_test_host } }',
+               'assert = { title:k_outer_west.var:ac_roaming_master = scope:ac_test_original_roamer scope:ac_test_original_roamer = { is_courtier_of = scope:ac_population_test_host } }',
                'effect = { scope:ac_test_original_roamer = { death = natural } ac_roaming_world_maintenance_effect = yes }',
-               'assert = { NOT = { title:d_cedarvale.var:ac_roaming_master = scope:ac_test_original_roamer } title:d_cedarvale.var:ac_roaming_master = { is_alive = yes has_trait = ac_roaming_master } NOT = { any_in_global_list = { variable = ac_roaming_masters is_alive = no } } }',
+               'assert = { NOT = { title:k_outer_west.var:ac_roaming_master = scope:ac_test_original_roamer } title:k_outer_west.var:ac_roaming_master = { is_alive = yes has_trait = ac_roaming_master } NOT = { any_in_global_list = { variable = ac_roaming_masters is_alive = no } } }',
                '}']
     # Diagnose world-distribution metadata individually as well as in aggregate.
     diagnostics = []

@@ -62,7 +62,7 @@ def main():
     args.master_ui = args.master_ui or args.estate_ui
     tests = extract_tests()
     action = ['on_game_start_after_lobby = { on_actions = { ac_sect_qa_startup } }',
-              'ac_sect_qa_startup = { effect = { debug_log = "AC_SECT_QA BEGIN" title:d_kohara = {']
+              'ac_sect_qa_startup = { effect = { debug_log = "AC_SECT_QA BEGIN" trigger_event = { on_action = rasen_found_noble_families } title:d_kohara = {']
     for name, body in tests.items():
         if '_06_' in name:
             for field in script.fields(body):

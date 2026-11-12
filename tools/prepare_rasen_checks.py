@@ -105,6 +105,9 @@ def event():
                     '\trasen_ice_incursion_yearly_effect = yes\n\tac_ascension_yearly_effect = yes\n'
                     '\tevery_in_global_list = { variable = ac_sects ac_sect_yearly_effect = yes }\n'
                     f'\tdebug_log = "RASEN_QA YEAR {year} DONE"\n')
+    # Left for the years that follow (see the YEAR marks): a sect master dies.
+    body.append('\ttitle:c_himiura.title_province.var:ac_province_sect = { set_global_variable = { name = qa_heir_sect value = this } '
+                'story_owner = { set_global_variable = { name = qa_dead_master value = this } death = natural } }\n')
     body.append(check('council_countdown', 'has_global_variable = rasen_council_countdown'))
     body.append(check('trials_countdown', 'has_global_variable = ac_ascension_countdown'))
     body.append('\tdebug_log = "RASEN_QA COMPLETE"\n')
@@ -131,7 +134,11 @@ def main():
                                           'if = { limit = { any_in_global_list = { variable = ac_sects '
                                           'OR = { has_variable_list = ac_allies has_variable_list = ac_rivals } } } '
                                           'debug_log = "RASEN_QA YEAR SECT_TIES" } '
-                                          'if = { limit = { title:k_bladed.holder = { is_alive = yes } } debug_log = "RASEN_QA YEAR EXALT_ALIVE" } } }\n'),
+                                          'if = { limit = { title:k_bladed.holder = { is_alive = yes } } debug_log = "RASEN_QA YEAR EXALT_ALIVE" } '
+                                          'if = { limit = { global_var:qa_heir_sect = { story_owner = { is_alive = yes has_trait = ac_sect_master '
+                                          'this != global_var:qa_dead_master } var:ac_estate_title.holder = story_owner } } '
+                                          'debug_log = "RASEN_QA YEAR MASTER_SUCCEEDED" } '
+                                          '} }\n'),
         'events/rasen_qa.txt': event(),
     }
     for relative, text in files.items():
