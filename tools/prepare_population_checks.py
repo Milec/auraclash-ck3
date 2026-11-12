@@ -1,4 +1,5 @@
 """Create a disposable CK3 startup fixture for rank development and roamers."""
+import qa_descriptor
 from pathlib import Path
 import json
 import shutil
@@ -61,13 +62,13 @@ def main():
         source += [f'''if = {{ limit = {{ var:ac_roaming_grade = {grade} NOT = {{ {core_range(low, high)} ac_foundation_xp_trigger = {{ XP = {foundation} }} }} }} change_global_variable = {{ name = ac_population_invalid add = 1 }} }}''']
     source += ['} }', 'assert = { global_var:ac_population_invalid = 0 }',
                '''effect = {
-                 title:k_wales.var:ac_roaming_master = { save_scope_as = ac_test_original_roamer }
+                 title:d_cedarvale.var:ac_roaming_master = { save_scope_as = ac_test_original_roamer }
                  scope:ac_population_test_host = { add_courtier = scope:ac_test_original_roamer }
                  ac_roaming_world_maintenance_effect = yes
                }''',
-               'assert = { title:k_wales.var:ac_roaming_master = scope:ac_test_original_roamer scope:ac_test_original_roamer = { is_courtier_of = scope:ac_population_test_host } }',
+               'assert = { title:d_cedarvale.var:ac_roaming_master = scope:ac_test_original_roamer scope:ac_test_original_roamer = { is_courtier_of = scope:ac_population_test_host } }',
                'effect = { scope:ac_test_original_roamer = { death = natural } ac_roaming_world_maintenance_effect = yes }',
-               'assert = { NOT = { title:k_wales.var:ac_roaming_master = scope:ac_test_original_roamer } title:k_wales.var:ac_roaming_master = { is_alive = yes has_trait = ac_roaming_master } NOT = { any_in_global_list = { variable = ac_roaming_masters is_alive = no } } }',
+               'assert = { NOT = { title:d_cedarvale.var:ac_roaming_master = scope:ac_test_original_roamer } title:d_cedarvale.var:ac_roaming_master = { is_alive = yes has_trait = ac_roaming_master } NOT = { any_in_global_list = { variable = ac_roaming_masters is_alive = no } } }',
                '}']
     # Diagnose world-distribution metadata individually as well as in aggregate.
     diagnostics = []
@@ -91,7 +92,7 @@ def main():
     startup = overlay / 'common/on_action/zz_ac_population_qa.txt'
     startup.parent.mkdir(parents=True, exist_ok=True)
     startup.write_text('''on_game_start_after_lobby = { on_actions = { ac_population_qa } }
-ac_population_qa = { effect = { title:k_england.holder = { trigger_event = { id = ac_population_qa.0001 days = 1 } } } }
+ac_population_qa = { effect = { title:d_kohara.holder = { trigger_event = { id = ac_population_qa.0001 days = 1 } } } }
 ''', encoding='utf-8-sig')
     event = overlay / 'events/ac_population_qa.txt'
     event.parent.mkdir(parents=True, exist_ok=True)
@@ -99,7 +100,7 @@ ac_population_qa = { effect = { title:k_england.holder = { trigger_event = { id 
                      + checks + '\n debug_log = "AC_POPULATION_QA COMPLETE"\n} }\n', encoding='utf-8-sig')
     (OUT / 'mod').mkdir(parents=True, exist_ok=True)
     for name, path in [('ac_population', ROOT / 'AuraClash'), ('ac_population_qa', overlay)]:
-        (OUT / 'mod' / (name + '.mod')).write_text(f'name="{name}"\npath="{path.as_posix()}"\nsupported_version="1.20.*"\n', encoding='utf-8')
+        (OUT / 'mod' / (name + '.mod')).write_text(qa_descriptor.text(name, path), encoding='utf-8')
     (OUT / 'dlc_load.json').write_text(json.dumps({'enabled_mods': ['mod/ac_population.mod', 'mod/ac_population_qa.mod'], 'disabled_dlcs': []}), encoding='utf-8')
     baseline = ROOT / 'output/awakening-runtime'
     if not (OUT / 'pdx_settings.txt').exists():
@@ -107,7 +108,7 @@ ac_population_qa = { effect = { title:k_england.holder = { trigger_event = { id 
     if not (OUT / 'shadercache').exists():
         shutil.copytree(baseline / 'shadercache', OUT / 'shadercache')
     print('Unpause the disposable game for one day so native pool caches are initialized.')
-    print(f'Prepared {OUT}. Launch with -debug_mode -skip -bookmark=bm_1066_hastings -play=k_england -userdir="{OUT}"')
+    print(f'Prepared {OUT}. Launch with -debug_mode -skip -bookmark=bm_rasen_trials -play=d_kohara -userdir="{OUT}"')
 
 
 if __name__ == '__main__':

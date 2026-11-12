@@ -55,7 +55,7 @@
  assert = { scope:ac_qa_ai_teacher = { prestige = { value = var:ac_test_prestige subtract = 250 } piety = { value = var:ac_test_piety subtract = 250 } } scope:ac_qa_ai_learner = { has_character_flag = ac_awakening_cooldown prestige = 0 } }
 
  # NPC rulers use the actual paid decision; native courtiers cannot take decisions.
- effect = { title:k_scotland.holder = {
+ effect = { title:d_mistgate.holder = {
   save_scope_as = ac_qa_ai_seeker
   remove_trait = ac_cultivator remove_trait = incapable
   remove_trait = wounded_1 remove_trait = wounded_2 remove_trait = wounded_3

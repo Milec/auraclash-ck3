@@ -30,8 +30,8 @@ def main():
     (overlay / 'common/on_action/ac_sect_qa_startup.txt').write_text('''
 on_game_start_after_lobby = { on_actions = { ac_sect_qa_startup } }
 ac_sect_qa_startup = { effect = {
- title:k_wales.var:ac_kingdom_sect = { save_scope_as = ac_join_sect }
- title:k_england.holder = {
+ title:d_cedarvale.var:ac_kingdom_sect = { save_scope_as = ac_join_sect }
+ title:d_kohara.holder = {
   ac_sect_join_effect = yes
   every_character_war = { end_war = white_peace }
   set_variable = { name = ac_qa_contribution_before value = var:ac_sect_contribution }
@@ -51,7 +51,7 @@ ac_sect_qa_startup = { effect = {
     # Run every native reward object on a disposable NPC. Its arrival event
     # is suppressed below so an immediate AI choice cannot resolve the job
     # before the explicit reward and duplicate-payment assertions.
-    checks = ['title:k_wales.var:ac_kingdom_sect = { random_in_list = { variable = ac_members limit = { has_trait = ac_sect_lower_disciple is_ai = yes } save_scope_as = ac_contract_test_agent } }',
+    checks = ['title:d_cedarvale.var:ac_kingdom_sect = { random_in_list = { variable = ac_members limit = { has_trait = ac_sect_lower_disciple is_ai = yes } save_scope_as = ac_contract_test_agent } }',
               'scope:ac_contract_test_agent = { add_character_flag = ac_contract_qa_reward_probe set_variable = { name = ac_sect_contribution value = 0 } set_variable = { name = ac_sect_merit value = 0 }']
     expected = 0
     for key, _, _, _, reward in content.MISSIONS:
@@ -88,7 +88,7 @@ if = { limit = { NOT = { has_variable = ac_sect_offer_patrol } NOT = { any_in_li
  is_shown = { ac_sect_member_trigger = yes }
  effect = {
   if = {
-   limit = { primary_title = title:k_england has_government = feudal_government }
+   limit = { primary_title = title:d_kohara has_government = feudal_government }
    debug_log = "AC_CONTRACT_QA PASS ruler_keeps_titles_and_government"
   } else = { debug_log = "AC_CONTRACT_QA FAIL ruler_keeps_titles_and_government" }
   if = {

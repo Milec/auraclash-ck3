@@ -1,4 +1,5 @@
 """Prepare an isolated game exercising targeted requests and paid searches."""
+import qa_descriptor
 from pathlib import Path
 import argparse
 import json
@@ -21,9 +22,9 @@ def main():
     body = '\n'.join([source] + [(ROOT / 'AuraClash/tests' / name).read_text(encoding='utf-8-sig')
                                   for name in ('ac_ai_awakening_tests.txt', 'ac_childhood_tests.txt')])
     # The shared harness normally runs in title scope; these tests use a character.
-    checks = test_body('awakening', body.replace('root.', 'scope:ac_qa_learner.')).replace('title:k_england', 'scope:ac_qa_learner')
+    checks = test_body('awakening', body.replace('root.', 'scope:ac_qa_learner.')).replace('title:d_kohara', 'scope:ac_qa_learner')
     startup.write_text('''on_game_start_after_lobby = { on_actions = { ac_awakening_qa } }
-ac_awakening_qa = { effect = { title:k_england.holder = { trigger_event = ac_awakening_qa.0001 } } }
+ac_awakening_qa = { effect = { title:d_kohara.holder = { trigger_event = ac_awakening_qa.0001 } } }
 ''', encoding='utf-8-sig')
     event = overlay / 'events/ac_awakening_qa.txt'
     event.parent.mkdir(parents=True, exist_ok=True)
@@ -80,7 +81,7 @@ ac_awakening_qa.0003 = { type = character_event hidden = yes immediate = {
     (OUT / 'mod').mkdir(parents=True, exist_ok=True)
     for name, directory in [('ac_awakening', ROOT / 'AuraClash'), ('ac_awakening_qa', overlay)]:
         (OUT / 'mod' / (name + '.mod')).write_text(
-            f'name="{name}"\npath="{directory.as_posix()}"\nsupported_version="1.20.*"\n', encoding='utf-8')
+            qa_descriptor.text(name, directory), encoding='utf-8')
     (OUT / 'dlc_load.json').write_text(json.dumps({
         'enabled_mods': ['mod/ac_awakening.mod', 'mod/ac_awakening_qa.mod'], 'disabled_dlcs': []}), encoding='utf-8')
     if not args.ui:
@@ -92,7 +93,7 @@ ac_awakening_qa.0003 = { type = character_event hidden = yes immediate = {
         shutil.copy2(baseline / 'pdx_settings.txt', OUT / 'pdx_settings.txt')
     if not (OUT / 'shadercache').exists() and (baseline / 'shadercache').exists():
         shutil.copytree(baseline / 'shadercache', OUT / 'shadercache')
-    print(f'Prepared {OUT}. Launch with -debug_mode -skip -bookmark=bm_1066_hastings -play=k_england -userdir="{OUT}"')
+    print(f'Prepared {OUT}. Launch with -debug_mode -skip -bookmark=bm_rasen_trials -play=d_kohara -userdir="{OUT}"')
     print('Require COMPLETE, no AC_SECT_QA FAIL, and no production script errors.')
 
 

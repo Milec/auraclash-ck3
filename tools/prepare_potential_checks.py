@@ -1,4 +1,5 @@
 """Prepare disposable native CK3 checks for Mortal Limits, Aura Pressure, reveal and two-axis inheritance."""
+import qa_descriptor
 from pathlib import Path
 import json
 import shutil
@@ -110,11 +111,11 @@ def fixture():
 def main():
     source = fixture()
     (ROOT / 'AuraClash/tests/ac_potential_tests.txt').write_text(source+'\n',encoding='utf-8-sig',newline='\n')
-    checks = test_body('potential',source.replace('root.', 'scope:ac_potential_test_host.')).replace('title:k_england','scope:ac_potential_test_host')
+    checks = test_body('potential',source.replace('root.', 'scope:ac_potential_test_host.')).replace('title:d_kohara','scope:ac_potential_test_host')
     lifestyle = (ROOT/'AuraClash/tests/ac_lifestyle_tests.txt').read_text(encoding='utf-8-sig')
-    checks += '\nsave_scope_as = ac_lifestyle_host\n' + test_body('potential_lifestyle_regression',lifestyle.replace('root.', 'scope:ac_lifestyle_host.')).replace('title:k_england','scope:ac_lifestyle_host')
+    checks += '\nsave_scope_as = ac_lifestyle_host\n' + test_body('potential_lifestyle_regression',lifestyle.replace('root.', 'scope:ac_lifestyle_host.')).replace('title:d_kohara','scope:ac_lifestyle_host')
     files = {
-        'common/on_action/ac_potential_qa.txt': 'on_game_start_after_lobby = { on_actions = { ac_potential_qa } }\nac_potential_qa = { effect = { title:k_england.holder = { trigger_event = ac_potential_qa.0001 } } }',
+        'common/on_action/ac_potential_qa.txt': 'on_game_start_after_lobby = { on_actions = { ac_potential_qa } }\nac_potential_qa = { effect = { title:d_kohara.holder = { trigger_event = ac_potential_qa.0001 } } }',
         'events/ac_potential_qa.txt': 'namespace = ac_potential_qa\nac_potential_qa.0001 = { type = character_event hidden = yes immediate = {\n'+checks+'\ndebug_log = "AC_POTENTIAL_QA COMPLETE"\nadd_trait = ac_cultivator\nset_variable = { name = ac_potential_limit_gene value = 5 } set_variable = { name = ac_potential_talent_gene value = 8 } ac_reveal_potential_effect = yes\n} }',
     }
     overlay = OUT/'qa-mod'
@@ -122,7 +123,7 @@ def main():
         path=overlay/relative; path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text,encoding='utf-8-sig')
     (OUT/'mod').mkdir(parents=True,exist_ok=True)
     for name,path in [('ac_potential',ROOT/'AuraClash'),('ac_potential_qa',overlay)]:
-        (OUT/'mod'/f'{name}.mod').write_text(f'name="{name}"\npath="{path.as_posix()}"\nsupported_version="1.20.*"\n',encoding='utf-8')
+        (OUT/'mod'/f'{name}.mod').write_text(qa_descriptor.text(name, path),encoding='utf-8')
     (OUT/'dlc_load.json').write_text(json.dumps({'enabled_mods':['mod/ac_potential.mod','mod/ac_potential_qa.mod'],'disabled_dlcs':[]}),encoding='utf-8')
     baseline=ROOT/'output/awakening-runtime'
     for name in ('pdx_settings.txt',):

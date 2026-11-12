@@ -1,4 +1,5 @@
 """Prepare native XP, perk spending, save-compatibility and lifestyle UI checks."""
+import qa_descriptor
 from pathlib import Path
 import json
 import shutil
@@ -13,11 +14,11 @@ def main():
     overlay = OUT / 'qa-mod'
     source = (ROOT / 'AuraClash/tests/ac_lifestyle_tests.txt').read_text(encoding='utf-8-sig')
     checks = test_body('lifestyles', source.replace('root.', 'scope:ac_lifestyle_host.'))
-    checks = checks.replace('title:k_england', 'scope:ac_lifestyle_host')
+    checks = checks.replace('title:d_kohara', 'scope:ac_lifestyle_host')
     files = {
         'common/on_action/ac_lifestyle_qa.txt': '''
 on_game_start_after_lobby = { on_actions = { ac_lifestyle_qa } }
-ac_lifestyle_qa = { effect = { title:k_england.holder = { trigger_event = ac_lifestyle_qa.0001 } } }
+ac_lifestyle_qa = { effect = { title:d_kohara.holder = { trigger_event = ac_lifestyle_qa.0001 } } }
 ''',
         'events/ac_lifestyle_qa.txt': '''namespace = ac_lifestyle_qa
 ac_lifestyle_qa.0001 = { type = character_event hidden = yes immediate = {
@@ -63,7 +64,7 @@ ac_lifestyle_qa_audit = { scope = character effect = { trigger_event = ac_lifest
     (OUT / 'mod').mkdir(parents=True, exist_ok=True)
     for name, path in [('ac_lifestyle', ROOT / 'AuraClash'), ('ac_lifestyle_qa', overlay)]:
         (OUT / 'mod' / (name + '.mod')).write_text(
-            f'name="{name}"\npath="{path.as_posix()}"\nsupported_version="1.20.*"\n', encoding='utf-8')
+            qa_descriptor.text(name, path), encoding='utf-8')
     (OUT / 'dlc_load.json').write_text(json.dumps({
         'enabled_mods': ['mod/ac_lifestyle.mod', 'mod/ac_lifestyle_qa.mod'], 'disabled_dlcs': []}), encoding='utf-8')
     baseline = ROOT / 'output/awakening-runtime'
@@ -71,7 +72,7 @@ ac_lifestyle_qa_audit = { scope = character effect = { trigger_event = ac_lifest
         shutil.copy2(baseline / 'pdx_settings.txt', OUT / 'pdx_settings.txt')
     if not (OUT / 'shadercache').exists():
         shutil.copytree(baseline / 'shadercache', OUT / 'shadercache')
-    print(f'Prepared {OUT}. Launch -debug_mode -skip -bookmark=bm_1066_hastings -play=k_england -userdir="{OUT}"')
+    print(f'Prepared {OUT}. Launch -debug_mode -skip -bookmark=bm_rasen_trials -play=d_kohara -userdir="{OUT}"')
     print('Require COMPLETE, no failed assertions and no script errors. Inspect all three tabs and buy Healing Waters, then use the audit button.')
 
 
