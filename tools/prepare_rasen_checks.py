@@ -37,6 +37,16 @@ def event():
     body.append(check('divine_general', 'any_living_character = { has_trait = rasen_divine_general }'))
     body.append(check('akuma_seeded', 'any_in_global_list = { variable = rasen_akuma_members count >= 5 }'))
     body.append(check('capital_holding', 'title:c_azuma.title_province = { has_holding = yes }'))
+    # The realm: the High Steward holds the hegemony for the Council, the Exalts are its kings, and
+    # appointed Magistrates govern the Outer duchies and counties.
+    body.append(check('hegemony', 'title:h_rasen.holder = { this = title:k_azuma.holder has_government = meritocratic_government }'))
+    body.append(check('exalt_liege', 'title:k_bladed.holder = { liege = title:h_rasen.holder }'))
+    body.append(check('exalt_feudal', 'title:k_bladed.holder = { has_government = feudal_government }'))
+    body.append(check('magistrate_liege', 'title:d_kohara.holder = { liege = title:h_rasen.holder }'))
+    body.append(check('magistrate_merit', 'title:d_kohara.holder = { has_government = meritocratic_government }'))
+    body.append(check('county_magistrates', 'title:k_outer_west = { any_de_jure_county = { count >= 20 holder = { '
+                      'has_government = meritocratic_government highest_held_title_tier = tier_county } } }'))
+    body.append(check('divine_general_free', 'any_living_character = { has_trait = rasen_divine_general is_independent_ruler = yes }'))
     # The story's sects, each at its seat, with standing by region.
     def sect(county, condition):
         return f'title:{county}.title_province = {{ has_variable = ac_province_sect var:ac_province_sect = {{ {condition} }} }}'

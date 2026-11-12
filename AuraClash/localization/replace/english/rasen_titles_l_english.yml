@@ -1,5 +1,7 @@
 ﻿l_english:
- e_rasen:0 "Imperial Rasen"
+ h_rasen:0 "Imperial Rasen"
+ h_rasen_adj:0 "Imperial"
+ e_rasen:0 "The Spiral Continent"
  e_rasen_adj:0 "Rasenese"
  k_outer_west:0 "Outer West"
  k_outer_west_adj:0 "Outer Western"

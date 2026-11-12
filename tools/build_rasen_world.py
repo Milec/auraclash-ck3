@@ -295,6 +295,12 @@ class People:
             self.info[child]['lines'][1:1] = [f'father = {father}', f'mother = {mother}']
 
 
+# The Council's bureaucracy: All Under Heaven's merit government for realms outside China's dynastic
+# cycle (appointed governors, merit ranks, a treasury). The Exalts keep their own kingdoms as kings.
+OUTER_GOVERNMENT = 'meritocratic_government'
+STEWARD_REGION = 'azuma'
+
+
 def history_files(kingdoms):
     rng = random.Random(SEED)
     people = People(rng)
@@ -313,7 +319,13 @@ def history_files(kingdoms):
                                  female=exalt.get('female', False), age=exalt['age'], cultivator=3,
                                  traits=exalt.get('traits', ()), effects=('add_trait = ac_immortal_core',))
             bookmark_ids[region] = king
-            titles.append(block(kingdom, [f'{early} = {{ holder = {king} }}']))
+            if region == STEWARD_REGION:
+                # No Emperor has sat at Azuma Honsha for centuries: the High Steward holds the realm for the Council.
+                # First in the file and earlier in time, so every 'liege = h_rasen' finds a holder.
+                titles.insert(0, block('h_rasen', [f'{START[0] - 20}.1.1 = {{ holder = {king} government = {OUTER_GOVERNMENT} }}']))
+                titles.append(block(kingdom, [f'{early} = {{ holder = {king} }}']))
+            else:
+                titles.append(block(kingdom, [f'{early} = {{ holder = {king} government = feudal_government liege = h_rasen }}']))
         for di, duchy in enumerate(duchies):
             counties = duchy['counties']
             culture = weighted(rng, peoples['cultures'])
@@ -336,10 +348,22 @@ def history_files(kingdoms):
             else:
                 rank = 2 if (king and rng.random() < 0.5) else (1 if rng.random() < 0.6 else 0)
                 duke = people.person(culture, faith, cultivator=rank)
-            liege = f' liege = {kingdom}' if king and duke != king else ''
+            general = region == 'outer_north' and di == 0
+            # The Outer Lands have no kings: the Council appoints a Magistrate to each duchy and county.
+            # (The Divine General answers to no one.)
+            appointed = not king and not general
+            if appointed:
+                liege = f' government = {OUTER_GOVERNMENT} liege = h_rasen'
+            else:
+                liege = f' liege = {kingdom}' if king and duke != king else ''
             titles.append(block(duchy['key'], [f'{early} = {{ holder = {duke}{liege} }}']))
+            canon_county = next((c['key'] for c in counties if c['key'] in CANON_HOLDERS), counties[0]['key'])
             for county in counties:
-                titles.append(block(county['key'], [f'{early} = {{ holder = {duke} }}']))
+                holder, county_liege = duke, ''
+                if appointed and county['key'] != canon_county and county is not counties[0]:
+                    holder = people.person(culture, faith, cultivator=1 if rng.random() < 0.4 else 0)
+                    county_liege = f" government = {OUTER_GOVERNMENT} liege = {duchy['key']}"
+                titles.append(block(county['key'], [f'{early} = {{ holder = {holder}{county_liege} }}']))
                 for bi, (barony, province) in enumerate(county['baronies']):
                     holding = ['castle_holding', 'city_holding', 'church_holding'][bi] if bi < 3 else 'none'
                     # As in vanilla, only the county's capital province carries culture and rite.
@@ -404,7 +428,9 @@ def bookmark_files(bookmark_ids, people):
         female = any(l == 'female = yes' for l in lines)
         entries += ['character = {', f'\tname = "bm_rasen_{region}"', f'\tdynasty = {value("dynasty")}',
                     '\tdynasty_splendor_level = 1', f'\ttype = {"female" if female else "male"}', f'\tbirth = {birth}',
-                    f'\ttitle = k_{region}', '\tgovernment = feudal_government', f'\tculture = {value("culture")}',
+                    f'\ttitle = {"h_rasen" if region == STEWARD_REGION else "k_" + region}',
+                    f'\tgovernment = {OUTER_GOVERNMENT if region == STEWARD_REGION else "feudal_government"}',
+                    f'\tculture = {value("culture")}',
                     f'\treligion = {value("rite")}', '\tdifficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"',
                     f'\thistory_id = {cid}', '\tposition = { 900 500 }', '\tanimation = personality_bold', '}']
         loc += [f' bm_rasen_{region}:0 "{value("name").strip(chr(34))}"',
@@ -481,9 +507,27 @@ def sect_files(kingdoms):
             'common/scripted_effects/ac_sect_world_effects.txt': '\n'.join(world) + '\n'}
 
 
+def rank_files():
+    """What Imperial Rasen calls its rulers: Exalts, the High Steward and the Council's Magistrates."""
+    exalted = ' '.join(f'k_{region}' for region in EXALTS if region != STEWARD_REGION)
+    ranks = [('rasen_exalt', 'kingdom', f'titles = {{ {exalted} }}', 'Exalt'),
+             ('rasen_high_steward', 'hegemony', 'titles = { h_rasen }', 'High Steward'),
+             ('rasen_magistrate_duchy', 'duchy', f'governments = {{ {OUTER_GOVERNMENT} }}', 'Magistrate'),
+             ('rasen_magistrate_county', 'county', f'governments = {{ {OUTER_GOVERNMENT} }}', 'Magistrate')]
+    script, loc = ['# Generated by tools/build_rasen_world.py.'], ['l_english:']
+    for key, tier, where, name in ranks:
+        for gender in ('male', 'female'):
+            script.append(f'{key}_{gender} = {{\n\ttype = character\n\tgender = {gender}\n\tspecial = holder\n\ttier = {tier}\n'
+                          f'\tpriority = 600\n\t{where}\n\tflavourization_rules = {{ top_liege = no }}\n}}')
+            loc.append(f' {key}_{gender}:0 "{name}"')
+    return {'common/flavorization/rasen_title_holders.txt': '\n'.join(script) + '\n',
+            'localization/english/rasen_ranks_l_english.yml': '\n'.join(loc) + '\n'}
+
+
 def render():
     kingdoms = parse_titles()
     files = {}
+    files.update({k: BOM + v for k, v in rank_files().items()})
     files.update({k: BOM + v for k, v in sect_files(kingdoms).items()})
     culture, culture_loc = culture_files()
     religion, religion_loc = religion_files(kingdoms)

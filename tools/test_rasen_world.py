@@ -40,7 +40,7 @@ class RasenWorldTests(unittest.TestCase):
 
     def test_every_county_and_province_has_history(self):
         titles = read('common/landed_titles/00_rasen_titles.txt')
-        counties = set(re.findall(r'(?m)^\t\t\t(c_\w+) = \{', titles))
+        counties = set(re.findall(r'(?m)^\t+(c_\w+) = \{', titles))
         held = set(re.findall(r'(?m)^(c_\w+) = \{', self.text['history/titles/rasen_titles.txt']))
         self.assertEqual(counties, held)
         provinces = set(re.findall(r'province = (\d+)', titles))

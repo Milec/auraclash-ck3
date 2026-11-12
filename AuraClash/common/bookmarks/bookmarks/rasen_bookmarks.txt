@@ -8,13 +8,13 @@
 		dynasty = dynasty_rasen_hoshino
 		dynasty_splendor_level = 1
 		type = female
-		birth = 2934.5.18
+		birth = 2934.10.11
 		title = k_sacred
 		government = feudal_government
 		culture = cathayan
 		religion = devanic_temple
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
-		history_id = rasen_56
+		history_id = rasen_169
 		position = { 900 500 }
 		animation = personality_bold
 	}
@@ -23,13 +23,13 @@
 		dynasty = dynasty_rasen_lan
 		dynasty_splendor_level = 1
 		type = male
-		birth = 2930.7.3
+		birth = 2930.3.7
 		title = k_mystic
 		government = feudal_government
 		culture = cathayan
 		religion = celestial_order
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
-		history_id = rasen_65
+		history_id = rasen_178
 		position = { 900 500 }
 		animation = personality_bold
 	}
@@ -38,13 +38,13 @@
 		dynasty = dynasty_rasen_ozaki
 		dynasty_splendor_level = 1
 		type = male
-		birth = 2942.6.19
+		birth = 2942.2.2
 		title = k_cursed
 		government = feudal_government
 		culture = zenshin
 		religion = veiled_ancestors
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
-		history_id = rasen_69
+		history_id = rasen_182
 		position = { 900 500 }
 		animation = personality_bold
 	}
@@ -53,13 +53,13 @@
 		dynasty = dynasty_rasen_ryuuzan
 		dynasty_splendor_level = 1
 		type = male
-		birth = 2938.9.6
+		birth = 2938.3.3
 		title = k_bladed
 		government = feudal_government
 		culture = zenshin
 		religion = ancestral_rites
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
-		history_id = rasen_73
+		history_id = rasen_186
 		position = { 900 500 }
 		animation = personality_bold
 	}
@@ -68,13 +68,13 @@
 		dynasty = dynasty_rasen_kiba
 		dynasty_splendor_level = 1
 		type = male
-		birth = 2945.4.20
+		birth = 2945.8.28
 		title = k_wild
 		government = feudal_government
 		culture = yokai
 		religion = wild_pacts
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
-		history_id = rasen_77
+		history_id = rasen_190
 		position = { 900 500 }
 		animation = personality_bold
 	}
@@ -83,13 +83,13 @@
 		dynasty = dynasty_rasen_amatsu
 		dynasty_splendor_level = 1
 		type = female
-		birth = 2940.9.18
-		title = k_azuma
-		government = feudal_government
+		birth = 2940.6.3
+		title = h_rasen
+		government = meritocratic_government
 		culture = zenshin
 		religion = ancestral_rites
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
-		history_id = rasen_87
+		history_id = rasen_200
 		position = { 900 500 }
 		animation = personality_bold
 	}
