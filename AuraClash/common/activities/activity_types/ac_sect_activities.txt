@@ -81,6 +81,7 @@ activity_ac_sect_trials = {
 		set_variable = { name = ac_trial_sect value = scope:ac_activity_home }
 		ac_sect_mark_activity_started_effect = yes
 		set_variable = { name = ac_trial_funded value = 1 }
+		ac_sect_count_effect = { COUNTER = ac_trials_opened }
 		var:ac_trial_sect = {
 			change_variable = { name = ac_treasury subtract = 50 }
 			set_variable = { name = ac_trial_cooldown value = 1 years = 1 }

@@ -138,6 +138,10 @@ def main():
                                           'if = { limit = { global_var:qa_heir_sect = { story_owner = { is_alive = yes has_trait = ac_sect_master '
                                           'this != global_var:qa_dead_master } var:ac_estate_title.holder = story_owner } } '
                                           'debug_log = "RASEN_QA YEAR MASTER_SUCCEEDED" } '
+                                          'if = { limit = { has_global_variable = ac_trials_opened } debug_log = "RASEN_QA YEAR TRIALS_OPENED" } '
+                                          'if = { limit = { has_global_variable = ac_trial_examinees } debug_log = "RASEN_QA YEAR TRIAL_EXAMINEES" } '
+                                          'if = { limit = { has_global_variable = ac_trials_judged } debug_log = "RASEN_QA YEAR TRIALS_JUDGED" } '
+                                          'if = { limit = { has_global_variable = ac_trial_admissions } debug_log = "RASEN_QA YEAR TRIAL_ADMISSIONS" } '
                                           '} }\n'),
         'events/rasen_qa.txt': event(),
     }
