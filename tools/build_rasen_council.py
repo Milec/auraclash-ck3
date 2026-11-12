@@ -1,4 +1,4 @@
-"""Generate the Exalted Council of Imperial Rasen for RasenMap/.
+"""Generate the Exalted Council of Imperial Rasen for AuraClash/.
 
 In the IF, the five Inner Kingdoms "maintain shaky peace through a seat on the
 Exalted Council that rules from the capital". Chapter 9 adds:
@@ -16,7 +16,7 @@ winner.
 When the Trials open, one Exalt sponsors the year's favourite and a rival Exalt
 offers each player entrant patronage to counter it.
 
-Writes (into RasenMap/):
+Writes (into AuraClash/):
   common/on_action/rasen_council_on_actions.txt
   common/scripted_effects/rasen_council_effects.txt
   common/scripted_triggers/rasen_council_triggers.txt
@@ -33,7 +33,7 @@ import argparse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'RasenMap'
+OUT = ROOT / 'AuraClash'
 BOM = '﻿'
 
 # land, decree key, decree name, what it does (tooltip), the land's value in the IF

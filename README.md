@@ -2,7 +2,7 @@
 
 Bring the cultivation system of **Aura Clash**, an eastern-fantasy (xianxia/wuxia) setting, into Crusader Kings III. Awaken as a Cultivator, train your four Combat Cores, temper your Foundation in battle, master a Martial Arts Style and two Elements, and condense an Immortal Core.
 
-**Version:** 0.4.0 · **Event integrations target:** CK3 1.20.1 · **Status:** early and playable; many perks are still placeholders
+**Version:** 0.5.0 · **Event integrations target:** CK3 1.20.1 · **Status:** early and playable; many perks are still placeholders
 
 ---
 
@@ -14,7 +14,8 @@ Bring the cultivation system of **Aura Clash**, an eastern-fantasy (xianxia/wuxi
    - Windows: `Documents\Paradox Interactive\Crusader Kings III\mod\`
    - Linux: `~/.local/share/Paradox Interactive/Crusader Kings III/mod/`
    - macOS: `~/Documents/Paradox Interactive/Crusader Kings III/mod/`
-3. Enable **Aura Clash** in your launcher playset.
+3. Enable **Aura Clash** in your launcher playset. It is a total conversion: it replaces the map with Imperial Rasen, so do not combine it with other map mods.
+4. Start from the **Imperial Rasen** bookmark (year 3000).
 
 The final layout should be:
 ```
@@ -407,7 +408,7 @@ All script keys use the `ac_` prefix to avoid clashing with vanilla or other mod
 ---
 
 ## Imperial Rasen overhaul (in development)
-The mod is becoming a full overhaul set in Imperial Rasen, the spiral continent of Aura Clash. `tools/build_rasen_map.py` generates the map geometry (1,157 land provinces across the five Inner Kingdoms, Azuma Honsha and the four Outer provinces), title hierarchy and regions into `RasenMap/` from the painted world map. It includes the Exalted Council (five Exalts voting on imperial decrees every three years, and sponsoring favourites in the Trials), the Ice Incursions of Outer North, and races and castes by culture. `RasenMap/` loads and plays in CK3 1.20.1: load it after `AuraClash/` and pick the Heavenly Ascension Trials bookmark (3000.3.1). See the [overhaul plan](docs/overhaul.md) for the setting, design and remaining steps.
+The mod is becoming a full overhaul set in Imperial Rasen, the spiral continent of Aura Clash. `tools/build_rasen_map.py` generates the map geometry (1,157 land provinces across the five Inner Kingdoms, Azuma Honsha and the four Outer provinces), title hierarchy and regions into `AuraClash/` from the painted world map. It includes the Exalted Council (five Exalts voting on imperial decrees every three years, and sponsoring favourites in the Trials), the Ice Incursions of Outer North, and races and castes by culture. `AuraClash/` loads and plays in CK3 1.20.1: load it after `AuraClash/` and pick the Heavenly Ascension Trials bookmark (3000.3.1). See the [overhaul plan](docs/overhaul.md) for the setting, design and remaining steps.
 
 ## Roadmap
 - Lore-accurate refinements of the current perks, plus capstone traits

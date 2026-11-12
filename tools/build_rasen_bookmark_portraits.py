@@ -17,7 +17,7 @@ from pathlib import Path
 import build_event_overrides as overrides
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'RasenMap/common/bookmark_portraits'
+OUT = ROOT / 'AuraClash/common/bookmark_portraits'
 SOURCES = {
     'bm_rasen_bladed': 'bookmark_japan_takenori',         # male, Zenshin
     'bm_rasen_cursed': 'bookmark_japan_morofusa',         # male, Zenshin

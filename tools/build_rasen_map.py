@@ -3,7 +3,7 @@
 The source painting (assets/map/imperial_rasen_source.jpg) is classified into
 water and land, land is split into the five Inner Kingdoms, Azuma Honsha and
 the four Outer provinces, and each region is divided into compact provinces.
-The result is written to RasenMap/ (a separate overhaul mod) as:
+The result is written to AuraClash/ (a separate overhaul mod) as:
 
   map_data/provinces.png, definition.csv, default.map, heightmap.png,
   adjacencies.csv, island_region.txt, seasons.txt, climate.txt,
@@ -36,7 +36,7 @@ from rasen_names import NameForge
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'assets/map/imperial_rasen_source.jpg'
-OUT = ROOT / 'RasenMap'
+OUT = ROOT / 'AuraClash'
 PREVIEW = ROOT / 'output/rasen-preview.png'
 SPEC = json.loads((Path(__file__).with_name('rasen_regions.json')).read_text(encoding='utf-8'))
 
@@ -768,7 +768,7 @@ def _same(path, data):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--check', action='store_true', help='Fail if the generated files differ from RasenMap/.')
+    parser.add_argument('--check', action='store_true', help='Fail if the generated files differ from AuraClash/.')
     args = parser.parse_args()
     files, summary = render(write=not args.check)
     if args.check:

@@ -1,4 +1,4 @@
-"""Pack RasenMap/map_data/heightmap.png into the files CK3 actually reads.
+"""Pack AuraClash/map_data/heightmap.png into the files CK3 actually reads.
 
 CK3 never reads heightmap.png directly. `topology = "heightmap.heightmap"` in default.map
 points at a descriptor plus two images. This format was worked out from the CK3 1.20.1
@@ -28,7 +28,7 @@ import numpy as np
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-MAP = ROOT / 'RasenMap/map_data'
+MAP = ROOT / 'AuraClash/map_data'
 TILE = 64
 LEVELS = 5            # 65, 33, 17, 9, 5 px
 MAX_ERROR = 192       # 16-bit units (about 0.75 of an 8-bit step)

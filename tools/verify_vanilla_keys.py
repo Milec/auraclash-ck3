@@ -2,7 +2,7 @@
 
 The overhaul scripts name vanilla traditions, doctrines, innovations, graphics
 sets, terrain types, modifier icons and so on. This collects those references
-from RasenMap/ and AuraClash/ and looks each one up in the game's own files.
+from AuraClash/ and looks each one up in the game's own files.
 
 Usage: python tools/verify_vanilla_keys.py [--game-root <game>]
 Needs CK3_GAME_ROOT (or --game-root); exits 1 when a key is undefined.
@@ -17,7 +17,7 @@ from pathlib import Path
 import build_event_overrides as overrides
 
 ROOT = Path(__file__).resolve().parents[1]
-MODS = (ROOT / 'RasenMap', ROOT / 'AuraClash')
+MODS = (ROOT / 'AuraClash',)
 
 # Reference patterns: (label, regex over a mod file, group holding the key).
 REFERENCES = [

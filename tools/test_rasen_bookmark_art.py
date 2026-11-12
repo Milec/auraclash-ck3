@@ -9,7 +9,7 @@ import build_rasen_bookmark_art as art
 
 class BookmarkArtTests(unittest.TestCase):
     def test_every_bookmark_character_has_art(self):
-        bookmark = (art.ROOT / 'RasenMap/common/bookmarks/bookmarks/rasen_bookmarks.txt').read_text(encoding='utf-8-sig')
+        bookmark = (art.ROOT / 'AuraClash/common/bookmarks/bookmarks/rasen_bookmarks.txt').read_text(encoding='utf-8-sig')
         names = set(re.findall(r'name = "?(bm_rasen_\w+)"?', bookmark))
         self.assertEqual(names, {f'bm_rasen_{land}' for land in art.LANDS})
         for name in ['bm_rasen_trials.dds'] + [f'bm_rasen_trials_{n}.dds' for n in names]:

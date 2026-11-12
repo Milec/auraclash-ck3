@@ -2,7 +2,7 @@
 
 Goal: turn Aura Clash into a full CK3 overhaul set in **Imperial Rasen**, the world of the Aura Clash interactive fiction, using the painted world map in `assets/map/imperial_rasen_source.jpg`.
 
-The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraClash/`. The base mod keeps working on the vanilla map until the overhaul can load on its own.
+The overhaul and the cultivation mechanics are one mod, in `AuraClash/`: a total conversion that replaces the vanilla map, titles and history. (They were two folders, `AuraClash/` and `RasenMap/`, until the map loaded and played.)
 
 ## Setting summary (from the Aura Clash game text)
 
@@ -35,7 +35,7 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
 | Archons and the Heavenly Ascension Trials | Already in the base mod (Archonate Disciple, the Trials event chain) |
 | Castes and Clans | Estates and houses; "Clanless" lowborn; promotion into the Warrior Caste via events |
 | Sects | The story's 23 sects at their own seats, with standing by region (see [sects](sects.md)) |
-| Mortal Limit by region | Implemented: Aura Pressure gains halve above the Mortal Limit; `RasenMap` adds +700 in the Inner Kingdoms and +1,700 on Azuma Honsha (`ac_mortal_limit_region_values.txt`) |
+| Mortal Limit by region | Implemented: Aura Pressure gains halve above the Mortal Limit; the map adds +700 in the Inner Kingdoms and +1,700 on Azuma Honsha (`ac_mortal_limit_region_values.txt`) |
 | Zenshin, Cathayan, Lunargoth, Oni, Yokai, Kitsune | Six cultures, each with its own heritage; Zenshin, Old Cathayan and Lunargothic languages |
 | Devanic Temple, Shugendō, Wild Gods | Religions and faiths |
 
@@ -82,7 +82,7 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
    - The canonical sects are seeded at their seats, and the six featured rulers have portraits.
 5. **Regional systems:**
    - **Regional Mortal Limit:** done.
-   - **Ice Incursions:** done (`RasenMap/events/rasen_ice_incursion_events.txt`).
+   - **Ice Incursions:** done (`AuraClash/events/rasen_ice_incursion_events.txt`).
      - Every 20–30 years, demonic ice and yin hordes invade Outer North for 3–6 years.
      - Outer North counties suffer reduced development growth, opinion and levies.
      - Outer North rulers may march to the front, fund the Northern Army or hold their own walls.
@@ -127,7 +127,7 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
 
 ## Loading
 
-`RasenMap/` loads and plays in CK3 1.20.1.2 (alone or with `AuraClash/`, which it should follow in the load order).
+`AuraClash/` loads and plays in CK3 1.20.1.2.
 
 ### Verified in-game (CK3 1.20.1.2, all DLC)
 `python tools/prepare_rasen_checks.py` prepares a separate user directory that starts the 3000.3.1 bookmark directly as the Bladed Exalt (`-skip -bookmark=bm_rasen_trials -play=k_bladed`). On game start it runs 34 checks, all passing:
@@ -137,7 +137,7 @@ The overhaul is built as a separate mod folder, `RasenMap/`, loaded after `AuraC
 - An Exalted Council decree, an AI-versus-AI Clash of Auras, and an Ice Incursion.
 - Three simulated years of the Council, Akuma Lords, Ice Incursion, Trials and sect yearly effects.
 
-No crash, and no runtime errors from the mods' own scripts. The six featured rulers have bookmark portraits. The base mod's fixtures also pass on the vanilla 1066 start: cultivation (59/59) and awakening and sects (62/62; last run before sect standing was added).
+No crash, and no runtime errors from the mods' own scripts. The six featured rulers have bookmark portraits. Before the two folders were merged, the cultivation fixtures passed on the vanilla 1066 start: cultivation (59/59) and awakening and sects (62/62). Those fixtures (`prepare_potential_checks.py`, `prepare_sect_engine_checks.py` and the like) use England and other Earth realms, so they need porting to Rasen titles before they can run again.
 
 Not yet verified by a person: the player-facing UI (duel rounds, Council voting, bookmark screen, sect register and sect-life events) and long play. The game starts paused and nothing found unpauses it unattended: the `-handsoff` flags and an interface widget calling the pause button's action were both tried. Once someone unpauses a QA run, each in-game year logs `RASEN_QA YEAR` marks (tick, decree set, sects led, renown earned, sect ties, Exalt alive).
 
@@ -151,7 +151,7 @@ Not yet verified by a person: the player-facing UI (duel rounds, Council voting,
 - `root` inside a scripted effect is the calling event's root, not the scope that called the effect.
 
 ### Vanilla keys (verified against CK3 1.20.1)
-`python tools/verify_vanilla_keys.py` checks every vanilla key the two mods name against the installed game; `tools/test_vanilla_keys.py` runs it whenever `CK3_GAME_ROOT` is set. All 172 references resolve:
+`python tools/verify_vanilla_keys.py` checks every vanilla key the mod names against the installed game; `tools/test_vanilla_keys.py` runs it whenever `CK3_GAME_ROOT` is set. All 172 references resolve:
 - The graphics sets (`mongol_*_gfx`, `steppe_*_gfx`) and the `asian` ethnicity exist. They are still placeholders for All Under Heaven's East Asian sets.
 - Traditions, ethos, martial customs, tenets and doctrines exist.
 - So do `graphical_faith`, `piety_icon_group`, the `custom_faith_N` icons, innovations, `culture_era_early_medieval`, terrain types, event themes and modifier icons.

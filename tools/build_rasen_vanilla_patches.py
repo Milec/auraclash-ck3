@@ -2,7 +2,7 @@
 
 Vanilla scripts name Earth's titles, characters and provinces directly. A missing title
 or character only logs an error, but a missing province id (`province:6650`) can crash
-the game, and Imperial Rasen stops at province 1322. RasenMap therefore overrides each
+the game, and Imperial Rasen stops at province 1322. The mod therefore overrides each
 affected vanilla file with a copy read from the installed game, changing only:
 
 - `province:N` for any N beyond the map: replaced by the map's last impassable ocean
@@ -31,7 +31,7 @@ from pathlib import Path
 import build_event_overrides as overrides
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'RasenMap'
+OUT = ROOT / 'AuraClash'
 SCAN = ('common', 'events', 'gfx/interface/illustrations')
 LINE_EDITS = {
     'common/buildings/00_special_buildings.txt': [

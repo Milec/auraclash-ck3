@@ -1,7 +1,7 @@
 """Prepare an in-game QA run of Imperial Rasen (no menus needed).
 
 Writes a separate CK3 user directory under output/rasen-runtime with its own mod list
-(AuraClash, RasenMap and a small QA overlay), so the player's own settings are untouched.
+(AuraClash and a small QA overlay), so the player's own settings are untouched.
 The overlay runs on game start: it checks the bookmark's setup and exercises the Exalted
 Council, the Clash of Auras, the Akuma Lords and the Ice Incursions once, logging
 "RASEN_QA PASS <name>" or "RASEN_QA FAIL <name>" for each check and "RASEN_QA COMPLETE".
@@ -125,10 +125,9 @@ def main():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding='utf-8-sig', newline='\n')
     (OUT / 'mod').mkdir(parents=True, exist_ok=True)
-    rasen_descriptor = (ROOT / 'RasenMap/descriptor.mod').read_text(encoding='utf-8-sig').rstrip()
+    descriptor = (ROOT / 'AuraClash/descriptor.mod').read_text(encoding='utf-8-sig').rstrip()
     descriptors = {
-        'aura_clash': f'name="Aura Clash"\npath="{(ROOT / "AuraClash").as_posix()}"\nsupported_version="1.20.*"\n',
-        'imperial_rasen': f'{rasen_descriptor}\npath="{(ROOT / "RasenMap").as_posix()}"\n',
+        'aura_clash': f'{descriptor}\npath="{(ROOT / "AuraClash").as_posix()}"\n',
         'rasen_qa': f'name="Imperial Rasen QA"\npath="{overlay.as_posix()}"\nsupported_version="1.20.*"\n',
     }
     for name, text in descriptors.items():

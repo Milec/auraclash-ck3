@@ -1,11 +1,11 @@
-"""The Ice Incursions of Outer North (overhaul content in RasenMap)."""
+"""The Ice Incursions of Outer North (Imperial Rasen content)."""
 from pathlib import Path
 import re
 import unittest
 
 import build_event_overrides as script
 
-ROOT = Path(__file__).resolve().parents[1] / 'RasenMap'
+ROOT = Path(__file__).resolve().parents[1] / 'AuraClash'
 FILES = ('common/on_action/rasen_ice_incursion_on_actions.txt', 'common/scripted_effects/rasen_ice_incursion_effects.txt',
          'common/scripted_triggers/rasen_ice_incursion_triggers.txt', 'common/modifiers/rasen_ice_incursion_modifiers.txt',
          'common/script_values/rasen_ice_incursion_values.txt', 'events/rasen_ice_incursion_events.txt', 'common/traits/rasen_traits.txt')

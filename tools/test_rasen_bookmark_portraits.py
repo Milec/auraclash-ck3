@@ -8,7 +8,7 @@ if not builder.GAME_AVAILABLE:
     raise unittest.SkipTest('CK3 game files not found; set CK3_GAME_ROOT to run these checks')
 import build_rasen_bookmark_portraits as portraits
 
-BOOKMARKS = portraits.ROOT / 'RasenMap/common/bookmarks/bookmarks'
+BOOKMARKS = portraits.ROOT / 'AuraClash/common/bookmarks/bookmarks'
 
 
 class BookmarkPortraitTests(unittest.TestCase):

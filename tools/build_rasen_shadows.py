@@ -1,4 +1,4 @@
-"""Generate the Akuma Lords and Ryugujo (from the IF's chapter 9) for RasenMap/.
+"""Generate the Akuma Lords and Ryugujo (from the IF's chapter 9) for AuraClash/.
 
 The Akuma Lords:
 - a cult of three Lords on azure crystal thrones, with Taio and his Clones as their hand;
@@ -23,7 +23,7 @@ import argparse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'RasenMap'
+OUT = ROOT / 'AuraClash'
 BOM = '﻿'
 
 STRIKE_MEMBERS = 12      # living members before the cult strikes

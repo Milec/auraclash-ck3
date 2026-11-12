@@ -29,9 +29,9 @@ class RaceTests(unittest.TestCase):
 
     def test_inheritance_assignment_and_fox_charm(self):
         self.assertIn('ac_inherit_race_effect', read('AuraClash/common/on_action/ac_race_on_actions.txt'))
-        self.assertIn('culture = culture:oni', read('RasenMap/common/scripted_effects/rasen_race_effects.txt'))
+        self.assertIn('culture = culture:oni', read('AuraClash/common/scripted_effects/rasen_race_effects.txt'))
         self.assertIn("'has_trait = ac_race_kitsune'", read('tools/build_techniques.py'))
-        chars = read('RasenMap/history/characters/rasen_characters.txt')
+        chars = read('AuraClash/history/characters/rasen_characters.txt')
         self.assertEqual(chars.count('trait = ac_race_'), len(re.findall(r'(?m)^rasen_\d+ = \{', chars)))
 
 

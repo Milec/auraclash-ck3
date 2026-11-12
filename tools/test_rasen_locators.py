@@ -8,7 +8,7 @@ from PIL import Image
 
 import build_rasen_map as rasen
 
-ROOT = Path(__file__).resolve().parents[1] / 'RasenMap'
+ROOT = Path(__file__).resolve().parents[1] / 'AuraClash'
 
 
 class LocatorTests(unittest.TestCase):

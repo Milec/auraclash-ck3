@@ -2,8 +2,8 @@
 
 CK3 shows a 1920x1080 background for each bookmark and a 1920x1080 "location" image for
 each featured character. This writes, from assets/map/imperial_rasen_source.jpg:
-  RasenMap/gfx/interface/bookmarks/bm_rasen_trials.dds              (the whole world)
-  RasenMap/gfx/interface/bookmarks/bm_rasen_trials_bm_rasen_<land>.dds  (each Exalt's land)
+  AuraClash/gfx/interface/bookmarks/bm_rasen_trials.dds              (the whole world)
+  AuraClash/gfx/interface/bookmarks/bm_rasen_trials_bm_rasen_<land>.dds  (each Exalt's land)
 Each land image is centred on that kingdom, found from the generated provinces and titles
 and mapped back onto the painting through the map builder's projection.
 
@@ -22,7 +22,7 @@ from PIL import Image, ImageEnhance
 import build_rasen_map as rasen
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'RasenMap/gfx/interface/bookmarks'
+OUT = ROOT / 'AuraClash/gfx/interface/bookmarks'
 SIZE = (1920, 1080)
 LANDS = ['bladed', 'sacred', 'mystic', 'cursed', 'wild', 'azuma']
 ZOOM = 0.42  # fraction of the painting's content width shown in a land image

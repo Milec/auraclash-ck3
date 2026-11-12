@@ -1,4 +1,4 @@
-"""RasenMap's patched copies of vanilla files stay current and change only what they must."""
+"""The mod's patched copies of vanilla files stay current and change only what they must."""
 import unittest
 
 import build_event_overrides as builder
