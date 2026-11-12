@@ -27,6 +27,14 @@ ac_caste_merchant_trigger = {
 ac_caste_laborer_trigger = {
 	NOT = { exists = dynasty }
 	NOT = { has_character_flag = ac_elevated_warrior_caste }
+	NOT = { ac_caste_slave_trigger = yes }
+}
+# The lowest of the six castes (Royal, Noble, Warrior, Merchant, Laborer, Slave): the Clanless held
+# in bondage. The Royal caste is extinct; no record of the last of the royal line survives.
+ac_caste_slave_trigger = {
+	NOT = { exists = dynasty }
+	NOT = { has_character_flag = ac_elevated_warrior_caste }
+	is_imprisoned = yes
 }
 # "Those under 25 from among the Warrior Caste" (and the Nobles above them).
 ac_warrior_caste_or_above_trigger = {

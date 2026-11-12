@@ -1020,5 +1020,6 @@
  ac_caste_warrior:0 "Warrior Caste"
  ac_caste_merchant:0 "Merchant Caste"
  ac_caste_laborer:0 "Laborer Caste (Clanless)"
+ ac_caste_slave:0 "Slave Caste (Clanless, in bondage)"
  ac_elevate_warrior_caste_interaction:0 "Elevate to the Warrior Caste"
  ac_elevate_warrior_caste_interaction_desc:0 "As the ruling Noble, raise [recipient.GetShortUINameNoTooltip], a Clanless cultivator, and their children into the Warrior Caste. The Warrior Caste may enter the Heavenly Ascension Trials and claims the land's natural aura (+10% Aura Pressure gains). Costs 100 [prestige|E]."
