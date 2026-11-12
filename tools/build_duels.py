@@ -394,20 +394,22 @@ def events():
     for move, core, beats, _ in MOVES:
         trig = 'trigger = { ac_chi_available >= 1 }\n\t\t' if move == 'blast' else ''
         out += ['\toption = {', f'\t\tname = ac_duel.0001.{move}', f'\t\t{trig}custom_tooltip = ac_duel_{move}_tt',
-                f'\t\tset_variable = {{ name = ac_duel_move value = flag:{move} }}', '\t\tac_duel_next_effect = yes', '\t}']
+                # The work happens in a hidden follow-up event: the game previews an option's own effects every
+                # frame, and these read duel state that only exists once a move is made.
+                f'		set_variable = {{ name = ac_duel_move value = flag:{move} }}', '		trigger_event = ac_duel.0010', '	}']
     out += ['\toption = {',
             *[f'\t\tname = {{ trigger = {{ ac_duel_first_attack_{key}_trigger = yes }} text = ac_duel.0001.unleash_{key} }}' for key in ATTACKS],
             '\t\ttrigger = { ac_duel_can_unleash_trigger = yes }',
-            '\t\tcustom_tooltip = ac_duel_unleash_tt', '\t\tac_duel_unleash_effect = yes', '\t\tac_duel_next_effect = yes', '\t}']
+            '		custom_tooltip = ac_duel_unleash_tt', '		add_character_flag = ac_duel_unleash_chosen', '		trigger_event = ac_duel.0010', '	}']
     out += ['\toption = {', '\t\tname = ac_duel.0001.surge',
             '\t\ttrigger = { NOT = { has_character_flag = ac_duel_surging } OR = {',
             *[f'\t\t\tac_core_{core}_available >= 1' for core in CORES],
             '\t\t} }',
             '\t\tcustom_tooltip = ac_duel_surge_tt', '\t\tadd_character_flag = ac_duel_surging', '\t\ttrigger_event = ac_duel.0001', '\t}',
             '\toption = {', '\t\tname = ac_duel.0001.auto', '\t\tcustom_tooltip = ac_duel_auto_tt',
-            '\t\tremove_character_flag = ac_duel_surging', '\t\tac_duel_auto_resolve_effect = yes', '\t}',
+            '		remove_character_flag = ac_duel_surging', '		trigger_event = ac_duel.0011', '	}',
             '\toption = {', '\t\tname = ac_duel.0001.yield', '\t\tcustom_tooltip = ac_duel_yield_tt',
-            '\t\tset_variable = { name = ac_duel_vitality value = 0 }', '\t\tac_duel_end_effect = yes', '\t}',
+            '		trigger_event = ac_duel.0012', '	}',
             '}', '',
             'ac_duel.0002 = {',
             '\ttype = character_event',
@@ -422,7 +424,12 @@ def events():
             '\ttheme = martial',
             '\tleft_portrait = { character = root animation = personality_rational }',
             '\toption = { name = ac_duel.0002.ok }',
-            '}']
+            '}', '',
+            'ac_duel.0010 = { type = character_event hidden = yes immediate = {',
+            '	if = { limit = { has_character_flag = ac_duel_unleash_chosen } remove_character_flag = ac_duel_unleash_chosen ac_duel_unleash_effect = yes }',
+            '	ac_duel_next_effect = yes', '} }',
+            'ac_duel.0011 = { type = character_event hidden = yes immediate = { ac_duel_auto_resolve_effect = yes } }',
+            'ac_duel.0012 = { type = character_event hidden = yes immediate = { set_variable = { name = ac_duel_vitality value = 0 } ac_duel_end_effect = yes } }']
     return '\n'.join(out)
 
 

@@ -63,26 +63,26 @@ ac_duel.0001 = {
 		name = ac_duel.0001.strike
 		custom_tooltip = ac_duel_strike_tt
 		set_variable = { name = ac_duel_move value = flag:strike }
-		ac_duel_next_effect = yes
+		trigger_event = ac_duel.0010
 	}
 	option = {
 		name = ac_duel.0001.guard
 		custom_tooltip = ac_duel_guard_tt
 		set_variable = { name = ac_duel_move value = flag:guard }
-		ac_duel_next_effect = yes
+		trigger_event = ac_duel.0010
 	}
 	option = {
 		name = ac_duel.0001.step
 		custom_tooltip = ac_duel_step_tt
 		set_variable = { name = ac_duel_move value = flag:step }
-		ac_duel_next_effect = yes
+		trigger_event = ac_duel.0010
 	}
 	option = {
 		name = ac_duel.0001.blast
 		trigger = { ac_chi_available >= 1 }
 		custom_tooltip = ac_duel_blast_tt
 		set_variable = { name = ac_duel_move value = flag:blast }
-		ac_duel_next_effect = yes
+		trigger_event = ac_duel.0010
 	}
 	option = {
 		name = { trigger = { ac_duel_first_attack_cleave_trigger = yes } text = ac_duel.0001.unleash_cleave }
@@ -100,8 +100,8 @@ ac_duel.0001 = {
 		name = { trigger = { ac_duel_first_attack_daggerfalling_hailstorm_trigger = yes } text = ac_duel.0001.unleash_daggerfalling_hailstorm }
 		trigger = { ac_duel_can_unleash_trigger = yes }
 		custom_tooltip = ac_duel_unleash_tt
-		ac_duel_unleash_effect = yes
-		ac_duel_next_effect = yes
+		add_character_flag = ac_duel_unleash_chosen
+		trigger_event = ac_duel.0010
 	}
 	option = {
 		name = ac_duel.0001.surge
@@ -119,13 +119,12 @@ ac_duel.0001 = {
 		name = ac_duel.0001.auto
 		custom_tooltip = ac_duel_auto_tt
 		remove_character_flag = ac_duel_surging
-		ac_duel_auto_resolve_effect = yes
+		trigger_event = ac_duel.0011
 	}
 	option = {
 		name = ac_duel.0001.yield
 		custom_tooltip = ac_duel_yield_tt
-		set_variable = { name = ac_duel_vitality value = 0 }
-		ac_duel_end_effect = yes
+		trigger_event = ac_duel.0012
 	}
 }
 
@@ -143,3 +142,10 @@ ac_duel.0002 = {
 	left_portrait = { character = root animation = personality_rational }
 	option = { name = ac_duel.0002.ok }
 }
+
+ac_duel.0010 = { type = character_event hidden = yes immediate = {
+	if = { limit = { has_character_flag = ac_duel_unleash_chosen } remove_character_flag = ac_duel_unleash_chosen ac_duel_unleash_effect = yes }
+	ac_duel_next_effect = yes
+} }
+ac_duel.0011 = { type = character_event hidden = yes immediate = { ac_duel_auto_resolve_effect = yes } }
+ac_duel.0012 = { type = character_event hidden = yes immediate = { set_variable = { name = ac_duel_vitality value = 0 } ac_duel_end_effect = yes } }
