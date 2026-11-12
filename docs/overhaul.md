@@ -137,7 +137,7 @@ All of Rasen is one hegemony, **Imperial Rasen** (`h_rasen`), held for the Exalt
 - Rulers are titled Exalt, High Steward and Magistrate (`common/flavorization/rasen_title_holders.txt`).
 
 ### Verified in-game (CK3 1.20.1.2, all DLC)
-`python tools/prepare_rasen_checks.py` prepares a separate user directory that starts the 3000.3.1 bookmark directly as the Bladed Exalt (`-skip -bookmark=bm_rasen_trials -play=k_bladed`). On game start it runs 41 checks, all passing:
+`python tools/prepare_rasen_checks.py` prepares a separate user directory that starts the 3000.3.1 bookmark directly as the Bladed Exalt (`-skip -bookmark=bm_rasen_trials -play=k_bladed`). On game start it runs 44 checks, all passing:
 - Each Inner Kingdom and Azuma Honsha has a ruler.
 - The Bladed Exalt's cultivation, Immortal Core, race, faith and culture; Keiko; the Divine General; the seeded Akuma Lords; holdings.
 - The 23 sects at their seats, with standing, treasury, roster and master strength by region; a duel between sects earning renown; renown raising a Frontier Sect one standing and no further; every sect-life event.

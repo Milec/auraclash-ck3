@@ -1,0 +1,15 @@
+﻿# The merit bureaucracy expects every governor to head a noble family with a family title and estate.
+# History gives the Magistrates and the High Steward none, so they are founded when the game starts.
+on_game_start_after_lobby = { on_actions = { rasen_found_noble_families } }
+rasen_found_noble_families = {
+	effect = {
+		every_ruler = {
+			limit = {
+				has_government = meritocratic_government
+				highest_held_title_tier >= tier_county
+				NOT = { any_held_title = { is_noble_family_title = yes } }
+			}
+			create_noble_family_effect = { GOVERNMENT_GIVER = this }
+		}
+	}
+}

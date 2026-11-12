@@ -46,6 +46,10 @@ def event():
     body.append(check('magistrate_merit', 'title:d_kohara.holder = { has_government = meritocratic_government }'))
     body.append(check('county_magistrates', 'title:k_outer_west = { any_de_jure_county = { count >= 20 holder = { '
                       'has_government = meritocratic_government highest_held_title_tier = tier_county } } }'))
+    body.append(check('steward_estate', 'title:h_rasen.holder = { has_domicile = yes any_held_title = { is_noble_family_title = yes } }'))
+    body.append(check('magistrate_estate', 'title:d_kohara.holder = { has_domicile = yes }'))
+    body.append(check('county_magistrate_families', 'title:k_outer_west = { any_de_jure_county = { count >= 20 holder = { '
+                      'highest_held_title_tier = tier_county any_held_title = { is_noble_family_title = yes } } } }'))
     body.append(check('divine_general_free', 'any_living_character = { has_trait = rasen_divine_general is_independent_ruler = yes }'))
     # The story's sects, each at its seat, with standing by region.
     def sect(county, condition):
