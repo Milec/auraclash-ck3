@@ -30,7 +30,8 @@ class PeaceTests(unittest.TestCase):
             self.assertIn(f' {key}:0 "', loc)
 
     def test_the_rules_patch_vanilla_war_triggers(self):
-        hook, azuma = peace.PEACE_EDITS
+        hook, azuma, governors = peace.PEACE_EDITS
+        self.assertIn(f"NOT = {{ has_realm_law_flag = {peace.PEACE_FLAG} }}", governors[1])
         # Great lords need a hook on their liege; counts are exempt.
         self.assertIn(f'top_liege = {{ has_realm_law_flag = {peace.PEACE_FLAG} }}', hook[1])
         self.assertIn('highest_held_title_tier >= tier_duchy', hook[1])

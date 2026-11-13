@@ -41,6 +41,11 @@ PEACE_EDITS = [
      ' trigger_if = { limit = { exists = title:h_china.holder scope:attacker_check.top_liege = title:h_china.holder'
      ' capital_province ?= { geographical_region = world_rasen_azuma } }'
      ' custom_tooltip = { text = rasen_azuma_protected_tt always = no } } # Imperial Rasen: Azuma Honsha falls only to open rebellion\n'),
+    # Vanilla exempts administrative (and so Celestial) governors under an administrative liege from the hook
+    # rule; under the Council Peace they need leave too.
+    ('\t\tliege = { government_has_mechanic = administrative }\n',
+     f'\t\tliege = {{ government_has_mechanic = administrative NOT = {{ has_realm_law_flag = {PEACE_FLAG} }} }}'
+     ' # Imperial Rasen: the Council Peace binds Celestial governors too\n'),
 ]
 # The Expansion era of the dynastic cycle lets non-Celestial vassals seize counties and duchies from each
 # other (china_seize_county_cb, china_seize_duchy_cb). Under the Council Peace a great lord still needs a

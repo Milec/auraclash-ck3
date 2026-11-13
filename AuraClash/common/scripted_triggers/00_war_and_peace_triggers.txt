@@ -460,7 +460,7 @@ war_declarer_needs_hook_on_liege = {
 	liege != scope:recipient
 	NAND = {
 		government_has_mechanic = administrative
-		liege = { government_has_mechanic = administrative }
+		liege = { government_has_mechanic = administrative NOT = { has_realm_law_flag = rasen_great_lords_need_leave } } # Imperial Rasen: the Council Peace binds Celestial governors too
 	}
 	NOT = {
 		vassal_contract_has_flag = vassal_contract_war_override
