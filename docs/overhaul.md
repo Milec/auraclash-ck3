@@ -35,7 +35,7 @@ The overhaul and the cultivation mechanics are one mod, in `AuraClash/`: a total
 | Archons and the Heavenly Ascension Trials | Already in the base mod (Archonate Disciple, the Trials event chain) |
 | Castes and Clans | Estates and houses; "Clanless" lowborn; promotion into the Warrior Caste via events |
 | Sects | The story's 23 sects at their own seats, with standing by region (see [sects](sects.md)) |
-| Mortal Limit by region | Implemented: Aura Pressure gains halve above the Mortal Limit; the map adds +700 in the Inner Kingdoms and +1,700 on Azuma Honsha (`ac_mortal_limit_region_values.txt`) |
+| Mortal Limit by region | Implemented: Aura Pressure gains halve above the Mortal Limit and again for every further half of it (to 1/32 above 3×); the land a character is in adds +200 in Outer North, +1,200 in the Inner Kingdoms and +5,200 on Azuma Honsha, giving 800 / 1,000 / 2,000 / 6,000 at the lowest Potential (`ac_mortal_limit_region_values.txt`) |
 | Zenshin, Cathayan, Lunargoth, Oni, Yokai, Kitsune | Six cultures, each with its own heritage; Zenshin, Old Cathayan and Lunargothic languages |
 | Devanic Temple, Shugendō, Wild Gods | Religions and faiths |
 

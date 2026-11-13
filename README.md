@@ -207,7 +207,7 @@ This follows the Aura Clash game. **Aura Pressure (AP)** is a cultivator's total
   - One fifth of every cultivation-XP reward (events, sects, Immortal Core).
   - Battles: +1 to +3.
   - Talent multiplies all AP gains.
-- **Mortal Limit:** AP gains are **halved above your Mortal Limit** and **quartered above 1.5×** it. The limit comes from Potential Limit: Mortal I is 800 AP, Outer West's limit in the game. In the Imperial Rasen overhaul, the Inner Kingdoms add 700 and Azuma Honsha adds 1,700.
+- **Mortal Limit:** AP gains are **halved above your Mortal Limit**, then halved again for every further half of it: a quarter above 1.5×, an eighth above 2×, down to 1/32 above 3×. The limit comes from Potential Limit: Mortal I is 800 AP, Outer West's limit in the game. In the Imperial Rasen overhaul the land you are in adds its natural aura: +200 in Outer North, +1,200 in the Inner Kingdoms and +5,200 on Azuma Honsha, so a Mortal I cultivator measures 800 in the Outer lands, 1,000 in Outer North, 2,000 in the Inner Kingdoms and 6,000 in the capital.
 - **Surging:** each Core's rating is also a pool of charges. In the Heavenly Ascension Trials you can push a Core to the limit (+25%, or more in the duel), spending a charge and earning progress. Meditation restores spent Cores each quarter.
 - Existing cultivators keep their Cores; their current dots count as AP already bound into them.
 

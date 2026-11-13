@@ -164,7 +164,11 @@ def render(buildings, sprites):
     loc = {k: v.replace(".Var('ac_sect').Var(", ".Var('ac_sect').Story.MakeScope.Var(") for k, v in loc.items()}
     overrides = {k: loc.pop(k) for k in list(loc) if k.startswith('msg_domicile_building_')}
     return {
-        'gui/ac_sect_estate_info.gui': window,
+        # Inside a container that exists only while there is a player (see gui/ac_sect_window.gui).
+        'gui/ac_sect_estate_info.gui': '\n'.join([
+            'widget = {', '\tname = "ac_sect_estate_info"', '\tlayer = windows_layer', '\tsize = { 100% 100% }',
+            '\talwaystransparent = yes', '\tvisible = "[GetPlayer.IsValid]"',
+            window.replace('name = "ac_sect_estate_info"', 'name = "ac_sect_estate_info_inner"', 1), '}']),
         'common/scripted_guis/ac_sect_estate_info.txt': '\n'.join(guis),
         'localization/english/ac_sect_estate_gui_l_english.yml': 'l_english:\n' + '\n'.join(f' {k}:0 "{v}"' for k, v in loc.items()) + '\n',
         'localization/replace/ac_sect_messages_l_english.yml': 'l_english:\n' + '\n'.join(f' {k}:0 "{v}"' for k, v in overrides.items()) + '\n',

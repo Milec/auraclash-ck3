@@ -1,5 +1,11 @@
-﻿window = {
-        name = "ac_sect_estate_info" layer = windows_layer parentanchor = center size = { 1390 790 }
+﻿widget = {
+	name = "ac_sect_estate_info"
+	layer = windows_layer
+	size = { 100% 100% }
+	alwaystransparent = yes
+	visible = "[GetPlayer.IsValid]"
+window = {
+        name = "ac_sect_estate_info_inner" layer = windows_layer parentanchor = center size = { 1390 790 }
         using = Window_Movable
         datacontext = "[GetPlayer]"
         visible = "[GetScriptedGui('ac_sect_native_estate_info').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
@@ -226,3 +232,4 @@ widget = { visible = "[GetScriptedGui('ac_sect_estate_select_formation_hall_pane
                     onclick = "[GetScriptedGui('ac_sect_estate_commission_formation_hall').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" tooltip = "ac_sect_domicile_rules" }
         }
     }
+}

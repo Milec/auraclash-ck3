@@ -50,6 +50,12 @@ class AuraTests(unittest.TestCase):
         factor = block(self.values, 'ac_mortal_limit_factor')
         self.assertIn('multiply = 1.5', factor)
         self.assertLess(factor.index('value = 0.25'), factor.index('value = 0.5'))
+        # Exponential: each further half of the limit halves gains again, down to 1/32 above 3x.
+        steps = [('multiply = 3 ', '0.03125'), ('multiply = 2.5', '0.0625'), ('multiply = 2 ', '0.125'), ('multiply = 1.5', '0.25')]
+        positions = [factor.index(at) for at, _ in steps]
+        self.assertEqual(positions, sorted(positions))
+        for at, value in steps:
+            self.assertEqual(factor[factor.index(at):].split('value = ')[1].split()[0], value)
         self.assertIn('multiply = ac_mortal_limit_factor', block(self.values, 'ac_ap_gain_multiplier'))
         self.assertIn('ac_mortal_limit = { value = ac_mortal_limit_base add = ac_mortal_limit_region_bonus }', self.values)
 

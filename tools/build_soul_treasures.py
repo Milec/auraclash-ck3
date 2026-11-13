@@ -146,7 +146,7 @@ ac_refine_soul_treasure_decision = {
            ' ac_soul_treasure_gained_tt:0 "Gain a #V Soul Treasure#! (refine it through #V Refine a Soul Treasure#!)."',
            ' ac_soul_treasure_sold_tt:0 "Your three treasure slots are full; the Soul Treasure is sold for a tenth of its Aura Pressure in [gold|E]."',
            ' ac_elixir_ignores_limits_tt:0 "Alchemy 4: the elixir ignores Mortal Limits."',
-           ' ac_elixir_limited_tt:0 "The elixir is halved above your Mortal Limit and quartered above 1.5 times it."',
+           ' ac_elixir_limited_tt:0 "The elixir is halved above your Mortal Limit and halved again for every further half of it, down to 1/32 above three times it."',
            ' ac_hunt_spirit_beast_decision:0 "Hunt a Spirit Beast"',
            ' ac_hunt_spirit_beast_decision_desc:0 "Track a beast saturated with chi and take its Soul Treasure."',
            ' ac_hunt_spirit_beast_decision_tooltip:0 "Choose a Spirit Beast to hunt. Victory yields a Soul Treasure holding its Aura Pressure, some Aura Pressure and Power Core progress; defeat leaves you wounded. Once per year."',

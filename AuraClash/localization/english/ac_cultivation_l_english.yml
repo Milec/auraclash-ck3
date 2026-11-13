@@ -983,7 +983,7 @@
  ac_cycle_shards_decision_desc:0 "Dissolve purified Shards into raw energy and tug it into your core. The power pushes your aura to its limits; your soul pulses, groans and stretches. Gold stands in for the Shards you buy."
  ac_cycle_shards_decision_tooltip:0 "Spend #V [ROOT.Char.MakeScope.ScriptValue('ac_shard_cycle_cost')|0]#! [gold|E] to gain #V [ROOT.Char.MakeScope.ScriptValue('ac_shard_cycle_gain')|0]#! Aura Pressure (16 + Soul Core rating) before Talent and your Mortal Limit. The price rises with your Aura Pressure. Once per month."
  ac_cycle_shards_decision_confirm:0 "Absorb the Shards"
- ac_cycle_shards_gain_tt:0 "Gain #V 16#! Aura Pressure plus your Soul Core rating. Talent increases this; the gain is halved above your Mortal Limit and quartered above 1.5 times it."
+ ac_cycle_shards_gain_tt:0 "Gain #V 16#! Aura Pressure plus your Soul Core rating. Talent increases this; the gain is halved above your Mortal Limit and halved again for every further half of it, down to 1/32 above three times it."
  trait_ac_immortal_method:0 "Immortal Core Method"
  trait_ac_immortal_method_desc:0 "This cultivator has learned the Immortal Core Method from a master, a sect, or their own genius. With eight Mortal Cores and enough Aura Pressure, they can attempt #V Immortal Core Advancement#! and seize absolute control of the chi absorbed from the world."
  ac_immortal_method_learned_toast:0 "Immortal Core Method Learned"

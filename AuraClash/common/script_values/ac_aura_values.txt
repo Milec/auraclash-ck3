@@ -128,13 +128,26 @@ ac_aura_pressure_value = { value = 0 if = { limit = { has_variable = ac_aura_pre
 ac_allocated_ap_value = { value = 0 if = { limit = { has_variable = ac_allocated_ap } value = var:ac_allocated_ap } }
 ac_free_ap = { value = ac_aura_pressure_value subtract = ac_allocated_ap_value min = 0 }
 
-# Personal limit from Potential, plus the natural aura of the region (0 on the vanilla map).
+# Personal limit from Potential, plus the natural aura of the region the character is in (0 on the vanilla map).
 ac_mortal_limit = { value = ac_mortal_limit_base add = ac_mortal_limit_region_bonus }
 
-# The Mortal Limit throttles growth: halved above it, quartered above 1.5x.
+# The Mortal Limit throttles growth exponentially: halved above it, then halved again for every
+# further half of the limit (a quarter above 1.5x, an eighth above 2x), down to 1/32 above 3x.
 ac_mortal_limit_factor = {
 	value = 1
 	if = {
+		limit = { ac_aura_pressure_value >= { value = ac_mortal_limit multiply = 3 } }
+		value = 0.03125
+	}
+	else_if = {
+		limit = { ac_aura_pressure_value >= { value = ac_mortal_limit multiply = 2.5 } }
+		value = 0.0625
+	}
+	else_if = {
+		limit = { ac_aura_pressure_value >= { value = ac_mortal_limit multiply = 2 } }
+		value = 0.125
+	}
+	else_if = {
 		limit = { ac_aura_pressure_value >= { value = ac_mortal_limit multiply = 1.5 } }
 		value = 0.25
 	}

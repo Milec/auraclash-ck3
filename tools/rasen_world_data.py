@@ -285,8 +285,9 @@ SECT_SEATS = {
 # hardened by the Ice Incursions and Outer East has the richest sects; elsewhere defaults to 1.
 SECT_STANDING = {'world_rasen_azuma': 4, 'world_rasen_inner': 3, 'world_rasen_outer_north': 2, 'world_rasen_outer_east': 2}
 
-# Natural aura raises the Mortal Limit (AP). Outer lands are weakest; the leylines meet at Azuma Honsha.
-MORTAL_LIMIT_BONUS = {'world_rasen_azuma': 1700, 'world_rasen_inner': 700}
+# Natural aura raises the Mortal Limit (AP) above the Outer lands' 800: Outer North measures 1,000,
+# the Inner Kingdoms 2,000 and Azuma Honsha, where the leylines meet, 6,000.
+MORTAL_LIMIT_BONUS = {'world_rasen_azuma': 5200, 'world_rasen_inner': 1200, 'world_rasen_outer_north': 200}
 
 # Imperial Rasen is an old, organised empire: cultures begin in the Early Medieval era.
 INNOVATIONS = ['innovation_motte', 'innovation_catapult', 'innovation_barracks', 'innovation_mustering_grounds',
