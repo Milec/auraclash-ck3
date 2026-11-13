@@ -53,17 +53,25 @@ LINE_EDITS['common/on_action/game_start.txt'] = [
     ('\t\tset_up_historical_military_orders_effect = yes\n', '\t\t# Imperial Rasen: no Earth military orders\n'),
     ('\t\tsetup_tributaries_effect = yes # defined in 00_tributary_setup_effect.txt\n', '\t\t# Imperial Rasen: no Earth tributaries\n'),
 ]
+# China's wall great projects check dozens of Chinese baronies and were the bulk of the error log once
+# Rasen's hegemony took the h_china key (about 95,000 errors a century). They never apply to Rasen.
+LINE_EDITS['common/great_projects/types/00_great_project_types.txt'] = [
+    ('\t\t# You are the hegemon or a relevant minister\n', '\t\talways = no # Imperial Rasen: no Great Wall of China\n', 4),
+]
 # The Council Peace (tools/build_rasen_peace.py): great lords need leave to fight; Azuma Honsha falls only to rebellion.
 LINE_EDITS['common/scripted_triggers/00_war_and_peace_triggers.txt'] = peace.PEACE_EDITS
 LINE_EDITS['common/casus_belli_types/10_tgp_china_wars.txt'] = peace.PEACE_CB_EDITS
 # Files whose missing Earth counties become a stub title that is never held.
-TITLE_STANDIN_FILES = ('common/scripted_effects/10_dlc_tgp_japan_scripted_effects.txt',)
+TITLE_STANDIN_FILES = ('common/scripted_effects/10_dlc_tgp_japan_scripted_effects.txt',
+                       # The Greek fire decision checked Constantinople's county on every look at the decisions.
+                       'common/decisions/dlc_decisions/ep3_decisions.txt')
 TITLE_STANDIN = 'k_yamato'
 COUNTY = re.compile(r'title:(c_\w+)')
 # Files whose checks for one of Earth's dynasties become plainly false (each logged an error
 # every time the game looked for legends, thousands of times over a few years).
-DYNASTY_FILES = ('common/legends/legend_seeds/00_legend_seeds.txt',)
-DYNASTY = re.compile(r'dynasty = dynasty:\w+')
+DYNASTY_FILES = ('common/legends/legend_seeds/00_legend_seeds.txt',
+                 'common/decisions/80_major_decisions_british_isles.txt')
+DYNASTY = re.compile(r'dynasty \??= dynasty:\w+')
 PROVINCE = re.compile(r'province:(\d+)')
 HOLY_SITES = 'common/religion/holy_site_types/00_holy_site_types.txt'
 SITE_COUNTY, SITE_BARONY = 'c_azuma', 'b_azuma'
