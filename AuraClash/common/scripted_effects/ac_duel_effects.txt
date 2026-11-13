@@ -29,6 +29,7 @@ ac_duel_prepare_effect = {
 	remove_variable = ac_duel_tech_used
 	remove_character_flag = ac_duel_surging
 	remove_character_flag = ac_duel_unleashing
+	remove_variable = ac_duel_tf
 }
 
 # Fighter scope: commit to the first attack Technique known, fighting through its Core.
@@ -74,6 +75,8 @@ ac_duel_ai_choose_effect = {
 	remove_character_flag = ac_duel_surging
 	random = { chance = 35 add_character_flag = ac_duel_surging }
 	if = { limit = { ac_duel_can_unleash_trigger = yes } random = { chance = 30 ac_duel_unleash_effect = yes } }
+	if = { limit = { ac_duel_can_transform_trigger = yes } random = { chance = 40 ac_duel_ai_transform_effect = yes } }
+	if = { limit = { has_variable = ac_soulsoak } random = { chance = 30 ac_seal_release_soulsoak_effect = yes } }
 }
 
 # Fighter scope: pay for the chosen move (Chi, and a Core charge when surging).
@@ -110,31 +113,45 @@ ac_duel_roll_effect = {
 		limit = { var:ac_duel_move = flag:strike }
 		change_variable = { name = ac_duel_roll add = ac_duel_power_base }
 		if = { limit = { has_variable = ac_duel_surged } change_variable = { name = ac_duel_roll add = ac_core_power_surge_value } }
+		if = { limit = { has_variable = ac_duel_surged var:ac_duel_tf ?= flag:limitbreaker } change_variable = { name = ac_duel_roll add = 1 } }
+		if = { limit = { var:ac_duel_tf ?= flag:asura } change_variable = { name = ac_duel_roll add = 1 } }
 		if = { limit = { var:ac_duel_foe = { var:ac_duel_move = flag:guard } } change_variable = { name = ac_duel_roll add = 2 } }
 	}
 	if = {
 		limit = { var:ac_duel_move = flag:guard }
 		change_variable = { name = ac_duel_roll add = ac_duel_fortitude_base }
 		if = { limit = { has_variable = ac_duel_surged } change_variable = { name = ac_duel_roll add = ac_core_fortitude_surge_value } }
+		if = { limit = { has_variable = ac_duel_surged var:ac_duel_tf ?= flag:limitbreaker } change_variable = { name = ac_duel_roll add = 1 } }
+		if = { limit = { var:ac_duel_tf ?= flag:asura } change_variable = { name = ac_duel_roll add = 1 } }
 		if = { limit = { var:ac_duel_foe = { var:ac_duel_move = flag:blast } } change_variable = { name = ac_duel_roll add = 2 } }
 	}
 	if = {
 		limit = { var:ac_duel_move = flag:step }
 		change_variable = { name = ac_duel_roll add = ac_duel_agility_base }
 		if = { limit = { has_variable = ac_duel_surged } change_variable = { name = ac_duel_roll add = ac_core_agility_surge_value } }
+		if = { limit = { has_variable = ac_duel_surged var:ac_duel_tf ?= flag:limitbreaker } change_variable = { name = ac_duel_roll add = 1 } }
+		if = { limit = { var:ac_duel_tf ?= flag:asura } change_variable = { name = ac_duel_roll add = 1 } }
 		if = { limit = { var:ac_duel_foe = { var:ac_duel_move = flag:strike } } change_variable = { name = ac_duel_roll add = 2 } }
 	}
 	if = {
 		limit = { var:ac_duel_move = flag:blast }
 		change_variable = { name = ac_duel_roll add = ac_duel_soul_base }
 		if = { limit = { has_variable = ac_duel_surged } change_variable = { name = ac_duel_roll add = ac_core_soul_surge_value } }
+		if = { limit = { has_variable = ac_duel_surged var:ac_duel_tf ?= flag:limitbreaker } change_variable = { name = ac_duel_roll add = 1 } }
 		if = { limit = { var:ac_duel_foe = { var:ac_duel_move = flag:step } } change_variable = { name = ac_duel_roll add = 2 } }
 	}
 	if = { limit = { var:ac_duel_move = flag:blast NOT = { has_character_flag = ac_duel_unleashing } } change_variable = { name = ac_duel_roll add = 1 } }
 	if = { limit = { has_character_flag = ac_duel_unleashing } change_variable = { name = ac_duel_roll add = 3 } }
-	var:ac_duel_foe = { save_temporary_scope_value_as = { name = ac_duel_foe_ap value = ac_aura_pressure_value } }
+	# Seals: a released Soulsoak charge (+1 success), and Divine Intervention's locked success.
+	if = { limit = { has_character_flag = ac_duel_soulsoak } change_variable = { name = ac_duel_roll add = 3 } remove_character_flag = ac_duel_soulsoak }
+	if = { limit = { has_character_modifier = ac_seal_divine_lock_modifier } change_variable = { name = ac_duel_roll add = 1 } }
+	# Soul Domain: every attack is Focused. Armed: a weapon helps, unless the foe is Armored.
+	if = { limit = { var:ac_duel_tf ?= flag:soul_domain } change_variable = { name = ac_duel_roll add = 1 } }
+	if = { limit = { ac_is_armed_trigger = yes var:ac_duel_foe = { NOT = { ac_is_armored_trigger = yes } } } change_variable = { name = ac_duel_roll add = 1 } }
+	# Aura Pressure suppression, with a Transformation's boost.
+	var:ac_duel_foe = { save_temporary_scope_value_as = { name = ac_duel_foe_ap value = ac_duel_ap_value } }
 	if = {
-		limit = { ac_aura_pressure_value > 0 ac_aura_pressure_value >= { value = scope:ac_duel_foe_ap multiply = 2 } }
+		limit = { ac_duel_ap_value > 0 ac_duel_ap_value >= { value = scope:ac_duel_foe_ap multiply = 2 } }
 		change_variable = { name = ac_duel_roll add = 2 }
 	}
 	random_list = {
@@ -157,7 +174,8 @@ ac_duel_hit_effect = {
 	}
 	else = {
 		set_variable = { name = ac_duel_dealt value = 1 }
-		if = { limit = { var:ac_duel_roll >= { value = scope:ac_duel_foe_roll add = 5 } } change_variable = { name = ac_duel_dealt add = 1 } }
+		if = { limit = { var:ac_duel_roll >= { value = scope:ac_duel_foe_roll add = 5 } } change_variable = { name = ac_duel_dealt add = 1 } ac_eq_critical_effect = yes }
+		if = { limit = { var:ac_duel_tf ?= flag:titan } change_variable = { name = ac_duel_dealt add = 1 } }
 		if = { limit = { has_variable = ac_duel_surged } change_variable = { name = ac_duel_dealt add = 1 } }
 		if = { limit = { has_character_flag = ac_duel_unleashing } change_variable = { name = ac_duel_dealt add = 1 } }
 		if = { limit = { var:ac_duel_foe = { var:ac_duel_move = flag:guard } } change_variable = { name = ac_duel_dealt add = -1 } }
@@ -228,6 +246,9 @@ ac_duel_end_effect = {
 			else = { add_prestige = 100 }
 			ac_add_core_progress_effect = { CORE = power PROGRESS = 10 }
 			ac_sect_duel_result_effect = yes
+			ac_duel_malocchio_copy_effect = yes
+			# A Heavenly Gate contest: the winner takes the larger share.
+			if = { limit = { has_variable = ac_gate_contest } set_variable = { name = ac_gate_won_contest value = yes days = 30 } }
 		}
 		scope:ac_duel_loser = {
 			if = {
@@ -255,6 +276,9 @@ ac_duel_cleanup_effect = {
 	remove_variable = ac_duel_technique
 	remove_variable = ac_duel_tech_used
 	remove_character_flag = ac_duel_unleashing
+	remove_variable = ac_duel_tf
+	remove_character_flag = ac_duel_transform_chosen
+	remove_variable = ac_gate_contest
 	remove_variable = ac_duel_vitality
 	remove_variable = ac_duel_foe
 }

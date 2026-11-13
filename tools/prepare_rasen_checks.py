@@ -24,6 +24,73 @@ def check(name, trigger):
             f'\telse = {{ debug_log = "RASEN_QA FAIL {name}" }}\n')
 
 
+ANY_COUNTY = ('OR = { ' + ' '.join(f'any_county_in_region = {{ region = {r} {{COND}} }}' for r in
+                                   ('world_rasen_azuma', 'world_rasen_inner', 'world_rasen_outer')) + ' }')
+
+
+def any_county(cond):
+    return ANY_COUNTY.replace('{COND}', cond)
+
+
+def arts_checks():
+    """Transformations, Seals, Heavenly Gates and spirit fruit, and the Soul Forge."""
+    body = []
+    # Spirit Fruit Groves are placed at game start, and their holders harvest.
+    body.append(check('arts_groves', 'any_county_in_region = { region = world_rasen_inner count >= 6 has_variable = ac_spirit_grove '
+                      'title_province = { has_building = ac_spirit_fruit_grove } }'))
+    body.append('\trandom_county_in_region = { region = world_rasen_inner limit = { has_variable = ac_spirit_grove } holder = { save_scope_as = qa_grove_lord } }\n')
+    body.append('\tscope:qa_grove_lord ?= { ac_harvest_spirit_fruit_effect = yes }\n')
+    body.append(check('arts_fruit_harvest', 'scope:qa_grove_lord ?= { var:ac_spirit_fruit >= 2 }'))
+    # The strongest cultivators start with forged weapons in the four materials.
+    body.append(check('arts_seeded_weapons', 'global_var:rasen_exalt_bladed = { any_character_artifact = { has_variable = ac_forged_kind has_variable = ac_forged_material } }'))
+    # A Heavenly Gate opens, and a cultivator cycles it.
+    body.append('\tac_open_heavenly_gate_effect = yes\n')
+    body.append(check('arts_gate_open', any_county('has_variable = ac_gate_level has_county_modifier = ac_heavenly_gate_modifier')))
+    body.append('\trandom_county_in_region = { region = world_rasen_inner limit = { has_variable = ac_gate_level } save_scope_as = ac_gate_county }\n'
+                + '\tif = { limit = { NOT = { exists = scope:ac_gate_county } } random_county_in_region = { region = world_rasen_outer limit = { has_variable = ac_gate_level } save_scope_as = ac_gate_county } }\n'
+                + '\tif = { limit = { NOT = { exists = scope:ac_gate_county } } random_county_in_region = { region = world_rasen_azuma limit = { has_variable = ac_gate_level } save_scope_as = ac_gate_county } }\n'
+                + '\tsave_scope_value_as = { name = ac_gate_contenders value = 1 }\n'
+                + '\tscope:qa_disciple = { set_variable = { name = qa_ap_before value = ac_aura_pressure_value } ac_gate_roll_effect = yes ac_gate_absorb_effect = yes ac_gate_drain_effect = yes }\n')
+    body.append(check('arts_gate_absorbed', 'scope:qa_disciple = { ac_aura_pressure_value > var:qa_ap_before has_character_modifier = ac_gate_touched_modifier }'))
+    body.append(check('arts_gate_drained', 'scope:ac_gate_county = { NOT = { has_variable = ac_gate_level } }'))
+    # Transformation training starts as a personal scheme.
+    body.append('\tglobal_var:rasen_exalt_sacred = { save_scope_as = ac_tf_master ac_begin_tf_training_effect = { FORM = limitbreaker } }\n')
+    body.append(check('arts_tf_training', 'global_var:rasen_exalt_sacred = { OR = { any_scheme = { type = ac_train_transformation } has_trait = ac_tf_limitbreaker NOT = { ac_can_learn_tf_limitbreaker_trigger = yes } } }'))
+    body.append(check('arts_tf_ready', 'global_var:rasen_exalt_sacred = { ac_transformation_ready_trigger = yes }'))
+    # The Soul Forge: lay out a board, shape a katana, take a linked step, and finish it.
+    body.append('\tscope:qa_trader = {\n'
+                '\t\tset_variable = { name = ac_forge_smith value = this }\n'
+                '\t\tset_variable = { name = ac_forge_template value = flag:katana }\n'
+                '\t\tac_forge_create_board_effect = yes\n'
+                '\t}\n')
+    body.append(check('arts_forge_board', 'scope:qa_trader.var:ac_forge_board = { any_in_list = { variable = nodes count >= 4 } '
+                      'any_in_list = { variable = nodes count >= 1 var:ac_forge_node = flag:start } any_in_list = { variable = lines count >= 2 } }'))
+    body.append(check('arts_forge_item', 'scope:qa_trader = { exists = var:ac_forge_item var:ac_forge_item = { has_variable = ac_forge_unfinished } }'))
+    body.append('\tscope:qa_trader = {\n'
+                '\t\tadd_gold = 500\n'
+                '\t\tvar:ac_forge_board = { random_in_list = { variable = nodes limit = { var:ac_forge_node = flag:start } save_scope_as = story } }\n'
+                '\t\tac_forge_step_effect = yes\n'
+                '\t\tvar:ac_forge_current = { random_in_list = { variable = lines save_scope_as = qa_line } }\n'
+                '\t\tif = { limit = { exists = scope:qa_line } '
+                'if = { limit = { scope:qa_line.var:start_node = var:ac_forge_current } scope:qa_line.var:end_node = { save_scope_as = story } } '
+                'else = { scope:qa_line.var:start_node = { save_scope_as = story } } '
+                'ac_forge_step_effect = yes }\n'
+                '\t\tac_forge_finish_effect = yes\n'
+                '\t}\n')
+    body.append(check('arts_forge_finished', 'scope:qa_trader = { any_character_artifact = { var:ac_forged_kind = flag:katana has_variable = ac_forged_tier '
+                      'NOT = { has_variable = ac_forge_unfinished } } NOT = { has_variable = ac_forge_board } }'))
+    # Seals: the Handseals roll, and a Seal's effect.
+    body.append('\tscope:qa_master = { ac_seal_roll_effect = yes }\n')
+    body.append(check('arts_seal_roll', 'scope:qa_master = { has_variable = ac_seal_successes var:ac_seal_successes >= 0 }'))
+    body.append(check('arts_seal_rank', 'scope:qa_master = { ac_handseals_rank >= 0 ac_seal_dice >= 2 }'))
+    # Cast a Seal through its interaction: Reinforcement needs Handseals +1d6 (two Handseals perks) and 1 Chi.
+    body.append('\tscope:qa_master = { add_perk = ac_2_handseals_a_perk add_perk = ac_2_handseals_b_perk remove_variable = ac_chi_spent }\n'
+                '\trun_interaction = { interaction = ac_seal_reinforcement_interaction actor = scope:qa_master recipient = scope:qa_master send_threshold = accept }\n')
+    body.append(check('arts_seal_known', 'scope:qa_master = { ac_seal_reinforcement_known_trigger = yes }'))
+    body.append(check('arts_seal_cast', 'scope:qa_master = { has_character_modifier = ac_seal_reinforced_modifier }'))
+    return body
+
+
 def event():
     body = ['\tdebug_log = "RASEN_QA START"\n']
     # The bookmark's world.
@@ -114,8 +181,11 @@ def event():
     body.append('\tscope:qa_master = { trigger_event = ac_sect_life.0005 trigger_event = ac_sect_life.0006 }\n'
                 '\tscope:qa_trader = { trigger_event = ac_sect_life.0007 }\n'
                 '\tscope:qa_sect = { set_variable = { name = ac_renown value = 0 } }\n'
+                # Transformations: both fighters may transform in the Clash (the AI does so at random).
+                '\tscope:qa_master = { add_trait = ac_tf_limitbreaker }\n\tscope:qa_rival = { add_trait = ac_tf_titan }\n'
                 '\tscope:qa_rival = { save_scope_as = ac_duel_foe }\n'
                 '\tscope:qa_master = { ac_duel_start_effect = { LETHAL = no } }\n')
+    body.append(check('arts_duel_cleaned', 'scope:qa_master = { NOT = { has_variable = ac_duel_tf } NOT = { has_variable = ac_duel_foe } }'))
     body.append(check('sect_duel_renown', 'OR = { scope:qa_sect.var:ac_renown = 2 scope:qa_rival.var:ac_sect.var:ac_renown >= 2 }'))
     body.append('\tscope:qa_sect = { set_variable = { name = ac_renown value = 70 } ac_sect_standing_effect = yes }\n')
     body.append(check('sect_rises', 'scope:qa_sect = { var:ac_tier = 2 var:ac_renown = 10 }'))
@@ -159,6 +229,7 @@ def event():
                 'scope:qa_outer = { change_title_holder = { holder = title:h_china.holder change = scope:qa_change } } resolve_title_and_vassal_change = scope:qa_change }\n'
                 '\trasen_governing_yearly_effect = yes\n')
     body.append(check('magistrate_from_inner', 'scope:qa_outer = { holder = { NOT = { this = title:h_china.holder } has_government = celestial_government } }'))
+    body += arts_checks()
     body.append('\tdebug_log = "RASEN_QA COMPLETE"\n')
     return ('namespace = rasen_qa\n\nrasen_qa.0001 = {\n\ttype = character_event\n\thidden = yes\n\timmediate = {\n'
             + ''.join('\t' + line for line in ''.join(body).splitlines(True)) + '\t}\n}\n')
@@ -201,6 +272,13 @@ def main():
                                           'if = { limit = { has_global_variable = ac_trial_examinees } debug_log = "RASEN_QA YEAR TRIAL_EXAMINEES" } '
                                           'if = { limit = { has_global_variable = ac_trials_judged } debug_log = "RASEN_QA YEAR TRIALS_JUDGED" } '
                                           'if = { limit = { has_global_variable = ac_trial_admissions } debug_log = "RASEN_QA YEAR TRIAL_ADMISSIONS" } '
+                                          # Transformations, Seals, Heavenly Gates and spirit fruit, and forged equipment.
+                                          'if = { limit = { ' + any_county('has_variable = ac_gate_level') + ' } debug_log = "RASEN_QA YEAR GATE_OPEN" } '
+                                          'if = { limit = { any_living_character = { has_character_modifier = ac_gate_touched_modifier } } debug_log = "RASEN_QA YEAR GATE_CYCLED" } '
+                                          'if = { limit = { any_living_character = { any_scheme = { type = ac_train_transformation } } } debug_log = "RASEN_QA YEAR TF_TRAINING" } '
+                                          'if = { limit = { any_living_character = { OR = { has_trait = ac_tf_reaper has_trait = ac_tf_godhand has_trait = ac_tf_soul_domain has_trait = ac_tf_malocchio has_trait = ac_tf_asura } } } debug_log = "RASEN_QA YEAR TF_MASTERED" } '
+                                          'if = { limit = { any_living_character = { count >= 30 any_character_artifact = { has_variable = ac_forged_kind } } } debug_log = "RASEN_QA YEAR ARMED_30" } '
+                                          'if = { limit = { any_living_character = { var:ac_spirit_fruit ?= 0 } } debug_log = "RASEN_QA YEAR FRUIT_EATEN" } '
                                           '} }\n'),
         'events/rasen_qa.txt': event(),
     }

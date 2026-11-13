@@ -39,6 +39,7 @@ import argparse
 from pathlib import Path
 
 from build_techniques import CATALOGUE
+from build_transformations import FORMS
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'AuraClash'
@@ -82,8 +83,10 @@ def values():
         out.append('\tvalue = 0')
         out += [f'\tif = {{ limit = {{ has_character_flag = ac_tech_{t} }} add = 1 }}' for t in techs]
         out += [f'\tmax = {TECH_CAP}', '}']
-        out.append(f'ac_duel_{core}_base = {{ value = ac_core_{core}_rating multiply = 2 add = ac_duel_prowess_part '
-                   f'add = ac_duel_{core}_techniques }}')
+        # Forged equipment fuels Cores (doubled by Reaper with a bladed weapon); a Transformation adds its Core points.
+        out.append(f'ac_duel_{core}_gear = {{ value = ac_equipment_{core}_bonus if = {{ limit = {{ var:ac_duel_tf ?= flag:reaper ac_wields_blade_trigger = yes }} multiply = 2 }} }}')
+        out.append(f'ac_duel_{core}_base = {{ value = ac_core_{core}_rating add = ac_duel_{core}_gear add = ac_tf_{core}_bonus multiply = 2 '
+                   f'add = ac_duel_prowess_part add = ac_duel_{core}_techniques }}')
     return '\n'.join(out)
 
 
@@ -121,6 +124,7 @@ def effects():
            '\tremove_variable = ac_duel_tech_used',
            '\tremove_character_flag = ac_duel_surging',
            '\tremove_character_flag = ac_duel_unleashing',
+           '\tremove_variable = ac_duel_tf',
            '}', '',
            '# Fighter scope: commit to the first attack Technique known, fighting through its Core.',
            'ac_duel_unleash_effect = {',
@@ -142,6 +146,8 @@ def effects():
             '\tremove_character_flag = ac_duel_surging',
             '\trandom = { chance = 35 add_character_flag = ac_duel_surging }',
             '\tif = { limit = { ac_duel_can_unleash_trigger = yes } random = { chance = 30 ac_duel_unleash_effect = yes } }',
+            '\tif = { limit = { ac_duel_can_transform_trigger = yes } random = { chance = 40 ac_duel_ai_transform_effect = yes } }',
+            '\tif = { limit = { has_variable = ac_soulsoak } random = { chance = 30 ac_seal_release_soulsoak_effect = yes } }',
             '}', '',
             '# Fighter scope: pay for the chosen move (Chi, and a Core charge when surging).',
             'ac_duel_pay_effect = {',
@@ -163,13 +169,23 @@ def effects():
         out += [f'\tif = {{', f'\t\tlimit = {{ {move_is(move)} }}',
                 f'\t\tchange_variable = {{ name = ac_duel_roll add = ac_duel_{core}_base }}',
                 f'\t\tif = {{ limit = {{ has_variable = ac_duel_surged }} change_variable = {{ name = ac_duel_roll add = ac_core_{core}_surge_value }} }}',
+                # Limitbreaker: every Core Surge +1. Asura: melee attacks are always Focused.
+                '\t\tif = { limit = { has_variable = ac_duel_surged var:ac_duel_tf ?= flag:limitbreaker } change_variable = { name = ac_duel_roll add = 1 } }',
+                *(['\t\tif = { limit = { var:ac_duel_tf ?= flag:asura } change_variable = { name = ac_duel_roll add = 1 } }'] if move != 'blast' else []),
                 f'\t\tif = {{ limit = {{ {move_is(beats, "foe")} }} change_variable = {{ name = ac_duel_roll add = {COUNTER_BONUS} }} }}',
                 '\t}']
     out += [f'\tif = {{ limit = {{ {move_is("blast")} NOT = {{ has_character_flag = ac_duel_unleashing }} }} change_variable = {{ name = ac_duel_roll add = {BLAST_BONUS} }} }}',
             f'\tif = {{ limit = {{ has_character_flag = ac_duel_unleashing }} change_variable = {{ name = ac_duel_roll add = {TECHNIQUE_BONUS} }} }}',
-            '\tvar:ac_duel_foe = { save_temporary_scope_value_as = { name = ac_duel_foe_ap value = ac_aura_pressure_value } }',
+            '\t# Seals: a released Soulsoak charge (+1 success), and Divine Intervention\'s locked success.',
+            '\tif = { limit = { has_character_flag = ac_duel_soulsoak } change_variable = { name = ac_duel_roll add = 3 } remove_character_flag = ac_duel_soulsoak }',
+            '\tif = { limit = { has_character_modifier = ac_seal_divine_lock_modifier } change_variable = { name = ac_duel_roll add = 1 } }',
+            '\t# Soul Domain: every attack is Focused. Armed: a weapon helps, unless the foe is Armored.',
+            '\tif = { limit = { var:ac_duel_tf ?= flag:soul_domain } change_variable = { name = ac_duel_roll add = 1 } }',
+            '\tif = { limit = { ac_is_armed_trigger = yes var:ac_duel_foe = { NOT = { ac_is_armored_trigger = yes } } } change_variable = { name = ac_duel_roll add = 1 } }',
+            '\t# Aura Pressure suppression, with a Transformation\'s boost.',
+            '\tvar:ac_duel_foe = { save_temporary_scope_value_as = { name = ac_duel_foe_ap value = ac_duel_ap_value } }',
             '\tif = {',
-            '\t\tlimit = { ac_aura_pressure_value > 0 ac_aura_pressure_value >= { value = scope:ac_duel_foe_ap multiply = 2 } }',
+            '\t\tlimit = { ac_duel_ap_value > 0 ac_duel_ap_value >= { value = scope:ac_duel_foe_ap multiply = 2 } }',
             f'\t\tchange_variable = {{ name = ac_duel_roll add = {AURA_BONUS} }}',
             '\t}',
             '\trandom_list = {',
@@ -186,7 +202,8 @@ def effects():
             '\t}',
             '\telse = {',
             '\t\tset_variable = { name = ac_duel_dealt value = 1 }',
-            '\t\tif = { limit = { var:ac_duel_roll >= { value = scope:ac_duel_foe_roll add = 5 } } change_variable = { name = ac_duel_dealt add = 1 } }',
+            '\t\tif = { limit = { var:ac_duel_roll >= { value = scope:ac_duel_foe_roll add = 5 } } change_variable = { name = ac_duel_dealt add = 1 } ac_eq_critical_effect = yes }',
+            '\t\tif = { limit = { var:ac_duel_tf ?= flag:titan } change_variable = { name = ac_duel_dealt add = 1 } }',
             '\t\tif = { limit = { has_variable = ac_duel_surged } change_variable = { name = ac_duel_dealt add = 1 } }',
             '\t\tif = { limit = { has_character_flag = ac_duel_unleashing } change_variable = { name = ac_duel_dealt add = 1 } }',
             f'\t\tif = {{ limit = {{ {move_is("guard", "foe")} }} change_variable = {{ name = ac_duel_dealt add = -1 }} }}',
@@ -254,6 +271,9 @@ def effects():
             f'\t\t\telse = {{ add_prestige = {WIN_PRESTIGE} }}',
             '\t\t\tac_add_core_progress_effect = { CORE = power PROGRESS = 10 }',
             '\t\t\tac_sect_duel_result_effect = yes',
+            '\t\t\tac_duel_malocchio_copy_effect = yes',
+            '\t\t\t# A Heavenly Gate contest: the winner takes the larger share.',
+            '\t\t\tif = { limit = { has_variable = ac_gate_contest } set_variable = { name = ac_gate_won_contest value = yes days = 30 } }',
             '\t\t}',
             '\t\tscope:ac_duel_loser = {',
             '\t\t\tif = {',
@@ -274,7 +294,7 @@ def effects():
             '\tremove_variable = ac_duel_surged', '\tremove_variable = ac_duel_round', '\tremove_variable = ac_duel_log',
             '\tremove_variable = ac_duel_lethal', '\tremove_character_flag = ac_duel_surging',
             '\tremove_variable = ac_duel_technique', '\tremove_variable = ac_duel_tech_used',
-            '\tremove_character_flag = ac_duel_unleashing',
+            '\tremove_character_flag = ac_duel_unleashing', '\tremove_variable = ac_duel_tf', '\tremove_character_flag = ac_duel_transform_chosen', '\tremove_variable = ac_gate_contest',
             '\tremove_variable = ac_duel_vitality', '\tremove_variable = ac_duel_foe',
             '}']
     # Drop placeholder lines used while drafting.
@@ -386,6 +406,12 @@ def events():
               for key in ATTACKS],
             '\t\t\tdesc = ac_duel.0001.blank', '\t\t}',
             '\t\ttriggered_desc = { trigger = { has_character_flag = ac_duel_surging } desc = ac_duel.0001.surging }',
+            '\t\tfirst_valid = {',
+            *[f'\t\t\ttriggered_desc = {{ trigger = {{ var:ac_duel_tf ?= flag:{key} }} desc = ac_duel.0001.tf_{key} }}' for key in FORMS],
+            '\t\t\tdesc = ac_duel.0001.blank', '\t\t}',
+            '\t\tfirst_valid = {',
+            *[f'\t\t\ttriggered_desc = {{ trigger = {{ var:ac_duel_foe = {{ var:ac_duel_tf ?= flag:{key} }} }} desc = ac_duel.0001.foe_tf_{key} }}' for key in FORMS],
+            '\t\t\tdesc = ac_duel.0001.blank', '\t\t}',
             '\t}',
             '\ttheme = martial',
             '\tleft_portrait = { character = root animation = aggressive_sword }',
@@ -401,6 +427,15 @@ def events():
             *[f'\t\tname = {{ trigger = {{ ac_duel_first_attack_{key}_trigger = yes }} text = ac_duel.0001.unleash_{key} }}' for key in ATTACKS],
             '\t\ttrigger = { ac_duel_can_unleash_trigger = yes }',
             '		custom_tooltip = ac_duel_unleash_tt', '		add_character_flag = ac_duel_unleash_chosen', '		trigger_event = ac_duel.0010', '	}']
+    # Transform: a free action, like surging; the work happens in a hidden follow-up event.
+    for key in FORMS:
+        out += ['\toption = {', f'\t\tname = ac_duel.0001.transform_{key}',
+                f'\t\ttrigger = {{ has_trait = ac_tf_{key} ac_duel_can_transform_trigger = yes }}',
+                f'\t\tcustom_tooltip = ac_duel_transform_{key}_tt',
+                f'\t\tset_variable = {{ name = ac_duel_transform_chosen value = flag:{key} }}', '\t\ttrigger_event = ac_duel.0013', '\t}']
+    out += ['\toption = {', '\t\tname = ac_duel.0001.soulsoak',
+            '\t\ttrigger = { has_variable = ac_soulsoak NOT = { has_character_flag = ac_duel_soulsoak } }',
+            '\t\tcustom_tooltip = ac_duel_soulsoak_tt', '\t\ttrigger_event = ac_duel.0014', '\t}']
     out += ['\toption = {', '\t\tname = ac_duel.0001.surge',
             '\t\ttrigger = { NOT = { has_character_flag = ac_duel_surging } OR = {',
             *[f'\t\t\tac_core_{core}_available >= 1' for core in CORES],
@@ -429,7 +464,12 @@ def events():
             '	if = { limit = { has_character_flag = ac_duel_unleash_chosen } remove_character_flag = ac_duel_unleash_chosen ac_duel_unleash_effect = yes }',
             '	ac_duel_next_effect = yes', '} }',
             'ac_duel.0011 = { type = character_event hidden = yes immediate = { ac_duel_auto_resolve_effect = yes } }',
-            'ac_duel.0012 = { type = character_event hidden = yes immediate = { set_variable = { name = ac_duel_vitality value = 0 } ac_duel_end_effect = yes } }']
+            'ac_duel.0012 = { type = character_event hidden = yes immediate = { set_variable = { name = ac_duel_vitality value = 0 } ac_duel_end_effect = yes } }',
+            'ac_duel.0013 = { type = character_event hidden = yes immediate = {',
+            *[f'\t{"if" if i == 0 else "else_if"} = {{ limit = {{ var:ac_duel_transform_chosen ?= flag:{key} }} ac_duel_transform_effect = {{ FORM = {key} }} }}'
+              for i, key in enumerate(FORMS)],
+            '\tremove_variable = ac_duel_transform_chosen', '\ttrigger_event = ac_duel.0001', '} }',
+            'ac_duel.0014 = { type = character_event hidden = yes immediate = { ac_seal_release_soulsoak_effect = yes trigger_event = ac_duel.0001 } }']
     return '\n'.join(out)
 
 
@@ -489,6 +529,14 @@ def localization():
         out += [f' ac_duel.0001.unleash_{key}:0 "Unleash {tech} ({core.title()})"',
                 f' ac_duel.0001.mine_{key}:0 " I unleashed #V {tech}!!#!"',
                 f' ac_duel.0001.theirs_{key}:0 " [ac_duel_foe.GetFirstName] unleashed #N {tech}!!#!"']
+    for key, (name, _style, title, cores, health, chi, special, _icon) in FORMS.items():
+        bonus = ', '.join([f'+{v} {c.title()}' for c, v in cores.items()] + ([f'+{health} Vitality'] if health else []) + ([f'+{chi} Chi'] if chi else []))
+        out += [f' ac_duel.0001.transform_{key}:0 "{title}: {name}!!"',
+                f' ac_duel_transform_{key}_tt:0 "Transform for the rest of the Clash, for 1 Chi: {bonus} (+2 to the roll per Core point), and an Aura Pressure boost. {special}"',
+                f' ac_duel.0001.tf_{key}:0 "\\n\\n#V I am transformed: {name}.#!"',
+                f' ac_duel.0001.foe_tf_{key}:0 "\\n#N [ac_duel_foe.GetFirstName] is transformed: {name}.#!"']
+    out += [' ac_duel.0001.soulsoak:0 "Release my Soulsoak Imbuement"',
+            ' ac_duel_soulsoak_tt:0 "Release a charge infused into my blade: +3 to my next roll."']
     for move, core, beats, name in MOVES:
         out += [f' ac_duel.0001.{move}:0 "{name}"', f' ac_duel_{move}_tt:0 "{tips[move]}"',
                 f' ac_duel.0001.foe_{move}:0 " [ac_duel_foe.GetFirstName] answered with #V {name}#!."']

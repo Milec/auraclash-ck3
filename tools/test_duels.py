@@ -4,6 +4,7 @@ import unittest
 
 import build_duels as duels
 import build_event_overrides as script
+import build_transformations as transformations
 
 
 class DuelTests(unittest.TestCase):
@@ -29,7 +30,10 @@ class DuelTests(unittest.TestCase):
     def test_references_resolve(self):
         effects = self.text['common/scripted_effects/ac_duel_effects.txt']
         rest = effects + self.text['events/ac_duel_events.txt'] + self.text['common/character_interactions/ac_duel_interactions.txt']
-        defined = set(re.findall(r'(?m)^(ac_duel_\w+_effect) = \{', effects))
+        # Transformations define their own duel effects and triggers.
+        tf = transformations.render()
+        tf_effects = tf['common/scripted_effects/ac_transformation_effects.txt'].decode('utf-8-sig')
+        defined = set(re.findall(r'(?m)^(ac_duel_\w+_effect) = \{', effects + tf_effects))
         self.assertLessEqual(set(re.findall(r'\b(ac_duel_\w+_effect) = (?:yes|\{)', rest)), defined)
         values = self.text['common/script_values/ac_duel_values.txt']
         self.assertLessEqual(set(re.findall(r'\b(ac_duel_\w+(?:_base|_vitality|_part|_techniques))\b', rest)),
@@ -48,7 +52,17 @@ class DuelTests(unittest.TestCase):
             self.assertIn(f'has_character_flag = ac_tech_{key} }} set_variable = {{ name = ac_duel_move value = flag:{duels.CORE_MOVE[core]} }}', effects)
             self.assertIn(f'ac_duel_first_attack_{key}_trigger = {{', triggers)
         used = set(re.findall(r'\b(ac_duel_\w+_trigger) = yes', effects + self.text['events/ac_duel_events.txt']))
-        self.assertLessEqual(used, set(re.findall(r'(?m)^(ac_duel_\w+_trigger) = \{', triggers)))
+        tf_triggers = transformations.render()['common/scripted_triggers/ac_transformation_triggers.txt'].decode('utf-8-sig')
+        self.assertLessEqual(used, set(re.findall(r'(?m)^(ac_duel_\w+_trigger) = \{', triggers + tf_triggers)))
+
+    def test_transformations_in_the_clash(self):
+        events = self.text['events/ac_duel_events.txt']
+        for key in transformations.FORMS:
+            self.assertIn(f'ac_duel_transform_effect = {{ FORM = {key} }}', events)
+        values = self.text['common/script_values/ac_duel_values.txt']
+        for core in ('power', 'fortitude', 'agility', 'soul'):
+            self.assertIn(f'add = ac_tf_{core}_bonus', values)
+            self.assertIn(f'ac_equipment_{core}_bonus', values)
 
     def test_localization(self):
         loc = self.text['localization/english/ac_duel_l_english.yml']

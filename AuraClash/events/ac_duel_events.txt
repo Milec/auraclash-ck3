@@ -54,6 +54,26 @@ ac_duel.0001 = {
 			desc = ac_duel.0001.blank
 		}
 		triggered_desc = { trigger = { has_character_flag = ac_duel_surging } desc = ac_duel.0001.surging }
+		first_valid = {
+			triggered_desc = { trigger = { var:ac_duel_tf ?= flag:limitbreaker } desc = ac_duel.0001.tf_limitbreaker }
+			triggered_desc = { trigger = { var:ac_duel_tf ?= flag:reaper } desc = ac_duel.0001.tf_reaper }
+			triggered_desc = { trigger = { var:ac_duel_tf ?= flag:godhand } desc = ac_duel.0001.tf_godhand }
+			triggered_desc = { trigger = { var:ac_duel_tf ?= flag:soul_domain } desc = ac_duel.0001.tf_soul_domain }
+			triggered_desc = { trigger = { var:ac_duel_tf ?= flag:malocchio } desc = ac_duel.0001.tf_malocchio }
+			triggered_desc = { trigger = { var:ac_duel_tf ?= flag:titan } desc = ac_duel.0001.tf_titan }
+			triggered_desc = { trigger = { var:ac_duel_tf ?= flag:asura } desc = ac_duel.0001.tf_asura }
+			desc = ac_duel.0001.blank
+		}
+		first_valid = {
+			triggered_desc = { trigger = { var:ac_duel_foe = { var:ac_duel_tf ?= flag:limitbreaker } } desc = ac_duel.0001.foe_tf_limitbreaker }
+			triggered_desc = { trigger = { var:ac_duel_foe = { var:ac_duel_tf ?= flag:reaper } } desc = ac_duel.0001.foe_tf_reaper }
+			triggered_desc = { trigger = { var:ac_duel_foe = { var:ac_duel_tf ?= flag:godhand } } desc = ac_duel.0001.foe_tf_godhand }
+			triggered_desc = { trigger = { var:ac_duel_foe = { var:ac_duel_tf ?= flag:soul_domain } } desc = ac_duel.0001.foe_tf_soul_domain }
+			triggered_desc = { trigger = { var:ac_duel_foe = { var:ac_duel_tf ?= flag:malocchio } } desc = ac_duel.0001.foe_tf_malocchio }
+			triggered_desc = { trigger = { var:ac_duel_foe = { var:ac_duel_tf ?= flag:titan } } desc = ac_duel.0001.foe_tf_titan }
+			triggered_desc = { trigger = { var:ac_duel_foe = { var:ac_duel_tf ?= flag:asura } } desc = ac_duel.0001.foe_tf_asura }
+			desc = ac_duel.0001.blank
+		}
 	}
 	theme = martial
 	left_portrait = { character = root animation = aggressive_sword }
@@ -104,6 +124,61 @@ ac_duel.0001 = {
 		trigger_event = ac_duel.0010
 	}
 	option = {
+		name = ac_duel.0001.transform_limitbreaker
+		trigger = { has_trait = ac_tf_limitbreaker ac_duel_can_transform_trigger = yes }
+		custom_tooltip = ac_duel_transform_limitbreaker_tt
+		set_variable = { name = ac_duel_transform_chosen value = flag:limitbreaker }
+		trigger_event = ac_duel.0013
+	}
+	option = {
+		name = ac_duel.0001.transform_reaper
+		trigger = { has_trait = ac_tf_reaper ac_duel_can_transform_trigger = yes }
+		custom_tooltip = ac_duel_transform_reaper_tt
+		set_variable = { name = ac_duel_transform_chosen value = flag:reaper }
+		trigger_event = ac_duel.0013
+	}
+	option = {
+		name = ac_duel.0001.transform_godhand
+		trigger = { has_trait = ac_tf_godhand ac_duel_can_transform_trigger = yes }
+		custom_tooltip = ac_duel_transform_godhand_tt
+		set_variable = { name = ac_duel_transform_chosen value = flag:godhand }
+		trigger_event = ac_duel.0013
+	}
+	option = {
+		name = ac_duel.0001.transform_soul_domain
+		trigger = { has_trait = ac_tf_soul_domain ac_duel_can_transform_trigger = yes }
+		custom_tooltip = ac_duel_transform_soul_domain_tt
+		set_variable = { name = ac_duel_transform_chosen value = flag:soul_domain }
+		trigger_event = ac_duel.0013
+	}
+	option = {
+		name = ac_duel.0001.transform_malocchio
+		trigger = { has_trait = ac_tf_malocchio ac_duel_can_transform_trigger = yes }
+		custom_tooltip = ac_duel_transform_malocchio_tt
+		set_variable = { name = ac_duel_transform_chosen value = flag:malocchio }
+		trigger_event = ac_duel.0013
+	}
+	option = {
+		name = ac_duel.0001.transform_titan
+		trigger = { has_trait = ac_tf_titan ac_duel_can_transform_trigger = yes }
+		custom_tooltip = ac_duel_transform_titan_tt
+		set_variable = { name = ac_duel_transform_chosen value = flag:titan }
+		trigger_event = ac_duel.0013
+	}
+	option = {
+		name = ac_duel.0001.transform_asura
+		trigger = { has_trait = ac_tf_asura ac_duel_can_transform_trigger = yes }
+		custom_tooltip = ac_duel_transform_asura_tt
+		set_variable = { name = ac_duel_transform_chosen value = flag:asura }
+		trigger_event = ac_duel.0013
+	}
+	option = {
+		name = ac_duel.0001.soulsoak
+		trigger = { has_variable = ac_soulsoak NOT = { has_character_flag = ac_duel_soulsoak } }
+		custom_tooltip = ac_duel_soulsoak_tt
+		trigger_event = ac_duel.0014
+	}
+	option = {
 		name = ac_duel.0001.surge
 		trigger = { NOT = { has_character_flag = ac_duel_surging } OR = {
 			ac_core_power_available >= 1
@@ -149,3 +224,15 @@ ac_duel.0010 = { type = character_event hidden = yes immediate = {
 } }
 ac_duel.0011 = { type = character_event hidden = yes immediate = { ac_duel_auto_resolve_effect = yes } }
 ac_duel.0012 = { type = character_event hidden = yes immediate = { set_variable = { name = ac_duel_vitality value = 0 } ac_duel_end_effect = yes } }
+ac_duel.0013 = { type = character_event hidden = yes immediate = {
+	if = { limit = { var:ac_duel_transform_chosen ?= flag:limitbreaker } ac_duel_transform_effect = { FORM = limitbreaker } }
+	else_if = { limit = { var:ac_duel_transform_chosen ?= flag:reaper } ac_duel_transform_effect = { FORM = reaper } }
+	else_if = { limit = { var:ac_duel_transform_chosen ?= flag:godhand } ac_duel_transform_effect = { FORM = godhand } }
+	else_if = { limit = { var:ac_duel_transform_chosen ?= flag:soul_domain } ac_duel_transform_effect = { FORM = soul_domain } }
+	else_if = { limit = { var:ac_duel_transform_chosen ?= flag:malocchio } ac_duel_transform_effect = { FORM = malocchio } }
+	else_if = { limit = { var:ac_duel_transform_chosen ?= flag:titan } ac_duel_transform_effect = { FORM = titan } }
+	else_if = { limit = { var:ac_duel_transform_chosen ?= flag:asura } ac_duel_transform_effect = { FORM = asura } }
+	remove_variable = ac_duel_transform_chosen
+	trigger_event = ac_duel.0001
+} }
+ac_duel.0014 = { type = character_event hidden = yes immediate = { ac_seal_release_soulsoak_effect = yes trigger_event = ac_duel.0001 } }

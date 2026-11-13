@@ -77,6 +77,7 @@ def outputs():
         ev += ['\toption = {', f'\t\tname = ac_beast.0001.{key}', '\t\trandom_list = {',
                f'\t\t\t0 = {{ modifier = {{ add = ac_beast_{key}_chance }} desc = ac_beast.slain',
                f'\t\t\t\tac_gain_soul_treasure_effect = {{ AP = ac_beast_{key}_ap }}',
+               f'\t\t\t\tset_variable = {{ name = ac_beast_defeated value = flag:{key} years = 1 }}',
                '\t\t\t\tac_gain_aura_pressure_effect = { AP = 8 }', '\t\t\t\tac_add_core_progress_effect = { CORE = power PROGRESS = 10 }',
                f'\t\t\t\tadd_prestige = {ap // 20} }}',
                f'\t\t\t0 = {{ modifier = {{ add = ac_beast_{key}_failure }} desc = ac_beast.escaped',

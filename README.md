@@ -153,6 +153,59 @@ This follows the Aura Clash game's technique menu.
 - **Chi Pool:** 1 + half the Soul Core rating (Soul Cores give +0.5 chi), plus Techniques. Techniques used in vanilla events spend chi before your body pays in stress and Spent Chi. Meditation restores spent chi each quarter (yearly for AI).
 - **AI** cultivators study a Path Manual when they have spare gold, and fill empty Focus slots.
 
+### Transformation Techniques
+These follow the IF's Transformations. Each wraps a stronger aura, built for battle, around the body for a time. There is one per Style, plus Limitbreaker for any:
+
+| Transformation | Style | While transformed |
+|---|---|---|
+| Limitbreaker | any (Freestyle) | +1 Power, +1 Health; every Core Surge +1; +10 AP from battle victories |
+| Reaper | Akakiru | +2 Power, +1 Agility, +1 Health; doubled bonuses from a bladed weapon |
+| Godhand | Aoyusumu | +1 Soul, Agility, Fortitude, Health and Chi; heals to full on transforming |
+| Soul Domain | Kiihakai | +2 Soul, +1 Power, +2 Chi; every attack Focused (+1 to every roll) |
+| Malocchio | Kurokonton | +2 Agility, +1 Fortitude, +1 Chi; a victory copies one of the foe's attack Techniques |
+| Titan or Asura | Midorikatai | Titan: +2 Fortitude, +1 Power, +2 Health, +1 damage on every hit. Asura: +2 Power, +1 Fortitude, +1 Health, +1 to melee moves |
+
+- **In the Clash of Auras**, a fighter who knows a Transformation can transform once per duel for 1 Chi. It's a free action, like surging. Each Core point is +2 to that Core's rolls, Health is Vitality, and the aura boost (+500 AP, or 250 + AP/8 from 2,000 AP) counts toward Aura Pressure suppression. The AI transforms too.
+- **Requirements:** the Immortal Core, 1,500 Aura Pressure and the form's Style. Limitbreaker instead needs every Combat Core at rating 3 or more. Titan and Asura exclude each other.
+- **Training** is a personal scheme, like CK3's study schemes: **Train a Transformation Alone** (decision), or **Seek Transformation Training** (interaction) under a master who knows the form (+25% success). Its success chance grows with Martial, Style perks and Aura Pressure, and with Touched by a Heavenly Gate. A failed phase costs stress or a wound.
+- **A Heavenly Gate** is the MC's way: draw a whole Gate into your aura to awaken a form at once (see below).
+- The traits use their Style's icon for now.
+
+### Seals
+All 22 Seals from the Core Rulebook are castable interactions in their own **Seals** category: right-click yourself or another character.
+- **Freestyle:** Craft Shard, Reinforcement, Four Winds Enhancement, Keystone, Counterseal.
+- **Akakiru:** Reinforcement (Improved), Soulsoak Imbuement (releasable in a Clash for +3), Celestial Forge (exchange your Foundation, keeping its tempering).
+- **Aoyusumu:** Exorcism, Prayer Engine, Heavenly Message, Divine Intervention.
+- **Kiihakai:** Scry, Ward (a person, or the county you stand in), Charm, Spiritbinding (Earth or Water Elemental, Wisps or a Kami).
+- **Kurokonton:** Hex, Thousand-Face Mask, Puppetmaster (a strong "Puppet" hook, from a month to permanent).
+- **Midorikatai:** Subjugation Domain, Alpha Seal (bind a Spirit Beast you have just slain), Unlock Potential.
+- **Requirements,** as in the rulebook: a Handseals rank (+1d6/+2d6/+3d6 = 2/5/8 Handseals perks) and/or Aura Pressure in a Style's Techniques (300/500–600/700/900 AP = the Style with 0/3/5/7 of its perks).
+- **Cost:** the rulebook's AP cost is spent as Chi (1 per 100 AP), or paid in Shards at a tenth (gold).
+- **Strength:** a Handseals roll of 2 dice + 1 per rank, a success on 5–6 with sixes exploding. Durations of "a day per success" become a month per success. Charm, Hex, Counterseal and Puppetmaster are contested.
+
+### Heavenly Gates and Spirit Fruit
+- **Heavenly Gates:** six a year, an area's aura surges for a season (a county modifier). Gate levels run 5–15: Outer lands 5–8, Outer North 6–9, Inner Kingdoms 8–12, Azuma Honsha 11–15. Cultivators in the region sense it.
+- **Cycle the Heavenly Gate** (activity): travel there with your court's cultivators. Each gains the Gate's level plus their Athletics or Insight successes, up to triple the level, as Aura Pressure, plus Soul progress and *Touched by a Heavenly Gate* for two years. Beyond three cultivators the Gate's chi is shared out.
+- At the Gate you can cycle quietly, drive off the local sect's disciples in a Clash of Auras (the winner takes half again as much), or draw the whole Gate into a Transformation.
+- The first cycling drains a Gate. Unclaimed Gates go to the region's three strongest AI cultivators after 45 days.
+- **Spirit Fruit Groves:** 17 special buildings placed at game start (3 on Azuma Honsha, 8 in the Inner Kingdoms, 2 in Outer North, 4 elsewhere). The county holder harvests 2 fruit a year, keeping up to 10.
+- **Share Spirit Fruit** (interaction) feeds a cultivator, yourself included. A fruit gives up to 10 Aura Pressure, less for each fruit eaten that year. AI holders feed themselves and their court.
+
+### Forged Equipment and the Soul Forge
+Weapons and armour are real CK3 artifacts in the weapon and armour slots, drawn with vanilla's East Asian models.
+- **Pieces:** the IF's Katana, Jian, Tanto, Kunai, Qiang, Greataxe, Kusarigama, Bo Staff, Meteor Hammer, Claws and Yumi, and Armour.
+- **Materials** follow the IF's forgemaster: steel, Jade (100 Shards, Craft 2), Beastbone (80, Craft 3), Snowsteel (120, Craft 2) and Truegold (140, Craft 3). Craft is Stewardship: 10 for Craft 2, 15 for Craft 3. Each material fuels two Cores (+1 rating each in a Clash): Jade Soul and Power, Beastbone Fortitude and Agility, Snowsteel Fortitude and Soul, Truegold Power and Agility.
+- **A Soul Treasure** forged in grants +1d6 to a skill. A superior-grade treasure (1,800 AP or more) fuels the material's first Core again. One Soul Treasure per piece.
+- **Grades:** plain, Improved, Superior and Mastercrafted, with rising prowess and rarity.
+- **In a Clash:** a weapon gives the rulebook's Armed bonus (+1, unless the foe is Armored), and a critical blow breaks plain steel armour.
+- **The Soul Forge** is a crafting board modelled on Princes of Darkness's workshop. **Commission Forged Equipment** on yourself or a courtier opens it.
+  1. Choose the piece and prepare the forge. The smith lays out a board of linked steps.
+  2. Begin on a **Shape** step, then follow the links, one step per move. Steps include Temper, Hone, Lace Plates, Fold the Steel, Balance, Decorate, a material, a Soul Treasure for a chosen skill, and special steps from the smith's perks (Reinforcement Seal, Bladed Armory, Runic Inscription, Treasure Refining) and Elements.
+  3. Press **Forge** to finish. The piece takes shape as you work it, so its effects show before it is done.
+  - The smith's Stewardship sets the board's size and the number of moves; their Learning gives rerolls of the board.
+  - Grade points set the grade: 1 Improved, 3 Superior, 5 Mastercrafted.
+- **AI:** cultivators with spare gold forge a material weapon suited to their Style, and the strongest start the game armed.
+
 ### Heavenly Ascension Trials and the Archonate
 This follows the Aura Clash game. The Exalted Council drafts young martial artists to replenish the Archons, holding the **Heavenly Ascension Trials** in the Outer West town of **Nanhou**. They're held every 10 years, first after 3; the IF's 30-year gap is shortened for play.
 - **The draft:** cultivators **under 25 of the Warrior Caste** or above (see Castes) receive the Imperial draft letter, with 25 gold. Ignoring it costs 100 prestige.
@@ -313,8 +366,7 @@ A character interaction (right-click a character). It needs a Cultivator aged 16
 
 ### Perk-unlocked interactions (right-click a character)
 - **Chi Healing:** unlocked by *Water: Healing Waters*, *Kiihakai: Mending Chi* or *Aoyusumu Mastery*. It mends one level of wounds on anyone, including yourself, with a 6-month cooldown.
-- **Scry:** unlocked by *Kiihakai: Scrying Sphere*. Costs 100 piety, with a 3-year cooldown. The success chance is your Learning + Intrigue as a percentage. On success, all of the target's secrets are revealed to you.
-- **Hex:** unlocked by *Kurokonton: Hex*. Costs 100 prestige. Pick one of the target's Diplomacy, Martial, Stewardship, Intrigue, Learning or Prowess. It drops by **1, plus 1 per 5 of your Intrigue** (maximum 12) for a year. You can hex the same person once per year.
+- **Scry** and **Hex** are now Seals (see Seals below); *Scrying Sphere* and *Hex* still teach them.
 - **Copy Technique:** unlocked by *Kurokonton: Malocchio Eyes*. Costs 100 piety, with a 1-year cooldown. The target must be **your prisoner** with an education trait. You gain 1 perk point in the lifestyle matching their education (Martial and Prowess educations both give Martial).
 
 ### Cultivation Lifestyles

@@ -126,7 +126,7 @@ def outputs():
         vals.append('}')
     vals += ['ac_battle_ap_bonus = {', '\tvalue = 0']
     vals += [f'\tif = {{ limit = {{ has_character_flag = ac_tech_{k} }} add = {v[3][1]} }}' for k, v in CATALOGUE.items() if v[3] and v[3][0] == 'battle_ap']
-    vals += ['}', '# Imperial Rasen: while the Exalted Council opens the Imperial Archives, Path Manuals cost half.',
+    vals += ['\tadd = ac_tf_battle_ap_bonus', '}', '# Imperial Rasen: while the Exalted Council opens the Imperial Archives, Path Manuals cost half.',
              'ac_path_manual_gold = { value = 100 if = { limit = { has_global_variable = rasen_archives_open } value = 50 } }', 'ac_sect_library_contribution = 50']
     out['common/script_values/ac_combat_technique_values.txt'] = '\n'.join(vals) + '\n'
 
