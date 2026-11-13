@@ -243,6 +243,14 @@ def movement_effects():
     return out
 
 
+def movement_names():
+    """The dynastic cycle's movements are named after the Exalts who lead them. The unaligned group is the
+    Cursed Exalt's: they lead no open movement and belong to it."""
+    groups = {**{movement: land for land, movement in MOVEMENTS.items()}, 'undecided': 'cursed'}
+    return '\n'.join(['l_english:'] + [
+        f' dynastic_cycle_participant_group_{movement}_movement:0 "{land.title()} Exalt"' for movement, land in groups.items()])
+
+
 def diarchy():
     """Rasen's Co-Monarchy, after All Under Heaven's co-monarchy but ended only by script: the Celestial
     government has no co-monarch flag of its own, and the balance is fixed (vanilla's scales with the
@@ -482,6 +490,7 @@ def render():
         'common/modifiers/rasen_council_modifiers.txt': modifiers(),
         'common/opinion_modifiers/rasen_council_opinions.txt': opinions(),
         'common/diarchies/diarchy_types/rasen_co_monarchy.txt': diarchy(),
+        'localization/replace/english/rasen_movements_l_english.yml': movement_names(),
         'events/rasen_council_events.txt': events(),
         'localization/english/rasen_council_l_english.yml': localization(),
     }

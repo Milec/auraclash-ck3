@@ -56,6 +56,12 @@ class CouncilTests(unittest.TestCase):
         loc = self.text['localization/english/rasen_council_l_english.yml']
         self.assertIn(' rasen_co_monarchy_diarchy_type:0 "', loc)
 
+    def test_movements_are_named_after_their_exalts(self):
+        names = self.text['localization/replace/english/rasen_movements_l_english.yml']
+        for land, movement in council.MOVEMENTS.items():
+            self.assertIn(f' dynastic_cycle_participant_group_{movement}_movement:0 "{land.title()} Exalt"', names)
+        self.assertIn(' dynastic_cycle_participant_group_undecided_movement:0 "Cursed Exalt"', names)
+
     def test_effects_and_events_resolve(self):
         effects = self.text['common/scripted_effects/rasen_council_effects.txt']
         events = self.text['events/rasen_council_events.txt']

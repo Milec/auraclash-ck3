@@ -10,7 +10,7 @@ rasen_nominate_bladed_exalt_interaction = {
 		scope:recipient = { rasen_exalt_candidate_trigger = { LAND = bladed } }
 	}
 	is_valid_showing_failures_only = {
-		NOT = { has_global_variable = rasen_exalt_designate_bladed global_var:rasen_exalt_designate_bladed = scope:recipient }
+		trigger_if = { limit = { has_global_variable = rasen_exalt_designate_bladed } NOT = { global_var:rasen_exalt_designate_bladed = scope:recipient } }
 	}
 	cost = { prestige = 100 }
 	on_accept = {
@@ -33,7 +33,7 @@ rasen_nominate_sacred_exalt_interaction = {
 		scope:recipient = { rasen_exalt_candidate_trigger = { LAND = sacred } }
 	}
 	is_valid_showing_failures_only = {
-		NOT = { has_global_variable = rasen_exalt_designate_sacred global_var:rasen_exalt_designate_sacred = scope:recipient }
+		trigger_if = { limit = { has_global_variable = rasen_exalt_designate_sacred } NOT = { global_var:rasen_exalt_designate_sacred = scope:recipient } }
 	}
 	cost = { prestige = 100 }
 	on_accept = {
@@ -56,7 +56,7 @@ rasen_nominate_mystic_exalt_interaction = {
 		scope:recipient = { rasen_exalt_candidate_trigger = { LAND = mystic } }
 	}
 	is_valid_showing_failures_only = {
-		NOT = { has_global_variable = rasen_exalt_designate_mystic global_var:rasen_exalt_designate_mystic = scope:recipient }
+		trigger_if = { limit = { has_global_variable = rasen_exalt_designate_mystic } NOT = { global_var:rasen_exalt_designate_mystic = scope:recipient } }
 	}
 	cost = { prestige = 100 }
 	on_accept = {
@@ -79,7 +79,7 @@ rasen_nominate_cursed_exalt_interaction = {
 		scope:recipient = { rasen_exalt_candidate_trigger = { LAND = cursed } }
 	}
 	is_valid_showing_failures_only = {
-		NOT = { has_global_variable = rasen_exalt_designate_cursed global_var:rasen_exalt_designate_cursed = scope:recipient }
+		trigger_if = { limit = { has_global_variable = rasen_exalt_designate_cursed } NOT = { global_var:rasen_exalt_designate_cursed = scope:recipient } }
 	}
 	cost = { prestige = 100 }
 	on_accept = {
@@ -102,7 +102,7 @@ rasen_nominate_wild_exalt_interaction = {
 		scope:recipient = { rasen_exalt_candidate_trigger = { LAND = wild } }
 	}
 	is_valid_showing_failures_only = {
-		NOT = { has_global_variable = rasen_exalt_designate_wild global_var:rasen_exalt_designate_wild = scope:recipient }
+		trigger_if = { limit = { has_global_variable = rasen_exalt_designate_wild } NOT = { global_var:rasen_exalt_designate_wild = scope:recipient } }
 	}
 	cost = { prestige = 100 }
 	on_accept = {

@@ -149,7 +149,9 @@ def interactions():
                 f'\t\tscope:recipient = {{ rasen_exalt_candidate_trigger = {{ LAND = {land} }} }}',
                 '\t}',
                 '\tis_valid_showing_failures_only = {',
-                f'\t\tNOT = {{ has_global_variable = rasen_exalt_designate_{land} global_var:rasen_exalt_designate_{land} = scope:recipient }}',
+                # (Inside NOT the variable would be read even when unset, logging an error every frame.)
+                f'\t\ttrigger_if = {{ limit = {{ has_global_variable = rasen_exalt_designate_{land} }} '
+                f'NOT = {{ global_var:rasen_exalt_designate_{land} = scope:recipient }} }}',
                 '\t}',
                 '\tcost = { prestige = 100 }',
                 '\ton_accept = {',
