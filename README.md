@@ -169,7 +169,8 @@ These follow the IF's Transformations. Each wraps a stronger aura, built for bat
 - **Requirements:** the Immortal Core, 1,500 Aura Pressure and the form's Style. Limitbreaker instead needs every Combat Core at rating 3 or more. Titan and Asura exclude each other.
 - **Training** is a personal scheme, like CK3's study and Learn Language schemes: **Train a Transformation** (an interaction on yourself), or **Seek Transformation Training** (an interaction on a master who knows the form, +25% success). Its success chance grows with Martial, Style perks and Aura Pressure, and with Touched by a Heavenly Gate. A failed phase costs stress or a wound.
 - **A Heavenly Gate** is the MC's way: draw a whole Gate into your aura to awaken a form at once (see below).
-- The traits use their Style's icon for now.
+- Each form has its own icon, drawn from its Style's artwork in the IF's description of the form (`tools/build_arts_icons.py`).
+- Malocchio follows the IF's transform code (+1 Fortitude); one IF passage says +1 Soul instead.
 
 ### Seals
 All 22 Seals from the Core Rulebook are castable interactions in their own **Seals** category: right-click yourself or another character.
@@ -180,7 +181,7 @@ All 22 Seals from the Core Rulebook are castable interactions in their own **Sea
 - **Kurokonton:** Hex, Thousand-Face Mask, Puppetmaster (a strong "Puppet" hook, from a month to permanent).
 - **Midorikatai:** Subjugation Domain, Alpha Seal (bind a Spirit Beast you have just slain), Unlock Potential.
 - **Requirements,** as in the rulebook: a Handseals rank (+1d6/+2d6/+3d6 = 2/5/8 Handseals perks) and/or Aura Pressure in a Style's Techniques (300/500–600/700/900 AP = the Style with 0/3/5/7 of its perks).
-- **Cost:** the rulebook's AP cost is spent as Chi (1 per 100 AP), or paid in Shards at a tenth (gold).
+- **Cost:** the rulebook's AP cost is spent as Chi (1 per 100 AP), or paid in Shards at a tenth (gold). Spiritbinding costs a flat 300 AP: the rulebook charges 100 AP per 100 AP of the spirit, but spirits are not characters here.
 - **Strength:** a Handseals roll of 2 dice + 1 per rank, a success on 5–6 with sixes exploding. Durations of "a day per success" become a month per success. Charm, Hex, Counterseal and Puppetmaster are contested.
 
 ### Heavenly Gates and Spirit Fruit

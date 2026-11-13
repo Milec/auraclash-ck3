@@ -51,6 +51,12 @@ class CultivationArtsTests(unittest.TestCase):
                 for n, line in enumerate(data.decode('utf-8-sig').splitlines(), 1):
                     self.assertIsNone(bad.search(line), f'{relative}:{n}')
 
+    def test_icons_are_current(self):
+        import build_arts_icons as icons
+        for path, data in icons.render().items():
+            self.assertEqual(path.read_bytes(), data, path.name)
+        self.assertEqual(set(icons.FORMS), set(transformations.FORMS))
+
     def test_built_on_ck3_systems_not_decisions(self):
         # Interactions, schemes, activities, artifacts, special buildings, story cycles and hooks; no decisions.
         made = {r for files in self.files.values() for r in files}
