@@ -54,6 +54,7 @@ LINE_EDITS['common/on_action/game_start.txt'] = [
 ]
 # The Council Peace (tools/build_rasen_peace.py): great lords need leave to fight; Azuma Honsha falls only to rebellion.
 LINE_EDITS['common/scripted_triggers/00_war_and_peace_triggers.txt'] = peace.PEACE_EDITS
+LINE_EDITS['common/casus_belli_types/10_tgp_china_wars.txt'] = peace.PEACE_CB_EDITS
 # Files whose missing Earth counties become a stub title that is never held.
 TITLE_STANDIN_FILES = ('common/scripted_effects/10_dlc_tgp_japan_scripted_effects.txt',)
 TITLE_STANDIN = 'k_yamato'
@@ -94,9 +95,10 @@ def render(game: Path):
     files = {}
     for relative in affected(game, last):
         text = (game / relative).read_bytes().decode('utf-8-sig').replace('\r\n', '\n')
-        for old, new in LINE_EDITS.get(relative, []):
-            if text.count(old) != 1:
-                raise SystemExit(f'{relative}: expected exactly one "{old.strip()}" (game version changed?)')
+        for old, new, *count in LINE_EDITS.get(relative, []):
+            expected = count[0] if count else 1
+            if text.count(old) != expected:
+                raise SystemExit(f'{relative}: expected {expected} of "{old.strip()}" (game version changed?)')
             text = text.replace(old, new)
         text = PROVINCE.sub(lambda m: m.group(0) if int(m.group(1)) <= last else f'province:{standin}', text)
         ours = our_titles()

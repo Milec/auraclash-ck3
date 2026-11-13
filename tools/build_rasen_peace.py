@@ -42,6 +42,15 @@ PEACE_EDITS = [
      ' capital_province ?= { geographical_region = world_rasen_azuma } }'
      ' custom_tooltip = { text = rasen_azuma_protected_tt always = no } } # Imperial Rasen: Azuma Honsha falls only to open rebellion\n'),
 ]
+# The Expansion era of the dynastic cycle lets non-Celestial vassals seize counties and duchies from each
+# other (china_seize_county_cb, china_seize_duchy_cb). Under the Council Peace a great lord still needs a
+# hook on their liege for it. The line occurs once in each casus belli (third element: expected count).
+PEACE_CB_EDITS = [
+    ('\t\t\t\t\thas_participant_group_parameter = dynastic_cycle_vassal_internal_wars_allowed\n',
+     '\t\t\t\t\thas_participant_group_parameter = dynastic_cycle_vassal_internal_wars_allowed'
+     f' root = {{ OR = {{ highest_held_title_tier < tier_duchy NOT = {{ top_liege = {{ has_realm_law_flag = {PEACE_FLAG} }} }} has_usable_hook = liege }} }}'
+     ' # Imperial Rasen: the Council Peace (great lords need a hook on their liege)\n', 2),
+]
 
 
 def law_groups():
