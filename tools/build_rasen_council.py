@@ -241,17 +241,26 @@ def succession_effects():
            '}',
            '',
            f'# Global scope, yearly, before the Council sits. A seat falls vacant when its Exalt dies or after {EXALT_TERM_YEARS} years;',
-           '# the strongest unlanded cultivator of that land takes it.',
+           '# the land ruler\'s nominee takes it if they still qualify (build_rasen_interactions.py), otherwise the',
+           '# strongest unlanded cultivator of that land.',
            'rasen_exalt_succession_effect = {']
     for land in KEYS:
-        out += ['	if = {',
-                f'		limit = {{ OR = {{ NOT = {{ {filled(land)} }} {holder(land)} = {{ var:rasen_exalt_since <= {{ value = current_year subtract = {EXALT_TERM_YEARS} }} }} }} }}',
-                '		ordered_living_character = {',
-                f'			limit = {{ rasen_exalt_candidate_trigger = {{ LAND = {land} }} }}',
-                '			order_by = ac_aura_pressure_value',
-                f'			rasen_seat_exalt_effect = {{ LAND = {land} }}',
-                '		}',
-                '	}']
+        designate = f'global_var:rasen_exalt_designate_{land}'
+        out += ['\tif = {',
+                f'\t\tlimit = {{ OR = {{ NOT = {{ {filled(land)} }} {holder(land)} = {{ var:rasen_exalt_since <= {{ value = current_year subtract = {EXALT_TERM_YEARS} }} }} }} }}',
+                '\t\tif = {',
+                f'\t\t\tlimit = {{ has_global_variable = rasen_exalt_designate_{land} {designate} = {{ rasen_exalt_candidate_trigger = {{ LAND = {land} }} }} }}',
+                f'\t\t\t{designate} = {{ rasen_seat_exalt_effect = {{ LAND = {land} }} }}',
+                '\t\t}',
+                '\t\telse = {',
+                '\t\t\tordered_living_character = {',
+                f'\t\t\t\tlimit = {{ rasen_exalt_candidate_trigger = {{ LAND = {land} }} }}',
+                '\t\t\t\torder_by = ac_aura_pressure_value',
+                f'\t\t\t\trasen_seat_exalt_effect = {{ LAND = {land} }}',
+                '\t\t\t}',
+                '\t\t}',
+                f'\t\tremove_global_variable = rasen_exalt_designate_{land}',
+                '\t}']
     return out + ['}', '']
 
 

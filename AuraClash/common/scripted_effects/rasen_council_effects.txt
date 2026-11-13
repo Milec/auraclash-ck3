@@ -484,47 +484,83 @@ rasen_seat_exalt_effect = {
 }
 
 # Global scope, yearly, before the Council sits. A seat falls vacant when its Exalt dies or after 100 years;
-# the strongest unlanded cultivator of that land takes it.
+# the land ruler's nominee takes it if they still qualify (build_rasen_interactions.py), otherwise the
+# strongest unlanded cultivator of that land.
 rasen_exalt_succession_effect = {
 	if = {
 		limit = { OR = { NOT = { rasen_seat_filled_trigger = { LAND = bladed } } global_var:rasen_exalt_bladed = { var:rasen_exalt_since <= { value = current_year subtract = 100 } } } }
-		ordered_living_character = {
-			limit = { rasen_exalt_candidate_trigger = { LAND = bladed } }
-			order_by = ac_aura_pressure_value
-			rasen_seat_exalt_effect = { LAND = bladed }
+		if = {
+			limit = { has_global_variable = rasen_exalt_designate_bladed global_var:rasen_exalt_designate_bladed = { rasen_exalt_candidate_trigger = { LAND = bladed } } }
+			global_var:rasen_exalt_designate_bladed = { rasen_seat_exalt_effect = { LAND = bladed } }
 		}
+		else = {
+			ordered_living_character = {
+				limit = { rasen_exalt_candidate_trigger = { LAND = bladed } }
+				order_by = ac_aura_pressure_value
+				rasen_seat_exalt_effect = { LAND = bladed }
+			}
+		}
+		remove_global_variable = rasen_exalt_designate_bladed
 	}
 	if = {
 		limit = { OR = { NOT = { rasen_seat_filled_trigger = { LAND = sacred } } global_var:rasen_exalt_sacred = { var:rasen_exalt_since <= { value = current_year subtract = 100 } } } }
-		ordered_living_character = {
-			limit = { rasen_exalt_candidate_trigger = { LAND = sacred } }
-			order_by = ac_aura_pressure_value
-			rasen_seat_exalt_effect = { LAND = sacred }
+		if = {
+			limit = { has_global_variable = rasen_exalt_designate_sacred global_var:rasen_exalt_designate_sacred = { rasen_exalt_candidate_trigger = { LAND = sacred } } }
+			global_var:rasen_exalt_designate_sacred = { rasen_seat_exalt_effect = { LAND = sacred } }
 		}
+		else = {
+			ordered_living_character = {
+				limit = { rasen_exalt_candidate_trigger = { LAND = sacred } }
+				order_by = ac_aura_pressure_value
+				rasen_seat_exalt_effect = { LAND = sacred }
+			}
+		}
+		remove_global_variable = rasen_exalt_designate_sacred
 	}
 	if = {
 		limit = { OR = { NOT = { rasen_seat_filled_trigger = { LAND = mystic } } global_var:rasen_exalt_mystic = { var:rasen_exalt_since <= { value = current_year subtract = 100 } } } }
-		ordered_living_character = {
-			limit = { rasen_exalt_candidate_trigger = { LAND = mystic } }
-			order_by = ac_aura_pressure_value
-			rasen_seat_exalt_effect = { LAND = mystic }
+		if = {
+			limit = { has_global_variable = rasen_exalt_designate_mystic global_var:rasen_exalt_designate_mystic = { rasen_exalt_candidate_trigger = { LAND = mystic } } }
+			global_var:rasen_exalt_designate_mystic = { rasen_seat_exalt_effect = { LAND = mystic } }
 		}
+		else = {
+			ordered_living_character = {
+				limit = { rasen_exalt_candidate_trigger = { LAND = mystic } }
+				order_by = ac_aura_pressure_value
+				rasen_seat_exalt_effect = { LAND = mystic }
+			}
+		}
+		remove_global_variable = rasen_exalt_designate_mystic
 	}
 	if = {
 		limit = { OR = { NOT = { rasen_seat_filled_trigger = { LAND = cursed } } global_var:rasen_exalt_cursed = { var:rasen_exalt_since <= { value = current_year subtract = 100 } } } }
-		ordered_living_character = {
-			limit = { rasen_exalt_candidate_trigger = { LAND = cursed } }
-			order_by = ac_aura_pressure_value
-			rasen_seat_exalt_effect = { LAND = cursed }
+		if = {
+			limit = { has_global_variable = rasen_exalt_designate_cursed global_var:rasen_exalt_designate_cursed = { rasen_exalt_candidate_trigger = { LAND = cursed } } }
+			global_var:rasen_exalt_designate_cursed = { rasen_seat_exalt_effect = { LAND = cursed } }
 		}
+		else = {
+			ordered_living_character = {
+				limit = { rasen_exalt_candidate_trigger = { LAND = cursed } }
+				order_by = ac_aura_pressure_value
+				rasen_seat_exalt_effect = { LAND = cursed }
+			}
+		}
+		remove_global_variable = rasen_exalt_designate_cursed
 	}
 	if = {
 		limit = { OR = { NOT = { rasen_seat_filled_trigger = { LAND = wild } } global_var:rasen_exalt_wild = { var:rasen_exalt_since <= { value = current_year subtract = 100 } } } }
-		ordered_living_character = {
-			limit = { rasen_exalt_candidate_trigger = { LAND = wild } }
-			order_by = ac_aura_pressure_value
-			rasen_seat_exalt_effect = { LAND = wild }
+		if = {
+			limit = { has_global_variable = rasen_exalt_designate_wild global_var:rasen_exalt_designate_wild = { rasen_exalt_candidate_trigger = { LAND = wild } } }
+			global_var:rasen_exalt_designate_wild = { rasen_seat_exalt_effect = { LAND = wild } }
 		}
+		else = {
+			ordered_living_character = {
+				limit = { rasen_exalt_candidate_trigger = { LAND = wild } }
+				order_by = ac_aura_pressure_value
+				rasen_seat_exalt_effect = { LAND = wild }
+			}
+		}
+		remove_global_variable = rasen_exalt_designate_wild
 	}
 }
 

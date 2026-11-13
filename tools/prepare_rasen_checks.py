@@ -142,6 +142,22 @@ def event():
                 'story_owner = { set_global_variable = { name = qa_dead_master value = this } death = natural } }\n')
     body.append(check('council_countdown', 'has_global_variable = rasen_council_countdown'))
     body.append(check('trials_countdown', 'has_global_variable = ac_ascension_countdown'))
+    # Governing (build_rasen_interactions.py): the Archonate fills, a nominee takes a vacated seat, and an
+    # Outer county the hegemon holds goes to a noble of the Inner Kingdoms.
+    body.append('\trandom_living_character = { limit = { has_trait = ac_cultivator is_ruler = no is_adult = yes NOT = { rasen_is_exalt_trigger = yes } } '
+                'set_variable = { name = ac_aura_pressure value = 9000 } }\n')
+    body.append('\trasen_governing_yearly_effect = yes\n')
+    body.append(check('archon_raised', 'any_living_character = { has_trait = rasen_archon }'))
+    body.append('\trandom_living_character = { limit = { rasen_exalt_candidate_trigger = { LAND = cursed } } save_scope_as = qa_nominee }\n'
+                '\tset_global_variable = { name = rasen_exalt_designate_cursed value = scope:qa_nominee }\n'
+                '\tglobal_var:rasen_exalt_cursed = { death = natural }\n'
+                '\trasen_exalt_succession_effect = yes\n')
+    body.append(check('nominee_seated', 'exists = scope:qa_nominee global_var:rasen_exalt_cursed = scope:qa_nominee'))
+    body.append('\trandom_county_in_region = { region = world_rasen_outer limit = { holder = { highest_held_title_tier = tier_county } } save_scope_as = qa_outer }\n'
+                '\ttitle:h_china.holder = { create_title_and_vassal_change = { type = granted save_scope_as = qa_change add_claim_on_loss = no } '
+                'scope:qa_outer = { change_title_holder = { holder = title:h_china.holder change = scope:qa_change } } resolve_title_and_vassal_change = scope:qa_change }\n'
+                '\trasen_governing_yearly_effect = yes\n')
+    body.append(check('magistrate_from_inner', 'scope:qa_outer = { holder = { NOT = { this = title:h_china.holder } has_government = celestial_government } }'))
     body.append('\tdebug_log = "RASEN_QA COMPLETE"\n')
     return ('namespace = rasen_qa\n\nrasen_qa.0001 = {\n\ttype = character_event\n\thidden = yes\n\timmediate = {\n'
             + ''.join('\t' + line for line in ''.join(body).splitlines(True)) + '\t}\n}\n')
@@ -173,6 +189,7 @@ def main():
                                           'if = { limit = { situation:dynastic_cycle ?= { any_participant_group = { count >= 3 var:movement_leader ?= { rasen_is_exalt_trigger = yes } } } } debug_log = "RASEN_QA YEAR EXALTS_LEAD" } '
                                           'if = { limit = { any_ruler = { highest_held_title_tier >= tier_duchy top_liege = title:h_china.holder NOT = { this = top_liege } save_temporary_scope_as = qa_lord any_character_war = { primary_attacker = scope:qa_lord NOR = { using_cb = depose_war using_cb = claimant_faction_war using_cb = independence_faction_war using_cb = liberty_faction_war using_cb = populist_war using_cb = peasant_war using_cb = nation_fracturing_faction_war } primary_defender = { highest_held_title_tier >= tier_duchy top_liege = title:h_china.holder NOT = { is_liege_or_above_of = scope:qa_lord } } } } } debug_log = "RASEN_QA YEAR GREAT_LORD_DECLARED_WAR" } '
                                           'if = { limit = { NOT = { exists = title:k_wild.holder } NOT = { exists = title:k_outer_west.holder } } debug_log = "RASEN_QA YEAR UNCROWNED" } '
+                                          'if = { limit = { any_living_character = { has_trait = rasen_archon count >= 3 } } debug_log = "RASEN_QA YEAR ARCHONS" } '
                                           'if = { limit = { exists = situation:dynastic_cycle } debug_log = "RASEN_QA YEAR CYCLE_RUNNING" } '
                                           'if = { limit = { title:h_china.holder ?= { any_sub_realm_county = { count >= 250 } } } debug_log = "RASEN_QA YEAR HEGEMONY_HELD" } '
                                           'if = { limit = { global_var:qa_heir_sect = { story_owner = { is_alive = yes has_trait = ac_sect_master '
