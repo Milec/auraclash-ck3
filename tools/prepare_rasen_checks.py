@@ -44,6 +44,7 @@ def event():
         body.append(check(f'exalt_leads_{movement}', f'situation:dynastic_cycle = {{ any_participant_group = {{ '
                           f'participant_group_type = {movement}_movement var:movement_leader ?= global_var:rasen_exalt_{land} }} }}'))
     body.append(check('peace_law', 'title:h_china.holder = { has_realm_law_flag = rasen_great_lords_need_leave }'))
+    body.append(check('exalt_co_monarch', 'title:h_china.holder = { diarch ?= { rasen_is_exalt_trigger = yes } }'))
     body.append(check('exalt_estate', 'global_var:rasen_exalt_bladed = { has_domicile = yes }'))
     body.append(check('exalt_cultivator', 'global_var:rasen_exalt_bladed = { has_trait = ac_cultivator has_trait = ac_immortal_core }'))
     body.append(check('exalt_race', 'global_var:rasen_exalt_bladed = { has_trait = ac_race_human }'))
@@ -190,6 +191,7 @@ def main():
                                           'if = { limit = { any_ruler = { highest_held_title_tier >= tier_duchy top_liege = title:h_china.holder NOT = { this = top_liege } save_temporary_scope_as = qa_lord any_character_war = { primary_attacker = scope:qa_lord NOR = { using_cb = depose_war using_cb = claimant_faction_war using_cb = independence_faction_war using_cb = liberty_faction_war using_cb = populist_war using_cb = peasant_war using_cb = nation_fracturing_faction_war } primary_defender = { highest_held_title_tier >= tier_duchy top_liege = title:h_china.holder NOT = { is_liege_or_above_of = scope:qa_lord } } } } } debug_log = "RASEN_QA YEAR GREAT_LORD_DECLARED_WAR" } '
                                           'if = { limit = { NOT = { exists = title:k_wild.holder } NOT = { exists = title:k_outer_west.holder } } debug_log = "RASEN_QA YEAR UNCROWNED" } '
                                           'if = { limit = { any_living_character = { has_trait = rasen_archon count >= 3 } } debug_log = "RASEN_QA YEAR ARCHONS" } '
+                                          'if = { limit = { title:h_china.holder ?= { diarch ?= { rasen_is_exalt_trigger = yes } } } debug_log = "RASEN_QA YEAR CO_MONARCH" } '
                                           'if = { limit = { exists = situation:dynastic_cycle } debug_log = "RASEN_QA YEAR CYCLE_RUNNING" } '
                                           'if = { limit = { title:h_china.holder ?= { any_sub_realm_county = { count >= 250 } } } debug_log = "RASEN_QA YEAR HEGEMONY_HELD" } '
                                           'if = { limit = { global_var:qa_heir_sect = { story_owner = { is_alive = yes has_trait = ac_sect_master '

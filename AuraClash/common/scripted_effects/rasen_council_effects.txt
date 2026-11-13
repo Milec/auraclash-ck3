@@ -297,6 +297,8 @@ rasen_council_enact_effect = {
 			global_var:rasen_votes_wild > 0 NOT = { global_var:rasen_exalt_wild = scope:rasen_council_winner } }
 		global_var:rasen_exalt_wild = { add_opinion = { target = scope:rasen_council_winner modifier = rasen_council_outvoted_opinion } }
 	}
+	# The Exalt of the strongest movement sits beside the hegemon as Co-Monarch.
+	rasen_co_monarch_effect = yes
 	every_player = { trigger_event = rasen_council.0002 }
 }
 
@@ -582,6 +584,29 @@ rasen_exalt_movements_effect = {
 		every_participant_group = {
 			limit = { participant_group_type = conservative_movement rasen_seat_filled_trigger = { LAND = sacred } }
 			set_variable = { name = movement_leader value = global_var:rasen_exalt_sacred }
+		}
+	}
+}
+
+# Global scope. The High Steward holds the hegemony for the Council; the Exalt who leads the strongest
+# movement sits beside them as Co-Monarch, and changes when another movement grows stronger.
+rasen_co_monarch_effect = {
+	if = {
+		limit = { exists = situation:dynastic_cycle exists = title:h_china.holder }
+		situation:dynastic_cycle = {
+			ordered_participant_group = {
+				limit = { exists = var:movement_power exists = var:movement_leader var:movement_leader = { is_alive = yes rasen_is_exalt_trigger = yes } }
+				order_by = var:movement_power
+				var:movement_leader = { save_scope_as = rasen_co_monarch }
+			}
+		}
+		title:h_china.holder = {
+			if = {
+				limit = { exists = scope:rasen_co_monarch NOT = { this = scope:rasen_co_monarch } NOT = { diarch ?= scope:rasen_co_monarch } }
+				if = { limit = { has_active_diarchy = yes } end_diarchy = yes }
+				try_start_diarchy = rasen_co_monarchy
+				set_diarch = scope:rasen_co_monarch
+			}
 		}
 	}
 }

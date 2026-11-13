@@ -15,6 +15,8 @@
  rasen_imperial_levy_modifier:0 "Imperial Levy"
  rasen_imperial_levy_modifier_desc:0 "The Outer provinces pay for the capital."
  rasen_council_outvoted_opinion:0 "Outvoted me on the Council"
+ rasen_co_monarchy_diarchy_type:0 "Co-Monarchy of the Exalted Council"
+ rasen_co_monarchy_diarch_title:0 "Co-Monarch"
  rasen_trial_patron_opinion:0 "My patron in the Trials"
  rasen_trial_protege_opinion:0 "My protégé in the Trials"
  rasen_council.0001.bladed:0 "Dispatch the Archons (the Bladed Lands value honour)"

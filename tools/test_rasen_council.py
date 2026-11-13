@@ -44,6 +44,18 @@ class CouncilTests(unittest.TestCase):
         hooks = self.text['common/on_action/rasen_council_on_actions.txt']
         self.assertIn('rasen_exalt_movements_effect = yes rasen_council_yearly_effect = yes', hooks)
 
+    def test_the_strongest_movements_exalt_is_co_monarch(self):
+        effects = self.text['common/scripted_effects/rasen_council_effects.txt']
+        co = effects[effects.index('rasen_co_monarch_effect = {'):]
+        self.assertIn('order_by = var:movement_power', co)
+        self.assertIn('try_start_diarchy = rasen_co_monarchy', co)
+        self.assertIn('set_diarch = scope:rasen_co_monarch', co)
+        diarchy = self.text['common/diarchies/diarchy_types/rasen_co_monarchy.txt']
+        self.assertIn('end = { }', diarchy)
+        self.assertIn('hidden_parameter = diarchy_type_is_rasen_co_monarchy', diarchy)
+        loc = self.text['localization/english/rasen_council_l_english.yml']
+        self.assertIn(' rasen_co_monarchy_diarchy_type:0 "', loc)
+
     def test_effects_and_events_resolve(self):
         effects = self.text['common/scripted_effects/rasen_council_effects.txt']
         events = self.text['events/rasen_council_events.txt']

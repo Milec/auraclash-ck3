@@ -93,7 +93,7 @@ def on_actions():
         '# Once the Exalts are seated at the start, they take up their movements.',
         'on_game_start_after_lobby = { on_actions = { rasen_exalt_movements_start } }',
         'rasen_exalt_movements_start = { effect = { title:h_china.holder ?= { trigger_event = { on_action = rasen_exalt_movements_delayed days = 2 } } } }',
-        'rasen_exalt_movements_delayed = { effect = { rasen_exalt_movements_effect = yes } }',
+        'rasen_exalt_movements_delayed = { effect = { rasen_exalt_movements_effect = yes rasen_co_monarch_effect = yes } }',
     ])
 
 
@@ -181,7 +181,8 @@ def effects():
         out += ['\tif = {', f'\t\tlimit = {{ exists = scope:rasen_council_winner {filled(land)} NOT = {{ global_var:rasen_decree = flag:{land} }}',
                 f'\t\t\tglobal_var:rasen_votes_{land} > 0 NOT = {{ {holder(land)} = scope:rasen_council_winner }} }}',
                 f'\t\t{holder(land)} = {{ add_opinion = {{ target = scope:rasen_council_winner modifier = rasen_council_outvoted_opinion }} }}', '\t}']
-    out += ['\tevery_player = { trigger_event = rasen_council.0002 }', '}', '',
+    out += ['\t# The Exalt of the strongest movement sits beside the hegemon as Co-Monarch.', '\trasen_co_monarch_effect = yes',
+            '\tevery_player = { trigger_event = rasen_council.0002 }', '}', '',
             'rasen_decree_archons_effect = {',
             '\tevery_county_in_region = {', '\t\tregion = world_rasen_outer',
             '\t\tadd_county_modifier = { modifier = rasen_archon_patrols_modifier years = 3 }', '\t}',
@@ -215,7 +216,61 @@ def movement_effects():
                 f'\t\t\tlimit = {{ participant_group_type = {movement}_movement {filled(land)} }}',
                 f'\t\t\tset_variable = {{ name = movement_leader value = {holder(land)} }}',
                 '\t\t}']
-    return out + ['\t}', '}', '']
+    out += ['\t}', '}', '',
+            '# Global scope. The High Steward holds the hegemony for the Council; the Exalt who leads the strongest',
+            '# movement sits beside them as Co-Monarch, and changes when another movement grows stronger.',
+            'rasen_co_monarch_effect = {',
+            '\tif = {',
+            '\t\tlimit = { exists = situation:dynastic_cycle exists = title:h_china.holder }',
+            '\t\tsituation:dynastic_cycle = {',
+            '\t\t\tordered_participant_group = {',
+            '\t\t\t\tlimit = { exists = var:movement_power exists = var:movement_leader var:movement_leader = { is_alive = yes rasen_is_exalt_trigger = yes } }',
+            '\t\t\t\torder_by = var:movement_power',
+            '\t\t\t\tvar:movement_leader = { save_scope_as = rasen_co_monarch }',
+            '\t\t\t}',
+            '\t\t}',
+            '\t\ttitle:h_china.holder = {',
+            '\t\t\tif = {',
+            '\t\t\t\tlimit = { exists = scope:rasen_co_monarch NOT = { this = scope:rasen_co_monarch } NOT = { diarch ?= scope:rasen_co_monarch } }',
+            '\t\t\t\tif = { limit = { has_active_diarchy = yes } end_diarchy = yes }',
+            '\t\t\t\ttry_start_diarchy = rasen_co_monarchy',
+            '\t\t\t\tset_diarch = scope:rasen_co_monarch',
+            '\t\t\t}',
+            '\t\t}',
+            '\t}',
+            '}',
+            '']
+    return out
+
+
+def diarchy():
+    """Rasen's Co-Monarchy, after All Under Heaven's co-monarchy but ended only by script: the Celestial
+    government has no co-monarch flag of its own, and the balance is fixed (vanilla's scales with the
+    diarch's liege)."""
+    return '\n'.join([
+        '# The Exalt who leads the Council\'s strongest movement sits beside the hegemon as Co-Monarch.',
+        'rasen_co_monarchy = {',
+        '\tstart = { always = yes }',
+        '\tend = { }',
+        '\tmandate = fill_coffers', '\tmandate = swell_armies', '\tmandate = promote_authority',
+        '\taptitude_score = {',
+        '\t\tadd = mandate_type_qualification:fill_coffers',
+        '\t\tadd = mandate_type_qualification:swell_armies',
+        '\t\tadd = mandate_type_qualification:promote_authority',
+        '\t}',
+        '\tpower_level = { swing = 0 parameter = unlock_syphon_treasury_interaction parameter = diarch_can_subsidise_liege_authority }',
+        '\tpower_level = { swing = 20 parameter = unlock_shift_privileges_interaction parameter = diarch_gets_a_free_change_on_vassal_contract }',
+        '\tpower_level = { swing = 40 parameter = unlock_diarch_revoke_title_interaction parameter = unlock_legal_meddling_interaction }',
+        '\tpower_level = { swing = 60 parameter = unlock_diarch_retract_vassal_interaction parameter = unlock_diarch_imprison_interaction }',
+        '\tswing_balance = { value = 50 }',
+        '\tsuccession = no',
+        '\tpower_level = { swing = 0 hidden_parameter = diarchy_is_co_rulership hidden_parameter = diarchy_type_is_rasen_co_monarchy hidden_parameter = mandate_tempo_slow }',
+        '\tloyalty_score = { add = diarch_loyalty_score_type_co_emperorship_value }',
+        '\tend_interaction = systematically_maim_character_interaction',
+        '\tliege_modifier = { name = from_co_monarch_diplomacy_vassal_opinion vassal_opinion = 1 scale = { add = diplomacy max = 40 } }',
+        '\tdiarch_modifier = { name = to_co_monarch_monthly_prestige_add_bonus monthly_prestige = 0.5 scale = { add = liege.highest_held_title_tier } }',
+        '}',
+    ])
 
 
 def succession_effects():
@@ -408,6 +463,8 @@ def localization():
            ' rasen_imperial_levy_modifier:0 "Imperial Levy"',
            ' rasen_imperial_levy_modifier_desc:0 "The Outer provinces pay for the capital."',
            ' rasen_council_outvoted_opinion:0 "Outvoted me on the Council"',
+           ' rasen_co_monarchy_diarchy_type:0 "Co-Monarchy of the Exalted Council"',
+           ' rasen_co_monarchy_diarch_title:0 "Co-Monarch"',
            ' rasen_trial_patron_opinion:0 "My patron in the Trials"',
            ' rasen_trial_protege_opinion:0 "My protégé in the Trials"']
     for land, decree, name, desc, value in LANDS:
@@ -424,6 +481,7 @@ def render():
         'common/scripted_triggers/rasen_council_triggers.txt': triggers(),
         'common/modifiers/rasen_council_modifiers.txt': modifiers(),
         'common/opinion_modifiers/rasen_council_opinions.txt': opinions(),
+        'common/diarchies/diarchy_types/rasen_co_monarchy.txt': diarchy(),
         'events/rasen_council_events.txt': events(),
         'localization/english/rasen_council_l_english.yml': localization(),
     }
