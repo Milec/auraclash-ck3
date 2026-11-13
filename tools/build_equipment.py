@@ -531,7 +531,11 @@ def scripted_guis():
         '\tsaved_scopes = { flag }',
         '\tis_shown = { var:ac_forge_template ?= scope:flag }',
         '\tis_valid = { NOT = { has_variable = ac_forge_board } }',
-        '\teffect = { set_variable = { name = ac_forge_template value = scope:flag } }',
+        # Each flag is set by name, so the engine knows every kind's flag is in use.
+        '\teffect = {',
+        *[f'\t\t{"if" if i == 0 else "else_if"} = {{ limit = {{ scope:flag = flag:{k} }} set_variable = {{ name = ac_forge_template value = flag:{k} }} }}'
+          for i, k in enumerate(KINDS)],
+        '\t}',
         '}',
         'ac_forge_prepare = {',
         '\tscope = character',

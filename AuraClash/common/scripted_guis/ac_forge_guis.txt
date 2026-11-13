@@ -5,7 +5,20 @@ ac_forge_choose = {
 	saved_scopes = { flag }
 	is_shown = { var:ac_forge_template ?= scope:flag }
 	is_valid = { NOT = { has_variable = ac_forge_board } }
-	effect = { set_variable = { name = ac_forge_template value = scope:flag } }
+	effect = {
+		if = { limit = { scope:flag = flag:katana } set_variable = { name = ac_forge_template value = flag:katana } }
+		else_if = { limit = { scope:flag = flag:jian } set_variable = { name = ac_forge_template value = flag:jian } }
+		else_if = { limit = { scope:flag = flag:tanto } set_variable = { name = ac_forge_template value = flag:tanto } }
+		else_if = { limit = { scope:flag = flag:kunai } set_variable = { name = ac_forge_template value = flag:kunai } }
+		else_if = { limit = { scope:flag = flag:qiang } set_variable = { name = ac_forge_template value = flag:qiang } }
+		else_if = { limit = { scope:flag = flag:greataxe } set_variable = { name = ac_forge_template value = flag:greataxe } }
+		else_if = { limit = { scope:flag = flag:kusarigama } set_variable = { name = ac_forge_template value = flag:kusarigama } }
+		else_if = { limit = { scope:flag = flag:bo_staff } set_variable = { name = ac_forge_template value = flag:bo_staff } }
+		else_if = { limit = { scope:flag = flag:meteor_hammer } set_variable = { name = ac_forge_template value = flag:meteor_hammer } }
+		else_if = { limit = { scope:flag = flag:claws } set_variable = { name = ac_forge_template value = flag:claws } }
+		else_if = { limit = { scope:flag = flag:yumi } set_variable = { name = ac_forge_template value = flag:yumi } }
+		else_if = { limit = { scope:flag = flag:armor } set_variable = { name = ac_forge_template value = flag:armor } }
+	}
 }
 ac_forge_prepare = {
 	scope = character

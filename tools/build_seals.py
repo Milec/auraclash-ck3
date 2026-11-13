@@ -440,6 +440,7 @@ def hooks():
 def localization():
     out = ['l_english:',
            ' AC_SEAL_ACTIONS:0 "Seals"',
+           ' interaction_category_ac_seals:0 "Seals"',
            ' ac_seal_pay_shards_option:0 "Pay in Shards (a tenth of the Aura Pressure, in gold) instead of Chi"',
            ' ac_seal_cost_tt:0 "Enough Chi (1 per 100 Aura Pressure), or Shards"',
            ' ac_seal_pick_skill_tt:0 "Choose a skill"',
