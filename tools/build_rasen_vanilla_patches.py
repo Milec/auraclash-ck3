@@ -51,6 +51,7 @@ LINE_EDITS['common/on_action/game_start.txt'] = [
     ('\t\teasteregg_event.0001\t\t\t\t# Charna and Jakub duel.\n', '\t\t# Imperial Rasen: no Earth easter egg\n'),
     ('\t\t\tset_up_historical_monastic_orders_effect = yes\n', '\t\t\t# Imperial Rasen: no Earth monastic orders\n'),
     ('\t\tset_up_historical_military_orders_effect = yes\n', '\t\t# Imperial Rasen: no Earth military orders\n'),
+    ('\t\tsetup_tributaries_effect = yes # defined in 00_tributary_setup_effect.txt\n', '\t\t# Imperial Rasen: no Earth tributaries\n'),
 ]
 # The Council Peace (tools/build_rasen_peace.py): great lords need leave to fight; Azuma Honsha falls only to rebellion.
 LINE_EDITS['common/scripted_triggers/00_war_and_peace_triggers.txt'] = peace.PEACE_EDITS
