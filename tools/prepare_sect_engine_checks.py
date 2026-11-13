@@ -148,6 +148,7 @@ ac_sect_qa.0003 = {
     immediate = {
         # The patronage trial opens some days after its request; check it once it has had time to run.
         title:d_kunan = { ''' + test_body(*eleventh, skip_effect=True, after_effect=True) + ''' }
+        set_global_variable = { name = ac_qa_joint_polls value = 0 }
         trigger_event = { id = ac_sect_qa.0007 days = 1 }
         if = { limit = { title:d_kohara.var:ac_kingdom_sect = { var:ac_alchemy_pavilion = 1 var:ac_estate_title.title_domicile = { has_domicile_building = ac_sect_alchemy_pavilion_01 NOT = { has_ongoing_domicile_construction = yes } NOT = { has_variable = ac_native_build_cost } } } }
             debug_log = "AC_SECT_QA PASS native_construction_completes_after_succession"
@@ -180,7 +181,9 @@ ac_sect_qa.0004 = {
             debug_log = "AC_SECT_QA natural trial found"
             set_global_variable = { name = ac_qa_judged_before value = 0 }
             if = { limit = { has_global_variable = ac_trials_judged } set_global_variable = { name = ac_qa_judged_before value = global_var:ac_trials_judged } }
-            trigger_event = { id = ac_sect_qa.0005 days = 220 }
+            set_global_variable = { name = ac_qa_kunan_trial value = scope:ac_qa_trial }
+            set_global_variable = { name = ac_qa_trial_waits value = 0 }
+            trigger_event = { id = ac_sect_qa.0008 days = 30 }
         }
         else_if = {
             limit = { NOT = { has_global_variable = ac_qa_poll_count } }
@@ -190,6 +193,13 @@ ac_sect_qa.0004 = {
         else_if = {
             limit = { global_var:ac_qa_poll_count < 40 }
             change_global_variable = { name = ac_qa_poll_count add = 1 }
+            # A sect takes a request only while it has no other plan or activity; ask again when it is free.
+            title:d_kunan.var:ac_kingdom_sect = {
+                if = {
+                    limit = { NOT = { has_variable = ac_activity_plan } NOT = { exists = var:ac_current_activity } NOT = { has_variable = ac_trial_cooldown } }
+                    ac_sect_request_ai_activity_effect = { ACTIVITY = activity_ac_sect_trials }
+                }
+            }
             trigger_event = { id = ac_sect_qa.0004 days = 5 }
         }
         else = {
@@ -197,6 +207,22 @@ ac_sect_qa.0004 = {
             debug_log = "AC_SECT_QA no natural trial opened in 200 days"
             set_global_variable = { name = ac_qa_natural_done value = yes }
         }
+    }
+}
+# A trial waits up to 60 days to start and 60 more for its guests before its phases begin, so wait for
+# the natural trial to end (checking every 15 days, for up to a year) before judging it.
+ac_sect_qa.0008 = {
+    type = character_event hidden = yes
+    immediate = {
+        if = {
+            limit = {
+                global_var:ac_qa_kunan_trial ?= { has_activity_type = activity_ac_sect_trials }
+                global_var:ac_qa_trial_waits < 24
+            }
+            change_global_variable = { name = ac_qa_trial_waits add = 1 }
+            trigger_event = { id = ac_sect_qa.0008 days = 15 }
+        }
+        else = { trigger_event = { id = ac_sect_qa.0005 days = 1 } }
     }
 }
 ac_sect_qa.0005 = {
@@ -246,8 +272,19 @@ ac_sect_qa.0007 = {
             set_global_variable = { name = ac_qa_joint_done value = yes }
         }
         else_if = {
-            limit = { OR = { NOT = { has_global_variable = ac_qa_joint_polls } global_var:ac_qa_joint_polls < 24 } }
+            limit = { global_var:ac_qa_joint_polls < 24 }
             change_global_variable = { name = ac_qa_joint_polls add = 1 }
+            # A sect takes a request only while it has no other plan or activity; ask again when it is free.
+            title:d_ribayama.var:ac_kingdom_sect = {
+                if = {
+                    limit = {
+                        NOT = { has_variable = ac_activity_plan }
+                        NOT = { exists = var:ac_current_activity }
+                        NOT = { any_activity = { has_activity_type = activity_ac_sect_joint_training var:ac_training_sect ?= title:d_ribayama.var:ac_kingdom_sect } }
+                    }
+                    ac_sect_request_ai_activity_effect = { ACTIVITY = activity_ac_sect_joint_training }
+                }
+            }
             trigger_event = { id = ac_sect_qa.0007 days = 15 }
         }
         else = {
