@@ -39,6 +39,11 @@ def event():
         body.append(check(f'exalt_seated_{land}', f'rasen_seat_filled_trigger = {{ LAND = {land} }} global_var:rasen_exalt_{land} = {{ '
                           f'rasen_holds_seat_trigger = {{ LAND = {land} }} NOT = {{ any_held_title = {{ tier >= tier_county is_noble_family_title = no }} }} '
                           'any_held_title = { is_noble_family_title = yes } liege_or_court_owner = title:h_china.holder }'))
+    # The Exalts lead the dynastic cycle's movements.
+    for land, movement in (('bladed', 'pro_hegemon'), ('mystic', 'advancement'), ('wild', 'expansion'), ('sacred', 'conservative')):
+        body.append(check(f'exalt_leads_{movement}', f'situation:dynastic_cycle = {{ any_participant_group = {{ '
+                          f'participant_group_type = {movement}_movement var:movement_leader ?= global_var:rasen_exalt_{land} }} }}'))
+    body.append(check('peace_law', 'title:h_china.holder = { has_realm_law_flag = rasen_great_lords_need_leave }'))
     body.append(check('exalt_estate', 'global_var:rasen_exalt_bladed = { has_domicile = yes }'))
     body.append(check('exalt_cultivator', 'global_var:rasen_exalt_bladed = { has_trait = ac_cultivator has_trait = ac_immortal_core }'))
     body.append(check('exalt_race', 'global_var:rasen_exalt_bladed = { has_trait = ac_race_human }'))
@@ -146,7 +151,7 @@ def main():
     overlay = OUT / 'qa-mod'
     files = {
         'common/on_action/rasen_qa.txt': ('on_game_start_after_lobby = { on_actions = { rasen_qa } }\n'
-                                          'rasen_qa = { effect = { title:k_bladed.holder = { trigger_event = { id = rasen_qa.0001 days = 1 } } } }\n'
+                                          'rasen_qa = { effect = { title:k_bladed.holder = { trigger_event = { id = rasen_qa.0001 days = 4 } } } }\n'
                                           # The game starts paused and cannot be unpaused unattended (launch flags
                                           # and an interface widget calling the pause button's action were both
                                           # tried). Once a person unpauses it, each year leaves these marks.
@@ -165,6 +170,9 @@ def main():
                                           'rasen_seat_filled_trigger = { LAND = mystic } rasen_seat_filled_trigger = { LAND = cursed } '
                                           'rasen_seat_filled_trigger = { LAND = wild } } debug_log = "RASEN_QA YEAR EXALTS_SEATED" } '
                                           'if = { limit = { title:k_bladed.holder ?= { has_government = japan_feudal_government } } debug_log = "RASEN_QA YEAR SHOGUN_RULES" } '
+                                          'if = { limit = { situation:dynastic_cycle ?= { any_participant_group = { count >= 3 var:movement_leader ?= { rasen_is_exalt_trigger = yes } } } } debug_log = "RASEN_QA YEAR EXALTS_LEAD" } '
+                                          'if = { limit = { any_ruler = { highest_held_title_tier >= tier_duchy top_liege = title:h_china.holder NOT = { this = top_liege } save_temporary_scope_as = qa_lord any_character_war = { primary_attacker = scope:qa_lord NOR = { using_cb = depose_war using_cb = claimant_faction_war using_cb = independence_faction_war using_cb = liberty_faction_war using_cb = populist_war using_cb = peasant_war using_cb = nation_fracturing_faction_war } primary_defender = { highest_held_title_tier >= tier_duchy top_liege = title:h_china.holder NOT = { is_liege_or_above_of = scope:qa_lord } } } } } debug_log = "RASEN_QA YEAR GREAT_LORD_DECLARED_WAR" } '
+                                          'if = { limit = { NOT = { exists = title:k_wild.holder } NOT = { exists = title:k_outer_west.holder } } debug_log = "RASEN_QA YEAR UNCROWNED" } '
                                           'if = { limit = { exists = situation:dynastic_cycle } debug_log = "RASEN_QA YEAR CYCLE_RUNNING" } '
                                           'if = { limit = { title:h_china.holder ?= { any_sub_realm_county = { count >= 250 } } } debug_log = "RASEN_QA YEAR HEGEMONY_HELD" } '
                                           'if = { limit = { global_var:qa_heir_sect = { story_owner = { is_alive = yes has_trait = ac_sect_master '

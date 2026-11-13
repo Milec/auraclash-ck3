@@ -1,3 +1,7 @@
 ﻿# The Exalted Council of Imperial Rasen. Lists append to vanilla and base-mod hooks.
 yearly_global_pulse = { on_actions = { rasen_council_yearly } }
-rasen_council_yearly = { effect = { rasen_exalt_succession_effect = yes rasen_council_yearly_effect = yes } }
+rasen_council_yearly = { effect = { rasen_exalt_succession_effect = yes rasen_exalt_movements_effect = yes rasen_council_yearly_effect = yes } }
+# Once the Exalts are seated at the start, they take up their movements.
+on_game_start_after_lobby = { on_actions = { rasen_exalt_movements_start } }
+rasen_exalt_movements_start = { effect = { title:h_china.holder ?= { trigger_event = { on_action = rasen_exalt_movements_delayed days = 2 } } } }
+rasen_exalt_movements_delayed = { effect = { rasen_exalt_movements_effect = yes } }

@@ -34,6 +34,16 @@ class CouncilTests(unittest.TestCase):
         self.assertIn('create_noble_family_effect = { GOVERNMENT_GIVER = title:h_china.holder }', seat)
         self.assertIn(f'subtract = {council.EXALT_TERM_YEARS}', effects)
 
+    def test_exalts_lead_their_lands_movements(self):
+        effects = self.text['common/scripted_effects/rasen_council_effects.txt']
+        movements = effects[effects.index('rasen_exalt_movements_effect = {'):]
+        for land, movement in council.MOVEMENTS.items():
+            self.assertIn(f'participant_group_type = {movement}_movement rasen_seat_filled_trigger = {{ LAND = {land} }}', movements)
+            self.assertIn(f'set_variable = {{ name = movement_leader value = global_var:rasen_exalt_{land} }}', movements)
+        self.assertNotIn('cursed', council.MOVEMENTS)  # the Cursed Exalt rules from the shadows
+        hooks = self.text['common/on_action/rasen_council_on_actions.txt']
+        self.assertIn('rasen_exalt_movements_effect = yes rasen_council_yearly_effect = yes', hooks)
+
     def test_effects_and_events_resolve(self):
         effects = self.text['common/scripted_effects/rasen_council_effects.txt']
         events = self.text['events/rasen_council_events.txt']

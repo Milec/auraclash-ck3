@@ -29,6 +29,7 @@ import re
 from pathlib import Path
 
 import build_event_overrides as overrides
+import build_rasen_peace as peace
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'AuraClash'
@@ -51,6 +52,8 @@ LINE_EDITS['common/on_action/game_start.txt'] = [
     ('\t\t\tset_up_historical_monastic_orders_effect = yes\n', '\t\t\t# Imperial Rasen: no Earth monastic orders\n'),
     ('\t\tset_up_historical_military_orders_effect = yes\n', '\t\t# Imperial Rasen: no Earth military orders\n'),
 ]
+# The Council Peace (tools/build_rasen_peace.py): great lords need leave to fight; Azuma Honsha falls only to rebellion.
+LINE_EDITS['common/scripted_triggers/00_war_and_peace_triggers.txt'] = peace.PEACE_EDITS
 # Files whose missing Earth counties become a stub title that is never held.
 TITLE_STANDIN_FILES = ('common/scripted_effects/10_dlc_tgp_japan_scripted_effects.txt',)
 TITLE_STANDIN = 'k_yamato'

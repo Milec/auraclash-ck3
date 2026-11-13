@@ -65,6 +65,10 @@ LOBBY_PRESTIGE = 150
 
 
 EXALT_TERM_YEARS = 100
+# The dynastic cycle's movements are the Council's factions, each led by the Exalt whose land shares its
+# aims. Exalts are landless, so they are not the cycle's own participants: their leadership is set on the
+# movement directly. The Cursed Exalt rules from the shadows and leads none.
+MOVEMENTS = {'bladed': 'pro_hegemon', 'mystic': 'advancement', 'wild': 'expansion', 'sacred': 'conservative'}
 
 
 def holder(land):
@@ -85,7 +89,11 @@ def on_actions():
     return '\n'.join([
         '# The Exalted Council of Imperial Rasen. Lists append to vanilla and base-mod hooks.',
         'yearly_global_pulse = { on_actions = { rasen_council_yearly } }',
-        'rasen_council_yearly = { effect = { rasen_exalt_succession_effect = yes rasen_council_yearly_effect = yes } }',
+        'rasen_council_yearly = { effect = { rasen_exalt_succession_effect = yes rasen_exalt_movements_effect = yes rasen_council_yearly_effect = yes } }',
+        '# Once the Exalts are seated at the start, they take up their movements.',
+        'on_game_start_after_lobby = { on_actions = { rasen_exalt_movements_start } }',
+        'rasen_exalt_movements_start = { effect = { title:h_china.holder ?= { trigger_event = { on_action = rasen_exalt_movements_delayed days = 2 } } } }',
+        'rasen_exalt_movements_delayed = { effect = { rasen_exalt_movements_effect = yes } }',
     ])
 
 
@@ -194,7 +202,20 @@ def effects():
             '\t\tset_global_variable = { name = ac_ascension_countdown value = 1 }', '\t}', '}', '']
     out += patronage_effects()
     out += succession_effects()
+    out += movement_effects()
     return '\n'.join(out)
+
+
+def movement_effects():
+    out = ['# Global scope. Each seated Exalt leads their land\'s movement in the dynastic cycle.',
+           'rasen_exalt_movements_effect = {',
+           '\tsituation:dynastic_cycle ?= {']
+    for land, movement in MOVEMENTS.items():
+        out += ['\t\tevery_participant_group = {',
+                f'\t\t\tlimit = {{ participant_group_type = {movement}_movement {filled(land)} }}',
+                f'\t\t\tset_variable = {{ name = movement_leader value = {holder(land)} }}',
+                '\t\t}']
+    return out + ['\t}', '}', '']
 
 
 def succession_effects():

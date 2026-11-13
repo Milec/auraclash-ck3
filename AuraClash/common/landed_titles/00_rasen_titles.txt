@@ -11,6 +11,8 @@ h_china = {
 		k_outer_west = {
 			color = { 92 150 64 }
 			capital = c_nanhou
+			can_create = { custom_tooltip = { text = rasen_uncrownable_tt always = no } }
+			can_create_on_partition = { always = no }
 
 			d_cedarvale = {
 				color = { 77 133 55 }
@@ -1136,6 +1138,8 @@ h_china = {
 		k_outer_north = {
 			color = { 190 214 228 }
 			capital = c_winterpeak
+			can_create = { custom_tooltip = { text = rasen_uncrownable_tt always = no } }
+			can_create_on_partition = { always = no }
 
 			d_togomine = {
 				color = { 153 171 192 }
@@ -1645,6 +1649,8 @@ h_china = {
 		k_outer_east = {
 			color = { 176 150 92 }
 			capital = c_sazawa
+			can_create = { custom_tooltip = { text = rasen_uncrownable_tt always = no } }
+			can_create_on_partition = { always = no }
 
 			d_shino = {
 				color = { 214 188 135 }
@@ -2532,6 +2538,8 @@ h_china = {
 		k_outer_south = {
 			color = { 120 140 60 }
 			capital = c_higoshima
+			can_create = { custom_tooltip = { text = rasen_uncrownable_tt always = no } }
+			can_create_on_partition = { always = no }
 
 			d_gotsuhama = {
 				color = { 137 144 79 }
@@ -5307,6 +5315,8 @@ h_china = {
 		k_wild = {
 			color = { 40 130 40 }
 			capital = c_bloodrun
+			can_create = { custom_tooltip = { text = rasen_uncrownable_tt always = no } }
+			can_create_on_partition = { always = no }
 
 			d_rifuno = {
 				color = { 45 114 38 }

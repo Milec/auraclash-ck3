@@ -527,3 +527,25 @@ rasen_exalt_succession_effect = {
 		}
 	}
 }
+
+# Global scope. Each seated Exalt leads their land's movement in the dynastic cycle.
+rasen_exalt_movements_effect = {
+	situation:dynastic_cycle ?= {
+		every_participant_group = {
+			limit = { participant_group_type = pro_hegemon_movement rasen_seat_filled_trigger = { LAND = bladed } }
+			set_variable = { name = movement_leader value = global_var:rasen_exalt_bladed }
+		}
+		every_participant_group = {
+			limit = { participant_group_type = advancement_movement rasen_seat_filled_trigger = { LAND = mystic } }
+			set_variable = { name = movement_leader value = global_var:rasen_exalt_mystic }
+		}
+		every_participant_group = {
+			limit = { participant_group_type = expansion_movement rasen_seat_filled_trigger = { LAND = wild } }
+			set_variable = { name = movement_leader value = global_var:rasen_exalt_wild }
+		}
+		every_participant_group = {
+			limit = { participant_group_type = conservative_movement rasen_seat_filled_trigger = { LAND = sacred } }
+			set_variable = { name = movement_leader value = global_var:rasen_exalt_sacred }
+		}
+	}
+}

@@ -1,0 +1,17 @@
+﻿rasen_council_peace_law = {
+	law_group_type = rasen_peace_laws
+	index = 0
+	flag = rasen_great_lords_need_leave
+	can_keep = { government_has_flag = government_is_celestial }
+	pass_cost = { prestige = 100 }
+	ai_will_do = { value = 10 }
+}
+
+rasen_council_war_law = {
+	law_group_type = rasen_peace_laws
+	index = 1
+	can_keep = { government_has_flag = government_is_celestial }
+	can_have = { exists = title:h_china.holder this = title:h_china.holder }
+	pass_cost = { prestige = 500 }
+	ai_will_do = { value = 0 }
+}
