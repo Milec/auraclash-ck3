@@ -72,6 +72,8 @@ ac_sect_complete_trial_effect = {
 		else_if = {
 			limit = { ac_sect_candidate_trigger = yes var:ac_sect_trial_score >= scope:ac_join_sect.ac_sect_admission_score scope:ac_join_sect.var:ac_lower_count < ac_sect_lower_capacity }
 			ac_sect_join_effect = yes
+			# Remembered for a year: which sect's trial admitted this character.
+			set_variable = { name = ac_sect_admitted_by_trial value = scope:ac_join_sect years = 1 }
 			scope:ac_join_sect = { ac_sect_change_renown_effect = { VALUE = 2 } }
 			ac_sect_count_effect = { COUNTER = ac_trial_admissions }
 			trigger_event = ac_sect_trial.0003

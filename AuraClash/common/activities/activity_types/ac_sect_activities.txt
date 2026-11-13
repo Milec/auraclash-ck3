@@ -36,6 +36,12 @@ activity_ac_sect_trials = {
 	on_host_death = { invalidate_activity = scope:activity }
 	on_invalidated = {
 		every_attending_character = { ac_sect_refund_trial_effect = yes }
+		# Examinees who already left are released too, or their marker would bar every later trial.
+		every_in_list = {
+			variable = ac_trial_examinees
+			limit = { is_alive = yes var:ac_sect_trial_activity ?= scope:activity }
+			ac_sect_refund_trial_effect = yes
+		}
 		if = {
 			limit = { has_variable = ac_trial_funded NOT = { has_variable = ac_trial_begun } }
 			var:ac_trial_sect = { change_variable = { name = ac_treasury add = 50 } }

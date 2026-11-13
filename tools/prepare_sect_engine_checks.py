@@ -148,10 +148,7 @@ ac_sect_qa.0003 = {
     immediate = {
         # The patronage trial opens some days after its request; check it once it has had time to run.
         title:d_kunan = { ''' + test_body(*eleventh, skip_effect=True, after_effect=True) + ''' }
-        if = {
-            limit = { title:d_ribayama.var:ac_kingdom_sect = { has_variable = ac_joint_drill } }
-            debug_log = "AC_SECT_QA PASS joint_training_full_lifecycle"
-        } else = { debug_log = "AC_SECT_QA FAIL joint_training_full_lifecycle" }
+        trigger_event = { id = ac_sect_qa.0007 days = 1 }
         if = { limit = { title:d_kohara.var:ac_kingdom_sect = { var:ac_alchemy_pavilion = 1 var:ac_estate_title.title_domicile = { has_domicile_building = ac_sect_alchemy_pavilion_01 NOT = { has_ongoing_domicile_construction = yes } NOT = { has_variable = ac_native_build_cost } } } }
             debug_log = "AC_SECT_QA PASS native_construction_completes_after_succession"
         } else = { debug_log = "AC_SECT_QA FAIL native_construction_completes_after_succession" }
@@ -181,6 +178,8 @@ ac_sect_qa.0004 = {
             }
         }
             debug_log = "AC_SECT_QA natural trial found"
+            set_global_variable = { name = ac_qa_judged_before value = 0 }
+            if = { limit = { has_global_variable = ac_trials_judged } set_global_variable = { name = ac_qa_judged_before value = global_var:ac_trials_judged } }
             trigger_event = { id = ac_sect_qa.0005 days = 220 }
         }
         else_if = {
@@ -205,10 +204,24 @@ ac_sect_qa.0005 = {
     immediate = {
         if = {
             limit = {
-                global_var:ac_qa_natural_candidate = {
-                    has_trait = ac_sect_lower_disciple
-                    var:ac_sect ?= title:d_kunan.var:ac_kingdom_sect
-                    NOT = { has_variable = ac_sect_trial_activity }
+                OR = {
+                    global_var:ac_qa_natural_candidate = {
+                        has_trait = ac_sect_lower_disciple
+                        var:ac_sect ?= title:d_kunan.var:ac_kingdom_sect
+                        NOT = { has_variable = ac_sect_trial_activity }
+                    }
+                    any_living_character = {
+                        has_trait = ac_sect_lower_disciple
+                        var:ac_sect ?= title:d_kunan.var:ac_kingdom_sect
+                        var:ac_sect_admitted_by_trial ?= title:d_kunan.var:ac_kingdom_sect
+                    }
+                    # Admission depends on who applied (an Inner sect's bar is high); the lifecycle is that
+                    # the trial judged its examinees and released every one of them.
+                    AND = {
+                        has_global_variable = ac_trials_judged
+                        global_var:ac_trials_judged > global_var:ac_qa_judged_before
+                        NOT = { any_living_character = { var:ac_sect_trial_home ?= title:d_kunan.var:ac_kingdom_sect } }
+                    }
                 }
             }
             debug_log = "AC_SECT_QA PASS natural_trial_full_lifecycle"
@@ -224,12 +237,31 @@ ac_sect_qa.0005 = {
         set_global_variable = { name = ac_qa_natural_done value = yes }
     }
 }
-# COMPLETE once both the day-265 checks and the natural trial are done.
+ac_sect_qa.0007 = {
+    type = character_event hidden = yes
+    immediate = {
+        if = {
+            limit = { title:d_ribayama.var:ac_kingdom_sect = { has_variable = ac_joint_drill } }
+            debug_log = "AC_SECT_QA PASS joint_training_full_lifecycle"
+            set_global_variable = { name = ac_qa_joint_done value = yes }
+        }
+        else_if = {
+            limit = { OR = { NOT = { has_global_variable = ac_qa_joint_polls } global_var:ac_qa_joint_polls < 24 } }
+            change_global_variable = { name = ac_qa_joint_polls add = 1 }
+            trigger_event = { id = ac_sect_qa.0007 days = 15 }
+        }
+        else = {
+            debug_log = "AC_SECT_QA FAIL joint_training_full_lifecycle"
+            set_global_variable = { name = ac_qa_joint_done value = yes }
+        }
+    }
+}
+# COMPLETE once the day-265 checks, the natural trial and the joint training are done.
 ac_sect_qa.0006 = {
     type = character_event hidden = yes
     immediate = {
         if = {
-            limit = { has_global_variable = ac_qa_natural_done }
+            limit = { has_global_variable = ac_qa_natural_done has_global_variable = ac_qa_joint_done }
             debug_log = "AC_SECT_QA COMPLETE"
         }
         else = { trigger_event = { id = ac_sect_qa.0006 days = 10 } }
