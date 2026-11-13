@@ -1,9 +1,9 @@
-﻿h_rasen = {
-	2980.1.1 = { holder = rasen_203 government = meritocratic_government }
+﻿h_china = {
+	2980.1.1 = { holder = rasen_203 government = celestial_government }
 }
 
 d_cedarvale = {
-	2990.1.1 = { holder = rasen_1 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_1 government = celestial_government liege = h_china }
 }
 
 c_nanhou = {
@@ -11,7 +11,7 @@ c_nanhou = {
 }
 
 d_kohara = {
-	2990.1.1 = { holder = rasen_2 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_2 government = celestial_government liege = h_china }
 }
 
 c_thunderfall = {
@@ -19,23 +19,23 @@ c_thunderfall = {
 }
 
 c_sunbringer = {
-	2990.1.1 = { holder = rasen_3 government = meritocratic_government liege = d_kohara }
+	2990.1.1 = { holder = rasen_3 government = celestial_government liege = d_kohara }
 }
 
 c_ironfield = {
-	2990.1.1 = { holder = rasen_4 government = meritocratic_government liege = d_kohara }
+	2990.1.1 = { holder = rasen_4 government = celestial_government liege = d_kohara }
 }
 
 c_emberwatch = {
-	2990.1.1 = { holder = rasen_5 government = meritocratic_government liege = d_kohara }
+	2990.1.1 = { holder = rasen_5 government = celestial_government liege = d_kohara }
 }
 
 c_cedarfall = {
-	2990.1.1 = { holder = rasen_6 government = meritocratic_government liege = d_kohara }
+	2990.1.1 = { holder = rasen_6 government = celestial_government liege = d_kohara }
 }
 
 d_mistgate = {
-	2990.1.1 = { holder = rasen_7 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_7 government = celestial_government liege = h_china }
 }
 
 c_ruian = {
@@ -43,7 +43,7 @@ c_ruian = {
 }
 
 d_thundergate = {
-	2990.1.1 = { holder = rasen_8 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_8 government = celestial_government liege = h_china }
 }
 
 c_monahara = {
@@ -51,23 +51,23 @@ c_monahara = {
 }
 
 c_rarayama = {
-	2990.1.1 = { holder = rasen_9 government = meritocratic_government liege = d_thundergate }
+	2990.1.1 = { holder = rasen_9 government = celestial_government liege = d_thundergate }
 }
 
 c_soyasaka = {
-	2990.1.1 = { holder = rasen_10 government = meritocratic_government liege = d_thundergate }
+	2990.1.1 = { holder = rasen_10 government = celestial_government liege = d_thundergate }
 }
 
 c_wamohara = {
-	2990.1.1 = { holder = rasen_11 government = meritocratic_government liege = d_thundergate }
+	2990.1.1 = { holder = rasen_11 government = celestial_government liege = d_thundergate }
 }
 
 c_komasaka = {
-	2990.1.1 = { holder = rasen_12 government = meritocratic_government liege = d_thundergate }
+	2990.1.1 = { holder = rasen_12 government = celestial_government liege = d_thundergate }
 }
 
 d_kunan = {
-	2990.1.1 = { holder = rasen_13 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_13 government = celestial_government liege = h_china }
 }
 
 c_dahoyama = {
@@ -75,23 +75,23 @@ c_dahoyama = {
 }
 
 c_emberstead = {
-	2990.1.1 = { holder = rasen_14 government = meritocratic_government liege = d_kunan }
+	2990.1.1 = { holder = rasen_14 government = celestial_government liege = d_kunan }
 }
 
 c_gashihara = {
-	2990.1.1 = { holder = rasen_15 government = meritocratic_government liege = d_kunan }
+	2990.1.1 = { holder = rasen_15 government = celestial_government liege = d_kunan }
 }
 
 c_luozhou = {
-	2990.1.1 = { holder = rasen_16 government = meritocratic_government liege = d_kunan }
+	2990.1.1 = { holder = rasen_16 government = celestial_government liege = d_kunan }
 }
 
 c_meizhou = {
-	2990.1.1 = { holder = rasen_17 government = meritocratic_government liege = d_kunan }
+	2990.1.1 = { holder = rasen_17 government = celestial_government liege = d_kunan }
 }
 
 d_cedargate = {
-	2990.1.1 = { holder = rasen_18 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_18 government = celestial_government liege = h_china }
 }
 
 c_kirihara = {
@@ -99,23 +99,23 @@ c_kirihara = {
 }
 
 c_zhenling = {
-	2990.1.1 = { holder = rasen_19 government = meritocratic_government liege = d_cedargate }
+	2990.1.1 = { holder = rasen_19 government = celestial_government liege = d_cedargate }
 }
 
 c_tanahara = {
-	2990.1.1 = { holder = rasen_20 government = meritocratic_government liege = d_cedargate }
+	2990.1.1 = { holder = rasen_20 government = celestial_government liege = d_cedargate }
 }
 
 c_highbrook = {
-	2990.1.1 = { holder = rasen_21 government = meritocratic_government liege = d_cedargate }
+	2990.1.1 = { holder = rasen_21 government = celestial_government liege = d_cedargate }
 }
 
 c_highcrest = {
-	2990.1.1 = { holder = rasen_22 government = meritocratic_government liege = d_cedargate }
+	2990.1.1 = { holder = rasen_22 government = celestial_government liege = d_cedargate }
 }
 
 d_redrise = {
-	2990.1.1 = { holder = rasen_23 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_23 government = celestial_government liege = h_china }
 }
 
 c_xuanling = {
@@ -123,7 +123,7 @@ c_xuanling = {
 }
 
 d_ribayama = {
-	2990.1.1 = { holder = rasen_24 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_24 government = celestial_government liege = h_china }
 }
 
 c_ironrise = {
@@ -131,7 +131,7 @@ c_ironrise = {
 }
 
 d_mahisaka = {
-	2990.1.1 = { holder = rasen_25 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_25 government = celestial_government liege = h_china }
 }
 
 c_hasaka = {
@@ -139,23 +139,23 @@ c_hasaka = {
 }
 
 c_yaoling = {
-	2990.1.1 = { holder = rasen_26 government = meritocratic_government liege = d_mahisaka }
+	2990.1.1 = { holder = rasen_26 government = celestial_government liege = d_mahisaka }
 }
 
 c_qingzhou = {
-	2990.1.1 = { holder = rasen_27 government = meritocratic_government liege = d_mahisaka }
+	2990.1.1 = { holder = rasen_27 government = celestial_government liege = d_mahisaka }
 }
 
 c_damihara = {
-	2990.1.1 = { holder = rasen_28 government = meritocratic_government liege = d_mahisaka }
+	2990.1.1 = { holder = rasen_28 government = celestial_government liege = d_mahisaka }
 }
 
 c_kimahara = {
-	2990.1.1 = { holder = rasen_29 government = meritocratic_government liege = d_mahisaka }
+	2990.1.1 = { holder = rasen_29 government = celestial_government liege = d_mahisaka }
 }
 
 d_rasaka = {
-	2990.1.1 = { holder = rasen_30 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_30 government = celestial_government liege = h_china }
 }
 
 c_wamura = {
@@ -163,27 +163,27 @@ c_wamura = {
 }
 
 c_shuhou = {
-	2990.1.1 = { holder = rasen_31 government = meritocratic_government liege = d_rasaka }
+	2990.1.1 = { holder = rasen_31 government = celestial_government liege = d_rasaka }
 }
 
 c_highgate = {
-	2990.1.1 = { holder = rasen_32 government = meritocratic_government liege = d_rasaka }
+	2990.1.1 = { holder = rasen_32 government = celestial_government liege = d_rasaka }
 }
 
 c_gashisaka = {
-	2990.1.1 = { holder = rasen_33 government = meritocratic_government liege = d_rasaka }
+	2990.1.1 = { holder = rasen_33 government = celestial_government liege = d_rasaka }
 }
 
 c_yubehara = {
-	2990.1.1 = { holder = rasen_34 government = meritocratic_government liege = d_rasaka }
+	2990.1.1 = { holder = rasen_34 government = celestial_government liege = d_rasaka }
 }
 
 c_fengzhou = {
-	2990.1.1 = { holder = rasen_35 government = meritocratic_government liege = d_rasaka }
+	2990.1.1 = { holder = rasen_35 government = celestial_government liege = d_rasaka }
 }
 
 d_fukasaka = {
-	2990.1.1 = { holder = rasen_36 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_36 government = celestial_government liege = h_china }
 }
 
 c_highford = {
@@ -191,7 +191,7 @@ c_highford = {
 }
 
 d_cedarhollow = {
-	2990.1.1 = { holder = rasen_37 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_37 government = celestial_government liege = h_china }
 }
 
 c_gasaka = {
@@ -199,7 +199,7 @@ c_gasaka = {
 }
 
 d_redgate = {
-	2990.1.1 = { holder = rasen_38 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_38 government = celestial_government liege = h_china }
 }
 
 c_rollingfall = {
@@ -207,23 +207,23 @@ c_rollingfall = {
 }
 
 c_shuzhou = {
-	2990.1.1 = { holder = rasen_39 government = meritocratic_government liege = d_redgate }
+	2990.1.1 = { holder = rasen_39 government = celestial_government liege = d_redgate }
 }
 
 c_mistford = {
-	2990.1.1 = { holder = rasen_40 government = meritocratic_government liege = d_redgate }
+	2990.1.1 = { holder = rasen_40 government = celestial_government liege = d_redgate }
 }
 
 c_masaka = {
-	2990.1.1 = { holder = rasen_41 government = meritocratic_government liege = d_redgate }
+	2990.1.1 = { holder = rasen_41 government = celestial_government liege = d_redgate }
 }
 
 c_tasaka = {
-	2990.1.1 = { holder = rasen_42 government = meritocratic_government liege = d_redgate }
+	2990.1.1 = { holder = rasen_42 government = celestial_government liege = d_redgate }
 }
 
 d_longreach = {
-	2990.1.1 = { holder = rasen_43 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_43 government = celestial_government liege = h_china }
 }
 
 c_houzhou = {
@@ -231,23 +231,23 @@ c_houzhou = {
 }
 
 c_tsurahara = {
-	2990.1.1 = { holder = rasen_44 government = meritocratic_government liege = d_longreach }
+	2990.1.1 = { holder = rasen_44 government = celestial_government liege = d_longreach }
 }
 
 c_nayama = {
-	2990.1.1 = { holder = rasen_45 government = meritocratic_government liege = d_longreach }
+	2990.1.1 = { holder = rasen_45 government = celestial_government liege = d_longreach }
 }
 
 c_baromura = {
-	2990.1.1 = { holder = rasen_46 government = meritocratic_government liege = d_longreach }
+	2990.1.1 = { holder = rasen_46 government = celestial_government liege = d_longreach }
 }
 
 c_nihara = {
-	2990.1.1 = { holder = rasen_47 government = meritocratic_government liege = d_longreach }
+	2990.1.1 = { holder = rasen_47 government = celestial_government liege = d_longreach }
 }
 
 d_tsusohara = {
-	2990.1.1 = { holder = rasen_48 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_48 government = celestial_government liege = h_china }
 }
 
 c_rainbrook = {
@@ -255,7 +255,7 @@ c_rainbrook = {
 }
 
 d_windcrest = {
-	2990.1.1 = { holder = rasen_49 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_49 government = celestial_government liege = h_china }
 }
 
 c_zhaoling = {
@@ -263,15 +263,15 @@ c_zhaoling = {
 }
 
 c_yuyuyama = {
-	2990.1.1 = { holder = rasen_50 government = meritocratic_government liege = d_windcrest }
+	2990.1.1 = { holder = rasen_50 government = celestial_government liege = d_windcrest }
 }
 
 c_mistrise = {
-	2990.1.1 = { holder = rasen_51 government = meritocratic_government liege = d_windcrest }
+	2990.1.1 = { holder = rasen_51 government = celestial_government liege = d_windcrest }
 }
 
 d_mamomura = {
-	2990.1.1 = { holder = rasen_52 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_52 government = celestial_government liege = h_china }
 }
 
 c_wenan = {
@@ -279,7 +279,7 @@ c_wenan = {
 }
 
 d_wenhou = {
-	2990.1.1 = { holder = rasen_53 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_53 government = celestial_government liege = h_china }
 }
 
 c_takimura = {
@@ -287,7 +287,7 @@ c_takimura = {
 }
 
 d_yunhou = {
-	2990.1.1 = { holder = rasen_54 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_54 government = celestial_government liege = h_china }
 }
 
 c_hayama = {
@@ -295,7 +295,7 @@ c_hayama = {
 }
 
 d_pinewatch = {
-	2990.1.1 = { holder = rasen_55 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_55 government = celestial_government liege = h_china }
 }
 
 c_mingan = {
@@ -327,7 +327,7 @@ c_glacierbastion = {
 }
 
 d_stormmarch = {
-	2990.1.1 = { holder = rasen_57 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_57 government = celestial_government liege = h_china }
 }
 
 c_greyhold = {
@@ -335,23 +335,23 @@ c_greyhold = {
 }
 
 c_glacierdrift = {
-	2990.1.1 = { holder = rasen_58 government = meritocratic_government liege = d_stormmarch }
+	2990.1.1 = { holder = rasen_58 government = celestial_government liege = d_stormmarch }
 }
 
 c_gawadake = {
-	2990.1.1 = { holder = rasen_59 government = meritocratic_government liege = d_stormmarch }
+	2990.1.1 = { holder = rasen_59 government = celestial_government liege = d_stormmarch }
 }
 
 c_bekadake = {
-	2990.1.1 = { holder = rasen_60 government = meritocratic_government liege = d_stormmarch }
+	2990.1.1 = { holder = rasen_60 government = celestial_government liege = d_stormmarch }
 }
 
 c_greybastion = {
-	2990.1.1 = { holder = rasen_61 government = meritocratic_government liege = d_stormmarch }
+	2990.1.1 = { holder = rasen_61 government = celestial_government liege = d_stormmarch }
 }
 
 d_notamine = {
-	2990.1.1 = { holder = rasen_62 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_62 government = celestial_government liege = h_china }
 }
 
 c_glaciermarch = {
@@ -359,7 +359,7 @@ c_glaciermarch = {
 }
 
 d_dahadake = {
-	2990.1.1 = { holder = rasen_63 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_63 government = celestial_government liege = h_china }
 }
 
 c_glacierwatch = {
@@ -367,23 +367,23 @@ c_glacierwatch = {
 }
 
 c_homine = {
-	2990.1.1 = { holder = rasen_64 government = meritocratic_government liege = d_dahadake }
+	2990.1.1 = { holder = rasen_64 government = celestial_government liege = d_dahadake }
 }
 
 c_greypass = {
-	2990.1.1 = { holder = rasen_65 government = meritocratic_government liege = d_dahadake }
+	2990.1.1 = { holder = rasen_65 government = celestial_government liege = d_dahadake }
 }
 
 c_stormfort = {
-	2990.1.1 = { holder = rasen_66 government = meritocratic_government liege = d_dahadake }
+	2990.1.1 = { holder = rasen_66 government = celestial_government liege = d_dahadake }
 }
 
 c_tayuki = {
-	2990.1.1 = { holder = rasen_67 government = meritocratic_government liege = d_dahadake }
+	2990.1.1 = { holder = rasen_67 government = celestial_government liege = d_dahadake }
 }
 
 d_nayayuki = {
-	2990.1.1 = { holder = rasen_68 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_68 government = celestial_government liege = h_china }
 }
 
 c_whitemarch = {
@@ -391,27 +391,27 @@ c_whitemarch = {
 }
 
 c_frostwatch = {
-	2990.1.1 = { holder = rasen_69 government = meritocratic_government liege = d_nayayuki }
+	2990.1.1 = { holder = rasen_69 government = celestial_government liege = d_nayayuki }
 }
 
 c_besawa = {
-	2990.1.1 = { holder = rasen_70 government = meritocratic_government liege = d_nayayuki }
+	2990.1.1 = { holder = rasen_70 government = celestial_government liege = d_nayayuki }
 }
 
 c_snowpeak = {
-	2990.1.1 = { holder = rasen_71 government = meritocratic_government liege = d_nayayuki }
+	2990.1.1 = { holder = rasen_71 government = celestial_government liege = d_nayayuki }
 }
 
 c_kudake = {
-	2990.1.1 = { holder = rasen_72 government = meritocratic_government liege = d_nayayuki }
+	2990.1.1 = { holder = rasen_72 government = celestial_government liege = d_nayayuki }
 }
 
 c_rigadake = {
-	2990.1.1 = { holder = rasen_73 government = meritocratic_government liege = d_nayayuki }
+	2990.1.1 = { holder = rasen_73 government = celestial_government liege = d_nayayuki }
 }
 
 d_kisamine = {
-	2990.1.1 = { holder = rasen_74 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_74 government = celestial_government liege = h_china }
 }
 
 c_palewatch = {
@@ -419,7 +419,7 @@ c_palewatch = {
 }
 
 d_ritosawa = {
-	2990.1.1 = { holder = rasen_75 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_75 government = celestial_government liege = h_china }
 }
 
 c_saridake = {
@@ -427,7 +427,7 @@ c_saridake = {
 }
 
 d_fuhamine = {
-	2990.1.1 = { holder = rasen_76 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_76 government = celestial_government liege = h_china }
 }
 
 c_babadake = {
@@ -435,7 +435,7 @@ c_babadake = {
 }
 
 d_shino = {
-	2990.1.1 = { holder = rasen_77 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_77 government = celestial_government liege = h_china }
 }
 
 c_sazawa = {
@@ -443,23 +443,23 @@ c_sazawa = {
 }
 
 c_waichi = {
-	2990.1.1 = { holder = rasen_78 government = meritocratic_government liege = d_shino }
+	2990.1.1 = { holder = rasen_78 government = celestial_government liege = d_shino }
 }
 
 c_razawa = {
-	2990.1.1 = { holder = rasen_79 government = meritocratic_government liege = d_shino }
+	2990.1.1 = { holder = rasen_79 government = celestial_government liege = d_shino }
 }
 
 c_mikigura = {
-	2990.1.1 = { holder = rasen_80 government = meritocratic_government liege = d_shino }
+	2990.1.1 = { holder = rasen_80 government = celestial_government liege = d_shino }
 }
 
 c_gogahama = {
-	2990.1.1 = { holder = rasen_81 government = meritocratic_government liege = d_shino }
+	2990.1.1 = { holder = rasen_81 government = celestial_government liege = d_shino }
 }
 
 d_rimono = {
-	2990.1.1 = { holder = rasen_82 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_82 government = celestial_government liege = h_china }
 }
 
 c_sutaichi = {
@@ -467,7 +467,7 @@ c_sutaichi = {
 }
 
 d_hokoichi = {
-	2990.1.1 = { holder = rasen_83 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_83 government = celestial_government liege = h_china }
 }
 
 c_hisaki = {
@@ -475,31 +475,31 @@ c_hisaki = {
 }
 
 c_shigoichi = {
-	2990.1.1 = { holder = rasen_84 government = meritocratic_government liege = d_hokoichi }
+	2990.1.1 = { holder = rasen_84 government = celestial_government liege = d_hokoichi }
 }
 
 c_sehisaki = {
-	2990.1.1 = { holder = rasen_85 government = meritocratic_government liege = d_hokoichi }
+	2990.1.1 = { holder = rasen_85 government = celestial_government liege = d_hokoichi }
 }
 
 c_sohama = {
-	2990.1.1 = { holder = rasen_86 government = meritocratic_government liege = d_hokoichi }
+	2990.1.1 = { holder = rasen_86 government = celestial_government liege = d_hokoichi }
 }
 
 c_nagura = {
-	2990.1.1 = { holder = rasen_87 government = meritocratic_government liege = d_hokoichi }
+	2990.1.1 = { holder = rasen_87 government = celestial_government liege = d_hokoichi }
 }
 
 c_mirisaki = {
-	2990.1.1 = { holder = rasen_88 government = meritocratic_government liege = d_hokoichi }
+	2990.1.1 = { holder = rasen_88 government = celestial_government liege = d_hokoichi }
 }
 
 c_yakuzawa = {
-	2990.1.1 = { holder = rasen_89 government = meritocratic_government liege = d_hokoichi }
+	2990.1.1 = { holder = rasen_89 government = celestial_government liege = d_hokoichi }
 }
 
 d_kono = {
-	2990.1.1 = { holder = rasen_90 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_90 government = celestial_government liege = h_china }
 }
 
 c_kiichi = {
@@ -507,7 +507,7 @@ c_kiichi = {
 }
 
 d_bazawa = {
-	2990.1.1 = { holder = rasen_91 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_91 government = celestial_government liege = h_china }
 }
 
 c_dafuoka = {
@@ -515,23 +515,23 @@ c_dafuoka = {
 }
 
 c_kuno = {
-	2990.1.1 = { holder = rasen_92 government = meritocratic_government liege = d_bazawa }
+	2990.1.1 = { holder = rasen_92 government = celestial_government liege = d_bazawa }
 }
 
 c_gooka = {
-	2990.1.1 = { holder = rasen_93 government = meritocratic_government liege = d_bazawa }
+	2990.1.1 = { holder = rasen_93 government = celestial_government liege = d_bazawa }
 }
 
 c_yumura = {
-	2990.1.1 = { holder = rasen_94 government = meritocratic_government liege = d_bazawa }
+	2990.1.1 = { holder = rasen_94 government = celestial_government liege = d_bazawa }
 }
 
 c_gobaoka = {
-	2990.1.1 = { holder = rasen_95 government = meritocratic_government liege = d_bazawa }
+	2990.1.1 = { holder = rasen_95 government = celestial_government liege = d_bazawa }
 }
 
 d_moichi = {
-	2990.1.1 = { holder = rasen_96 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_96 government = celestial_government liege = h_china }
 }
 
 c_wamogura = {
@@ -539,19 +539,19 @@ c_wamogura = {
 }
 
 c_manizawa = {
-	2990.1.1 = { holder = rasen_97 government = meritocratic_government liege = d_moichi }
+	2990.1.1 = { holder = rasen_97 government = celestial_government liege = d_moichi }
 }
 
 c_tsuhano = {
-	2990.1.1 = { holder = rasen_98 government = meritocratic_government liege = d_moichi }
+	2990.1.1 = { holder = rasen_98 government = celestial_government liege = d_moichi }
 }
 
 c_nisaki = {
-	2990.1.1 = { holder = rasen_99 government = meritocratic_government liege = d_moichi }
+	2990.1.1 = { holder = rasen_99 government = celestial_government liege = d_moichi }
 }
 
 d_haoka = {
-	2990.1.1 = { holder = rasen_100 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_100 government = celestial_government liege = h_china }
 }
 
 c_beno = {
@@ -559,23 +559,23 @@ c_beno = {
 }
 
 c_gamisaki = {
-	2990.1.1 = { holder = rasen_101 government = meritocratic_government liege = d_haoka }
+	2990.1.1 = { holder = rasen_101 government = celestial_government liege = d_haoka }
 }
 
 c_kokahama = {
-	2990.1.1 = { holder = rasen_102 government = meritocratic_government liege = d_haoka }
+	2990.1.1 = { holder = rasen_102 government = celestial_government liege = d_haoka }
 }
 
 c_rozawa = {
-	2990.1.1 = { holder = rasen_103 government = meritocratic_government liege = d_haoka }
+	2990.1.1 = { holder = rasen_103 government = celestial_government liege = d_haoka }
 }
 
 c_futazawa = {
-	2990.1.1 = { holder = rasen_104 government = meritocratic_government liege = d_haoka }
+	2990.1.1 = { holder = rasen_104 government = celestial_government liege = d_haoka }
 }
 
 d_jiichi = {
-	2990.1.1 = { holder = rasen_105 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_105 government = celestial_government liege = h_china }
 }
 
 c_fubahama = {
@@ -583,23 +583,23 @@ c_fubahama = {
 }
 
 c_sarino = {
-	2990.1.1 = { holder = rasen_106 government = meritocratic_government liege = d_jiichi }
+	2990.1.1 = { holder = rasen_106 government = celestial_government liege = d_jiichi }
 }
 
 c_bewagura = {
-	2990.1.1 = { holder = rasen_107 government = meritocratic_government liege = d_jiichi }
+	2990.1.1 = { holder = rasen_107 government = celestial_government liege = d_jiichi }
 }
 
 c_nobazawa = {
-	2990.1.1 = { holder = rasen_108 government = meritocratic_government liege = d_jiichi }
+	2990.1.1 = { holder = rasen_108 government = celestial_government liege = d_jiichi }
 }
 
 c_rihama = {
-	2990.1.1 = { holder = rasen_109 government = meritocratic_government liege = d_jiichi }
+	2990.1.1 = { holder = rasen_109 government = celestial_government liege = d_jiichi }
 }
 
 d_bemamura = {
-	2990.1.1 = { holder = rasen_110 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_110 government = celestial_government liege = h_china }
 }
 
 c_shimagura = {
@@ -607,23 +607,23 @@ c_shimagura = {
 }
 
 c_sanamura = {
-	2990.1.1 = { holder = rasen_111 government = meritocratic_government liege = d_bemamura }
+	2990.1.1 = { holder = rasen_111 government = celestial_government liege = d_bemamura }
 }
 
 c_rishigura = {
-	2990.1.1 = { holder = rasen_112 government = meritocratic_government liege = d_bemamura }
+	2990.1.1 = { holder = rasen_112 government = celestial_government liege = d_bemamura }
 }
 
 c_bemura = {
-	2990.1.1 = { holder = rasen_113 government = meritocratic_government liege = d_bemamura }
+	2990.1.1 = { holder = rasen_113 government = celestial_government liege = d_bemamura }
 }
 
 c_yusaki = {
-	2990.1.1 = { holder = rasen_114 government = meritocratic_government liege = d_bemamura }
+	2990.1.1 = { holder = rasen_114 government = celestial_government liege = d_bemamura }
 }
 
 d_futomura = {
-	2990.1.1 = { holder = rasen_115 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_115 government = celestial_government liege = h_china }
 }
 
 c_besaki = {
@@ -631,15 +631,15 @@ c_besaki = {
 }
 
 c_goyosaki = {
-	2990.1.1 = { holder = rasen_116 government = meritocratic_government liege = d_futomura }
+	2990.1.1 = { holder = rasen_116 government = celestial_government liege = d_futomura }
 }
 
 c_gokaoka = {
-	2990.1.1 = { holder = rasen_117 government = meritocratic_government liege = d_futomura }
+	2990.1.1 = { holder = rasen_117 government = celestial_government liege = d_futomura }
 }
 
 d_goyono = {
-	2990.1.1 = { holder = rasen_118 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_118 government = celestial_government liege = h_china }
 }
 
 c_jizeichi = {
@@ -647,7 +647,7 @@ c_jizeichi = {
 }
 
 d_chinimura = {
-	2990.1.1 = { holder = rasen_119 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_119 government = celestial_government liege = h_china }
 }
 
 c_chirimura = {
@@ -655,7 +655,7 @@ c_chirimura = {
 }
 
 d_sumura = {
-	2990.1.1 = { holder = rasen_120 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_120 government = celestial_government liege = h_china }
 }
 
 c_kohasaki = {
@@ -663,7 +663,7 @@ c_kohasaki = {
 }
 
 d_kitsuno = {
-	2990.1.1 = { holder = rasen_121 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_121 government = celestial_government liege = h_china }
 }
 
 c_kosuzawa = {
@@ -671,7 +671,7 @@ c_kosuzawa = {
 }
 
 d_gotsuhama = {
-	2990.1.1 = { holder = rasen_122 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_122 government = celestial_government liege = h_china }
 }
 
 c_higoshima = {
@@ -679,23 +679,23 @@ c_higoshima = {
 }
 
 c_kishishima = {
-	2990.1.1 = { holder = rasen_123 government = meritocratic_government liege = d_gotsuhama }
+	2990.1.1 = { holder = rasen_123 government = celestial_government liege = d_gotsuhama }
 }
 
 c_chiura = {
-	2990.1.1 = { holder = rasen_124 government = meritocratic_government liege = d_gotsuhama }
+	2990.1.1 = { holder = rasen_124 government = celestial_government liege = d_gotsuhama }
 }
 
 c_roura = {
-	2990.1.1 = { holder = rasen_125 government = meritocratic_government liege = d_gotsuhama }
+	2990.1.1 = { holder = rasen_125 government = celestial_government liege = d_gotsuhama }
 }
 
 c_lotusterrace = {
-	2990.1.1 = { holder = rasen_126 government = meritocratic_government liege = d_gotsuhama }
+	2990.1.1 = { holder = rasen_126 government = celestial_government liege = d_gotsuhama }
 }
 
 d_silkmarsh = {
-	2990.1.1 = { holder = rasen_127 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_127 government = celestial_government liege = h_china }
 }
 
 c_lotuscove = {
@@ -703,23 +703,23 @@ c_lotuscove = {
 }
 
 c_mossshore = {
-	2990.1.1 = { holder = rasen_128 government = meritocratic_government liege = d_silkmarsh }
+	2990.1.1 = { holder = rasen_128 government = celestial_government liege = d_silkmarsh }
 }
 
 c_tidemarsh = {
-	2990.1.1 = { holder = rasen_129 government = meritocratic_government liege = d_silkmarsh }
+	2990.1.1 = { holder = rasen_129 government = celestial_government liege = d_silkmarsh }
 }
 
 c_kinita = {
-	2990.1.1 = { holder = rasen_130 government = meritocratic_government liege = d_silkmarsh }
+	2990.1.1 = { holder = rasen_130 government = celestial_government liege = d_silkmarsh }
 }
 
 c_goldgrove = {
-	2990.1.1 = { holder = rasen_131 government = meritocratic_government liege = d_silkmarsh }
+	2990.1.1 = { holder = rasen_131 government = celestial_government liege = d_silkmarsh }
 }
 
 d_salthaven = {
-	2990.1.1 = { holder = rasen_132 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_132 government = celestial_government liege = h_china }
 }
 
 c_nisuura = {
@@ -727,23 +727,23 @@ c_nisuura = {
 }
 
 c_yumota = {
-	2990.1.1 = { holder = rasen_133 government = meritocratic_government liege = d_salthaven }
+	2990.1.1 = { holder = rasen_133 government = celestial_government liege = d_salthaven }
 }
 
 c_jadepoint = {
-	2990.1.1 = { holder = rasen_134 government = meritocratic_government liege = d_salthaven }
+	2990.1.1 = { holder = rasen_134 government = celestial_government liege = d_salthaven }
 }
 
 c_goldshore = {
-	2990.1.1 = { holder = rasen_135 government = meritocratic_government liege = d_salthaven }
+	2990.1.1 = { holder = rasen_135 government = celestial_government liege = d_salthaven }
 }
 
 c_goldfield = {
-	2990.1.1 = { holder = rasen_136 government = meritocratic_government liege = d_salthaven }
+	2990.1.1 = { holder = rasen_136 government = celestial_government liege = d_salthaven }
 }
 
 d_nososhima = {
-	2990.1.1 = { holder = rasen_137 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_137 government = celestial_government liege = h_china }
 }
 
 c_wavepoint = {
@@ -751,15 +751,15 @@ c_wavepoint = {
 }
 
 c_kakohama = {
-	2990.1.1 = { holder = rasen_138 government = meritocratic_government liege = d_nososhima }
+	2990.1.1 = { holder = rasen_138 government = celestial_government liege = d_nososhima }
 }
 
 c_reedharbour = {
-	2990.1.1 = { holder = rasen_139 government = meritocratic_government liege = d_nososhima }
+	2990.1.1 = { holder = rasen_139 government = celestial_government liege = d_nososhima }
 }
 
 d_mossfield = {
-	2990.1.1 = { holder = rasen_140 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_140 government = celestial_government liege = h_china }
 }
 
 c_himiura = {
@@ -767,23 +767,23 @@ c_himiura = {
 }
 
 c_riura = {
-	2990.1.1 = { holder = rasen_141 government = meritocratic_government liege = d_mossfield }
+	2990.1.1 = { holder = rasen_141 government = celestial_government liege = d_mossfield }
 }
 
 c_jinihama = {
-	2990.1.1 = { holder = rasen_142 government = meritocratic_government liege = d_mossfield }
+	2990.1.1 = { holder = rasen_142 government = celestial_government liege = d_mossfield }
 }
 
 c_hohama = {
-	2990.1.1 = { holder = rasen_143 government = meritocratic_government liege = d_mossfield }
+	2990.1.1 = { holder = rasen_143 government = celestial_government liege = d_mossfield }
 }
 
 c_nofushima = {
-	2990.1.1 = { holder = rasen_144 government = meritocratic_government liege = d_mossfield }
+	2990.1.1 = { holder = rasen_144 government = celestial_government liege = d_mossfield }
 }
 
 d_saltwell = {
-	2990.1.1 = { holder = rasen_145 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_145 government = celestial_government liege = h_china }
 }
 
 c_amberwell = {
@@ -791,7 +791,7 @@ c_amberwell = {
 }
 
 d_jademarsh = {
-	2990.1.1 = { holder = rasen_146 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_146 government = celestial_government liege = h_china }
 }
 
 c_chizeta = {
@@ -799,27 +799,27 @@ c_chizeta = {
 }
 
 c_saltdale = {
-	2990.1.1 = { holder = rasen_147 government = meritocratic_government liege = d_jademarsh }
+	2990.1.1 = { holder = rasen_147 government = celestial_government liege = d_jademarsh }
 }
 
 c_wavegrove = {
-	2990.1.1 = { holder = rasen_148 government = meritocratic_government liege = d_jademarsh }
+	2990.1.1 = { holder = rasen_148 government = celestial_government liege = d_jademarsh }
 }
 
 c_tsuta = {
-	2990.1.1 = { holder = rasen_149 government = meritocratic_government liege = d_jademarsh }
+	2990.1.1 = { holder = rasen_149 government = celestial_government liege = d_jademarsh }
 }
 
 c_sutashima = {
-	2990.1.1 = { holder = rasen_150 government = meritocratic_government liege = d_jademarsh }
+	2990.1.1 = { holder = rasen_150 government = celestial_government liege = d_jademarsh }
 }
 
 c_coralwell = {
-	2990.1.1 = { holder = rasen_151 government = meritocratic_government liege = d_jademarsh }
+	2990.1.1 = { holder = rasen_151 government = celestial_government liege = d_jademarsh }
 }
 
 d_yoyoshima = {
-	2990.1.1 = { holder = rasen_152 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_152 government = celestial_government liege = h_china }
 }
 
 c_lotusdale = {
@@ -827,7 +827,7 @@ c_lotusdale = {
 }
 
 d_sutaura = {
-	2990.1.1 = { holder = rasen_153 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_153 government = celestial_government liege = h_china }
 }
 
 c_goldwell = {
@@ -835,7 +835,7 @@ c_goldwell = {
 }
 
 d_bagota = {
-	2990.1.1 = { holder = rasen_154 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_154 government = celestial_government liege = h_china }
 }
 
 c_sahama = {
@@ -843,23 +843,23 @@ c_sahama = {
 }
 
 c_hafuta = {
-	2990.1.1 = { holder = rasen_155 government = meritocratic_government liege = d_bagota }
+	2990.1.1 = { holder = rasen_155 government = celestial_government liege = d_bagota }
 }
 
 c_sunharbour = {
-	2990.1.1 = { holder = rasen_156 government = meritocratic_government liege = d_bagota }
+	2990.1.1 = { holder = rasen_156 government = celestial_government liege = d_bagota }
 }
 
 c_lotuspoint = {
-	2990.1.1 = { holder = rasen_157 government = meritocratic_government liege = d_bagota }
+	2990.1.1 = { holder = rasen_157 government = celestial_government liege = d_bagota }
 }
 
 c_dasahama = {
-	2990.1.1 = { holder = rasen_158 government = meritocratic_government liege = d_bagota }
+	2990.1.1 = { holder = rasen_158 government = celestial_government liege = d_bagota }
 }
 
 d_rakiura = {
-	2990.1.1 = { holder = rasen_159 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_159 government = celestial_government liege = h_china }
 }
 
 c_zehama = {
@@ -867,23 +867,23 @@ c_zehama = {
 }
 
 c_saltfield = {
-	2990.1.1 = { holder = rasen_160 government = meritocratic_government liege = d_rakiura }
+	2990.1.1 = { holder = rasen_160 government = celestial_government liege = d_rakiura }
 }
 
 c_jadehaven = {
-	2990.1.1 = { holder = rasen_161 government = meritocratic_government liege = d_rakiura }
+	2990.1.1 = { holder = rasen_161 government = celestial_government liege = d_rakiura }
 }
 
 c_nanota = {
-	2990.1.1 = { holder = rasen_162 government = meritocratic_government liege = d_rakiura }
+	2990.1.1 = { holder = rasen_162 government = celestial_government liege = d_rakiura }
 }
 
 c_goldbay = {
-	2990.1.1 = { holder = rasen_163 government = meritocratic_government liege = d_rakiura }
+	2990.1.1 = { holder = rasen_163 government = celestial_government liege = d_rakiura }
 }
 
 d_moura = {
-	2990.1.1 = { holder = rasen_164 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_164 government = celestial_government liege = h_china }
 }
 
 c_jadebay = {
@@ -891,19 +891,19 @@ c_jadebay = {
 }
 
 c_gamoshima = {
-	2990.1.1 = { holder = rasen_165 government = meritocratic_government liege = d_moura }
+	2990.1.1 = { holder = rasen_165 government = celestial_government liege = d_moura }
 }
 
 c_sozeshima = {
-	2990.1.1 = { holder = rasen_166 government = meritocratic_government liege = d_moura }
+	2990.1.1 = { holder = rasen_166 government = celestial_government liege = d_moura }
 }
 
 c_baura = {
-	2990.1.1 = { holder = rasen_167 government = meritocratic_government liege = d_moura }
+	2990.1.1 = { holder = rasen_167 government = celestial_government liege = d_moura }
 }
 
 d_wahoshima = {
-	2990.1.1 = { holder = rasen_168 government = meritocratic_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_168 government = celestial_government liege = h_china }
 }
 
 c_kohama = {
@@ -911,7 +911,7 @@ c_kohama = {
 }
 
 k_sacred = {
-	2990.1.1 = { holder = rasen_169 government = feudal_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_169 government = feudal_government liege = h_china }
 }
 
 d_todera = {
@@ -1079,7 +1079,7 @@ c_rabadera = {
 }
 
 k_mystic = {
-	2990.1.1 = { holder = rasen_178 government = feudal_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_178 government = feudal_government liege = h_china }
 }
 
 d_suyuan = {
@@ -1167,7 +1167,7 @@ c_houling = {
 }
 
 k_cursed = {
-	2990.1.1 = { holder = rasen_182 government = feudal_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_182 government = feudal_government liege = h_china }
 }
 
 d_semonuma = {
@@ -1271,7 +1271,7 @@ c_kokage = {
 }
 
 k_bladed = {
-	2990.1.1 = { holder = rasen_186 government = feudal_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_186 government = feudal_government liege = h_china }
 }
 
 d_narijo = {
@@ -1359,7 +1359,7 @@ c_chitakawa = {
 }
 
 k_wild = {
-	2990.1.1 = { holder = rasen_190 government = feudal_government liege = h_rasen }
+	2990.1.1 = { holder = rasen_190 government = feudal_government liege = h_china }
 }
 
 d_rifuno = {
@@ -1371,7 +1371,7 @@ c_bloodrun = {
 }
 
 d_thorntangle = {
-	2990.1.1 = { holder = rasen_191 liege = h_rasen }
+	2990.1.1 = { holder = rasen_191 liege = h_china }
 }
 
 c_ironhide = {
@@ -1379,7 +1379,7 @@ c_ironhide = {
 }
 
 d_wildarena = {
-	2990.1.1 = { holder = rasen_192 liege = h_rasen }
+	2990.1.1 = { holder = rasen_192 liege = h_china }
 }
 
 c_gabemori = {
@@ -1395,15 +1395,15 @@ c_zekukiba = {
 }
 
 c_horimori = {
-	2990.1.1 = { holder = rasen_193 liege = h_rasen }
+	2990.1.1 = { holder = rasen_193 liege = h_china }
 }
 
 c_nogari = {
-	2990.1.1 = { holder = rasen_193 liege = h_rasen }
+	2990.1.1 = { holder = rasen_193 liege = h_china }
 }
 
 d_greenclaw = {
-	2990.1.1 = { holder = rasen_194 liege = h_rasen }
+	2990.1.1 = { holder = rasen_194 liege = h_china }
 }
 
 c_rahagari = {
@@ -1411,7 +1411,7 @@ c_rahagari = {
 }
 
 d_elderroot = {
-	2990.1.1 = { holder = rasen_195 liege = h_rasen }
+	2990.1.1 = { holder = rasen_195 liege = h_china }
 }
 
 c_greentangle = {
@@ -1419,7 +1419,7 @@ c_greentangle = {
 }
 
 d_benagari = {
-	2990.1.1 = { holder = rasen_196 liege = h_rasen }
+	2990.1.1 = { holder = rasen_196 liege = h_china }
 }
 
 c_hayakiba = {
@@ -1435,15 +1435,15 @@ c_greatthicket = {
 }
 
 c_hirano = {
-	2990.1.1 = { holder = rasen_197 liege = h_rasen }
+	2990.1.1 = { holder = rasen_197 liege = h_china }
 }
 
 c_yakiba = {
-	2990.1.1 = { holder = rasen_197 liege = h_rasen }
+	2990.1.1 = { holder = rasen_197 liege = h_china }
 }
 
 d_badakiba = {
-	2990.1.1 = { holder = rasen_198 liege = h_rasen }
+	2990.1.1 = { holder = rasen_198 liege = h_china }
 }
 
 c_howlroot = {
@@ -1459,15 +1459,15 @@ c_nachimori = {
 }
 
 c_fangtangle = {
-	2990.1.1 = { holder = rasen_199 liege = h_rasen }
+	2990.1.1 = { holder = rasen_199 liege = h_china }
 }
 
 c_thornarena = {
-	2990.1.1 = { holder = rasen_199 liege = h_rasen }
+	2990.1.1 = { holder = rasen_199 liege = h_china }
 }
 
 d_suyamori = {
-	2990.1.1 = { holder = rasen_200 liege = h_rasen }
+	2990.1.1 = { holder = rasen_200 liege = h_china }
 }
 
 c_wildtangle = {
@@ -1491,7 +1491,7 @@ c_howlpit = {
 }
 
 d_elderden = {
-	2990.1.1 = { holder = rasen_201 liege = h_rasen }
+	2990.1.1 = { holder = rasen_201 liege = h_china }
 }
 
 c_tuskpit = {
@@ -1507,7 +1507,7 @@ c_jimigari = {
 }
 
 d_zeyomori = {
-	2990.1.1 = { holder = rasen_202 liege = h_rasen }
+	2990.1.1 = { holder = rasen_202 liege = h_china }
 }
 
 c_sobegari = {

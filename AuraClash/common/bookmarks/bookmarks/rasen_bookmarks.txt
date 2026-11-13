@@ -84,8 +84,8 @@
 		dynasty_splendor_level = 1
 		type = female
 		birth = 2940.3.28
-		title = h_rasen
-		government = meritocratic_government
+		title = h_china
+		government = celestial_government
 		culture = zenshin
 		religion = ancestral_rites
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"

@@ -278,7 +278,7 @@ ac_sect_qa.0020 = { type = character_event hidden = yes immediate = {
         limit = { OR = { var:ac_qa_estate_step = 0 var:ac_qa_estate_step = 2 } }
         if = {
             limit = {
-                primary_title = title:d_kohara has_government = meritocratic_government
+                primary_title = title:d_kohara has_government = celestial_government
                 gold = var:ac_qa_estate_gold
                 var:ac_sect.var:ac_treasury = ac_qa_estate_after_cost
                 var:ac_sect.var:ac_estate_title.title_domicile = { has_domicile_construction = ac_sect_alchemy_pavilion_01 var:ac_native_build_cost = 100 }

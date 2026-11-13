@@ -5,7 +5,7 @@ rasen_found_noble_families = {
 	effect = {
 		every_ruler = {
 			limit = {
-				has_government = meritocratic_government
+				has_government = celestial_government
 				highest_held_title_tier >= tier_county
 				NOT = { any_held_title = { is_noble_family_title = yes } }
 			}

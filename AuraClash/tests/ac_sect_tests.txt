@@ -140,7 +140,7 @@ ac_sect_test_06_relationships_and_succession = {
         }
 		var:ac_kingdom_sect = { is_target_in_variable_list = { name = ac_allies target = scope:recipient.var:ac_sect } }
 		scope:recipient.var:ac_sect = { is_target_in_variable_list = { name = ac_allies target = scope:ac_inherited_sect } }
-		scope:ac_test_ruler = { has_trait = ac_sect_master primary_title = title:d_mistgate has_government = meritocratic_government }
+		scope:ac_test_ruler = { has_trait = ac_sect_master primary_title = title:d_mistgate has_government = celestial_government }
 	}
 }
 ac_sect_test_09_preserve_existing_paths = {
@@ -311,10 +311,10 @@ ac_sect_test_13_interest_does_not_host = {
 # replace it, change their government, or take away the imperial title.
 ac_sect_test_14_personal_estate_coexistence = {
 	title_target = d_cedarvale
-	assert = { title:h_rasen.holder = { has_domicile = yes has_government = meritocratic_government } }
+	assert = { title:h_china.holder = { has_domicile = yes has_government = celestial_government } }
 	effect = {
 		var:ac_kingdom_sect = { save_scope_as = ac_join_sect story_owner = { save_scope_as = ac_returning_master } }
-		title:h_rasen.holder = {
+		title:h_china.holder = {
 			save_scope_as = ac_personal_estate_master
 			domicile = { save_scope_as = ac_personal_estate }
 			ac_sect_join_effect = yes
@@ -328,7 +328,7 @@ ac_sect_test_14_personal_estate_coexistence = {
 		}
 	}
 	expect = {
-		scope:ac_personal_estate_master = { primary_title = title:h_rasen has_government = meritocratic_government }
+		scope:ac_personal_estate_master = { primary_title = title:h_china has_government = celestial_government }
 		scope:ac_personal_estate = { owner = scope:ac_personal_estate_master }
 		var:ac_kingdom_sect.var:ac_estate_title = {
 			holder = scope:ac_personal_estate_master
@@ -347,7 +347,7 @@ ac_sect_test_14_personal_estate_coexistence = {
 		scope:ac_personal_estate_master = { ac_sect_leave_effect = yes }
 	}
 	expect = {
-		scope:ac_personal_estate_master = { primary_title = title:h_rasen has_government = meritocratic_government }
+		scope:ac_personal_estate_master = { primary_title = title:h_china has_government = celestial_government }
 		scope:ac_personal_estate = { owner = scope:ac_personal_estate_master }
 		var:ac_kingdom_sect.var:ac_estate_title.holder = scope:ac_returning_master
 	}

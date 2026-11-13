@@ -23,7 +23,7 @@ rasen_high_steward_male = {
 	special = holder
 	tier = hegemony
 	priority = 600
-	titles = { h_rasen }
+	titles = { h_china }
 	flavourization_rules = { top_liege = no }
 }
 rasen_high_steward_female = {
@@ -32,7 +32,7 @@ rasen_high_steward_female = {
 	special = holder
 	tier = hegemony
 	priority = 600
-	titles = { h_rasen }
+	titles = { h_china }
 	flavourization_rules = { top_liege = no }
 }
 rasen_magistrate_duchy_male = {
@@ -41,7 +41,7 @@ rasen_magistrate_duchy_male = {
 	special = holder
 	tier = duchy
 	priority = 600
-	governments = { meritocratic_government }
+	governments = { celestial_government }
 	flavourization_rules = { top_liege = no }
 }
 rasen_magistrate_duchy_female = {
@@ -50,7 +50,7 @@ rasen_magistrate_duchy_female = {
 	special = holder
 	tier = duchy
 	priority = 600
-	governments = { meritocratic_government }
+	governments = { celestial_government }
 	flavourization_rules = { top_liege = no }
 }
 rasen_magistrate_county_male = {
@@ -59,7 +59,7 @@ rasen_magistrate_county_male = {
 	special = holder
 	tier = county
 	priority = 600
-	governments = { meritocratic_government }
+	governments = { celestial_government }
 	flavourization_rules = { top_liege = no }
 }
 rasen_magistrate_county_female = {
@@ -68,7 +68,7 @@ rasen_magistrate_county_female = {
 	special = holder
 	tier = county
 	priority = 600
-	governments = { meritocratic_government }
+	governments = { celestial_government }
 	flavourization_rules = { top_liege = no }
 }
 rasen_mao_duchy_male = {

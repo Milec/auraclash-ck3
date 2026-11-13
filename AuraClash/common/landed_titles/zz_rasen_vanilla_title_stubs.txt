@@ -5419,42 +5419,6 @@ e_mali = {
 	capital = c_azuma
 	landless = yes
 }
-e_minister_censor = {
-	capital = c_azuma
-	landless = yes
-}
-e_minister_chancellor = {
-	capital = c_azuma
-	landless = yes
-}
-e_minister_grand_marshal = {
-	capital = c_azuma
-	landless = yes
-}
-e_minister_of_justice = {
-	capital = c_azuma
-	landless = yes
-}
-e_minister_of_personnel = {
-	capital = c_azuma
-	landless = yes
-}
-e_minister_of_revenue = {
-	capital = c_azuma
-	landless = yes
-}
-e_minister_of_rites = {
-	capital = c_azuma
-	landless = yes
-}
-e_minister_of_war = {
-	capital = c_azuma
-	landless = yes
-}
-e_minister_of_works = {
-	capital = c_azuma
-	landless = yes
-}
 e_mongol_empire = {
 	capital = c_azuma
 	landless = yes
@@ -5572,10 +5536,6 @@ e_yongliang = {
 	landless = yes
 }
 e_zhongyuan = {
-	capital = c_azuma
-	landless = yes
-}
-h_china = {
 	capital = c_azuma
 	landless = yes
 }

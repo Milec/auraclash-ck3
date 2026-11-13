@@ -130,7 +130,7 @@ The overhaul and the cultivation mechanics are one mod, in `AuraClash/`: a total
 `AuraClash/` loads and plays in CK3 1.20.1.2.
 
 ### Government
-All of Rasen is one hegemony, **Imperial Rasen** (`h_rasen`), held for the Exalted Council by the High Steward at Azuma Honsha: the IF has had no Emperor for centuries. It uses All Under Heaven's merit bureaucracy (`meritocratic_government`: appointed governors, merit ranks and a treasury; China's own `celestial_government` is tied to the dynastic cycle and `h_china`).
+All of Rasen is one hegemony, **Imperial Rasen**, held for the Exalted Council by the High Steward at Azuma Honsha: the IF has had no Emperor for centuries. Its title key is the game's own `h_china` (named Imperial Rasen), so All Under Heaven's Celestial bureaucracy applies unchanged: `celestial_government` on Azuma Honsha and in the Outer Provinces, the nine ministries (`e_minister_*`, defined inside it), imperial examinations, ministry projects and the dynastic cycle with its movements, which `history/struggles/rasen_dynastic_cycle_history.txt` starts. A 120-year observer run kept the hegemony intact and the cycle running every year.
 - The five **Exalts** rule their Inner Kingdoms as hereditary (feudal) kings under the hegemony.
 - The Outer Lands have no kings. The Council appoints a **Magistrate** to each duchy and to each county in it, as in the IF, where Magistrates govern towns. Canonical Magistrates (Khan of Thunderfall, Fuyu of Nanhou) keep their seats.
 - The **Wild Lands** are not unified: thirteen **Maos** each run a faction. The strongest holds the Wild seat on the Council as Wild Exalt with only his own duchy; nine hold the other duchies and three have carved counties out of the largest ones. All answer only to the hegemony.

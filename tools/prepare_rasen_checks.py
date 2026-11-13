@@ -39,19 +39,24 @@ def event():
     body.append(check('capital_holding', 'title:c_azuma.title_province = { has_holding = yes }'))
     # The realm: the High Steward holds the hegemony for the Council, the Exalts are its kings, and
     # appointed Magistrates govern the Outer duchies and counties.
-    body.append(check('hegemony', 'title:h_rasen.holder = { this = title:k_azuma.holder has_government = meritocratic_government }'))
-    body.append(check('exalt_liege', 'title:k_bladed.holder = { liege = title:h_rasen.holder }'))
+    body.append(check('hegemony', 'title:h_china.holder = { this = title:k_azuma.holder has_government = celestial_government }'))
+    body.append(check('exalt_liege', 'title:k_bladed.holder = { liege = title:h_china.holder }'))
     body.append(check('exalt_feudal', 'title:k_bladed.holder = { has_government = feudal_government }'))
-    body.append(check('magistrate_liege', 'title:d_kohara.holder = { liege = title:h_rasen.holder }'))
-    body.append(check('magistrate_merit', 'title:d_kohara.holder = { has_government = meritocratic_government }'))
+    body.append(check('magistrate_liege', 'title:d_kohara.holder = { liege = title:h_china.holder }'))
+    body.append(check('magistrate_merit', 'title:d_kohara.holder = { has_government = celestial_government }'))
     body.append(check('county_magistrates', 'title:k_outer_west = { any_de_jure_county = { count >= 20 holder = { '
-                      'has_government = meritocratic_government highest_held_title_tier = tier_county } } }'))
-    body.append(check('steward_estate', 'title:h_rasen.holder = { has_domicile = yes any_held_title = { is_noble_family_title = yes } }'))
-    body.append(check('magistrate_estate', 'title:d_kohara.holder = { has_domicile = yes }'))
+                      'has_government = celestial_government highest_held_title_tier = tier_county } } }'))
+    body.append(check('steward_estate', 'title:h_china.holder = { has_domicile = yes any_held_title = { is_noble_family_title = yes } }'))
+    # The game's own Celestial machinery runs over Rasen: the dynastic cycle, its movements and the ministries.
+    body.append(check('celestial_cycle', 'exists = situation:dynastic_cycle'))
+    body.append(check('celestial_movements', 'situation:dynastic_cycle = { any_participant_group = { count >= 4 } }'))
+    body.append(check('celestial_ministries', 'exists = title:e_minister_chancellor exists = title:e_minister_of_works'))
+    body.append(check('celestial_bureaucracy_law', 'title:h_china.holder = { realm_law_use_celestial_bureaucracy = yes }'))
+    body.append(check('magistrate_estate','title:d_kohara.holder = { has_domicile = yes }'))
     body.append(check('county_magistrate_families', 'title:k_outer_west = { any_de_jure_county = { count >= 20 holder = { '
                       'highest_held_title_tier = tier_county any_held_title = { is_noble_family_title = yes } } } }'))
     # The Wild Lands are thirteen Maos: the Wild Exalt and twelve who answer only to the hegemony.
-    body.append(check('wild_maos', 'title:h_rasen.holder = { any_vassal = { count = 12 '
+    body.append(check('wild_maos', 'title:h_china.holder = { any_vassal = { count = 12 '
                       'capital_county.kingdom = title:k_wild NOT = { this = title:k_wild.holder } } }'))
     body.append(check('wild_exalt_small', 'title:k_wild.holder = { any_vassal = { count = 0 highest_held_title_tier >= tier_duchy } }'))
     body.append(check('divine_general_free', 'any_living_character = { has_trait = rasen_divine_general is_independent_ruler = yes }'))
@@ -149,6 +154,8 @@ def main():
                                           'OR = { has_variable_list = ac_allies has_variable_list = ac_rivals } } } '
                                           'debug_log = "RASEN_QA YEAR SECT_TIES" } '
                                           'if = { limit = { title:k_bladed.holder = { is_alive = yes } } debug_log = "RASEN_QA YEAR EXALT_ALIVE" } '
+                                          'if = { limit = { exists = situation:dynastic_cycle } debug_log = "RASEN_QA YEAR CYCLE_RUNNING" } '
+                                          'if = { limit = { title:h_china.holder ?= { any_sub_realm_county = { count >= 250 } } } debug_log = "RASEN_QA YEAR HEGEMONY_HELD" } '
                                           'if = { limit = { global_var:qa_heir_sect = { story_owner = { is_alive = yes has_trait = ac_sect_master '
                                           'this != global_var:qa_dead_master } var:ac_estate_title.holder = story_owner } } '
                                           'debug_log = "RASEN_QA YEAR MASTER_SUCCEEDED" } '
