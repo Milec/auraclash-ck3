@@ -5,7 +5,7 @@
 			limit = { has_tgp_dlc_trigger = yes }
 			start_situation = {
 				type = dynastic_cycle
-				start_phase = situation_dynastic_cycle_phase_stability
+				start_phase = situation_dynastic_cycle_phase_stability_advancement
 			}
 		}
 	}
