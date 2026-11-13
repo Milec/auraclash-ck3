@@ -395,6 +395,19 @@ ac_sect_qa.0021 = { type = character_event hidden = yes immediate = {
         ):
             (OVERLAY / relative).unlink(missing_ok=True)
 
+    # Time must pass for the later checks (day 45 onwards). The Celestial start-up events hold a player's
+    # game, so once the day-0 checks have run the game switches to observer mode and runs at speed 4.
+    if not (args.master_ui or args.estate_ui):
+        clock = OVERLAY / 'gui/ac_sect_qa_clock.gui'
+        clock.parent.mkdir(parents=True, exist_ok=True)
+        clock.write_text('\n'.join([
+            'widget = {', '\tname = "ac_sect_qa_clock"', '\tlayer = bottom', '\tsize = { 4 4 }',
+            '\tstate = { name = s0 trigger_on_create = yes duration = 60 next = s1 on_finish = "[ExecuteConsoleCommand(\'observe\')]" }',
+            '\tstate = { name = s1 duration = 3 next = s2 on_finish = "[OnPause]" }',
+            '\tstate = { name = s2 duration = 2 on_finish = "[SetGameSpeed(\'(int32)4\')]" }', '}', '']), encoding='utf-8-sig')
+        (OVERLAY / 'gui/scripted_widgets').mkdir(parents=True, exist_ok=True)
+        (OVERLAY / 'gui/scripted_widgets/ac_sect_qa_clock.txt').write_text('gui/ac_sect_qa_clock.gui = ac_sect_qa_clock\n', encoding='utf-8-sig')
+
     (OUT / 'mod').mkdir(parents=True, exist_ok=True)
     for name, directory in [('ac_sect_test', ROOT / 'AuraClash'), ('ac_sect_qa', OVERLAY)]:
         (OUT / 'mod' / (name + '.mod')).write_text(qa_descriptor.text(name, directory), encoding='utf-8')
