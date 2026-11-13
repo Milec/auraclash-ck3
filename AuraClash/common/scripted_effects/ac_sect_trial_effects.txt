@@ -18,6 +18,8 @@ ac_sect_begin_trial_effect = {
 			}
 		}
 		set_variable = { name = ac_sect_trial_activity value = scope:activity }
+		# The trial keeps its examinees, so those who leave before its end are still judged and released.
+		scope:activity = { add_to_variable_list = { name = ac_trial_examinees target = prev } }
 		ac_sect_count_effect = { COUNTER = ac_trial_examinees }
 		set_variable = { name = ac_sect_trial_home value = scope:activity.var:ac_trial_sect }
 		set_variable = { name = ac_sect_trial_score value = learning }

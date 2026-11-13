@@ -154,11 +154,16 @@ class SectContentTests(unittest.TestCase):
         source = (MOD / 'common/activities/activity_types/ac_sect_activities.txt').read_text(encoding='utf-8-sig')
         trial = source.split('activity_ac_sect_joint_training = {')[0]
         completion = trial[trial.index('on_complete = {'):]
-        self.assertLess(completion.index('set_variable = { name = ac_trials_resolved'), completion.index('ordered_attending_character'))
-        ranked = list(re.finditer(r'ordered_attending_character\s*=\s*\{', completion))
+        self.assertLess(completion.index('set_variable = { name = ac_trials_resolved'), completion.index('ordered_in_list'))
+        # Every examinee who sat the trial is judged (the trial keeps them in a list), best first.
+        ranked = list(re.finditer(r'ordered_in_list\s*=\s*\{', completion))
         self.assertEqual(len(ranked), 2)
+        self.assertEqual(completion.count('variable = ac_trial_examinees'), 2)
         self.assertEqual(completion.count('order_by = var:ac_sect_trial_score'), 2)
+        self.assertEqual(completion.count('max = 100'), 2)
         self.assertIn('has_variable = ac_sect_trial_paid', completion[ranked[0].start():ranked[1].start()])
+        effects = (MOD / 'common/scripted_effects/ac_sect_trial_effects.txt').read_text(encoding='utf-8-sig')
+        self.assertIn('add_to_variable_list = { name = ac_trial_examinees target = prev }', effects)
 
     def test_recruitment_interest_does_not_start_or_fund_an_activity(self):
         source = (MOD / 'common/scripted_effects/ac_sect_recruitment_effects.txt').read_text(encoding='utf-8-sig')

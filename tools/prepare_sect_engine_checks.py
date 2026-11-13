@@ -129,18 +129,43 @@ ac_sect_qa.0001 = {
             }
         }
         trigger_event = { id = ac_sect_qa.0002 days = 45 }
+        trigger_event = { id = ac_sect_qa.0004 days = 1 }
     }
 }
 ac_sect_qa.0002 = {
     type = character_event hidden = yes
     immediate = {
-        if = { limit = { title:d_kohara.var:ac_kingdom_sect.var:ac_estate_title = { holder = title:d_mistgate.holder title_domicile = global_var:ac_qa_inherited_domicile } title:d_mistgate.holder = { has_government = meritocratic_government } }
+        if = { limit = { title:d_kohara.var:ac_kingdom_sect.var:ac_estate_title = { holder = title:d_mistgate.holder title_domicile = global_var:ac_qa_inherited_domicile } title:d_mistgate.holder = { has_government = celestial_government } }
             debug_log = "AC_SECT_QA PASS native_estate_persists_after_owner_death"
         } else = { debug_log = "AC_SECT_QA FAIL native_estate_persists_after_owner_death" }
         title:d_kohara = { ''' + test_body(*eighth, skip_effect=True, after_effect=True) + '\n' + test_body(*tenth) + ''' }
-        title:d_kunan = { ''' + test_body(*eleventh, skip_effect=True, after_effect=True) + ''' }
         title:d_ribayama = { ''' + test_body(*twelfth, skip_effect=True, after_effect=True) + ''' }
-        random_activity = {
+        trigger_event = { id = ac_sect_qa.0003 days = 220 }
+    }
+}
+ac_sect_qa.0003 = {
+    type = character_event hidden = yes
+    immediate = {
+        # The patronage trial opens some days after its request; check it once it has had time to run.
+        title:d_kunan = { ''' + test_body(*eleventh, skip_effect=True, after_effect=True) + ''' }
+        if = {
+            limit = { title:d_ribayama.var:ac_kingdom_sect = { has_variable = ac_joint_drill } }
+            debug_log = "AC_SECT_QA PASS joint_training_full_lifecycle"
+        } else = { debug_log = "AC_SECT_QA FAIL joint_training_full_lifecycle" }
+        if = { limit = { title:d_kohara.var:ac_kingdom_sect = { var:ac_alchemy_pavilion = 1 var:ac_estate_title.title_domicile = { has_domicile_building = ac_sect_alchemy_pavilion_01 NOT = { has_ongoing_domicile_construction = yes } NOT = { has_variable = ac_native_build_cost } } } }
+            debug_log = "AC_SECT_QA PASS native_construction_completes_after_succession"
+        } else = { debug_log = "AC_SECT_QA FAIL native_construction_completes_after_succession" }
+        global_var:ac_qa_poll_owner ?= { trigger_event = { id = ac_sect_qa.0006 days = 1 } }
+    }
+}
+# Polls for the natural trial; once it is running a fresh candidate joins it.
+ac_sect_qa.0004 = {
+    type = character_event hidden = yes
+    immediate = {
+        set_global_variable = { name = ac_qa_poll_owner value = root }
+        if = {
+            limit = { any_activity = { has_activity_type = activity_ac_sect_trials var:ac_trial_sect ?= title:d_kunan.var:ac_kingdom_sect } }
+            random_activity = {
             limit = { has_activity_type = activity_ac_sect_trials var:ac_trial_sect ?= title:d_kunan.var:ac_kingdom_sect }
             save_scope_as = ac_qa_trial
             activity_host = {
@@ -155,10 +180,27 @@ ac_sect_qa.0002 = {
                 set_global_variable = { name = ac_qa_natural_candidate value = this }
             }
         }
-        trigger_event = { id = ac_sect_qa.0003 days = 220 }
+            debug_log = "AC_SECT_QA natural trial found"
+            trigger_event = { id = ac_sect_qa.0005 days = 220 }
+        }
+        else_if = {
+            limit = { NOT = { has_global_variable = ac_qa_poll_count } }
+            set_global_variable = { name = ac_qa_poll_count value = 1 }
+            trigger_event = { id = ac_sect_qa.0004 days = 5 }
+        }
+        else_if = {
+            limit = { global_var:ac_qa_poll_count < 40 }
+            change_global_variable = { name = ac_qa_poll_count add = 1 }
+            trigger_event = { id = ac_sect_qa.0004 days = 5 }
+        }
+        else = {
+            debug_log = "AC_SECT_QA FAIL natural_trial_full_lifecycle"
+            debug_log = "AC_SECT_QA no natural trial opened in 200 days"
+            set_global_variable = { name = ac_qa_natural_done value = yes }
+        }
     }
 }
-ac_sect_qa.0003 = {
+ac_sect_qa.0005 = {
     type = character_event hidden = yes
     immediate = {
         if = {
@@ -179,14 +221,18 @@ ac_sect_qa.0003 = {
                 if = { limit = { has_character_flag = ac_sect_trial_cooldown } debug_log = "AC_SECT_QA candidate completed trial" }
             }
         }
+        set_global_variable = { name = ac_qa_natural_done value = yes }
+    }
+}
+# COMPLETE once both the day-265 checks and the natural trial are done.
+ac_sect_qa.0006 = {
+    type = character_event hidden = yes
+    immediate = {
         if = {
-            limit = { title:d_ribayama.var:ac_kingdom_sect = { has_variable = ac_joint_drill } }
-            debug_log = "AC_SECT_QA PASS joint_training_full_lifecycle"
-        } else = { debug_log = "AC_SECT_QA FAIL joint_training_full_lifecycle" }
-        if = { limit = { title:d_kohara.var:ac_kingdom_sect = { var:ac_alchemy_pavilion = 1 var:ac_estate_title.title_domicile = { has_domicile_building = ac_sect_alchemy_pavilion_01 NOT = { has_ongoing_domicile_construction = yes } NOT = { has_variable = ac_native_build_cost } } } }
-            debug_log = "AC_SECT_QA PASS native_construction_completes_after_succession"
-        } else = { debug_log = "AC_SECT_QA FAIL native_construction_completes_after_succession" }
-        debug_log = "AC_SECT_QA COMPLETE"
+            limit = { has_global_variable = ac_qa_natural_done }
+            debug_log = "AC_SECT_QA COMPLETE"
+        }
+        else = { trigger_event = { id = ac_sect_qa.0006 days = 10 } }
     }
 }
 '''

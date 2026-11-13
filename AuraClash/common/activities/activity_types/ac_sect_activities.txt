@@ -82,9 +82,13 @@ activity_ac_sect_trials = {
 		ac_sect_mark_activity_started_effect = yes
 		set_variable = { name = ac_trial_funded value = 1 }
 		ac_sect_count_effect = { COUNTER = ac_trials_opened }
+		activity_location = { save_scope_as = ac_trial_place }
 		var:ac_trial_sect = {
 			change_variable = { name = ac_treasury subtract = 50 }
 			set_variable = { name = ac_trial_cooldown value = 1 years = 1 }
+			# Who hosted the sect's latest trial, and where (read after the trial has ended).
+			set_variable = { name = ac_last_trial_host value = scope:host years = 1 }
+			set_variable = { name = ac_last_trial_location value = scope:ac_trial_place years = 1 }
 		}
 		scope:host = { trigger_event = { id = ac_sect_trial.0100 days = 1 } }
 	}
@@ -137,14 +141,22 @@ activity_ac_sect_trials = {
 				limit = { NOT = { has_variable = ac_trials_resolved } }
 				set_variable = { name = ac_trials_resolved value = 1 }
 				# Promotions free lower-disciple places before admission is ranked.
-				ordered_attending_character = {
-					limit = { var:ac_sect_trial_activity ?= scope:activity has_variable = ac_sect_trial_paid }
+				# Every examinee who sat the trial is judged, best first, including any who left before
+				# its end (without max, ordered_ takes only the top one).
+				ordered_in_list = {
+					variable = ac_trial_examinees
+					limit = { is_alive = yes var:ac_sect_trial_activity ?= scope:activity has_variable = ac_sect_trial_paid }
 					order_by = var:ac_sect_trial_score
+					max = 100
+					check_range_bounds = no
 					ac_sect_complete_trial_effect = yes
 				}
-				ordered_attending_character = {
-					limit = { var:ac_sect_trial_activity ?= scope:activity }
+				ordered_in_list = {
+					variable = ac_trial_examinees
+					limit = { is_alive = yes var:ac_sect_trial_activity ?= scope:activity }
 					order_by = var:ac_sect_trial_score
+					max = 100
+					check_range_bounds = no
 					ac_sect_complete_trial_effect = yes
 				}
 			}

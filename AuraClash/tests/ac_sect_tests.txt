@@ -258,12 +258,21 @@ ac_sect_test_11_unlanded_master_patronage = {
 	title_target = d_kunan
 	assert = { var:ac_kingdom_sect.story_owner = { is_landed = no NOT = { can_host_activity = activity_ac_sect_trials } } }
 	effect = { var:ac_kingdom_sect = { ac_sect_request_ai_activity_effect = { ACTIVITY = activity_ac_sect_trials } } }
+	# The trial opens days after the request and may have ended by the time this is checked, so the sect's
+	# record of its latest trial counts as well as a trial still running.
 	expect = {
-		any_activity = {
-			has_activity_type = activity_ac_sect_trials
-			var:ac_trial_sect = title:d_kunan.var:ac_kingdom_sect
-			activity_host = title:d_kunan.var:ac_kingdom_sect.story_owner
-			activity_location = title:d_kunan.var:ac_kingdom_sect.var:ac_headquarters
+		OR = {
+			any_activity = {
+				has_activity_type = activity_ac_sect_trials
+				var:ac_trial_sect = title:d_kunan.var:ac_kingdom_sect
+				activity_host = title:d_kunan.var:ac_kingdom_sect.story_owner
+				activity_location = title:d_kunan.var:ac_kingdom_sect.var:ac_headquarters
+			}
+			title:d_kunan.var:ac_kingdom_sect = {
+				has_variable = ac_last_trial_host
+				var:ac_last_trial_host = story_owner
+				var:ac_last_trial_location = var:ac_headquarters
+			}
 		}
 	}
 }
