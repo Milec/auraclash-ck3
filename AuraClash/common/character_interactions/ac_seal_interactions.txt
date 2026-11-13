@@ -42,7 +42,7 @@ ac_seal_craft_shard_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_targets = { ai_recipients = self }
@@ -94,7 +94,7 @@ ac_seal_reinforcement_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -150,7 +150,7 @@ ac_seal_four_winds_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -199,7 +199,7 @@ ac_seal_keystone_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -248,7 +248,7 @@ ac_seal_counterseal_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -298,7 +298,7 @@ ac_seal_reinforcement_improved_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -349,7 +349,7 @@ ac_seal_soulsoak_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -399,7 +399,7 @@ ac_seal_celestial_forge_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -455,7 +455,7 @@ ac_seal_exorcism_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -504,7 +504,7 @@ ac_seal_prayer_engine_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_targets = { ai_recipients = self }
@@ -556,7 +556,7 @@ ac_seal_heavenly_message_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -606,7 +606,7 @@ ac_seal_divine_intervention_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -655,7 +655,7 @@ ac_seal_scry_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -705,7 +705,7 @@ ac_seal_ward_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -754,7 +754,7 @@ ac_seal_charm_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -808,7 +808,7 @@ ac_seal_spiritbinding_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -864,7 +864,7 @@ ac_seal_hex_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -913,7 +913,7 @@ ac_seal_thousand_face_mask_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_targets = { ai_recipients = self }
@@ -966,7 +966,7 @@ ac_seal_puppetmaster_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -1015,7 +1015,7 @@ ac_seal_subjugation_domain_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -1065,7 +1065,7 @@ ac_seal_alpha_seal_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }
@@ -1115,7 +1115,7 @@ ac_seal_unlock_potential_interaction = {
 				right_icon = scope:recipient
 				custom_tooltip = ac_seal_successes_tt
 			}
-			remove_variable = ac_seal_successes
+			set_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }
 		}
 	}
 	ai_will_do = { base = 0 }

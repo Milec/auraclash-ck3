@@ -51,6 +51,14 @@ class CultivationArtsTests(unittest.TestCase):
                 for n, line in enumerate(data.decode('utf-8-sig').splitlines(), 1):
                     self.assertIsNone(bad.search(line), f'{relative}:{n}')
 
+    def test_built_on_ck3_systems_not_decisions(self):
+        # Interactions, schemes, activities, artifacts, special buildings, story cycles and hooks; no decisions.
+        made = {r for files in self.files.values() for r in files}
+        self.assertFalse([r for r in made if r.startswith('common/decisions/')])
+        for kind in ('common/schemes/', 'common/activities/', 'common/artifacts/', 'common/buildings/', 'common/story_cycles/',
+                     'common/hook_types/', 'common/character_interactions/', 'common/scripted_guis/'):
+            self.assertTrue([r for r in made if r.startswith(kind)], kind)
+
     def test_source_catalogues(self):
         # The Core Rulebook's Seals chapter: 5 Freestyle and 17 Style Seals.
         self.assertEqual(len(seals.SEALS), 22)

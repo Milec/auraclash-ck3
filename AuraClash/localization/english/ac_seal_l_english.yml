@@ -6,7 +6,7 @@
  ac_seal_pick_skill_tt:0 "Choose a skill"
  ac_seal_pick_spirit_tt:0 "Choose a spirit"
  ac_seal_roll_tt:0 "A Handseals roll: 2 dice plus 1 per Handseals rank; each 5-6 is a success, and sixes explode."
- ac_seal_successes_tt:0 "Successes: #V [ROOT.Char.MakeScope.Var('ac_seal_successes').GetValue|0]#!"
+ ac_seal_successes_tt:0 "Handseals successes: #V [GetPlayer.MakeScope.Var('ac_seal_successes').GetValue|0]#!"
  ac_seal_needs_weapon_tt:0 "Wielding a weapon"
  ac_seal_needs_blade_tt:0 "Wielding a bladed weapon"
  ac_seal_knows_or_prays_tt:0 "They know me (opinion 20+), or my Prayer Engine hears them"

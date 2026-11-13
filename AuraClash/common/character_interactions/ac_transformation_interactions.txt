@@ -67,3 +67,68 @@ ac_seek_tf_training_interaction = {
 	ai_potential = { has_trait = ac_cultivator ac_can_learn_any_transformation_trigger = yes }
 	ai_will_do = { base = 50 }
 }
+
+# Training alone: a scheme aimed at yourself, as CK3 starts its study schemes.
+ac_train_tf_alone_interaction = {
+	category = interaction_category_friendly
+	common_interaction = yes
+	icon = icon_combat
+	desc = ac_train_tf_alone_interaction_desc
+	send_name = START_SCHEME
+	auto_accept = yes
+	is_shown = { scope:recipient = scope:actor scope:actor = { has_trait = ac_cultivator age >= 16 } }
+	is_valid_showing_failures_only = {
+		scope:actor = { is_imprisoned = no NOT = { any_scheme = { type = ac_train_transformation } } }
+		custom_description = { text = ac_tf_requirements_tt scope:actor = { ac_can_learn_any_transformation_trigger = yes } }
+	}
+	send_options_exclusive = yes
+	send_option = {
+		flag = ac_tf_option_limitbreaker
+		localization = ac_tf_option_limitbreaker
+		is_shown = { scope:actor = { ac_can_learn_tf_limitbreaker_trigger = yes } }
+	}
+	send_option = {
+		flag = ac_tf_option_reaper
+		localization = ac_tf_option_reaper
+		is_shown = { scope:actor = { ac_can_learn_tf_reaper_trigger = yes } }
+	}
+	send_option = {
+		flag = ac_tf_option_godhand
+		localization = ac_tf_option_godhand
+		is_shown = { scope:actor = { ac_can_learn_tf_godhand_trigger = yes } }
+	}
+	send_option = {
+		flag = ac_tf_option_soul_domain
+		localization = ac_tf_option_soul_domain
+		is_shown = { scope:actor = { ac_can_learn_tf_soul_domain_trigger = yes } }
+	}
+	send_option = {
+		flag = ac_tf_option_malocchio
+		localization = ac_tf_option_malocchio
+		is_shown = { scope:actor = { ac_can_learn_tf_malocchio_trigger = yes } }
+	}
+	send_option = {
+		flag = ac_tf_option_titan
+		localization = ac_tf_option_titan
+		is_shown = { scope:actor = { ac_can_learn_tf_titan_trigger = yes } }
+	}
+	send_option = {
+		flag = ac_tf_option_asura
+		localization = ac_tf_option_asura
+		is_shown = { scope:actor = { ac_can_learn_tf_asura_trigger = yes } }
+	}
+	can_send = { custom_description = { text = ac_tf_pick_form_tt OR = { scope:ac_tf_option_limitbreaker ?= yes scope:ac_tf_option_reaper ?= yes scope:ac_tf_option_godhand ?= yes scope:ac_tf_option_soul_domain ?= yes scope:ac_tf_option_malocchio ?= yes scope:ac_tf_option_titan ?= yes scope:ac_tf_option_asura ?= yes } } }
+	on_accept = {
+		scope:actor = {
+			save_scope_as = ac_tf_master
+			if = { limit = { scope:ac_tf_option_limitbreaker ?= yes } ac_begin_tf_training_effect = { FORM = limitbreaker } }
+			else_if = { limit = { scope:ac_tf_option_reaper ?= yes } ac_begin_tf_training_effect = { FORM = reaper } }
+			else_if = { limit = { scope:ac_tf_option_godhand ?= yes } ac_begin_tf_training_effect = { FORM = godhand } }
+			else_if = { limit = { scope:ac_tf_option_soul_domain ?= yes } ac_begin_tf_training_effect = { FORM = soul_domain } }
+			else_if = { limit = { scope:ac_tf_option_malocchio ?= yes } ac_begin_tf_training_effect = { FORM = malocchio } }
+			else_if = { limit = { scope:ac_tf_option_titan ?= yes } ac_begin_tf_training_effect = { FORM = titan } }
+			else_if = { limit = { scope:ac_tf_option_asura ?= yes } ac_begin_tf_training_effect = { FORM = asura } }
+		}
+	}
+	ai_will_do = { base = 0 }
+}

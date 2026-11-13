@@ -167,7 +167,7 @@ These follow the IF's Transformations. Each wraps a stronger aura, built for bat
 
 - **In the Clash of Auras**, a fighter who knows a Transformation can transform once per duel for 1 Chi. It's a free action, like surging. Each Core point is +2 to that Core's rolls, Health is Vitality, and the aura boost (+500 AP, or 250 + AP/8 from 2,000 AP) counts toward Aura Pressure suppression. The AI transforms too.
 - **Requirements:** the Immortal Core, 1,500 Aura Pressure and the form's Style. Limitbreaker instead needs every Combat Core at rating 3 or more. Titan and Asura exclude each other.
-- **Training** is a personal scheme, like CK3's study schemes: **Train a Transformation Alone** (decision), or **Seek Transformation Training** (interaction) under a master who knows the form (+25% success). Its success chance grows with Martial, Style perks and Aura Pressure, and with Touched by a Heavenly Gate. A failed phase costs stress or a wound.
+- **Training** is a personal scheme, like CK3's study and Learn Language schemes: **Train a Transformation** (an interaction on yourself), or **Seek Transformation Training** (an interaction on a master who knows the form, +25% success). Its success chance grows with Martial, Style perks and Aura Pressure, and with Touched by a Heavenly Gate. A failed phase costs stress or a wound.
 - **A Heavenly Gate** is the MC's way: draw a whole Gate into your aura to awaken a form at once (see below).
 - The traits use their Style's icon for now.
 

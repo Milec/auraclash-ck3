@@ -294,7 +294,8 @@ def interaction(key, s):
             '\t\tscope:actor = {',
             '\t\t\tsend_interface_toast = {', '\t\t\t\ttype = event_toast_effect_neutral', f'\t\t\t\ttitle = ac_seal_{key}_toast',
             '\t\t\t\tleft_icon = scope:actor', '\t\t\t\tright_icon = scope:recipient', '\t\t\t\tcustom_tooltip = ac_seal_successes_tt', '\t\t\t}',
-            '\t\t\tremove_variable = ac_seal_successes',
+            # Kept for a day so the toast can show the roll.
+            '\t\t\tset_variable = { name = ac_seal_successes value = scope:ac_seal_successes days = 1 }',
             '\t\t}',
             '\t}']
     if s.get('ai'):
@@ -446,7 +447,7 @@ def localization():
            ' ac_seal_pick_skill_tt:0 "Choose a skill"',
            ' ac_seal_pick_spirit_tt:0 "Choose a spirit"',
            ' ac_seal_roll_tt:0 "A Handseals roll: 2 dice plus 1 per Handseals rank; each 5-6 is a success, and sixes explode."',
-           " ac_seal_successes_tt:0 \"Successes: #V [ROOT.Char.MakeScope.Var('ac_seal_successes').GetValue|0]#!\"",
+           " ac_seal_successes_tt:0 \"Handseals successes: #V [GetPlayer.MakeScope.Var('ac_seal_successes').GetValue|0]#!\"",
            ' ac_seal_needs_weapon_tt:0 "Wielding a weapon"',
            ' ac_seal_needs_blade_tt:0 "Wielding a bladed weapon"',
            ' ac_seal_knows_or_prays_tt:0 "They know me (opinion 20+), or my Prayer Engine hears them"',
