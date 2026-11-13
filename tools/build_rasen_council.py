@@ -7,7 +7,12 @@ Exalted Council that rules from the capital". Chapter 9 adds:
 - one Exalt will counter another's interference through a proxy (the Bladed Exalt
   against the Wild Exalt).
 
-Every three years each Exalt (holder of an Inner Kingdom) votes for a decree. AI
+Exalts hold no land. Each is chosen from their Inner Kingdom for a hundred-year term
+(or until death): the strongest unlanded cultivator living there takes the seat,
+moves to the High Steward's court and founds a Celestial noble family with an
+estate on Azuma Honsha. The seat is the global variable rasen_exalt_<land>.
+
+Every three years each Exalt votes for a decree. AI
 Exalts back their own land's decree, lean towards Exalts they like and never back
 a rival. Players vote, and may lobby with prestige for a second vote. The decree is
 drawn in proportion to the votes. Exalts outvoted on their own decree resent the
@@ -59,25 +64,44 @@ SESSION_YEARS = 3
 LOBBY_PRESTIGE = 150
 
 
+EXALT_TERM_YEARS = 100
+
+
 def holder(land):
-    return f'title:k_{land}.holder'
+    return f'global_var:rasen_exalt_{land}'
+
+
+def filled(land):
+    """Trigger: the land's seat has a living Exalt."""
+    return f'rasen_seat_filled_trigger = {{ LAND = {land} }}'
+
+
+def at_seat(land, effect):
+    """Run an effect on the land's Exalt, if the seat is filled."""
+    return f'if = {{ limit = {{ {filled(land)} }} {holder(land)} = {{ {effect} }} }}'
 
 
 def on_actions():
     return '\n'.join([
         '# The Exalted Council of Imperial Rasen. Lists append to vanilla and base-mod hooks.',
         'yearly_global_pulse = { on_actions = { rasen_council_yearly } }',
-        'rasen_council_yearly = { effect = { rasen_council_yearly_effect = yes } }',
+        'rasen_council_yearly = { effect = { rasen_exalt_succession_effect = yes rasen_council_yearly_effect = yes } }',
     ])
 
 
 def triggers():
     return '\n'.join([
         '# Character scope: holds a seat on the Exalted Council.',
-        'rasen_is_exalt_trigger = {',
-        '\tOR = {',
-        *[f'\t\thas_title = title:k_{land}' for land in KEYS],
-        '\t}',
+        'rasen_is_exalt_trigger = { has_variable = rasen_exalt_seat }',
+        '# Character scope: holds the seat of the given land.',
+        'rasen_holds_seat_trigger = { has_variable = rasen_exalt_seat var:rasen_exalt_seat = flag:$LAND$ }',
+        '# Global scope: the land\'s seat has a living Exalt.',
+        'rasen_seat_filled_trigger = { has_global_variable = rasen_exalt_$LAND$ global_var:rasen_exalt_$LAND$ = { is_alive = yes } }',
+        '# Character scope: may be chosen as the land\'s Exalt. Exalts give up their lands, so only the unlanded are chosen.',
+        'rasen_exalt_candidate_trigger = {',
+        '\tis_alive = yes', '\tis_adult = yes', '\thas_trait = ac_cultivator', '\tis_ruler = no',
+        '\tNOT = { has_variable = rasen_exalt_seat }',
+        '\tlocation ?= { geographical_region = world_rasen_$LAND$ }',
         '}',
     ])
 
@@ -85,25 +109,25 @@ def triggers():
 def anchor(effect):
     """Run a delayed global event on the High Steward, or failing that any Exalt."""
     lines = [f'	if = {{ limit = {{ exists = title:k_azuma.holder }} title:k_azuma.holder = {{ {effect} }} }}']
-    lines += [f'	else_if = {{ limit = {{ exists = {holder(land)} }} {holder(land)} = {{ {effect} }} }}' for land in KEYS]
+    lines += [f'	else_if = {{ limit = {{ {filled(land)} }} {holder(land)} = {{ {effect} }} }}' for land in KEYS]
     return lines
 
 
 def ai_vote(land):
     """The AI Exalt of `land` votes: own decree first, then friends; never a rival."""
-    lines = [f'\t{holder(land)} ?= {{', '\t\tif = {', f'\t\t\tlimit = {{ is_ai = no }}',
+    lines = [f'\tif = {{ limit = {{ {filled(land)} }} {holder(land)} = {{', '\t\tif = {', f'\t\t\tlimit = {{ is_ai = no }}',
              '\t\t\ttrigger_event = rasen_council.0001', '\t\t}', '\t\telse = {', '\t\t\trandom_list = {',
              f'\t\t\t\t60 = {{ change_global_variable = {{ name = rasen_votes_{land} add = 1 }} }}']
     for other in KEYS:
         if other == land:
             continue
         lines += [f'\t\t\t\t6 = {{',
-                  f'\t\t\t\t\tmodifier = {{ factor = 3 exists = {holder(other)} opinion = {{ target = {holder(other)} value >= 25 }} }}',
-                  f'\t\t\t\t\tmodifier = {{ factor = 0 exists = {holder(other)} has_relation_rival = {holder(other)} }}',
-                  f'\t\t\t\t\tmodifier = {{ factor = 0 NOT = {{ exists = {holder(other)} }} }}',
+                  f'\t\t\t\t\tmodifier = {{ factor = 3 {filled(other)} opinion = {{ target = {holder(other)} value >= 25 }} }}',
+                  f'\t\t\t\t\tmodifier = {{ factor = 0 {filled(other)} has_relation_rival = {holder(other)} }}',
+                  f'\t\t\t\t\tmodifier = {{ factor = 0 NOT = {{ {filled(other)} }} }}',
                   f'\t\t\t\t\tchange_global_variable = {{ name = rasen_votes_{other} add = 1 }}',
                   '\t\t\t\t}']
-    return lines + ['\t\t\t}', '\t\t}', '\t}']
+    return lines + ['\t\t\t}', '\t\t}', '\t} }']
 
 
 def effects():
@@ -142,11 +166,11 @@ def effects():
     for i, (land, decree, *_rest) in enumerate(LANDS):
         kw = 'if' if i == 0 else 'else_if'
         out += [f'\t{kw} = {{', f'\t\tlimit = {{ global_var:rasen_decree = flag:{land} }}', f'\t\trasen_decree_{decree}_effect = yes',
-                f'\t\t{holder(land)} ?= {{ save_scope_as = rasen_council_winner }}', '\t}']
+                f'\t\t{at_seat(land, "save_scope_as = rasen_council_winner")}', '\t}']
     out += ['\t# The winning Exalt gains standing. Exalts outvoted on their own decree resent the winner.',
             '\tscope:rasen_council_winner ?= { add_prestige = 100 }']
     for land in KEYS:
-        out += ['\tif = {', f'\t\tlimit = {{ exists = scope:rasen_council_winner exists = {holder(land)} NOT = {{ global_var:rasen_decree = flag:{land} }}',
+        out += ['\tif = {', f'\t\tlimit = {{ exists = scope:rasen_council_winner {filled(land)} NOT = {{ global_var:rasen_decree = flag:{land} }}',
                 f'\t\t\tglobal_var:rasen_votes_{land} > 0 NOT = {{ {holder(land)} = scope:rasen_council_winner }} }}',
                 f'\t\t{holder(land)} = {{ add_opinion = {{ target = scope:rasen_council_winner modifier = rasen_council_outvoted_opinion }} }}', '\t}']
     out += ['\tevery_player = { trigger_event = rasen_council.0002 }', '}', '',
@@ -163,13 +187,51 @@ def effects():
             'rasen_decree_archives_effect = {', '\tset_global_variable = { name = rasen_archives_open value = yes years = 3 }', '}', '',
             'rasen_decree_levy_effect = {',
             '\tevery_county_in_region = { region = world_rasen_outer add_county_modifier = { modifier = rasen_imperial_levy_modifier years = 3 } }',
-            *[f'\t{holder(land)} ?= {{ add_gold = 150 }}' for land in KEYS], '}', '',
+            *[f'\t{at_seat(land, "add_gold = 150")}' for land in KEYS], '}', '',
             '# The Trials open on the next yearly pulse.',
             'rasen_decree_trials_effect = {',
             '\tif = {', '\t\tlimit = { OR = { NOT = { has_global_variable = ac_ascension_countdown } global_var:ac_ascension_countdown > 1 } }',
             '\t\tset_global_variable = { name = ac_ascension_countdown value = 1 }', '\t}', '}', '']
     out += patronage_effects()
+    out += succession_effects()
     return '\n'.join(out)
+
+
+def succession_effects():
+    out = ['# Character scope. Take the seat of $LAND$: give up any lands, move to the High Steward\'s court and',
+           '# found a Celestial noble family with an estate on Azuma Honsha.',
+           'rasen_seat_exalt_effect = {',
+           '\tsave_scope_as = rasen_new_exalt',
+           '\tif = {',
+           '\t\tlimit = { has_global_variable = rasen_exalt_$LAND$ global_var:rasen_exalt_$LAND$ = { is_alive = yes } }',
+           '\t\tglobal_var:rasen_exalt_$LAND$ = { remove_variable = rasen_exalt_seat remove_variable = rasen_exalt_since }',
+           '\t}',
+           '\tset_global_variable = { name = rasen_exalt_$LAND$ value = scope:rasen_new_exalt }',
+           '\tset_variable = { name = rasen_exalt_seat value = flag:$LAND$ }',
+           '\tset_variable = { name = rasen_exalt_since value = current_year }',
+           '\tif = {',
+           '\t\tlimit = { is_ruler = no exists = title:h_china.holder NOT = { liege_or_court_owner ?= title:h_china.holder } }',
+           '\t\ttitle:h_china.holder = { add_courtier = scope:rasen_new_exalt }',
+           '\t}',
+           '\tif = {',
+           '\t\tlimit = { is_ruler = no exists = title:h_china.holder }',
+           '\t\tcreate_noble_family_effect = { GOVERNMENT_GIVER = title:h_china.holder }',
+           '\t}',
+           '}',
+           '',
+           f'# Global scope, yearly, before the Council sits. A seat falls vacant when its Exalt dies or after {EXALT_TERM_YEARS} years;',
+           '# the strongest unlanded cultivator of that land takes it.',
+           'rasen_exalt_succession_effect = {']
+    for land in KEYS:
+        out += ['	if = {',
+                f'		limit = {{ OR = {{ NOT = {{ {filled(land)} }} {holder(land)} = {{ var:rasen_exalt_since <= {{ value = current_year subtract = {EXALT_TERM_YEARS} }} }} }} }}',
+                '		ordered_living_character = {',
+                f'			limit = {{ rasen_exalt_candidate_trigger = {{ LAND = {land} }} }}',
+                '			order_by = ac_aura_pressure_value',
+                f'			rasen_seat_exalt_effect = {{ LAND = {land} }}',
+                '		}',
+                '	}']
+    return out + ['}', '']
 
 
 def patronage_effects():
@@ -188,10 +250,10 @@ def patronage_effects():
            '\t\t\tlimit = { has_global_variable = ac_ascension_champion }',
            '\t\t\trandom_list = {']
     for land in KEYS:
-        out += [f'\t\t\t\t1 = {{', f'\t\t\t\t\tmodifier = {{ factor = 0 NOT = {{ exists = {holder(land)} }} }}',
-                f'\t\t\t\t\tmodifier = {{ factor = 0 exists = {holder(land)} {holder(land)} = {{ is_ai = no }} }}',
+        out += [f'\t\t\t\t1 = {{', f'\t\t\t\t\tmodifier = {{ factor = 0 NOT = {{ {filled(land)} }} }}',
+                f'\t\t\t\t\tmodifier = {{ factor = 0 {filled(land)} {holder(land)} = {{ is_ai = no }} }}',
                 f'\t\t\t\t\tset_global_variable = {{ name = rasen_trial_patron_land value = flag:{land} }}',
-                f'\t\t\t\t\t{holder(land)} ?= {{ save_scope_as = rasen_trial_patron }}', '\t\t\t\t}']
+                f'\t\t\t\t\t{at_seat(land, "save_scope_as = rasen_trial_patron")}', '\t\t\t\t}']
     out += ['\t\t\t}',
             '\t\t\tif = {',
             '\t\t\t\tlimit = { exists = scope:rasen_trial_patron }',
@@ -218,12 +280,12 @@ def patronage_effects():
             'rasen_pick_counter_patron_effect = {',
             '\trandom_list = {']
     for land in KEYS:
-        out += [f'\t\t1 = {{', f'\t\t\tmodifier = {{ factor = 0 NOT = {{ exists = {holder(land)} }} }}',
+        out += [f'\t\t1 = {{', f'\t\t\tmodifier = {{ factor = 0 NOT = {{ {filled(land)} }} }}',
                 f'\t\t\tmodifier = {{ factor = 0 global_var:rasen_trial_patron_land = flag:{land} }}',
-                f'\t\t\tmodifier = {{ factor = 0 exists = {holder(land)} {holder(land)} = root }}',
-                f'\t\t\tmodifier = {{ factor = 3 exists = {holder(land)} has_variable = ac_favor_{land} var:ac_favor_{land} > 0 }}',
+                f'\t\t\tmodifier = {{ factor = 0 {filled(land)} {holder(land)} = root }}',
+                f'\t\t\tmodifier = {{ factor = 3 {filled(land)} has_variable = ac_favor_{land} var:ac_favor_{land} > 0 }}',
                 f'\t\t\tset_variable = {{ name = rasen_counter_patron_land value = flag:{land} years = 1 }}',
-                f'\t\t\t{holder(land)} ?= {{ save_scope_as = rasen_counter_patron }}', '\t\t}']
+                f'\t\t\t{at_seat(land, "save_scope_as = rasen_counter_patron")}', '\t\t}']
     out += ['\t}', '}', '', '# Entrant scope: accept the counter-patron\'s offer.', 'rasen_accept_counter_patron_effect = {',
             '\tadd_gold = 100',
             '\tadd_opinion = { target = scope:rasen_counter_patron modifier = rasen_trial_patron_opinion }',
@@ -266,14 +328,14 @@ def events():
     for land, decree, *_ in LANDS:
         out += ['\toption = {', f'\t\tname = rasen_council.0001.{land}', f'\t\tcustom_tooltip = rasen_decree_{decree}_tt',
                 f'\t\tchange_global_variable = {{ name = rasen_votes_{land} add = 1 }}',
-                f'\t\tai_chance = {{ base = 10 modifier = {{ add = 50 has_title = title:k_{land} }} }}', '\t}']
+                f'\t\tai_chance = {{ base = 10 modifier = {{ add = 50 rasen_holds_seat_trigger = {{ LAND = {land} }} }} }}', '\t}']
     # Lobbying: two votes for one's own land's decree.
     out += ['\toption = {', '\t\tname = rasen_council.0001.lobby',
             f'\t\ttrigger = {{ prestige >= {LOBBY_PRESTIGE} }}',
             f'\t\tadd_prestige = -{LOBBY_PRESTIGE}']
     for i, land in enumerate(KEYS):
         kw = 'if' if i == 0 else 'else_if'
-        out += [f'\t\t{kw} = {{', f'\t\t\tlimit = {{ has_title = title:k_{land} }}',
+        out += [f'\t\t{kw} = {{', f'\t\t\tlimit = {{ rasen_holds_seat_trigger = {{ LAND = {land} }} }}',
                 f'\t\t\tcustom_tooltip = rasen_decree_{own[land]}_tt',
                 f'\t\t\tchange_global_variable = {{ name = rasen_votes_{land} add = 2 }}', '\t\t}']
     out += ['\t\tai_chance = { base = 0 }', '\t}', '}', '',

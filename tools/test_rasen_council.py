@@ -24,10 +24,15 @@ class CouncilTests(unittest.TestCase):
     def test_every_seat_votes_and_every_decree_is_enacted(self):
         effects = self.text['common/scripted_effects/rasen_council_effects.txt']
         for land, decree, *_ in council.LANDS:
-            self.assertIn(f'title:k_{land}.holder ?= {{', effects)
+            # Exalts hold no land: each seat is a global variable, refilled from the land when it falls vacant.
+            self.assertIn(f'global_var:rasen_exalt_{land} = {{', effects)
+            self.assertIn(f'rasen_exalt_candidate_trigger = {{ LAND = {land} }}', effects)
             self.assertIn(f'modifier = {{ add = global_var:rasen_votes_{land} }}', effects)
             self.assertIn(f'rasen_decree_{decree}_effect = {{', effects)
-        self.assertNotIn('$', effects)
+        self.assertNotIn('title:k_bladed', effects)
+        seat = effects[effects.index('rasen_seat_exalt_effect = {'):]
+        self.assertIn('create_noble_family_effect = { GOVERNMENT_GIVER = title:h_china.holder }', seat)
+        self.assertIn(f'subtract = {council.EXALT_TERM_YEARS}', effects)
 
     def test_effects_and_events_resolve(self):
         effects = self.text['common/scripted_effects/rasen_council_effects.txt']

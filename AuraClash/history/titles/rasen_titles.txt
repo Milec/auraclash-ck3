@@ -1,5 +1,5 @@
 ﻿h_china = {
-	2980.1.1 = { holder = rasen_203 government = celestial_government }
+	2980.1.1 = { holder = rasen_215 government = celestial_government }
 }
 
 d_cedarvale = {
@@ -911,737 +911,733 @@ c_kohama = {
 }
 
 k_sacred = {
-	2990.1.1 = { holder = rasen_169 government = feudal_government liege = h_china }
+	2990.1.1 = { holder = rasen_170 government = theocracy_government liege = h_china }
 }
 
 d_todera = {
-	2990.1.1 = { holder = rasen_169 }
-}
-
-c_todamine = {
-	2990.1.1 = { holder = rasen_169 }
-}
-
-d_chiriyama = {
-	2990.1.1 = { holder = rasen_170 liege = k_sacred }
-}
-
-c_chiyama = {
 	2990.1.1 = { holder = rasen_170 }
 }
 
+c_todamine = {
+	2990.1.1 = { holder = rasen_170 }
+}
+
+d_chiriyama = {
+	2990.1.1 = { holder = rasen_171 government = theocracy_government liege = k_sacred }
+}
+
+c_chiyama = {
+	2990.1.1 = { holder = rasen_171 }
+}
+
 d_rokaji = {
-	2990.1.1 = { holder = rasen_171 liege = k_sacred }
+	2990.1.1 = { holder = rasen_172 government = theocracy_government liege = k_sacred }
 }
 
 c_zemiya = {
-	2990.1.1 = { holder = rasen_171 }
+	2990.1.1 = { holder = rasen_172 }
 }
 
 c_kigasan = {
-	2990.1.1 = { holder = rasen_171 }
+	2990.1.1 = { holder = rasen_172 }
 }
 
 c_royodera = {
-	2990.1.1 = { holder = rasen_171 }
+	2990.1.1 = { holder = rasen_172 }
 }
 
 c_watake = {
-	2990.1.1 = { holder = rasen_171 }
+	2990.1.1 = { holder = rasen_172 }
 }
 
 c_tarasan = {
-	2990.1.1 = { holder = rasen_171 }
+	2990.1.1 = { holder = rasen_172 }
 }
 
 c_ratasan = {
-	2990.1.1 = { holder = rasen_171 }
+	2990.1.1 = { holder = rasen_172 }
 }
 
 d_gazeji = {
-	2990.1.1 = { holder = rasen_172 liege = k_sacred }
+	2990.1.1 = { holder = rasen_173 government = theocracy_government liege = k_sacred }
 }
 
 c_hogosawa = {
-	2990.1.1 = { holder = rasen_172 }
+	2990.1.1 = { holder = rasen_173 }
 }
 
 c_rotake = {
-	2990.1.1 = { holder = rasen_172 }
+	2990.1.1 = { holder = rasen_173 }
 }
 
 c_nimodera = {
-	2990.1.1 = { holder = rasen_172 }
+	2990.1.1 = { holder = rasen_173 }
 }
 
 c_bemiya = {
-	2990.1.1 = { holder = rasen_172 }
+	2990.1.1 = { holder = rasen_173 }
 }
 
 c_romisan = {
-	2990.1.1 = { holder = rasen_172 }
+	2990.1.1 = { holder = rasen_173 }
 }
 
 c_mihamiya = {
-	2990.1.1 = { holder = rasen_172 }
+	2990.1.1 = { holder = rasen_173 }
 }
 
 c_hasasan = {
-	2990.1.1 = { holder = rasen_172 }
+	2990.1.1 = { holder = rasen_173 }
 }
 
 d_kuji = {
-	2990.1.1 = { holder = rasen_173 liege = k_sacred }
+	2990.1.1 = { holder = rasen_174 government = theocracy_government liege = k_sacred }
 }
 
 c_susawa = {
-	2990.1.1 = { holder = rasen_173 }
+	2990.1.1 = { holder = rasen_174 }
 }
 
 c_hiramine = {
-	2990.1.1 = { holder = rasen_173 }
+	2990.1.1 = { holder = rasen_174 }
 }
 
 c_nakatake = {
-	2990.1.1 = { holder = rasen_173 }
+	2990.1.1 = { holder = rasen_174 }
 }
 
 c_baji = {
-	2990.1.1 = { holder = rasen_173 }
+	2990.1.1 = { holder = rasen_174 }
 }
 
 c_soyutake = {
-	2990.1.1 = { holder = rasen_173 }
+	2990.1.1 = { holder = rasen_174 }
 }
 
 d_hitake = {
-	2990.1.1 = { holder = rasen_174 liege = k_sacred }
+	2990.1.1 = { holder = rasen_175 government = theocracy_government liege = k_sacred }
 }
 
 c_nijiyama = {
-	2990.1.1 = { holder = rasen_174 }
-}
-
-c_yosadera = {
-	2990.1.1 = { holder = rasen_174 }
-}
-
-c_tsukaji = {
-	2990.1.1 = { holder = rasen_174 }
-}
-
-c_hoshimiya = {
-	2990.1.1 = { holder = rasen_174 }
-}
-
-c_shidera = {
-	2990.1.1 = { holder = rasen_174 }
-}
-
-d_sochiyama = {
-	2990.1.1 = { holder = rasen_175 liege = k_sacred }
-}
-
-c_notake = {
 	2990.1.1 = { holder = rasen_175 }
 }
 
+c_yosadera = {
+	2990.1.1 = { holder = rasen_175 }
+}
+
+c_tsukaji = {
+	2990.1.1 = { holder = rasen_175 }
+}
+
+c_hoshimiya = {
+	2990.1.1 = { holder = rasen_175 }
+}
+
+c_shidera = {
+	2990.1.1 = { holder = rasen_175 }
+}
+
+d_sochiyama = {
+	2990.1.1 = { holder = rasen_176 government = theocracy_government liege = k_sacred }
+}
+
+c_notake = {
+	2990.1.1 = { holder = rasen_176 }
+}
+
 d_homidera = {
-	2990.1.1 = { holder = rasen_176 liege = k_sacred }
+	2990.1.1 = { holder = rasen_177 government = theocracy_government liege = k_sacred }
 }
 
 c_yumoyama = {
-	2990.1.1 = { holder = rasen_176 }
-}
-
-c_dashidera = {
-	2990.1.1 = { holder = rasen_176 }
-}
-
-c_hiyama = {
-	2990.1.1 = { holder = rasen_176 }
-}
-
-c_kamotake = {
-	2990.1.1 = { holder = rasen_176 }
-}
-
-c_rifudera = {
-	2990.1.1 = { holder = rasen_176 }
-}
-
-d_yanasan = {
-	2990.1.1 = { holder = rasen_177 liege = k_sacred }
-}
-
-c_rabadera = {
 	2990.1.1 = { holder = rasen_177 }
 }
 
+c_dashidera = {
+	2990.1.1 = { holder = rasen_177 }
+}
+
+c_hiyama = {
+	2990.1.1 = { holder = rasen_177 }
+}
+
+c_kamotake = {
+	2990.1.1 = { holder = rasen_177 }
+}
+
+c_rifudera = {
+	2990.1.1 = { holder = rasen_177 }
+}
+
+d_yanasan = {
+	2990.1.1 = { holder = rasen_178 government = theocracy_government liege = k_sacred }
+}
+
+c_rabadera = {
+	2990.1.1 = { holder = rasen_178 }
+}
+
 k_mystic = {
-	2990.1.1 = { holder = rasen_178 government = feudal_government liege = h_china }
+	2990.1.1 = { holder = rasen_180 government = administrative_government liege = h_china }
 }
 
 d_suyuan = {
-	2990.1.1 = { holder = rasen_178 }
+	2990.1.1 = { holder = rasen_180 }
 }
 
 c_luohe = {
-	2990.1.1 = { holder = rasen_178 }
+	2990.1.1 = { holder = rasen_180 }
 }
 
 c_hehe = {
-	2990.1.1 = { holder = rasen_178 }
+	2990.1.1 = { holder = rasen_180 }
 }
 
 c_baicheng = {
-	2990.1.1 = { holder = rasen_178 }
+	2990.1.1 = { holder = rasen_181 government = administrative_government liege = k_mystic }
 }
 
 c_zhenyuan = {
-	2990.1.1 = { holder = rasen_178 }
+	2990.1.1 = { holder = rasen_182 government = administrative_government liege = k_mystic }
 }
 
 c_ruitai = {
-	2990.1.1 = { holder = rasen_178 }
+	2990.1.1 = { holder = rasen_183 government = administrative_government liege = k_mystic }
 }
 
 c_xuancheng = {
-	2990.1.1 = { holder = rasen_178 }
+	2990.1.1 = { holder = rasen_184 government = administrative_government liege = k_mystic }
 }
 
 d_yaoyuan = {
-	2990.1.1 = { holder = rasen_179 liege = k_mystic }
+	2990.1.1 = { holder = rasen_185 government = administrative_government liege = k_mystic }
 }
 
 c_qinglou = {
-	2990.1.1 = { holder = rasen_179 }
+	2990.1.1 = { holder = rasen_185 }
 }
 
 c_jinzhou = {
-	2990.1.1 = { holder = rasen_179 }
+	2990.1.1 = { holder = rasen_185 }
 }
 
 c_guangyuan = {
-	2990.1.1 = { holder = rasen_179 }
+	2990.1.1 = { holder = rasen_185 }
 }
 
 c_luoshan = {
-	2990.1.1 = { holder = rasen_179 }
+	2990.1.1 = { holder = rasen_185 }
 }
 
 c_jinhe = {
-	2990.1.1 = { holder = rasen_179 }
+	2990.1.1 = { holder = rasen_185 }
 }
 
 d_lancheng = {
-	2990.1.1 = { holder = rasen_180 liege = k_mystic }
+	2990.1.1 = { holder = rasen_186 government = administrative_government liege = k_mystic }
 }
 
 c_houlou = {
-	2990.1.1 = { holder = rasen_180 }
+	2990.1.1 = { holder = rasen_186 }
 }
 
 c_wenhe = {
-	2990.1.1 = { holder = rasen_180 }
+	2990.1.1 = { holder = rasen_186 }
 }
 
 c_xihe = {
-	2990.1.1 = { holder = rasen_180 }
+	2990.1.1 = { holder = rasen_186 }
 }
 
 c_xuantai = {
-	2990.1.1 = { holder = rasen_180 }
+	2990.1.1 = { holder = rasen_186 }
 }
 
 c_hualou = {
-	2990.1.1 = { holder = rasen_180 }
+	2990.1.1 = { holder = rasen_186 }
 }
 
 d_yaohe = {
-	2990.1.1 = { holder = rasen_181 liege = k_mystic }
+	2990.1.1 = { holder = rasen_187 government = administrative_government liege = k_mystic }
 }
 
 c_houling = {
-	2990.1.1 = { holder = rasen_181 }
+	2990.1.1 = { holder = rasen_187 }
 }
 
 k_cursed = {
-	2990.1.1 = { holder = rasen_182 government = feudal_government liege = h_china }
+	2990.1.1 = { holder = rasen_189 government = clan_government liege = h_china }
 }
 
 d_semonuma = {
-	2990.1.1 = { holder = rasen_182 }
+	2990.1.1 = { holder = rasen_189 }
 }
 
 c_rahokubo = {
-	2990.1.1 = { holder = rasen_182 }
+	2990.1.1 = { holder = rasen_189 }
 }
 
 c_shinuma = {
-	2990.1.1 = { holder = rasen_182 }
+	2990.1.1 = { holder = rasen_189 }
 }
 
 c_dahozaka = {
-	2990.1.1 = { holder = rasen_182 }
+	2990.1.1 = { holder = rasen_190 government = clan_government liege = k_cursed }
 }
 
 c_hasamura = {
-	2990.1.1 = { holder = rasen_182 }
+	2990.1.1 = { holder = rasen_191 government = clan_government liege = k_cursed }
 }
 
 c_rananuma = {
-	2990.1.1 = { holder = rasen_182 }
+	2990.1.1 = { holder = rasen_192 government = clan_government liege = k_cursed }
 }
 
 d_zezaka = {
-	2990.1.1 = { holder = rasen_183 liege = k_cursed }
+	2990.1.1 = { holder = rasen_193 government = clan_government liege = k_cursed }
 }
 
 c_fukitani = {
-	2990.1.1 = { holder = rasen_183 }
+	2990.1.1 = { holder = rasen_193 }
 }
 
 c_hochizaka = {
-	2990.1.1 = { holder = rasen_183 }
+	2990.1.1 = { holder = rasen_193 }
 }
 
 c_taromura = {
-	2990.1.1 = { holder = rasen_183 }
+	2990.1.1 = { holder = rasen_193 }
 }
 
 c_gamimura = {
-	2990.1.1 = { holder = rasen_183 }
+	2990.1.1 = { holder = rasen_193 }
 }
 
 c_shisomori = {
-	2990.1.1 = { holder = rasen_183 }
+	2990.1.1 = { holder = rasen_193 }
 }
 
 d_gomura = {
-	2990.1.1 = { holder = rasen_184 liege = k_cursed }
+	2990.1.1 = { holder = rasen_194 government = clan_government liege = k_cursed }
 }
 
 c_jimori = {
-	2990.1.1 = { holder = rasen_184 }
-}
-
-c_behamura = {
-	2990.1.1 = { holder = rasen_184 }
-}
-
-c_benuma = {
-	2990.1.1 = { holder = rasen_184 }
-}
-
-c_tosozaka = {
-	2990.1.1 = { holder = rasen_184 }
-}
-
-c_togamori = {
-	2990.1.1 = { holder = rasen_184 }
-}
-
-c_bakazaka = {
-	2990.1.1 = { holder = rasen_184 }
-}
-
-d_gokubo = {
-	2990.1.1 = { holder = rasen_185 liege = k_cursed }
-}
-
-c_nihimura = {
-	2990.1.1 = { holder = rasen_185 }
-}
-
-c_dahazaka = {
-	2990.1.1 = { holder = rasen_185 }
-}
-
-c_mayami = {
-	2990.1.1 = { holder = rasen_185 }
-}
-
-c_koyukage = {
-	2990.1.1 = { holder = rasen_185 }
-}
-
-c_kokage = {
-	2990.1.1 = { holder = rasen_185 }
-}
-
-k_bladed = {
-	2990.1.1 = { holder = rasen_186 government = feudal_government liege = h_china }
-}
-
-d_narijo = {
-	2990.1.1 = { holder = rasen_186 }
-}
-
-c_gohara = {
-	2990.1.1 = { holder = rasen_186 }
-}
-
-d_sazaki = {
-	2990.1.1 = { holder = rasen_187 liege = k_bladed }
-}
-
-c_moyagawa = {
-	2990.1.1 = { holder = rasen_187 }
-}
-
-c_kojo = {
-	2990.1.1 = { holder = rasen_187 }
-}
-
-c_yazaki = {
-	2990.1.1 = { holder = rasen_187 }
-}
-
-c_kojidake = {
-	2990.1.1 = { holder = rasen_187 }
-}
-
-c_marayama = {
-	2990.1.1 = { holder = rasen_187 }
-}
-
-d_benikawa = {
-	2990.1.1 = { holder = rasen_188 liege = k_bladed }
-}
-
-c_kakojo = {
-	2990.1.1 = { holder = rasen_188 }
-}
-
-c_ninoyama = {
-	2990.1.1 = { holder = rasen_188 }
-}
-
-c_seyama = {
-	2990.1.1 = { holder = rasen_188 }
-}
-
-c_zemori = {
-	2990.1.1 = { holder = rasen_188 }
-}
-
-c_samomori = {
-	2990.1.1 = { holder = rasen_188 }
-}
-
-d_shigayama = {
-	2990.1.1 = { holder = rasen_189 liege = k_bladed }
-}
-
-c_yagadake = {
-	2990.1.1 = { holder = rasen_189 }
-}
-
-c_nibagawa = {
-	2990.1.1 = { holder = rasen_189 }
-}
-
-c_wachimori = {
-	2990.1.1 = { holder = rasen_189 }
-}
-
-c_yakodake = {
-	2990.1.1 = { holder = rasen_189 }
-}
-
-c_kisejo = {
-	2990.1.1 = { holder = rasen_189 }
-}
-
-c_chitakawa = {
-	2990.1.1 = { holder = rasen_189 }
-}
-
-k_wild = {
-	2990.1.1 = { holder = rasen_190 government = feudal_government liege = h_china }
-}
-
-d_rifuno = {
-	2990.1.1 = { holder = rasen_190 }
-}
-
-c_bloodrun = {
-	2990.1.1 = { holder = rasen_190 }
-}
-
-d_thorntangle = {
-	2990.1.1 = { holder = rasen_191 liege = h_china }
-}
-
-c_ironhide = {
-	2990.1.1 = { holder = rasen_191 }
-}
-
-d_wildarena = {
-	2990.1.1 = { holder = rasen_192 liege = h_china }
-}
-
-c_gabemori = {
-	2990.1.1 = { holder = rasen_192 }
-}
-
-c_wildhide = {
-	2990.1.1 = { holder = rasen_192 }
-}
-
-c_zekukiba = {
-	2990.1.1 = { holder = rasen_192 }
-}
-
-c_horimori = {
-	2990.1.1 = { holder = rasen_193 liege = h_china }
-}
-
-c_nogari = {
-	2990.1.1 = { holder = rasen_193 liege = h_china }
-}
-
-d_greenclaw = {
-	2990.1.1 = { holder = rasen_194 liege = h_china }
-}
-
-c_rahagari = {
 	2990.1.1 = { holder = rasen_194 }
 }
 
-d_elderroot = {
-	2990.1.1 = { holder = rasen_195 liege = h_china }
+c_behamura = {
+	2990.1.1 = { holder = rasen_194 }
 }
 
-c_greentangle = {
+c_benuma = {
+	2990.1.1 = { holder = rasen_194 }
+}
+
+c_tosozaka = {
+	2990.1.1 = { holder = rasen_194 }
+}
+
+c_togamori = {
+	2990.1.1 = { holder = rasen_194 }
+}
+
+c_bakazaka = {
+	2990.1.1 = { holder = rasen_194 }
+}
+
+d_gokubo = {
+	2990.1.1 = { holder = rasen_195 government = clan_government liege = k_cursed }
+}
+
+c_nihimura = {
 	2990.1.1 = { holder = rasen_195 }
 }
 
-d_benagari = {
-	2990.1.1 = { holder = rasen_196 liege = h_china }
+c_dahazaka = {
+	2990.1.1 = { holder = rasen_195 }
 }
 
-c_hayakiba = {
-	2990.1.1 = { holder = rasen_196 }
+c_mayami = {
+	2990.1.1 = { holder = rasen_195 }
 }
 
-c_nirakiba = {
-	2990.1.1 = { holder = rasen_196 }
+c_koyukage = {
+	2990.1.1 = { holder = rasen_195 }
 }
 
-c_greatthicket = {
-	2990.1.1 = { holder = rasen_196 }
+c_kokage = {
+	2990.1.1 = { holder = rasen_195 }
 }
 
-c_hirano = {
-	2990.1.1 = { holder = rasen_197 liege = h_china }
+k_bladed = {
+	2990.1.1 = { holder = rasen_197 government = japan_feudal_government liege = h_china }
 }
 
-c_yakiba = {
-	2990.1.1 = { holder = rasen_197 liege = h_china }
+d_narijo = {
+	2990.1.1 = { holder = rasen_197 }
 }
 
-d_badakiba = {
-	2990.1.1 = { holder = rasen_198 liege = h_china }
+c_gohara = {
+	2990.1.1 = { holder = rasen_197 }
 }
 
-c_howlroot = {
+d_sazaki = {
+	2990.1.1 = { holder = rasen_198 government = japan_feudal_government liege = k_bladed }
+}
+
+c_moyagawa = {
 	2990.1.1 = { holder = rasen_198 }
 }
 
-c_hitokiba = {
+c_kojo = {
 	2990.1.1 = { holder = rasen_198 }
 }
 
-c_nachimori = {
+c_yazaki = {
 	2990.1.1 = { holder = rasen_198 }
 }
 
-c_fangtangle = {
-	2990.1.1 = { holder = rasen_199 liege = h_china }
+c_kojidake = {
+	2990.1.1 = { holder = rasen_198 }
 }
 
-c_thornarena = {
-	2990.1.1 = { holder = rasen_199 liege = h_china }
+c_marayama = {
+	2990.1.1 = { holder = rasen_198 }
 }
 
-d_suyamori = {
-	2990.1.1 = { holder = rasen_200 liege = h_china }
+d_benikawa = {
+	2990.1.1 = { holder = rasen_199 government = japan_feudal_government liege = k_bladed }
 }
 
-c_wildtangle = {
+c_kakojo = {
+	2990.1.1 = { holder = rasen_199 }
+}
+
+c_ninoyama = {
+	2990.1.1 = { holder = rasen_199 }
+}
+
+c_seyama = {
+	2990.1.1 = { holder = rasen_199 }
+}
+
+c_zemori = {
+	2990.1.1 = { holder = rasen_199 }
+}
+
+c_samomori = {
+	2990.1.1 = { holder = rasen_199 }
+}
+
+d_shigayama = {
+	2990.1.1 = { holder = rasen_200 government = japan_feudal_government liege = k_bladed }
+}
+
+c_yagadake = {
 	2990.1.1 = { holder = rasen_200 }
 }
 
-c_nahigari = {
+c_nibagawa = {
 	2990.1.1 = { holder = rasen_200 }
 }
 
-c_beastpit = {
+c_wachimori = {
 	2990.1.1 = { holder = rasen_200 }
 }
 
-c_greatden = {
+c_yakodake = {
 	2990.1.1 = { holder = rasen_200 }
 }
 
-c_howlpit = {
+c_kisejo = {
 	2990.1.1 = { holder = rasen_200 }
 }
 
-d_elderden = {
-	2990.1.1 = { holder = rasen_201 liege = h_china }
+c_chitakawa = {
+	2990.1.1 = { holder = rasen_200 }
 }
 
-c_tuskpit = {
-	2990.1.1 = { holder = rasen_201 }
+d_rifuno = {
+	2990.1.1 = { holder = rasen_202 government = tribal_government liege = h_china }
 }
 
-c_rigari = {
-	2990.1.1 = { holder = rasen_201 }
-}
-
-c_jimigari = {
-	2990.1.1 = { holder = rasen_201 }
-}
-
-d_zeyomori = {
-	2990.1.1 = { holder = rasen_202 liege = h_china }
-}
-
-c_sobegari = {
+c_bloodrun = {
 	2990.1.1 = { holder = rasen_202 }
 }
 
-k_azuma = {
+d_thorntangle = {
+	2990.1.1 = { holder = rasen_203 government = tribal_government liege = h_china }
+}
+
+c_ironhide = {
 	2990.1.1 = { holder = rasen_203 }
+}
+
+d_wildarena = {
+	2990.1.1 = { holder = rasen_204 government = tribal_government liege = h_china }
+}
+
+c_gabemori = {
+	2990.1.1 = { holder = rasen_204 }
+}
+
+c_wildhide = {
+	2990.1.1 = { holder = rasen_204 }
+}
+
+c_zekukiba = {
+	2990.1.1 = { holder = rasen_204 }
+}
+
+c_horimori = {
+	2990.1.1 = { holder = rasen_205 government = tribal_government liege = h_china }
+}
+
+c_nogari = {
+	2990.1.1 = { holder = rasen_205 government = tribal_government liege = h_china }
+}
+
+d_greenclaw = {
+	2990.1.1 = { holder = rasen_206 government = tribal_government liege = h_china }
+}
+
+c_rahagari = {
+	2990.1.1 = { holder = rasen_206 }
+}
+
+d_elderroot = {
+	2990.1.1 = { holder = rasen_207 government = tribal_government liege = h_china }
+}
+
+c_greentangle = {
+	2990.1.1 = { holder = rasen_207 }
+}
+
+d_benagari = {
+	2990.1.1 = { holder = rasen_208 government = tribal_government liege = h_china }
+}
+
+c_hayakiba = {
+	2990.1.1 = { holder = rasen_208 }
+}
+
+c_nirakiba = {
+	2990.1.1 = { holder = rasen_208 }
+}
+
+c_greatthicket = {
+	2990.1.1 = { holder = rasen_208 }
+}
+
+c_hirano = {
+	2990.1.1 = { holder = rasen_209 government = tribal_government liege = h_china }
+}
+
+c_yakiba = {
+	2990.1.1 = { holder = rasen_209 government = tribal_government liege = h_china }
+}
+
+d_badakiba = {
+	2990.1.1 = { holder = rasen_210 government = tribal_government liege = h_china }
+}
+
+c_howlroot = {
+	2990.1.1 = { holder = rasen_210 }
+}
+
+c_hitokiba = {
+	2990.1.1 = { holder = rasen_210 }
+}
+
+c_nachimori = {
+	2990.1.1 = { holder = rasen_210 }
+}
+
+c_fangtangle = {
+	2990.1.1 = { holder = rasen_211 government = tribal_government liege = h_china }
+}
+
+c_thornarena = {
+	2990.1.1 = { holder = rasen_211 government = tribal_government liege = h_china }
+}
+
+d_suyamori = {
+	2990.1.1 = { holder = rasen_212 government = tribal_government liege = h_china }
+}
+
+c_wildtangle = {
+	2990.1.1 = { holder = rasen_212 }
+}
+
+c_nahigari = {
+	2990.1.1 = { holder = rasen_212 }
+}
+
+c_beastpit = {
+	2990.1.1 = { holder = rasen_212 }
+}
+
+c_greatden = {
+	2990.1.1 = { holder = rasen_212 }
+}
+
+c_howlpit = {
+	2990.1.1 = { holder = rasen_212 }
+}
+
+d_elderden = {
+	2990.1.1 = { holder = rasen_213 government = tribal_government liege = h_china }
+}
+
+c_tuskpit = {
+	2990.1.1 = { holder = rasen_213 }
+}
+
+c_rigari = {
+	2990.1.1 = { holder = rasen_213 }
+}
+
+c_jimigari = {
+	2990.1.1 = { holder = rasen_213 }
+}
+
+d_zeyomori = {
+	2990.1.1 = { holder = rasen_214 government = tribal_government liege = h_china }
+}
+
+c_sobegari = {
+	2990.1.1 = { holder = rasen_214 }
+}
+
+k_azuma = {
+	2990.1.1 = { holder = rasen_215 }
 }
 
 d_ramon = {
-	2990.1.1 = { holder = rasen_203 }
+	2990.1.1 = { holder = rasen_215 }
 }
 
 c_azuma = {
-	2990.1.1 = { holder = rasen_203 }
+	2990.1.1 = { holder = rasen_215 }
 }
 
 c_kicho = {
-	2990.1.1 = { holder = rasen_203 }
+	2990.1.1 = { holder = rasen_215 }
 }
 
 c_monoura = {
-	2990.1.1 = { holder = rasen_203 }
+	2990.1.1 = { holder = rasen_215 }
 }
 
 c_sofumachi = {
-	2990.1.1 = { holder = rasen_203 }
+	2990.1.1 = { holder = rasen_215 }
 }
 
 c_goden = {
-	2990.1.1 = { holder = rasen_203 }
+	2990.1.1 = { holder = rasen_215 }
 }
 
 d_yabashi = {
-	2990.1.1 = { holder = rasen_204 liege = k_azuma }
+	2990.1.1 = { holder = rasen_216 liege = k_azuma }
 }
 
 c_bebashi = {
-	2990.1.1 = { holder = rasen_204 }
+	2990.1.1 = { holder = rasen_216 }
 }
 
 c_takobashi = {
-	2990.1.1 = { holder = rasen_204 }
+	2990.1.1 = { holder = rasen_216 }
 }
 
 c_kuura = {
-	2990.1.1 = { holder = rasen_204 }
+	2990.1.1 = { holder = rasen_216 }
 }
 
 c_moniura = {
-	2990.1.1 = { holder = rasen_204 }
+	2990.1.1 = { holder = rasen_216 }
 }
 
 c_totobashi = {
-	2990.1.1 = { holder = rasen_204 }
+	2990.1.1 = { holder = rasen_216 }
 }
 
 d_betomon = {
-	2990.1.1 = { holder = rasen_205 liege = k_azuma }
+	2990.1.1 = { holder = rasen_217 liege = k_azuma }
 }
 
 c_basomachi = {
-	2990.1.1 = { holder = rasen_205 }
+	2990.1.1 = { holder = rasen_217 }
 }
 
 c_hanoden = {
-	2990.1.1 = { holder = rasen_205 }
+	2990.1.1 = { holder = rasen_217 }
 }
 
 c_maura = {
-	2990.1.1 = { holder = rasen_205 }
+	2990.1.1 = { holder = rasen_217 }
 }
 
 c_jiyuza = {
-	2990.1.1 = { holder = rasen_205 }
+	2990.1.1 = { holder = rasen_217 }
 }
 
 c_nabashi = {
-	2990.1.1 = { holder = rasen_205 }
+	2990.1.1 = { holder = rasen_217 }
 }
 
 d_shihibashi = {
-	2990.1.1 = { holder = rasen_206 liege = k_azuma }
+	2990.1.1 = { holder = rasen_218 liege = k_azuma }
 }
 
 c_nomobashi = {
-	2990.1.1 = { holder = rasen_206 }
+	2990.1.1 = { holder = rasen_218 }
 }
 
 c_sokyo = {
-	2990.1.1 = { holder = rasen_206 }
+	2990.1.1 = { holder = rasen_218 }
 }
 
 c_rotoura = {
-	2990.1.1 = { holder = rasen_206 }
+	2990.1.1 = { holder = rasen_218 }
 }
 
 c_sadakyo = {
-	2990.1.1 = { holder = rasen_206 }
+	2990.1.1 = { holder = rasen_218 }
 }
 
 c_soyucho = {
-	2990.1.1 = { holder = rasen_206 }
+	2990.1.1 = { holder = rasen_218 }
 }
 
 d_kidaura = {
-	2990.1.1 = { holder = rasen_207 liege = k_azuma }
+	2990.1.1 = { holder = rasen_219 liege = k_azuma }
 }
 
 c_yaden = {
-	2990.1.1 = { holder = rasen_207 }
+	2990.1.1 = { holder = rasen_219 }
 }
 
 c_hiura = {
-	2990.1.1 = { holder = rasen_207 }
+	2990.1.1 = { holder = rasen_219 }
 }
 
 c_yumon = {
-	2990.1.1 = { holder = rasen_207 }
+	2990.1.1 = { holder = rasen_219 }
 }
 
 c_tomachi = {
-	2990.1.1 = { holder = rasen_207 }
+	2990.1.1 = { holder = rasen_219 }
 }
 
 c_miyucho = {
-	2990.1.1 = { holder = rasen_207 }
+	2990.1.1 = { holder = rasen_219 }
 }
 
 d_dazemon = {
-	2990.1.1 = { holder = rasen_208 liege = k_azuma }
+	2990.1.1 = { holder = rasen_220 liege = k_azuma }
 }
 
 c_hibashi = {
-	2990.1.1 = { holder = rasen_208 }
+	2990.1.1 = { holder = rasen_220 }
 }

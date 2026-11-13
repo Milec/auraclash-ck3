@@ -14,58 +14,58 @@ rasen_council.0001 = {
 		name = rasen_council.0001.bladed
 		custom_tooltip = rasen_decree_archons_tt
 		change_global_variable = { name = rasen_votes_bladed add = 1 }
-		ai_chance = { base = 10 modifier = { add = 50 has_title = title:k_bladed } }
+		ai_chance = { base = 10 modifier = { add = 50 rasen_holds_seat_trigger = { LAND = bladed } } }
 	}
 	option = {
 		name = rasen_council.0001.sacred
 		custom_tooltip = rasen_decree_fiends_tt
 		change_global_variable = { name = rasen_votes_sacred add = 1 }
-		ai_chance = { base = 10 modifier = { add = 50 has_title = title:k_sacred } }
+		ai_chance = { base = 10 modifier = { add = 50 rasen_holds_seat_trigger = { LAND = sacred } } }
 	}
 	option = {
 		name = rasen_council.0001.mystic
 		custom_tooltip = rasen_decree_archives_tt
 		change_global_variable = { name = rasen_votes_mystic add = 1 }
-		ai_chance = { base = 10 modifier = { add = 50 has_title = title:k_mystic } }
+		ai_chance = { base = 10 modifier = { add = 50 rasen_holds_seat_trigger = { LAND = mystic } } }
 	}
 	option = {
 		name = rasen_council.0001.cursed
 		custom_tooltip = rasen_decree_levy_tt
 		change_global_variable = { name = rasen_votes_cursed add = 1 }
-		ai_chance = { base = 10 modifier = { add = 50 has_title = title:k_cursed } }
+		ai_chance = { base = 10 modifier = { add = 50 rasen_holds_seat_trigger = { LAND = cursed } } }
 	}
 	option = {
 		name = rasen_council.0001.wild
 		custom_tooltip = rasen_decree_trials_tt
 		change_global_variable = { name = rasen_votes_wild add = 1 }
-		ai_chance = { base = 10 modifier = { add = 50 has_title = title:k_wild } }
+		ai_chance = { base = 10 modifier = { add = 50 rasen_holds_seat_trigger = { LAND = wild } } }
 	}
 	option = {
 		name = rasen_council.0001.lobby
 		trigger = { prestige >= 150 }
 		add_prestige = -150
 		if = {
-			limit = { has_title = title:k_bladed }
+			limit = { rasen_holds_seat_trigger = { LAND = bladed } }
 			custom_tooltip = rasen_decree_archons_tt
 			change_global_variable = { name = rasen_votes_bladed add = 2 }
 		}
 		else_if = {
-			limit = { has_title = title:k_sacred }
+			limit = { rasen_holds_seat_trigger = { LAND = sacred } }
 			custom_tooltip = rasen_decree_fiends_tt
 			change_global_variable = { name = rasen_votes_sacred add = 2 }
 		}
 		else_if = {
-			limit = { has_title = title:k_mystic }
+			limit = { rasen_holds_seat_trigger = { LAND = mystic } }
 			custom_tooltip = rasen_decree_archives_tt
 			change_global_variable = { name = rasen_votes_mystic add = 2 }
 		}
 		else_if = {
-			limit = { has_title = title:k_cursed }
+			limit = { rasen_holds_seat_trigger = { LAND = cursed } }
 			custom_tooltip = rasen_decree_levy_tt
 			change_global_variable = { name = rasen_votes_cursed add = 2 }
 		}
 		else_if = {
-			limit = { has_title = title:k_wild }
+			limit = { rasen_holds_seat_trigger = { LAND = wild } }
 			custom_tooltip = rasen_decree_trials_tt
 			change_global_variable = { name = rasen_votes_wild add = 2 }
 		}

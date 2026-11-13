@@ -75,7 +75,7 @@ The overhaul and the cultivation mechanics are one mod, in `AuraClash/`: a total
 4. **History and bookmark (first pass, generated).**
    - Start date 3000.3.1, "The Heavenly Ascension Trials".
    - 92 rulers in 29 dynasties.
-   - The five Exalts hold the Inner Kingdoms as grandmaster cultivators with Immortal Cores: Bladed Exalt Ryuuzan Masaru (canon); the Wild, Cursed (Ozaki), Mystic and Sacred Exalts (generated names).
+   - The five Exalts are landless grandmaster cultivators with Immortal Cores at the High Steward's court: Bladed Exalt Ryuuzan Masaru (canon); the Wild, Cursed (Ozaki), Mystic and Sacred Exalts (generated names). The Inner Kingdoms have their own rulers (see Governments).
    - A High Steward of the Exalted Council holds Azuma Honsha. The Outer lands are independent duchies; Magistrates Khan (Thunderfall) and Fuyu (Nanhou) are canon.
    - Province culture, faith and holdings.
    - Every ruler has a spouse and one to three children (matrilineal for female rulers), 360 characters in all. Each culture starts in the Early Medieval era with first-tier innovations.
@@ -131,9 +131,10 @@ The overhaul and the cultivation mechanics are one mod, in `AuraClash/`: a total
 
 ### Government
 All of Rasen is one hegemony, **Imperial Rasen**, held for the Exalted Council by the High Steward at Azuma Honsha: the IF has had no Emperor for centuries. Its title key is the game's own `h_china` (named Imperial Rasen), so All Under Heaven's Celestial bureaucracy applies unchanged: `celestial_government` on Azuma Honsha and in the Outer Provinces, the nine ministries (`e_minister_*`, defined inside it), imperial examinations, ministry projects and the dynastic cycle with its movements, which `history/struggles/rasen_dynastic_cycle_history.txt` starts. A 120-year observer run kept the hegemony intact and the cycle running every year.
-- The five **Exalts** rule their Inner Kingdoms as hereditary (feudal) kings under the hegemony.
+- The five **Exalts** hold no land. Each is chosen from their Inner Kingdom to sit on the Council for a hundred years or until death: the strongest unlanded cultivator living in that land takes the seat, moves to the High Steward's court and founds a Celestial noble family with an estate on Azuma Honsha (`rasen_seat_exalt_effect`, seats in `global_var:rasen_exalt_<land>`). The bookmark's five Exalts take their seats when the game starts.
+- Each Inner Kingdom has its own ruler and government under the hegemony: the **Shogun** of the Bladed Lands (Soryo, `japan_feudal_government`; the Bladed Exalt Masaru is a different person), the **Grand Archivist** of the Mystic Lands (administrative), the Kurogane **Clan Lord** of the Cursed Lands (clan) and the **High Saint** of the Sacred Lands (a playable landed theocracy; the Devanic Temple has temporal clergy, and Sacred counties are built around their temples). They are the bookmark's playable characters, with the High Steward and the strongest Wild Mao.
 - The Outer Lands have no kings. The Council appoints a **Magistrate** to each duchy and to each county in it, as in the IF, where Magistrates govern towns. Canonical Magistrates (Khan of Thunderfall, Fuyu of Nanhou) keep their seats.
-- The **Wild Lands** are not unified: thirteen **Maos** each run a faction. The strongest holds the Wild seat on the Council as Wild Exalt with only his own duchy; nine hold the other duchies and three have carved counties out of the largest ones. All answer only to the hegemony.
+- The **Wild Lands** are not unified and have no ruler: thirteen tribal **Maos** each run a faction from tribal halls, ten holding the duchies and three holding counties carved out of the largest ones. All answer only to the hegemony. The strongest, Gorou of the Akagi, is playable.
 - The **Divine General** of the north answers to no one and stays independent.
 - Rulers are titled Exalt, High Steward and Magistrate (`common/flavorization/rasen_title_holders.txt`).
 

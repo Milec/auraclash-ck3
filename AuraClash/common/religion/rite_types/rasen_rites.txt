@@ -38,6 +38,7 @@ devanic_temple = {
 	}
 	doctrines = {
 		doctrine_monasticism_encouraged
+		doctrine_theocracy_temporal
 	}
 }
 

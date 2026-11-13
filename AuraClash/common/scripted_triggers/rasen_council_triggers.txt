@@ -1,10 +1,15 @@
 ﻿# Character scope: holds a seat on the Exalted Council.
-rasen_is_exalt_trigger = {
-	OR = {
-		has_title = title:k_bladed
-		has_title = title:k_sacred
-		has_title = title:k_mystic
-		has_title = title:k_cursed
-		has_title = title:k_wild
-	}
+rasen_is_exalt_trigger = { has_variable = rasen_exalt_seat }
+# Character scope: holds the seat of the given land.
+rasen_holds_seat_trigger = { has_variable = rasen_exalt_seat var:rasen_exalt_seat = flag:$LAND$ }
+# Global scope: the land's seat has a living Exalt.
+rasen_seat_filled_trigger = { has_global_variable = rasen_exalt_$LAND$ global_var:rasen_exalt_$LAND$ = { is_alive = yes } }
+# Character scope: may be chosen as the land's Exalt. Exalts give up their lands, so only the unlanded are chosen.
+rasen_exalt_candidate_trigger = {
+	is_alive = yes
+	is_adult = yes
+	has_trait = ac_cultivator
+	is_ruler = no
+	NOT = { has_variable = rasen_exalt_seat }
+	location ?= { geographical_region = world_rasen_$LAND$ }
 }

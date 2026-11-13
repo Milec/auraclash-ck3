@@ -83,10 +83,28 @@ class RasenWorldTests(unittest.TestCase):
         for culture in world.CULTURES:
             self.assertIn('join_era = culture_era_early_medieval', self.text[f'history/cultures/{culture}.txt'])
 
-    def test_exalts_rule_the_inner_kingdoms_at_the_bookmark(self):
+    def test_each_land_has_its_own_ruler_and_government_at_the_bookmark(self):
         bookmark = self.text['common/bookmarks/bookmarks/rasen_bookmarks.txt']
-        for region in ('bladed', 'sacred', 'mystic', 'cursed', 'wild'):
-            self.assertIn(f'title = k_{region}', bookmark)
+        titles = self.text['history/titles/rasen_titles.txt']
+        for region, ruler in world.KINGDOM_RULERS.items():
+            self.assertIn(f'title = k_{region}\n\t\tgovernment = {ruler["government"]}', bookmark)
+            self.assertRegex(titles, rf'(?m)^k_{region} = \{{\n\t\d+\.1\.1 = \{{ holder = rasen_\d+ government = {ruler["government"]} liege = h_china')
+        # The Wild Lands have no ruler: the bookmark features the strongest of the thirteen tribal Maos.
+        self.assertNotRegex(titles, r'(?m)^k_wild = ')
+        self.assertIn('government = tribal_government', bookmark)
+
+    def test_exalts_hold_no_land_and_sit_at_the_stewards_court(self):
+        seats = self.text['common/on_action/rasen_exalt_start_on_actions.txt']
+        titles = self.text['history/titles/rasen_titles.txt']
+        chars = self.text['history/characters/rasen_characters.txt']
+        steward = re.search(r'(?ms)^h_china = \{.*?holder = (rasen_\d+)', titles).group(1)
+        exalts = re.findall(r'character:(rasen_\d+) = \{ rasen_seat_exalt_effect = \{ LAND = (\w+)', seats)
+        self.assertEqual(sorted(land for _, land in exalts), sorted(r for r in world.EXALTS if r != world.STEWARD_REGION))
+        for cid, land in exalts:
+            self.assertNotIn(f'holder = {cid} ', titles)
+            self.assertRegex(chars, rf'(?ms)^{cid} = \{{\n\tname = "{world.EXALTS[land]["name"]}".*?employer = {steward}')
+
+    def test_start_date(self):
         self.assertIn('START_DATE = "3000.3.1"', self.text['common/defines/rasen_defines.txt'])
 
 

@@ -122,7 +122,8 @@ FAITHS = {
                            colour=(70, 130, 210), icon='custom_faith_4', holy_sites=['rasen_devanic_temple', 'rasen_sacred_sanctum', 'rasen_heavenly_storm_gate'],
                            # CK3 1.20 made monasticism a doctrine; tenet_monasticism no longer exists.
                            tenets=['tenet_inner_journey', 'tenet_unrelenting_faith', 'tenet_mendicant_preachers'],
-                           doctrines=['doctrine_monasticism_encouraged'],
+                           # Saints rule the Sacred Lands from their temples, so the clergy may hold land.
+                           doctrines=['doctrine_monasticism_encouraged', 'doctrine_theocracy_temporal'],
                            desc='Monks and shrinemaidens of the Devanic Temple have banished Fiends from the mortal world for all of written history. They value respectability, mercy to the innocent and retribution upon the wicked.'),
     'rasen_shugendo': dict(religion='rasen_devanic_religion', name='Shugendō', adjective='Shugendō', adherent='Yamabushi', adherents='Yamabushi',
                      colour=(150, 200, 230), icon='custom_faith_5', holy_sites=['rasen_devanic_temple', 'rasen_dead_mountain', 'rasen_ice_front'],
@@ -235,7 +236,7 @@ REGION_PEOPLES = {
     'azuma': dict(cultures={'zenshin': 9, 'cathayan': 1}, faiths={'ancestral_rites': 1}),
 }
 
-# The five Exalts of the Exalted Council, plus the Council's High Steward on Azuma Honsha.
+# The five Exalts of the Exalted Council, plus the Council's High Steward on Azuma Honsha. Exalts hold no land.
 EXALTS = {
     'bladed': dict(name='Masaru', house='Ryuuzan', culture='zenshin', faith='ancestral_rites', age=62, traits=('honest', 'just'),
                    desc='The Bladed Exalt. Father of twenty-three sons and one daughter, master of Akakiru and of a nation of samurai.'),
@@ -250,6 +251,31 @@ EXALTS = {
     'azuma': dict(name='Haruka', house='Amatsu', culture='zenshin', faith='ancestral_rites', age=60, female=True, traits=('calm', 'just'),
                   desc='High Steward of the Exalted Council (generated). Azuma Honsha has had no Emperor for centuries; the Steward keeps the capital for the Council.'),
 }
+
+# Who rules each Inner Kingdom. The Exalts are not rulers: each is chosen from their land to sit on the
+# Council at Azuma Honsha. Only the Bladed Lands are unified under one lord, the Shogun; the Wild Lands
+# have no ruler at all, only thirteen Maos.
+KINGDOM_RULERS = {
+    'bladed': dict(name='Kagemitsu', house='Tsurugi', culture='zenshin', faith='ancestral_rites', age=48, traits=('brave', 'just'),
+                   government='japan_feudal_government', rank='Shogun',
+                   desc='Shogun of the Bladed Lands (generated). The samurai of the five Bladed houses answer to the Shogun, not to their Exalt.'),
+    'mystic': dict(name='Zhiyuan', house='Bai', culture='cathayan', faith='celestial_order', age=57, traits=('diligent', 'calm'),
+                   government='administrative_government', rank='Grand Archivist',
+                   desc='Grand Archivist of the Mystic Lands (generated). Appointed governors run the white limestone cities in his name, and only he may open the Forbidden Library.'),
+    'cursed': dict(name='Shinobu', house='Kurogane', culture='oni', faith='veiled_ancestors', age=51, traits=('deceitful', 'ambitious'),
+                   government='clan_government', rank='Clan Lord',
+                   desc='Lord of the Kurogane, first among the Cursed clans (generated). The Shinobi Clans keep his peace from the shadows.'),
+    'sacred': dict(name='Seiren', house='Mizuhara', culture='cathayan', faith='devanic_temple', age=63, female=True, traits=('zealous', 'compassionate'),
+                   government='theocracy_government', rank='High Saint',
+                   desc='High Saint of the Devanic Temple (generated), who rules the Sacred Lands from its temples and may call a Crusade.'),
+}
+# The bookmark features the strongest of the thirteen Wild Maos, who holds the first Wild duchy.
+WILD_MAO = dict(name='Gorou', house='Akagi', culture='yokai', faith='wild_pacts', age=44, traits=('wrathful', 'brave'),
+                desc='The strongest of the thirteen Maos of the Wild Lands (generated). No one rules the Wild Lands: each Mao runs a faction, and each city is a fair target for the others.')
+# The governments of the lands no single ruler holds.
+REGION_GOVERNMENT = {'wild': 'tribal_government'}
+# A Soryo lord must be flagged to keep that government under a non-Japanese overlord.
+GOVERNMENT_EFFECTS = {'japan_feudal_government': ('add_character_flag = can_become_japanese_feudal',)}
 
 # Canonical Outer West magistrates hold the duchy containing their county.
 CANON_HOLDERS = {

@@ -27,21 +27,30 @@ def check(name, trigger):
 def event():
     body = ['\tdebug_log = "RASEN_QA START"\n']
     # The bookmark's world.
-    for land in ('bladed', 'sacred', 'mystic', 'cursed', 'wild', 'azuma'):
-        body.append(check(f'{land}_ruled', f'exists = title:k_{land}.holder'))
-    body.append(check('exalt_cultivator', 'title:k_bladed.holder = { has_trait = ac_cultivator has_trait = ac_immortal_core }'))
-    body.append(check('exalt_race', 'title:k_bladed.holder = { has_trait = ac_race_human }'))
-    body.append(check('exalt_faith', 'title:k_bladed.holder = { faith = faith:ancestral_rites }'))
-    body.append(check('exalt_culture', 'title:k_bladed.holder = { culture = culture:zenshin }'))
-    body.append(check('keiko', 'title:k_bladed.holder = { any_child = { has_trait = lifestyle_physician } }'))
+    # Each Inner Kingdom has its own ruler and government; the Wild Lands have none, only Maos.
+    for land, government in (('bladed', 'japan_feudal_government'), ('mystic', 'administrative_government'),
+                             ('cursed', 'clan_government'), ('sacred', 'theocracy_government')):
+        body.append(check(f'{land}_ruled', f'title:k_{land}.holder ?= {{ has_government = {government} liege = title:h_china.holder '
+                          'NOT = { has_variable = rasen_exalt_seat } }'))
+    body.append(check('azuma_ruled', 'exists = title:k_azuma.holder'))
+    body.append(check('wild_unruled', 'NOT = { exists = title:k_wild.holder }'))
+    # The Exalts hold no land: each sits at the High Steward's court as head of a Celestial noble family.
+    for land in ('bladed', 'sacred', 'mystic', 'cursed', 'wild'):
+        body.append(check(f'exalt_seated_{land}', f'rasen_seat_filled_trigger = {{ LAND = {land} }} global_var:rasen_exalt_{land} = {{ '
+                          f'rasen_holds_seat_trigger = {{ LAND = {land} }} NOT = {{ any_held_title = {{ tier >= tier_county is_noble_family_title = no }} }} '
+                          'any_held_title = { is_noble_family_title = yes } liege_or_court_owner = title:h_china.holder }'))
+    body.append(check('exalt_estate', 'global_var:rasen_exalt_bladed = { has_domicile = yes }'))
+    body.append(check('exalt_cultivator', 'global_var:rasen_exalt_bladed = { has_trait = ac_cultivator has_trait = ac_immortal_core }'))
+    body.append(check('exalt_race', 'global_var:rasen_exalt_bladed = { has_trait = ac_race_human }'))
+    body.append(check('exalt_faith', 'global_var:rasen_exalt_bladed = { faith = faith:ancestral_rites }'))
+    body.append(check('exalt_culture', 'global_var:rasen_exalt_bladed = { culture = culture:zenshin }'))
+    body.append(check('keiko', 'global_var:rasen_exalt_bladed = { any_child = { has_trait = lifestyle_physician } }'))
     body.append(check('divine_general', 'any_living_character = { has_trait = rasen_divine_general }'))
     body.append(check('akuma_seeded', 'any_in_global_list = { variable = rasen_akuma_members count >= 5 }'))
     body.append(check('capital_holding', 'title:c_azuma.title_province = { has_holding = yes }'))
-    # The realm: the High Steward holds the hegemony for the Council, the Exalts are its kings, and
-    # appointed Magistrates govern the Outer duchies and counties.
+    # The realm: the High Steward holds the hegemony for the Council, and appointed Magistrates govern
+    # the Outer duchies and counties.
     body.append(check('hegemony', 'title:h_china.holder = { this = title:k_azuma.holder has_government = celestial_government }'))
-    body.append(check('exalt_liege', 'title:k_bladed.holder = { liege = title:h_china.holder }'))
-    body.append(check('exalt_feudal', 'title:k_bladed.holder = { has_government = feudal_government }'))
     body.append(check('magistrate_liege', 'title:d_kohara.holder = { liege = title:h_china.holder }'))
     body.append(check('magistrate_merit', 'title:d_kohara.holder = { has_government = celestial_government }'))
     body.append(check('county_magistrates', 'title:k_outer_west = { any_de_jure_county = { count >= 20 holder = { '
@@ -55,10 +64,9 @@ def event():
     body.append(check('magistrate_estate','title:d_kohara.holder = { has_domicile = yes }'))
     body.append(check('county_magistrate_families', 'title:k_outer_west = { any_de_jure_county = { count >= 20 holder = { '
                       'highest_held_title_tier = tier_county any_held_title = { is_noble_family_title = yes } } } }'))
-    # The Wild Lands are thirteen Maos: the Wild Exalt and twelve who answer only to the hegemony.
-    body.append(check('wild_maos', 'title:h_china.holder = { any_vassal = { count = 12 '
-                      'capital_county.kingdom = title:k_wild NOT = { this = title:k_wild.holder } } }'))
-    body.append(check('wild_exalt_small', 'title:k_wild.holder = { any_vassal = { count = 0 highest_held_title_tier >= tier_duchy } }'))
+    # The Wild Lands are thirteen tribal Maos who answer only to the hegemony.
+    body.append(check('wild_maos', 'title:h_china.holder = { any_vassal = { count = 13 '
+                      'capital_county.kingdom = title:k_wild has_government = tribal_government } }'))
     body.append(check('divine_general_free', 'any_living_character = { has_trait = rasen_divine_general is_independent_ruler = yes }'))
     # The story's sects, each at its seat, with standing by region.
     def sect(county, condition):
@@ -75,7 +83,7 @@ def event():
                       'NOT = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 70 } } }')))
     body.append(check('sect_imperial_master', sect('c_azuma', 'story_owner = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 85 } }')))
     # Aura Pressure by rank and region, after the author's figures.
-    body.append(check('ap_exalt', 'title:k_bladed.holder = { var:ac_aura_pressure >= 15000 }'))
+    body.append(check('ap_exalt', 'global_var:rasen_exalt_bladed = { var:ac_aura_pressure >= 15000 }'))
     body.append(check('ap_outer_master', sect('c_thunderfall', 'story_owner = { var:ac_aura_pressure >= 3200 var:ac_aura_pressure <= 4000 }')))
     body.append(check('ap_inner_master', sect('c_gohara', 'story_owner = { var:ac_aura_pressure >= 6800 var:ac_aura_pressure <= 7200 }')))
     body.append(check('ap_outer_upper', sect('c_thunderfall', 'any_in_list = { variable = ac_members count >= 5 has_trait = ac_sect_upper_disciple '
@@ -112,9 +120,9 @@ def event():
     body.append('\trasen_council_session_effect = yes\n\trasen_council_enact_effect = yes\n')
     body.append(check('council_decree', 'has_global_variable = rasen_decree'))
     # The Clash of Auras between two AI Exalts (auto-resolved).
-    body.append('\ttitle:k_wild.holder = { save_scope_as = ac_duel_foe }\n'
-                '\ttitle:k_mystic.holder = { ac_duel_start_effect = { LETHAL = no } }\n')
-    body.append(check('duel_resolved', 'title:k_mystic.holder = { NOT = { has_variable = ac_duel_foe } }'))
+    body.append('\tglobal_var:rasen_exalt_wild = { save_scope_as = ac_duel_foe }\n'
+                '\tglobal_var:rasen_exalt_mystic = { ac_duel_start_effect = { LETHAL = no } }\n')
+    body.append(check('duel_resolved', 'global_var:rasen_exalt_mystic = { NOT = { has_variable = ac_duel_foe } }'))
     # The Akuma Lords recruit; an Ice Incursion begins.
     body.append('\trasen_shadows_yearly_effect = yes\n\trasen_begin_ice_incursion_effect = yes\n')
     body.append(check('ice_incursion', 'has_global_variable = rasen_ice_incursion_active'))
@@ -138,7 +146,7 @@ def main():
     overlay = OUT / 'qa-mod'
     files = {
         'common/on_action/rasen_qa.txt': ('on_game_start_after_lobby = { on_actions = { rasen_qa } }\n'
-                                          'rasen_qa = { effect = { title:k_bladed.holder = { trigger_event = rasen_qa.0001 } } }\n'
+                                          'rasen_qa = { effect = { title:k_bladed.holder = { trigger_event = { id = rasen_qa.0001 days = 1 } } } }\n'
                                           # The game starts paused and cannot be unpaused unattended (launch flags
                                           # and an interface widget calling the pause button's action were both
                                           # tried). Once a person unpauses it, each year leaves these marks.
@@ -153,7 +161,10 @@ def main():
                                           'if = { limit = { any_in_global_list = { variable = ac_sects '
                                           'OR = { has_variable_list = ac_allies has_variable_list = ac_rivals } } } '
                                           'debug_log = "RASEN_QA YEAR SECT_TIES" } '
-                                          'if = { limit = { title:k_bladed.holder = { is_alive = yes } } debug_log = "RASEN_QA YEAR EXALT_ALIVE" } '
+                                          'if = { limit = { rasen_seat_filled_trigger = { LAND = bladed } rasen_seat_filled_trigger = { LAND = sacred } '
+                                          'rasen_seat_filled_trigger = { LAND = mystic } rasen_seat_filled_trigger = { LAND = cursed } '
+                                          'rasen_seat_filled_trigger = { LAND = wild } } debug_log = "RASEN_QA YEAR EXALTS_SEATED" } '
+                                          'if = { limit = { title:k_bladed.holder ?= { has_government = japan_feudal_government } } debug_log = "RASEN_QA YEAR SHOGUN_RULES" } '
                                           'if = { limit = { exists = situation:dynastic_cycle } debug_log = "RASEN_QA YEAR CYCLE_RUNNING" } '
                                           'if = { limit = { title:h_china.holder ?= { any_sub_realm_county = { count >= 250 } } } debug_log = "RASEN_QA YEAR HEGEMONY_HELD" } '
                                           'if = { limit = { global_var:qa_heir_sect = { story_owner = { is_alive = yes has_trait = ac_sect_master '

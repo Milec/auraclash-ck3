@@ -51,13 +51,16 @@ class ShadowTests(unittest.TestCase):
 class CanonCastTests(unittest.TestCase):
     def test_keiko_is_the_bladed_exalts_daughter_at_his_court(self):
         chars = (world.OUT / 'history/characters/rasen_characters.txt').read_text(encoding='utf-8-sig')
+        seats = (world.OUT / 'common/on_action/rasen_exalt_start_on_actions.txt').read_text(encoding='utf-8-sig')
+        masaru = re.search(r'character:(rasen_\d+) = \{ rasen_seat_exalt_effect = \{ LAND = bladed', seats).group(1)
+        # Masaru and his household live at the High Steward's court on Azuma Honsha.
         titles = (world.OUT / 'history/titles/rasen_titles.txt').read_text(encoding='utf-8-sig')
-        masaru = re.search(r'(?ms)^k_bladed = \{.*?holder = (rasen_\d+)', titles).group(1)
+        steward = re.search(r'(?ms)^h_china = \{.*?holder = (rasen_\d+)', titles).group(1)
         self.assertRegex(chars, rf'(?m)^{masaru} = \{{\n\tname = "Masaru"')
         keiko = re.search(r'(?ms)^rasen_\d+ = \{\n\tname = "Keiko"(.*?)^\}', chars).group(1)
         self.assertIn(f'father = {masaru}', keiko)
         self.assertIn('mother = rasen_', keiko)
-        self.assertIn(f'employer = {masaru}', keiko)
+        self.assertIn(f'employer = {steward}', keiko)
         self.assertIn('dynasty = dynasty_rasen_ryuuzan', keiko)
 
     def test_the_cult_is_seeded(self):
