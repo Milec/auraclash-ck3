@@ -2,6 +2,8 @@
  ac_challenge_duel_interaction:0 "Challenge to a Clash"
  ac_challenge_duel_interaction_desc:0 "Challenge [recipient.GetShortUIName] to a Clash of Auras, a duel fought round by round through the Cores."
  ac_duel_lethal_option:0 "To the death"
+ ac_duel_ward_broken_tt:0 "My aura overpowers the Ward around them, and it breaks."
+ ac_duel_ward_held_tt:0 "The Ward around them holds: no Clash today."
  ac_duel_ai_stronger_reason:0 "Confident in their strength"
  ac_duel_ai_brave_reason:0 "Brave"
  ac_duel_ai_craven_reason:0 "Craven"

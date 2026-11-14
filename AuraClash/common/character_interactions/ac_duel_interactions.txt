@@ -32,8 +32,21 @@ ac_challenge_duel_interaction = {
 
 	on_accept = {
 		scope:recipient = { save_scope_as = ac_duel_foe }
+		# A Ward (Seal): the challenger must first win a Power contest against it, or the Clash cannot begin.
+		if = {
+			limit = { scope:recipient = { has_character_modifier = ac_seal_warded_modifier } }
+			scope:actor = { ac_seal_power_clash_effect = yes }
+			if = {
+				limit = { scope:actor.var:ac_seal_resist > scope:recipient.var:ac_seal_power }
+				scope:recipient = { remove_character_modifier = ac_seal_warded_modifier remove_variable = ac_seal_power }
+				custom_tooltip = ac_duel_ward_broken_tt
+			}
+			else = { scope:actor = { set_variable = { name = ac_duel_ward_held value = yes days = 1 } } custom_tooltip = ac_duel_ward_held_tt }
+			scope:actor = { remove_variable = ac_seal_resist }
+		}
 		scope:actor = {
-			if = { limit = { scope:ac_duel_lethal = yes } ac_duel_start_effect = { LETHAL = yes } }
+			if = { limit = { has_variable = ac_duel_ward_held } remove_variable = ac_duel_ward_held }
+			else_if = { limit = { scope:ac_duel_lethal = yes } ac_duel_start_effect = { LETHAL = yes } }
 			else = { ac_duel_start_effect = { LETHAL = no } }
 		}
 	}

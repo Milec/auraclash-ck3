@@ -35,16 +35,16 @@ roll is scaled to CK3's months and years or mapped to a CK3 stat. **Simplified**
 | Reinforcement: harder by 100 AP per 2 successes | +2 prowess, knight effectiveness; equipment regains durability | Adapted |
 | Four Winds: +1d10 to a skill for caster and allies, one skill until rested | +3 skill (+5 prowess) for caster, target and a courtier per extra success; yearly cooldown | Adapted |
 | Keystone: permanent lock | Permanent modifier until Counterseal | Same |
-| Counterseal: contested; fail locks you out | Succeeds if successes ≥ the caster's | Simplified: no lockout |
+| Counterseal: contested; fail locks you out | Succeeds if successes ≥ the caster's; one try per target a year | Same |
 | Reinforcement (Improved): permanent on the weapon; Crowd +1 Power | Weapon modifier; +10% pikemen and heavy infantry damage | Same |
-| Soulsoak: X00 AP into a blade; end for +1 success, untap AP or heal | 2 or 4 charges; release in a Clash for +3 | Simplified: no heal or untap |
+| Soulsoak: X00 AP into a blade; end for +1 success, untap AP or heal | 2 or 4 charges; release in a Clash for +3, or outside combat to heal a wound | Simplified: no untap |
 | Celestial Forge: exchange your Foundation | Choose any other Foundation, keeping its tempering | Same |
 | Exorcism: dead laid to rest; skill boon [Core+3] | County modifier; +3 to a chosen skill | Adapted |
 | Prayer Engine: hear prayers within 100 miles per success | Piety and same-faith opinion; enables Divine Intervention | Adapted |
 | Heavenly Message: clue by successes, botch misleads | Five outcome tiers from stress to cultivation XP | Same tiers |
 | Divine Intervention: Lock 1 success; cost doubles per use | +1 to Clash rolls and scheme bonuses; monthly cooldown | Adapted |
 | Scry: view a place | Reveals the target's secrets; Ward and Mask block | Adapted |
-| Ward: person, object or building; contested Power roll to break | Person: enemy schemes −25%; or the county you stand in | Simplified: no Power contest, no object ward |
+| Ward: person, object or building; contested Power roll to break | Person: enemy schemes −25%, and a challenger must win a Power contest before a Clash (winning breaks it); or the county you stand in | Simplified: no object ward |
 | Charm: contested by Survival or Persuasion; failure turns hostile | Contested by Diplomacy or prowess; +40 or −20 opinion | Same |
 | Spiritbinding: a spirit of your choice; cost by the spirit's AP | Earth, Water, Wisp or Kami tasks; flat 300 AP | Simplified: spirits are not characters |
 | Hex: Power Clash; Disadvantage on the next skill roll | Aura Pressure contest; a skill penalty for a year | Adapted |

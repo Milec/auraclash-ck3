@@ -211,7 +211,7 @@ ac_seal_counterseal_interaction = {
 	icon = secret
 	desc = ac_seal_counterseal_interaction_desc
 	auto_accept = yes
-	cooldown = { months = 6 }
+	cooldown_against_recipient = { years = 1 }
 	is_shown = {
 		scope:actor = { ac_seal_counterseal_known_trigger = yes }
 		always = yes
@@ -1119,4 +1119,20 @@ ac_seal_unlock_potential_interaction = {
 		}
 	}
 	ai_will_do = { base = 0 }
+}
+
+# Soulsoak, outside combat: "End the Seal to heal" (here, one wound per charge).
+ac_seal_release_soulsoak_interaction = {
+	category = interaction_category_ac_seals
+	common_interaction = no
+	icon = wound
+	desc = ac_seal_release_soulsoak_interaction_desc
+	auto_accept = yes
+	is_shown = { scope:recipient = scope:actor scope:actor = { has_variable = ac_soulsoak } }
+	is_valid_showing_failures_only = { scope:actor = { custom_tooltip = { text = ac_chi_healing_needs_wound_tt has_trait = wounded } } }
+	on_accept = { scope:actor = { ac_seal_release_soulsoak_effect = yes remove_character_flag = ac_duel_soulsoak ac_heal_one_wound_effect = yes } }
+	ai_targets = { ai_recipients = self }
+	ai_frequency = 6
+	ai_potential = { has_variable = ac_soulsoak }
+	ai_will_do = { base = 100 }
 }
