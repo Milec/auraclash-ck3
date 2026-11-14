@@ -1,0 +1,70 @@
+﻿# Races of Aura Clash (racial bonuses from the IF). Exactly one per character; inherited at birth.
+ac_race_human = {
+	opposites = { ac_race_oni ac_race_lunargoth ac_race_kitsune ac_race_yokai_cat ac_race_yokai_wolf ac_race_yokai_reptile ac_race_yokai_monkey ac_race_yokai_bovine }
+	shown_in_ruler_designer = no
+	icon = ac_cultivator.dds
+	learning = 1
+}
+ac_race_oni = {
+	opposites = { ac_race_human ac_race_lunargoth ac_race_kitsune ac_race_yokai_cat ac_race_yokai_wolf ac_race_yokai_reptile ac_race_yokai_monkey ac_race_yokai_bovine }
+	shown_in_ruler_designer = no
+	icon = ac_cultivator.dds
+	intrigue = 1
+	domain_tax_mult = 0.05
+	county_opinion_add = -5
+}
+ac_race_lunargoth = {
+	opposites = { ac_race_human ac_race_oni ac_race_kitsune ac_race_yokai_cat ac_race_yokai_wolf ac_race_yokai_reptile ac_race_yokai_monkey ac_race_yokai_bovine }
+	shown_in_ruler_designer = no
+	icon = ac_cultivator.dds
+	stewardship = 1
+}
+ac_race_kitsune = {
+	desc = {
+		first_valid = {
+			triggered_desc = { trigger = { NOT = { exists = this } } desc = trait_ac_race_kitsune_desc }
+			desc = trait_ac_race_kitsune_tails_desc
+		}
+	}
+	opposites = { ac_race_human ac_race_oni ac_race_lunargoth ac_race_yokai_cat ac_race_yokai_wolf ac_race_yokai_reptile ac_race_yokai_monkey ac_race_yokai_bovine }
+	shown_in_ruler_designer = no
+	icon = ac_cultivator.dds
+	intrigue = 2
+	attraction_opinion = 10
+	general_opinion = -5
+}
+ac_race_yokai_cat = {
+	opposites = { ac_race_human ac_race_oni ac_race_lunargoth ac_race_kitsune ac_race_yokai_wolf ac_race_yokai_reptile ac_race_yokai_monkey ac_race_yokai_bovine }
+	shown_in_ruler_designer = no
+	icon = ac_cultivator.dds
+	intrigue = 1
+	prowess = 1
+}
+ac_race_yokai_wolf = {
+	opposites = { ac_race_human ac_race_oni ac_race_lunargoth ac_race_kitsune ac_race_yokai_cat ac_race_yokai_reptile ac_race_yokai_monkey ac_race_yokai_bovine }
+	shown_in_ruler_designer = no
+	icon = ac_cultivator.dds
+	prowess = 2
+	knight_effectiveness_mult = 0.05
+}
+ac_race_yokai_reptile = {
+	opposites = { ac_race_human ac_race_oni ac_race_lunargoth ac_race_kitsune ac_race_yokai_cat ac_race_yokai_wolf ac_race_yokai_monkey ac_race_yokai_bovine }
+	shown_in_ruler_designer = no
+	icon = ac_cultivator.dds
+	health = 0.2
+	prowess = 1
+}
+ac_race_yokai_monkey = {
+	opposites = { ac_race_human ac_race_oni ac_race_lunargoth ac_race_kitsune ac_race_yokai_cat ac_race_yokai_wolf ac_race_yokai_reptile ac_race_yokai_bovine }
+	shown_in_ruler_designer = no
+	icon = ac_cultivator.dds
+	learning = 1
+	prowess = 1
+}
+ac_race_yokai_bovine = {
+	opposites = { ac_race_human ac_race_oni ac_race_lunargoth ac_race_kitsune ac_race_yokai_cat ac_race_yokai_wolf ac_race_yokai_reptile ac_race_yokai_monkey }
+	shown_in_ruler_designer = no
+	icon = ac_cultivator.dds
+	prowess = 2
+	health = 0.1
+}

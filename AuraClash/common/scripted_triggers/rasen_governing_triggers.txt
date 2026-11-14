@@ -1,0 +1,40 @@
+﻿# Character scope: may be raised to the Archonate.
+rasen_archon_candidate_trigger = {
+	is_alive = yes
+	is_adult = yes
+	is_imprisoned = no
+	is_ruler = no
+	has_trait = ac_cultivator
+	ac_aura_pressure_value >= 8000
+	NOT = { has_trait = rasen_archon }
+	NOT = { rasen_is_exalt_trigger = yes }
+}
+# Global scope: the Archonate has room for another Archon.
+rasen_archonate_has_room_trigger = {
+	NOT = { any_living_character = { has_trait = rasen_archon count >= 12 } }
+}
+# Character scope: a noble of the Inner Kingdoms who could serve as an Outer Magistrate.
+rasen_magistrate_candidate_trigger = {
+	is_alive = yes
+	is_adult = yes
+	is_imprisoned = no
+	is_ruler = no
+	exists = dynasty
+	NOT = { rasen_is_exalt_trigger = yes }
+	NOT = { has_trait = rasen_archon }
+	location ?= { geographical_region = world_rasen_inner }
+}
+# Character scope: holds an Outer county directly.
+rasen_holds_outer_county_trigger = {
+	any_held_title = { tier = tier_county title_province = { geographical_region = world_rasen_outer } }
+}
+# Character scope: rules the Bladed Lands.
+rasen_rules_bladed_trigger = { has_title = title:k_bladed }
+# Character scope: rules the Sacred Lands.
+rasen_rules_sacred_trigger = { has_title = title:k_sacred }
+# Character scope: rules the Mystic Lands.
+rasen_rules_mystic_trigger = { has_title = title:k_mystic }
+# Character scope: rules the Cursed Lands.
+rasen_rules_cursed_trigger = { has_title = title:k_cursed }
+# Character scope: rules the Wild Lands.
+rasen_rules_wild_trigger = { highest_held_title_tier >= tier_duchy has_government = tribal_government capital_province ?= { geographical_region = world_rasen_wild } }

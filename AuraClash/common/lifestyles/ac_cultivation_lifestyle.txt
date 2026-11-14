@@ -1,15 +1,20 @@
-﻿# DO NOT USE SCRIPTED TRIGGERS IN THIS FILE (engine limitation)
-
+﻿# Lifestyle validity runs before scripted triggers are available: use native triggers only.
+# Retain the old key for Handseals & Alchemy to preserve saved unspent XP.
 ac_cultivation_lifestyle = {
-	is_valid = {
-		has_trait = ac_cultivator
-		age >= 16
-	}
-
-	is_highlighted = {
-		has_trait = ac_immortal_core
-	}
-
-	xp_per_level = 1000
-	base_xp_gain = 25
+ is_valid = { has_trait = ac_cultivator age >= 16 }
+ is_highlighted = { has_trait = ac_immortal_core }
+ xp_per_level = 1000
+ base_xp_gain = 25
+}
+ac_martial_styles_lifestyle = {
+ is_valid = { has_trait = ac_cultivator age >= 16 }
+ is_highlighted = { has_trait = ac_immortal_core }
+ xp_per_level = 1000
+ base_xp_gain = 25
+}
+ac_elements_lifestyle = {
+ is_valid = { has_trait = ac_cultivator age >= 16 }
+ is_highlighted = { has_trait = ac_immortal_core }
+ xp_per_level = 1000
+ base_xp_gain = 25
 }

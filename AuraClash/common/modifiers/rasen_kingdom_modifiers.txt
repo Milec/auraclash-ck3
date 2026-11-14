@@ -1,0 +1,17 @@
+﻿rasen_crusade_modifier = {
+	icon = martial_positive
+	levy_reinforcement_rate = 0.3
+	monthly_piety = 1
+}
+rasen_forbidden_library_modifier = {
+	icon = learning_positive
+	learning = 4
+	knight_effectiveness_mult = 0.4
+	advantage = 6
+}
+rasen_shinobi_clans_modifier = {
+	icon = intrigue_positive
+	intrigue = 4
+	hostile_scheme_phase_duration_add = -20
+	enemy_hostile_scheme_success_chance_add = -15
+}

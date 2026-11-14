@@ -1,0 +1,9 @@
+﻿# The Divine General of the North: contested Emperor and the Council's "northern steward".
+rasen_divine_general = {
+	icon = ac_immortal_core.dds
+	shown_in_ruler_designer = no
+	martial = 3
+	prowess = 5
+	knight_effectiveness_mult = 0.25
+	monthly_prestige = 1
+}

@@ -1,0 +1,9 @@
+﻿l_english:
+ rasen_peace_laws:0 "The Council Peace"
+ rasen_council_peace_law:0 "Council Peace"
+ rasen_council_peace_law_effects:0 "A duke or greater lord needs a [hook|E] on their [liege|E] to declare war on another duke or greater lord. Counts may feud freely. Azuma Honsha cannot be attacked except by open rebellion."
+ rasen_council_peace_law_desc:0 "The Exalted Council keeps a shaky peace among the great lords of Imperial Rasen. Petty counts may feud as they please, but no great lord marches on another without leave."
+ rasen_council_war_law:0 "Peace Lifted"
+ rasen_council_war_law_effects:0 "Great lords may make war on each other as feudal lords do. Azuma Honsha still cannot be attacked except by open rebellion."
+ rasen_council_war_law_desc:0 "The Council has lifted its peace, and the great lords of Rasen may settle their quarrels by the sword."
+ rasen_azuma_protected_tt:0 "Azuma Honsha falls only to open rebellion"

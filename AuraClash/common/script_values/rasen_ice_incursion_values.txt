@@ -1,0 +1,13 @@
+﻿# Ice demons are elemental hordes; strength in prowess and the Power and Fortitude Cores holds the line.
+rasen_ice_demon_treasure_ap = 1500
+rasen_ice_front_success_chance = {
+	value = prowess
+	multiply = 2
+	add = { value = ac_core_power_rating add = ac_core_fortitude_rating multiply = 2 }
+	add = 20
+	min = 10
+	max = 90
+}
+rasen_ice_front_failure_chance = { value = 100 subtract = rasen_ice_front_success_chance }
+rasen_ice_front_surge_chance = { value = rasen_ice_front_success_chance add = { value = ac_core_fortitude_surge_value multiply = 8 } max = 95 }
+rasen_ice_front_surge_failure = { value = 100 subtract = rasen_ice_front_surge_chance }

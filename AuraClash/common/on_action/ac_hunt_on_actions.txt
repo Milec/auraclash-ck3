@@ -1,6 +1,6 @@
 ﻿# Subjugation Domain: +10 hunt success for hosts with the perk
 hunt_start_events = {
-	on_actions = { ac_hunt_start }
+	on_actions = { ac_hunt_start ac_hunt_core_progress }
 }
 
 ac_hunt_start = {
@@ -26,4 +26,10 @@ ac_hunt_start = {
 			}
 		}
 	}
+}
+
+# Tracking and chasing game works the Agility Core.
+ac_hunt_core_progress = {
+	trigger = { has_trait = ac_cultivator age >= 16 }
+	effect = { ac_add_core_progress_effect = { CORE = agility PROGRESS = 8 } }
 }

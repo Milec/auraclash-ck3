@@ -1,0 +1,19 @@
+﻿# The hegemon rules Azuma Honsha with the Exalted Council and may call its session early.
+rasen_convene_council_decision = {
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_realm.dds" }
+	decision_group_type = major
+	desc = rasen_convene_council_decision_desc
+	selection_tooltip = rasen_convene_council_decision_tooltip
+	confirm_text = rasen_convene_council_decision_confirm
+	is_shown = { exists = title:h_china.holder this = title:h_china.holder }
+	is_valid_showing_failures_only = { is_available_adult = yes }
+	cooldown = { years = 3 }
+	cost = { prestige = 200 }
+	effect = {
+		custom_tooltip = rasen_convene_council_decision_effect_tt
+		set_global_variable = { name = rasen_council_countdown value = 3 }
+		rasen_council_session_effect = yes
+	}
+	ai_check_interval = 0
+	ai_will_do = { base = 0 }
+}

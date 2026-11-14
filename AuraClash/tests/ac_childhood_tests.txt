@@ -1,0 +1,44 @@
+﻿ac_childhood_test_nurture = {
+	effect = {
+		create_character = { age = 10 gender_female_chance = 50 culture = root.culture faith = root.faith location = root.location save_scope_as = ac_qa_nurtured }
+		create_character = { age = 40 gender = female culture = root.culture faith = root.faith location = root.location save_scope_as = ac_qa_mortal_guardian }
+		create_character = { age = 45 gender = male culture = root.culture faith = root.faith location = root.location trait = ac_cultivator save_scope_as = ac_qa_chi_mentor }
+		scope:ac_qa_nurtured = { set_relation_guardian = scope:ac_qa_mortal_guardian ac_childhood_nurture_effect = yes }
+	}
+	assert = { scope:ac_qa_nurtured = { ac_childhood_nurture_ready_trigger = yes ac_childhood_nurture_level = 0 NOT = { ac_childhood_mentor_trigger = { MENTOR = scope:ac_qa_mortal_guardian } } } }
+	effect = {
+		scope:ac_qa_nurtured = {
+			remove_relation_guardian = scope:ac_qa_mortal_guardian
+			set_relation_guardian = scope:ac_qa_chi_mentor
+			ac_childhood_nurture_effect = yes
+		}
+	}
+	assert = { scope:ac_qa_nurtured = { ac_childhood_mentor_trigger = { MENTOR = scope:ac_qa_chi_mentor } ac_childhood_nurture_level = 1 } }
+	effect = { scope:ac_qa_nurtured = { while = { count = 8 ac_childhood_nurture_effect = yes } } }
+	assert = { scope:ac_qa_nurtured = { ac_childhood_nurture_level = 5 ac_childhood_nurture_ready_trigger = no } }
+	effect = { scope:ac_qa_chi_mentor = { add_trait = incapable } scope:ac_qa_nurtured = { set_variable = { name = ac_chi_nurture value = 2 } ac_childhood_nurture_effect = yes } }
+	assert = { scope:ac_qa_nurtured = { ac_childhood_nurture_level = 2 NOT = { ac_childhood_mentor_trigger = { MENTOR = scope:ac_qa_chi_mentor } } } }
+}
+
+ac_childhood_test_spark = {
+	effect = {
+		create_character = { age = 16 gender_female_chance = 50 culture = root.culture faith = root.faith location = root.location save_scope_as = ac_qa_spark }
+		scope:ac_qa_spark = { set_variable = { name = ac_chi_nurture value = 3 } }
+	}
+	assert = { scope:ac_qa_spark = { ac_childhood_spark_eligible_trigger = yes ac_childhood_awaken_success_chance >= 29 } }
+	effect = { scope:ac_qa_spark = { ac_childhood_spark_effect = yes } }
+	assert = { scope:ac_qa_spark = { NOT = { has_variable = ac_chi_nurture } has_character_flag = ac_awakening_cooldown } }
+	effect = {
+		create_character = { age = 16 gender_female_chance = 50 culture = root.culture faith = root.faith location = root.location save_scope_as = ac_qa_deferred }
+		scope:ac_qa_deferred = { set_variable = { name = ac_chi_nurture value = 4 } add_character_flag = { flag = ac_awakening_cooldown years = 1 } ac_childhood_spark_effect = yes }
+	}
+	assert = { scope:ac_qa_deferred = { has_variable = ac_chi_nurture NOT = { has_trait = ac_cultivator } } }
+	effect = {
+		create_character = { age = 17 gender_female_chance = 50 culture = root.culture faith = root.faith location = root.location save_scope_as = ac_qa_faded }
+		scope:ac_qa_faded = { set_variable = { name = ac_chi_nurture value = 4 } add_character_flag = { flag = ac_awakening_cooldown years = 1 } ac_childhood_spark_effect = yes }
+		create_character = { age = 16 gender_female_chance = 50 culture = root.culture faith = root.faith location = root.location save_scope_as = ac_qa_weak }
+		scope:ac_qa_weak = { set_variable = { name = ac_chi_nurture value = 1 } ac_childhood_spark_effect = yes }
+	}
+	assert = { scope:ac_qa_faded = { NOT = { has_variable = ac_chi_nurture } NOT = { has_trait = ac_cultivator } } }
+	assert = { scope:ac_qa_weak = { NOT = { has_variable = ac_chi_nurture } NOT = { has_character_flag = ac_awakening_cooldown } NOT = { has_trait = ac_cultivator } } }
+}

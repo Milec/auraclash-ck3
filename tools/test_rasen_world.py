@@ -1,0 +1,112 @@
+"""Cross-reference checks for Imperial Rasen's peoples, faiths and history."""
+from pathlib import Path
+import re
+import unittest
+
+import build_event_overrides as parser
+import build_rasen_world as world
+
+OUT = world.OUT
+
+
+def read(relative):
+    return (OUT / relative).read_text(encoding='utf-8-sig')
+
+
+class RasenWorldTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.files, cls.people = world.render()
+        cls.text = {k: v.decode('utf-8-sig') for k, v in cls.files.items()}
+        cls.loc = '\n'.join(v for k, v in cls.text.items() if k.endswith('.yml'))
+
+    def test_committed_output_is_current(self):
+        for relative, data in self.files.items():
+            self.assertEqual((OUT / relative).read_bytes(), data, relative)
+
+    def test_scripts_balance(self):
+        for relative, text in self.text.items():
+            if relative.endswith('.txt'):
+                parser.fields(text)
+
+    def test_history_uses_defined_cultures_and_faiths(self):
+        cultures = set(re.findall(r'(?m)^(\w+) = \{', self.text['common/culture/cultures/rasen_cultures.txt']))
+        faiths = set(re.findall(r'(?m)^(\w+) = \{', self.text['common/religion/faith_types/rasen_faiths.txt']))
+        for relative in ('history/provinces/rasen_provinces.txt', 'history/characters/rasen_characters.txt'):
+            self.assertLessEqual(set(re.findall(r'culture = (\w+)', self.text[relative])), cultures, relative)
+            # CK3 1.20 assigns faiths through their (dynamic, same-key) main Rite.
+            self.assertLessEqual(set(re.findall(r'rite = (\w+)', self.text[relative])), faiths, relative)
+            self.assertNotIn('religion = ', self.text[relative], relative)
+
+    def test_every_county_and_province_has_history(self):
+        titles = read('common/landed_titles/00_rasen_titles.txt')
+        counties = set(re.findall(r'(?m)^\t+(c_\w+) = \{', titles))
+        held = set(re.findall(r'(?m)^(c_\w+) = \{', self.text['history/titles/rasen_titles.txt']))
+        self.assertEqual(counties, held)
+        provinces = set(re.findall(r'province = (\d+)', titles))
+        self.assertEqual(provinces, set(re.findall(r'(?m)^(\d+) = \{', self.text['history/provinces/rasen_provinces.txt'])))
+
+    def test_holders_and_dynasties_exist(self):
+        characters = set(re.findall(r'(?m)^(rasen_\d+) = \{', self.text['history/characters/rasen_characters.txt']))
+        self.assertLessEqual(set(re.findall(r'holder = (rasen_\d+)', self.text['history/titles/rasen_titles.txt'])), characters)
+        dynasties = set(re.findall(r'(?m)^(dynasty_\w+) = \{', self.text['common/dynasties/rasen_dynasties.txt']))
+        self.assertLessEqual(set(re.findall(r'dynasty = (dynasty_\w+)', self.text['history/characters/rasen_characters.txt'])), dynasties)
+
+    def test_holy_sites_exist_and_faiths_have_at_most_three(self):
+        sites = set(re.findall(r'(?m)^(rasen_\w+) = \{', self.text['common/religion/holy_site_types/rasen_holy_sites.txt']))
+        faiths = self.text['common/religion/faith_types/rasen_faiths.txt']
+        self.assertLessEqual(set(re.findall(r'(?m)^		(rasen_\w+)$', faiths)), sites)
+        for faith in world.FAITHS.values():
+            # All are eminent, so FAITH_EMINENT_HOLY_SITES_MAX_DEFAULT (3) applies.
+            self.assertLessEqual(len(faith['holy_sites']), 3)
+            self.assertLessEqual(set(faith['holy_sites']), sites)
+
+    def test_localization_covers_keys(self):
+        keys = set(re.findall(r'= (rasen_\w+_religion_\w+)$', self.text['common/religion/religion_types/rasen_religions.txt'], re.M))
+        keys |= set(world.CULTURES) | set(world.FAITHS) | set(world.RELIGIONS)
+        keys |= set(re.findall(r'(?m)^(dynasty_\w+) = \{', self.text['common/dynasties/rasen_dynasties.txt']))
+        keys |= {f'holy_site_{s}_name' for s in world.HOLY_SITES}
+        for key in keys:
+            self.assertRegex(self.loc, rf'(?m)^ {re.escape(key)}:0 "', key)
+
+    def test_rulers_have_families_and_ordered_history(self):
+        chars = self.text['history/characters/rasen_characters.txt']
+        ids = set(re.findall(r'(?m)^(rasen_\d+) = \{', chars))
+        spouses = re.findall(r'add_(?:matrilineal_)?spouse = (rasen_\d+)', chars)
+        self.assertGreater(len(spouses), 80)
+        self.assertLessEqual(set(spouses) | set(re.findall(r'(?:father|mother) = (rasen_\d+)', chars)), ids)
+        for body in re.findall(r'(?ms)^rasen_\d+ = \{(.*?)^\}', chars):
+            dates = [tuple(map(int, d.split('.'))) for d in re.findall(r'(?m)^\t(\d+\.\d+\.\d+) =', body)]
+            self.assertEqual(dates, sorted(dates))
+            personality = [t for t in re.findall(r'trait = (\w+)', body) if any(t in g for g in world.TRAIT_GROUPS)]
+            self.assertLessEqual(len(personality), 3, body)
+        for culture in world.CULTURES:
+            self.assertIn('join_era = culture_era_early_medieval', self.text[f'history/cultures/{culture}.txt'])
+
+    def test_each_land_has_its_own_ruler_and_government_at_the_bookmark(self):
+        bookmark = self.text['common/bookmarks/bookmarks/rasen_bookmarks.txt']
+        titles = self.text['history/titles/rasen_titles.txt']
+        for region, ruler in world.KINGDOM_RULERS.items():
+            self.assertIn(f'title = k_{region}\n\t\tgovernment = {ruler["government"]}', bookmark)
+            self.assertRegex(titles, rf'(?m)^k_{region} = \{{\n\t\d+\.1\.1 = \{{ holder = rasen_\d+ government = {ruler["government"]} liege = h_china')
+        # The Wild Lands have no ruler: the bookmark features the strongest of the thirteen tribal Maos.
+        self.assertNotRegex(titles, r'(?m)^k_wild = ')
+        self.assertIn('government = tribal_government', bookmark)
+
+    def test_exalts_hold_no_land_and_sit_at_the_stewards_court(self):
+        seats = self.text['common/on_action/rasen_exalt_start_on_actions.txt']
+        titles = self.text['history/titles/rasen_titles.txt']
+        chars = self.text['history/characters/rasen_characters.txt']
+        steward = re.search(r'(?ms)^h_china = \{.*?holder = (rasen_\d+)', titles).group(1)
+        exalts = re.findall(r'character:(rasen_\d+) = \{ rasen_seat_exalt_effect = \{ LAND = (\w+)', seats)
+        self.assertEqual(sorted(land for _, land in exalts), sorted(r for r in world.EXALTS if r != world.STEWARD_REGION))
+        for cid, land in exalts:
+            self.assertNotIn(f'holder = {cid} ', titles)
+            self.assertRegex(chars, rf'(?ms)^{cid} = \{{\n\tname = "{world.EXALTS[land]["name"]}".*?employer = {steward}')
+
+    def test_start_date(self):
+        self.assertIn('START_DATE = "3000.3.1"', self.text['common/defines/rasen_defines.txt'])
+
+
+if __name__ == '__main__':
+    unittest.main()

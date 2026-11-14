@@ -100,7 +100,7 @@ window = {
 					layoutpolicy_vertical = expanding
 					layoutpolicy_horizontal = expanding
 					onclick = "[CharacterLifestyleWindow.OpenLifestyle( Lifestyle.Self )]"
-					onclick = "[PlaySfxEvent( Concatenate( 'event:/SFX/UI/Character/Lifestyle/sfx_ui_character_lifestyle_', Lifestyle.GetKey ) )]"
+					onclick = "[PlaySfxEvent( Concatenate( 'event:/SFX/UI/Character/Lifestyle/sfx_ui_character_lifestyle_', Select_CString( Or( EqualTo_string( Lifestyle.GetKey, 'ac_cultivation_lifestyle' ), Or( EqualTo_string( Lifestyle.GetKey, 'ac_martial_styles_lifestyle' ), EqualTo_string( Lifestyle.GetKey, 'ac_elements_lifestyle' ) ) ), 'learning_lifestyle', Lifestyle.GetKey ) ) )]"
 					#clicksound =
 					maximumsize = { -1 900 }
 					using = TabShortcut
@@ -122,7 +122,7 @@ window = {
 						size = { 100% 100% }
 						alpha = 0
 						onclick = "[CharacterLifestyleWindow.OpenLifestyle( Lifestyle.Self )]"
-						onclick = "[PlaySfxEvent( Concatenate( 'event:/SFX/UI/Character/Lifestyle/sfx_ui_character_lifestyle_', Lifestyle.GetKey ) )]"
+						onclick = "[PlaySfxEvent( Concatenate( 'event:/SFX/UI/Character/Lifestyle/sfx_ui_character_lifestyle_', Select_CString( Or( EqualTo_string( Lifestyle.GetKey, 'ac_cultivation_lifestyle' ), Or( EqualTo_string( Lifestyle.GetKey, 'ac_martial_styles_lifestyle' ), EqualTo_string( Lifestyle.GetKey, 'ac_elements_lifestyle' ) ) ), 'learning_lifestyle', Lifestyle.GetKey ) ) )]"
 
 						state = {
 							name = _mouse_enter
@@ -370,7 +370,7 @@ window = {
 			hbox = {
 				widget = {
 					layoutpolicy_vertical = expanding
-					size = { 560 0 } # AC: was 450, room for the Cultivation tab
+					size = { 740 0 } # AC: room for all three cultivation lifestyles
 
 					background = {
 						texture = "gfx/interface/window_lifestyles/lifestyles_tabs_bg.dds"
@@ -656,7 +656,7 @@ window = {
 								}
 
 								background = {
-									visible = "[EqualTo_string( Lifestyle.GetKey, 'martial_lifestyle' )]"
+									visible = "[Or( EqualTo_string( Lifestyle.GetKey, 'martial_lifestyle' ), EqualTo_string( Lifestyle.GetKey, 'ac_martial_styles_lifestyle' ) )]"
 									texture = "gfx/interface/progressbars/progress_red.dds"
 									alpha = 0.4
 								}
@@ -677,7 +677,7 @@ window = {
 
 
 								background = {
-									visible = "[EqualTo_string( Lifestyle.GetKey, 'learning_lifestyle' )]"
+									visible = "[Or( EqualTo_string( Lifestyle.GetKey, 'learning_lifestyle' ), EqualTo_string( Lifestyle.GetKey, 'ac_elements_lifestyle' ) )]"
 									texture = "gfx/interface/progressbars/progress_gray.dds"
 									alpha = 0.4
 								}
@@ -833,7 +833,7 @@ window = {
 								}
 
 								progressbar_lifestyle_xp = {
-									visible = "[EqualTo_string( Lifestyle.GetKey, 'martial_lifestyle' )]"
+									visible = "[Or( EqualTo_string( Lifestyle.GetKey, 'martial_lifestyle' ), EqualTo_string( Lifestyle.GetKey, 'ac_martial_styles_lifestyle' ) )]"
 									progresstexture = "gfx/interface/progressbars/progress_red.dds"
 									noprogresstexture = "gfx/interface/progressbars/progress_red_bg.dds"
 								}
@@ -851,7 +851,7 @@ window = {
 								}
 
 								progressbar_lifestyle_xp = {
-									visible = "[EqualTo_string( Lifestyle.GetKey, 'learning_lifestyle' )]"
+									visible = "[Or( EqualTo_string( Lifestyle.GetKey, 'learning_lifestyle' ), EqualTo_string( Lifestyle.GetKey, 'ac_elements_lifestyle' ) )]"
 									progresstexture = "gfx/interface/progressbars/progress_gray.dds"
 									noprogresstexture = "gfx/interface/progressbars/progress_gray_bg.dds"
 								}
@@ -887,7 +887,7 @@ window = {
 								}
 
 								icon_lifestyle_unspent_points = {
-									visible = "[EqualTo_string( Lifestyle.GetKey, 'martial_lifestyle' )]"
+									visible = "[Or( EqualTo_string( Lifestyle.GetKey, 'martial_lifestyle' ), EqualTo_string( Lifestyle.GetKey, 'ac_martial_styles_lifestyle' ) )]"
 									texture = "gfx/interface/icons/lifestyles_perks/node_martial.dds"
 								}
 
@@ -902,7 +902,7 @@ window = {
 								}
 
 								icon_lifestyle_unspent_points = {
-									visible = "[EqualTo_string( Lifestyle.GetKey, 'learning_lifestyle' )]"
+									visible = "[Or( EqualTo_string( Lifestyle.GetKey, 'learning_lifestyle' ), EqualTo_string( Lifestyle.GetKey, 'ac_elements_lifestyle' ) )]"
 									texture = "gfx/interface/icons/lifestyles_perks/node_learning.dds"
 								}
 
@@ -970,7 +970,7 @@ window = {
 								layoutpolicy_vertical = expanding
 								minimumsize = { 480 0 } # AC: keep trees readable; the scroll area handles overflow
 								# AC: Cultivation trees are shown only if their scripted gui <tree>_visible passes
-								visible = "[GetScriptedGui( Select_CString( EqualTo_string( CharacterLifestyleWindow.GetSelectedLifestyle.GetKey, 'ac_cultivation_lifestyle' ), PerkGuiTree.GetName, 'ac_tree_shown_default' ) ).IsShown( GuiScope.SetRoot( CharacterLifestyleWindow.GetCharacter.MakeScope ).End )]"
+								visible = "[GetScriptedGui( Select_CString( Or( EqualTo_string( CharacterLifestyleWindow.GetSelectedLifestyle.GetKey, 'ac_cultivation_lifestyle' ), Or( EqualTo_string( CharacterLifestyleWindow.GetSelectedLifestyle.GetKey, 'ac_martial_styles_lifestyle' ), EqualTo_string( CharacterLifestyleWindow.GetSelectedLifestyle.GetKey, 'ac_elements_lifestyle' ) ) ), PerkGuiTree.GetName, 'ac_tree_shown_default' ) ).IsShown( GuiScope.SetRoot( CharacterLifestyleWindow.GetCharacter.MakeScope ).End )]"
 
 								background = {
 									visible = "[Not(PerkGuiTree.IsCompleted)]"
@@ -990,7 +990,7 @@ window = {
 										parentanchor = top|hcenter
 										position = { 0 25 }
 										# AC: our tree names localize to a scripted gui key, localize once more for display
-										text = "[Select_CString( EqualTo_string( CharacterLifestyleWindow.GetSelectedLifestyle.GetKey, 'ac_cultivation_lifestyle' ), Localize( PerkGuiTree.GetName ), PerkGuiTree.GetName )]"
+										text = "[Select_CString( Or( EqualTo_string( CharacterLifestyleWindow.GetSelectedLifestyle.GetKey, 'ac_cultivation_lifestyle' ), Or( EqualTo_string( CharacterLifestyleWindow.GetSelectedLifestyle.GetKey, 'ac_martial_styles_lifestyle' ), EqualTo_string( CharacterLifestyleWindow.GetSelectedLifestyle.GetKey, 'ac_elements_lifestyle' ) ) ), Localize( PerkGuiTree.GetName ), PerkGuiTree.GetName )]"
 										default_format = "#low"
 										using = Font_Size_Medium
 									}

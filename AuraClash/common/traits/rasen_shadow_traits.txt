@@ -1,0 +1,25 @@
+﻿# Chapter 9 of the IF. Icons reuse the base mod's cultivation art.
+rasen_akuma_lord = {
+	icon = ac_immortal_core.dds
+	shown_in_ruler_designer = no
+	intrigue = 4
+	prowess = 4
+	dread_baseline_add = 20
+}
+
+rasen_akuma_acolyte = {
+	icon = ac_immortal_core.dds
+	shown_in_ruler_designer = no
+	intrigue = 2
+	prowess = 3
+}
+
+# Draconic kin of Ryugujo, such as its Dragon Princes.
+rasen_dragon_blood = {
+	icon = ac_immortal_core.dds
+	shown_in_ruler_designer = no
+	prowess = 6
+	health = 1
+	life_expectancy = 60
+	monthly_prestige = 0.5
+}

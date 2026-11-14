@@ -1,0 +1,197 @@
+﻿# Aura Pressure (AP), as in Aura Clash. Total AP grows through training, cycling Shards and events.
+# Immortal Core Advancement binds free AP into a Combat Core: 100 AP, less the progress that Core has
+# earned through use. Mortal Core Training raises Cores directly, but only to eight Mortal Cores in total.
+
+# "Eight Mortal Cores, the peak of natural human power."
+ac_mortal_core_peak = 8
+ac_immortal_core_ap_requirement = 300
+ac_ap_per_core_dot = 100
+ac_core_progress_cap = 200
+
+ac_core_soul_rating = {
+	value = 0
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 5 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 10 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 15 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 20 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 25 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 30 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 35 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 40 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 45 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 50 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 55 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 60 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 65 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 70 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 75 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 80 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 85 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 90 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 95 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_soul value >= 100 } } add = 1 }
+	# A focused Technique can raise the Core ("Increases Soul Core by +1 when focused").
+	add = ac_core_soul_focus_bonus
+}
+ac_core_soul_progress = { value = 0 if = { limit = { has_variable = ac_core_soul_progress } value = var:ac_core_soul_progress } }
+ac_core_soul_advance_cost = { value = ac_ap_per_core_dot subtract = ac_core_soul_progress min = 0 }
+ac_core_soul_available = { value = ac_core_soul_rating if = { limit = { has_variable = ac_core_soul_spent } subtract = var:ac_core_soul_spent } min = 0 }
+
+ac_core_agility_rating = {
+	value = 0
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 5 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 10 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 15 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 20 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 25 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 30 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 35 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 40 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 45 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 50 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 55 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 60 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 65 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 70 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 75 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 80 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 85 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 90 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 95 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_agility value >= 100 } } add = 1 }
+	# A focused Technique can raise the Core ("Increases Agility Core by +1 when focused").
+	add = ac_core_agility_focus_bonus
+}
+ac_core_agility_progress = { value = 0 if = { limit = { has_variable = ac_core_agility_progress } value = var:ac_core_agility_progress } }
+ac_core_agility_advance_cost = { value = ac_ap_per_core_dot subtract = ac_core_agility_progress min = 0 }
+ac_core_agility_available = { value = ac_core_agility_rating if = { limit = { has_variable = ac_core_agility_spent } subtract = var:ac_core_agility_spent } min = 0 }
+
+ac_core_power_rating = {
+	value = 0
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 5 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 10 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 15 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 20 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 25 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 30 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 35 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 40 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 45 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 50 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 55 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 60 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 65 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 70 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 75 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 80 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 85 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 90 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 95 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_power value >= 100 } } add = 1 }
+	# A focused Technique can raise the Core ("Increases Power Core by +1 when focused").
+	add = ac_core_power_focus_bonus
+}
+ac_core_power_progress = { value = 0 if = { limit = { has_variable = ac_core_power_progress } value = var:ac_core_power_progress } }
+ac_core_power_advance_cost = { value = ac_ap_per_core_dot subtract = ac_core_power_progress min = 0 }
+ac_core_power_available = { value = ac_core_power_rating if = { limit = { has_variable = ac_core_power_spent } subtract = var:ac_core_power_spent } min = 0 }
+
+ac_core_fortitude_rating = {
+	value = 0
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 5 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 10 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 15 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 20 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 25 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 30 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 35 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 40 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 45 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 50 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 55 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 60 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 65 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 70 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 75 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 80 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 85 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 90 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 95 } } add = 1 }
+	if = { limit = { has_trait_xp = { trait = ac_cultivator track = ac_core_fortitude value >= 100 } } add = 1 }
+	# A focused Technique can raise the Core ("Increases Fortitude Core by +1 when focused").
+	add = ac_core_fortitude_focus_bonus
+}
+ac_core_fortitude_progress = { value = 0 if = { limit = { has_variable = ac_core_fortitude_progress } value = var:ac_core_fortitude_progress } }
+ac_core_fortitude_advance_cost = { value = ac_ap_per_core_dot subtract = ac_core_fortitude_progress min = 0 }
+ac_core_fortitude_available = { value = ac_core_fortitude_rating if = { limit = { has_variable = ac_core_fortitude_spent } subtract = var:ac_core_fortitude_spent } min = 0 }
+
+ac_aura_pressure_value = { value = 0 if = { limit = { has_variable = ac_aura_pressure } value = var:ac_aura_pressure } }
+ac_allocated_ap_value = { value = 0 if = { limit = { has_variable = ac_allocated_ap } value = var:ac_allocated_ap } }
+ac_free_ap = { value = ac_aura_pressure_value subtract = ac_allocated_ap_value min = 0 }
+
+# Personal limit from Potential, plus the natural aura of the region the character is in (0 on the vanilla map).
+ac_mortal_limit = { value = ac_mortal_limit_base add = ac_mortal_limit_region_bonus }
+
+# The Mortal Limit throttles growth exponentially: halved above it, then halved again for every
+# further half of the limit (a quarter above 1.5x, an eighth above 2x), down to 1/32 above 3x.
+ac_mortal_limit_factor = {
+	value = 1
+	if = {
+		limit = { ac_aura_pressure_value >= { value = ac_mortal_limit multiply = 3 } }
+		value = 0.03125
+	}
+	else_if = {
+		limit = { ac_aura_pressure_value >= { value = ac_mortal_limit multiply = 2.5 } }
+		value = 0.0625
+	}
+	else_if = {
+		limit = { ac_aura_pressure_value >= { value = ac_mortal_limit multiply = 2 } }
+		value = 0.125
+	}
+	else_if = {
+		limit = { ac_aura_pressure_value >= { value = ac_mortal_limit multiply = 1.5 } }
+		value = 0.25
+	}
+	else_if = {
+		limit = { ac_aura_pressure_value >= ac_mortal_limit }
+		value = 0.5
+	}
+}
+
+# Talent and conduct harmony speed growth; the Mortal Limit throttles it.
+ac_ap_gain_multiplier = {
+	value = ac_potential_talent_xp_factor
+	add = ac_conduct_ap_harmony
+	multiply = ac_mortal_limit_factor
+}
+ac_ap_pending_gain = {
+	value = 0
+	if = {
+		limit = { has_variable = ac_ap_pending var:ac_ap_pending > 0 }
+		value = var:ac_ap_pending
+		multiply = ac_ap_gain_multiplier
+		round = yes
+		min = 1
+	}
+}
+
+# Cycling Spirit Shards: gold stands in for Shards. Price rises with Aura Pressure.
+ac_shard_cycle_cost = { value = ac_aura_pressure_value add = 10 divide = 10 round = yes min = 10 }
+ac_shard_cycle_gain = { value = 16 add = ac_core_soul_rating }
+
+# Learning the Immortal Core Method.
+ac_immortal_method_prestige_cost = 150
+ac_immortal_method_sect_cost = 100
+ac_immortal_method_comprehend_piety = 100
+ac_immortal_method_comprehend_chance = {
+	value = learning
+	multiply = 3
+	add = 10
+	if = { limit = { has_trait = intellect_good_3 } add = 15 }
+	min = 5
+	max = 90
+}
+ac_immortal_method_comprehend_failure = { value = 100 subtract = ac_immortal_method_comprehend_chance }
+
+# Immortal Cores: one per Immortal Core Advancement. Mortal Cores are the rest (at most eight).
+ac_immortal_core_count = { value = 0 if = { limit = { has_variable = ac_immortal_cores } value = var:ac_immortal_cores } }
+ac_mortal_core_count = { value = ac_core_dots subtract = ac_immortal_core_count min = 0 }

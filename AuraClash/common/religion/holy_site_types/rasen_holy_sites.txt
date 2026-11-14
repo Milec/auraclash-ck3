@@ -1,0 +1,95 @@
+﻿rasen_devanic_temple = {
+	county = c_nanhou
+	barony = b_devanic_temple
+	faith_character_modifier = {
+		monthly_piety_gain_mult = 0.1
+	}
+}
+
+rasen_dead_mountain = {
+	county = c_ironfield
+	barony = b_dead_mountain
+	faith_character_modifier = {
+		stress_loss_mult = 0.1
+	}
+}
+
+rasen_rabbit_trial_valley = {
+	county = c_cedarfall
+	barony = b_rabbit_trial_valley
+	faith_character_modifier = {
+		prowess = 2
+	}
+}
+
+rasen_burning_forest = {
+	county = c_gabemori
+	barony = b_burning_forest
+	faith_character_modifier = {
+		prowess = 2
+	}
+}
+
+rasen_leyline_nexus = {
+	county = c_azuma
+	barony = b_azuma
+	faith_character_modifier = {
+		monthly_prestige_gain_mult = 0.1
+	}
+}
+
+rasen_heavenly_storm_gate = {
+	county = c_kuura
+	barony = b_zehicho
+	faith_character_modifier = {
+		learning = 1
+	}
+}
+
+rasen_bladed_forge = {
+	county = c_gohara
+	barony = b_seyujo
+	faith_character_modifier = {
+		martial = 1
+	}
+}
+
+rasen_mystic_spires = {
+	county = c_luohe
+	barony = b_houhe
+	faith_character_modifier = {
+		learning = 1
+	}
+}
+
+rasen_cursed_hollow = {
+	county = c_rahokubo
+	barony = b_hahamori
+	faith_character_modifier = {
+		intrigue = 1
+	}
+}
+
+rasen_sacred_sanctum = {
+	county = c_todamine
+	barony = b_hiwayama
+	faith_character_modifier = {
+		diplomacy = 1
+	}
+}
+
+rasen_ice_front = {
+	county = c_brasspeak
+	barony = b_whitepass
+	faith_character_modifier = {
+		prowess = 2
+	}
+}
+
+rasen_wild_arena = {
+	county = c_bloodrun
+	barony = b_thornthicket
+	faith_character_modifier = {
+		martial = 1
+	}
+}

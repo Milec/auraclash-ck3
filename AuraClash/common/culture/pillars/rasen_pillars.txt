@@ -1,0 +1,54 @@
+﻿heritage_cathayan = {
+	type = heritage
+	audio_parameter = sea
+}
+
+heritage_kitsune = {
+	type = heritage
+	audio_parameter = sea
+}
+
+heritage_lunargoth = {
+	type = heritage
+	audio_parameter = sea
+}
+
+heritage_oni = {
+	type = heritage
+	audio_parameter = sea
+}
+
+heritage_ryugujin = {
+	type = heritage
+	audio_parameter = sea
+}
+
+heritage_yokai = {
+	type = heritage
+	audio_parameter = sea
+}
+
+heritage_zenshin = {
+	type = heritage
+	audio_parameter = sea
+}
+
+language_zenshin = {
+	type = language
+	color = { 200 60 50 }
+}
+
+language_cathayan = {
+	type = language
+	color = { 210 160 60 }
+}
+
+language_lunargoth = {
+	type = language
+	color = { 170 190 220 }
+}
+
+language_ryugujin = {
+	type = language
+	color = { 40 150 160 }
+}

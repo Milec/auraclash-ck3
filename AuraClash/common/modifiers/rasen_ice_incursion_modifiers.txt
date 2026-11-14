@@ -1,0 +1,11 @@
+﻿rasen_ice_incursion_county_modifier = {
+	icon = county_modifier_development_negative
+	development_growth_factor = -0.5
+	county_opinion_add = -10
+	levy_size = -0.2
+}
+rasen_ice_war_veteran_modifier = {
+	icon = martial_positive
+	prowess = 3
+	monthly_prestige = 0.5
+}

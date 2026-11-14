@@ -1,0 +1,6 @@
+﻿# Geographic policy is independent of the sect initialization flags.
+ac_roaming_origin_eligible_trigger = {
+	any_de_jure_county = { always = yes }
+	exists = title_capital_county.holder
+	exists = title_capital_county.title_province
+}

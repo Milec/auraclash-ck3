@@ -1,0 +1,5253 @@
+﻿49 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+48 = {
+	holding = city_holding
+}
+
+24 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+23 = {
+	holding = city_holding
+}
+
+25 = {
+	holding = church_holding
+}
+
+22 = {
+	holding = none
+}
+
+4 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+29 = {
+	holding = city_holding
+}
+
+26 = {
+	holding = church_holding
+}
+
+27 = {
+	holding = none
+}
+
+28 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+31 = {
+	holding = city_holding
+}
+
+51 = {
+	holding = church_holding
+}
+
+54 = {
+	holding = none
+}
+
+33 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+30 = {
+	holding = city_holding
+}
+
+35 = {
+	holding = church_holding
+}
+
+32 = {
+	holding = none
+}
+
+36 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+34 = {
+	holding = city_holding
+}
+
+58 = {
+	holding = church_holding
+}
+
+60 = {
+	holding = none
+}
+
+115 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+91 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+116 = {
+	holding = city_holding
+}
+
+118 = {
+	holding = church_holding
+}
+
+117 = {
+	holding = none
+}
+
+96 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+93 = {
+	holding = city_holding
+}
+
+94 = {
+	holding = church_holding
+}
+
+97 = {
+	holding = none
+}
+
+121 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+120 = {
+	holding = city_holding
+}
+
+122 = {
+	holding = church_holding
+}
+
+119 = {
+	holding = none
+}
+
+123 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+126 = {
+	holding = city_holding
+}
+
+124 = {
+	holding = church_holding
+}
+
+125 = {
+	holding = none
+}
+
+102 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+99 = {
+	holding = city_holding
+}
+
+104 = {
+	holding = church_holding
+}
+
+101 = {
+	holding = none
+}
+
+72 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+73 = {
+	holding = city_holding
+}
+
+92 = {
+	holding = church_holding
+}
+
+95 = {
+	holding = none
+}
+
+78 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+81 = {
+	holding = city_holding
+}
+
+98 = {
+	holding = church_holding
+}
+
+100 = {
+	holding = none
+}
+
+75 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+76 = {
+	holding = city_holding
+}
+
+74 = {
+	holding = church_holding
+}
+
+77 = {
+	holding = none
+}
+
+79 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+82 = {
+	holding = city_holding
+}
+
+80 = {
+	holding = church_holding
+}
+
+83 = {
+	holding = none
+}
+
+52 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+55 = {
+	holding = city_holding
+}
+
+50 = {
+	holding = church_holding
+}
+
+53 = {
+	holding = none
+}
+
+6 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+8 = {
+	holding = city_holding
+}
+
+5 = {
+	holding = church_holding
+}
+
+7 = {
+	holding = none
+}
+
+2 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+1 = {
+	holding = city_holding
+}
+
+3 = {
+	holding = church_holding
+}
+
+9 = {
+	holding = none
+}
+
+12 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+14 = {
+	holding = city_holding
+}
+
+11 = {
+	holding = church_holding
+}
+
+13 = {
+	holding = none
+}
+
+10 = {
+	holding = none
+}
+
+15 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+17 = {
+	holding = city_holding
+}
+
+20 = {
+	holding = church_holding
+}
+
+18 = {
+	holding = none
+}
+
+19 = {
+	holding = none
+}
+
+16 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+41 = {
+	holding = city_holding
+}
+
+37 = {
+	holding = church_holding
+}
+
+39 = {
+	holding = none
+}
+
+38 = {
+	holding = none
+}
+
+137 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+159 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+140 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+138 = {
+	holding = city_holding
+}
+
+142 = {
+	holding = church_holding
+}
+
+139 = {
+	holding = none
+}
+
+143 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+147 = {
+	holding = city_holding
+}
+
+146 = {
+	holding = church_holding
+}
+
+144 = {
+	holding = none
+}
+
+141 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+145 = {
+	holding = city_holding
+}
+
+163 = {
+	holding = church_holding
+}
+
+164 = {
+	holding = none
+}
+
+151 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+149 = {
+	holding = city_holding
+}
+
+148 = {
+	holding = church_holding
+}
+
+150 = {
+	holding = none
+}
+
+172 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+166 = {
+	holding = city_holding
+}
+
+169 = {
+	holding = church_holding
+}
+
+171 = {
+	holding = none
+}
+
+57 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+59 = {
+	holding = city_holding
+}
+
+56 = {
+	holding = church_holding
+}
+
+85 = {
+	holding = none
+}
+
+64 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+61 = {
+	holding = city_holding
+}
+
+65 = {
+	holding = church_holding
+}
+
+62 = {
+	holding = none
+}
+
+42 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+40 = {
+	holding = city_holding
+}
+
+63 = {
+	holding = church_holding
+}
+
+66 = {
+	holding = none
+}
+
+69 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+67 = {
+	holding = city_holding
+}
+
+70 = {
+	holding = church_holding
+}
+
+68 = {
+	holding = none
+}
+
+71 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+88 = {
+	holding = city_holding
+}
+
+89 = {
+	holding = church_holding
+}
+
+21 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+44 = {
+	holding = city_holding
+}
+
+43 = {
+	holding = church_holding
+}
+
+46 = {
+	holding = none
+}
+
+47 = {
+	holding = none
+}
+
+45 = {
+	holding = none
+}
+
+160 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+161 = {
+	holding = city_holding
+}
+
+162 = {
+	holding = church_holding
+}
+
+184 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+84 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+107 = {
+	holding = city_holding
+}
+
+103 = {
+	holding = church_holding
+}
+
+106 = {
+	holding = none
+}
+
+86 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+87 = {
+	holding = city_holding
+}
+
+112 = {
+	holding = church_holding
+}
+
+109 = {
+	holding = none
+}
+
+113 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+111 = {
+	holding = city_holding
+}
+
+105 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+108 = {
+	holding = city_holding
+}
+
+110 = {
+	holding = church_holding
+}
+
+131 = {
+	holding = none
+}
+
+133 = {
+	holding = none
+}
+
+128 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+132 = {
+	holding = city_holding
+}
+
+127 = {
+	holding = church_holding
+}
+
+129 = {
+	holding = none
+}
+
+168 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+165 = {
+	holding = city_holding
+}
+
+170 = {
+	holding = church_holding
+}
+
+167 = {
+	holding = none
+}
+
+173 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+191 = {
+	holding = city_holding
+}
+
+188 = {
+	holding = church_holding
+}
+
+186 = {
+	holding = none
+}
+
+187 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+185 = {
+	holding = city_holding
+}
+
+189 = {
+	holding = church_holding
+}
+
+199 = {
+	holding = none
+}
+
+194 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+197 = {
+	holding = city_holding
+}
+
+190 = {
+	holding = church_holding
+}
+
+192 = {
+	holding = none
+}
+
+195 = {
+	holding = none
+}
+
+193 = {
+	holding = none
+}
+
+200 = {
+	holding = none
+}
+
+176 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+174 = {
+	holding = city_holding
+}
+
+177 = {
+	holding = church_holding
+}
+
+175 = {
+	holding = none
+}
+
+198 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+134 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+130 = {
+	holding = city_holding
+}
+
+152 = {
+	holding = church_holding
+}
+
+154 = {
+	holding = none
+}
+
+155 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+156 = {
+	holding = city_holding
+}
+
+157 = {
+	holding = church_holding
+}
+
+153 = {
+	holding = none
+}
+
+178 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+179 = {
+	holding = city_holding
+}
+
+180 = {
+	holding = church_holding
+}
+
+196 = {
+	holding = none
+}
+
+90 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+114 = {
+	holding = city_holding
+}
+
+136 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+135 = {
+	holding = city_holding
+}
+
+158 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+181 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+182 = {
+	holding = city_holding
+}
+
+183 = {
+	holding = church_holding
+}
+
+250 = {
+	culture = lunargoth
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+247 = {
+	holding = city_holding
+}
+
+248 = {
+	holding = church_holding
+}
+
+249 = {
+	holding = none
+}
+
+252 = {
+	culture = lunargoth
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+253 = {
+	holding = city_holding
+}
+
+284 = {
+	holding = church_holding
+}
+
+285 = {
+	holding = none
+}
+
+214 = {
+	culture = lunargoth
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+213 = {
+	holding = city_holding
+}
+
+254 = {
+	holding = church_holding
+}
+
+251 = {
+	holding = none
+}
+
+256 = {
+	culture = lunargoth
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+258 = {
+	holding = city_holding
+}
+
+255 = {
+	holding = church_holding
+}
+
+257 = {
+	holding = none
+}
+
+287 = {
+	culture = lunargoth
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+289 = {
+	holding = city_holding
+}
+
+288 = {
+	holding = church_holding
+}
+
+286 = {
+	holding = none
+}
+
+216 = {
+	culture = yokai
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+218 = {
+	holding = city_holding
+}
+
+217 = {
+	holding = church_holding
+}
+
+215 = {
+	holding = none
+}
+
+201 = {
+	culture = yokai
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+202 = {
+	holding = city_holding
+}
+
+219 = {
+	holding = church_holding
+}
+
+221 = {
+	holding = none
+}
+
+222 = {
+	culture = yokai
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+223 = {
+	holding = city_holding
+}
+
+220 = {
+	holding = church_holding
+}
+
+263 = {
+	holding = none
+}
+
+260 = {
+	culture = yokai
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+262 = {
+	holding = city_holding
+}
+
+261 = {
+	holding = church_holding
+}
+
+259 = {
+	holding = none
+}
+
+264 = {
+	holding = none
+}
+
+225 = {
+	culture = yokai
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+227 = {
+	holding = city_holding
+}
+
+265 = {
+	holding = church_holding
+}
+
+266 = {
+	holding = none
+}
+
+290 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+203 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+204 = {
+	holding = city_holding
+}
+
+224 = {
+	holding = church_holding
+}
+
+226 = {
+	holding = none
+}
+
+206 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+205 = {
+	holding = city_holding
+}
+
+230 = {
+	holding = church_holding
+}
+
+229 = {
+	holding = none
+}
+
+232 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+228 = {
+	holding = city_holding
+}
+
+234 = {
+	holding = church_holding
+}
+
+231 = {
+	holding = none
+}
+
+207 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+208 = {
+	holding = city_holding
+}
+
+233 = {
+	holding = church_holding
+}
+
+235 = {
+	holding = none
+}
+
+236 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+238 = {
+	holding = city_holding
+}
+
+268 = {
+	holding = church_holding
+}
+
+267 = {
+	holding = none
+}
+
+209 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+211 = {
+	holding = city_holding
+}
+
+210 = {
+	holding = church_holding
+}
+
+240 = {
+	holding = none
+}
+
+237 = {
+	holding = none
+}
+
+239 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+242 = {
+	holding = city_holding
+}
+
+241 = {
+	holding = church_holding
+}
+
+270 = {
+	holding = none
+}
+
+273 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+272 = {
+	holding = city_holding
+}
+
+269 = {
+	holding = church_holding
+}
+
+271 = {
+	holding = none
+}
+
+275 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+277 = {
+	holding = city_holding
+}
+
+276 = {
+	holding = church_holding
+}
+
+274 = {
+	holding = none
+}
+
+245 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+280 = {
+	holding = city_holding
+}
+
+279 = {
+	holding = church_holding
+}
+
+278 = {
+	holding = none
+}
+
+283 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+282 = {
+	holding = city_holding
+}
+
+281 = {
+	holding = church_holding
+}
+
+291 = {
+	holding = none
+}
+
+243 = {
+	culture = yokai
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+244 = {
+	holding = city_holding
+}
+
+212 = {
+	culture = yokai
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+246 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = castle_holding
+}
+
+306 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+307 = {
+	holding = city_holding
+}
+
+305 = {
+	holding = church_holding
+}
+
+308 = {
+	holding = none
+}
+
+309 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+311 = {
+	holding = city_holding
+}
+
+310 = {
+	holding = church_holding
+}
+
+312 = {
+	holding = none
+}
+
+295 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+293 = {
+	holding = city_holding
+}
+
+294 = {
+	holding = church_holding
+}
+
+292 = {
+	holding = none
+}
+
+296 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+297 = {
+	holding = city_holding
+}
+
+299 = {
+	holding = church_holding
+}
+
+298 = {
+	holding = none
+}
+
+301 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+302 = {
+	holding = city_holding
+}
+
+300 = {
+	holding = church_holding
+}
+
+317 = {
+	holding = none
+}
+
+314 = {
+	holding = none
+}
+
+327 = {
+	culture = lunargoth
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+315 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+332 = {
+	holding = city_holding
+}
+
+328 = {
+	holding = church_holding
+}
+
+330 = {
+	holding = none
+}
+
+318 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+313 = {
+	holding = city_holding
+}
+
+316 = {
+	holding = church_holding
+}
+
+319 = {
+	holding = none
+}
+
+322 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+324 = {
+	holding = city_holding
+}
+
+337 = {
+	holding = church_holding
+}
+
+335 = {
+	holding = none
+}
+
+303 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+320 = {
+	holding = city_holding
+}
+
+323 = {
+	holding = church_holding
+}
+
+321 = {
+	holding = none
+}
+
+333 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+336 = {
+	holding = city_holding
+}
+
+334 = {
+	holding = church_holding
+}
+
+348 = {
+	holding = none
+}
+
+331 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+329 = {
+	holding = city_holding
+}
+
+345 = {
+	holding = church_holding
+}
+
+346 = {
+	holding = none
+}
+
+326 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+325 = {
+	holding = city_holding
+}
+
+304 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+347 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+349 = {
+	holding = city_holding
+}
+
+361 = {
+	holding = church_holding
+}
+
+362 = {
+	holding = none
+}
+
+364 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+366 = {
+	holding = city_holding
+}
+
+363 = {
+	holding = church_holding
+}
+
+365 = {
+	holding = none
+}
+
+352 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+369 = {
+	holding = city_holding
+}
+
+371 = {
+	holding = church_holding
+}
+
+368 = {
+	holding = none
+}
+
+350 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+353 = {
+	holding = city_holding
+}
+
+351 = {
+	holding = church_holding
+}
+
+354 = {
+	holding = none
+}
+
+370 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+367 = {
+	holding = city_holding
+}
+
+384 = {
+	holding = church_holding
+}
+
+381 = {
+	holding = none
+}
+
+339 = {
+	culture = lunargoth
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+343 = {
+	holding = city_holding
+}
+
+338 = {
+	holding = church_holding
+}
+
+341 = {
+	holding = none
+}
+
+340 = {
+	culture = lunargoth
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+342 = {
+	holding = city_holding
+}
+
+344 = {
+	culture = lunargoth
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+357 = {
+	holding = city_holding
+}
+
+355 = {
+	holding = church_holding
+}
+
+359 = {
+	holding = none
+}
+
+360 = {
+	culture = lunargoth
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+356 = {
+	holding = city_holding
+}
+
+358 = {
+	holding = church_holding
+}
+
+373 = {
+	holding = none
+}
+
+377 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+378 = {
+	holding = city_holding
+}
+
+375 = {
+	holding = church_holding
+}
+
+379 = {
+	holding = none
+}
+
+376 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+382 = {
+	holding = city_holding
+}
+
+395 = {
+	holding = church_holding
+}
+
+393 = {
+	holding = none
+}
+
+380 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+383 = {
+	holding = city_holding
+}
+
+386 = {
+	holding = church_holding
+}
+
+385 = {
+	holding = none
+}
+
+397 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+399 = {
+	holding = city_holding
+}
+
+400 = {
+	holding = church_holding
+}
+
+398 = {
+	holding = none
+}
+
+396 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+394 = {
+	holding = city_holding
+}
+
+413 = {
+	holding = church_holding
+}
+
+417 = {
+	holding = none
+}
+
+410 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+407 = {
+	holding = city_holding
+}
+
+411 = {
+	holding = church_holding
+}
+
+408 = {
+	holding = none
+}
+
+414 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+416 = {
+	holding = city_holding
+}
+
+412 = {
+	holding = church_holding
+}
+
+415 = {
+	holding = none
+}
+
+409 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+432 = {
+	holding = city_holding
+}
+
+429 = {
+	holding = church_holding
+}
+
+430 = {
+	holding = none
+}
+
+434 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+436 = {
+	holding = city_holding
+}
+
+431 = {
+	holding = church_holding
+}
+
+433 = {
+	holding = none
+}
+
+418 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+422 = {
+	holding = city_holding
+}
+
+437 = {
+	holding = church_holding
+}
+
+440 = {
+	holding = none
+}
+
+374 = {
+	culture = lunargoth
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+372 = {
+	holding = city_holding
+}
+
+390 = {
+	holding = church_holding
+}
+
+388 = {
+	holding = none
+}
+
+387 = {
+	culture = lunargoth
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+392 = {
+	holding = city_holding
+}
+
+389 = {
+	holding = church_holding
+}
+
+391 = {
+	holding = none
+}
+
+401 = {
+	culture = lunargoth
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+404 = {
+	holding = city_holding
+}
+
+403 = {
+	holding = church_holding
+}
+
+406 = {
+	holding = none
+}
+
+402 = {
+	culture = lunargoth
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+405 = {
+	holding = city_holding
+}
+
+426 = {
+	holding = church_holding
+}
+
+425 = {
+	holding = none
+}
+
+420 = {
+	culture = lunargoth
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+424 = {
+	holding = city_holding
+}
+
+419 = {
+	holding = church_holding
+}
+
+421 = {
+	holding = none
+}
+
+439 = {
+	culture = lunargoth
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+435 = {
+	holding = city_holding
+}
+
+447 = {
+	holding = church_holding
+}
+
+448 = {
+	holding = none
+}
+
+444 = {
+	culture = lunargoth
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+438 = {
+	holding = city_holding
+}
+
+441 = {
+	holding = church_holding
+}
+
+442 = {
+	holding = none
+}
+
+423 = {
+	culture = lunargoth
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+445 = {
+	holding = city_holding
+}
+
+443 = {
+	holding = church_holding
+}
+
+449 = {
+	culture = lunargoth
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+427 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+446 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+428 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+495 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+493 = {
+	holding = city_holding
+}
+
+492 = {
+	holding = church_holding
+}
+
+494 = {
+	holding = none
+}
+
+496 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+563 = {
+	holding = city_holding
+}
+
+562 = {
+	holding = church_holding
+}
+
+561 = {
+	holding = none
+}
+
+499 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+497 = {
+	holding = city_holding
+}
+
+500 = {
+	holding = church_holding
+}
+
+498 = {
+	holding = none
+}
+
+503 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+504 = {
+	holding = city_holding
+}
+
+501 = {
+	holding = church_holding
+}
+
+567 = {
+	holding = none
+}
+
+564 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+566 = {
+	holding = city_holding
+}
+
+565 = {
+	holding = church_holding
+}
+
+568 = {
+	holding = none
+}
+
+455 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+457 = {
+	holding = city_holding
+}
+
+454 = {
+	holding = church_holding
+}
+
+456 = {
+	holding = none
+}
+
+458 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+505 = {
+	holding = city_holding
+}
+
+502 = {
+	holding = church_holding
+}
+
+508 = {
+	holding = none
+}
+
+506 = {
+	holding = none
+}
+
+509 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+510 = {
+	holding = city_holding
+}
+
+507 = {
+	holding = church_holding
+}
+
+574 = {
+	holding = none
+}
+
+569 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+572 = {
+	holding = city_holding
+}
+
+570 = {
+	holding = church_holding
+}
+
+573 = {
+	holding = none
+}
+
+575 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+571 = {
+	holding = city_holding
+}
+
+576 = {
+	holding = church_holding
+}
+
+615 = {
+	holding = none
+}
+
+580 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+577 = {
+	holding = city_holding
+}
+
+579 = {
+	holding = church_holding
+}
+
+578 = {
+	holding = none
+}
+
+511 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+512 = {
+	holding = city_holding
+}
+
+582 = {
+	holding = church_holding
+}
+
+584 = {
+	holding = none
+}
+
+583 = {
+	holding = none
+}
+
+581 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+616 = {
+	holding = city_holding
+}
+
+619 = {
+	holding = church_holding
+}
+
+617 = {
+	holding = none
+}
+
+585 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+621 = {
+	holding = city_holding
+}
+
+620 = {
+	holding = church_holding
+}
+
+618 = {
+	holding = none
+}
+
+587 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+589 = {
+	holding = city_holding
+}
+
+586 = {
+	holding = church_holding
+}
+
+588 = {
+	holding = none
+}
+
+590 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+622 = {
+	holding = city_holding
+}
+
+624 = {
+	holding = church_holding
+}
+
+623 = {
+	holding = none
+}
+
+513 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+591 = {
+	holding = city_holding
+}
+
+593 = {
+	holding = church_holding
+}
+
+594 = {
+	holding = none
+}
+
+592 = {
+	holding = none
+}
+
+597 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+596 = {
+	holding = city_holding
+}
+
+595 = {
+	holding = church_holding
+}
+
+625 = {
+	holding = none
+}
+
+459 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+514 = {
+	holding = city_holding
+}
+
+517 = {
+	holding = church_holding
+}
+
+515 = {
+	holding = none
+}
+
+520 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+518 = {
+	holding = city_holding
+}
+
+516 = {
+	holding = church_holding
+}
+
+519 = {
+	holding = none
+}
+
+461 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+463 = {
+	holding = city_holding
+}
+
+460 = {
+	holding = church_holding
+}
+
+462 = {
+	holding = none
+}
+
+464 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+521 = {
+	holding = city_holding
+}
+
+525 = {
+	holding = church_holding
+}
+
+523 = {
+	holding = none
+}
+
+524 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+522 = {
+	holding = city_holding
+}
+
+526 = {
+	holding = church_holding
+}
+
+599 = {
+	holding = none
+}
+
+627 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+626 = {
+	holding = city_holding
+}
+
+628 = {
+	holding = church_holding
+}
+
+465 = {
+	culture = oni
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+466 = {
+	holding = city_holding
+}
+
+467 = {
+	holding = church_holding
+}
+
+528 = {
+	holding = none
+}
+
+532 = {
+	culture = oni
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+530 = {
+	holding = city_holding
+}
+
+527 = {
+	holding = church_holding
+}
+
+531 = {
+	holding = none
+}
+
+469 = {
+	culture = oni
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+470 = {
+	holding = city_holding
+}
+
+468 = {
+	holding = church_holding
+}
+
+535 = {
+	holding = none
+}
+
+537 = {
+	culture = oni
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+540 = {
+	holding = city_holding
+}
+
+534 = {
+	holding = church_holding
+}
+
+538 = {
+	holding = none
+}
+
+533 = {
+	culture = oni
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+536 = {
+	holding = city_holding
+}
+
+602 = {
+	holding = church_holding
+}
+
+603 = {
+	holding = none
+}
+
+529 = {
+	culture = oni
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+601 = {
+	holding = city_holding
+}
+
+600 = {
+	holding = church_holding
+}
+
+598 = {
+	holding = none
+}
+
+629 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+630 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+631 = {
+	holding = city_holding
+}
+
+471 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+472 = {
+	holding = city_holding
+}
+
+473 = {
+	holding = church_holding
+}
+
+539 = {
+	holding = none
+}
+
+542 = {
+	holding = none
+}
+
+547 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+545 = {
+	holding = city_holding
+}
+
+549 = {
+	holding = church_holding
+}
+
+546 = {
+	holding = none
+}
+
+543 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+544 = {
+	holding = city_holding
+}
+
+541 = {
+	holding = church_holding
+}
+
+608 = {
+	holding = none
+}
+
+548 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+610 = {
+	holding = city_holding
+}
+
+609 = {
+	holding = church_holding
+}
+
+611 = {
+	holding = none
+}
+
+605 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+607 = {
+	holding = city_holding
+}
+
+604 = {
+	holding = church_holding
+}
+
+606 = {
+	holding = none
+}
+
+450 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+474 = {
+	holding = city_holding
+}
+
+478 = {
+	holding = church_holding
+}
+
+476 = {
+	holding = none
+}
+
+451 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+452 = {
+	holding = city_holding
+}
+
+453 = {
+	holding = church_holding
+}
+
+481 = {
+	holding = none
+}
+
+477 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+475 = {
+	holding = city_holding
+}
+
+480 = {
+	holding = church_holding
+}
+
+550 = {
+	holding = none
+}
+
+479 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+484 = {
+	holding = city_holding
+}
+
+482 = {
+	holding = church_holding
+}
+
+485 = {
+	holding = none
+}
+
+556 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+553 = {
+	holding = city_holding
+}
+
+557 = {
+	holding = church_holding
+}
+
+552 = {
+	holding = none
+}
+
+554 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+551 = {
+	holding = city_holding
+}
+
+613 = {
+	holding = church_holding
+}
+
+612 = {
+	holding = none
+}
+
+559 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+555 = {
+	holding = city_holding
+}
+
+558 = {
+	holding = church_holding
+}
+
+614 = {
+	holding = none
+}
+
+490 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+489 = {
+	holding = city_holding
+}
+
+560 = {
+	holding = church_holding
+}
+
+483 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = castle_holding
+}
+
+486 = {
+	holding = city_holding
+}
+
+488 = {
+	holding = church_holding
+}
+
+487 = {
+	holding = none
+}
+
+491 = {
+	culture = oni
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+649 = {
+	culture = cathayan
+	rite = devanic_temple
+	holding = church_holding
+}
+
+710 = {
+	culture = cathayan
+	rite = devanic_temple
+	holding = church_holding
+}
+
+653 = {
+	culture = cathayan
+	rite = devanic_temple
+	holding = church_holding
+}
+
+656 = {
+	holding = castle_holding
+}
+
+652 = {
+	holding = city_holding
+}
+
+654 = {
+	holding = none
+}
+
+650 = {
+	culture = cathayan
+	rite = devanic_temple
+	holding = church_holding
+}
+
+655 = {
+	holding = castle_holding
+}
+
+651 = {
+	holding = city_holding
+}
+
+693 = {
+	holding = none
+}
+
+659 = {
+	culture = cathayan
+	rite = devanic_temple
+	holding = church_holding
+}
+
+657 = {
+	holding = castle_holding
+}
+
+660 = {
+	holding = city_holding
+}
+
+658 = {
+	holding = none
+}
+
+632 = {
+	culture = cathayan
+	rite = devanic_temple
+	holding = church_holding
+}
+
+661 = {
+	holding = castle_holding
+}
+
+664 = {
+	holding = city_holding
+}
+
+662 = {
+	holding = none
+}
+
+663 = {
+	culture = cathayan
+	rite = devanic_temple
+	holding = church_holding
+}
+
+666 = {
+	holding = castle_holding
+}
+
+699 = {
+	holding = city_holding
+}
+
+702 = {
+	holding = none
+}
+
+707 = {
+	culture = cathayan
+	rite = devanic_temple
+	holding = church_holding
+}
+
+705 = {
+	holding = castle_holding
+}
+
+708 = {
+	holding = city_holding
+}
+
+706 = {
+	holding = none
+}
+
+712 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = church_holding
+}
+
+715 = {
+	holding = castle_holding
+}
+
+711 = {
+	holding = city_holding
+}
+
+733 = {
+	holding = none
+}
+
+731 = {
+	holding = none
+}
+
+717 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = church_holding
+}
+
+720 = {
+	holding = castle_holding
+}
+
+735 = {
+	holding = city_holding
+}
+
+738 = {
+	holding = none
+}
+
+736 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = church_holding
+}
+
+734 = {
+	holding = castle_holding
+}
+
+737 = {
+	holding = city_holding
+}
+
+732 = {
+	holding = none
+}
+
+742 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = church_holding
+}
+
+739 = {
+	holding = castle_holding
+}
+
+743 = {
+	holding = city_holding
+}
+
+740 = {
+	holding = none
+}
+
+723 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = church_holding
+}
+
+727 = {
+	holding = castle_holding
+}
+
+741 = {
+	holding = city_holding
+}
+
+745 = {
+	holding = none
+}
+
+726 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = church_holding
+}
+
+725 = {
+	holding = castle_holding
+}
+
+728 = {
+	holding = city_holding
+}
+
+729 = {
+	holding = none
+}
+
+744 = {
+	culture = zenshin
+	rite = rasen_shugendo
+	holding = church_holding
+}
+
+747 = {
+	holding = castle_holding
+}
+
+746 = {
+	holding = city_holding
+}
+
+713 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = church_holding
+}
+
+716 = {
+	holding = castle_holding
+}
+
+714 = {
+	holding = city_holding
+}
+
+718 = {
+	holding = none
+}
+
+691 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = church_holding
+}
+
+692 = {
+	holding = castle_holding
+}
+
+690 = {
+	holding = city_holding
+}
+
+694 = {
+	holding = none
+}
+
+695 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = church_holding
+}
+
+697 = {
+	holding = castle_holding
+}
+
+696 = {
+	holding = city_holding
+}
+
+698 = {
+	holding = none
+}
+
+721 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = church_holding
+}
+
+724 = {
+	holding = castle_holding
+}
+
+719 = {
+	holding = city_holding
+}
+
+722 = {
+	holding = none
+}
+
+700 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = church_holding
+}
+
+703 = {
+	holding = castle_holding
+}
+
+704 = {
+	holding = city_holding
+}
+
+701 = {
+	holding = none
+}
+
+636 = {
+	culture = cathayan
+	rite = devanic_temple
+	holding = church_holding
+}
+
+634 = {
+	holding = castle_holding
+}
+
+633 = {
+	holding = city_holding
+}
+
+637 = {
+	holding = none
+}
+
+635 = {
+	holding = none
+}
+
+638 = {
+	culture = cathayan
+	rite = devanic_temple
+	holding = church_holding
+}
+
+670 = {
+	holding = castle_holding
+}
+
+676 = {
+	holding = city_holding
+}
+
+673 = {
+	holding = none
+}
+
+667 = {
+	culture = cathayan
+	rite = devanic_temple
+	holding = church_holding
+}
+
+671 = {
+	holding = castle_holding
+}
+
+665 = {
+	holding = city_holding
+}
+
+668 = {
+	holding = none
+}
+
+672 = {
+	culture = cathayan
+	rite = devanic_temple
+	holding = church_holding
+}
+
+675 = {
+	holding = castle_holding
+}
+
+669 = {
+	holding = city_holding
+}
+
+709 = {
+	holding = none
+}
+
+674 = {
+	culture = cathayan
+	rite = devanic_temple
+	holding = church_holding
+}
+
+677 = {
+	holding = castle_holding
+}
+
+680 = {
+	holding = city_holding
+}
+
+678 = {
+	holding = none
+}
+
+730 = {
+	culture = cathayan
+	rite = rasen_shugendo
+	holding = church_holding
+}
+
+639 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = church_holding
+}
+
+642 = {
+	holding = castle_holding
+}
+
+640 = {
+	holding = city_holding
+}
+
+643 = {
+	holding = none
+}
+
+644 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = church_holding
+}
+
+641 = {
+	holding = castle_holding
+}
+
+684 = {
+	holding = city_holding
+}
+
+679 = {
+	holding = none
+}
+
+645 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = church_holding
+}
+
+647 = {
+	holding = castle_holding
+}
+
+686 = {
+	holding = city_holding
+}
+
+687 = {
+	holding = none
+}
+
+683 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = church_holding
+}
+
+685 = {
+	holding = castle_holding
+}
+
+682 = {
+	holding = city_holding
+}
+
+681 = {
+	holding = none
+}
+
+689 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = church_holding
+}
+
+688 = {
+	holding = castle_holding
+}
+
+646 = {
+	culture = zenshin
+	rite = devanic_temple
+	holding = church_holding
+}
+
+648 = {
+	holding = castle_holding
+}
+
+748 = {
+	culture = cathayan
+	rite = celestial_order
+	holding = castle_holding
+}
+
+750 = {
+	holding = city_holding
+}
+
+749 = {
+	holding = church_holding
+}
+
+756 = {
+	holding = none
+}
+
+754 = {
+	culture = cathayan
+	rite = celestial_order
+	holding = castle_holding
+}
+
+758 = {
+	holding = city_holding
+}
+
+759 = {
+	holding = church_holding
+}
+
+755 = {
+	holding = none
+}
+
+752 = {
+	culture = cathayan
+	rite = celestial_order
+	holding = castle_holding
+}
+
+751 = {
+	holding = city_holding
+}
+
+764 = {
+	holding = church_holding
+}
+
+760 = {
+	holding = none
+}
+
+762 = {
+	holding = none
+}
+
+766 = {
+	culture = cathayan
+	rite = celestial_order
+	holding = castle_holding
+}
+
+763 = {
+	holding = city_holding
+}
+
+765 = {
+	holding = church_holding
+}
+
+761 = {
+	holding = none
+}
+
+753 = {
+	culture = cathayan
+	rite = celestial_order
+	holding = castle_holding
+}
+
+757 = {
+	holding = city_holding
+}
+
+774 = {
+	holding = church_holding
+}
+
+776 = {
+	holding = none
+}
+
+767 = {
+	culture = cathayan
+	rite = celestial_order
+	holding = castle_holding
+}
+
+769 = {
+	holding = city_holding
+}
+
+771 = {
+	holding = church_holding
+}
+
+768 = {
+	holding = none
+}
+
+778 = {
+	culture = kitsune
+	rite = celestial_order
+	holding = castle_holding
+}
+
+777 = {
+	holding = city_holding
+}
+
+775 = {
+	holding = church_holding
+}
+
+779 = {
+	holding = none
+}
+
+781 = {
+	culture = kitsune
+	rite = celestial_order
+	holding = castle_holding
+}
+
+784 = {
+	holding = city_holding
+}
+
+780 = {
+	holding = church_holding
+}
+
+783 = {
+	holding = none
+}
+
+785 = {
+	culture = kitsune
+	rite = celestial_order
+	holding = castle_holding
+}
+
+782 = {
+	holding = city_holding
+}
+
+797 = {
+	holding = church_holding
+}
+
+799 = {
+	holding = none
+}
+
+772 = {
+	culture = kitsune
+	rite = celestial_order
+	holding = castle_holding
+}
+
+770 = {
+	holding = city_holding
+}
+
+786 = {
+	holding = church_holding
+}
+
+788 = {
+	holding = none
+}
+
+787 = {
+	culture = kitsune
+	rite = celestial_order
+	holding = castle_holding
+}
+
+790 = {
+	holding = city_holding
+}
+
+792 = {
+	holding = church_holding
+}
+
+789 = {
+	holding = none
+}
+
+802 = {
+	culture = lunargoth
+	rite = celestial_order
+	holding = castle_holding
+}
+
+798 = {
+	holding = city_holding
+}
+
+804 = {
+	holding = church_holding
+}
+
+800 = {
+	holding = none
+}
+
+808 = {
+	culture = lunargoth
+	rite = celestial_order
+	holding = castle_holding
+}
+
+805 = {
+	holding = city_holding
+}
+
+801 = {
+	holding = church_holding
+}
+
+809 = {
+	culture = lunargoth
+	rite = celestial_order
+	holding = castle_holding
+}
+
+803 = {
+	holding = city_holding
+}
+
+806 = {
+	holding = church_holding
+}
+
+810 = {
+	holding = none
+}
+
+807 = {
+	holding = none
+}
+
+796 = {
+	culture = lunargoth
+	rite = celestial_order
+	holding = castle_holding
+}
+
+795 = {
+	holding = city_holding
+}
+
+773 = {
+	culture = lunargoth
+	rite = celestial_order
+	holding = castle_holding
+}
+
+791 = {
+	holding = city_holding
+}
+
+794 = {
+	holding = church_holding
+}
+
+793 = {
+	holding = none
+}
+
+811 = {
+	culture = cathayan
+	rite = celestial_order
+	holding = castle_holding
+}
+
+869 = {
+	culture = oni
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+867 = {
+	holding = city_holding
+}
+
+866 = {
+	holding = church_holding
+}
+
+868 = {
+	holding = none
+}
+
+872 = {
+	culture = oni
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+874 = {
+	holding = city_holding
+}
+
+871 = {
+	holding = church_holding
+}
+
+873 = {
+	holding = none
+}
+
+876 = {
+	culture = oni
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+870 = {
+	holding = city_holding
+}
+
+875 = {
+	holding = church_holding
+}
+
+896 = {
+	holding = none
+}
+
+845 = {
+	culture = oni
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+844 = {
+	holding = city_holding
+}
+
+846 = {
+	holding = church_holding
+}
+
+877 = {
+	holding = none
+}
+
+882 = {
+	culture = oni
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+879 = {
+	holding = city_holding
+}
+
+883 = {
+	holding = church_holding
+}
+
+880 = {
+	holding = none
+}
+
+886 = {
+	culture = zenshin
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+881 = {
+	holding = city_holding
+}
+
+884 = {
+	holding = church_holding
+}
+
+878 = {
+	holding = none
+}
+
+848 = {
+	culture = zenshin
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+847 = {
+	holding = city_holding
+}
+
+889 = {
+	holding = church_holding
+}
+
+885 = {
+	holding = none
+}
+
+891 = {
+	culture = zenshin
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+888 = {
+	holding = city_holding
+}
+
+892 = {
+	holding = church_holding
+}
+
+890 = {
+	holding = none
+}
+
+887 = {
+	holding = none
+}
+
+849 = {
+	culture = zenshin
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+852 = {
+	holding = city_holding
+}
+
+854 = {
+	holding = church_holding
+}
+
+850 = {
+	holding = none
+}
+
+857 = {
+	culture = zenshin
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+853 = {
+	holding = city_holding
+}
+
+893 = {
+	holding = church_holding
+}
+
+894 = {
+	holding = none
+}
+
+814 = {
+	culture = zenshin
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+816 = {
+	holding = city_holding
+}
+
+813 = {
+	holding = church_holding
+}
+
+815 = {
+	holding = none
+}
+
+821 = {
+	culture = zenshin
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+818 = {
+	holding = city_holding
+}
+
+820 = {
+	holding = church_holding
+}
+
+817 = {
+	holding = none
+}
+
+812 = {
+	culture = zenshin
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+830 = {
+	holding = city_holding
+}
+
+831 = {
+	holding = church_holding
+}
+
+827 = {
+	holding = none
+}
+
+837 = {
+	culture = zenshin
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+840 = {
+	holding = city_holding
+}
+
+834 = {
+	holding = church_holding
+}
+
+838 = {
+	holding = none
+}
+
+836 = {
+	culture = zenshin
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+829 = {
+	holding = city_holding
+}
+
+833 = {
+	holding = church_holding
+}
+
+835 = {
+	holding = none
+}
+
+825 = {
+	culture = zenshin
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+822 = {
+	holding = city_holding
+}
+
+819 = {
+	holding = church_holding
+}
+
+824 = {
+	holding = none
+}
+
+828 = {
+	culture = oni
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+832 = {
+	holding = city_holding
+}
+
+851 = {
+	holding = church_holding
+}
+
+855 = {
+	holding = none
+}
+
+858 = {
+	culture = oni
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+860 = {
+	holding = city_holding
+}
+
+856 = {
+	holding = church_holding
+}
+
+859 = {
+	holding = none
+}
+
+864 = {
+	culture = oni
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+863 = {
+	holding = city_holding
+}
+
+861 = {
+	holding = church_holding
+}
+
+895 = {
+	holding = none
+}
+
+839 = {
+	culture = oni
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+842 = {
+	holding = city_holding
+}
+
+865 = {
+	holding = church_holding
+}
+
+862 = {
+	holding = none
+}
+
+823 = {
+	culture = oni
+	rite = veiled_ancestors
+	holding = castle_holding
+}
+
+826 = {
+	holding = city_holding
+}
+
+843 = {
+	holding = church_holding
+}
+
+841 = {
+	holding = none
+}
+
+898 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+910 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+913 = {
+	holding = city_holding
+}
+
+909 = {
+	holding = church_holding
+}
+
+911 = {
+	holding = none
+}
+
+923 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+925 = {
+	holding = city_holding
+}
+
+926 = {
+	holding = church_holding
+}
+
+922 = {
+	holding = none
+}
+
+917 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+914 = {
+	holding = city_holding
+}
+
+919 = {
+	holding = church_holding
+}
+
+930 = {
+	holding = none
+}
+
+933 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+928 = {
+	holding = city_holding
+}
+
+931 = {
+	holding = church_holding
+}
+
+932 = {
+	holding = none
+}
+
+927 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+924 = {
+	holding = city_holding
+}
+
+929 = {
+	holding = church_holding
+}
+
+939 = {
+	holding = none
+}
+
+900 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+899 = {
+	holding = city_holding
+}
+
+915 = {
+	holding = church_holding
+}
+
+912 = {
+	holding = none
+}
+
+903 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+918 = {
+	holding = city_holding
+}
+
+916 = {
+	holding = church_holding
+}
+
+920 = {
+	holding = none
+}
+
+904 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+901 = {
+	holding = city_holding
+}
+
+902 = {
+	holding = church_holding
+}
+
+905 = {
+	holding = none
+}
+
+897 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+907 = {
+	holding = city_holding
+}
+
+908 = {
+	holding = church_holding
+}
+
+906 = {
+	holding = none
+}
+
+921 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+935 = {
+	holding = city_holding
+}
+
+936 = {
+	holding = church_holding
+}
+
+934 = {
+	holding = none
+}
+
+940 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+943 = {
+	holding = city_holding
+}
+
+938 = {
+	holding = church_holding
+}
+
+941 = {
+	holding = none
+}
+
+944 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+945 = {
+	holding = city_holding
+}
+
+942 = {
+	holding = church_holding
+}
+
+956 = {
+	holding = none
+}
+
+946 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+949 = {
+	holding = city_holding
+}
+
+947 = {
+	holding = church_holding
+}
+
+951 = {
+	holding = none
+}
+
+950 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+958 = {
+	holding = city_holding
+}
+
+959 = {
+	holding = church_holding
+}
+
+957 = {
+	holding = none
+}
+
+948 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+952 = {
+	holding = city_holding
+}
+
+955 = {
+	holding = church_holding
+}
+
+960 = {
+	holding = none
+}
+
+937 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+953 = {
+	holding = city_holding
+}
+
+954 = {
+	holding = church_holding
+}
+
+962 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+961 = {
+	culture = oni
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+964 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+965 = {
+	holding = none
+}
+
+963 = {
+	holding = none
+}
+
+967 = {
+	holding = none
+}
+
+968 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+972 = {
+	holding = none
+}
+
+974 = {
+	holding = none
+}
+
+970 = {
+	holding = none
+}
+
+973 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+969 = {
+	holding = none
+}
+
+971 = {
+	holding = none
+}
+
+989 = {
+	holding = none
+}
+
+966 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+986 = {
+	holding = none
+}
+
+984 = {
+	holding = none
+}
+
+985 = {
+	holding = none
+}
+
+990 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+987 = {
+	holding = none
+}
+
+991 = {
+	holding = none
+}
+
+988 = {
+	holding = none
+}
+
+1003 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1030 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1006 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1004 = {
+	holding = none
+}
+
+1008 = {
+	holding = none
+}
+
+1005 = {
+	holding = none
+}
+
+1007 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1009 = {
+	holding = none
+}
+
+1012 = {
+	holding = none
+}
+
+1031 = {
+	holding = none
+}
+
+1014 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1010 = {
+	holding = none
+}
+
+1015 = {
+	holding = none
+}
+
+1013 = {
+	holding = none
+}
+
+996 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+998 = {
+	holding = none
+}
+
+994 = {
+	holding = none
+}
+
+1011 = {
+	holding = none
+}
+
+1016 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1037 = {
+	holding = none
+}
+
+1042 = {
+	holding = none
+}
+
+1039 = {
+	holding = none
+}
+
+977 = {
+	culture = zenshin
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+992 = {
+	holding = none
+}
+
+995 = {
+	holding = none
+}
+
+993 = {
+	holding = none
+}
+
+981 = {
+	culture = zenshin
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+983 = {
+	holding = none
+}
+
+980 = {
+	holding = none
+}
+
+997 = {
+	holding = none
+}
+
+975 = {
+	culture = zenshin
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+982 = {
+	holding = none
+}
+
+979 = {
+	holding = none
+}
+
+978 = {
+	holding = none
+}
+
+976 = {
+	holding = none
+}
+
+1000 = {
+	culture = zenshin
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1002 = {
+	holding = none
+}
+
+999 = {
+	holding = none
+}
+
+1001 = {
+	holding = none
+}
+
+1020 = {
+	culture = zenshin
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1017 = {
+	holding = none
+}
+
+1021 = {
+	holding = none
+}
+
+1018 = {
+	holding = none
+}
+
+1034 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1032 = {
+	holding = none
+}
+
+1035 = {
+	holding = none
+}
+
+1033 = {
+	holding = none
+}
+
+1040 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1036 = {
+	holding = none
+}
+
+1041 = {
+	holding = none
+}
+
+1038 = {
+	holding = none
+}
+
+1043 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1046 = {
+	holding = none
+}
+
+1044 = {
+	holding = none
+}
+
+1047 = {
+	holding = none
+}
+
+1049 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1056 = {
+	holding = none
+}
+
+1055 = {
+	holding = none
+}
+
+1054 = {
+	holding = none
+}
+
+1022 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1019 = {
+	holding = none
+}
+
+1025 = {
+	holding = none
+}
+
+1045 = {
+	holding = none
+}
+
+1023 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1026 = {
+	holding = none
+}
+
+1024 = {
+	holding = none
+}
+
+1027 = {
+	holding = none
+}
+
+1029 = {
+	holding = none
+}
+
+1028 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1048 = {
+	holding = none
+}
+
+1051 = {
+	holding = none
+}
+
+1050 = {
+	holding = none
+}
+
+1053 = {
+	culture = yokai
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1052 = {
+	holding = none
+}
+
+1057 = {
+	culture = zenshin
+	rite = wild_pacts
+	holding = tribal_holding
+}
+
+1058 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1060 = {
+	holding = city_holding
+}
+
+1059 = {
+	holding = church_holding
+}
+
+1062 = {
+	holding = none
+}
+
+1067 = {
+	holding = none
+}
+
+1061 = {
+	holding = none
+}
+
+1070 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1071 = {
+	holding = city_holding
+}
+
+1068 = {
+	holding = church_holding
+}
+
+1065 = {
+	holding = none
+}
+
+1064 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1069 = {
+	holding = city_holding
+}
+
+1063 = {
+	holding = church_holding
+}
+
+1066 = {
+	holding = none
+}
+
+1076 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1072 = {
+	holding = city_holding
+}
+
+1075 = {
+	holding = church_holding
+}
+
+1073 = {
+	holding = none
+}
+
+1077 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1074 = {
+	holding = city_holding
+}
+
+1079 = {
+	holding = church_holding
+}
+
+1078 = {
+	holding = none
+}
+
+1085 = {
+	culture = cathayan
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1087 = {
+	holding = city_holding
+}
+
+1084 = {
+	holding = church_holding
+}
+
+1086 = {
+	holding = none
+}
+
+1090 = {
+	culture = cathayan
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1092 = {
+	holding = city_holding
+}
+
+1088 = {
+	holding = church_holding
+}
+
+1091 = {
+	holding = none
+}
+
+1094 = {
+	culture = cathayan
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1098 = {
+	holding = city_holding
+}
+
+1093 = {
+	holding = church_holding
+}
+
+1097 = {
+	holding = none
+}
+
+1099 = {
+	culture = cathayan
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1104 = {
+	holding = city_holding
+}
+
+1095 = {
+	holding = church_holding
+}
+
+1101 = {
+	holding = none
+}
+
+1089 = {
+	culture = cathayan
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1096 = {
+	holding = city_holding
+}
+
+1122 = {
+	holding = church_holding
+}
+
+1125 = {
+	holding = none
+}
+
+1123 = {
+	culture = cathayan
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1126 = {
+	holding = city_holding
+}
+
+1121 = {
+	holding = church_holding
+}
+
+1124 = {
+	holding = none
+}
+
+1133 = {
+	culture = cathayan
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1128 = {
+	holding = city_holding
+}
+
+1132 = {
+	holding = church_holding
+}
+
+1127 = {
+	holding = none
+}
+
+1140 = {
+	culture = cathayan
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1131 = {
+	holding = city_holding
+}
+
+1135 = {
+	holding = church_holding
+}
+
+1138 = {
+	holding = none
+}
+
+1129 = {
+	culture = cathayan
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1134 = {
+	holding = city_holding
+}
+
+1130 = {
+	holding = church_holding
+}
+
+1136 = {
+	holding = none
+}
+
+1137 = {
+	culture = cathayan
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1154 = {
+	holding = city_holding
+}
+
+1152 = {
+	holding = church_holding
+}
+
+1153 = {
+	holding = none
+}
+
+1105 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1100 = {
+	holding = city_holding
+}
+
+1108 = {
+	holding = church_holding
+}
+
+1103 = {
+	holding = none
+}
+
+1107 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1102 = {
+	holding = city_holding
+}
+
+1112 = {
+	holding = church_holding
+}
+
+1110 = {
+	holding = none
+}
+
+1114 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1117 = {
+	holding = city_holding
+}
+
+1111 = {
+	holding = church_holding
+}
+
+1116 = {
+	holding = none
+}
+
+1081 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1082 = {
+	holding = city_holding
+}
+
+1080 = {
+	holding = church_holding
+}
+
+1083 = {
+	holding = none
+}
+
+1120 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1119 = {
+	holding = city_holding
+}
+
+1106 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1109 = {
+	holding = city_holding
+}
+
+1145 = {
+	holding = church_holding
+}
+
+1139 = {
+	holding = none
+}
+
+1115 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1113 = {
+	holding = city_holding
+}
+
+1118 = {
+	holding = church_holding
+}
+
+1148 = {
+	holding = none
+}
+
+1144 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1147 = {
+	holding = city_holding
+}
+
+1143 = {
+	holding = church_holding
+}
+
+1146 = {
+	holding = none
+}
+
+1150 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1151 = {
+	holding = city_holding
+}
+
+1149 = {
+	holding = church_holding
+}
+
+1142 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}
+
+1141 = {
+	holding = city_holding
+}
+
+1156 = {
+	holding = church_holding
+}
+
+1155 = {
+	holding = none
+}
+
+1157 = {
+	culture = zenshin
+	rite = ancestral_rites
+	holding = castle_holding
+}

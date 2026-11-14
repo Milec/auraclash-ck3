@@ -1,0 +1,48 @@
+﻿# Character scope: join the Archonate and serve at the hegemon's court.
+rasen_raise_archon_effect = {
+	add_trait = rasen_archon
+	if = {
+		limit = { exists = title:h_china.holder NOT = { liege_or_court_owner ?= title:h_china.holder } }
+		title:h_china.holder = { add_courtier = prev }
+	}
+}
+
+# Character scope (the hegemon), with scope:rasen_magistrate: grant them an Outer county from the domain.
+rasen_appoint_magistrate_effect = {
+	ordered_held_title = {
+		limit = { tier = tier_county title_province = { geographical_region = world_rasen_outer } }
+		order_by = development_level
+		save_scope_as = rasen_magistrate_county
+	}
+	if = {
+		limit = { exists = scope:rasen_magistrate_county }
+		create_title_and_vassal_change = { type = granted save_scope_as = rasen_magistrate_change add_claim_on_loss = no }
+		scope:rasen_magistrate_county = { change_title_holder = { holder = scope:rasen_magistrate change = scope:rasen_magistrate_change } }
+		resolve_title_and_vassal_change = scope:rasen_magistrate_change
+		scope:rasen_magistrate = { if = { limit = { is_ruler = yes NOT = { has_government = celestial_government } } change_government = celestial_government } }
+	}
+}
+
+# Global scope, yearly. The hegemon fills an empty place in the Archonate, and an AI hegemon sends an
+# Inner Kingdom noble to govern an Outer county it holds directly.
+rasen_governing_yearly_effect = {
+	if = {
+		limit = { rasen_archonate_has_room_trigger = yes exists = title:h_china.holder }
+		ordered_living_character = {
+			limit = { rasen_archon_candidate_trigger = yes }
+			order_by = ac_aura_pressure_value
+			rasen_raise_archon_effect = yes
+		}
+	}
+	title:h_china.holder ?= {
+		if = {
+			limit = { is_ai = yes rasen_holds_outer_county_trigger = yes }
+			ordered_living_character = {
+				limit = { rasen_magistrate_candidate_trigger = yes }
+				order_by = stewardship
+				save_scope_as = rasen_magistrate
+			}
+			if = { limit = { exists = scope:rasen_magistrate } rasen_appoint_magistrate_effect = yes }
+		}
+	}
+}
