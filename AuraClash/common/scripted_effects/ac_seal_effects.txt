@@ -76,5 +76,7 @@ ac_seal_store_foundation_tier_effect = {
 ac_seal_release_soulsoak_effect = {
 	change_variable = { name = ac_soulsoak add = -1 }
 	if = { limit = { var:ac_soulsoak <= 0 } remove_variable = ac_soulsoak }
+	# "Untap 100 AP per 100 AP spent": a spent Chi returns.
+	if = { limit = { has_variable = ac_chi_spent var:ac_chi_spent > 0 } change_variable = { name = ac_chi_spent add = -1 } }
 	add_character_flag = ac_duel_soulsoak
 }

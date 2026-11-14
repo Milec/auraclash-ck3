@@ -37,7 +37,7 @@ roll is scaled to CK3's months and years or mapped to a CK3 stat. **Simplified**
 | Keystone: permanent lock | Permanent modifier until Counterseal | Same |
 | Counterseal: contested; fail locks you out | Succeeds if successes ≥ the caster's; one try per target a year | Same |
 | Reinforcement (Improved): permanent on the weapon; Crowd +1 Power | Weapon modifier; +10% pikemen and heavy infantry damage | Same |
-| Soulsoak: X00 AP into a blade; end for +1 success, untap AP or heal | 2 or 4 charges; release in a Clash for +3, or outside combat to heal a wound | Simplified: no untap |
+| Soulsoak: X00 AP into a blade; end for +1 success, untap AP or heal | 2 or 4 charges; release in a Clash for +3, or outside combat to heal a wound; each release restores 1 spent Chi | Same |
 | Celestial Forge: exchange your Foundation | Choose any other Foundation, keeping its tempering | Same |
 | Exorcism: dead laid to rest; skill boon [Core+3] | County modifier; +3 to a chosen skill | Adapted |
 | Prayer Engine: hear prayers within 100 miles per success | Piety and same-faith opinion; enables Divine Intervention | Adapted |

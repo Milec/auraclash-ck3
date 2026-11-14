@@ -392,6 +392,8 @@ def effects():
             'ac_seal_release_soulsoak_effect = {',
             '\tchange_variable = { name = ac_soulsoak add = -1 }',
             '\tif = { limit = { var:ac_soulsoak <= 0 } remove_variable = ac_soulsoak }',
+            '\t# "Untap 100 AP per 100 AP spent": a spent Chi returns.',
+            '\tif = { limit = { has_variable = ac_chi_spent var:ac_chi_spent > 0 } change_variable = { name = ac_chi_spent add = -1 } }',
             '\tadd_character_flag = ac_duel_soulsoak',
             '}']
     return '\n'.join(out)
