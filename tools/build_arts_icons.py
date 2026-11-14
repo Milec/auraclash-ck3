@@ -145,6 +145,7 @@ def gate_icon() -> Image.Image:
 def render():
     files = {TRAITS / f'ac_tf_{form}.dds': dds(transform_icon(form), 120) for form in FORMS}
     files[PHASES / 'ac_gate_cycling_phase.dds'] = dds(gate_icon(), 205)
+    files[PHASES.parent / 'activities' / 'activity_ac_cycle_gate.dds'] = dds(gate_icon(), 80)
     return files
 
 
