@@ -40,7 +40,8 @@ class TerrainTests(unittest.TestCase):
     @unittest.skipUnless(builder.GAME_AVAILABLE, 'CK3 game files not found; set CK3_GAME_ROOT')
     def test_material_indices_match_the_game(self):
         settings = (builder.DEFAULT_GAME / 'gfx/map/terrain/materials.settings').read_text(encoding='utf-8-sig')
-        names = re.findall(r'name\s*=\s*"([^"]+)"', settings)
+        # Commented-out materials (vanilla keeps old ones as '#name = ...') take no position.
+        names = re.findall(r'^[ \t]*name\s*=\s*"([^"]+)"', settings, re.M)
         for name, position in terrain.MATERIAL_INDEX.items():
             self.assertEqual(names.index(name), position, name)
 

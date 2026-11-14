@@ -177,7 +177,8 @@ def project(labels, land, val, sat):
         target_labels = np.where(missing, target_labels[iy, ix], target_labels)
     target_labels = np.where(target_land, target_labels, 0).astype(np.uint8)
     # Mountain glyphs: low-saturation grey/white strokes on land.
-    rocky = ((sat < 0.22) & (val > 0.35)).astype(np.uint8) * 255
+    # The painted region names are white lettering too: relief under them follows the ground around.
+    rocky = (fill_labels(((sat < 0.22) & (val > 0.35)).astype(np.float32)) * 255).astype(np.uint8)
     target_rock = resize(rocky, 'L', Image.BILINEAR).astype(np.float32) / 255
     return target_labels, target_rock, (scale, ox, oy, box)
 
@@ -534,32 +535,112 @@ def heightmap(labels, rock, rng):
     return np.clip(height, 0, 255).astype(np.uint8)
 
 
-def province_terrain(provinces, region_of, height, rock):
-    """Terrain per land province: relief from the heightmap and painted mountains, else the region's mix."""
+# ----------------------------------------------------------------------------
+# Biomes: what the painting draws, region by region
+# ----------------------------------------------------------------------------
+# The painting's region labels (source pixels, x0 y0 x1 y1): their lettering is not terrain.
+LABEL_BOXES = [
+    (950, 155, 1195, 205), (965, 480, 1225, 525), (1470, 585, 1695, 680), (1345, 780, 1500, 870),
+    (1865, 785, 2085, 830), (435, 870, 655, 910), (950, 985, 1065, 1070), (1180, 975, 1355, 1055),
+    (1415, 1080, 1685, 1130), (1415, 1330, 1670, 1375), (865, 1440, 1115, 1490),
+]
+# Per region, from the painting and the lore: (open ground, forest, high ground) as CK3 terrain types.
+BIOME_TERRAIN = {
+    'outer_north': ('plains', 'taiga', 'mountains'), 'sacred': ('plains', 'taiga', 'mountains'),
+    'outer_west': ('plains', 'forest', 'mountains'), 'outer_east': ('plains', 'forest', 'hills'),
+    'outer_south': ('plains', 'jungle', 'mountains'), 'mystic': ('farmlands', 'forest', 'hills'),
+    'bladed': ('drylands', 'forest', 'hills'), 'cursed': ('wetlands', 'forest', 'hills'),
+    'wild': ('plains', 'jungle', 'hills'), 'azuma': ('farmlands', 'forest', 'hills'),
+}
+SNOWY = ('outer_north', 'sacred')
+# Outer South: "jungle inland, dunes on the coast" (rulebook). Coastal pixels within this reach are dunes.
+DUNE_REACH = 70
+FOREST_CUT, ROCK_CUT, SNOW_CUT = 0.22, 0.20, 0.30
+
+
+def label_mask(shape):
+    """True over the painting's region-name lettering (source pixels)."""
+    text = np.zeros(shape, bool)
+    for x0, y0, x1, y1 in LABEL_BOXES:
+        text[y0:y1, x0:x1] = True
+    return text
+
+
+def fill_labels(layer, sigma=20):
+    """A 0-1 layer with the lettering replaced by the surrounding ground's average (normalized blur)."""
+    text = label_mask(layer.shape)
+    keep = (~text).astype(np.float32)
+    around = nd.gaussian_filter(layer * keep, sigma) / np.maximum(nd.gaussian_filter(keep, sigma), 1e-3)
+    return np.where(text, around, layer).astype(np.float32)
+
+
+def feature_layers(hue, sat, val, labels, land):
+    """Densities (0-1, source pixels) of the painting's drawn trees, peaks and snow."""
+    ground = land & ~label_mask(land.shape)
+    # Tree clusters: darker than the ground around them and not grey (the regions are tinted, so not only green).
+    tree = ground & (val < nd.uniform_filter(val, 31) - 0.10) & (sat > 0.25)
+    # Peaks: low-saturation grey or white strokes.
+    rock = ground & (sat < 0.22) & (val > 0.30) & (val <= 0.80)
+    # Snow and ice: white, or pale blue, and only where the painting is a frozen land.
+    frozen = np.isin(labels, [REGION_INDEX[k] for k in SNOWY])
+    snow = ground & frozen & (((val > 0.80) & (sat < 0.20)) | ((hue >= 185) & (hue <= 230) & (sat < 0.40) & (val > 0.72)))
+    return [fill_labels(nd.gaussian_filter(a.astype(np.float32), 4)) * land for a in (tree, rock, snow)]
+
+
+def project_layer(layer, transform):
+    """A float source layer on the padded CK3 canvas, where project() put the continent."""
+    scale, ox, oy, box = transform
+    tw, th = int((box[2] - box[0]) * scale), int((box[3] - box[1]) * scale)
+    image = Image.fromarray(layer.astype(np.float32), 'F').crop(tuple(box)).resize((tw, th), Image.BILINEAR)
+    canvas = np.zeros((HEIGHT, WIDTH), np.float32)
+    canvas[oy:oy + th, ox:ox + tw] = np.asarray(image)
+    return np.pad(canvas, ((PAD_Y, MAP_HEIGHT - HEIGHT - PAD_Y), (PAD_X, MAP_WIDTH - WIDTH - PAD_X)))
+
+
+def biome_layers():
+    """Region labels and the drawn tree, peak and snow densities, all on the padded CK3 canvas."""
+    rgb, hue, sat, val = load_source()
+    labels, land = classify(hue, sat, val)
+    labels = smooth_regions(labels, land)
+    target, _rock, transform = project(labels, land, val, sat)
+    target = np.pad(target, ((PAD_Y, MAP_HEIGHT - HEIGHT - PAD_Y), (PAD_X, MAP_WIDTH - WIDTH - PAD_X)))
+    tree, rock, snow = (project_layer(a, transform) for a in feature_layers(hue, sat, val, labels, land))
+    return target, tree, rock, snow
+
+
+def province_terrain(provinces, region_of, height, layers):
+    """Terrain per land province, from what the painting draws there: peaks, forest or the region's open ground."""
+    tree, rock, snow = layers
     count = int(provinces.max())
     flat = provinces.ravel()
     sizes = np.bincount(flat, minlength=count + 1).astype(np.float64)
     sizes[sizes == 0] = 1
+    share = lambda mask: np.bincount(flat, weights=mask.ravel().astype(np.float64), minlength=count + 1) / sizes
     mean_h = np.bincount(flat, weights=height.ravel().astype(np.float64), minlength=count + 1) / sizes
-    mean_r = np.bincount(flat, weights=rock.ravel().astype(np.float64), minlength=count + 1) / sizes
+    rocky, wooded = share(rock > ROCK_CUT), share(tree > FOREST_CUT)
+    land_px = provinces > 0
+    land_px &= np.isin(provinces, [p for p, r in region_of.items() if r not in ('sea', 'ocean')])
+    coastal = share(nd.distance_transform_edt(land_px) < DUNE_REACH)
     land = [p for p, r in region_of.items() if r not in ('sea', 'ocean')]
     heights = np.array([mean_h[p] for p in land])
-    mountain_cut, hill_cut = np.percentile(heights, 90), np.percentile(heights, 72)
-    spec = {r['key']: r for r in REGIONS}
-    rng = np.random.default_rng(SEED + 7)
+    mountain_cut = np.percentile(heights, 90)
     lines = ['# Generated by tools/build_rasen_map.py.', 'default_land=plains', 'default_sea=sea', 'default_coastal_sea=coastal_sea']
     props = ['# Generated by tools/build_rasen_map.py. Winter severity follows the frozen north.']
+    spec = {r['key']: r for r in REGIONS}
     for p in sorted(land):
-        region = spec[region_of[p]]
-        if mean_h[p] >= mountain_cut or mean_r[p] > 0.45:
-            kind = region['terrain'].get('high', 'mountains')
-        elif mean_h[p] >= hill_cut or mean_r[p] > 0.25:
+        key = region_of[p]
+        region = spec[key]
+        open_kind, forest_kind, high_kind = BIOME_TERRAIN[key]
+        if rocky[p] >= 0.40 or (mean_h[p] >= mountain_cut and rocky[p] >= 0.15):
+            kind = high_kind
+        elif rocky[p] >= 0.20:
             kind = 'hills'
+        elif wooded[p] >= 0.40:
+            kind = forest_kind
+        elif key == 'outer_south' and coastal[p] >= 0.6:
+            kind = 'desert'
         else:
-            mix = region['terrain']['mix']
-            kinds = list(mix)
-            weights = np.array([mix[k] for k in kinds], dtype=float)
-            kind = kinds[int(rng.choice(len(kinds), p=weights / weights.sum()))]
+            kind = open_kind
         lines.append(f'{p}={kind}')
         if region.get('winter'):
             props.append(f'{p}={{ winter_severity_bias = {region["winter"]} }}')
@@ -694,7 +775,8 @@ def render(write=True):
     files['map_data/provinces.png'] = png(palette[provinces], 'RGB')
     height = heightmap(target, rock, rng)
     files['map_data/heightmap.png'] = png(height, 'L')
-    terrain, properties = province_terrain(provinces, region_of, height, rock)
+    tree, rock_drawn, snow = (project_layer(a, transform) for a in feature_layers(hue, sat, val, labels, land))
+    terrain, properties = province_terrain(provinces, region_of, height, (tree, rock_drawn, snow))
     files['common/province_terrain/00_rasen_province_terrain.txt'] = ('\ufeff' + terrain).encode('utf-8')
     files['common/province_terrain/01_rasen_province_properties.txt'] = ('\ufeff' + properties).encode('utf-8')
     files['map_data/rivers.png'] = rivers_png(target)
