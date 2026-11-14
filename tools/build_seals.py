@@ -178,7 +178,7 @@ def special_effect(key, s):
                 f'if = {{ limit = {{ {succ} >= 8 }} ac_gain_cultivation_study_xp_effect = {{ XP = 500 }} custom_tooltip = ac_seal_message_forbidden_tt }} '
                 f'else_if = {{ limit = {{ {succ} >= 5 }} every_relation = {{ type = rival every_secret = {{ reveal_to = scope:actor }} }} '
                 'liege ?= { every_secret = { reveal_to = scope:actor } } custom_tooltip = ac_seal_message_secrets_tt } '
-                f'else_if = {{ limit = {{ {succ} >= 3 }} random_relation = {{ type = rival random_secret = {{ reveal_to = scope:actor }} }} add_learning_lifestyle_xp = 200 custom_tooltip = ac_seal_message_helpful_tt }} '
+                f'else_if = {{ limit = {{ {succ} >= 3 }} random_relation = {{ type = rival random_secret = {{ reveal_to = scope:actor }} }} add_learning_lifestyle_xp = 200 ac_grove_rumor_effect = yes custom_tooltip = ac_seal_message_helpful_tt }} '
                 f'else_if = {{ limit = {{ {succ} >= 1 }} add_learning_lifestyle_xp = 100 custom_tooltip = ac_seal_message_vague_tt }} '
                 'else = { add_stress = 20 custom_tooltip = ac_seal_message_botch_tt } }')
     if eff == 'SCRY':
@@ -479,7 +479,7 @@ def localization():
            ' ac_seal_counterseal_failed_tt:0 "The original Seal holds."',
            ' ac_seal_message_forbidden_tt:0 "Potentially forbidden knowledge: +500 cultivation experience."',
            ' ac_seal_message_secrets_tt:0 "Valuable secrets: my rivals\' and my liege\'s secrets are revealed."',
-           ' ac_seal_message_helpful_tt:0 "Helpful information: a rival\'s secret."',
+           ' ac_seal_message_helpful_tt:0 "Helpful information: a rival\'s secret, and perhaps a rumour of a hidden Spirit Fruit Grove."',
            ' ac_seal_message_vague_tt:0 "A vague and possibly useless answer."',
            ' ac_seal_message_botch_tt:0 "A purposefully misleading answer."',
            ' ac_seal_scry_blocked_tt:0 "A Ward or mask clouds the sphere."',

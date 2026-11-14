@@ -104,3 +104,30 @@ ac_gate.0021 = {
 		ac_learn_tf_asura_effect = yes
 	}
 }
+
+# 0030 a rumour of a hidden grove; 0031 the search's outcome.
+ac_gate.0030 = {
+	type = character_event
+	title = ac_gate.0030.t
+	desc = ac_gate.0030.desc
+	theme = learning
+	left_portrait = { character = root animation = thinking }
+	immediate = { var:ac_grove_rumor = { save_scope_as = ac_rumor_duchy } }
+	option = { name = ac_gate.0030.a custom_tooltip = ac_gate.0030.a.tt }
+}
+
+ac_gate.0031 = {
+	type = character_event
+	title = ac_gate.0031.t
+	theme = learning
+	desc = {
+		first_valid = {
+			triggered_desc = { trigger = { var:ac_grove_result ?= flag:found } desc = ac_gate.0031.found }
+			triggered_desc = { trigger = { var:ac_grove_result ?= flag:wrong_county } desc = ac_gate.0031.wrong }
+			desc = ac_gate.0031.eluded
+		}
+	}
+	left_portrait = { character = root animation = personality_rational }
+	immediate = { var:ac_grove_rumor_county ?= { save_scope_as = ac_rumor_county } }
+	option = { name = ac_gate.0031.a remove_variable = ac_grove_result }
+}

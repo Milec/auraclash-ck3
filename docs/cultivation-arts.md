@@ -64,7 +64,7 @@ roll is scaled to CK3's months and years or mapped to a CK3 stat. **Simplified**
 | Sects claim Gates; rivals ambush there | Contest the local sect's disciples in a Clash; AI sects claim unclaimed Gates | Same |
 | The first cultivation drains the Gate | Drained when the activity ends | Same |
 | Spirit fruit: +8 or +10 AP, less each time | +10, divided by fruit eaten that year | Same |
-| Sects hide Soulfruit Groves | Groves are special buildings held by whoever holds the county | Simplified: no hidden groves |
+| Sects hide Soulfruit Groves; a skill check learns where one is | Groves start hidden; rumours (and a Heavenly Message) name the duchy; the Seek the Rumoured Grove activity searches with Perception or Insight dice; found groves become special buildings | Same |
 
 ## Equipment (IF ch6 forge, Core Rulebook "Items", the author's materials)
 

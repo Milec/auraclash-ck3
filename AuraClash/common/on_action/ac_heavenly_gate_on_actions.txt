@@ -9,6 +9,12 @@ on_game_start = { on_actions = { ac_spirit_groves_start } }
 ac_spirit_groves_start = { effect = { ac_place_spirit_groves_effect = yes } }
 yearly_playable_pulse = { on_actions = { ac_spirit_fruit_harvest } }
 ac_spirit_fruit_harvest = {
-	trigger = { any_held_county = { has_variable = ac_spirit_grove } }
+	trigger = { any_held_county = { has_variable = ac_spirit_grove_found } }
 	effect = { ac_harvest_spirit_fruit_effect = yes ac_ai_spirit_fruit_effect = yes }
+}
+# Rumours of hidden groves reach cultivator rulers now and then; the AI follows its own.
+random_yearly_playable_pulse = { on_actions = { ac_grove_rumor_pulse } }
+ac_grove_rumor_pulse = {
+	trigger = { has_trait = ac_cultivator is_adult = yes }
+	effect = { random = { chance = 12 ac_grove_rumor_effect = yes } random = { chance = 25 ac_ai_grove_rumor_effect = yes } }
 }

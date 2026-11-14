@@ -17,3 +17,5 @@ ac_gate_awaken_chance = { value = 15 add = { value = ac_gate_level_value multipl
 # Spirit fruit: less each time within a year.
 ac_spirit_fruit_gain = { value = 10 if = { limit = { has_variable = ac_fruit_eaten } divide = { value = var:ac_fruit_eaten add = 1 } } round = yes min = 2 }
 ac_spirit_fruit_count = { value = 0 if = { limit = { has_variable = ac_spirit_fruit } value = var:ac_spirit_fruit } }
+# Searching for a hidden grove: Perception or Insight dice (intrigue or learning); +2 once the rumour is narrowed.
+ac_grove_search_dice = { value = intrigue if = { limit = { learning > intrigue } value = learning } divide = 5 floor = yes add = 1 if = { limit = { has_variable = ac_grove_narrowed } add = 2 } max = 10 }

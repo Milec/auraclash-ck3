@@ -142,10 +142,36 @@ def gate_icon() -> Image.Image:
     return canvas.filter(ImageFilter.GaussianBlur(2))
 
 
+def grove_icon() -> Image.Image:
+    """A tree soaked in chi, its fruit glowing (the hidden Spirit Fruit Grove)."""
+    size = WORK
+    canvas = Image.new('RGBA', (size, size), (0, 0, 0, 0))
+    glow_layer = Image.new('RGBA', (size, size), (0, 0, 0, 0))
+    d = ImageDraw.Draw(glow_layer)
+    d.ellipse((size * 0.12, size * 0.06, size * 0.88, size * 0.70), fill=(140, 255, 170, 120))
+    canvas.alpha_composite(glow_layer.filter(ImageFilter.GaussianBlur(30)))
+    d = ImageDraw.Draw(canvas)
+    d.polygon([(size * 0.44, size * 0.92), (size * 0.47, size * 0.55), (size * 0.53, size * 0.55), (size * 0.56, size * 0.92)], fill=(92, 62, 38, 255))
+    for cx, cy, r in ((0.5, 0.32, 0.22), (0.32, 0.42, 0.16), (0.68, 0.42, 0.16), (0.5, 0.48, 0.17)):
+        d.ellipse((size * (cx - r), size * (cy - r), size * (cx + r), size * (cy + r)), fill=(48, 128, 70, 255))
+    fruit = Image.new('RGBA', (size, size), (0, 0, 0, 0))
+    f = ImageDraw.Draw(fruit)
+    for cx, cy in ((0.42, 0.26), (0.6, 0.3), (0.3, 0.44), (0.7, 0.46), (0.5, 0.42), (0.46, 0.56), (0.6, 0.55)):
+        f.ellipse((size * (cx - 0.035), size * (cy - 0.035), size * (cx + 0.035), size * (cy + 0.035)), fill=(255, 220, 110, 255))
+    canvas.alpha_composite(fruit.filter(ImageFilter.GaussianBlur(6)))
+    canvas.alpha_composite(fruit)
+    return canvas
+
+
 def render():
     files = {TRAITS / f'ac_tf_{form}.dds': dds(transform_icon(form), 120) for form in FORMS}
     files[PHASES / 'ac_gate_cycling_phase.dds'] = dds(gate_icon(), 205)
     files[PHASES.parent / 'activities' / 'activity_ac_cycle_gate.dds'] = dds(gate_icon(), 80)
+    files[PHASES / 'ac_grove_search_phase.dds'] = dds(grove_icon(), 205)
+    files[PHASES.parent / 'activities' / 'activity_ac_seek_grove.dds'] = dds(grove_icon(), 80)
+    # The activity window's header emblem.
+    files[PHASES.parent / 'activities' / 'activity_ac_cycle_gate_header.dds'] = dds(gate_icon(), 164)
+    files[PHASES.parent / 'activities' / 'activity_ac_seek_grove_header.dds'] = dds(grove_icon(), 164)
     return files
 
 
@@ -162,10 +188,11 @@ def main():
         for path, data in files.items():
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(data)
-        preview = Image.new('RGBA', (8 * 130, 130), (40, 34, 30, 255))
+        preview = Image.new('RGBA', (9 * 130, 130), (40, 34, 30, 255))
         for i, form in enumerate(FORMS):
             preview.alpha_composite(transform_icon(form).resize((120, 120), Image.Resampling.LANCZOS), (i * 130 + 5, 5))
         preview.alpha_composite(gate_icon().resize((120, 120), Image.Resampling.LANCZOS), (7 * 130 + 5, 5))
+        preview.alpha_composite(grove_icon().resize((120, 120), Image.Resampling.LANCZOS), (8 * 130 + 5, 5))
         preview.save(ROOT / 'assets/trait-icons/transformations_preview.png')
     print(f'Icons: {len(files)}.')
 

@@ -189,7 +189,10 @@ All 22 Seals from the Core Rulebook are castable interactions in their own **Sea
 - **Cycle the Heavenly Gate** (activity): travel there with your court's cultivators. Each gains the Gate's level plus their Athletics or Insight successes, up to triple the level, as Aura Pressure, plus Soul progress and *Touched by a Heavenly Gate* for two years. Beyond three cultivators the Gate's chi is shared out.
 - At the Gate you can cycle quietly, drive off the local sect's disciples in a Clash of Auras (the winner takes half again as much), or draw the whole Gate into a Transformation.
 - The first cycling drains a Gate. Unclaimed Gates go to the region's three strongest AI cultivators after 45 days.
-- **Spirit Fruit Groves:** 17 special buildings placed at game start (3 on Azuma Honsha, 8 in the Inner Kingdoms, 2 in Outer North, 4 elsewhere). The county holder harvests 2 fruit a year, keeping up to 10.
+- **Spirit Fruit Groves:** 17 groves are hidden at game start (3 on Azuma Honsha, 8 in the Inner Kingdoms, 2 in Outer North, 4 elsewhere), as sects keep them secret.
+  - **Rumours:** a cultivator ruler sometimes hears one (12% a year), naming the duchy a grove lies in. A Heavenly Message Seal with 3+ successes can also give one. A rumour lasts 3 years.
+  - **Seek the Rumoured Grove** (activity, 15 gold): search a county of that duchy with Perception or Insight dice (Intrigue or Learning). The wrong county narrows the rumour to the right one, and later searches there get +2 dice. 2 successes in the right county find the grove.
+  - **Found groves** appear on the map as special buildings. The finder brings back 3 fruit, and the county holder harvests 2 a year after that, keeping up to 10. AI cultivators follow their own rumours.
 - **Share Spirit Fruit** (interaction) feeds a cultivator, yourself included. A fruit gives up to 10 Aura Pressure, less for each fruit eaten that year. AI holders feed themselves and their court.
 
 ### Forged Equipment and the Soul Forge

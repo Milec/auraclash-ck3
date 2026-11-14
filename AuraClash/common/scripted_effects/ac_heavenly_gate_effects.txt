@@ -95,51 +95,118 @@ ac_gate_awaken_effect = {
 	}
 }
 
-# Place the Spirit Fruit Groves.
+# Place the Spirit Fruit Groves, hidden: sects keep them secret, and no one harvests one until it is found.
 ac_place_spirit_groves_effect = {
 	while = {
 		count = 3
 		random_county_in_region = {
 			region = world_rasen_azuma
-			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_building_slot = no } }
+			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_building_slot = no } exists = de_jure_liege }
 			set_variable = ac_spirit_grove
-			title_province = { add_special_building_slot = ac_spirit_fruit_grove add_special_building = ac_spirit_fruit_grove }
 		}
 	}
 	while = {
 		count = 8
 		random_county_in_region = {
 			region = world_rasen_inner
-			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_building_slot = no } }
+			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_building_slot = no } exists = de_jure_liege }
 			set_variable = ac_spirit_grove
-			title_province = { add_special_building_slot = ac_spirit_fruit_grove add_special_building = ac_spirit_fruit_grove }
 		}
 	}
 	while = {
 		count = 2
 		random_county_in_region = {
 			region = world_rasen_outer_north
-			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_building_slot = no } }
+			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_building_slot = no } exists = de_jure_liege }
 			set_variable = ac_spirit_grove
-			title_province = { add_special_building_slot = ac_spirit_fruit_grove add_special_building = ac_spirit_fruit_grove }
 		}
 	}
 	while = {
 		count = 4
 		random_county_in_region = {
 			region = world_rasen_outer
-			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_building_slot = no } }
+			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_building_slot = no } exists = de_jure_liege }
 			set_variable = ac_spirit_grove
-			title_province = { add_special_building_slot = ac_spirit_fruit_grove add_special_building = ac_spirit_fruit_grove }
 		}
 	}
 }
 
-# Character scope (a county holder): harvest every grove held.
+# County scope: the hidden grove is found, and shows on the map as a special building.
+ac_reveal_spirit_grove_effect = {
+	if = {
+		limit = { has_variable = ac_spirit_grove NOT = { has_variable = ac_spirit_grove_found } }
+		set_variable = ac_spirit_grove_found
+		title_province = { add_special_building_slot = ac_spirit_fruit_grove add_special_building = ac_spirit_fruit_grove }
+	}
+}
+
+# Character scope: hear a rumour of a hidden grove, naming only the duchy it lies in.
+ac_grove_rumor_effect = {
+	if = {
+		limit = { NOT = { has_variable = ac_grove_rumor } }
+		save_scope_as = ac_rumor_hearer
+		# Any hidden grove, those in the hearer's own kingdom first.
+		every_county_in_region = { region = world_rasen_azuma limit = { has_variable = ac_spirit_grove NOT = { has_variable = ac_spirit_grove_found } } add_to_temporary_list = ac_hidden_groves }
+		every_county_in_region = { region = world_rasen_inner limit = { has_variable = ac_spirit_grove NOT = { has_variable = ac_spirit_grove_found } } add_to_temporary_list = ac_hidden_groves }
+		every_county_in_region = { region = world_rasen_outer limit = { has_variable = ac_spirit_grove NOT = { has_variable = ac_spirit_grove_found } } add_to_temporary_list = ac_hidden_groves }
+		random_in_list = {
+			list = ac_hidden_groves
+			weight = { base = 1 modifier = { add = 4 exists = scope:ac_rumor_hearer.capital_county kingdom = scope:ac_rumor_hearer.capital_county.kingdom } }
+			save_scope_as = ac_rumor_grove
+		}
+		if = {
+			limit = { exists = scope:ac_rumor_grove }
+			set_variable = { name = ac_grove_rumor value = scope:ac_rumor_grove.de_jure_liege years = 3 }
+			set_variable = { name = ac_grove_rumor_county value = scope:ac_rumor_grove years = 3 }
+			if = { limit = { is_ai = no } trigger_event = ac_gate.0030 }
+		}
+	}
+}
+
+# Character scope: a seeker searches the county they stand in (scope:ac_search_county).
+# Perception or Insight (intrigue or learning) dice; the rumoured county and enough successes find it.
+ac_grove_search_effect = {
+	set_variable = { name = ac_grove_search_dice value = ac_grove_search_dice }
+	set_variable = { name = ac_grove_successes value = 0 }
+	while = {
+		limit = { var:ac_grove_search_dice > 0 }
+		random_list = { 4 = { } 1 = { change_variable = { name = ac_grove_successes add = 1 } } 1 = { change_variable = { name = ac_grove_successes add = 2 } } }
+		change_variable = { name = ac_grove_search_dice add = -1 }
+	}
+	remove_variable = ac_grove_search_dice
+	if = {
+		limit = { NOT = { var:ac_grove_rumor_county ?= scope:ac_search_county } }
+		# The wrong county: the trail narrows the rumour to the right one.
+		set_variable = { name = ac_grove_narrowed value = yes years = 3 }
+		set_variable = { name = ac_grove_result value = flag:wrong_county }
+	}
+	else_if = { limit = { var:ac_grove_successes >= 2 }
+		var:ac_grove_rumor_county = { ac_reveal_spirit_grove_effect = yes }
+		if = { limit = { NOT = { has_variable = ac_spirit_fruit } } set_variable = { name = ac_spirit_fruit value = 0 } }
+		change_variable = { name = ac_spirit_fruit add = 3 }
+		set_variable = { name = ac_grove_result value = flag:found }
+		remove_variable = ac_grove_rumor
+		remove_variable = ac_grove_rumor_county
+		remove_variable = ac_grove_narrowed
+	}
+	else = { set_variable = { name = ac_grove_result value = flag:eluded } }
+}
+
+# AI cultivators follow their rumours without the journey.
+ac_ai_grove_rumor_effect = {
+	if = {
+		limit = { is_ai = yes has_variable = ac_grove_rumor exists = var:ac_grove_rumor_county }
+		var:ac_grove_rumor_county = { save_scope_as = ac_search_county }
+		ac_grove_search_effect = yes
+		remove_variable = ac_grove_result
+	}
+}
+
+# Character scope (a county holder): harvest every grove held that has been found.
 ac_harvest_spirit_fruit_effect = {
 	if = { limit = { NOT = { has_variable = ac_spirit_fruit } } set_variable = { name = ac_spirit_fruit value = 0 } }
 	every_held_county = {
-		limit = { has_variable = ac_spirit_grove }
+		limit = { has_variable = ac_spirit_grove_found }
 		prev = { change_variable = { name = ac_spirit_fruit add = 2 } }
 	}
 	if = { limit = { ac_spirit_fruit_count > 10 } set_variable = { name = ac_spirit_fruit value = 10 } }

@@ -35,12 +35,27 @@ def any_county(cond):
 def arts_checks():
     """Transformations, Seals, Heavenly Gates and spirit fruit, and the Soul Forge."""
     body = []
-    # Spirit Fruit Groves are placed at game start, and their holders harvest.
-    body.append(check('arts_groves', 'any_county_in_region = { region = world_rasen_inner count >= 6 has_variable = ac_spirit_grove '
+    # Spirit Fruit Groves are placed hidden at game start: no building, and no harvest, until found.
+    body.append(check('arts_groves_hidden', 'any_county_in_region = { region = world_rasen_inner count >= 6 has_variable = ac_spirit_grove '
+                      'NOT = { has_variable = ac_spirit_grove_found } title_province = { NOT = { has_building = ac_spirit_fruit_grove } } }'))
+    body.append('\trandom_county_in_region = { region = world_rasen_inner limit = { has_variable = ac_spirit_grove } holder = { save_scope_as = qa_grove_lord } }\n'
+                '\tscope:qa_grove_lord ?= { ac_harvest_spirit_fruit_effect = yes }\n')
+    body.append(check('arts_hidden_no_harvest', 'scope:qa_grove_lord ?= { NOT = { var:ac_spirit_fruit ?= 2 } }'))
+    # A rumour names the duchy; searching the wrong county narrows it to the right one.
+    body.append('\tglobal_var:rasen_exalt_wild = { ac_grove_rumor_effect = yes }\n')
+    body.append(check('arts_grove_rumor', 'global_var:rasen_exalt_wild = { has_variable = ac_grove_rumor exists = var:ac_grove_rumor_county '
+                      'var:ac_grove_rumor_county.de_jure_liege = var:ac_grove_rumor }'))
+    body.append('\tglobal_var:rasen_exalt_wild = { var:ac_grove_rumor_county = { save_scope_as = qa_true_grove } '
+                'var:ac_grove_rumor = { random_de_jure_county = { limit = { NOT = { this = scope:qa_true_grove } } save_scope_as = ac_search_county } } '
+                'if = { limit = { exists = scope:ac_search_county } ac_grove_search_effect = yes } }\n')
+    body.append(check('arts_grove_narrowed', 'global_var:rasen_exalt_wild = { OR = { has_variable = ac_grove_narrowed '
+                      'NOT = { exists = scope:ac_search_county } } }'))
+    # Found: the grove appears on the map, and its holder harvests.
+    body.append('\tglobal_var:rasen_exalt_wild.var:ac_grove_rumor_county = { ac_reveal_spirit_grove_effect = yes holder = { save_scope_as = qa_found_lord } }\n'
+                '\tscope:qa_found_lord = { ac_harvest_spirit_fruit_effect = yes }\n')
+    body.append(check('arts_grove_revealed', 'global_var:rasen_exalt_wild.var:ac_grove_rumor_county = { has_variable = ac_spirit_grove_found '
                       'title_province = { has_building = ac_spirit_fruit_grove } }'))
-    body.append('\trandom_county_in_region = { region = world_rasen_inner limit = { has_variable = ac_spirit_grove } holder = { save_scope_as = qa_grove_lord } }\n')
-    body.append('\tscope:qa_grove_lord ?= { ac_harvest_spirit_fruit_effect = yes }\n')
-    body.append(check('arts_fruit_harvest', 'scope:qa_grove_lord ?= { var:ac_spirit_fruit >= 2 }'))
+    body.append(check('arts_fruit_harvest', 'scope:qa_found_lord = { var:ac_spirit_fruit >= 2 }'))
     # The strongest cultivators start with forged weapons in the four materials.
     body.append(check('arts_seeded_weapons', 'global_var:rasen_exalt_bladed = { any_character_artifact = { has_variable = ac_forged_kind has_variable = ac_forged_material } }'))
     # A Heavenly Gate opens, and a cultivator cycles it.
@@ -279,6 +294,8 @@ def main():
                                           'if = { limit = { any_living_character = { OR = { has_trait = ac_tf_reaper has_trait = ac_tf_godhand has_trait = ac_tf_soul_domain has_trait = ac_tf_malocchio has_trait = ac_tf_asura } } } debug_log = "RASEN_QA YEAR TF_MASTERED" } '
                                           'if = { limit = { any_living_character = { count >= 30 any_character_artifact = { has_variable = ac_forged_kind } } } debug_log = "RASEN_QA YEAR ARMED_30" } '
                                           'if = { limit = { any_living_character = { var:ac_spirit_fruit ?= 0 } } debug_log = "RASEN_QA YEAR FRUIT_EATEN" } '
+                                          'if = { limit = { any_living_character = { has_variable = ac_grove_rumor } } debug_log = "RASEN_QA YEAR GROVE_RUMOR" } '
+                                          'if = { limit = { ' + any_county('count >= 2 has_variable = ac_spirit_grove_found') + ' } debug_log = "RASEN_QA YEAR GROVES_FOUND" } '
                                           '} }\n'),
         'events/rasen_qa.txt': event(),
     }
