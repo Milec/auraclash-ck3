@@ -129,6 +129,17 @@ The overhaul and the cultivation mechanics are one mod, in `AuraClash/`: a total
 
 `AuraClash/` loads and plays in CK3 1.20.1.2.
 
+### Port to CK3 1.21.0 (in progress, 2026-11-18)
+Steam updated the game to 1.21.0 on 2026-11-17. The generated files are rebuilt against it, and the repository tests pass, but **the game still crashes** right after "End loading of history" (EXCEPTION_ACCESS_VIOLATION, the same address every run). Changes so far:
+- County development is now **prosperity**: `prosperity_growth_factor`, `character_capital_county_monthly_prosperity_growth_add`, `innovation_prosperity_01`, `county_modifier_prosperity_*` icons, `order_by = prosperity_level`.
+- County opinion, control and tax: `popular_opinion_add`, `monthly_control_change`, `domain_tax_mult` (character) and `all_tax_mult` (county).
+- Special buildings sit in **special districts** (`common/districts`). The Spirit Fruit Grove is `ac_spirit_fruit_grove_district`, placed with `add_special_district_slot`/`add_special_district`.
+- Region stubs use `generate_prosperity_modifiers` (it was `generate_modifiers`). The vanilla region snapshot has 754 keys.
+- `history/characters/han` is a new vanilla folder; `replace_path` is not recursive, so it needs its own entry.
+- `00_special_buildings.txt` moved to `common/buildings/special_buildings/`. The pool repopulation template gained an `OR`. One event, `ep3_laamp_decision_event.1133` (the watermill), was removed, and its cultivation options went with it. 38 other overridden events changed upstream and were rebuilt from the new versions.
+
+Not yet the cause of the crash: the four `character:120` history errors (present in 1.20 too) and `map_data/nodes.dat` (an empty override changes nothing). Suspects for the next session are 1.21's new systems that are set up after history and assume Earth: trade markets (`common/trade`, which logs 14,000 missing counties), roads and naval routes (`gfx/map/spline_network`, `map_data/nodes.dat`), and entrepot regions.
+
 ### Government
 All of Rasen is one hegemony, **Imperial Rasen**, held for the Exalted Council by the High Steward at Azuma Honsha: the IF has had no Emperor for centuries. Its title key is the game's own `h_china` (named Imperial Rasen), so All Under Heaven's Celestial bureaucracy applies unchanged: `celestial_government` on Azuma Honsha and in the Outer Provinces, the nine ministries (`e_minister_*`, defined inside it), imperial examinations, ministry projects and the dynastic cycle with its movements, which `history/struggles/rasen_dynastic_cycle_history.txt` starts. A 120-year observer run kept the hegemony intact and the cycle running every year.
 - The five **Exalts** hold no land. Each is chosen from their Inner Kingdom to sit on the Council for a hundred years or until death: the strongest unlanded cultivator living in that land takes the seat, moves to the High Steward's court and founds a Celestial noble family with an estate on Azuma Honsha (`rasen_seat_exalt_effect`, seats in `global_var:rasen_exalt_<land>`). The bookmark's five Exalts take their seats when the game starts.
