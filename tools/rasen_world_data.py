@@ -317,7 +317,7 @@ MORTAL_LIMIT_BONUS = {'world_rasen_azuma': 5200, 'world_rasen_inner': 1200, 'wor
 
 # Imperial Rasen is an old, organised empire: cultures begin in the Early Medieval era.
 INNOVATIONS = ['innovation_motte', 'innovation_catapult', 'innovation_barracks', 'innovation_mustering_grounds',
-               'innovation_bannus', 'innovation_development_01', 'innovation_currency_01', 'innovation_gavelkind',
+               'innovation_bannus', 'innovation_prosperity_01', 'innovation_currency_01', 'innovation_gavelkind',
                'innovation_crop_rotation', 'innovation_city_planning', 'innovation_casus_belli', 'innovation_ledger',
                'innovation_manorialism']
 

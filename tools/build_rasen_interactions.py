@@ -91,7 +91,7 @@ def effects():
         'rasen_appoint_magistrate_effect = {',
         '\tordered_held_title = {',
         '\t\tlimit = { tier = tier_county title_province = { geographical_region = world_rasen_outer } }',
-        '\t\torder_by = development_level',
+        '\t\torder_by = prosperity_level',
         '\t\tsave_scope_as = rasen_magistrate_county',
         '\t}',
         '\tif = {',

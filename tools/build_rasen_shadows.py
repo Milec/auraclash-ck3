@@ -65,8 +65,8 @@ def modifiers():
     return '\n'.join([
         '# "A cult that uses people\'s blood for power and might turn into Fiends."',
         'rasen_blood_chi_modifier = {', '\ticon = health_negative', '\tprowess = 3', '\thealth = -0.5', '\tstress_gain_mult = 0.1', '}', '',
-        'rasen_akuma_terror_modifier = {', '\ticon = county_modifier_development_negative',
-        '\tcounty_opinion_add = -15', '\tdevelopment_growth_factor = -0.2', '\tmonthly_county_control_growth_add = -0.5', '}',
+        'rasen_akuma_terror_modifier = {', '\ticon = county_modifier_prosperity_negative',
+        '\tpopular_opinion_add = -15', '\tprosperity_growth_factor = -0.2', '\tmonthly_control_change = -0.5', '}',
     ])
 
 

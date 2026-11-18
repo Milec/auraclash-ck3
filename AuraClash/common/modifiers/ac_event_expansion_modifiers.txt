@@ -1,14 +1,14 @@
 ﻿ac_event_epidemic_defenses_modifier = {
     epidemic_resistance = 15
-    monthly_county_control_growth_add = 0.1
+    monthly_control_change = 0.1
 }
 ac_event_safe_burials_modifier = {
     epidemic_resistance = 10
-    county_opinion_add = 5
+    popular_opinion_add = 5
 }
 ac_event_reassured_people_modifier = {
-    county_opinion_add = 10
-    monthly_county_control_growth_add = 0.1
+    popular_opinion_add = 10
+    monthly_control_change = 0.1
 }
 ac_event_meditative_retreat_modifier = {
     icon = learning_positive

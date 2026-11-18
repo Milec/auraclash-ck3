@@ -6,7 +6,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Mahabodhi Temple
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1276 # Gaya
 			has_building_or_higher = holy_site_mahabodhi_temple_01
 		}
@@ -15,7 +15,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Imam Ali Mosque
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # An-Najaf
 			has_building_or_higher = holy_site_imam_ali_mosque_01
 		}
@@ -27,7 +27,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Great Mosque of Mecca
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Mecca
 			has_building_or_higher = holy_site_great_mosque_of_mecca_01
 		}
@@ -36,7 +36,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Great Mosque of Cordoba
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Cordoba
 			has_building_or_higher = holy_site_great_mosque_of_cordoba_01
 		}
@@ -48,7 +48,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Great Mosque of Djenne
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Jenne-Jeno
 			has_building_or_higher = holy_site_great_mosque_of_djenne_01
 		}
@@ -57,7 +57,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Great Mosque of Samarra
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Jenne-Jeno
 			has_building_or_higher = holy_site_great_mosque_of_samarra_01
 		}
@@ -66,7 +66,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Cologne Cathedral
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Cologne
 			has_building_or_higher = holy_site_cologne_cathedral_01
 		}
@@ -75,7 +75,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Canterbury Cathedral 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Canterbury
 			has_building_or_higher = holy_site_canterbury_cathedral_01
 		}
@@ -84,7 +84,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Canterbury Cathedral 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Canterbury
 			has_building_or_higher = holy_site_canterbury_cathedral_02
 		}
@@ -93,7 +93,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Canterbury Cathedral 3
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Canterbury
 			has_building_or_higher = holy_site_canterbury_cathedral_03
 		}
@@ -102,7 +102,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Prophetic Mosque
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Medina
 			has_building_or_higher = holy_site_prophetic_mosque_01
 		}
@@ -111,7 +111,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Doge's Palace
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Venice
 			has_building_or_higher = doges_palace_01
 		}
@@ -120,7 +120,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Walls of Genoa
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Genoa
 			has_building_or_higher = walls_of_genoa_01
 		}
@@ -129,7 +129,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Visby Ringmur
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:369 # Visby
 			has_building_or_higher = visby_ringmur_01
 		}
@@ -138,7 +138,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Walls of Benin
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Benin City
 			has_building_or_higher = walls_of_benin_01
 		}
@@ -147,7 +147,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Theodosian Walls - Duchy Capital Building
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:496 # Constantinople
 			has_building_or_higher = theodosian_walls_01
 		}
@@ -156,7 +156,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Aurelian Walls - Duchy Capital Building
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Rome
 			has_building_or_higher = aurelian_walls_01
 		}
@@ -165,7 +165,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # The Colosseum
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Rome
 			has_building_or_higher = the_colosseum_01
 		}
@@ -174,7 +174,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # The Iron Pillar of Delhi
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			OR = {
 				has_building_or_higher = iron_pillar_of_delhi_01
 				has_building_or_higher = qutb_minar_01
@@ -185,7 +185,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # The Iron Pillar of Dhar
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1149 # Dhara
 			has_building_or_higher = iron_pillar_of_dhar_01
 		}
@@ -194,7 +194,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # The Pyramids
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Giza
 			has_building_or_higher = the_pyramids_01
 		}
@@ -203,7 +203,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Stonehenge
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330
 			has_building_or_higher = stonehenge_01
 		}
@@ -212,7 +212,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Offa's Dyke
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = offas_dyke_01
 		}
 		setup_scope = {
@@ -223,7 +223,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Hadrian's Wall
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = hadrians_wall_01
 		}
 		setup_scope = {
@@ -234,7 +234,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Petra
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = petra_01
 		}
 		localization_key = building_petra_destination_desc
@@ -242,7 +242,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Bamian Buddhas
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Kabul
 			has_building_or_higher = buddhas_of_bamian_01
 		}
@@ -251,7 +251,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Alhambra
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Granada
 			has_building_or_higher = alhambra_01
 		}
@@ -260,7 +260,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Alhambra
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Granada
 			has_building_or_higher = alhambra_02
 		}
@@ -269,7 +269,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Citadel of Aleppo
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Halab
 			has_building_or_higher = citadel_of_aleppo_01
 		}
@@ -278,7 +278,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Citadel of Aleppo
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Halab
 			has_building_or_higher = citadel_of_aleppo_02
 		}
@@ -287,7 +287,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # House of Wisdom
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Baghdad
 			has_building_or_higher = house_of_wisdom_01
 		}
@@ -296,7 +296,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Tower of London
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # London
 			has_building_or_higher = the_tower_of_london_01
 		}
@@ -305,7 +305,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # London Bridge
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Southwark
 			has_building_or_higher = london_bridge_01
 		}
@@ -314,7 +314,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Notre Dame
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Paris
 			has_building_or_higher = notre_dame_01
 		}
@@ -323,7 +323,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Brihadeeswarar Temple
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1115 # Cholamandalam
 			has_building_or_higher = brihadeeswarar_temple_01
 		}
@@ -335,7 +335,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Shwedagon Pagoda
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Dagon
 			has_building_or_higher = shwedagon_pagoda_01
 		}
@@ -344,7 +344,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Ananda Temple
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Pagan
 			has_building_or_higher = ananda_temple_01
 		}
@@ -356,7 +356,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # The Friday Mosque
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Isfahan
 			has_building_or_higher = the_friday_mosque_01
 		}
@@ -365,7 +365,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Kjajuraho
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1298 # Chanderi
 			has_building_or_higher = khajuraho_01
 		}
@@ -374,7 +374,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Palace of Aachen
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Aachen
 			has_building_or_higher = palace_of_aachen_01
 		}
@@ -386,7 +386,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Hagia Sophia
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:496 # Constantinople
 			has_building_or_higher = hagia_sophia_01
 		}
@@ -395,7 +395,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Hagia Sophia
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:496 # Constantinople
 			has_building_or_higher = hagia_sophia_02
 		}
@@ -404,7 +404,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Dome of the Rock
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Jerusalem
 			has_building_or_higher = dome_of_the_rock_01
 		}
@@ -413,7 +413,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Temple in Jerusalem
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			#this = province:1330 # Jerusalem
 			has_building_or_higher = temple_in_jerusalem_01
 		}
@@ -423,7 +423,7 @@ GetSpecialBuildingTouristDescriptor = {
 	text = { # Rammelsberg Mines 1
 		trigger = {
 			#this = province:1330 # Goslar
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = rammelsberg_mines_01
 		}
 		localization_key = building_rammelsberg_mines_destination_desc
@@ -432,7 +432,7 @@ GetSpecialBuildingTouristDescriptor = {
 	text = { # Rammelsberg Mines 2
 		trigger = {
 			#this = province:1330 # Goslar
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = rammelsberg_mines_02
 		}
 		localization_key = building_rammelsberg_mines_destination_desc
@@ -441,7 +441,7 @@ GetSpecialBuildingTouristDescriptor = {
 	text = { # Rammelsberg Mines 3
 		trigger = {
 			#this = province:1330 # Goslar
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = rammelsberg_mines_03
 		}
 		localization_key = building_rammelsberg_mines_destination_desc
@@ -450,7 +450,7 @@ GetSpecialBuildingTouristDescriptor = {
 	text = { # Rammelsberg Mines 4
 		trigger = {
 			#this = province:1330 # Goslar
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = rammelsberg_mines_04
 		}
 		localization_key = building_rammelsberg_mines_destination_desc
@@ -458,7 +458,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Kutna Hora Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = kutna_hora_mines_01
 		}
 		localization_key = building_kutna_hora_mines_destination_desc
@@ -466,7 +466,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Kremnica Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = kremnica_mines_01
 		}
 		localization_key = building_kremnica_mines_destination_desc
@@ -474,7 +474,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Zijinshan Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = zijinshan_mines_01
 		}
 		localization_key = building_zijinshan_mines_destination_desc
@@ -482,7 +482,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Liangzhe Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = liangzhe_mines_01
 		}
 		localization_key = building_liangzhe_mines_destination_desc
@@ -490,7 +490,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Baofeng Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = baofeng_mines_01
 		}
 		localization_key = building_baofeng_mines_destination_desc
@@ -498,7 +498,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Jiaodong Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = jiaodong_mines_01
 		}
 		localization_key = building_jiaodong_mines_destination_desc
@@ -507,7 +507,7 @@ GetSpecialBuildingTouristDescriptor = {
 	text = { # Falun Mines 1
 		trigger = {
 			#this = province:350 # Falun
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = falun_mines_01
 		}
 		localization_key = building_falun_mines_destination_desc
@@ -515,7 +515,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Konasamudram Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = konasamudram_mines_01
 		}
 		localization_key = building_konasamudram_mines_destination_desc
@@ -523,7 +523,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Forest of Dean Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = dean_mines_01
 		}
 		localization_key = building_dean_mines_destination_desc
@@ -531,7 +531,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Phnom Dek Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = phnom_dek_mines_01
 		}
 		localization_key = building_phnom_dek_mines_destination_desc
@@ -539,7 +539,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Hanxing Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = hanxing_mines_01
 		}
 		localization_key = building_hanxing_mines_destination_desc
@@ -547,7 +547,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Chihu Mines
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = chihu_mines_01
 		}
 		localization_key = building_chihu_mines_destination_desc
@@ -556,7 +556,7 @@ GetSpecialBuildingTouristDescriptor = {
 	text = { # Schwarz Mines 1
 		trigger = {
 			#this = province:1330 # Innsbruck
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = schwaz_mines_01
 		}
 		localization_key = building_schwaz_mines_destination_desc
@@ -565,7 +565,7 @@ GetSpecialBuildingTouristDescriptor = {
 	text = { # Argentiera Mines 1
 		trigger = {
 			#this = province:1330 # Cagliari
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = argentiera_mines_01
 		}
 		localization_key = building_argentiera_mines_destination_desc
@@ -573,7 +573,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Srebrenica Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = srebrenica_mines_01
 		}
 		localization_key = building_srebrenica_mines_destination_desc
@@ -582,7 +582,7 @@ GetSpecialBuildingTouristDescriptor = {
 	text = { # Kollur Diamond Mines 1
 		trigger = {
 			#this = province:1330 # Ellur
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = kollur_mines_01
 		}
 		localization_key = building_kollur_mines_destination_desc
@@ -591,7 +591,7 @@ GetSpecialBuildingTouristDescriptor = {
 	text = { # Siderokausia Mines 1
 		trigger = {
 			#this = province:491 # Polygyros
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = siderokausia_mines_01
 		}
 		localization_key = building_siderokausia_mines_destination_desc
@@ -600,7 +600,7 @@ GetSpecialBuildingTouristDescriptor = {
 	text = { # Siderokausia Mines 2
 		trigger = {
 			#this = province:491 # Polygyros
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = siderokausia_mines_02
 		}
 		localization_key = building_siderokausia_mines_destination_desc
@@ -609,7 +609,7 @@ GetSpecialBuildingTouristDescriptor = {
 	text = { # Siderokausia Mines 3
 		trigger = {
 			#this = province:491 # Polygyros
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = siderokausia_mines_03
 		}
 		localization_key = building_siderokausia_mines_destination_desc
@@ -618,7 +618,7 @@ GetSpecialBuildingTouristDescriptor = {
 	text = { # Siderokausia Mines 4
 		trigger = {
 			#this = province:491 # Polygyros
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = siderokausia_mines_04
 		}
 		localization_key = building_siderokausia_mines_destination_desc
@@ -626,7 +626,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Zawar Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = zawar_mines_01
 		}
 		localization_key = building_zawar_mines_destination_desc
@@ -634,7 +634,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Zawar Mines 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = zawar_mines_02
 		}
 		localization_key = building_zawar_mines_destination_desc
@@ -642,7 +642,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # SideZawarrokausia Mines 3
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = zawar_mines_03
 		}
 		localization_key = building_zawar_mines_destination_desc
@@ -650,7 +650,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Zawar Mines 4
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = zawar_mines_04
 		}
 		localization_key = building_zawar_mines_destination_desc
@@ -658,7 +658,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Pansjhir Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = pansjhir_mines_01
 		}
 		localization_key = building_pansjhir_mines_destination_desc
@@ -666,7 +666,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Pansjhir Mines 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = pansjhir_mines_02
 		}
 		localization_key = building_pansjhir_mines_destination_desc
@@ -674,7 +674,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Pansjhir Mines 3
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = pansjhir_mines_03
 		}
 		localization_key = building_pansjhir_mines_destination_desc
@@ -682,7 +682,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Pansjhir Mines 4
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = pansjhir_mines_04
 		}
 		localization_key = building_pansjhir_mines_destination_desc
@@ -690,7 +690,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Nishapur Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = nishapur_mines_01
 		}
 		setup_scope = {
@@ -701,7 +701,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Nishapur Mines 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = nishapur_mines_02
 		}
 		localization_key = building_nishapur_mines_destination_desc
@@ -709,7 +709,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Nishapur Mines 3
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = nishapur_mines_03
 		}
 		localization_key = building_nishapur_mines_destination_desc
@@ -717,7 +717,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Nishapur Mines 4
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = nishapur_mines_04
 		}
 		localization_key = building_nishapur_mines_destination_desc
@@ -725,7 +725,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Ratnapura Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = ratnapura_mines_01
 		}
 		localization_key = building_ratnapura_mines_destination_desc
@@ -733,7 +733,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Ratnapura Mines 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = ratnapura_mines_02
 		}
 		localization_key = building_ratnapura_mines_destination_desc
@@ -741,7 +741,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Ratnapura Mines 3
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = ratnapura_mines_04
 		}
 		localization_key = building_ratnapura_mines_destination_desc
@@ -749,7 +749,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Ratnapura Mines 4
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = ratnapura_mines_04
 		}
 		localization_key = building_ratnapura_mines_destination_desc
@@ -757,7 +757,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Mogok Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = mogok_mines_01
 		}
 		localization_key = building_mogok_mines_destination_desc
@@ -765,7 +765,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Mogok Mines 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = mogok_mines_02
 		}
 		localization_key = building_mogok_mines_destination_desc
@@ -773,7 +773,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Mogok Mines 3
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = mogok_mines_03
 		}
 		localization_key = building_mogok_mines_destination_desc
@@ -781,7 +781,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Mogok Mines 4
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = mogok_mines_04
 		}
 		localization_key = building_mogok_mines_destination_desc
@@ -789,7 +789,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Wadi Al-Allaq Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = allaq_mines_01
 		}
 		localization_key = building_allaq_mines_destination_desc
@@ -797,7 +797,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Wadi Al-Allaq Mines 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = allaq_mines_02
 		}
 		localization_key = building_allaq_mines_destination_desc
@@ -805,7 +805,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Wadi Al-Allaq Mines 3
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = allaq_mines_03
 		}
 		localization_key = building_allaq_mines_destination_desc
@@ -813,7 +813,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Wadi Al-Allaq Mines 4
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = allaq_mines_04
 		}
 		localization_key = building_allaq_mines_destination_desc
@@ -821,7 +821,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Takkeda Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = takkeda_mines_01
 		}
 		localization_key = building_takkeda_mines_destination_desc
@@ -829,7 +829,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Takkeda Mines 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = takkeda_mines_02
 		}
 		localization_key = building_takkeda_mines_destination_desc
@@ -837,7 +837,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Takkeda Mines 3
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = takkeda_mines_03
 		}
 		localization_key = building_takkeda_mines_destination_desc
@@ -845,7 +845,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Takkeda Mines 4
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = takkeda_mines_04
 		}
 		localization_key = building_takkeda_mines_destination_desc
@@ -853,15 +853,23 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Turda Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = turda_mines_01
 		}
 		localization_key = building_turda_mines_destination_desc
 	}
 
+	text = { # Wieliczka Mines 1
+		trigger = {
+			has_special_district = yes
+			has_building_or_higher = wieliczka_mines_01
+		}
+		localization_key = building_wieliczka_mines_destination_desc
+	}
+
 	text = { # Zigong Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = zigong_mines_01
 		}
 		localization_key = building_zigong_mines_destination_desc
@@ -869,7 +877,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Taghaza Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = taghaza_mines_01
 		}
 		localization_key = building_taghaza_mines_destination_desc
@@ -877,7 +885,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Phocaea Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = phocaea_mines_01
 		}
 		localization_key = building_phocaea_mines_destination_desc
@@ -885,7 +893,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Verespatak Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = verespatak_mines_01
 		}
 		localization_key = building_verespatak_mines_destination_desc
@@ -893,7 +901,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Verespatak Mines 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = verespatak_mines_02
 		}
 		localization_key = building_verespatak_mines_destination_desc
@@ -901,7 +909,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Verespatak Mines 3
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = verespatak_mines_03
 		}
 		localization_key = building_verespatak_mines_destination_desc
@@ -909,7 +917,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Verespatak Mines 4
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = verespatak_mines_04
 		}
 		localization_key = building_verespatak_mines_destination_desc
@@ -917,7 +925,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Suvarnadvipa Mines
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			OR = {
 				has_building_or_higher = suvarnadvipa_mines_01
 				has_building_or_higher = suvarnadvipa_mines_02
@@ -930,7 +938,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Khetri Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = khetri_mines_01
 		}
 		localization_key = building_khetri_mines_destination_desc
@@ -938,7 +946,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Khetri Mines 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = khetri_mines_02
 		}
 		localization_key = building_khetri_mines_destination_desc
@@ -946,7 +954,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Khetri Mines 3
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = khetri_mines_03
 		}
 		localization_key = building_khetri_mines_destination_desc
@@ -954,7 +962,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Khetri Mines 4
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = khetri_mines_04
 		}
 		localization_key = building_khetri_mines_destination_desc
@@ -962,7 +970,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Trepca Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = trepca_mines_01
 		}
 		localization_key = building_trepca_mines_destination_desc
@@ -970,7 +978,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Trepca Mines 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = trepca_mines_02
 		}
 		localization_key = building_trepca_mines_destination_desc
@@ -978,7 +986,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Trepca Mines 3
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = trepca_mines_03
 		}
 		localization_key = building_trepca_mines_destination_desc
@@ -986,7 +994,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Trepca Mines 4
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = trepca_mines_04
 		}
 		localization_key = building_trepca_mines_destination_desc
@@ -994,7 +1002,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Rudnik Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = rudnik_mines_01
 		}
 		localization_key = building_rudnik_mines_destination_desc
@@ -1002,7 +1010,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Rudnik Mines 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = rudnik_mines_02
 		}
 		localization_key = building_rudnik_mines_destination_desc
@@ -1010,7 +1018,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Rudnik Mines 3
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = rudnik_mines_03
 		}
 		localization_key = building_rudnik_mines_destination_desc
@@ -1018,7 +1026,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Rudnik Mines 4
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = rudnik_mines_04
 		}
 		localization_key = building_rudnik_mines_destination_desc
@@ -1026,7 +1034,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Ijil Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = ijil_mines_01
 		}
 		localization_key = building_ijil_mines_destination_desc
@@ -1034,7 +1042,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Cevennes Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = cevennes_mines_01
 		}
 		localization_key = building_cevennes_mines_destination_desc
@@ -1042,7 +1050,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Guiyang Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = guiyang_mines_01
 		}
 		localization_key = building_guiyang_mines_destination_desc
@@ -1050,7 +1058,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Kaibao Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = kaibao_mines_01
 		}
 		localization_key = building_kaibao_mines_destination_desc
@@ -1058,7 +1066,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Khotan Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = hetian_mines_01
 		}
 		localization_key = building_hetian_mines_destination_desc
@@ -1066,7 +1074,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Xiuyan Mines
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = xiuyan_mines_01
 		}
 		localization_key = building_xiuyan_mines_destination_desc
@@ -1074,7 +1082,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Itoigawa Mines
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = itoigawa_mines_01
 		}
 		localization_key = building_itoigawa_mines_destination_desc
@@ -1082,7 +1090,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Lantian Mines
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = lantian_mines_01
 		}
 		localization_key = building_lantian_mines_destination_desc
@@ -1090,7 +1098,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Fengtian Mines
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = fengtian_mines_01
 		}
 		localization_key = building_fengtian_mines_destination_desc
@@ -1098,7 +1106,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Hpakant Mines
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = hpakant_mines_01
 		}
 		localization_key = building_hpakant_mines_destination_desc
@@ -1106,7 +1114,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Dushan Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = dushan_mines_01
 		}
 		localization_key = building_dushan_mines_destination_desc
@@ -1114,7 +1122,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Malinese Gold Mines 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = mali_mines_01
 		}
 		localization_key = building_mali_mines_destination_desc
@@ -1122,7 +1130,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Koganeyama Mines
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = koganeyama_mines_01
 		}
 		localization_key = building_koganeyama_mines_destination_desc
@@ -1130,7 +1138,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Tsushima Mines
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = tsushima_mines_01
 		}
 		localization_key = building_tsushima_mines_destination_desc
@@ -1138,7 +1146,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Sado Mines
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = sado_mines_01
 		}
 		localization_key = building_sado_mines_destination_desc
@@ -1146,7 +1154,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Tada Mines
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = tada_mines_01
 		}
 		localization_key = building_tada_mines_destination_desc
@@ -1156,7 +1164,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Al Azhar University
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = al_azhar_university
 		}
 		localization_key = building_al_azhar_university_destination_desc
@@ -1164,7 +1172,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Sankore University
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = sankore_university
 		}
 		localization_key = building_sankore_university_destination_desc
@@ -1172,7 +1180,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Siena University
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = siena_university
 		}
 		localization_key = building_siena_university_destination_desc
@@ -1180,7 +1188,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Nalanda University
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = nalanda_university
 		}
 		localization_key = building_nalanda_university_destination_desc
@@ -1188,7 +1196,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Nalanda University
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = nalanda_university
 		}
 		localization_key = building_nalanda_university_destination_desc
@@ -1198,7 +1206,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Hotin Fortress 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = hotin_fort_01
 			#this = province:1330
 		}
@@ -1207,7 +1215,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Hotin Fortress 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = hotin_fort_02
 			#this = province:1330
 		}
@@ -1216,7 +1224,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Heddal Stave Church
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = heddal_stave_church_01
 			#this = province:286 # Tunsberg
 		}
@@ -1225,7 +1233,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Temple of Uppsala 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = temple_of_uppsala_01
 			#this = province:341 # Sigtuna
 		}
@@ -1234,7 +1242,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Temple of Uppsala 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = temple_of_uppsala_02
 			#this = province:341 # Sigtuna
 		}
@@ -1243,7 +1251,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Lund Cathedral
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = lund_cathedral_01
 			#this = province:70 # Lund
 		}
@@ -1252,7 +1260,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Danevirke
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = danevirke_01
 			#this = province:62 # Hedeby
 		}
@@ -1261,7 +1269,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Roman Wall of Lugo
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = roman_wall_of_lugo_01
 			#this = province:1330 # Lugo
 		}
@@ -1273,7 +1281,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Gibraltar
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = rock_of_gibraltar_01
 			#this = province:1330 # Algeciras
 		}
@@ -1282,7 +1290,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Gibraltar
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = aljaferia_palace_01
 			#this = province:1330 # Zaragoza
 		}
@@ -1291,7 +1299,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Tower of Hercules
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = tower_of_hercules_01
 			#this = province:1330 # Coruna
 		}
@@ -1303,7 +1311,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # City Walls of Toledo
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = city_wall_of_toledo_01
 			#this = province:1330 # Toledo
 		}
@@ -1316,7 +1324,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Alcazar of Segovia
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = alcazar_of_segovia_01
 			#this = province:1330 # Segovia
 		}
@@ -1325,7 +1333,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Basilica Santiago
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = holy_site_basilica_santiago_01
 			#this = province:1330 # Santiago
 		}
@@ -1334,7 +1342,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Sancutary of Imam Reza
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = imam_reza_shrine_01
 			#this = province:1330 # Tus
 		}
@@ -1343,7 +1351,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Dome of Soltaniyeh
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = soltaniyeh_01
 			#this = province:1330 # Zanjan
 		}
@@ -1352,7 +1360,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Ruins of the Palace of Ctesiphon 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = palace_of_ctesiphon_01
 			NOT = { has_building_or_higher = palace_of_ctesiphon_02 }
 			#this = province:1330 # An-Nahrawan
@@ -1362,7 +1370,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Ruins of the Palace of Ctesiphon 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = palace_of_ctesiphon_02
 			#this = province:1330 # An-Nahrawan
 		}
@@ -1371,7 +1379,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Falak-ol-Aflak
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = falak_ol_aflak_citadel_01
 			#this = province:1330 # Saburkhawasht #actually Khorramabad, Saburkhawasht or Shapurkhast
 		}
@@ -1380,7 +1388,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Minarets of Jam
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = minarets_and_remains_of_jam_01
 			#this = province:1330 # Firuzkuh	#AKA Chagcharan
 		}
@@ -1389,7 +1397,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Great Wall of Gorgan
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = great_wall_of_gorgan_01
 			#this = province:1330 # Bakrabad and 4031 #Abaskun
 		}
@@ -1398,7 +1406,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Lake Maharloo
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = maharloo_lake_01
 			#this = province:1330 # Shiraz-farsi
 		}
@@ -1407,7 +1415,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Rainbow Mountains
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = rainbow_mountains_01
 			#this = province:1330 # Ahar
 		}
@@ -1416,7 +1424,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Mount Damavand
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = mount_damavand_01
 			#this = province:1330 # Firrim
 		}
@@ -1425,7 +1433,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Tomb of Batsheba
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = tomb_of_cyrus_01
 			#this = province:1330 # Istakhr
 		}
@@ -1434,7 +1442,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Ark of Bukhara
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = ark_of_bukhara_01
 			#this = province:1330 # Bukhara
 		}
@@ -1443,7 +1451,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Shah-i-Zinda 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = shah_i_zinda_01
 			#this = province:1330 # Samarqand / Samarkand
 		}
@@ -1452,7 +1460,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Shah-i-Zinda 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = shah_i_zinda_02
 			#this = province:1330 # Samarqand / Samarkand
 		}
@@ -1461,7 +1469,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Alamut Castle 1
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = alamut_castle_01
 			#this = province:1330 # Qazwin / Qazvin
 		}
@@ -1470,7 +1478,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Alamut Castle 2
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = alamut_castle_02
 			#this = province:1330 # Qazwin / Qazvin
 		}
@@ -1479,7 +1487,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Golden Gate of Kyiv
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = golden_gate_of_kiev_01
 		}
 		localization_key = building_golden_gate_of_kiev_destination_desc
@@ -1487,7 +1495,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Sar-i-Sang Mines
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			OR = {
 				has_building_or_higher = sar_i_sang_mines_01
 				has_building_or_higher = sar_i_sang_mines_02
@@ -1500,7 +1508,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Church of the Theotokos
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = church_of_the_theotokos
 		}
 		localization_key = building_church_of_the_theotokos_destination_desc
@@ -1508,7 +1516,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Parthenon
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = parthenon
 		}
 		localization_key = building_parthenon_destination_desc
@@ -1516,7 +1524,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Hagios Demetrios
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = hagios_demetrios
 		}
 		localization_key = building_hagios_demetrios_destination_desc
@@ -1524,7 +1532,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Kassiopi Castle
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = kassiopi_castle
 		}
 		localization_key = building_kassiopi_castle_destination_desc
@@ -1532,7 +1540,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Saint Lazarus
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = saint_lazarus
 		}
 		localization_key = building_saint_lazarus_destination_desc
@@ -1540,7 +1548,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Sumela Monastery
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			OR = {
 				has_building_or_higher = sumela_monastery_01
 				has_building_or_higher = sumela_monastery_02
@@ -1551,7 +1559,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Patras Castle
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = patras_castle
 		}
 		localization_key = building_patras_castle_destination_desc
@@ -1559,7 +1567,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Maiden's Tower
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = maiden_tower
 		}
 		localization_key = building_maiden_tower_destination_desc
@@ -1567,7 +1575,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Despots' Palace at Mystras
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = despot_palace
 		}
 		localization_key = building_despot_palace_destination_desc
@@ -1575,7 +1583,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Meteora
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			OR = {
 				has_building_or_higher = meteora_01
 				has_building_or_higher = meteora_02
@@ -1586,7 +1594,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Mount Athos
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			OR = {
 				has_building_or_higher = mount_athos_01
 				has_building_or_higher = mount_athos_02
@@ -1598,7 +1606,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Sant'Apollinare Nuovo
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = apollinare_nuovo
 		}
 		localization_key = building_apollinare_nuovo_destination_desc
@@ -1606,7 +1614,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Saint Catherine's Monastery
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = saint_catherine
 		}
 		localization_key = building_saint_catherine_destination_desc
@@ -1614,7 +1622,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Jvari Monastery
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = jvari_monastery
 		}
 		localization_key = building_jvari_monastery_destination_desc
@@ -1622,7 +1630,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Etchmiadzin Cathedral
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = etchmiadzin_cathedral
 		}
 		localization_key = building_etchmiadzin_cathedral_destination_desc
@@ -1630,7 +1638,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Cattolica di Stilo
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = cattolica_stilo
 		}
 		localization_key = building_cattolica_stilo_destination_desc
@@ -1638,7 +1646,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Hosios Loukas
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = hosios_loukas
 		}
 		localization_key = building_hosios_loukas_destination_desc
@@ -1646,7 +1654,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Church of Saint Sophia, Ohrid
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = sofia_ohrid
 		}
 		localization_key = building_sofia_ohrid_destination_desc
@@ -1654,7 +1662,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Fairy Chimneys
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = fairy_chimneys
 		}
 		localization_key = building_fairy_chimneys_destination_desc
@@ -1662,7 +1670,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Cilician Gates
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = cilician_gates
 		}
 		localization_key = building_cilician_gates_destination_desc
@@ -1671,7 +1679,7 @@ GetSpecialBuildingTouristDescriptor = {
 	#CCP3
 	text = { # drassanes_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = drassanes_01
 		}
 		localization_key = building_drassanes_01_destination_desc
@@ -1679,7 +1687,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # kyz_kala_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = kyz_kala_01
 		}
 		localization_key = building_kyz_kala_01_destination_desc
@@ -1687,7 +1695,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # cluny_abbey_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = cluny_abbey_01
 			NOT = { has_building_or_higher = cluny_abbey_02 }
 		}
@@ -1696,7 +1704,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # cluny_abbey_02
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = cluny_abbey_02
 		}
 		localization_key = building_cluny_abbey_02_destination_desc
@@ -1704,7 +1712,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # pam_abbey_of_st_gall_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = pam_abbey_of_st_gall_01
 		}
 		localization_key = building_pam_abbey_of_st_gall_01_destination_desc
@@ -1712,7 +1720,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # pam_palais_de_papes_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = pam_palais_de_papes_01
 		}
 		localization_key = building_pam_palais_de_papes_01_destination_desc
@@ -1720,7 +1728,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # pam_lateran_basilica_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = pam_lateran_basilica_01
 		}
 		localization_key = building_pam_lateran_basilica_01_destination_desc
@@ -1728,7 +1736,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # pam_reims_cathedral_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = pam_reims_cathedral_01
 		}
 		localization_key = building_pam_reims_cathedral_01_destination_desc
@@ -1736,7 +1744,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # york_walls_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = york_walls_01
 		}
 		localization_key = building_york_walls_01_destination_desc
@@ -1744,7 +1752,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # damascus_mosque_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = damascus_mosque_01
 		}
 		localization_key = building_damascus_mosque_01_destination_desc
@@ -1752,7 +1760,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # jokhang_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = jokhang_01
 		}
 		localization_key = building_jokhang_01_destination_desc
@@ -1760,7 +1768,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # wartburg_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = wartburg_01
 		}
 		localization_key = building_wartburg_01_destination_desc
@@ -1768,7 +1776,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # beta_giyorgis_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = beta_giyorgis_01
 		}
 		localization_key = building_beta_giyorgis_01_destination_desc
@@ -1776,7 +1784,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # holy_wisdom_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = holy_wisdom_01
 		}
 		localization_key = building_holy_wisdom_01_destination_desc
@@ -1784,7 +1792,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # kano_walls_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = kano_walls_01
 		}
 		localization_key = building_kano_walls_01_destination_desc
@@ -1792,7 +1800,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # somapura_university_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = somapura_university_01
 		}
 		localization_key = building_somapura_university_01_destination_desc
@@ -1800,7 +1808,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # duomo_florence_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building = duomo_florence_01
 		}
 		localization_key = building_duomo_florence_01_destination_desc
@@ -1808,7 +1816,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # duomo_florence_02
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building = duomo_florence_02
 		}
 		localization_key = building_duomo_florence_02_destination_desc
@@ -1816,7 +1824,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # duomo_florence_03
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building = duomo_florence_03
 		}
 		localization_key = building_duomo_florence_03_destination_desc
@@ -1824,7 +1832,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # duomo_florence_04
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building = duomo_florence_04
 		}
 		localization_key = building_duomo_florence_04_destination_desc
@@ -1832,7 +1840,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # konark_temple_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = konark_temple_01
 		}
 		localization_key = building_konark_temple_01_destination_desc
@@ -1840,7 +1848,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # al_qarawiyyin_university_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = al_qarawiyyin_university_01
 		}
 		localization_key = building_al_qarawiyyin_university_01_destination_desc
@@ -1848,7 +1856,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # kairouan_basins_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = kairouan_basins_01
 		}
 		localization_key = building_kairouan_basins_01_destination_desc
@@ -1856,7 +1864,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # ghana_palace_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = ghana_palace_01
 		}
 		localization_key = building_ghana_palace_01_destination_desc
@@ -1864,7 +1872,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # visegrad_castle_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = visegrad_castle_01
 		}
 		localization_key = building_visegrad_castle_01_destination_desc
@@ -1872,7 +1880,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # wawel_cathedral_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = wawel_cathedral_01
 		}
 		localization_key = building_wawel_cathedral_01_destination_desc
@@ -1880,7 +1888,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # vatapi_caves_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = vatapi_caves_01
 		}
 		localization_key = building_vatapi_caves_01_destination_desc
@@ -1888,7 +1896,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # jaisalmer_fort_01
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = jaisalmer_fort_01
 		}
 		localization_key = building_jaisalmer_fort_01_destination_desc
@@ -1897,7 +1905,7 @@ GetSpecialBuildingTouristDescriptor = {
 	#CE2 
 	text = { # Pleasure Dome
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = pleasure_dome
 		}
 		localization_key = building_pleasure_dome_01_destination_desc
@@ -1905,7 +1913,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Burkhan Khaldun
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = burkhan_khaldun_01
 		}
 		localization_key = building_burkhan_khaldun_01_destination_desc
@@ -1915,7 +1923,7 @@ GetSpecialBuildingTouristDescriptor = {
 	#EP4
 	text = { # Nanhua Temple
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = nanhua_temple_01
 		}
 		localization_key = building_nanhua_temple_01_destination_desc
@@ -1923,7 +1931,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Jizu Shan Temples
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = jizu_shan_temples_01
 		}
 		localization_key = building_jizu_shan_temples_01_destination_desc
@@ -1931,7 +1939,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Tiantai Monasteries
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = tiantai_monasteries_01
 		}
 		localization_key = building_tiantai_monasteries_01_destination_desc
@@ -1939,7 +1947,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Mozu Tombs
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = mozu_tombs
 		}
 		localization_key = building_mozu_tombs_destination_desc
@@ -1947,7 +1955,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Trosky Castle
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = trosky_castle_01
 		}
 		localization_key = building_trosky_castle_01_destination_desc
@@ -1955,7 +1963,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Maoshan Academy
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = maoshan_academy_01
 		}
 		localization_key = building_maoshan_academy_01_destination_desc
@@ -1963,7 +1971,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Lize Academy
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = lize_academy_01
 		}
 		localization_key = building_lize_academy_01_destination_desc
@@ -1971,7 +1979,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Culai Academy
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = culai_academy_01
 		}
 		localization_key = building_culai_academy_01_destination_desc
@@ -1979,7 +1987,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Shigu Academy
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = shigu_academy_01
 		}
 		localization_key = building_shigu_academy_01_destination_desc
@@ -1987,7 +1995,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # White Deer Grotto Academy
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = white_deer_grotto_academy_01
 		}
 		localization_key = building_white_deer_grotto_academy_01_destination_desc
@@ -1995,7 +2003,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Gongsanseong Fortress
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = gongsanseong_fortress_01
 		}
 		localization_key = building_gongsanseong_fortress_01_destination_desc
@@ -2003,7 +2011,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Besakih Temple
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = besakih_temple_01
 		}
 		localization_key = building_besakih_temple_01_destination_desc
@@ -2011,7 +2019,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Mount Apo
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = mount_apo_01
 		}
 		localization_key = building_mount_apo_01_destination_desc
@@ -2019,7 +2027,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Dieng Plateau
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = dieng_plateau_01
 		}
 		localization_key = building_dieng_plateau_01_destination_desc
@@ -2027,7 +2035,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Plain of Jars
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = plain_of_jars_01
 		}
 		localization_key = building_plain_of_jars_01_destination_desc
@@ -2035,7 +2043,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Pagoda of Fogong Temple
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = pagoda_of_fogong_temple_01
 		}
 		localization_key = building_pagoda_of_fogong_temple_01_destination_desc
@@ -2043,7 +2051,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Hanging Temple
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = hanging_temple_01
 		}
 		localization_key = building_hanging_temple_01_destination_desc
@@ -2051,7 +2059,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Muaro Jambi Temple Compounds
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = muaro_jambi_01
 		}
 		localization_key = building_muaro_jambi_01_destination_desc
@@ -2059,7 +2067,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Liuhe Pagoda
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = liuhe_pagoda_01
 		}
 		localization_key = building_liuhe_pagoda_01_destination_desc
@@ -2067,7 +2075,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Dâu Temple
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = dau_temple_01
 		}
 		localization_key = building_dau_temple_01_destination_desc
@@ -2075,7 +2083,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Mount Baekdu
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = mount_baekdu_01
 		}
 		localization_key = building_mount_baekdu_01_destination_desc
@@ -2083,7 +2091,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Byeok-ran Port
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = byeokran_port_01
 		}
 		localization_key = building_byeokran_port_01_destination_desc
@@ -2091,7 +2099,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Hwangnyongsa Temple
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = hwangnyongsa_01
 		}
 		localization_key = building_hwangnyongsa_01_destination_desc
@@ -2099,7 +2107,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # Hakata Port
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = hakata_port_01
 		}
 		localization_key = building_hakata_port_01_destination_desc
@@ -2107,7 +2115,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Chinjufu District
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = chinjufu_01
 		}
 		localization_key = building_chinjufu_01_destination_desc
@@ -2115,7 +2123,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Dazaifu Office
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = dazaifu_01
 		}
 		localization_key = building_dazaifu_01_destination_desc
@@ -2123,7 +2131,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Enryaku-ji Temple
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = enryaku_ji_01
 		}
 		localization_key = building_enryaku_ji_01_destination_desc
@@ -2131,7 +2139,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Kofuku-ji Temple
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = kofuku_ji_01
 		}
 		localization_key = building_kofuku_ji_01_destination_desc
@@ -2139,7 +2147,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Ise Shrine
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = ise_jingu_01
 		}
 		localization_key = building_ise_jingu_01_destination_desc
@@ -2147,7 +2155,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Heian Palace
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = heian_palace_01
 		}
 		localization_key = building_heian_palace_01_destination_desc
@@ -2155,7 +2163,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Itsukushima Shrine
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = itsukushima_jinja_01
 		}
 		localization_key = building_itsukushima_jinja_01_destination_desc
@@ -2163,7 +2171,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Mount Fuji
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = mount_fuji_01
 		}
 		localization_key = building_mount_fuji_01_destination_desc
@@ -2171,23 +2179,15 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Sunday Bazaar (of Kashgar)
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = sunday_bazaar_01
 		}
 		localization_key = building_sunday_bazaar_01_destination_desc
 	}
 
-	text = { # Marketplace of Dūnhuáng
-		trigger = {
-			has_special_building = yes
-			has_building_or_higher = dunhuang_market_01
-		}
-		localization_key = building_dunhuang_market_01_destination_desc
-	}
-
 	text = { # Hamadan Bazaar
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = hamadan_bazaar_01
 		}
 		localization_key = building_hamadan_bazaar_01_destination_desc
@@ -2195,7 +2195,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Bazaar of Lahur (Lahore)
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = lahur_bazaar_01
 		}
 		localization_key = building_lahur_bazaar_01_destination_desc
@@ -2203,7 +2203,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Marketplace of Chang'an
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = changan_market_01
 		}
 		localization_key = building_changan_market_01_destination_desc
@@ -2211,39 +2211,39 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Marketplace of Dūnhuáng
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = dunhuang_market_01
 		}
 		localization_key = building_dunhuang_market_01_destination_desc
 	}
 
-	text = { # Bazaar of Khiva
+	text = { # Bazaar of Gurganj
 		trigger = {
-			has_special_building = yes
-			has_building_or_higher = khiva_bazaar_01
+			has_special_district = yes
+			has_building_or_higher = gurganj_bazaar_01
 		}
-		localization_key = building_khiva_bazaar_01_destination_desc
+		localization_key = building_gurganj_bazaar_01_destination_desc
 	}
 
 	text = { # Khrom of Lhasa
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = lhasa_market_01
 		}
 		localization_key = building_lhasa_market_01_destination_desc
 	}
 
-	text = { # Shuka of Dvin
+	text = { # Bazaar of Tabriz
 		trigger = {
-			has_special_building = yes
-			has_building_or_higher = dvin_shuka_01
+			has_special_district = yes
+			has_building_or_higher = tabriz_bazaar_01
 		}
-		localization_key = building_dvin_shuka_01_destination_desc
+		localization_key = building_tabriz_bazaar_01_destination_desc
 	}
 
 	text = { # Bazaar of Herat
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = herat_bazaar_01
 		}
 		localization_key = building_herat_bazaar_01_destination_desc
@@ -2251,7 +2251,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Hōshi Ryokan
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = hoshi_ryokan_01
 		}
 		localization_key = building_hoshi_ryokan_01_destination_desc
@@ -2259,7 +2259,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Borobudur
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = borobudur_01
 		}
 		localization_key = building_borobudur_01_destination_desc
@@ -2267,7 +2267,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Krakatoa
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = krakatoa_01
 		}
 		localization_key = building_krakatoa_01_destination_desc
@@ -2275,7 +2275,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Po Klong Garai Temple
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = po_klong_garai_01
 		}
 		localization_key = building_po_klong_garai_01_destination_desc
@@ -2283,7 +2283,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Đai La Citadel
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = citadel_thang_long_01
 		}
 		localization_key = building_citadel_thang_long_01_destination_desc
@@ -2291,7 +2291,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Imperial Citadel of Thăng Long
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = citadel_thang_long_02
 		}
 		localization_key = building_citadel_thang_long_02_destination_desc
@@ -2299,7 +2299,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Angkor Wat
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			OR = {
 				has_building_or_higher = angkor_wat_01
 				has_building_or_higher = temples_angkor_01
@@ -2310,7 +2310,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Quanzhou Seaport
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = quanzhou_seaport_01
 		}
 		localization_key = building_quanzhou_seaport_01_destination_desc
@@ -2318,7 +2318,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Qianling Mausoleum
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = qianling_mausoleum_01
 		}
 		localization_key = building_qianling_mausoleum_01_destination_desc
@@ -2326,7 +2326,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # The Forbidden City
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = forbidden_city_01
 		}
 		localization_key = building_forbidden_city_01_destination_desc
@@ -2334,7 +2334,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Kaifeng Imperial Palace
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = kaifeng_palace_01
 		}
 		localization_key = building_kaifeng_palace_01_destination_desc
@@ -2342,7 +2342,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Giant Wild Goose Pagoda
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = giant_wild_goose_pagoda_01
 		}
 		localization_key = building_giant_wild_goose_pagoda_01_destination_desc
@@ -2350,7 +2350,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Lingyin Temple
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = lingyin_temple_01
 		}
 		localization_key = building_lingyin_temple_01_destination_desc
@@ -2358,7 +2358,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Shaolin Monastery
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = shaolin_monastery_01
 		}
 		localization_key = building_shaolin_monastery_01_destination_desc
@@ -2366,7 +2366,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Wudang Mountain Temples
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = wudang_mountain_temples_01
 		}
 		localization_key = building_wudang_mountain_temples_01_destination_desc
@@ -2374,7 +2374,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Leshan Giant Buddha
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = leshan_giant_buddha_01
 		}
 		localization_key = building_leshan_giant_buddha_01_destination_desc
@@ -2382,7 +2382,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Wulingyuan
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = wulingyuan_01
 		}
 		localization_key = building_wulingyuan_01_destination_desc
@@ -2390,7 +2390,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Lamu Trade Ports
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = swahili_port_lamu
 		}
 		localization_key = building_swahili_port_lamu_destination_desc
@@ -2398,7 +2398,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Pate Island Trade Ports
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = swahili_port_pate
 		}
 		localization_key = building_swahili_port_pate_destination_desc
@@ -2406,7 +2406,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Port of Mombasa
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = swahili_port_mombasa
 		}
 		localization_key = building_swahili_port_mombasa_destination_desc
@@ -2414,7 +2414,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Zanzibar Trade Ports
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = swahili_port_zanzibar
 		}
 		localization_key = building_swahili_port_zanzibar_destination_desc
@@ -2422,7 +2422,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Pemba Trade Ports
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = swahili_port_pemba
 		}
 		localization_key = building_swahili_port_pemba_destination_desc
@@ -2431,7 +2431,7 @@ GetSpecialBuildingTouristDescriptor = {
 	#EP4 End
 	text = { # legendary_shrine
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = legendary_shrine
 		}
 		localization_key = legendary_shrine_destination_desc
@@ -2439,7 +2439,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # legendary_statue
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = legendary_statue
 		}
 		localization_key = legendary_statue_destination_desc
@@ -2447,7 +2447,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # legendary_palace
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = legendary_palace
 		}
 		localization_key = legendary_palace_destination_desc
@@ -2455,7 +2455,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # legendary_hunting_lodge
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = legendary_hunting_lodge
 		}
 		localization_key = legendary_hunting_ground_destination_desc
@@ -2463,7 +2463,7 @@ GetSpecialBuildingTouristDescriptor = {
 	
 	text = { # legendary_watchtower
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = legendary_watchtower
 		}
 		localization_key = legendary_watchtower_destination_desc
@@ -2479,7 +2479,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Saint Peter's Basilica
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = holy_site_st_peters_basilica_01
 		}
 		localization_key = building_holy_site_st_peters_basilica_destination_desc
@@ -2487,7 +2487,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Mont-Saint-Michel
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = mont_st_michel_01
 		}
 		localization_key = building_mont_st_michel_destination_desc
@@ -2495,7 +2495,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Sanchi Stupa
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = sanchi_stupa_01
 		}
 		localization_key = building_sanchi_stupa_destination_desc
@@ -2503,7 +2503,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Boudhanath
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = boudhanath_01
 		}
 		localization_key = building_boudhanath_destination_desc
@@ -2511,7 +2511,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Grand Mosque of Yazd
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = yazd_mosque_01
 		}
 		localization_key = building_yazd_mosque_destination_desc
@@ -2519,7 +2519,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Tomb of a Gogouryeo King
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = goguryeo_tomb_01
 		}
 		localization_key = building_goguryeo_tomb_destination_desc
@@ -2527,7 +2527,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Kamakura Buddha
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = buddha_kamakura_01
 		}
 		localization_key = building_buddha_kamakura_destination_desc
@@ -2535,7 +2535,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Lingapura Pyramid
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = pyramid_lingapura_01
 		}
 		localization_key = building_pyramid_lingapura_destination_desc
@@ -2543,7 +2543,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Maijishan Grottoes
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = maijishan_grottoes_01
 		}
 		localization_key = building_maijishan_grottoes_destination_desc
@@ -2551,7 +2551,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Three Pagodas
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = three_pagodas_dali_01
 		}
 		localization_key = building_three_pagodas_dali_destination_desc
@@ -2559,7 +2559,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Iron Lion
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = iron_lion_cangzhou_01
 		}
 		localization_key = building_iron_lion_cangzhou_destination_desc
@@ -2567,7 +2567,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Dengfeng Observatory
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = dengfeng_observatory_01
 		}
 		localization_key = building_dengfeng_observatory_destination_desc
@@ -2575,7 +2575,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Muara Takus
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = muara_takus_01
 		}
 		localization_key = building_muara_takus_destination_desc
@@ -2583,7 +2583,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Stone Pagoda
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = stone_pagoda_01
 		}
 		localization_key = building_stone_pagoda_destination_desc
@@ -2591,7 +2591,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Thuriang Kilns
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = thuriang_kilns_01
 		}
 		localization_key = building_thuriang_kilns_destination_desc
@@ -2599,7 +2599,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Yuelu Academy
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = yuelu_academy_01
 		}
 		localization_key = building_yuelu_academy_destination_desc
@@ -2607,7 +2607,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Chocolate Hills
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = chocolate_hills_01
 		}
 		localization_key = building_chocolate_hills_destination_desc
@@ -2615,7 +2615,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Fanfang of Guangzhou
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = fanfang_guangzhou_01
 		}
 		localization_key = building_fanfang_guangzhou_destination_desc
@@ -2623,7 +2623,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Wilwatikta Palace
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = wilwatikta_palace_01
 		}
 		localization_key = building_wilwatikta_palace_destination_desc
@@ -2631,7 +2631,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Ha Long Bay
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = ha_long_bay_01
 		}
 		localization_key = building_ha_long_bay_destination_desc
@@ -2639,7 +2639,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # My son
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = my_son_sanctuary_01
 		}
 		localization_key = building_my_son_sanctuary_destination_desc
@@ -2647,7 +2647,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Gunung Api
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = gunung_api_01
 		}
 		localization_key = building_gunung_api_destination_desc
@@ -2655,7 +2655,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Sulawesi Megaliths
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = suwalesi_megaliths_01
 		}
 		localization_key = building_suwalesi_megaliths_destination_desc
@@ -2663,7 +2663,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Izumo Taisha
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = izumo_taisha_01
 		}
 		localization_key = building_izumo_taisha_destination_desc
@@ -2671,7 +2671,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Confucius Temple
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = confucius_temple_01
 		}
 		localization_key = building_confucius_temple_destination_desc
@@ -2679,7 +2679,7 @@ GetSpecialBuildingTouristDescriptor = {
 
 	text = { # Citadel of Linan
 		trigger = {
-			has_special_building = yes
+			has_special_district = yes
 			has_building_or_higher = citadel_linan_01
 		}
 		localization_key = building_citadel_linan_destination_desc
@@ -2999,7 +2999,10 @@ GetTouristHoldingOutro = {
 			root = { save_scope_as = location }
 		}
 		trigger = {
-			has_travel_point_of_interest = poi_special_buildings_economic
+			OR = {
+				has_travel_point_of_interest = poi_special_buildings_economic
+				has_travel_point_of_interest = poi_silk_road_node
+			}
 		}
 		localization_key = building_economic_learning_outro_01_desc
 	}
@@ -3009,7 +3012,10 @@ GetTouristHoldingOutro = {
 			root = { save_scope_as = location }
 		}
 		trigger = {
-			has_travel_point_of_interest = poi_special_buildings_economic
+			OR = {
+				has_travel_point_of_interest = poi_special_buildings_economic
+				has_travel_point_of_interest = poi_silk_road_node
+			}
 		}
 		localization_key = building_economic_learning_outro_02_desc
 	}
@@ -3019,7 +3025,10 @@ GetTouristHoldingOutro = {
 			root = { save_scope_as = location }
 		}
 		trigger = {
-			has_travel_point_of_interest = poi_special_buildings_economic
+			OR = {
+				has_travel_point_of_interest = poi_special_buildings_economic
+				has_travel_point_of_interest = poi_silk_road_node
+			}
 		}
 		localization_key = building_economic_learning_outro_03_desc
 	}

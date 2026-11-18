@@ -8,4 +8,4 @@ def text(name: str, path: Path) -> str:
     own = path / 'descriptor.mod'
     if own.exists():
         return own.read_text(encoding='utf-8-sig').rstrip() + f'\npath="{path.as_posix()}"\n'
-    return f'name="{name}"\npath="{path.as_posix()}"\nsupported_version="1.20.*"\n'
+    return f'name="{name}"\npath="{path.as_posix()}"\nsupported_version="1.21.*"\n'

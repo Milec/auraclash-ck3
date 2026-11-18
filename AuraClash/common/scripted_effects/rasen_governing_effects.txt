@@ -11,7 +11,7 @@ rasen_raise_archon_effect = {
 rasen_appoint_magistrate_effect = {
 	ordered_held_title = {
 		limit = { tier = tier_county title_province = { geographical_region = world_rasen_outer } }
-		order_by = development_level
+		order_by = prosperity_level
 		save_scope_as = rasen_magistrate_county
 	}
 	if = {

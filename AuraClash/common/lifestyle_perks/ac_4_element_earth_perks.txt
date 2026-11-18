@@ -80,7 +80,7 @@ ac_4_element_earth_d_perk = {
 	}
 
 	character_modifier = {
-		character_capital_county_monthly_development_growth_add = 0.15
+		character_capital_county_monthly_prosperity_growth_add = 0.15
 		levy_size = 0.05
 	}
 }
@@ -170,7 +170,7 @@ ac_4_element_earth_h_perk = {
 
 	character_modifier = {
 		levy_size = 0.05
-		tax_mult = 0.05
+		domain_tax_mult = 0.05
 	}
 }
 

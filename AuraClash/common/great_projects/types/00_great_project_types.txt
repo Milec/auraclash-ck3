@@ -45,7 +45,7 @@ mandala_capital_01 = {
 	}
 
 	can_start_planning = {
-		capital_province = { has_great_building = no }
+		capital_province = { has_great_district = no }
 		government_has_flag = government_is_mandala
 		NOT = { is_planning_great_project = mandala_capital_01 }
 		piety_level >= medium_piety_level
@@ -102,20 +102,26 @@ mandala_capital_01 = {
 
 	on_complete = {
 		scope:province = {
+			add_to_global_variable_list = { # Add to list so it can be found by the PoI
+				name = mandala_poi_list
+				target = this
+			}
 			if = {
 				limit = {
 					NOT = { has_holding_type = temple_citadel_holding }
 				}
-				if = {
-					limit = { holding_is_tribal = yes }
-					holding_pre_feudalize_effect = yes
-				}
 				set_holding_type = temple_citadel_holding
 			}
-			set_great_building = mandala_capital_01
-			add_to_global_variable_list = { # Add to list so it can be found by the PoI
-				name = mandala_poi_list
-				target = this
+			if = {
+				limit = { has_great_district_slot = no }
+				hidden_effect = { set_great_district_slot = mandala_capital_01_district }
+			}
+			if = {
+				limit = { has_great_district = no }
+				set_great_district = mandala_capital_01_district
+			}
+			great_district ?= {
+				show_as_tooltip = { add_building = mandala_capital_01 }
 			}
 		}
 		scope:owner = {
@@ -212,10 +218,11 @@ mandala_capital_01 = {
 		scope:owner = {
 			add_legitimacy_effect = { LEGITIMACY = minor_legitimacy_gain }
 		}
-		scope:great_project = {
+		scope:great_project ?= {
 			every_contribution = {
 				limit = {
 					contribution_is_funded = yes
+					contributor ?= { is_alive = yes }
 				}
 				contributor = {
 					add_prestige = minor_prestige_value
@@ -248,11 +255,13 @@ mandala_capital_01 = {
 								count >= mandala_capitals_per_dejure_kingdom
 								tier = tier_barony
 								title_province = {
-									NOT = { scope:great_project.great_project_location.county = root.capital_county } #We don't count our own great project since it needs to be upgradeable.
+									scope:great_project ?= {
+										NOT = { great_project_location.county = root.capital_county } #We don't count our own great project since it needs to be upgradeable.
+									}
 									OR = {
 										AND = {
 											has_building_with_flag = mandala_capital_building
-											has_ruined_great_building = no
+											has_ruined_great_district = no
 										}
 										any_great_project_in_province = {
 											OR = {
@@ -743,7 +752,7 @@ mandala_capital_02 = {
 	}
 
 	can_start_planning = {
-		capital_province = { has_ruined_great_building = no }
+		capital_province = { has_ruined_great_district = no }
 		government_has_flag = government_is_mandala
 		NOR = {
 			is_planning_great_project = mandala_capital_02
@@ -805,10 +814,7 @@ mandala_capital_02 = {
 
 	on_complete = {
 		scope:owner = {
-			scope:province = {
-				hidden_effect = { remove_building = mandala_capital_01 }
-				set_great_building = mandala_capital_02
-			}
+			scope:province.great_district ?= { upgrade_building_effect = mandala_capital_01 }
 			#Owner rewards
 			show_as_tooltip = { mandala_owner_reward_01_effect = yes }
 			#Memory
@@ -907,10 +913,11 @@ mandala_capital_02 = {
 		scope:owner = {
 			add_legitimacy_effect = { LEGITIMACY = minor_legitimacy_gain }
 		}
-		scope:great_project = {
+		scope:great_project ?= {
 			every_contribution = {
 				limit = {
 					contribution_is_funded = yes
+					contributor ?= { is_alive = yes }
 				}
 				contributor = {
 					add_prestige = minor_prestige_value
@@ -1375,7 +1382,7 @@ mandala_capital_03 = {
 	}
 
 	can_start_planning = {
-		capital_province = { has_ruined_great_building = no }
+		capital_province = { has_ruined_great_district = no }
 		government_has_flag = government_is_mandala
 		NOR = {
 			is_planning_great_project = mandala_capital_03
@@ -1442,10 +1449,7 @@ mandala_capital_03 = {
 
 	on_complete = {
 		scope:owner = {
-			scope:province = {
-				hidden_effect = { remove_building = mandala_capital_02 }
-				set_great_building = mandala_capital_03
-			}
+			scope:province.great_district ?= { upgrade_building_effect = mandala_capital_02 }
 			#Owner rewards
 			show_as_tooltip = { mandala_owner_reward_01_effect = yes }
 			#Memory
@@ -1550,10 +1554,11 @@ mandala_capital_03 = {
 		scope:owner = {
 			add_legitimacy_effect = { LEGITIMACY = minor_legitimacy_gain }
 		}
-		scope:great_project = {
+		scope:great_project ?= {
 			every_contribution = {
 				limit = {
 					contribution_is_funded = yes
+					contributor ?= { is_alive = yes }
 				}
 				contributor = {
 					add_prestige = minor_prestige_value
@@ -2227,7 +2232,7 @@ mandala_capital_04 = {
 	}
 
 	can_start_planning = {
-		capital_province = { has_ruined_great_building = no }
+		capital_province = { has_ruined_great_district = no }
 		government_has_flag = government_is_mandala
 		NOR = {
 			is_planning_great_project = mandala_capital_04
@@ -2294,10 +2299,7 @@ mandala_capital_04 = {
 
 	on_complete = {
 		scope:owner = {
-			scope:province = {
-				hidden_effect = { remove_building = mandala_capital_03 }
-				set_great_building = mandala_capital_04
-			}
+			scope:province.great_district ?= { upgrade_building_effect = mandala_capital_03 }
 			#Owner rewards
 			show_as_tooltip = { mandala_owner_reward_01_effect = yes }
 			#Memory
@@ -2396,10 +2398,11 @@ mandala_capital_04 = {
 		scope:owner = {
 			add_legitimacy_effect = { LEGITIMACY = minor_legitimacy_gain }
 		}
-		scope:great_project = {
+		scope:great_project ?= {
 			every_contribution = {
 				limit = {
 					contribution_is_funded = yes
+					contributor ?= { is_alive = yes }
 				}
 				contributor = {
 					add_prestige = minor_prestige_value
@@ -2858,7 +2861,7 @@ mandala_capital_05 = {
 	}
 
 	can_start_planning = {
-		capital_province = { has_ruined_great_building = no }
+		capital_province = { has_ruined_great_district = no }
 		government_has_flag = government_is_mandala
 		NOR = {
 			is_planning_great_project = mandala_capital_05
@@ -2952,10 +2955,7 @@ mandala_capital_05 = {
 
 	on_complete = {
 		scope:owner = {
-			capital_province = {
-				hidden_effect = { remove_building = mandala_capital_04 }
-				set_great_building = mandala_capital_05
-			}
+			capital_province.great_district ?= { upgrade_building_effect = mandala_capital_04 }
 			#Owner rewards
 			show_as_tooltip = { mandala_owner_reward_01_effect = yes }
 			#Memory
@@ -3061,10 +3061,11 @@ mandala_capital_05 = {
 		scope:owner = {
 			add_legitimacy_effect = { LEGITIMACY = minor_legitimacy_gain }
 		}
-		scope:great_project = {
+		scope:great_project ?= {
 			every_contribution = {
 				limit = {
 					contribution_is_funded = yes
+					contributor ?= { is_alive = yes }
 				}
 				contributor = {
 					add_prestige = minor_prestige_value
@@ -3495,22 +3496,13 @@ construct_great_barracks = {
 			custom_tooltip = {
 				text = great_project_type_construct_great_barracks_does_not_already_have_barracks
 				NOT = {
-					has_building = celestial_great_barracks_01 # you can overwrite duchy buildings, but there's no point in doing it to the same one
+					has_building_or_higher = celestial_great_barracks_01
 				}
 			}
-			trigger_if = {
-				limit = {
-					barony.county.holder = {
-						is_ai = no
-						this != root
-					}
-				}
-				custom_tooltip = {
-					text = great_project_type_construct_great_barracks_do_not_override_player_building
-					NOT = {
-						has_building_with_flag = duchy_building
-					}
-				}
+			custom_tooltip = {
+				text = great_project_type_construct_great_barracks_has_governance_district
+				has_building_or_higher = governance_district_01
+				duchy_capital_district ?= { has_free_building_slot = yes }
 			}
 		}
 	}
@@ -3547,26 +3539,29 @@ construct_great_barracks = {
 	on_start_build = {}
 
 	on_complete = {
-		if = {
-			limit = {
-				NOT = {
-					scope:province ?= {
-						has_building_with_flag = duchy_building
+		custom_tooltip = {
+			text = great_project_type_construct_great_barracks_province_gains_great_barracks
+			scope:province ?= {
+				if = {
+					limit = {
+						has_building_or_higher = governance_district_01
+						duchy_capital_district ?= { has_free_building_slot = yes }
 					}
+					set_variable = great_barracks_construction_allowed # celestial_great_barracks_01 can only be added while this is set
+					duchy_capital_district = {
+						add_building = celestial_great_barracks_01
+					}
+					remove_variable = great_barracks_construction_allowed
 				}
-			}
-			custom_tooltip = {
-				text = great_project_type_construct_great_barracks_province_gains_great_barracks
-				scope:province ?= {
-					add_building = celestial_great_barracks_01
-				}
-			}
-		}
-		else = {
-			custom_tooltip = {
-				text = project_great_barracks_replace_tt
-				scope:province ?= {
-					replace_building_effect = celestial_great_barracks_01
+				else = {
+					scope:owner ?= {
+						send_interface_message = {
+							type = msg_great_project_aborted
+							title = great_project_type_construct_great_barracks_failed_title
+							desc = great_project_type_construct_great_barracks_failed_desc
+							right_icon = scope:province.barony
+						}
+					}
 				}
 			}
 		}
@@ -4211,7 +4206,7 @@ strengthen_capital = {
 					OWNER_REWARD_EFFECT = great_project_reward_contribution_completion_null
 				}
 				scope:province = {
-					set_great_building = forbidden_city_01
+					set_great_district = forbidden_city_01_district
 				}
 			}
 			on_contribution_funded = {
@@ -4233,7 +4228,7 @@ strengthen_capital = {
 					limit = {
 						exists = scope:great_project
 						scope:great_project.great_project_location = {
-							has_great_building = yes
+							has_great_district = yes
 							county.holder = {
 								NOR = {
 									this = { is_ai = no }
@@ -4455,12 +4450,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_01 = { # b_wulan
 			is_shown = {
 				title:b_wulan.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_wulan.title_province = { set_great_building = the_great_wall_04 }
+				title:b_wulan.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -4473,7 +4468,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -4495,12 +4490,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_02 = { # b_fengan
 			is_shown = {
 				title:b_fengan.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_fengan.title_province = { set_great_building = the_great_wall_04 }
+				title:b_fengan.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -4513,7 +4508,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -4535,12 +4530,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_03 = { # b_mingsha
 			is_shown = {
 				title:b_mingsha.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_mingsha.title_province = { set_great_building = the_great_wall_04 }
+				title:b_mingsha.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -4553,7 +4548,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -4575,12 +4570,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_04 = { # b_yaode
 			is_shown = {
 				title:b_yaode.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_yaode.title_province = { set_great_building = the_great_wall_04 }
+				title:b_yaode.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -4593,7 +4588,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -4615,12 +4610,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_05 = { # b_huile
 			is_shown = {
 				title:b_huile.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_huile.title_province = { set_great_building = the_great_wall_04 }
+				title:b_huile.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -4633,7 +4628,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -4655,12 +4650,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_06 = { # b_baojing
 			is_shown = {
 				title:b_baojing.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_baojing.title_province = { set_great_building = the_great_wall_04 }
+				title:b_baojing.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -4673,7 +4668,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -4695,12 +4690,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_07 = { # b_huaiyuan
 			is_shown = {
 				title:b_huaiyuan.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_huaiyuan.title_province = { set_great_building = the_great_wall_04 }
+				title:b_huaiyuan.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -4713,7 +4708,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -4735,12 +4730,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_08 = { # b_shengwei
 			is_shown = {
 				title:b_shengwei.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_shengwei.title_province = { set_great_building = the_great_wall_04 }
+				title:b_shengwei.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -4753,7 +4748,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -4775,12 +4770,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_09 = { # b_hequ
 			is_shown = {
 				title:b_hequ.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_hequ.title_province = { set_great_building = the_great_wall_04 }
+				title:b_hequ.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -4793,7 +4788,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -4815,12 +4810,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_10 = { # b_helan
 			is_shown = {
 				title:b_helan.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_helan.title_province = { set_great_building = the_great_wall_04 }
+				title:b_helan.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -4833,7 +4828,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -4855,12 +4850,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_11 = { # b_dengkou
 			is_shown = {
 				title:b_dengkou.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_dengkou.title_province = { set_great_building = the_great_wall_04 }
+				title:b_dengkou.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -4873,7 +4868,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -4895,12 +4890,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_12 = { # b_wuluhai
 			is_shown = {
 				title:b_wuluhai.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_wuluhai.title_province = { set_great_building = the_great_wall_04 }
+				title:b_wuluhai.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -4913,7 +4908,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -4935,12 +4930,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_13 = { # b_yongfeng
 			is_shown = {
 				title:b_yongfeng.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_yongfeng.title_province = { set_great_building = the_great_wall_04 }
+				title:b_yongfeng.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -4953,7 +4948,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -4975,12 +4970,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_14 = { # b_jiuyuan
 			is_shown = {
 				title:b_jiuyuan.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_jiuyuan.title_province = { set_great_building = the_great_wall_04 }
+				title:b_jiuyuan.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -4993,7 +4988,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5015,12 +5010,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_15 = { # b_tiande
 			is_shown = {
 				title:b_tiande.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_tiande.title_province = { set_great_building = the_great_wall_04 }
+				title:b_tiande.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5033,7 +5028,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5055,12 +5050,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_16 = { # b_jincheng
 			is_shown = {
 				title:b_jincheng.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_jincheng.title_province = { set_great_building = the_great_wall_04 }
+				title:b_jincheng.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5073,7 +5068,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5095,12 +5090,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_17 = { # b_huichuan
 			is_shown = {
 				title:b_huichuan.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_huichuan.title_province = { set_great_building = the_great_wall_04 }
+				title:b_huichuan.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5113,7 +5108,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5135,12 +5130,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_18 = { # b_huairong_2
 			is_shown = {
 				title:b_huairong_2.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_huairong_2.title_province = { set_great_building = the_great_wall_04 }
+				title:b_huairong_2.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5153,7 +5148,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5175,17 +5170,13 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_19 = { # b_pinggao
 			is_shown = {
 				title:b_pinggao.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_pinggao.title_province = {
-					if = {
-						limit = { has_great_building = no }
-						set_great_building = the_great_wall_04
-					}
-				}
+				title:b_pinggao.title_province = { set_great_district = the_great_wall_04_district }
+
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5198,7 +5189,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5220,17 +5211,13 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_20 = { # b_huaide
 			is_shown = {
 				title:b_huaide.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_huaide.title_province = {
-					if = {
-						limit = { has_great_building = no }
-						set_great_building = the_great_wall_04
-					}
-				}
+				title:b_huaide.title_province = { set_great_district = the_great_wall_04_district }
+
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5243,7 +5230,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5265,17 +5252,13 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_21 = { # b_fangqu
 			is_shown = {
 				title:b_fangqu.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_fangqu.title_province = {
-					if = {
-						limit = { has_great_building = no }
-						set_great_building = the_great_wall_04
-					}
-				}
+				title:b_fangqu.title_province = { set_great_district = the_great_wall_04_district }
+
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5288,7 +5271,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5310,17 +5293,13 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_22 = { # b_huaian_2
 			is_shown = {
 				title:b_huaian_2.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_huaian_2.title_province = {
-					if = {
-						limit = { has_great_building = no }
-						set_great_building = the_great_wall_04
-					}
-				}
+				title:b_huaian_2.title_province = { set_great_district = the_great_wall_04_district }
+
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5333,7 +5312,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5355,17 +5334,13 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_23 = { # b_luoyuan
 			is_shown = {
 				title:b_luoyuan.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_luoyuan.title_province = {
-					if = {
-						limit = { has_great_building = no }
-						set_great_building = the_great_wall_04
-					}
-				}
+				title:b_luoyuan.title_province = { set_great_district = the_great_wall_04_district }
+
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5378,7 +5353,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5400,12 +5375,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_24 = { # b_hengshan_3
 			is_shown = {
 				title:b_hengshan_3.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_hengshan_3.title_province = { set_great_building = the_great_wall_04 }
+				title:b_hengshan_3.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5418,7 +5393,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5440,12 +5415,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_25 = { # b_wuyan
 			is_shown = {
 				title:b_wuyan.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_wuyan.title_province = { set_great_building = the_great_wall_04 }
+				title:b_wuyan.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5458,7 +5433,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5480,12 +5455,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_26 = { # b_ningshuo
 			is_shown = {
 				title:b_ningshuo.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_ningshuo.title_province = { set_great_building = the_great_wall_04 }
+				title:b_ningshuo.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5498,7 +5473,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5520,12 +5495,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_27 = { # b_longquan
 			is_shown = {
 				title:b_longquan.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_longquan.title_province = { set_great_building = the_great_wall_04 }
+				title:b_longquan.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5538,7 +5513,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5560,12 +5535,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_28 = { # b_rulin
 			is_shown = {
 				title:b_rulin.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_rulin.title_province = { set_great_building = the_great_wall_04 }
+				title:b_rulin.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5578,7 +5553,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5600,12 +5575,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_29 = { # b_kaiguang
 			is_shown = {
 				title:b_kaiguang.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_kaiguang.title_province = { set_great_building = the_great_wall_04 }
+				title:b_kaiguang.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5618,7 +5593,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5640,12 +5615,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_30 = { # b_linzhou_yincheng
 			is_shown = {
 				title:b_linzhou_yincheng.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_linzhou_yincheng.title_province = { set_great_building = the_great_wall_04 }
+				title:b_linzhou_yincheng.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5658,7 +5633,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5680,12 +5655,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_31 = { # b_xiazhou_dejing_east
 			is_shown = {
 				title:b_xiazhou_dejing_east.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_xiazhou_dejing_east.title_province = { set_great_building = the_great_wall_04 }
+				title:b_xiazhou_dejing_east.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5698,7 +5673,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5720,12 +5695,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_32 = { # b_xuande
 			is_shown = {
 				title:b_xuande.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_xuande.title_province = { set_great_building = the_great_wall_04 }
+				title:b_xuande.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5738,7 +5713,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5760,12 +5735,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_33 = { # b_baishui
 			is_shown = {
 				title:b_baishui.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_baishui.title_province = { set_great_building = the_great_wall_04 }
+				title:b_baishui.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5778,7 +5753,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5800,12 +5775,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_34 = { # b_rouxuan
 			is_shown = {
 				title:b_rouxuan.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_rouxuan.title_province = { set_great_building = the_great_wall_04 }
+				title:b_rouxuan.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5818,7 +5793,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -5840,12 +5815,12 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		walls_35 = { # b_cirlxj_yangcheng
 			is_shown = {
 				title:b_cirlxj_yangcheng.title_province = {
-					NOT = { has_building_or_higher = the_great_wall_04 }
 					province_owner ?= { top_liege = root.top_liege }
+					NOT = { has_building_or_higher = the_great_wall_04 }
 				}
 			}
 			on_complete = {
-				title:b_cirlxj_yangcheng.title_province = { set_great_building = the_great_wall_04 }
+				title:b_cirlxj_yangcheng.title_province = { set_great_district = the_great_wall_04_district }
 				contributor_great_wall_reward_effect = yes
 			}
 
@@ -5858,7 +5833,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 			is_required = no
 
 			on_contribution_funded = {
-				scope:great_project = {
+				scope:great_project ?= {
 					set_variable = any_funded_provinces
 				}
 				great_project_notify_contribution = yes
@@ -6060,20 +6035,20 @@ great_wall_extend_to_shanhai_pass = {
 		custom_tooltip = {
 			text = add_great_wall_in_shanhai_desc
 
-			title:b_jinshan_2.title_province = { add_great_building = the_great_wall_04 }
-			title:b_yanle.title_province = { add_great_building = the_great_wall_04 }
-			title:b_zunhua.title_province = { add_great_building = the_great_wall_04 }
-			title:b_yuyang.title_province = { add_great_building = the_great_wall_04 }
-			title:b_shicheng_2.title_province = { add_great_building = the_great_wall_04 }
+			title:b_jinshan_2.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_yanle.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_zunhua.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_yuyang.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_shicheng_2.title_province = { add_great_district = the_great_wall_04_district }
 			if = {
 				limit = {
 					title:b_anxi_2.title_province = {
-						has_great_building = no
+						has_great_district = no
 					}
 				}
-				title:b_anxi_2.title_province = { add_great_building = the_great_wall_04 }
+				title:b_anxi_2.title_province = { add_great_district = the_great_wall_04_district }
 			}
-			title:b_lulong.title_province = { add_great_building = the_great_wall_shanhai_pass }
+			title:b_lulong.title_province = { add_great_district = the_great_wall_shanhai_pass_district }
 		}
 		# Mark this section as complete
 		set_global_variable = {
@@ -6753,30 +6728,33 @@ great_wall_extend_to_liaodong = {
 		# Add the great wall to all relevant holdings
 		custom_tooltip = {
 			text = add_great_wall_in_liaodong_desc
-			title:b_anxi_2.title_province = {
-				if = {
-					limit = { has_great_building = no }
-					add_great_building = the_great_wall_04
+
+			if = {
+				limit = {
+					title:b_anxi_2.title_province = {
+						has_great_district = no
+					}
 				}
+				title:b_anxi_2.title_province = { add_great_district = the_great_wall_04_district }
 			}
-			title:b_cirlzj_longtan.title_province = { add_great_building = the_great_wall_04 }
-			title:b_cirlzj_yuhejing.title_province = { add_great_building = the_great_wall_04 }
-			title:b_Liao_Liping.title_province = { add_great_building = the_great_wall_04 }
-			title:b_Liao_Chaoyang.title_province = { add_great_building = the_great_wall_04 }
-			title:b_Liao_Wuanzhou.title_province = { add_great_building = the_great_wall_04 }
-			title:b_Liao_Chengzhou.title_province = { add_great_building = the_great_wall_04 }
-			title:b_Liao_Suizhou.title_province = { add_great_building = the_great_wall_04 }
-			title:b_Liao_Weizhou2.title_province = { add_great_building = the_great_wall_04 }
-			title:b_Liao_Yuanzhou.title_province = { add_great_building = the_great_wall_04 }
-			title:b_Liao_Shuangzhou.title_province = { add_great_building = the_great_wall_04 }
-			title:b_Liao_Qizhou.title_province = { add_great_building = the_great_wall_04 }
-			title:b_Liao_Fuzhou2.title_province = { add_great_building = the_great_wall_04 }
-			title:b_FIC_Liao_Huangcaocun.title_province = { add_great_building = the_great_wall_04 }
-			title:b_Liao_Guidezhou.title_province = { add_great_building = the_great_wall_04 }
-			title:b_Liao_Fengcheng.title_province = { add_great_building = the_great_wall_04 }
-			title:b_Liao_Dandong.title_province = { add_great_building = the_great_wall_04 }
-			title:b_Goryeo_Bukgye_Uiju.title_province = { add_great_building = the_great_wall_liaodong }
-			title:b_Goryeo_Bukgye_Cheolju.title_province = { add_great_building = the_great_wall_04 }
+			title:b_cirlzj_longtan.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_cirlzj_yuhejing.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_Liao_Liping.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_Liao_Chaoyang.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_Liao_Wuanzhou.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_Liao_Chengzhou.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_Liao_Suizhou.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_Liao_Weizhou2.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_Liao_Yuanzhou.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_Liao_Shuangzhou.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_Liao_Qizhou.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_Liao_Fuzhou2.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_FIC_Liao_Huangcaocun.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_Liao_Guidezhou.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_Liao_Fengcheng.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_Liao_Dandong.title_province = { add_great_district = the_great_wall_04_district }
+			title:b_Goryeo_Bukgye_Uiju.title_province = { add_great_district = the_great_wall_liaodong_district }
+			title:b_Goryeo_Bukgye_Cheolju.title_province = { add_great_district = the_great_wall_04_district }
 		}
 		# Mark this section as complete
 		set_global_variable = {

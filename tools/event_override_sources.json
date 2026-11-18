@@ -1,66 +1,66 @@
 {
-  "ck3_version": "1.20.1.2",
+  "ck3_version": "1.21.0",
   "events": [
     {
       "event": "travel_danger_events.3004",
       "source": "events/travel_events/travel_danger_events_klank.txt",
-      "source_sha256": "8ffbb7fa6ca128e2aafe5745c01d048467dd4def9655c9a747a9ef3527cee23a",
+      "source_sha256": "f5b6c6f343ccb793305f56f0fbe0190494cd9db536388dd83407b1b1f8d80006",
       "original_options": 3,
       "added_options": 2
     },
     {
       "event": "travel_danger_events.4000",
       "source": "events/travel_events/travel_danger_events_filippa.txt",
-      "source_sha256": "5ff4d10f65b2eef7231b30645199c8a027b27dfaca7fa7f53a745c0fed7fccb2",
+      "source_sha256": "b0c83e5c07e66289d86ee839df8bc09b19c2a9bbc33bc70575ec1b5b2b40d1fc",
       "original_options": 3,
       "added_options": 1
     },
     {
       "event": "travel_danger_events.2001",
       "source": "events/travel_events/travel_danger_events_dan.txt",
-      "source_sha256": "86c5b2ad1f9d4b3a2617398ab224e9caec5e5d8e93cca0b17021a20217187521",
+      "source_sha256": "205809314fce83a8d80aa2384a8b9e36a3f70b91815b85ad4bf1417e4136e49d",
       "original_options": 2,
       "added_options": 1
     },
     {
       "event": "travel_danger_events.1007",
       "source": "events/travel_events/travel_danger_events.txt",
-      "source_sha256": "95926fd161266fc997fb94897e001d64cfa24dbd8fbfdeb4af8f8f02d2d6f19d",
+      "source_sha256": "6405cf8c709c981d0ed16144c60cce5e5a2ed54aed7a5f385e4493b581927721",
       "original_options": 4,
       "added_options": 1
     },
     {
       "event": "travel_danger_events.3005",
       "source": "events/travel_events/travel_danger_events_klank.txt",
-      "source_sha256": "a09d4252737085f43581f27ba7704b57a70c33814662acc9fb3d9f1392312f69",
+      "source_sha256": "45ef5cbcd5ae41b45e37cc372f9d4649ce01fc40441a6a69af48b754d32b4c23",
       "original_options": 2,
       "added_options": 1
     },
     {
       "event": "travel_danger_events.3003",
       "source": "events/travel_events/travel_danger_events_klank.txt",
-      "source_sha256": "b7fc21243267191145497a055f39f2b66375762b9507ce8c123f36f0281e64f3",
+      "source_sha256": "1dbf9b8244bc9af4deb9358dc2cd75b2941abbc5512cce39604fba690b2243f0",
       "original_options": 3,
       "added_options": 1
     },
     {
       "event": "travel_danger_events.3001",
       "source": "events/travel_events/travel_danger_events_klank.txt",
-      "source_sha256": "6657a1df1842015b633ab098544ed815f2c83a4577506dfa98a068cb36f2d1d8",
+      "source_sha256": "8e0c0560ad98accd2b128f0fa1e2b66587bc0ac0a6a1ae18fbd766913dbe4b9f",
       "original_options": 3,
       "added_options": 1
     },
     {
       "event": "travel_danger_events.1006",
       "source": "events/travel_events/travel_danger_events.txt",
-      "source_sha256": "90c1a0bc89254062a4eb8cbc82c555d46faf72a70ffb1bd2b1e46bab4ebe7f3b",
+      "source_sha256": "c583360326a39486473e4b4e5b29f57f9d8bcae457820dae26a55e48d621761c",
       "original_options": 3,
       "added_options": 1
     },
     {
       "event": "travel_danger_events.3000",
       "source": "events/travel_events/travel_danger_events_klank.txt",
-      "source_sha256": "35de8c15e677204be10d52d292eb605d22115ff9b55d79912821ec69c31edfba",
+      "source_sha256": "cd4ff5b40999e2ff39403164eb2737829ea889b35a6e423e5eec876703f65d50",
       "original_options": 4,
       "added_options": 1
     },
@@ -74,14 +74,14 @@
     {
       "event": "travel_danger_events.6030",
       "source": "events/travel_events/travel_danger_events_joe.txt",
-      "source_sha256": "d335d53f778511a3c409687fca5770c5db49c865dcdade0bf4864df574460b85",
+      "source_sha256": "2d3bb99ec01c499debf2cb0b59d33602cee5235978721ce8941f0e3460adb6a8",
       "original_options": 3,
       "added_options": 2
     },
     {
       "event": "travel_danger_events.9040",
       "source": "events/travel_events/travel_danger_events_oltner.txt",
-      "source_sha256": "ec9d66ac5d2629120b63d74dff490f482a73f34ce359bf9e7071554574bded98",
+      "source_sha256": "42f66bbfc3f86141e6f98b967ead207430964ce734bbb64bf3724b106e1ef295",
       "original_options": 2,
       "added_options": 1
     },
@@ -137,7 +137,7 @@
     {
       "event": "travel_danger_events.6020",
       "source": "events/travel_events/travel_danger_events_joe.txt",
-      "source_sha256": "6e55b769791b98055f2097c4adbc5e47419cd904f5b5c617c4c03dd27a187c09",
+      "source_sha256": "fc8a15f1df2de7c0753cd2d5a7bffae12f61e972db88cde2ed3b63d91c5a830a",
       "original_options": 1,
       "added_options": 1
     },
@@ -200,21 +200,21 @@
     {
       "event": "epidemic_events.1110",
       "source": "events/dlc/ce1/epidemic_events.txt",
-      "source_sha256": "88a5f88d0a047fab25eb81c3c5e34a24e1e4caa5a44b7050097c294551150e21",
+      "source_sha256": "d6c7a33480b36337434deaf609d30361d43609a3bf389c324e8fc6bfac0133a0",
       "original_options": 2,
       "added_options": 2
     },
     {
       "event": "epidemic_events.1121",
       "source": "events/dlc/ce1/epidemic_events.txt",
-      "source_sha256": "40eccb5eab9604022f3372fe748c2e75c771ac8406d669448ff06483ad727973",
+      "source_sha256": "6ce1d2c9795a1d358e6560f0cc520f6cfe3eb0a4d4668e1930ed22533484eb2e",
       "original_options": 3,
       "added_options": 2
     },
     {
       "event": "epidemic_events.5003",
       "source": "events/dlc/ce1/epidemic_events.txt",
-      "source_sha256": "d13e0905ee4cf9c7373960c028f5c3b3951d4f2a03d83b6826751cee8b899711",
+      "source_sha256": "79f6e61fe05ac18783494b2229342272d0d947bb5c3874b120f579e2a0f9cb56",
       "original_options": 3,
       "added_options": 1
     },
@@ -298,14 +298,14 @@
     {
       "event": "travel_danger_events.7000",
       "source": "events/travel_events/travel_danger_events_ariana.txt",
-      "source_sha256": "9d7b1f126dd529fe438d53a44b323e704f40bc13a46095e3f857af38ece4e7c8",
+      "source_sha256": "e8bb72254c9dc2bb1e1b818d57c6936dc547dcdf59d15e0c34c0fa362a2c47f8",
       "original_options": 7,
       "added_options": 1
     },
     {
       "event": "travel_danger_events.6000",
       "source": "events/travel_events/travel_danger_events_joe.txt",
-      "source_sha256": "bc14041dc5aa7762c12a69ccf95e0efc2a4976e1a1f4166cd104d9379427eda7",
+      "source_sha256": "ef0379ca8c381746459c29ca86caa7ddda6f0e227a03f8f192724748ce72a542",
       "original_options": 3,
       "added_options": 2
     },
@@ -319,21 +319,21 @@
     {
       "event": "travel_events.2012",
       "source": "events/travel_events/travel_events_filippa.txt",
-      "source_sha256": "3e96526d68cea10259b84cd3738d247645b26fcae45cc5e715b5692a93ecf60e",
+      "source_sha256": "802667987c194396708db8a3fe6fb5ec1b5c2802bccb5d6a0d0f57c2ba588500",
       "original_options": 4,
       "added_options": 2
     },
     {
       "event": "travel_events.3120",
       "source": "events/travel_events/travel_events_veronica.txt",
-      "source_sha256": "bf74a7533beef8b3cd1c072563f6b533c1159d636b29096c93c8d4992741e40c",
+      "source_sha256": "85d60913ce813bd3d06912d21286eaf913efec7c04d8c3e1691038c0bc252e7a",
       "original_options": 4,
       "added_options": 3
     },
     {
       "event": "ach_coronation.0015",
       "source": "events/dlc/ach/ach_coronation_events.txt",
-      "source_sha256": "18bd5fee027a57697886d6fa4549ecff3c4eefdbe11e4e7e08ba49bc2a4796e9",
+      "source_sha256": "48ecac8b1504ef4b522f09f2de01ec03d1c2af4b2f0b4a7569b4a5f3cfa521f8",
       "original_options": 4,
       "added_options": 1
     },
@@ -347,14 +347,14 @@
     {
       "event": "epidemic_events.1050",
       "source": "events/dlc/ce1/epidemic_events.txt",
-      "source_sha256": "880ce942aecfb2375f0b3f1947850d57a54eb12b5553193d1f5b91d90aa7885a",
+      "source_sha256": "231f473343ca44128a0c2010c4d301caaca4feafb012f8b205a7a55eb46bf4ab",
       "original_options": 3,
       "added_options": 1
     },
     {
       "event": "stress_threshold.2311",
       "source": "events/stress_events/stress_threshold_events.txt",
-      "source_sha256": "a6e40929bed93a44abf78124bbd8a8f7092d6899f14503488959a40e2dae055e",
+      "source_sha256": "518bbef6b35ba4ce5aa0f17631c006d059d021be56b6c7629e62f6ba8f5f7f53",
       "original_options": 12,
       "added_options": 1
     },
@@ -396,7 +396,7 @@
     {
       "event": "board_games.0001",
       "source": "events/board_game_events.txt",
-      "source_sha256": "923e815b033ec7fa8dc0bf6195b195e457a0165958a8419c3e4bff76355e78f9",
+      "source_sha256": "f84001c488e2db9249cf87c7649f812cd5321e4dcb16f2e3e6209968852e438c",
       "original_options": 6,
       "added_options": 1
     },
@@ -606,7 +606,7 @@
     {
       "event": "jason_first_race_event.1",
       "source": "events/activities/tournaments/jason_first_race_event.txt",
-      "source_sha256": "ae775934362f5861b33864cd540e6e422c8db8765949d30c3b96e688e2637061",
+      "source_sha256": "3ad439fcd355ddb4dafbed9255d8e1c8923d6a4fddc5f65a66f0fd545cb2ef31",
       "original_options": 4,
       "added_options": 3
     },
@@ -725,42 +725,42 @@
     {
       "event": "tgp_east_asia_mandala_task_contract_events.4900",
       "source": "events/dlc/tgp/tgp_mandala_task_contract_events.txt",
-      "source_sha256": "58c2c6415fb7c6844883cdd904789d8c108892908e17ce648a62cf60520996d2",
+      "source_sha256": "0732d49fab443b0f904e35e23bc40169db55beb5e38f0028a17b2bfa6224cd7d",
       "original_options": 3,
       "added_options": 3
     },
     {
       "event": "imperial_examination.5000",
       "source": "events/activities/imperial_examination_activity/imperial_examination_events.txt",
-      "source_sha256": "e5f905e6e4a0bb21431aeb492ae00e8fd4946192be7e008f5f01239db1923eba",
+      "source_sha256": "ee175ad0b19be8ea9512ad4e9f56721094e8236219c80b6d7e71eeaacc5d4938",
       "original_options": 6,
       "added_options": 2
     },
     {
       "event": "imperial_examination.5100",
       "source": "events/activities/imperial_examination_activity/imperial_examination_events.txt",
-      "source_sha256": "c2084d9d3527ff4637a35019ce87e87f16eaeb0701ddc96493cde254af8065a0",
+      "source_sha256": "9556d6ac6b5fb66ed086e90ad432a995563e7bec2e7c0ba80ca733f51ff1dfa2",
       "original_options": 7,
       "added_options": 2
     },
     {
       "event": "imperial_examination.5160",
       "source": "events/activities/imperial_examination_activity/imperial_examination_events.txt",
-      "source_sha256": "f1f2226995cb26ed27ea0d8eb83ae7375daf686298cc89b3e57bcfb88e056c61",
+      "source_sha256": "fb4fedba8b5e28d2181e9e8cb0dd8424b365c6c3c12bc36c80ec8f2219cfbc11",
       "original_options": 5,
       "added_options": 1
     },
     {
       "event": "imperial_examination.5170",
       "source": "events/activities/imperial_examination_activity/imperial_examination_events.txt",
-      "source_sha256": "fb319ae42b77d760cf1ef08b5107b1305cc186e6620d77e02df43b139cb7e3a4",
+      "source_sha256": "bf8369999495b44d5d15e05e2d1437b908703e408f3188a90cb989b111b9ef29",
       "original_options": 6,
       "added_options": 2
     },
     {
       "event": "imperial_examination.5300",
       "source": "events/activities/imperial_examination_activity/imperial_examination_events.txt",
-      "source_sha256": "be5dc26e9030ae8dfb818523a66b2093fc2a2f4141502e75b68f86f95396ac9e",
+      "source_sha256": "666c25f974d3cc3cd4ba9263323bfd32da9746a2bf3687abb702e26d36f300bf",
       "original_options": 2,
       "added_options": 2
     },
@@ -802,21 +802,21 @@
     {
       "event": "ep3_laamp_flavour_ewan.4021",
       "source": "events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt",
-      "source_sha256": "2c5a811f250d731a325ea675ee1528388ddeaac41eaf1555d0920f28a5e1fc8c",
+      "source_sha256": "9a141aee530752e0c09d3709966d1a08b92cb44bf0234b248df4fd2fd43a4f1a",
       "original_options": 5,
       "added_options": 2
     },
     {
       "event": "ep3_laamp_flavour_ewan.4041",
       "source": "events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt",
-      "source_sha256": "4bc60b6861cb7181cb45e82c68b5935d82194d13061e19e4272f30317ab2f1b5",
+      "source_sha256": "a428d82f738cfb8e19cbe25532b940c998c2a83dd40c4621e58c4adb95759e93",
       "original_options": 4,
       "added_options": 5
     },
     {
       "event": "ep3_laamp_flavour_ewan.4091",
       "source": "events/dlc/ep3/ep3_laamp_flavour_ewan_events.txt",
-      "source_sha256": "ef6ffea2fcb8e6d763607c4793d33ecfa377b8c2337e3f2280824b86a7d68d7a",
+      "source_sha256": "f76659f91ccbf68e8ad06bd11b6a6ed3963986b086882b0866dc414d84f50134",
       "original_options": 3,
       "added_options": 3
     },
@@ -830,16 +830,9 @@
     {
       "event": "ep3_emperor_yearly.3011",
       "source": "events/dlc/ep3/ep3_emperor_yearly_3.txt",
-      "source_sha256": "5eaa63476cc1a1a7df1e891294306b6f7b8d2da698a8277c0153873a68bc6e00",
+      "source_sha256": "c4fca4b967db9f8d4eaa499e74f1f3434261b65b82a8c00cc0ac3b42ce9fd561",
       "original_options": 2,
       "added_options": 3
-    },
-    {
-      "event": "ep3_laamp_decision_event.1133",
-      "source": "events/dlc/ep3/ep3_laamp_decision_events.txt",
-      "source_sha256": "4f591c18500c55c91f8308510f81168d135a6354c7f918aa66f577e9b065fc19",
-      "original_options": 3,
-      "added_options": 2
     },
     {
       "event": "chariot_race.3040",
@@ -907,7 +900,7 @@
     {
       "event": "fp2_struggle.1050",
       "source": "events/dlc/fp2/fp2_struggle_events.txt",
-      "source_sha256": "8fcccadc910f43918dbb0b293d06c76f4bda97f8a83fcc53b1c6583bd728c5c4",
+      "source_sha256": "e81801532df7c8840badce77af77c836e0a321d7eba5e3b409965b4aefe25df5",
       "original_options": 4,
       "added_options": 1
     },
@@ -935,7 +928,7 @@
     {
       "event": "bp3_survey.1040",
       "source": "events/dlc/bp3/bp3_survey_events.txt",
-      "source_sha256": "61f10f111e4c71fe4bab099c67f7bec86f7dd615dd000b2cb9fdc4ef1fe8f45b",
+      "source_sha256": "7da4dd4586c0fa851bbf47accf3ac4e22f1a0f62ecbef9e433f3c3c341092bc4",
       "original_options": 4,
       "added_options": 3
     },
@@ -949,7 +942,7 @@
     {
       "event": "epidemic_events.1064",
       "source": "events/dlc/ce1/epidemic_events.txt",
-      "source_sha256": "f4bae13588a68f30036526f0cf4ad4732f0500c5a5711fe5db3b0b75061533e2",
+      "source_sha256": "fa48af3105d8a2a48cd29123d2f5871e0892647bf90235af55a4059a4e8c53b9",
       "original_options": 3,
       "added_options": 2
     },
@@ -998,7 +991,7 @@
     {
       "event": "harm.0591",
       "source": "events/harm_events.txt",
-      "source_sha256": "be8811d4845f7a439e6acd688a367c324b527fe99b5e36df249500d0b3cf759b",
+      "source_sha256": "ff221dd93a7e78451fa5bbc0634e5d7e0907629e17df5d14ed9e067152403769",
       "original_options": 3,
       "added_options": 3
     }

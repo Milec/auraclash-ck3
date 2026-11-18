@@ -41,6 +41,8 @@
  building_ac_spirit_fruit_grove_desc:0 "Trees that have soaked in ambient chi for generations. Their fruit raises a cultivator's Aura Pressure."
  building_type_ac_spirit_fruit_grove:0 "$building_ac_spirit_fruit_grove$"
  building_type_ac_spirit_fruit_grove_desc:0 "$building_ac_spirit_fruit_grove_desc$"
+ ac_spirit_fruit_grove_district:0 "$building_type_ac_spirit_fruit_grove$"
+ ac_spirit_fruit_grove_district_desc_flavor:0 "$building_type_ac_spirit_fruit_grove_desc$"
  ac_spirit_fruit_grove_effect_desc:0 "Each year the county's holder harvests 2 spirit fruit (up to 10 kept)."
  activity_ac_seek_grove:0 "Seek the Rumoured Grove"
  activity_ac_seek_grove_name:0 "[ACTIVITY.GetHost.GetShortUINamePossessive|U] Search for a Grove"

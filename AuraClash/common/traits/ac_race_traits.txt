@@ -11,7 +11,7 @@ ac_race_oni = {
 	icon = ac_cultivator.dds
 	intrigue = 1
 	domain_tax_mult = 0.05
-	county_opinion_add = -5
+	popular_opinion_add = -5
 }
 ac_race_lunargoth = {
 	opposites = { ac_race_human ac_race_oni ac_race_kitsune ac_race_yokai_cat ac_race_yokai_wolf ac_race_yokai_reptile ac_race_yokai_monkey ac_race_yokai_bovine }

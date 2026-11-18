@@ -101,7 +101,7 @@ ac_place_spirit_groves_effect = {
 		count = 3
 		random_county_in_region = {
 			region = world_rasen_azuma
-			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_building_slot = no } exists = de_jure_liege }
+			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_district_slot = no } exists = de_jure_liege }
 			set_variable = ac_spirit_grove
 		}
 	}
@@ -109,7 +109,7 @@ ac_place_spirit_groves_effect = {
 		count = 8
 		random_county_in_region = {
 			region = world_rasen_inner
-			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_building_slot = no } exists = de_jure_liege }
+			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_district_slot = no } exists = de_jure_liege }
 			set_variable = ac_spirit_grove
 		}
 	}
@@ -117,7 +117,7 @@ ac_place_spirit_groves_effect = {
 		count = 2
 		random_county_in_region = {
 			region = world_rasen_outer_north
-			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_building_slot = no } exists = de_jure_liege }
+			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_district_slot = no } exists = de_jure_liege }
 			set_variable = ac_spirit_grove
 		}
 	}
@@ -125,7 +125,7 @@ ac_place_spirit_groves_effect = {
 		count = 4
 		random_county_in_region = {
 			region = world_rasen_outer
-			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_building_slot = no } exists = de_jure_liege }
+			limit = { NOT = { has_variable = ac_spirit_grove } title_province = { has_special_district_slot = no } exists = de_jure_liege }
 			set_variable = ac_spirit_grove
 		}
 	}
@@ -136,7 +136,7 @@ ac_reveal_spirit_grove_effect = {
 	if = {
 		limit = { has_variable = ac_spirit_grove NOT = { has_variable = ac_spirit_grove_found } }
 		set_variable = ac_spirit_grove_found
-		title_province = { add_special_building_slot = ac_spirit_fruit_grove add_special_building = ac_spirit_fruit_grove }
+		title_province = { add_special_district_slot = ac_spirit_fruit_grove_district add_special_district = ac_spirit_fruit_grove_district }
 	}
 }
 

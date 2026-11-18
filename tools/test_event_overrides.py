@@ -51,7 +51,7 @@ class EventRegressionTests(unittest.TestCase):
             self.assertEqual(path.read_bytes(), data, str(path))
 
     def test_reviewed_events_and_required_resolvers_are_overridden(self):
-        self.assertEqual(len(self.generated), 143)
+        self.assertEqual(len(self.generated), 142)
         self.assertEqual(len(self.generated), len(SPECS))
         for text in self.generated.values():
             self.assertEqual(text.count('id_override_priority = 10'), 1)
@@ -397,8 +397,8 @@ class EventRegressionTests(unittest.TestCase):
         self.assertNotIn('ac_cultivation', effect)
         self.assertNotIn('ac_cultivator', effect)
 
-    def test_dlc_batch_covers_42_events(self):
-        self.assertEqual(sum(group == 'dlc' for _, group, _ in SPECS), 42)
+    def test_dlc_batch_covers_41_events(self):
+        self.assertEqual(sum(group == 'dlc' for _, group, _ in SPECS), 41)
 
     def test_examinations_restore_prior_preparation_after_native_attempt(self):
         for eid in ('imperial_examination.5000', 'imperial_examination.5100',
@@ -433,14 +433,6 @@ class EventRegressionTests(unittest.TestCase):
         self.assertIn('id = ep3_contract_event.0575 days = 1', choices)
         self.assertNotIn('single_combat', choices)
         self.assertNotRegex(builder.masked(choices), r'\bdeath\s*=')
-
-    def test_watermill_is_paid_and_building_creation_is_only_a_tooltip(self):
-        choices = next(c for e, _, c in SPECS if e == 'ep3_laamp_decision_event.1133')
-        self.assertIn('gold >= 160', choices)
-        self.assertIn('remove_short_term_gold = 160', choices)
-        self.assertIn('add_character_flag = laamp_city_builder_mill_upgrade', choices)
-        self.assertEqual(choices.count('add_building = watermills_03'),
-                         choices.count('show_as_tooltip = { scope:city_location = { add_building = watermills_03 } }'))
 
     def test_chariot_rescue_helps_actual_drivers_with_nonfatal_wounds(self):
         choices = next(c for e, _, c in SPECS if e == 'chariot_race.3040')

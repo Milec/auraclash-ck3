@@ -393,10 +393,10 @@ def patronage_effects():
 def modifiers():
     return '\n'.join([
         'rasen_archon_patrols_modifier = {', '\ticon = county_modifier_control_positive',
-        '\tmonthly_county_control_growth_add = 0.5', '\tcounty_opinion_add = 5', '}', '',
-        'rasen_fiend_purge_modifier = {', '\ticon = county_modifier_development_positive', '\tepidemic_resistance = 10', '}', '',
-        'rasen_imperial_levy_modifier = {', '\ticon = county_modifier_development_negative',
-        '\ttax_mult = -0.15', '\tcounty_opinion_add = -5', '}',
+        '\tmonthly_control_change = 0.5', '\tpopular_opinion_add = 5', '}', '',
+        'rasen_fiend_purge_modifier = {', '\ticon = county_modifier_prosperity_positive', '\tepidemic_resistance = 10', '}', '',
+        'rasen_imperial_levy_modifier = {', '\ticon = county_modifier_prosperity_negative',
+        '\tall_tax_mult = -0.15', '\tpopular_opinion_add = -5', '}',
     ])
 
 

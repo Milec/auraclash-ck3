@@ -6,13 +6,15 @@ aarlud_khanate_de_jure_region = { provinces = { 1330 } }
 amur_river_region = { provinces = { 1330 } }
 arab_nomad_area = { provinces = { 1330 } }
 baruun_khanate_de_jure_region = { provinces = { 1330 } }
-black_sea_coast_region = { provinces = { 1330 } generate_modifiers = yes }
+black_sea_coast_region = { provinces = { 1330 } generate_prosperity_modifiers = yes }
 blue_horde_de_jure_region = { provinces = { 1330 } }
 board_game_fidchell_region = { provinces = { 1330 } }
 central_asian_earthquake_region = { provinces = { 1330 } }
 chagatai_de_jure_region = { provinces = { 1330 } }
 cp4_music_area = { provinces = { 1330 } }
+custom_aksum_empire = { provinces = { 1330 } generate_prosperity_modifiers = yes }
 custom_andalusian = { provinces = { 1330 } }
+custom_aquitaine_core = { provinces = { 1330 } }
 custom_aragonese = { provinces = { 1330 } }
 custom_arakan_mountains = { provinces = { 1330 } }
 custom_asturleonese = { provinces = { 1330 } }
@@ -26,13 +28,15 @@ custom_carolingian_germany = { provinces = { 1330 } }
 custom_carolingian_iberia = { provinces = { 1330 } }
 custom_carpathia = { provinces = { 1330 } }
 custom_carthage = { provinces = { 1330 } }
-custom_carthaginian_empire = { provinces = { 1330 } generate_modifiers = yes }
+custom_carthaginian_empire = { provinces = { 1330 } generate_prosperity_modifiers = yes }
 custom_carthago_nova = { provinces = { 1330 } }
 custom_castilian = { provinces = { 1330 } }
 custom_catalan = { provinces = { 1330 } }
+custom_catalonia_core = { provinces = { 1330 } }
 custom_core_austria = { provinces = { 1330 } }
 custom_core_switzerland = { provinces = { 1330 } }
-custom_cumbria = { provinces = { 1330 } generate_modifiers = yes }
+custom_cumbria = { provinces = { 1330 } generate_prosperity_modifiers = yes }
+custom_damascus_steel_region = { provinces = { 1330 } }
 custom_danish = { provinces = { 1330 } }
 custom_dynastic_cycle = { provinces = { 1330 } }
 custom_eastern_balkans = { provinces = { 1330 } }
@@ -43,65 +47,99 @@ custom_ep3_restore_rome_eastern_empire = { provinces = { 1330 } }
 custom_europe_eastern_germany = { provinces = { 1330 } }
 custom_europe_western_germany = { provinces = { 1330 } }
 custom_fennoscandia = { provinces = { 1330 } }
+custom_france_core = { provinces = { 1330 } }
 custom_frisia = { provinces = { 1330 } }
 custom_ganges_plain = { provinces = { 1330 } }
 custom_germany = { provinces = { 1330 } }
+custom_gotaland_core = { provinces = { 1330 } }
 custom_gotland = { provinces = { 1330 } }
+custom_great_moravia = { provinces = { 1330 } }
 custom_greater_armenia = { provinces = { 1330 } }
 custom_hungary = { provinces = { 1330 } }
 custom_iceland = { provinces = { 1330 } }
-custom_ireland = { provinces = { 1330 } generate_modifiers = yes }
+custom_indo_greek_core = { provinces = { 1330 } }
+custom_ireland = { provinces = { 1330 } generate_prosperity_modifiers = yes }
+custom_jurchen_heartland = { provinces = { 1330 } }
+custom_jurchen_outer_manchuria = { provinces = { 1330 } }
 custom_k_epirus = { provinces = { 1330 } }
 custom_k_hellas = { provinces = { 1330 } }
 custom_k_thessalonika = { provinces = { 1330 } }
+custom_kurdistan_core = { provinces = { 1330 } }
 custom_lanka = { provinces = { 1330 } }
 custom_latvia = { provinces = { 1330 } }
+custom_lothair_realm = { provinces = { 1330 } generate_prosperity_modifiers = yes }
 custom_lotharingia = { provinces = { 1330 } }
 custom_majapahit = { provinces = { 1330 } }
 custom_mauretania = { provinces = { 1330 } }
 custom_navarra = { provinces = { 1330 } }
 custom_netherlands = { provinces = { 1330 } }
+custom_nile_empire = { provinces = { 1330 } generate_prosperity_modifiers = yes }
 custom_normandy_and_adjacent = { provinces = { 1330 } }
 custom_northern_england = { provinces = { 1330 } }
 custom_northern_italy = { provinces = { 1330 } }
 custom_norwegian = { provinces = { 1330 } }
+custom_novgorod_and_adjacent = { provinces = { 1330 } }
 custom_occitan = { provinces = { 1330 } }
+custom_occitania_core = { provinces = { 1330 } }
 custom_outremer = { provinces = { 1330 } }
 custom_panda_region = { provinces = { 1330 } }
 custom_polabia = { provinces = { 1330 } }
 custom_portuguese = { provinces = { 1330 } }
 custom_rhineland = { provinces = { 1330 } }
-custom_roman_aegyptus = { provinces = { 1330 } }
+custom_roman_aegyptus = { provinces = { 1330 } generate_prosperity_modifiers = yes }
 custom_roman_africa = { provinces = { 1330 } }
+custom_roman_anatolia = { provinces = { 1330 } generate_prosperity_modifiers = yes }
+custom_roman_britanniae = { provinces = { 1330 } generate_prosperity_modifiers = yes }
 custom_roman_caledonia = { provinces = { 1330 } }
 custom_roman_cyrenaica = { provinces = { 1330 } }
+custom_roman_dacia = { provinces = { 1330 } generate_prosperity_modifiers = yes }
 custom_roman_empire = { provinces = { 1330 } }
 custom_roman_full_borders = { provinces = { 1330 } }
+custom_roman_galliae = { provinces = { 1330 } generate_prosperity_modifiers = yes }
 custom_roman_hibernia = { provinces = { 1330 } }
-custom_roman_hispania = { provinces = { 1330 } }
+custom_roman_hispania = { provinces = { 1330 } generate_prosperity_modifiers = yes }
 custom_roman_illyricum = { provinces = { 1330 } }
+custom_roman_illyricum_core = { provinces = { 1330 } generate_prosperity_modifiers = yes }
+custom_roman_macedonia = { provinces = { 1330 } generate_prosperity_modifiers = yes }
 custom_roman_mauretania = { provinces = { 1330 } }
 custom_roman_mesopotamia = { provinces = { 1330 } }
-custom_roman_syria_palestina = { provinces = { 1330 } }
+custom_roman_pontica = { provinces = { 1330 } generate_prosperity_modifiers = yes }
+custom_roman_septem_provinciae = { provinces = { 1330 } generate_prosperity_modifiers = yes }
+custom_roman_syria_palestina = { provinces = { 1330 } generate_prosperity_modifiers = yes }
+custom_roman_thracia = { provinces = { 1330 } generate_prosperity_modifiers = yes }
 custom_ryukyu = { provinces = { 1330 } }
 custom_sahara_proper = { provinces = { 1330 } }
 custom_sahel_proper = { provinces = { 1330 } }
 custom_scotland = { provinces = { 1330 } }
+custom_sea_of_marmara = { provinces = { 1330 } }
+custom_serbia_core = { provinces = { 1330 } }
+custom_serbian_empire_albania = { provinces = { 1330 } }
+custom_serbian_empire_macedonia = { provinces = { 1330 } }
 custom_sicily = { provinces = { 1330 } }
 custom_slavia = { provinces = { 1330 } }
 custom_slavic_rite_mission_region = { provinces = { 1330 } }
+custom_sorbia_core = { provinces = { 1330 } }
 custom_south_francia = { provinces = { 1330 } }
 custom_south_slavia = { provinces = { 1330 } }
 custom_southern_england = { provinces = { 1330 } }
+custom_stem_duchy_bavaria = { provinces = { 1330 } }
+custom_stem_duchy_franconia = { provinces = { 1330 } }
+custom_stem_duchy_lotharingia = { provinces = { 1330 } }
+custom_stem_duchy_saxony = { provinces = { 1330 } }
+custom_stem_duchy_swabia = { provinces = { 1330 } }
 custom_stretch_austria = { provinces = { 1330 } }
 custom_sub_saharan_africa_immediate = { provinces = { 1330 } }
+custom_svealand_core = { provinces = { 1330 } }
 custom_swedish = { provinces = { 1330 } }
 custom_tai_migration_origin = { provinces = { 1330 } }
 custom_tai_migration_target = { provinces = { 1330 } }
+custom_the_isles_and_adjacent = { provinces = { 1330 } }
 custom_theodosian_ere = { provinces = { 1330 } }
 custom_tripolitania = { provinces = { 1330 } }
+custom_vandal_africa = { provinces = { 1330 } generate_prosperity_modifiers = yes }
 custom_viet_lands = { provinces = { 1330 } }
 custom_wales = { provinces = { 1330 } }
+custom_wallachia_empire = { provinces = { 1330 } }
 custom_west_francia_minus_mediterranean = { provinces = { 1330 } }
 custom_west_slavia = { provinces = { 1330 } }
 danube_river_region = { provinces = { 1330 } }
@@ -198,6 +236,8 @@ don_river_region = { provinces = { 1330 } }
 eastern_plateau_nomad_area = { provinces = { 1330 } }
 egypt_nomad_area = { provinces = { 1330 } }
 elbe_river_region = { provinces = { 1330 } }
+entrepot_counties_region = { provinces = { 1330 } }
+entrepot_provinces_region = { provinces = { 1330 } }
 et_1066_armenia_region = { provinces = { 1330 } }
 et_1066_auch_region = { provinces = { 1330 } }
 et_1066_bari_region = { provinces = { 1330 } }
@@ -306,6 +346,11 @@ et_867_vienne_region = { provinces = { 1330 } }
 et_867_york_region = { provinces = { 1330 } }
 ganges_river_region = { provinces = { 1330 } }
 garonne_river_region = { provinces = { 1330 } }
+gdp_guelph_ghibelline_lombard_league_region = { provinces = { 1330 } }
+gdp_guelph_ghibelline_northern_italy_region = { provinces = { 1330 } }
+gdp_guelph_ghibelline_region = { provinces = { 1330 } }
+gdp_monsoon_traders_region = { provinces = { 1330 } }
+gdp_saharan_traders_region = { provinces = { 1330 } }
 ghw_region_afghanistan = { provinces = { 1330 } }
 ghw_region_anatolia = { provinces = { 1330 } }
 ghw_region_arabia = { provinces = { 1330 } }
@@ -384,6 +429,7 @@ great_yuan_de_jure_region = { provinces = { 1330 } }
 greek_backwater_modifier_region = { provinces = { 1330 } }
 guadalquivir_river_region = { provinces = { 1330 } }
 guadiana_river_region = { provinces = { 1330 } }
+hanseatic_trade_region = { provinces = { 1330 } }
 heritage_area_cumania = { provinces = { 1330 } }
 heritage_area_perm = { provinces = { 1330 } }
 heritage_area_pontic_steppe = { provinces = { 1330 } }
@@ -451,6 +497,7 @@ material_woods_yew = { provinces = { 1330 } }
 mediteranean_coast = { provinces = { 1330 } }
 mekong_river_region = { provinces = { 1330 } }
 mongolia_baikal_earthquake_region = { provinces = { 1330 } }
+monkey_region = { provinces = { 1330 } }
 mpo_region_permafrost = { provinces = { 1330 } }
 niger_river_region = { provinces = { 1330 } }
 nile_river_region = { provinces = { 1330 } }
@@ -465,6 +512,9 @@ red_horde_de_jure_region = { provinces = { 1330 } }
 rhine_river_region = { provinces = { 1330 } }
 rhone_river_region = { provinces = { 1330 } }
 river_valley_nomad_area = { provinces = { 1330 } }
+ruin_region_egyptian = { provinces = { 1330 } }
+ruin_region_greek = { provinces = { 1330 } }
+ruin_region_roman = { provinces = { 1330 } }
 sahel_desert_nomad_area = { provinces = { 1330 } }
 sahel_north_africa_nomad_area = { provinces = { 1330 } }
 sahel_sub_saharan_africa_nomad_area = { provinces = { 1330 } }
@@ -628,6 +678,8 @@ world_africa_north = { provinces = { 1330 } }
 world_africa_north_east = { provinces = { 1330 } }
 world_africa_north_west = { provinces = { 1330 } }
 world_africa_sahara = { provinces = { 1330 } }
+world_africa_sahara_central = { provinces = { 1330 } }
+world_africa_sahara_west = { provinces = { 1330 } }
 world_africa_west = { provinces = { 1330 } }
 world_asia = { provinces = { 1330 } }
 world_asia_and_india = { provinces = { 1330 } }
@@ -675,8 +727,10 @@ world_india = { provinces = { 1330 } }
 world_india_bengal = { provinces = { 1330 } }
 world_india_deccan = { provinces = { 1330 } }
 world_india_rajastan = { provinces = { 1330 } }
-world_innovation_camels = { provinces = { 1330 } generate_modifiers = yes }
-world_innovation_elephants = { provinces = { 1330 } generate_modifiers = yes }
+world_innovation_camels = { provinces = { 1330 } generate_prosperity_modifiers = yes }
+world_innovation_carpets = { provinces = { 1330 } }
+world_innovation_elephants = { provinces = { 1330 } generate_prosperity_modifiers = yes }
+world_innovation_mead = { provinces = { 1330 } }
 world_jazira = { provinces = { 1330 } }
 world_kabulistan = { provinces = { 1330 } }
 world_khorasan = { provinces = { 1330 } }
@@ -687,9 +741,9 @@ world_middle_east_arabia = { provinces = { 1330 } }
 world_middle_east_jerusalem = { provinces = { 1330 } }
 world_middle_east_persia = { provinces = { 1330 } }
 world_persia = { provinces = { 1330 } }
-world_persian_empire = { provinces = { 1330 } generate_modifiers = yes }
+world_persian_empire = { provinces = { 1330 } generate_prosperity_modifiers = yes }
 world_siberia = { provinces = { 1330 } }
-world_steppe = { provinces = { 1330 } generate_modifiers = yes }
+world_steppe = { provinces = { 1330 } generate_prosperity_modifiers = yes }
 world_steppe_central = { provinces = { 1330 } }
 world_steppe_east = { provinces = { 1330 } }
 world_steppe_tarim = { provinces = { 1330 } }

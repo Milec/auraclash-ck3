@@ -307,7 +307,7 @@ def main():
     descriptor = (ROOT / 'AuraClash/descriptor.mod').read_text(encoding='utf-8-sig').rstrip()
     descriptors = {
         'aura_clash': f'{descriptor}\npath="{(ROOT / "AuraClash").as_posix()}"\n',
-        'rasen_qa': f'name="Imperial Rasen QA"\npath="{overlay.as_posix()}"\nsupported_version="1.20.*"\n',
+        'rasen_qa': f'name="Imperial Rasen QA"\npath="{overlay.as_posix()}"\nsupported_version="1.21.*"\n',
     }
     for name, text in descriptors.items():
         (OUT / 'mod' / f'{name}.mod').write_text(text, encoding='utf-8')

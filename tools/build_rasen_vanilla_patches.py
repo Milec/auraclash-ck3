@@ -7,7 +7,7 @@ affected vanilla file with a copy read from the installed game, changing only:
 
 - `province:N` for any N beyond the map: replaced by the map's last impassable ocean
   zone, which never holds a holding, character or army, so those checks are false.
-- `barony ?= title:b_constantinople` / `title:b_roma` in common/buildings/
+- `barony ?= title:b_constantinople` / `title:b_roma` in common/buildings/special_buildings/
   00_special_buildings.txt: replaced by `always = no` (Theodosian and Aurelian Walls).
 - Game-start setup of Earth's military and monastic orders, and two test events, in
   common/on_action/game_start.txt: commented out (each logged hundreds of errors).
@@ -35,15 +35,15 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'AuraClash'
 SCAN = ('common', 'events', 'gfx/interface/illustrations')
 LINE_EDITS = {
-    'common/buildings/00_special_buildings.txt': [
+    'common/buildings/special_buildings/00_special_buildings.txt': [
         ('\t\tbarony ?= title:b_constantinople\n', '\t\talways = no # Imperial Rasen: no Constantinople\n'),
         ('\t\tbarony ?= title:b_roma\n', '\t\talways = no # Imperial Rasen: no Rome\n'),
     ],
     # New courtiers take a culture chosen by Earth region, with the ruler's own culture only for
     # pagans; on this map no region matches and generation fails. Always allow the ruler's culture.
     'common/scripted_character_templates/00_pool_repopulation_character_templates.txt': [
-        ('\t\troot.culture = {\n\t\t\ttrigger = {\n\t\t\t\troot.faith = { religion = { is_in_family = rf_pagan } }\n',
-         '\t\troot.culture = {\n\t\t\ttrigger = {\n\t\t\t\talways = yes # Imperial Rasen: the ruler\'s own culture\n'),
+        ('\t\troot.culture = {\n\t\t\ttrigger = {\n\t\t\t\tOR = {\n\t\t\t\t\troot.faith = { religion = { is_in_family = rf_pagan } }\n',
+         '\t\troot.culture = {\n\t\t\ttrigger = {\n\t\t\t\tOR = {\n\t\t\t\t\talways = yes # Imperial Rasen: the ruler\'s own culture\n'),
     ],
 }
 LINE_EDITS['common/on_action/game_start.txt'] = [

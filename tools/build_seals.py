@@ -85,7 +85,7 @@ seal('celestial_forge', name='Celestial Forge', school='akakiru', style_ap=900, 
 seal('exorcism', name='Exorcism', school='aoyusumu', style_ap=300, handseals=0, ap=200, target='self', cooldown='years = 1',
      options=[(f'ac_seal_skill_{s}', f'ac_seal_skill_{s}') for s in SKILLS],
      effect='EXORCISM',
-     text='Lay the dead of this county to rest (fewer Wraiths and malicious Kami: +5 county opinion, +5% development growth, a year per success). The thankful spirits lend +3 to a skill, a month per success.')
+     text='Lay the dead of this county to rest (fewer Wraiths and malicious Kami: +5 county opinion, +5% prosperity growth, a year per success). The thankful spirits lend +3 to a skill, a month per success.')
 seal('prayer_engine', name='Prayer Engine', school='aoyusumu', style_ap=500, handseals=1, ap=100, target='self', cooldown='months = 6',
      effect='scope:actor = { add_character_modifier = { modifier = ac_seal_prayer_engine_modifier months = ' + months(mult=2) + ' } }',
      text='Hear the thoughts of those who pray to you: +1 piety and +5 same-faith opinion a month, for two months per success. The basis of many religions.', ai=10)
@@ -129,7 +129,7 @@ seal('puppetmaster', name='Puppetmaster', school='kurokonton', style_ap=900, han
 seal('subjugation_domain', name='Subjugation Domain', school='midorikatai', style_ap=300, handseals=0, ap=300, target='self', cooldown='years = 1',
      effect=('scope:actor = { every_held_county = { limit = { has_county_modifier = ac_seal_domain_county_modifier } remove_county_modifier = ac_seal_domain_county_modifier } '
              'location.county = { add_county_modifier = ac_seal_domain_county_modifier } add_character_modifier = ac_seal_domain_modifier }'),
-     text='Claim the county you stand in as a Beast claims territory: Beasts keep away (+10% levies, +5 county opinion, +10% development growth) and you gain Advantage on Perception and Survival. One Domain at a time.')
+     text='Claim the county you stand in as a Beast claims territory: Beasts keep away (+10% levies, +5 county opinion, +10% prosperity growth) and you gain Advantage on Perception and Survival. One Domain at a time.')
 seal('alpha_seal', name='Alpha Seal', school='midorikatai', style_ap=600, handseals=1, ap=200, target='self', cooldown='years = 1',
      valid='custom_tooltip = { text = ac_seal_needs_beast_tt scope:actor = { has_variable = ac_beast_defeated } }',
      effect='ALPHA',
@@ -427,11 +427,11 @@ def modifiers():
            'ac_seal_kami_modifier = { icon = stewardship_negative stewardship = -3 martial = -2 }',
            'ac_seal_mask_modifier = { icon = intrigue_positive owned_hostile_scheme_success_chance_add = 10 owned_scheme_secrecy_add = 20 }',
            'ac_seal_domain_modifier = { icon = prowess_positive epidemic_resistance = 10 enemy_hostile_scheme_success_chance_add = -5 }',
-           'ac_seal_exorcised_county_modifier = { icon = county_modifier_opinion_positive county_opinion_add = 5 development_growth_factor = 0.05 }',
+           'ac_seal_exorcised_county_modifier = { icon = county_modifier_opinion_positive popular_opinion_add = 5 prosperity_growth_factor = 0.05 }',
            'ac_seal_ward_county_modifier = { icon = county_modifier_control_positive fort_level = 2 garrison_size = 0.25 }',
-           'ac_seal_earth_spirit_county_modifier = { icon = county_modifier_development_positive build_speed = -0.25 fort_level = 1 }',
-           'ac_seal_water_spirit_county_modifier = { icon = county_modifier_development_positive development_growth_factor = 0.2 county_opinion_add = 5 }',
-           'ac_seal_domain_county_modifier = { icon = county_modifier_development_positive levy_size = 0.1 county_opinion_add = 5 development_growth_factor = 0.1 }']
+           'ac_seal_earth_spirit_county_modifier = { icon = county_modifier_prosperity_positive build_speed = -0.25 fort_level = 1 }',
+           'ac_seal_water_spirit_county_modifier = { icon = county_modifier_prosperity_positive prosperity_growth_factor = 0.2 popular_opinion_add = 5 }',
+           'ac_seal_domain_county_modifier = { icon = county_modifier_prosperity_positive levy_size = 0.1 popular_opinion_add = 5 prosperity_growth_factor = 0.1 }']
     for skill in SKILLS:
         amount = 5 if skill == 'prowess' else 3
         out.append(f'ac_seal_four_winds_{skill} = {{ icon = {skill if skill != "prowess" else "prowess"}_positive {skill} = {amount} }}')

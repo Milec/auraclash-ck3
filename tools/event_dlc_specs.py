@@ -217,12 +217,6 @@ trigger_event = ep3_emperor_yearly.3012'''
             extra += ' has_trait = ac_element_fire'
         add('ep3_emperor_yearly.3011', 'greek_' + ability, label, ability, greek,
             'Make an opposed Greek-fire attack while preventing catastrophic friendly fire. Native success or partial-success effects resolve in the normal follow-up; the fleet cooldown remains.', extra=extra, major=True)
-    for ability, label in [('water', 'Guide the creek into its new channel while the workers build.'), ('burial_earth', 'Shape a sound millrace. Skilled hands can finish the mill.')]:
-        add('ep3_laamp_decision_event.1133', 'mill_' + ability, label, ability, '''add_character_flag = laamp_city_builder_mill_upgrade
-show_as_tooltip = { scope:city_location = { add_building = watermills_03 } }
-remove_short_term_gold = 160''',
-            'Fund the upgraded watermill for 160 gold rather than 200. Preserve the construction flag and scheduled settlement follow-up; the building is not created twice.',
-            extra='gold >= 160 location = scope:city_location')
 
     # Rescue the two actual charioteers; being a spectator conveys no Iron Body.
     for ability, label in [('kiihakai_barrier', 'Shield the wreckage. Stop the next chariots before they reach it.'), ('fall_rescue', 'Lift both drivers clear on the wind.')]:

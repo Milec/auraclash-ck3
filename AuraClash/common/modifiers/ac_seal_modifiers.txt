@@ -10,11 +10,11 @@ ac_seal_wisp_modifier = { icon = intrigue_positive enemy_hostile_scheme_success_
 ac_seal_kami_modifier = { icon = stewardship_negative stewardship = -3 martial = -2 }
 ac_seal_mask_modifier = { icon = intrigue_positive owned_hostile_scheme_success_chance_add = 10 owned_scheme_secrecy_add = 20 }
 ac_seal_domain_modifier = { icon = prowess_positive epidemic_resistance = 10 enemy_hostile_scheme_success_chance_add = -5 }
-ac_seal_exorcised_county_modifier = { icon = county_modifier_opinion_positive county_opinion_add = 5 development_growth_factor = 0.05 }
+ac_seal_exorcised_county_modifier = { icon = county_modifier_opinion_positive popular_opinion_add = 5 prosperity_growth_factor = 0.05 }
 ac_seal_ward_county_modifier = { icon = county_modifier_control_positive fort_level = 2 garrison_size = 0.25 }
-ac_seal_earth_spirit_county_modifier = { icon = county_modifier_development_positive build_speed = -0.25 fort_level = 1 }
-ac_seal_water_spirit_county_modifier = { icon = county_modifier_development_positive development_growth_factor = 0.2 county_opinion_add = 5 }
-ac_seal_domain_county_modifier = { icon = county_modifier_development_positive levy_size = 0.1 county_opinion_add = 5 development_growth_factor = 0.1 }
+ac_seal_earth_spirit_county_modifier = { icon = county_modifier_prosperity_positive build_speed = -0.25 fort_level = 1 }
+ac_seal_water_spirit_county_modifier = { icon = county_modifier_prosperity_positive prosperity_growth_factor = 0.2 popular_opinion_add = 5 }
+ac_seal_domain_county_modifier = { icon = county_modifier_prosperity_positive levy_size = 0.1 popular_opinion_add = 5 prosperity_growth_factor = 0.1 }
 ac_seal_four_winds_diplomacy = { icon = diplomacy_positive diplomacy = 3 }
 ac_seal_exorcism_diplomacy = { icon = diplomacy_positive diplomacy = 3 }
 ac_seal_four_winds_martial = { icon = martial_positive martial = 3 }
