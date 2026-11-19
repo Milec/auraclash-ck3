@@ -15,6 +15,18 @@ MOD = content.MOD
 
 
 class SectContentTests(unittest.TestCase):
+    def test_government_define_keeps_every_native_government(self):
+        # The mod overrides GOVERNMENT_TYPES; a government missing from it loses its modifiers.
+        import os
+        import build_sect_domiciles as domiciles
+        root = os.environ.get('CK3_GAME_ROOT')
+        if not root:
+            self.skipTest('CK3_GAME_ROOT not set')
+        defines = (Path(root) / 'common/defines/00_defines.txt').read_text(encoding='utf-8-sig')
+        block = re.search(r'GOVERNMENT_TYPES\s*=\s*\{(.*?)\}', defines, re.S).group(1)
+        native = re.findall(r'"(\w+)_government"', block)
+        self.assertEqual(list(domiciles.GOVERNMENTS), native)
+
     def test_generated_files_are_current(self):
         for relative, text in content.render().items():
             self.assertEqual((MOD / relative).read_bytes(), ('\ufeff' + text.rstrip() + '\n').encode('utf-8'), relative)

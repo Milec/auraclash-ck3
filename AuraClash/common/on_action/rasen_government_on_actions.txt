@@ -13,3 +13,26 @@ rasen_found_noble_families = {
 		}
 	}
 }
+
+# CK3 1.21 gives Soryo (japan_feudal) rulers a starting succession law only when they are
+# independent or carry the plain feudal flag; the Bladed Lands answer to the hegemony, so
+# their rulers started with none ("unhandled succession order [invalid]"). Primogeniture.
+on_game_start = { on_actions = { rasen_soryo_succession } }
+rasen_soryo_succession = {
+	effect = {
+		every_ruler = {
+			limit = {
+				government_has_flag = government_is_japan_feudal
+				NOR = {
+					has_realm_law = confederate_partition_succession_law
+					has_realm_law = partition_succession_law
+					has_realm_law = high_partition_succession_law
+					has_realm_law = single_heir_succession_law
+					has_realm_law = single_heir_succession_law_youngest
+					has_realm_law = single_heir_dynasty_house
+				}
+			}
+			add_realm_law_skip_effects = single_heir_succession_law
+		}
+	}
+}

@@ -1,4 +1,4 @@
-﻿# CK3 1.20.1.1: preserve every native government modifier registration.
+﻿# CK3 1.21.0: preserve every native government modifier registration.
 NGovernment = { GOVERNMENT_TYPES = {
 		"feudal_government"
 		"republic_government"
@@ -20,5 +20,6 @@ NGovernment = { GOVERNMENT_TYPES = {
 		"meritocratic_government"
 		"steppe_admin_government"
 		"ecclesiastical_government"
+		"merchant_government"
 		"ac_sect_government"
 	} }

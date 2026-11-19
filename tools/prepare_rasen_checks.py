@@ -6,11 +6,18 @@ The overlay runs on game start: it checks the bookmark's setup and exercises the
 Council, the Clash of Auras, the Akuma Lords and the Ice Incursions once, logging
 "RASEN_QA PASS <name>" or "RASEN_QA FAIL <name>" for each check and "RASEN_QA COMPLETE".
 
-Usage: python tools/prepare_rasen_checks.py
+Usage: python tools/prepare_rasen_checks.py [--splines]
 Then launch ck3.exe with the printed arguments, wait for COMPLETE in the logs, and close it.
+
+--splines also makes the game draw Rasen's roads: a minute after loading it clears the spline
+network and generates splines for the roads in common/roads (CK3 1.21 console commands
+SplineNetwork.ClearAssets and SplineNetwork.AppendAssets). The game saves the result to
+<user dir>/gfx/map/spline_network/spline_network.splnet; copy it to
+AuraClash/gfx/map/spline_network/ to ship it with the mod.
 """
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 
@@ -125,6 +132,8 @@ def event():
     for land, movement in (('bladed', 'pro_hegemon'), ('mystic', 'advancement'), ('wild', 'expansion'), ('sacred', 'conservative')):
         body.append(check(f'exalt_leads_{movement}', f'situation:dynastic_cycle = {{ any_participant_group = {{ '
                           f'participant_group_type = {movement}_movement var:movement_leader ?= global_var:rasen_exalt_{land} }} }}'))
+    # CK3 1.21: the Bladed Lands' Soryo rulers start with primogeniture (rasen_soryo_succession).
+    body.append(check('soryo_succession', 'title:k_bladed.holder = { has_realm_law = single_heir_succession_law } title:d_shigayama.holder = { has_realm_law = single_heir_succession_law }'))
     body.append(check('peace_law', 'title:h_china.holder = { has_realm_law_flag = rasen_great_lords_need_leave }'))
     body.append(check('exalt_co_monarch', 'title:h_china.holder = { diarch ?= { rasen_is_exalt_trigger = yes } }'))
     body.append(check('exalt_estate', 'global_var:rasen_exalt_bladed = { has_domicile = yes }'))
@@ -250,8 +259,24 @@ def event():
             + ''.join('\t' + line for line in ''.join(body).splitlines(True)) + '\t}\n}\n')
 
 
+SPLINE_WIDGET = '''widget = {
+	name = "rasen_qa_splines"
+	layer = bottom
+	size = { 4 4 }
+	state = { name = s0 trigger_on_create = yes duration = 45 next = s1 on_finish = "[ExecuteConsoleCommand('SplineNetwork.ClearAssets confirm')]" }
+	state = { name = s1 duration = 5 on_finish = "[ExecuteConsoleCommand('SplineNetwork.AppendAssets')]" }
+}
+'''
+
+
 def main():
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument('--splines', action='store_true', help="generate the road splines in the game")
+    args = parser.parse_args()
     overlay = OUT / 'qa-mod'
+    spline_files = ('gui/rasen_qa_splines.gui', 'gui/scripted_widgets/rasen_qa_splines.txt')
+    for relative in spline_files:
+        (overlay / relative).unlink(missing_ok=True)
     files = {
         'common/on_action/rasen_qa.txt': ('on_game_start_after_lobby = { on_actions = { rasen_qa } }\n'
                                           'rasen_qa = { effect = { title:k_bladed.holder = { trigger_event = { id = rasen_qa.0001 days = 4 } } } }\n'
@@ -299,6 +324,9 @@ def main():
                                           '} }\n'),
         'events/rasen_qa.txt': event(),
     }
+    if args.splines:
+        files[spline_files[0]] = SPLINE_WIDGET
+        files[spline_files[1]] = f'{spline_files[0]} = rasen_qa_splines\n'
     for relative, text in files.items():
         path = overlay / relative
         path.parent.mkdir(parents=True, exist_ok=True)

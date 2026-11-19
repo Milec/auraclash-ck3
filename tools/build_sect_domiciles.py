@@ -8,7 +8,7 @@ GOVERNMENTS = (
     'feudal', 'republic', 'theocracy', 'clan', 'tribal', 'mercenary',
     'holy_order', 'monastic_holy_order', 'administrative', 'landless_adventurer',
     'nomad', 'herder', 'celestial', 'japan_administrative', 'japan_feudal',
-    'mandala', 'wanua', 'meritocratic', 'steppe_admin', 'ecclesiastical',
+    'mandala', 'wanua', 'meritocratic', 'steppe_admin', 'ecclesiastical', 'merchant',
 )
 
 # Sprite names refer to game/gfx/interface/window_domiciles.
@@ -25,7 +25,7 @@ SPRITES = {
 def render(buildings):
     files = {}
     files['common/defines/ac_sect_domicile_defines.txt'] = (
-        '# CK3 1.20.1.1: preserve every native government modifier registration.\n'
+        '# CK3 1.21.0: preserve every native government modifier registration.\n'
         'NGovernment = { GOVERNMENT_TYPES = {\n'
         + '\n'.join(f'"{g}_government"' for g in GOVERNMENTS)
         + '\n"ac_sect_government"\n} }\n'
