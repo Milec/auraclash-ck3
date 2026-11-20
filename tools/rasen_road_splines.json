@@ -1,0 +1,5 @@
+{
+ "_comment": "Written after generating AuraClash/gfx/map/spline_network/spline_network.splnet in the game (python tools/prepare_rasen_checks.py --splines). Regenerate the splines whenever the roads change.",
+ "roads_sha256": "535abf92f8762a64bd5a9fb99beb59459f3114391b65907790f8304e90c44f0b",
+ "splnet_sha256": "038e5d8c651f31c97fa352e21b7da22f85a49967d1060d69406ae22b57b1335f"
+}

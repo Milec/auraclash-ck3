@@ -1,0 +1,14 @@
+﻿# Annual willingness to pursue an ordeal, independent of its success chance.
+ac_ai_awakening_willingness = {
+ value = 35
+ if = { limit = { has_trait = ambitious } add = 25 }
+ if = { limit = { has_trait = diligent } add = 15 }
+ if = { limit = { has_trait = brave } add = 10 }
+ if = { limit = { martial >= 12 } add = 10 }
+ if = { limit = { learning >= 12 } add = 10 }
+ if = { limit = { has_trait = content } subtract = 20 }
+ if = { limit = { has_trait = craven } subtract = 20 }
+ if = { limit = { has_trait = lazy } subtract = 20 }
+ min = 5
+ max = 90
+}

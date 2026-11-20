@@ -1,0 +1,41 @@
+﻿# Honor and Ruthless. Seeded once from personality, then moved by choices (IF: +-1 to 3).
+ac_init_conduct_effect = {
+	if = {
+		limit = { NOT = { has_variable = ac_honor } }
+		set_variable = { name = ac_honor value = 50 }
+		set_variable = { name = ac_ruthless value = 50 }
+		if = { limit = { has_trait = honest } change_variable = { name = ac_honor add = 10 } }
+		if = { limit = { has_trait = just } change_variable = { name = ac_honor add = 10 } }
+		if = { limit = { has_trait = brave } change_variable = { name = ac_honor add = 5 } }
+		if = { limit = { has_trait = deceitful } change_variable = { name = ac_honor add = -10 } }
+		if = { limit = { has_trait = arbitrary } change_variable = { name = ac_honor add = -10 } }
+		if = { limit = { has_trait = craven } change_variable = { name = ac_honor add = -5 } }
+		if = { limit = { has_trait = callous } change_variable = { name = ac_ruthless add = 10 } }
+		if = { limit = { has_trait = sadistic } change_variable = { name = ac_ruthless add = 15 } }
+		if = { limit = { has_trait = wrathful } change_variable = { name = ac_ruthless add = 5 } }
+		if = { limit = { has_trait = vengeful } change_variable = { name = ac_ruthless add = 5 } }
+		if = { limit = { has_trait = compassionate } change_variable = { name = ac_ruthless add = -10 } }
+		if = { limit = { has_trait = forgiving } change_variable = { name = ac_ruthless add = -5 } }
+	}
+}
+
+ac_change_honor_effect = {
+	ac_init_conduct_effect = yes
+	change_variable = { name = ac_honor add = $AMOUNT$ }
+	if = { limit = { var:ac_honor > 100 } set_variable = { name = ac_honor value = 100 } }
+	if = { limit = { var:ac_honor < 0 } set_variable = { name = ac_honor value = 0 } }
+}
+
+ac_change_ruthless_effect = {
+	ac_init_conduct_effect = yes
+	change_variable = { name = ac_ruthless add = $AMOUNT$ }
+	if = { limit = { var:ac_ruthless > 100 } set_variable = { name = ac_ruthless value = 100 } }
+	if = { limit = { var:ac_ruthless < 0 } set_variable = { name = ac_ruthless value = 0 } }
+}
+
+# What each Inner Kingdom values, reflected in the actor's conduct.
+ac_conduct_from_land_bladed_effect = { ac_change_honor_effect = { AMOUNT = 2 } custom_tooltip = ac_honor_up_tt }
+ac_conduct_from_land_sacred_effect = { ac_change_ruthless_effect = { AMOUNT = -2 } custom_tooltip = ac_ruthless_down_tt }
+ac_conduct_from_land_mystic_effect = { }
+ac_conduct_from_land_cursed_effect = { ac_change_honor_effect = { AMOUNT = -1 } custom_tooltip = ac_honor_down_tt }
+ac_conduct_from_land_wild_effect = { ac_change_ruthless_effect = { AMOUNT = 2 } custom_tooltip = ac_ruthless_up_tt }

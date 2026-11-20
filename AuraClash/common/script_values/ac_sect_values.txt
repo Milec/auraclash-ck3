@@ -1,0 +1,84 @@
+﻿# Balance and map policy are deliberately separate from the sect's persistent data.
+ac_sect_upper_capacity = 10
+ac_sect_lower_capacity = 20
+# Character scope (a member). Greater sects begin with fuller halls.
+ac_sect_initial_upper = {
+	value = 8
+	if = { limit = { var:ac_sect.var:ac_tier ?= 1 } value = 5 }
+	else_if = { limit = { var:ac_sect.var:ac_tier >= 3 } value = 9 }
+}
+ac_sect_initial_lower = {
+	value = 16
+	if = { limit = { var:ac_sect.var:ac_tier ?= 1 } value = 11 }
+	else_if = { limit = { var:ac_sect.var:ac_tier >= 3 } value = 18 }
+}
+# Story scope. Standing (ac_tier 1-4) follows the natural aura of the headquarters' region.
+ac_sect_start_treasury = {
+	value = 300
+	if = { limit = { var:ac_tier ?= 1 } value = 150 }
+	else_if = { limit = { var:ac_tier ?= 3 } value = 500 }
+	else_if = { limit = { var:ac_tier ?= 4 } value = 800 }
+	if = { limit = { has_variable = ac_trade_sect } add = 200 }
+}
+ac_sect_annual_income = {
+	value = 60
+	if = { limit = { var:ac_tier ?= 1 } value = 40 }
+	else_if = { limit = { var:ac_tier ?= 3 } value = 90 }
+	else_if = { limit = { var:ac_tier ?= 4 } value = 130 }
+	if = { limit = { has_variable = ac_trade_sect } add = 40 }
+	add = ac_sect_renown_income
+}
+ac_sect_renown_income = {
+	value = 0
+	if = { limit = { has_variable = ac_renown } add = { value = var:ac_renown divide = 10 floor = yes max = 60 } }
+}
+# Greater sects ask more of those who would enter and rise.
+ac_sect_admission_score = {
+	value = 24
+	add = { value = 2 if = { limit = { has_variable = ac_tier } value = var:ac_tier } multiply = 8 }
+}
+ac_sect_promotion_score = { value = ac_sect_admission_score add = 15 }
+ac_sect_promotion_cost = 150
+ac_sect_mission_reward = 50
+ac_sect_joint_host_gold = { value = 75 if = { limit = { is_ai = yes } multiply = 0 } }
+ac_sect_successor_score = {
+	value = var:ac_sect_merit
+	add = prowess
+	add = learning
+}
+ac_sect_trial_score = {
+	value = learning
+	add = prowess
+	if = { limit = { has_trait = diligent } add = 8 }
+	if = { limit = { has_trait = patient } add = 5 }
+	if = { limit = { has_trait = ac_cultivator } add = 10 }
+	if = { limit = { has_trait = incapable } subtract = 100 }
+}
+ac_sect_mission_chance = {
+ value = 45
+ if = { limit = { var:ac_sect_mission_kind ?= flag:patrol } add = prowess }
+ else_if = { limit = { var:ac_sect_mission_kind ?= flag:herbs } add = learning }
+ else_if = { limit = { var:ac_sect_mission_kind ?= flag:manual } add = intrigue }
+ else_if = { limit = { var:ac_sect_mission_kind ?= flag:mediation } add = diplomacy }
+ else_if = { limit = { var:ac_sect_mission_kind ?= flag:relief } add = stewardship }
+ else_if = { limit = { var:ac_sect_mission_kind ?= flag:escort } add = martial }
+ if = { limit = { has_trait = ac_sect_upper_disciple } add = 10 }
+ min = 15
+ max = 90
+}
+ac_sect_battle_strength = {
+	value = 10
+	add = var:ac_upper_count
+	add = var:ac_upper_count
+	add = var:ac_lower_count
+	add = var:ac_training_ground
+	add = var:ac_formation_hall
+	add = story_owner.prowess
+	add = story_owner.martial
+	if = { limit = { has_variable = ac_tier } add = { value = var:ac_tier multiply = 6 } }
+	if = { limit = { has_variable = ac_joint_drill } add = 15 }
+}
+# Story scope. Renown a sect must spend to rise one standing.
+ac_sect_rise_cost = { value = var:ac_tier multiply = 60 }
+# Character scope (a member): what a quiet season in the Cultivation Hall teaches.
+ac_sect_insight_xp = { value = var:ac_sect.var:ac_cultivation_hall multiply = 20 add = 60 }

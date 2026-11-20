@@ -1,13 +1,13 @@
 ﻿# Appended to vanilla on_actions (lists merge; nothing vanilla is replaced).
-# Every hook starts with a cheap has_trait check, so non-cultivators cost nothing.
+# Cultivation routines use cheap eligibility checks before doing further work.
 quarterly_playable_pulse = {
 	on_actions = { ac_quarterly_player_pulse ac_fame_cultivation_pulse }
 }
 random_yearly_everyone_pulse = {
-	on_actions = { ac_yearly_ai_pulse ac_fame_cultivation_pulse }
+	on_actions = { ac_yearly_ai_pulse ac_fame_cultivation_pulse ac_guardian_teaching_pulse ac_ai_awakening_pulse ac_aura_yearly_pulse }
 }
 on_birthday = {
-	on_actions = { ac_birthday_pulse }
+	on_actions = { ac_birthday_pulse ac_guardian_teaching_pulse }
 }
 on_game_start_after_lobby = {
 	on_actions = { ac_game_start }
@@ -26,13 +26,17 @@ ac_quarterly_player_pulse = {
 		is_ai = no
 	}
 	effect = {
+		ac_migrate_cultivation_lifestyles_effect = yes
+		ac_init_aura_effect = yes
 		ac_core_auto_train_effect = yes
+		ac_core_auto_advance_effect = yes
+		ac_restore_cores_effect = yes
 		if = {
 			limit = {
 				has_trait = ac_immortal_core
 				age >= 16
 			}
-			add_ac_cultivation_lifestyle_xp = 60
+			ac_gain_cultivation_study_xp_effect = { XP = 60 }
 		}
 		ac_offer_foundation_effect = yes
 		if = {
@@ -55,9 +59,10 @@ ac_yearly_ai_pulse = {
 	}
 }
 
-# Conqueror / Despoiler of Byzantium / Greatest of Khans grant cultivation once each
+# Fame bonuses require cultivation; fame cannot bypass awakening access.
 ac_fame_cultivation_pulse = {
 	trigger = {
+		has_trait = ac_cultivator
 		OR = {
 			has_trait = conqueror
 			has_trait = despoiler_of_byzantium
@@ -82,17 +87,23 @@ ac_birthday_pulse = {
 ac_game_start = {
 	effect = {
 		every_living_character = {
+			limit = { age < 16 NOT = { has_trait = ac_cultivator } }
+			ac_record_cultivator_guardian_effect = yes
+		}
+		every_living_character = {
 			limit = {
 				OR = {
-			has_trait = conqueror
-			has_trait = despoiler_of_byzantium
-			has_trait = greatest_of_khans
+					has_trait = conqueror
+					has_trait = despoiler_of_byzantium
+					has_trait = greatest_of_khans
 				}
 			}
 			ac_fame_cultivation_all_effect = yes
 		}
 		every_living_character = {
 			limit = { has_trait = ac_cultivator }
+			ac_init_aura_effect = yes
+			ac_migrate_cultivation_lifestyles_effect = yes
 			ac_update_visual_age_effect = yes
 			ac_offer_foundation_effect = yes
 		}
@@ -104,9 +115,11 @@ ac_on_combat_end_winner = {
 	effect = {
 		every_side_commander = {
 			ac_gain_foundation_xp_effect = { XP = 3 }
+			ac_battle_core_progress_effect = { POWER = 6 FORTITUDE = 4 AP = 3 }
 		}
 		every_side_knight = {
 			ac_gain_foundation_xp_effect = { XP = 2 }
+			ac_battle_core_progress_effect = { POWER = 4 FORTITUDE = 3 AP = 2 }
 		}
 	}
 }
@@ -114,9 +127,66 @@ ac_on_combat_end_loser = {
 	effect = {
 		every_side_commander = {
 			ac_gain_foundation_xp_effect = { XP = 1 }
+			ac_battle_core_progress_effect = { POWER = 2 FORTITUDE = 4 AP = 1 }
 		}
 		every_side_knight = {
 			ac_gain_foundation_xp_effect = { XP = 1 }
+			ac_battle_core_progress_effect = { POWER = 2 FORTITUDE = 3 AP = 1 }
 		}
+	}
+}
+
+# Relation callbacks cover both directions, including guardians appointed
+# shortly before adulthood. Removal records a guardian who awakened later.
+on_set_relation_guardian = { on_actions = { ac_ward_guardian_teaching } }
+on_remove_relation_guardian = { on_actions = { ac_ward_guardian_teaching } }
+on_set_relation_ward = { on_actions = { ac_guardian_ward_teaching } }
+on_remove_relation_ward = { on_actions = { ac_guardian_ward_teaching } }
+ac_ward_guardian_teaching = {
+	trigger = { age <= 16 scope:target = { ac_cultivation_teacher_trigger = yes } }
+	effect = { ac_record_guardian_teacher_effect = { TEACHER = scope:target } }
+}
+ac_guardian_ward_teaching = {
+	trigger = { ac_cultivation_teacher_trigger = yes scope:target = { age <= 16 } }
+	effect = { save_scope_as = ac_recorded_guardian scope:target = { ac_record_guardian_teacher_effect = { TEACHER = scope:ac_recorded_guardian } } }
+}
+
+# Catch guardians who themselves awaken after being appointed.
+ac_guardian_teaching_pulse = {
+	trigger = { age <= 16 NOT = { has_trait = ac_cultivator } }
+	effect = { ac_record_cultivator_guardian_effect = yes }
+}
+
+# Mortals, including non-ruler courtiers and wanderers, consider their routes once a year.
+ac_ai_awakening_pulse = {
+ trigger = { ac_ai_awakening_ready_trigger = yes prestige >= 200 }
+ effect = {
+  random = { chance = ac_ai_awakening_willingness ac_ai_pursue_awakening_effect = yes }
+ }
+}
+
+# Children raised by a cultivator store nurtured chi; at 16 it can spark an awakening.
+on_birthday = {
+	on_actions = { ac_childhood_nurture_pulse ac_childhood_spark_pulse }
+}
+ac_childhood_nurture_pulse = {
+	trigger = { ac_childhood_nurture_ready_trigger = yes }
+	effect = { ac_childhood_nurture_effect = yes }
+}
+ac_childhood_spark_pulse = {
+	trigger = { ac_childhood_spark_ready_trigger = yes }
+	effect = { ac_childhood_spark_effect = yes }
+}
+
+# Every adult cultivator's daily training raises Aura Pressure and works their strongest Core.
+ac_aura_yearly_pulse = {
+	trigger = { has_trait = ac_cultivator age >= 16 }
+	effect = {
+		ac_init_aura_effect = yes
+		ac_gain_aura_pressure_effect = { AP = 10 }
+		ac_practice_core_progress_effect = { PROGRESS = 10 }
+		ac_grant_innate_techniques_effect = yes
+		remove_variable = ac_chi_spent
+		if = { limit = { has_trait = ac_race_kitsune } ac_learn_tech_fox_charm_effect = yes }
 	}
 }

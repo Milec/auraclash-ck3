@@ -1,0 +1,24 @@
+﻿# The Exalt who leads the Council's strongest movement sits beside the hegemon as Co-Monarch.
+rasen_co_monarchy = {
+	start = { always = yes }
+	end = { }
+	mandate = fill_coffers
+	mandate = swell_armies
+	mandate = promote_authority
+	aptitude_score = {
+		add = mandate_type_qualification:fill_coffers
+		add = mandate_type_qualification:swell_armies
+		add = mandate_type_qualification:promote_authority
+	}
+	power_level = { swing = 0 parameter = unlock_syphon_treasury_interaction parameter = diarch_can_subsidise_liege_authority }
+	power_level = { swing = 20 parameter = unlock_shift_privileges_interaction parameter = diarch_gets_a_free_change_on_vassal_contract }
+	power_level = { swing = 40 parameter = unlock_diarch_revoke_title_interaction parameter = unlock_legal_meddling_interaction }
+	power_level = { swing = 60 parameter = unlock_diarch_retract_vassal_interaction parameter = unlock_diarch_imprison_interaction }
+	swing_balance = { value = 50 }
+	succession = no
+	power_level = { swing = 0 hidden_parameter = diarchy_is_co_rulership hidden_parameter = diarchy_type_is_rasen_co_monarchy hidden_parameter = mandate_tempo_slow }
+	loyalty_score = { add = diarch_loyalty_score_type_co_emperorship_value }
+	end_interaction = systematically_maim_character_interaction
+	liege_modifier = { name = from_co_monarch_diplomacy_vassal_opinion vassal_opinion = 1 scale = { add = diplomacy max = 40 } }
+	diarch_modifier = { name = to_co_monarch_monthly_prestige_add_bonus monthly_prestige = 0.5 scale = { add = liege.highest_held_title_tier } }
+}

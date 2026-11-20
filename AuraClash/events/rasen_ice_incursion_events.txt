@@ -1,0 +1,112 @@
+﻿namespace = rasen_ice
+
+# 0001 an Ice Incursion reaches an Outer North ruler; 0002 the Council summons Archons
+# 0010 a season at the ice front; 0020 the Incursion breaks
+
+rasen_ice.0001 = {
+	type = character_event
+	title = rasen_ice.0001.t
+	desc = rasen_ice.0001.desc
+	theme = war
+	left_portrait = { character = root animation = worry }
+
+	option = {
+		name = rasen_ice.0001.march
+		rasen_go_to_ice_front_effect = yes
+	}
+	option = {
+		name = rasen_ice.0001.fund
+		trigger = { gold >= 100 }
+		show_as_unavailable = { always = yes }
+		remove_short_term_gold = 100
+		add_prestige = 75
+	}
+	option = {
+		name = rasen_ice.0001.fortify
+		add_prestige = -100
+	}
+}
+
+rasen_ice.0002 = {
+	type = character_event
+	title = rasen_ice.0002.t
+	desc = rasen_ice.0002.desc
+	theme = war
+	left_portrait = { character = root animation = personality_bold }
+
+	option = {
+		name = rasen_ice.0002.answer
+		rasen_go_to_ice_front_effect = yes
+	}
+	option = {
+		name = rasen_ice.0002.refuse
+		add_prestige = -150
+		ac_change_honor_effect = { AMOUNT = -3 }
+	}
+}
+
+rasen_ice.0010 = {
+	type = character_event
+	title = rasen_ice.0010.t
+	desc = rasen_ice.0010.desc
+	theme = war
+	left_portrait = { character = root animation = anger }
+	trigger = { is_alive = yes has_character_flag = rasen_at_ice_front }
+
+	option = {
+		name = rasen_ice.0010.fight
+		random_list = {
+			0 = {
+				modifier = { add = rasen_ice_front_success_chance }
+				desc = rasen_ice.0010.victory
+				add_prestige = 200
+				add_character_modifier = { modifier = rasen_ice_war_veteran_modifier years = 20 }
+				ac_gain_soul_treasure_effect = { AP = rasen_ice_demon_treasure_ap }
+				ac_gain_aura_pressure_effect = { AP = 15 }
+				ac_add_core_progress_effect = { CORE = power PROGRESS = 15 }
+				ac_add_core_progress_effect = { CORE = fortitude PROGRESS = 15 }
+				ac_change_honor_effect = { AMOUNT = 2 }
+			}
+			0 = {
+				modifier = { add = rasen_ice_front_failure_chance }
+				desc = rasen_ice.0010.defeat
+				add_prestige = 50
+				increase_wounds_no_death_effect = { REASON = fight }
+				ac_add_core_progress_effect = { CORE = fortitude PROGRESS = 10 }
+			}
+		}
+		remove_character_flag = rasen_at_ice_front
+	}
+	option = {
+		name = rasen_ice.0010.surge
+		trigger = { ac_can_surge_core_trigger = { CORE = fortitude } }
+		show_as_unavailable = { has_trait = ac_cultivator }
+		ac_surge_core_effect = { CORE = fortitude }
+		random_list = {
+			0 = {
+				modifier = { add = rasen_ice_front_surge_chance }
+				desc = rasen_ice.0010.victory
+				add_prestige = 200
+				add_character_modifier = { modifier = rasen_ice_war_veteran_modifier years = 20 }
+				ac_gain_soul_treasure_effect = { AP = rasen_ice_demon_treasure_ap }
+				ac_gain_aura_pressure_effect = { AP = 15 }
+				ac_add_core_progress_effect = { CORE = power PROGRESS = 15 }
+			}
+			0 = {
+				modifier = { add = rasen_ice_front_surge_failure }
+				desc = rasen_ice.0010.defeat
+				increase_wounds_no_death_effect = { REASON = fight }
+			}
+		}
+		remove_character_flag = rasen_at_ice_front
+	}
+}
+
+rasen_ice.0020 = {
+	type = character_event
+	title = rasen_ice.0020.t
+	desc = rasen_ice.0020.desc
+	theme = war
+	left_portrait = { character = root animation = happiness }
+	option = { name = rasen_ice.0020.ok }
+}

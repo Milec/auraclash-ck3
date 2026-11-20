@@ -1,0 +1,4 @@
+﻿rasen_in_outer_north_trigger = {
+	is_landed = yes
+	capital_province ?= { geographical_region = world_rasen_outer_north }
+}

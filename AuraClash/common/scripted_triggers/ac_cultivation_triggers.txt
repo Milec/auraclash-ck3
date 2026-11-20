@@ -120,7 +120,11 @@ ac_ai_cultivation_aspirant_trigger = {
 # Has a perk that unlocks Chi Healing
 ac_can_chi_heal_trigger = {
 	OR = {
-		has_perk = ac_3_style_aoyusumu_j_perk
+		# Aoyusumu heals through prayer: its masters also need the Prayer Talisman Technique.
+		AND = {
+			has_perk = ac_3_style_aoyusumu_j_perk
+			has_character_flag = ac_tech_prayer_talisman
+		}
 		has_perk = ac_3_style_kiihakai_c_perk
 		has_perk = ac_4_element_water_a_perk
 	}
@@ -134,17 +138,3 @@ ac_path_study_ready_trigger = {
 	}
 }
 
-# Can this character run a Mortal Core Training on $CORE$ right now?
-ac_can_train_core_trigger = {
-	has_trait = ac_cultivator
-	age >= 16
-	custom_tooltip = {
-		text = ac_core_training_cooldown_tt
-		NOT = { has_character_flag = ac_core_training_cooldown }
-	}
-	prestige >= 100
-	custom_tooltip = {
-		text = ac_core_maxed_tt
-		NOT = { ac_core_$CORE$_maxed_trigger = yes }
-	}
-}

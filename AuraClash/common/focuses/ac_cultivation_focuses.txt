@@ -1,8 +1,8 @@
 ﻿ac_deep_meditation_focus = {
 	lifestyle = ac_cultivation_lifestyle
 
-	is_shown = { has_trait = ac_cultivator }
-	is_valid = { has_trait = ac_cultivator }
+	is_shown = { has_trait = ac_cultivator age >= 16 }
+	is_valid = { has_trait = ac_cultivator age >= 16 }
 
 	modifier = {
 		learning = 1
@@ -17,17 +17,17 @@
 	auto_selection_weight = {
 		value = 50
 		if = {
-			limit = { NOT = { has_trait = ac_cultivator } }
+			limit = { NOT = { has_trait = ac_cultivator age >= 16 } }
 			multiply = 0
 		}
 	}
 }
 
 ac_physical_training_focus = {
-	lifestyle = ac_cultivation_lifestyle
+	lifestyle = ac_martial_styles_lifestyle
 
-	is_shown = { has_trait = ac_cultivator }
-	is_valid = { has_trait = ac_cultivator }
+	is_shown = { has_trait = ac_cultivator age >= 16 }
+	is_valid = { has_trait = ac_cultivator age >= 16 }
 
 	modifier = {
 		prowess = 3
@@ -42,8 +42,21 @@ ac_physical_training_focus = {
 	auto_selection_weight = {
 		value = 50
 		if = {
-			limit = { NOT = { has_trait = ac_cultivator } }
+			limit = { NOT = { has_trait = ac_cultivator age >= 16 } }
 			multiply = 0
 		}
 	}
+}
+
+ac_elemental_attunement_focus = {
+ lifestyle = ac_elements_lifestyle
+ is_shown = { has_trait = ac_cultivator age >= 16 }
+ is_valid = { has_trait = ac_cultivator age >= 16 }
+ modifier = { learning = 1 prowess = 1 }
+ desc = { desc = ac_elemental_attunement_focus_desc desc = line_break }
+ auto_selection_weight = {
+  value = 25
+  if = { limit = { ac_has_element_trigger = yes } add = 25 }
+  if = { limit = { NOT = { has_trait = ac_cultivator } } multiply = 0 }
+ }
 }

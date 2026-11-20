@@ -1,0 +1,124 @@
+﻿# Childhood nurture and the coming-of-age Spark of Chi.
+
+ac_add_chi_nurture_effect = {
+	if = {
+		limit = { NOT = { has_variable = ac_chi_nurture } }
+		set_variable = { name = ac_chi_nurture value = 0 }
+	}
+	if = {
+		limit = { var:ac_chi_nurture < ac_childhood_nurture_max }
+		change_variable = { name = ac_chi_nurture add = 1 }
+	}
+}
+
+# Child scope. Guardians take priority over parents; a player mentor is preferred
+# so that players see their own children's lessons.
+ac_childhood_find_mentor_effect = {
+	save_scope_as = ac_chi_child
+	clear_saved_scope = ac_chi_mentor
+	random_relation = {
+		type = guardian
+		limit = { is_ai = no scope:ac_chi_child = { ac_childhood_mentor_trigger = { MENTOR = prev } } }
+		save_scope_as = ac_chi_mentor
+	}
+	if = {
+		limit = { NOT = { exists = scope:ac_chi_mentor } }
+		random_parent = {
+			limit = { is_ai = no scope:ac_chi_child = { ac_childhood_mentor_trigger = { MENTOR = prev } } }
+			save_scope_as = ac_chi_mentor
+		}
+	}
+	if = {
+		limit = { NOT = { exists = scope:ac_chi_mentor } }
+		random_relation = {
+			type = guardian
+			limit = { scope:ac_chi_child = { ac_childhood_mentor_trigger = { MENTOR = prev } } }
+			save_scope_as = ac_chi_mentor
+		}
+	}
+	if = {
+		limit = { NOT = { exists = scope:ac_chi_mentor } }
+		random_parent = {
+			limit = { scope:ac_chi_child = { ac_childhood_mentor_trigger = { MENTOR = prev } } }
+			save_scope_as = ac_chi_mentor
+		}
+	}
+}
+
+# Child scope, once per birthday. Player mentors choose how to teach; otherwise
+# the lesson resolves silently so the yearly cost stays small.
+ac_childhood_nurture_effect = {
+	if = {
+		limit = { ac_childhood_nurture_ready_trigger = yes }
+		ac_childhood_find_mentor_effect = yes
+		if = {
+			limit = { exists = scope:ac_chi_mentor }
+			if = {
+				limit = { scope:ac_chi_mentor = { is_ai = no } }
+				scope:ac_chi_mentor = { trigger_event = ac_child.0001 }
+			}
+			else = {
+				ac_add_chi_nurture_effect = yes
+				scope:ac_chi_mentor = { ac_gain_cultivation_study_xp_effect = { XP = 25 } }
+			}
+		}
+	}
+}
+
+# Child scope. Free, uses the shared attempt cooldown, and consumes the nurture.
+ac_childhood_awakening_effect = {
+	add_character_flag = { flag = ac_awakening_cooldown years = 1 }
+	custom_tooltip = ac_childhood_spark_check_tt
+	random_list = {
+		0 = {
+			modifier = { add = ac_childhood_awaken_success_chance }
+			desc = ac_awaken_cultivation_decision.success
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = ac_awaken_success_toast
+				left_icon = this
+				add_trait = ac_cultivator
+			}
+			ac_update_visual_age_effect = yes
+			ac_offer_foundation_effect = yes
+		}
+		0 = {
+			modifier = { add = ac_childhood_awaken_failure_chance }
+			desc = ac_awaken_cultivation_decision.failure
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = ac_awaken_failure_toast
+				left_icon = this
+				increase_wounds_no_death_effect = { REASON = fight }
+			}
+		}
+	}
+	remove_variable = ac_chi_nurture
+}
+
+# Child scope, on the 16th and 17th birthdays. A busy cooldown at 16 defers the
+# spark one year; after 17 the stored chi fades and normal routes remain.
+ac_childhood_spark_effect = {
+	if = {
+		limit = { ac_childhood_spark_ready_trigger = yes }
+		if = {
+			limit = { ac_childhood_spark_eligible_trigger = yes }
+			if = {
+				limit = { is_ai = no }
+				trigger_event = ac_child.0010
+			}
+			else = {
+				ac_childhood_awakening_effect = yes
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					age >= 17
+					var:ac_chi_nurture < ac_childhood_spark_min_nurture
+				}
+			}
+			remove_variable = ac_chi_nurture
+		}
+	}
+}

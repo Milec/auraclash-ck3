@@ -1,0 +1,57 @@
+{
+ "land_provinces": 1157,
+ "sea_zones": 157,
+ "impassable_seas": 16,
+ "kingdoms": {
+  "outer_west": {
+   "duchies": 20,
+   "counties": 55,
+   "baronies": 200
+  },
+  "outer_north": {
+   "duchies": 8,
+   "counties": 25,
+   "baronies": 91
+  },
+  "outer_east": {
+   "duchies": 14,
+   "counties": 45,
+   "baronies": 158
+  },
+  "outer_south": {
+   "duchies": 13,
+   "counties": 47,
+   "baronies": 182
+  },
+  "sacred": {
+   "duchies": 9,
+   "counties": 32,
+   "baronies": 116
+  },
+  "mystic": {
+   "duchies": 4,
+   "counties": 17,
+   "baronies": 64
+  },
+  "cursed": {
+   "duchies": 4,
+   "counties": 21,
+   "baronies": 85
+  },
+  "bladed": {
+   "duchies": 4,
+   "counties": 17,
+   "baronies": 64
+  },
+  "wild": {
+   "duchies": 10,
+   "counties": 28,
+   "baronies": 97
+  },
+  "azuma": {
+   "duchies": 6,
+   "counties": 26,
+   "baronies": 100
+  }
+ }
+}

@@ -1,0 +1,49 @@
+﻿# Childhood nurture: children raised beside a cultivator store chi before they can awaken.
+
+# Child scope. Cheap checks only; the mentor search runs afterwards.
+ac_childhood_nurture_ready_trigger = {
+	is_alive = yes
+	age >= ac_childhood_nurture_min_age
+	age < 16
+	is_imprisoned = no
+	NOT = { has_trait = ac_cultivator }
+	NOT = { has_trait = incapable }
+	trigger_if = {
+		limit = { has_variable = ac_chi_nurture }
+		var:ac_chi_nurture < ac_childhood_nurture_max
+	}
+}
+
+# Child scope, exact mentor: a cultivator guardian anywhere, or a cultivator parent
+# who is physically raising the child (same location).
+ac_childhood_mentor_trigger = {
+	$MENTOR$ = {
+		ac_cultivation_teacher_trigger = yes
+		is_imprisoned = no
+		NOT = { has_trait = incapable }
+	}
+	OR = {
+		has_relation_guardian = $MENTOR$
+		AND = {
+			is_child_of = $MENTOR$
+			location = $MENTOR$.location
+		}
+	}
+}
+
+# Child scope; true on the coming-of-age birthdays while nurtured chi remains.
+ac_childhood_spark_ready_trigger = {
+	is_alive = yes
+	age >= 16
+	age <= 17
+	has_variable = ac_chi_nurture
+	NOT = { has_trait = ac_cultivator }
+}
+
+ac_childhood_spark_eligible_trigger = {
+	ac_childhood_spark_ready_trigger = yes
+	var:ac_chi_nurture >= ac_childhood_spark_min_nurture
+	is_imprisoned = no
+	NOT = { has_trait = incapable }
+	ac_awakening_ready_trigger = yes
+}

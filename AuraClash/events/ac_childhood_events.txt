@@ -1,0 +1,81 @@
+﻿namespace = ac_child
+
+# 0001 a player cultivator teaches a child they are raising (yearly, on the child's birthday)
+# 0010 the Spark of Chi: a nurtured player character comes of age
+
+# root = player mentor, scope:ac_chi_child = the child
+ac_child.0001 = {
+	type = character_event
+	title = ac_child.0001.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:ac_chi_child = { is_child_of = root } }
+				desc = ac_child.0001.desc_parent
+			}
+			desc = ac_child.0001.desc_guardian
+		}
+		desc = ac_child.0001.desc_progress
+	}
+	theme = learning
+	left_portrait = { character = root animation = personality_rational }
+	right_portrait = { character = scope:ac_chi_child animation = happiness }
+
+	trigger = {
+		exists = scope:ac_chi_child
+		scope:ac_chi_child = {
+			ac_childhood_nurture_ready_trigger = yes
+			ac_childhood_mentor_trigger = { MENTOR = root }
+		}
+	}
+
+	option = { # Breathing and stillness: Learning
+		name = ac_child.0001.breath
+		scope:ac_chi_child = {
+			ac_add_chi_nurture_effect = yes
+			add_learning_skill = 1
+		}
+		ac_gain_cultivation_study_xp_effect = { XP = 25 }
+		ai_chance = { base = 50 }
+	}
+
+	option = { # Stances at dawn: Martial
+		name = ac_child.0001.stances
+		scope:ac_chi_child = {
+			ac_add_chi_nurture_effect = yes
+			add_martial_skill = 1
+		}
+		ac_gain_cultivation_study_xp_effect = { XP = 25 }
+		ai_chance = { base = 50 }
+	}
+
+	option = { # Let them be a child: no chi this year
+		name = ac_child.0001.rest
+		add_stress = -10
+		ai_chance = { base = 0 }
+	}
+}
+
+# root = a nurtured character on their 16th or 17th birthday
+ac_child.0010 = {
+	type = character_event
+	title = ac_child.0010.t
+	desc = ac_child.0010.desc
+	theme = martial
+	left_portrait = { character = root animation = personality_bold }
+
+	trigger = { ac_childhood_spark_eligible_trigger = yes }
+
+	option = {
+		name = ac_child.0010.attempt
+		ac_childhood_awakening_effect = yes
+		ai_chance = { base = 100 }
+	}
+
+	option = { # Keep normal routes; the stored chi fades.
+		name = ac_child.0010.decline
+		remove_variable = ac_chi_nurture
+		custom_tooltip = ac_child.0010.decline_tt
+		ai_chance = { base = 0 }
+	}
+}

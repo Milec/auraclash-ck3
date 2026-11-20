@@ -1,0 +1,9 @@
+﻿# The Archonate: once the royal family's police, now the enforcers of the Exalted Council.
+rasen_archon = {
+	icon = ac_immortal_core.dds
+	shown_in_ruler_designer = no
+	prowess = 6
+	monthly_prestige = 2
+	general_opinion = 10
+	dread_baseline_add = 10
+}

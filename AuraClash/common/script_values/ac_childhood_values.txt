@@ -1,0 +1,28 @@
+﻿# Childhood nurture limits and the coming-of-age awakening chance.
+ac_childhood_nurture_min_age = 6
+ac_childhood_nurture_max = 5
+ac_childhood_spark_min_nurture = 2
+ac_childhood_spark_bonus_per_nurture = 8
+
+ac_childhood_nurture_level = {
+	value = 0
+	if = { limit = { has_variable = ac_chi_nurture } value = var:ac_chi_nurture }
+}
+
+# Normal awakening chance (Martial + Learning) plus 8% per year of nurture, max 95%.
+ac_childhood_awaken_success_chance = {
+	value = martial
+	add = learning
+	multiply = 2
+	add = 10
+	add = {
+		value = ac_childhood_nurture_level
+		multiply = ac_childhood_spark_bonus_per_nurture
+	}
+	min = 5
+	max = 95
+}
+ac_childhood_awaken_failure_chance = {
+	value = 100
+	subtract = ac_childhood_awaken_success_chance
+}

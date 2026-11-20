@@ -1,0 +1,7 @@
+﻿# The hegemony's peace between its great lords. Only the top liege's law is read.
+rasen_peace_laws = {
+	required_government_flag = { government_is_celestial }
+	default = rasen_council_peace_law
+	cumulative = no
+	flag = realm_law
+}

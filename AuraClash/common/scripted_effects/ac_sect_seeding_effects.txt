@@ -1,0 +1,30 @@
+﻿# County scope. Seeds a sect with its headquarters in this county. HOME is the de-jure title the
+# sect is registered under (duchy or county); a name may be reserved with ac_seed_identity on it.
+ac_sect_seed_county_effect = {
+	if = {
+		limit = {
+			exists = holder
+			exists = title_province
+			title_province = { NOT = { has_variable = ac_province_sect } }
+			$HOME$ = { NOT = { has_variable = ac_kingdom_sect } }
+		}
+		$HOME$ = { save_scope_as = ac_sect_kingdom }
+		title_province = { save_scope_as = ac_sect_hq }
+		holder = {
+			create_character = {
+				gender_female_chance = 50
+				age = 45
+				culture = this.culture
+				faith = this.faith
+				location = scope:ac_sect_hq
+				random_traits = yes
+				save_scope_as = ac_founder
+			}
+		}
+		scope:ac_founder = {
+			add_gold = 100
+			ac_sect_found_effect = yes
+			ac_sect_seed_roster_effect = yes
+		}
+	}
+}

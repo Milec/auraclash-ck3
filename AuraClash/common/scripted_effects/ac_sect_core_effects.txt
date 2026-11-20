@@ -1,0 +1,283 @@
+﻿# Character scope; callers supply ac_sect_hq (province) and ac_sect_kingdom (title).
+ac_sect_found_effect = {
+	if = {
+		limit = {
+			NOT = { has_variable = ac_sect }
+			scope:ac_sect_kingdom = { NOT = { has_variable = ac_kingdom_sect } }
+		}
+		create_story = { type = ac_sect_society save_scope_as = ac_new_sect }
+		scope:ac_new_sect = {
+			set_variable = { name = ac_master value = prev }
+			set_variable = { name = ac_headquarters value = scope:ac_sect_hq }
+			set_variable = { name = ac_kingdom value = scope:ac_sect_kingdom }
+			set_variable = { name = ac_upper_count value = 0 }
+			set_variable = { name = ac_lower_count value = 0 }
+			set_variable = { name = ac_cultivation_hall value = 1 }
+			set_variable = { name = ac_alchemy_pavilion value = 0 }
+			set_variable = { name = ac_training_ground value = 1 }
+			set_variable = { name = ac_scripture_library value = 0 }
+			set_variable = { name = ac_spirit_garden value = 0 }
+			set_variable = { name = ac_formation_hall value = 0 }
+			# A reserved name (the overhaul's canonical sects), else one no living sect uses.
+			if = {
+				limit = { scope:ac_sect_kingdom = { has_variable = ac_seed_identity } }
+				set_variable = { name = ac_identity value = scope:ac_sect_kingdom.var:ac_seed_identity }
+			}
+			else = { ac_sect_random_identity_effect = yes }
+			ac_sect_mark_kind_effect = yes
+			set_variable = { name = ac_tier value = scope:ac_sect_hq.ac_sect_region_tier }
+			set_variable = { name = ac_renown value = 0 }
+			set_variable = { name = ac_treasury value = ac_sect_start_treasury }
+			if = {
+				limit = { var:ac_tier >= 3 }
+				set_variable = { name = ac_scripture_library value = 1 }
+				set_variable = { name = ac_alchemy_pavilion value = 1 }
+			}
+			if = {
+				limit = { var:ac_tier >= 4 }
+				set_variable = { name = ac_cultivation_hall value = 2 }
+				set_variable = { name = ac_training_ground value = 2 }
+				set_variable = { name = ac_spirit_garden value = 1 }
+				set_variable = { name = ac_formation_hall value = 1 }
+			}
+			add_to_global_variable_list = { name = ac_sects target = this }
+		}
+		scope:ac_sect_hq = {
+			set_variable = { name = ac_province_sect value = scope:ac_new_sect }
+			add_province_modifier = { modifier = ac_sect_headquarters_modifier years = -1 }
+		}
+		scope:ac_sect_kingdom = { set_variable = { name = ac_kingdom_sect value = scope:ac_new_sect } }
+		set_variable = { name = ac_sect value = scope:ac_new_sect }
+		set_variable = { name = ac_sect_contribution value = 0 }
+		set_variable = { name = ac_sect_merit value = 200 }
+		add_trait = ac_cultivator
+		add_trait = ac_sect_master
+		ac_sect_teach_identity_effect = yes
+		ac_sect_teach_second_element_effect = yes
+		ac_sect_develop_rank_effect = yes
+		scope:ac_new_sect = { add_to_variable_list = { name = ac_members target = prev } ac_sect_ensure_domicile_effect = yes }
+	}
+}
+
+# Story scope. Uses local scopes, never the secular succession or primary title.
+ac_sect_recount_effect = {
+	set_variable = { name = ac_upper_count value = 0 }
+	set_variable = { name = ac_lower_count value = 0 }
+	save_scope_as = ac_counted_sect
+	every_in_list = {
+		variable = ac_members
+		limit = { is_alive = yes var:ac_sect ?= scope:ac_counted_sect }
+		if = {
+			limit = { has_trait = ac_sect_upper_disciple }
+			scope:ac_counted_sect = { change_variable = { name = ac_upper_count add = 1 } }
+		}
+		if = {
+			limit = { has_trait = ac_sect_lower_disciple }
+			scope:ac_counted_sect = { change_variable = { name = ac_lower_count add = 1 } }
+		}
+	}
+}
+
+# Story scope. Select the most meritorious living Upper Disciple, then a Lower.
+# A generated caretaker prevents extinction from destroying the estate or diplomacy.
+ac_sect_succession_effect = {
+	clear_saved_scope = ac_successor
+	save_scope_as = ac_succeeding_sect
+	ordered_in_list = {
+		variable = ac_members
+		limit = { ac_sect_available_trigger = yes has_trait = ac_sect_upper_disciple var:ac_sect = scope:ac_succeeding_sect }
+		order_by = ac_sect_successor_score
+		max = 1
+		save_scope_as = ac_successor
+	}
+	if = {
+		limit = { NOT = { exists = scope:ac_successor } }
+		ordered_in_list = {
+			variable = ac_members
+			limit = { ac_sect_available_trigger = yes has_trait = ac_sect_lower_disciple var:ac_sect = scope:ac_succeeding_sect }
+			order_by = ac_sect_successor_score
+			max = 1
+			save_scope_as = ac_successor
+		}
+	}
+	if = {
+		limit = { NOT = { exists = scope:ac_successor } }
+		var:ac_headquarters.county.holder = {
+			create_character = {
+				gender_female_chance = 50
+				age = 35
+				culture = this.culture
+				faith = this.faith
+				location = scope:ac_succeeding_sect.var:ac_headquarters
+				random_traits = yes
+				save_scope_as = ac_successor
+			}
+		}
+		scope:ac_successor = {
+			set_variable = { name = ac_sect value = scope:ac_succeeding_sect }
+			set_variable = { name = ac_sect_contribution value = 0 }
+			set_variable = { name = ac_sect_merit value = 0 }
+			add_trait = ac_cultivator
+			ac_sect_teach_identity_effect = yes
+		}
+		add_to_variable_list = { name = ac_members target = scope:ac_successor }
+	}
+	if = {
+		limit = { exists = scope:ac_successor }
+		story_owner = { remove_trait = ac_sect_master }
+		make_story_owner = scope:ac_successor
+		set_variable = { name = ac_master value = scope:ac_successor }
+		scope:ac_successor = {
+			remove_trait = ac_sect_lower_disciple
+			remove_trait = ac_sect_upper_disciple
+			add_trait = ac_sect_master
+			ac_sect_teach_second_element_effect = yes
+			ac_sect_develop_rank_effect = yes
+			if = { limit = { is_ai = no } trigger_event = ac_sect.0020 }
+		}
+		ac_sect_ensure_domicile_effect = yes
+		ac_sect_recount_effect = yes
+	}
+}
+
+# Character scope; ac_join_sect is the story selected by a completed trial.
+ac_sect_join_effect = {
+	if = {
+		limit = {
+			ac_sect_candidate_trigger = yes
+			scope:ac_join_sect = { var:ac_lower_count < ac_sect_lower_capacity }
+		}
+		set_variable = { name = ac_sect value = scope:ac_join_sect }
+		set_variable = { name = ac_sect_contribution value = 0 }
+		set_variable = { name = ac_sect_merit value = 0 }
+		add_trait = ac_cultivator
+		add_trait = ac_sect_lower_disciple
+		ac_sect_teach_identity_effect = yes
+		save_scope_as = ac_new_disciple
+		scope:ac_join_sect = {
+			add_to_variable_list = { name = ac_members target = scope:ac_new_disciple }
+			ac_sect_recount_effect = yes
+		}
+		ac_sect_clear_interest_effect = yes
+		ac_update_visual_age_effect = yes
+	}
+}
+
+ac_sect_award_contribution_effect = {
+	if = {
+		limit = { ac_sect_member_trigger = yes }
+		change_variable = { name = ac_sect_contribution add = $VALUE$ }
+		change_variable = { name = ac_sect_merit add = $VALUE$ }
+	}
+}
+
+ac_sect_leave_effect = {
+	if = {
+		limit = { has_variable = ac_sect }
+		ac_sect_cancel_mission_effect = yes
+		ac_sect_clear_offers_effect = yes
+		ac_sect_clear_trial_effect = yes
+		save_scope_as = ac_departing_member
+		var:ac_sect = {
+			remove_list_variable = { name = ac_members target = scope:ac_departing_member }
+		}
+		remove_trait = ac_sect_master
+		remove_trait = ac_sect_upper_disciple
+		remove_trait = ac_sect_lower_disciple
+		var:ac_sect = { ac_sect_recount_effect = yes }
+		remove_variable = ac_sect
+		remove_variable = ac_sect_contribution
+		remove_variable = ac_sect_merit
+		remove_variable = ac_sect_promotion_requested
+		add_character_flag = { flag = ac_sect_departure_cooldown years = 1 }
+	}
+}
+
+# One bounded maintenance pass per sect each year, not a world scan each month.
+ac_sect_yearly_effect = {
+	save_scope_as = ac_maintained_sect
+	ac_sect_ensure_domicile_effect = yes
+	ac_sect_refresh_native_building_levels_effect = yes
+	every_in_list = {
+		variable = ac_members
+		limit = { OR = { is_alive = no NOT = { var:ac_sect ?= scope:ac_maintained_sect } } }
+		save_scope_as = ac_stale_member
+		scope:ac_maintained_sect = { remove_list_variable = { name = ac_members target = scope:ac_stale_member } }
+	}
+	ac_sect_recount_effect = yes
+	# Saves from before sect standing: an Established Sect.
+	if = { limit = { NOT = { has_variable = ac_tier } } set_variable = { name = ac_tier value = 2 } }
+	if = { limit = { NOT = { has_variable = ac_renown } } set_variable = { name = ac_renown value = 0 } }
+	change_variable = { name = ac_treasury add = ac_sect_annual_income }
+	if = { limit = { var:ac_treasury > 2000 } set_variable = { name = ac_treasury value = 2000 } }
+	ac_sect_finish_construction_effect = yes
+	every_in_list = {
+		variable = ac_members
+		limit = { is_alive = yes has_trait = ac_cultivator }
+		if = {
+			limit = {
+				OR = { has_variable = ac_sect_trial_activity has_variable = ac_sect_trial_paid }
+				NOT = { involved_activity ?= var:ac_sect_trial_activity }
+			}
+			ac_sect_refund_trial_effect = yes
+		}
+		ac_sect_develop_rank_effect = yes
+		ac_sect_training_effect = yes
+		if = {
+			limit = { is_ai = yes ac_sect_promotion_ready_trigger = yes }
+			set_variable = { name = ac_sect_promotion_requested value = 1 }
+		}
+		if = {
+			limit = { is_ai = yes ac_sect_mission_ready_trigger = yes }
+			random = { chance = 30 ac_sect_start_patrol_effect = yes }
+		}
+	}
+	ac_sect_standing_effect = yes
+	# Sect life comes to players as events; NPC disciples live it silently.
+	every_in_list = {
+		variable = ac_members
+		limit = { is_alive = yes is_ai = no ac_sect_member_trigger = yes }
+		random = { chance = 70 trigger_event = { on_action = ac_sect_life_events days = { 30 300 } } }
+	}
+	ac_sect_ai_diplomacy_effect = yes
+	ac_sect_ai_management_effect = yes
+}
+
+# Story scope. Renown is earned by victories, missions, trials and duels; it never falls below zero.
+ac_sect_change_renown_effect = {
+	if = { limit = { NOT = { has_variable = ac_renown } } set_variable = { name = ac_renown value = 0 } }
+	change_variable = { name = ac_renown add = $VALUE$ }
+	if = { limit = { var:ac_renown < 0 } set_variable = { name = ac_renown value = 0 } }
+}
+
+# Story scope, yearly. Renown can lift a sect one standing above what its region's aura sustains.
+ac_sect_standing_effect = {
+	if = {
+		limit = {
+			var:ac_tier < 4
+			var:ac_tier <= var:ac_headquarters.ac_sect_region_tier
+			var:ac_renown >= ac_sect_rise_cost
+		}
+		change_variable = { name = ac_renown subtract = ac_sect_rise_cost }
+		change_variable = { name = ac_tier add = 1 }
+		every_in_list = {
+			variable = ac_members
+			limit = { is_alive = yes is_ai = no }
+			trigger_event = ac_sect.0040
+		}
+	}
+}
+
+# Winner of a Clash of Auras; scope:ac_duel_loser. Clashes between sects carry their names with them.
+ac_sect_duel_result_effect = {
+	if = {
+		limit = { has_variable = ac_sect scope:ac_duel_loser = { has_variable = ac_sect } }
+		if = {
+			limit = { NOT = { var:ac_sect = scope:ac_duel_loser.var:ac_sect } }
+			ac_sect_award_contribution_effect = { VALUE = 20 }
+			var:ac_sect = { ac_sect_change_renown_effect = { VALUE = 2 } }
+			scope:ac_duel_loser.var:ac_sect = { ac_sect_change_renown_effect = { VALUE = -1 } }
+		}
+		else = { ac_sect_award_contribution_effect = { VALUE = 10 } }
+	}
+}

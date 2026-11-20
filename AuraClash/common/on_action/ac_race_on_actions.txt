@@ -1,0 +1,3 @@
+﻿# Races are inherited from a parent at birth.
+on_birth_child = { on_actions = { ac_race_birth } }
+ac_race_birth = { effect = { ac_inherit_race_effect = yes } }

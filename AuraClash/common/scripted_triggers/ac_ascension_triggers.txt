@@ -1,0 +1,26 @@
+﻿# "Those under 25 from among the Warrior Caste" (or the Nobles above them) who have not ascended.
+ac_ascension_eligible_trigger = {
+	is_alive = yes
+	has_trait = ac_cultivator
+	ac_warrior_caste_or_above_trigger = yes
+	age >= ac_ascension_min_age
+	age <= ac_ascension_max_age
+	is_imprisoned = no
+	NOT = { has_trait = incapable }
+	NOT = { has_trait = ac_archonate_disciple }
+}
+
+# An entrant still able to continue the trials.
+ac_ascension_competing_trigger = {
+	is_alive = yes
+	has_character_flag = ac_ascension_entrant
+	is_imprisoned = no
+	NOT = { has_trait = incapable }
+}
+
+ac_ascension_valid_rival_trigger = {
+	is_alive = yes
+	has_trait = ac_cultivator
+	is_imprisoned = no
+	NOT = { has_trait = incapable }
+}

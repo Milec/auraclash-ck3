@@ -1,0 +1,6 @@
+﻿# Knowledge of the Immortal Core Method, required before Immortal Core Advancement.
+ac_immortal_method = {
+	icon = ac_immortal_core.dds
+	shown_in_ruler_designer = no
+	learning = 1
+}

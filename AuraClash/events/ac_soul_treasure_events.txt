@@ -1,0 +1,116 @@
+﻿namespace = ac_beast
+
+# 0001 choose a Spirit Beast to hunt; 0010 refine a Soul Treasure
+
+ac_beast.0001 = {
+	type = character_event
+	title = ac_beast.0001.t
+	desc = ac_beast.0001.desc
+	theme = martial
+	left_portrait = { character = root animation = personality_bold }
+
+	option = {
+		name = ac_beast.0001.sabretooth
+		random_list = {
+			0 = { modifier = { add = ac_beast_sabretooth_chance } desc = ac_beast.slain
+				ac_gain_soul_treasure_effect = { AP = ac_beast_sabretooth_ap }
+				set_variable = { name = ac_beast_defeated value = flag:sabretooth years = 1 }
+				ac_gain_aura_pressure_effect = { AP = 8 }
+				ac_add_core_progress_effect = { CORE = power PROGRESS = 10 }
+				add_prestige = 30 }
+			0 = { modifier = { add = ac_beast_sabretooth_failure } desc = ac_beast.escaped
+				increase_wounds_no_death_effect = { REASON = fight } }
+		}
+	}
+	option = {
+		name = ac_beast.0001.quadrafang
+		random_list = {
+			0 = { modifier = { add = ac_beast_quadrafang_chance } desc = ac_beast.slain
+				ac_gain_soul_treasure_effect = { AP = ac_beast_quadrafang_ap }
+				set_variable = { name = ac_beast_defeated value = flag:quadrafang years = 1 }
+				ac_gain_aura_pressure_effect = { AP = 8 }
+				ac_add_core_progress_effect = { CORE = power PROGRESS = 10 }
+				add_prestige = 45 }
+			0 = { modifier = { add = ac_beast_quadrafang_failure } desc = ac_beast.escaped
+				increase_wounds_no_death_effect = { REASON = fight } }
+		}
+	}
+	option = {
+		name = ac_beast.0001.mawcharger
+		random_list = {
+			0 = { modifier = { add = ac_beast_mawcharger_chance } desc = ac_beast.slain
+				ac_gain_soul_treasure_effect = { AP = ac_beast_mawcharger_ap }
+				set_variable = { name = ac_beast_defeated value = flag:mawcharger years = 1 }
+				ac_gain_aura_pressure_effect = { AP = 8 }
+				ac_add_core_progress_effect = { CORE = power PROGRESS = 10 }
+				add_prestige = 65 }
+			0 = { modifier = { add = ac_beast_mawcharger_failure } desc = ac_beast.escaped
+				increase_wounds_no_death_effect = { REASON = fight } }
+		}
+	}
+	option = {
+		name = ac_beast.0001.shakengara
+		random_list = {
+			0 = { modifier = { add = ac_beast_shakengara_chance } desc = ac_beast.slain
+				ac_gain_soul_treasure_effect = { AP = ac_beast_shakengara_ap }
+				set_variable = { name = ac_beast_defeated value = flag:shakengara years = 1 }
+				ac_gain_aura_pressure_effect = { AP = 8 }
+				ac_add_core_progress_effect = { CORE = power PROGRESS = 10 }
+				add_prestige = 90 }
+			0 = { modifier = { add = ac_beast_shakengara_failure } desc = ac_beast.escaped
+				increase_wounds_no_death_effect = { REASON = fight } }
+		}
+	}
+	option = {
+		name = ac_beast.0001.drake
+		random_list = {
+			0 = { modifier = { add = ac_beast_drake_chance } desc = ac_beast.slain
+				ac_gain_soul_treasure_effect = { AP = ac_beast_drake_ap }
+				set_variable = { name = ac_beast_defeated value = flag:drake years = 1 }
+				ac_gain_aura_pressure_effect = { AP = 8 }
+				ac_add_core_progress_effect = { CORE = power PROGRESS = 10 }
+				add_prestige = 110 }
+			0 = { modifier = { add = ac_beast_drake_failure } desc = ac_beast.escaped
+				increase_wounds_no_death_effect = { REASON = fight } }
+		}
+	}
+	option = {
+		name = ac_beast.0001.wyrm
+		random_list = {
+			0 = { modifier = { add = ac_beast_wyrm_chance } desc = ac_beast.slain
+				ac_gain_soul_treasure_effect = { AP = ac_beast_wyrm_ap }
+				set_variable = { name = ac_beast_defeated value = flag:wyrm years = 1 }
+				ac_gain_aura_pressure_effect = { AP = 8 }
+				ac_add_core_progress_effect = { CORE = power PROGRESS = 10 }
+				add_prestige = 150 }
+			0 = { modifier = { add = ac_beast_wyrm_failure } desc = ac_beast.escaped
+				increase_wounds_no_death_effect = { REASON = fight } }
+		}
+	}
+	option = { name = ac_beast.0001.leave }
+}
+
+ac_beast.0010 = {
+	type = character_event
+	title = ac_beast.0010.t
+	desc = ac_beast.0010.desc
+	theme = learning
+	left_portrait = { character = root animation = personality_rational }
+
+	option = {
+		name = ac_beast.0010.refine_1
+		trigger = { has_variable = ac_soul_treasure_1 }
+		ac_refine_soul_treasure_1_effect = yes
+	}
+	option = {
+		name = ac_beast.0010.refine_2
+		trigger = { has_variable = ac_soul_treasure_2 }
+		ac_refine_soul_treasure_2_effect = yes
+	}
+	option = {
+		name = ac_beast.0010.refine_3
+		trigger = { has_variable = ac_soul_treasure_3 }
+		ac_refine_soul_treasure_3_effect = yes
+	}
+	option = { name = ac_beast.0010.leave }
+}

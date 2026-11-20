@@ -1,0 +1,75 @@
+﻿# Heavenly Ascension Trials, as in Aura Clash: a draft of young Warrior Caste martial
+# artists (under 25) at Nanhou. Three zodiac Trials, each scored 0-7 by the Imperial
+# clerks; an impressed Inner Kingdom may grant an eighth point from its limited pool.
+ac_ascension_interval_years = 10
+ac_ascension_first_countdown = 3
+ac_ascension_min_age = 16
+ac_ascension_max_age = 24
+ac_ascension_draft_gold = 25
+ac_ascension_ai_admissions = 3
+ac_ascension_pass_score = 5
+ac_ascension_pass_total = 15
+ac_ascension_top_total = 21
+ac_trial_max_score = 7
+
+# Overall fighting strength, used to rank AI entrants.
+ac_ascension_power = {
+	value = prowess
+	add = { value = ac_core_dots divide = 2 }
+	if = { limit = { ac_has_martial_style_trigger = yes } add = 5 }
+	if = { limit = { ac_has_element_trigger = yes } add = 3 }
+	if = { limit = { has_trait = ac_immortal_core } add = 10 }
+}
+
+# Tiger Trial: a strength test of weighted plates. Power and Fortitude.
+ac_trial_tiger_base = {
+	value = ac_core_power_rating
+	add = ac_core_fortitude_rating
+	divide = 2
+	add = 1
+	round = yes
+	min = 0
+	max = 7
+}
+# Rabbit Trial: speed and evasion, surviving as prey. Agility, then Soul.
+ac_trial_rabbit_base = {
+	value = ac_core_agility_rating
+	multiply = 2
+	add = ac_core_soul_rating
+	divide = 3
+	add = 1
+	round = yes
+	min = 0
+	max = 7
+}
+# Dragon Trial: medallions measure Aura Pressure.
+ac_trial_dragon_base = {
+	value = 2
+	if = { limit = { ac_aura_pressure_value >= 2500 } value = 7 }
+	else_if = { limit = { ac_aura_pressure_value >= 1500 } value = 6 }
+	else_if = { limit = { ac_aura_pressure_value >= 1100 } value = 5 }
+	else_if = { limit = { ac_aura_pressure_value >= 800 } value = 4 }
+	else_if = { limit = { ac_aura_pressure_value >= 500 } value = 3 }
+}
+
+# Grip bonuses in the Tiger Trial.
+ac_trial_grip_back_bonus = { value = 0 if = { limit = { ac_core_fortitude_rating >= ac_core_power_rating } add = 1 } }
+ac_trial_grip_legs_bonus = { value = 0 if = { limit = { ac_core_power_rating >= ac_core_fortitude_rating } add = 1 } }
+ac_trial_route_bonus = { value = 0 if = { limit = { learning >= 12 } add = 1 } }
+ac_trial_crash_bonus = { value = 0 if = { limit = { ac_core_power_rating >= ac_core_agility_rating } add = 1 } }
+ac_trial_formation_bonus = { value = 0 if = { limit = { learning >= 15 } add = 1 } }
+ac_trial_duel_bonus = { value = 0 if = { limit = { ac_core_power_rating >= 4 ac_core_agility_rating >= 4 } add = 1 } }
+
+ac_trial_tiger_score = { value = 0 if = { limit = { has_variable = ac_trial_tiger } value = var:ac_trial_tiger } }
+ac_trial_rabbit_score = { value = 0 if = { limit = { has_variable = ac_trial_rabbit } value = var:ac_trial_rabbit } }
+ac_trial_dragon_score = { value = 0 if = { limit = { has_variable = ac_trial_dragon } value = var:ac_trial_dragon } }
+ac_ascension_total = { value = ac_trial_tiger_score add = ac_trial_rabbit_score add = ac_trial_dragon_score }
+# Expected total for a contestant who makes no special choices (rivals, AI entrants).
+ac_ascension_expected_total = { value = ac_trial_tiger_base add = ac_trial_rabbit_base add = ac_trial_dragon_base }
+
+# Favor of the five Inner Kingdoms (the IF's Bladed, Divine, Mystic, Cursed and Wild Favor).
+ac_favor_bladed_value = { value = 0 if = { limit = { has_variable = ac_favor_bladed } value = var:ac_favor_bladed } }
+ac_favor_sacred_value = { value = 0 if = { limit = { has_variable = ac_favor_sacred } value = var:ac_favor_sacred } }
+ac_favor_mystic_value = { value = 0 if = { limit = { has_variable = ac_favor_mystic } value = var:ac_favor_mystic } }
+ac_favor_cursed_value = { value = 0 if = { limit = { has_variable = ac_favor_cursed } value = var:ac_favor_cursed } }
+ac_favor_wild_value = { value = 0 if = { limit = { has_variable = ac_favor_wild } value = var:ac_favor_wild } }

@@ -1,0 +1,119 @@
+﻿# Mortal Core Training: once a year. It raises a Core only below ac_mortal_core_cap;
+# beyond that, training still builds Aura Pressure and Core progress.
+ac_can_mortal_train_trigger = {
+	has_trait = ac_cultivator
+	age >= 16
+	is_imprisoned = no
+	custom_tooltip = {
+		text = ac_core_training_cooldown_tt
+		NOT = { has_character_flag = ac_core_training_cooldown }
+	}
+}
+
+ac_mortal_training_raises_core_trigger = {
+	ac_core_dots < ac_mortal_core_peak
+	NOT = { ac_core_$CORE$_maxed_trigger = yes }
+}
+
+# ---------------------------------------------------------------------------
+# The Immortal Core Method: a technique learned from a master, a sect, or genius.
+# ---------------------------------------------------------------------------
+ac_knows_immortal_method_trigger = {
+	OR = {
+		has_trait = ac_immortal_method
+		has_trait = ac_immortal_core
+	}
+}
+
+# Prerequisites for learning the method and for the breakthrough itself.
+ac_immortal_method_requirements_trigger = {
+	has_trait = ac_cultivator
+	age >= 16
+	is_imprisoned = no
+	NOT = { has_trait = incapable }
+	custom_tooltip = {
+		text = ac_immortal_req_mortal_cores_tt
+		ac_core_dots >= ac_mortal_core_peak
+	}
+	custom_tooltip = {
+		text = ac_immortal_core_ap_requirement_tt
+		ac_aura_pressure_value >= ac_immortal_core_ap_requirement
+	}
+	custom_tooltip = {
+		text = ac_immortal_req_foundation_tt
+		ac_has_foundation_trigger = yes
+	}
+}
+
+ac_can_learn_immortal_method_trigger = {
+	NOT = { ac_knows_immortal_method_trigger = yes }
+	ac_immortal_method_requirements_trigger = yes
+}
+
+# Learner scope; a master who knows the method and shares a training bond (or a hook).
+ac_immortal_method_master_trigger = {
+	$TEACHER$ = {
+		is_alive = yes
+		age >= 16
+		is_imprisoned = no
+		NOT = { has_trait = incapable }
+		ac_knows_immortal_method_trigger = yes
+	}
+	ac_can_receive_cultivation_training_trigger = { TEACHER = $TEACHER$ }
+}
+
+# Upper Disciples and Masters may study their own sect's method.
+ac_sect_teaches_immortal_method_trigger = {
+	ac_sect_member_trigger = yes
+	custom_tooltip = {
+		text = ac_immortal_sect_rank_tt
+		OR = {
+			has_trait = ac_sect_upper_disciple
+			has_trait = ac_sect_master
+		}
+	}
+	custom_tooltip = {
+		text = ac_immortal_sect_master_knows_tt
+		var:ac_sect.story_owner ?= { ac_knows_immortal_method_trigger = yes }
+	}
+}
+
+# A genius, or Heavenly Talent, can derive the method alone.
+ac_immortal_method_genius_trigger = {
+	OR = {
+		has_trait = intellect_good_3
+		has_trait_xp = { trait = ac_potential track = ac_potential_talent value >= 78 }
+	}
+}
+
+# Immortal Core Advancement: bind free Aura Pressure into a Core.
+ac_can_advance_core_trigger = {
+	has_trait = ac_cultivator
+	age >= 16
+	custom_tooltip = {
+		text = ac_advance_requires_immortal_core_tt
+		has_trait = ac_immortal_core
+	}
+	custom_tooltip = {
+		text = ac_advance_free_ap_tt
+		ac_free_ap >= ac_core_$CORE$_advance_cost
+	}
+	custom_tooltip = {
+		text = ac_core_maxed_tt
+		NOT = { ac_core_$CORE$_maxed_trigger = yes }
+	}
+}
+
+ac_can_advance_any_core_trigger = {
+	OR = {
+		ac_can_advance_core_trigger = { CORE = soul }
+		ac_can_advance_core_trigger = { CORE = agility }
+		ac_can_advance_core_trigger = { CORE = power }
+		ac_can_advance_core_trigger = { CORE = fortitude }
+	}
+}
+
+ac_can_surge_core_trigger = {
+	has_trait = ac_cultivator
+	ac_core_$CORE$_available >= 1
+}

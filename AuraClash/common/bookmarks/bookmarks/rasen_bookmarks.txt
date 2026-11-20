@@ -1,0 +1,96 @@
+﻿bm_rasen_trials = {
+	start_date = 3000.3.1
+	is_playable = yes
+	group = bm_group_rasen
+	weight = { value = 100 }
+	character = {
+		name = "bm_rasen_azuma"
+		dynasty = dynasty_rasen_amatsu
+		dynasty_splendor_level = 1
+		type = female
+		birth = 2940.2.1
+		title = h_china
+		government = celestial_government
+		culture = zenshin
+		religion = ancestral_rites
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = rasen_215
+		position = { 900 500 }
+		animation = personality_bold
+	}
+	character = {
+		name = "bm_rasen_sacred"
+		dynasty = dynasty_rasen_mizuhara
+		dynasty_splendor_level = 1
+		type = female
+		birth = 2937.12.6
+		title = k_sacred
+		government = theocracy_government
+		culture = cathayan
+		religion = devanic_temple
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = rasen_170
+		position = { 900 500 }
+		animation = personality_bold
+	}
+	character = {
+		name = "bm_rasen_mystic"
+		dynasty = dynasty_rasen_bai
+		dynasty_splendor_level = 1
+		type = male
+		birth = 2943.12.2
+		title = k_mystic
+		government = administrative_government
+		culture = cathayan
+		religion = celestial_order
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = rasen_180
+		position = { 900 500 }
+		animation = personality_bold
+	}
+	character = {
+		name = "bm_rasen_cursed"
+		dynasty = dynasty_rasen_kurogane
+		dynasty_splendor_level = 1
+		type = male
+		birth = 2949.5.27
+		title = k_cursed
+		government = clan_government
+		culture = oni
+		religion = veiled_ancestors
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = rasen_189
+		position = { 900 500 }
+		animation = personality_bold
+	}
+	character = {
+		name = "bm_rasen_bladed"
+		dynasty = dynasty_rasen_tsurugi
+		dynasty_splendor_level = 1
+		type = male
+		birth = 2952.8.24
+		title = k_bladed
+		government = japan_feudal_government
+		culture = zenshin
+		religion = ancestral_rites
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = rasen_197
+		position = { 900 500 }
+		animation = personality_bold
+	}
+	character = {
+		name = "bm_rasen_wild"
+		dynasty = dynasty_rasen_akagi
+		dynasty_splendor_level = 1
+		type = male
+		birth = 2956.4.3
+		title = d_rifuno
+		government = tribal_government
+		culture = yokai
+		religion = wild_pacts
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = rasen_202
+		position = { 900 500 }
+		animation = personality_bold
+	}
+}

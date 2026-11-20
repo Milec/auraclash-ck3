@@ -1,0 +1,9 @@
+﻿# Disciples of the Archonate, admitted through the Heavenly Ascension Trials.
+ac_archonate_disciple = {
+	icon = ac_immortal_core.dds
+	shown_in_ruler_designer = no
+	monthly_prestige = 1
+	prowess = 3
+	diplomacy = 1
+	general_opinion = 5
+}

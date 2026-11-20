@@ -1,0 +1,357 @@
+﻿# Aura Pressure and Combat Cores, following Aura Clash.
+
+# Cultivators from older saves, sect seeding or history: their existing Core dots
+# count as Aura Pressure already bound into Cores.
+ac_init_aura_effect = {
+	if = {
+		limit = { has_trait = ac_cultivator NOT = { has_variable = ac_aura_pressure } }
+		set_variable = { name = ac_aura_pressure value = { value = ac_core_dots multiply = ac_ap_per_core_dot } }
+		set_variable = { name = ac_allocated_ap value = var:ac_aura_pressure }
+	}
+	if = { limit = { has_trait = ac_cultivator } ac_init_conduct_effect = yes }
+	ac_sync_immortal_cores_effect = yes
+}
+
+# Cores beyond eight Mortal Cores can only be Immortal Cores: whoever holds them has the
+# ability. Legacy, seeded and historical characters are counted once.
+ac_sync_immortal_cores_effect = {
+	if = {
+		limit = { has_trait = ac_cultivator ac_core_dots > ac_mortal_core_peak }
+		if = {
+			limit = { NOT = { has_trait = ac_immortal_core } }
+			add_trait = ac_immortal_core
+			remove_trait = ac_immortal_method
+		}
+		if = {
+			limit = { NOT = { has_variable = ac_immortal_cores } }
+			set_variable = { name = ac_immortal_cores value = { value = ac_core_dots subtract = ac_mortal_core_peak } }
+			ac_refresh_immortal_core_track_effect = yes
+		}
+	}
+}
+
+ac_refresh_immortal_core_track_effect = {
+	if = {
+		limit = { has_trait = ac_immortal_core }
+		add_trait_xp = { trait = ac_immortal_core track = ac_immortal_cores value = -100 }
+		add_trait_xp = { trait = ac_immortal_core track = ac_immortal_cores value = ac_immortal_core_count }
+	}
+}
+
+# Recount after a character is developed to a rank (sect, roaming master, history).
+ac_resync_aura_effect = {
+	remove_variable = ac_aura_pressure
+	remove_variable = ac_allocated_ap
+	remove_variable = ac_immortal_cores
+	ac_init_aura_effect = yes
+}
+
+# $AP$ before Talent and the Mortal Limit.
+ac_gain_aura_pressure_effect = {
+	if = {
+		limit = { has_trait = ac_cultivator }
+		ac_init_aura_effect = yes
+		set_variable = { name = ac_ap_pending value = $AP$ }
+		change_variable = { name = ac_aura_pressure add = ac_ap_pending_gain }
+		remove_variable = ac_ap_pending
+	}
+}
+
+# Using a Core in battle, the hunt or a crisis earns progress toward its next Advancement.
+ac_add_core_progress_effect = {
+	if = {
+		limit = { has_trait = ac_cultivator }
+		if = {
+			limit = { NOT = { has_variable = ac_core_$CORE$_progress } }
+			set_variable = { name = ac_core_$CORE$_progress value = 0 }
+		}
+		change_variable = { name = ac_core_$CORE$_progress add = $PROGRESS$ }
+		if = {
+			limit = { var:ac_core_$CORE$_progress > ac_core_progress_cap }
+			set_variable = { name = ac_core_$CORE$_progress value = ac_core_progress_cap }
+		}
+	}
+}
+
+# Yearly practice works the Core tied to the character's strongest linked skill.
+ac_practice_core_progress_effect = {
+	if = {
+		limit = { learning >= intrigue learning >= martial learning >= stewardship }
+		ac_add_core_progress_effect = { CORE = soul PROGRESS = $PROGRESS$ }
+	}
+	else_if = {
+		limit = { intrigue >= martial intrigue >= stewardship }
+		ac_add_core_progress_effect = { CORE = agility PROGRESS = $PROGRESS$ }
+	}
+	else_if = {
+		limit = { martial >= stewardship }
+		ac_add_core_progress_effect = { CORE = power PROGRESS = $PROGRESS$ }
+	}
+	else = {
+		ac_add_core_progress_effect = { CORE = fortitude PROGRESS = $PROGRESS$ }
+	}
+}
+
+# Mortal Core Advancement: the fruits of hard training, which dwindle as Cores grow.
+ac_mortal_core_train_effect = {
+	if = {
+		limit = { ac_can_mortal_train_trigger = yes }
+		add_character_flag = { flag = ac_core_training_cooldown years = 1 }
+		set_variable = { name = ac_core_last value = flag:$CORE$ }
+		if = {
+			limit = { ac_mortal_training_raises_core_trigger = { CORE = $CORE$ } }
+			add_trait_xp = { trait = ac_cultivator track = ac_core_$CORE$ value = 5 }
+			ac_grant_innate_techniques_effect = yes
+		}
+		else = {
+			custom_tooltip = ac_mortal_training_plateau_tt
+		}
+		custom_tooltip = ac_mortal_training_gains_tt
+		hidden_effect = {
+			ac_gain_aura_pressure_effect = { AP = 10 }
+			ac_add_core_progress_effect = { CORE = $CORE$ PROGRESS = 10 }
+		}
+		if = {
+			limit = { has_character_flag = ac_core_training_auto }
+			custom_tooltip = ac_core_auto_will_repeat_tt
+			hidden_effect = { trigger_event = { id = ac_cult.0002 days = 366 } }
+		}
+	}
+}
+
+# Immortal Core Advancement: bind (100 - progress) free Aura Pressure into one Core, forming an Immortal Core.
+ac_advance_core_effect = {
+	if = {
+		limit = { ac_can_advance_core_trigger = { CORE = $CORE$ } }
+		change_variable = { name = ac_allocated_ap add = ac_core_$CORE$_advance_cost }
+		if = {
+			limit = { has_variable = ac_core_$CORE$_progress }
+			change_variable = { name = ac_core_$CORE$_progress add = -100 }
+			if = {
+				limit = { var:ac_core_$CORE$_progress < 0 }
+				set_variable = { name = ac_core_$CORE$_progress value = 0 }
+			}
+		}
+		add_trait_xp = { trait = ac_cultivator track = ac_core_$CORE$ value = 5 }
+		set_variable = { name = ac_core_last_advanced value = flag:$CORE$ }
+		ac_grant_innate_techniques_effect = yes
+		# Each Advancement forms a new Immortal Core.
+		if = {
+			limit = { NOT = { has_variable = ac_immortal_cores } }
+			set_variable = { name = ac_immortal_cores value = 0 }
+		}
+		change_variable = { name = ac_immortal_cores add = 1 }
+		add_trait_xp = { trait = ac_immortal_core track = ac_immortal_cores value = 1 }
+	}
+}
+
+# Cycle Spirit Shards (gold): +16 AP plus the Soul Core rating, before Talent and the Mortal Limit.
+ac_cycle_shards_effect = {
+	remove_short_term_gold = ac_shard_cycle_cost
+	custom_tooltip = ac_cycle_shards_gain_tt
+	hidden_effect = { ac_gain_aura_pressure_effect = { AP = ac_shard_cycle_gain } }
+}
+
+# Surge a Core to push a check; meditation restores spent Cores each quarter.
+ac_surge_core_effect = {
+	if = {
+		limit = { NOT = { has_variable = ac_core_$CORE$_spent } }
+		set_variable = { name = ac_core_$CORE$_spent value = 0 }
+	}
+	change_variable = { name = ac_core_$CORE$_spent add = 1 }
+	ac_add_core_progress_effect = { CORE = $CORE$ PROGRESS = 10 }
+}
+
+ac_spend_chi_effect = {
+	if = {
+		limit = { NOT = { has_variable = ac_chi_spent } }
+		set_variable = { name = ac_chi_spent value = 0 }
+	}
+	change_variable = { name = ac_chi_spent add = $CHI$ }
+	custom_tooltip = ac_chi_spent_tt
+}
+
+ac_restore_cores_effect = {
+	remove_variable = ac_chi_spent
+	remove_variable = ac_core_soul_spent
+	remove_variable = ac_core_agility_spent
+	remove_variable = ac_core_power_spent
+	remove_variable = ac_core_fortitude_spent
+}
+
+# Players may let free Aura Pressure flow into their last-advanced Core automatically.
+ac_core_auto_advance_effect = {
+	if = {
+		limit = { has_character_flag = ac_core_advance_auto has_variable = ac_core_last_advanced }
+		while = {
+			limit = {
+				OR = {
+					AND = { var:ac_core_last_advanced = flag:soul ac_can_advance_core_trigger = { CORE = soul } }
+					AND = { var:ac_core_last_advanced = flag:agility ac_can_advance_core_trigger = { CORE = agility } }
+					AND = { var:ac_core_last_advanced = flag:power ac_can_advance_core_trigger = { CORE = power } }
+					AND = { var:ac_core_last_advanced = flag:fortitude ac_can_advance_core_trigger = { CORE = fortitude } }
+				}
+			}
+			count = 10
+			if = { limit = { var:ac_core_last_advanced = flag:soul } ac_advance_core_effect = { CORE = soul } }
+			else_if = { limit = { var:ac_core_last_advanced = flag:agility } ac_advance_core_effect = { CORE = agility } }
+			else_if = { limit = { var:ac_core_last_advanced = flag:power } ac_advance_core_effect = { CORE = power } }
+			else = { ac_advance_core_effect = { CORE = fortitude } }
+		}
+	}
+}
+
+# Repeat last year's Mortal Core Training when auto-training is on.
+ac_core_auto_train_effect = {
+	if = {
+		limit = { has_character_flag = ac_core_training_auto has_variable = ac_core_last ac_can_mortal_train_trigger = yes }
+		if = { limit = { var:ac_core_last = flag:soul } ac_mortal_core_train_effect = { CORE = soul } }
+		else_if = { limit = { var:ac_core_last = flag:agility } ac_mortal_core_train_effect = { CORE = agility } }
+		else_if = { limit = { var:ac_core_last = flag:power } ac_mortal_core_train_effect = { CORE = power } }
+		else_if = { limit = { var:ac_core_last = flag:fortitude } ac_mortal_core_train_effect = { CORE = fortitude } }
+	}
+}
+
+# AI: train, cycle Shards with spare gold, and bind free AP once Immortal Core Advancement is unlocked.
+ac_ai_aura_routine_effect = {
+	ac_init_aura_effect = yes
+	ac_grant_innate_techniques_effect = yes
+	# Techniques: a Path Manual with spare gold, then fill empty Focus slots.
+	if = {
+		limit = {
+			ac_can_learn_any_technique_trigger = yes
+			gold >= { value = ac_path_manual_gold add = 150 }
+			NOT = { has_character_flag = ac_ai_path_manual_cooldown }
+		}
+		add_character_flag = { flag = ac_ai_path_manual_cooldown years = 1 }
+		remove_short_term_gold = ac_path_manual_gold
+		ac_learn_random_technique_effect = yes
+	}
+	ac_ai_focus_techniques_effect = yes
+	# Soul Treasures: the strong hunt Spirit Beasts once a year.
+	if = {
+		limit = { is_imprisoned = no NOT = { has_trait = incapable } health >= 3 }
+		random = { chance = 40 ac_ai_hunt_spirit_beast_effect = yes }
+	}
+	if = {
+		limit = { ac_can_mortal_train_trigger = yes }
+		random_list = {
+			10 = { trigger = { ac_mortal_training_raises_core_trigger = { CORE = soul } } ac_mortal_core_train_effect = { CORE = soul } }
+			10 = { trigger = { ac_mortal_training_raises_core_trigger = { CORE = agility } } ac_mortal_core_train_effect = { CORE = agility } }
+			10 = { trigger = { ac_mortal_training_raises_core_trigger = { CORE = power } } ac_mortal_core_train_effect = { CORE = power } }
+			10 = { trigger = { ac_mortal_training_raises_core_trigger = { CORE = fortitude } } ac_mortal_core_train_effect = { CORE = fortitude } }
+			1 = { ac_mortal_core_train_effect = { CORE = power } }
+		}
+	}
+	while = {
+		limit = { gold >= { value = ac_shard_cycle_cost add = 150 } }
+		count = 2
+		ac_cycle_shards_effect = yes
+	}
+	while = {
+		limit = { ac_can_advance_any_core_trigger = yes }
+		count = 8
+		random_list = {
+			10 = { trigger = { ac_can_advance_core_trigger = { CORE = soul } } modifier = { add = ac_core_soul_progress } ac_advance_core_effect = { CORE = soul } }
+			10 = { trigger = { ac_can_advance_core_trigger = { CORE = agility } } modifier = { add = ac_core_agility_progress } ac_advance_core_effect = { CORE = agility } }
+			10 = { trigger = { ac_can_advance_core_trigger = { CORE = power } } modifier = { add = ac_core_power_progress } ac_advance_core_effect = { CORE = power } }
+			10 = { trigger = { ac_can_advance_core_trigger = { CORE = fortitude } } modifier = { add = ac_core_fortitude_progress } ac_advance_core_effect = { CORE = fortitude } }
+		}
+	}
+}
+
+# Battle tempers Power and Fortitude and stretches Aura Pressure.
+ac_battle_core_progress_effect = {
+	if = {
+		limit = { has_trait = ac_cultivator is_alive = yes age >= 16 }
+		ac_add_core_progress_effect = { CORE = power PROGRESS = $POWER$ }
+		ac_add_core_progress_effect = { CORE = fortitude PROGRESS = $FORTITUDE$ }
+		ac_gain_aura_pressure_effect = { AP = $AP$ }
+		if = {
+			limit = { ac_battle_ap_bonus > 0 }
+			ac_gain_aura_pressure_effect = { AP = ac_battle_ap_bonus }
+		}
+	}
+}
+
+# ---------------------------------------------------------------------------
+# Learning the Immortal Core Method
+# ---------------------------------------------------------------------------
+ac_learn_immortal_method_effect = {
+	if = {
+		limit = { NOT = { ac_knows_immortal_method_trigger = yes } }
+		send_interface_toast = {
+			type = event_toast_effect_good
+			title = ac_immortal_method_learned_toast
+			left_icon = this
+			add_trait = ac_immortal_method
+		}
+	}
+}
+
+ac_comprehend_immortal_method_effect = {
+	add_character_flag = { flag = ac_immortal_method_comprehend_cooldown years = 1 }
+	random_list = {
+		0 = {
+			modifier = { add = ac_immortal_method_comprehend_chance }
+			desc = ac_immortal_method_comprehend.success
+			ac_learn_immortal_method_effect = yes
+		}
+		0 = {
+			modifier = { add = ac_immortal_method_comprehend_failure }
+			desc = ac_immortal_method_comprehend.failure
+			add_stress = minor_stress_gain
+			ac_gain_aura_pressure_effect = { AP = 10 }
+		}
+	}
+}
+
+ac_study_sect_immortal_method_effect = {
+	change_variable = { name = ac_sect_contribution add = { value = ac_immortal_method_sect_cost multiply = -1 } }
+	ac_learn_immortal_method_effect = yes
+}
+
+# AI learners: sect first, then a master among their bonds or hooks, then genius.
+ac_ai_seek_immortal_method_effect = {
+	if = {
+		limit = { ac_can_learn_immortal_method_trigger = yes }
+		save_scope_as = ac_immortal_learner
+		if = {
+			limit = {
+				ac_sect_teaches_immortal_method_trigger = yes
+				var:ac_sect_contribution >= ac_immortal_method_sect_cost
+			}
+			ac_study_sect_immortal_method_effect = yes
+		}
+		else = {
+			clear_saved_scope = ac_immortal_master
+			if = {
+				limit = { prestige >= { value = ac_immortal_method_prestige_cost add = 200 } }
+				random_parent = { limit = { scope:ac_immortal_learner = { ac_immortal_method_master_trigger = { TEACHER = prev } } } save_scope_as = ac_immortal_master }
+				if = { limit = { NOT = { exists = scope:ac_immortal_master } } random_relation = { type = guardian limit = { scope:ac_immortal_learner = { ac_immortal_method_master_trigger = { TEACHER = prev } } } save_scope_as = ac_immortal_master } }
+				if = { limit = { NOT = { exists = scope:ac_immortal_master } } random_relation = { type = friend limit = { scope:ac_immortal_learner = { ac_immortal_method_master_trigger = { TEACHER = prev } } } save_scope_as = ac_immortal_master } }
+				if = { limit = { NOT = { exists = scope:ac_immortal_master } } random_relation = { type = best_friend limit = { scope:ac_immortal_learner = { ac_immortal_method_master_trigger = { TEACHER = prev } } } save_scope_as = ac_immortal_master } }
+				if = { limit = { NOT = { exists = scope:ac_immortal_master } } random_spouse = { limit = { scope:ac_immortal_learner = { ac_immortal_method_master_trigger = { TEACHER = prev } } } save_scope_as = ac_immortal_master } }
+				if = { limit = { NOT = { exists = scope:ac_immortal_master } } random_hooked_character = { limit = { scope:ac_immortal_learner = { ac_immortal_method_master_trigger = { TEACHER = prev } } } save_scope_as = ac_immortal_master } }
+			}
+			if = {
+				limit = { exists = scope:ac_immortal_master scope:ac_immortal_master = { in_diplomatic_range = scope:ac_immortal_learner } }
+				run_interaction = {
+					interaction = ac_request_immortal_method_interaction
+					actor = this
+					recipient = scope:ac_immortal_master
+					send_threshold = accept
+				}
+			}
+			else_if = {
+				limit = {
+					ac_immortal_method_genius_trigger = yes
+					piety >= ac_immortal_method_comprehend_piety
+					NOT = { has_character_flag = ac_immortal_method_comprehend_cooldown }
+				}
+				add_piety = { value = ac_immortal_method_comprehend_piety multiply = -1 }
+				ac_comprehend_immortal_method_effect = yes
+			}
+		}
+	}
+}

@@ -1,0 +1,155 @@
+﻿# The ruler of the Bladed Lands names who will take its Council seat when it next falls vacant.
+rasen_nominate_bladed_exalt_interaction = {
+	category = interaction_category_diplomacy
+	common_interaction = no
+	icon = support_candidacy
+	desc = rasen_nominate_exalt_interaction_desc
+	auto_accept = yes
+	is_shown = {
+		scope:actor = { rasen_rules_bladed_trigger = yes }
+		scope:recipient = { rasen_exalt_candidate_trigger = { LAND = bladed } }
+	}
+	is_valid_showing_failures_only = {
+		trigger_if = { limit = { has_global_variable = rasen_exalt_designate_bladed } NOT = { global_var:rasen_exalt_designate_bladed = scope:recipient } }
+	}
+	cost = { prestige = 100 }
+	on_accept = {
+		set_global_variable = { name = rasen_exalt_designate_bladed value = scope:recipient }
+		scope:recipient = { add_opinion = { target = scope:actor modifier = grateful_opinion opinion = 30 } }
+		custom_tooltip = rasen_nominate_exalt_tt
+	}
+	ai_will_do = { base = 0 }
+}
+
+# The ruler of the Sacred Lands names who will take its Council seat when it next falls vacant.
+rasen_nominate_sacred_exalt_interaction = {
+	category = interaction_category_diplomacy
+	common_interaction = no
+	icon = support_candidacy
+	desc = rasen_nominate_exalt_interaction_desc
+	auto_accept = yes
+	is_shown = {
+		scope:actor = { rasen_rules_sacred_trigger = yes }
+		scope:recipient = { rasen_exalt_candidate_trigger = { LAND = sacred } }
+	}
+	is_valid_showing_failures_only = {
+		trigger_if = { limit = { has_global_variable = rasen_exalt_designate_sacred } NOT = { global_var:rasen_exalt_designate_sacred = scope:recipient } }
+	}
+	cost = { prestige = 100 }
+	on_accept = {
+		set_global_variable = { name = rasen_exalt_designate_sacred value = scope:recipient }
+		scope:recipient = { add_opinion = { target = scope:actor modifier = grateful_opinion opinion = 30 } }
+		custom_tooltip = rasen_nominate_exalt_tt
+	}
+	ai_will_do = { base = 0 }
+}
+
+# The ruler of the Mystic Lands names who will take its Council seat when it next falls vacant.
+rasen_nominate_mystic_exalt_interaction = {
+	category = interaction_category_diplomacy
+	common_interaction = no
+	icon = support_candidacy
+	desc = rasen_nominate_exalt_interaction_desc
+	auto_accept = yes
+	is_shown = {
+		scope:actor = { rasen_rules_mystic_trigger = yes }
+		scope:recipient = { rasen_exalt_candidate_trigger = { LAND = mystic } }
+	}
+	is_valid_showing_failures_only = {
+		trigger_if = { limit = { has_global_variable = rasen_exalt_designate_mystic } NOT = { global_var:rasen_exalt_designate_mystic = scope:recipient } }
+	}
+	cost = { prestige = 100 }
+	on_accept = {
+		set_global_variable = { name = rasen_exalt_designate_mystic value = scope:recipient }
+		scope:recipient = { add_opinion = { target = scope:actor modifier = grateful_opinion opinion = 30 } }
+		custom_tooltip = rasen_nominate_exalt_tt
+	}
+	ai_will_do = { base = 0 }
+}
+
+# The ruler of the Cursed Lands names who will take its Council seat when it next falls vacant.
+rasen_nominate_cursed_exalt_interaction = {
+	category = interaction_category_diplomacy
+	common_interaction = no
+	icon = support_candidacy
+	desc = rasen_nominate_exalt_interaction_desc
+	auto_accept = yes
+	is_shown = {
+		scope:actor = { rasen_rules_cursed_trigger = yes }
+		scope:recipient = { rasen_exalt_candidate_trigger = { LAND = cursed } }
+	}
+	is_valid_showing_failures_only = {
+		trigger_if = { limit = { has_global_variable = rasen_exalt_designate_cursed } NOT = { global_var:rasen_exalt_designate_cursed = scope:recipient } }
+	}
+	cost = { prestige = 100 }
+	on_accept = {
+		set_global_variable = { name = rasen_exalt_designate_cursed value = scope:recipient }
+		scope:recipient = { add_opinion = { target = scope:actor modifier = grateful_opinion opinion = 30 } }
+		custom_tooltip = rasen_nominate_exalt_tt
+	}
+	ai_will_do = { base = 0 }
+}
+
+# The ruler of the Wild Lands names who will take its Council seat when it next falls vacant.
+rasen_nominate_wild_exalt_interaction = {
+	category = interaction_category_diplomacy
+	common_interaction = no
+	icon = support_candidacy
+	desc = rasen_nominate_exalt_interaction_desc
+	auto_accept = yes
+	is_shown = {
+		scope:actor = { rasen_rules_wild_trigger = yes }
+		scope:recipient = { rasen_exalt_candidate_trigger = { LAND = wild } }
+	}
+	is_valid_showing_failures_only = {
+		trigger_if = { limit = { has_global_variable = rasen_exalt_designate_wild } NOT = { global_var:rasen_exalt_designate_wild = scope:recipient } }
+	}
+	cost = { prestige = 100 }
+	on_accept = {
+		set_global_variable = { name = rasen_exalt_designate_wild value = scope:recipient }
+		scope:recipient = { add_opinion = { target = scope:actor modifier = grateful_opinion opinion = 30 } }
+		custom_tooltip = rasen_nominate_exalt_tt
+	}
+	ai_will_do = { base = 0 }
+}
+
+# An Exalt or the hegemon raises a mighty cultivator to the Archonate, the Council's enforcers.
+rasen_raise_archon_interaction = {
+	category = interaction_category_diplomacy
+	common_interaction = no
+	icon = icon_combat
+	desc = rasen_raise_archon_interaction_desc
+	auto_accept = yes
+	is_shown = {
+		scope:actor = { OR = { rasen_is_exalt_trigger = yes this = title:h_china.holder } }
+		scope:recipient = { has_trait = ac_cultivator NOT = { has_trait = rasen_archon } NOT = { rasen_is_exalt_trigger = yes } }
+	}
+	is_valid_showing_failures_only = {
+		scope:recipient = { rasen_archon_candidate_trigger = yes }
+		custom_tooltip = { text = rasen_archonate_full_tt rasen_archonate_has_room_trigger = yes }
+	}
+	cost = { prestige = 200 }
+	on_accept = { scope:recipient = { rasen_raise_archon_effect = yes } }
+	ai_will_do = { base = 0 }
+}
+
+# The hegemon sends an Inner Kingdom noble to govern an Outer county it holds directly.
+rasen_appoint_magistrate_interaction = {
+	category = interaction_category_vassal
+	common_interaction = no
+	icon = grant_governorship
+	desc = rasen_appoint_magistrate_interaction_desc
+	auto_accept = yes
+	is_shown = {
+		scope:actor = { this = title:h_china.holder }
+		scope:recipient = { rasen_magistrate_candidate_trigger = yes }
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = { custom_tooltip = { text = rasen_no_outer_county_tt rasen_holds_outer_county_trigger = yes } }
+	}
+	on_accept = {
+		scope:recipient = { save_scope_as = rasen_magistrate }
+		scope:actor = { rasen_appoint_magistrate_effect = yes }
+	}
+	ai_will_do = { base = 0 }
+}

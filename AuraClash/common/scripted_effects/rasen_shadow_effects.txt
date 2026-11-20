@@ -1,0 +1,91 @@
+﻿# Character scope.
+rasen_join_akuma_effect = {
+	if = {
+		limit = { NOT = { has_variable = rasen_akuma_member } }
+		set_variable = rasen_akuma_member
+		add_secret = { type = rasen_secret_akuma }
+		add_character_modifier = rasen_blood_chi_modifier
+		add_to_global_variable_list = { name = rasen_akuma_members target = this }
+	}
+}
+
+# Character scope: leave the cult (the secret becomes invalid and disappears).
+rasen_leave_akuma_effect = {
+	remove_variable = rasen_akuma_member
+	remove_character_modifier = rasen_blood_chi_modifier
+	if = {
+		limit = { is_target_in_global_variable_list = { name = rasen_akuma_members target = this } }
+		remove_list_global_variable = { name = rasen_akuma_members target = this }
+	}
+}
+
+# Global scope, yearly.
+rasen_shadows_yearly_effect = {
+	# Each living Lord may draw an ambitious or broken cultivator into the cult.
+	every_in_global_list = {
+		variable = rasen_akuma_members
+		limit = { is_alive = yes has_trait = rasen_akuma_lord }
+		random = {
+			chance = 40
+			random_living_character = {
+				limit = {
+					is_ai = yes
+					age >= 16
+					has_trait = ac_cultivator
+					NOT = { has_variable = rasen_akuma_member }
+					NOT = { rasen_is_exalt_trigger = yes }
+					OR = { has_trait = ambitious has_trait = callous has_trait = arbitrary stress >= 100 }
+				}
+				rasen_join_akuma_effect = yes
+			}
+		}
+	}
+	# Players are tempted by a Clone of Taio.
+	every_player = {
+		limit = { age >= 16 has_trait = ac_cultivator NOT = { has_variable = rasen_akuma_member } }
+		random = { chance = 6 trigger_event = { id = rasen_shadows.0001 days = { 30 300 } } }
+	}
+	# The cult strikes once it is large enough.
+	if = {
+		limit = {
+			NOT = { has_global_variable = rasen_akuma_strike_cooldown }
+			any_in_global_list = { variable = rasen_akuma_members count >= 12 is_alive = yes }
+		}
+		rasen_akuma_strike_effect = yes
+	}
+	# Ryugujo's spies in the Archonate.
+	every_player = {
+		limit = { OR = { has_trait = ac_archonate_disciple rasen_is_exalt_trigger = yes } }
+		random = { chance = 5 trigger_event = { id = rasen_shadows.0020 days = { 30 300 } } }
+	}
+}
+
+# Global scope.
+rasen_akuma_strike_effect = {
+	set_global_variable = { name = rasen_akuma_strike_cooldown value = yes years = 5 }
+	random_county_in_region = {
+		region = world_rasen_outer
+		limit = { NOT = { has_county_modifier = rasen_akuma_terror_modifier } }
+		add_county_modifier = { modifier = rasen_akuma_terror_modifier years = 5 }
+		save_scope_as = rasen_akuma_target
+	}
+	if = {
+		limit = { exists = scope:rasen_akuma_target }
+		every_player = {
+			limit = { NOT = { has_variable = rasen_akuma_member } }
+			trigger_event = rasen_shadows.0010
+		}
+	}
+}
+
+# Character scope (an Exalt): the Archons expose one living member of the cult.
+rasen_archons_hunt_akuma_effect = {
+	random_in_global_list = {
+		variable = rasen_akuma_members
+		limit = { is_alive = yes NOT = { has_trait = rasen_akuma_lord } any_secret = { secret_type = rasen_secret_akuma } }
+		random_secret = {
+			limit = { secret_type = rasen_secret_akuma }
+			expose_secret = root
+		}
+	}
+}

@@ -1,0 +1,11 @@
+﻿ac_roaming_master = {
+	icon = ac_style_aoyusumu.dds
+	shown_in_ruler_designer = no
+	name = {
+		first_valid = {
+			triggered_desc = { trigger = { exists = this var:ac_roaming_grade ?= 3 } desc = trait_ac_roaming_grandmaster }
+			triggered_desc = { trigger = { exists = this var:ac_roaming_grade ?= 1 } desc = trait_ac_roaming_adept }
+			desc = trait_ac_roaming_master
+		}
+	}
+}

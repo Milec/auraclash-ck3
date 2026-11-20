@@ -1,0 +1,7 @@
+﻿# Races of Aura Clash.
+ac_is_yokai_trigger = {
+	OR = { has_trait = ac_race_yokai_cat has_trait = ac_race_yokai_wolf has_trait = ac_race_yokai_reptile has_trait = ac_race_yokai_monkey has_trait = ac_race_yokai_bovine }
+}
+ac_has_race_trigger = {
+	OR = { has_trait = ac_race_human has_trait = ac_race_oni has_trait = ac_race_lunargoth has_trait = ac_race_kitsune has_trait = ac_race_yokai_cat has_trait = ac_race_yokai_wolf has_trait = ac_race_yokai_reptile has_trait = ac_race_yokai_monkey has_trait = ac_race_yokai_bovine }
+}

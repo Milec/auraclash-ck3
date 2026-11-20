@@ -1,0 +1,2 @@
+﻿# Kitsune grow tails with power: one, plus one per eight Immortal Cores, up to nine.
+ac_kitsune_tails = { value = ac_immortal_core_count divide = 8 floor = yes add = 1 max = 9 }

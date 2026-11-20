@@ -1,0 +1,246 @@
+﻿namespace = ac_sect_life
+
+# A junior disciple asks for guidance.
+ac_sect_life.0001 = {
+	type = character_event
+	title = ac_sect_life.0001.t
+	desc = ac_sect_life.0001.desc
+	theme = learning
+	left_portrait = { character = root animation = personality_rational }
+	right_portrait = { character = scope:ac_junior animation = admiration }
+	trigger = {
+		ac_sect_master_trigger = no
+		var:ac_sect = { any_in_list = { variable = ac_members is_alive = yes has_trait = ac_sect_lower_disciple this != root } }
+	}
+	immediate = {
+		var:ac_sect = {
+			random_in_list = {
+				variable = ac_members
+				limit = { is_alive = yes has_trait = ac_sect_lower_disciple this != root }
+				save_scope_as = ac_junior
+			}
+		}
+	}
+	option = {
+		name = ac_sect_life.0001.teach
+		ac_sect_award_contribution_effect = { VALUE = 15 }
+		add_stress = 10
+		scope:ac_junior = { add_opinion = { target = root modifier = grateful_opinion opinion = 20 } }
+	}
+	option = {
+		name = ac_sect_life.0001.spar
+		add_trait_xp = { trait = ac_cultivator track = ac_core_power value = 3 }
+		scope:ac_junior = { add_trait_xp = { trait = ac_cultivator track = ac_core_power value = 2 } }
+		random = { chance = 10 increase_wounds_no_death_effect = { REASON = fight } }
+	}
+	option = {
+		name = ac_sect_life.0001.dismiss
+		add_stress = -5
+		scope:ac_junior = { add_opinion = { target = root modifier = insult_opinion opinion = -10 } }
+	}
+}
+
+# A disciple of another sect mocks yours in public.
+ac_sect_life.0002 = {
+	type = character_event
+	title = ac_sect_life.0002.t
+	desc = ac_sect_life.0002.desc
+	theme = martial
+	left_portrait = { character = root animation = anger }
+	right_portrait = { character = scope:ac_mocker animation = dismissal }
+	trigger = {
+		NOT = { has_variable = ac_duel_foe }
+		any_in_global_list = {
+			variable = ac_sects
+			this != root.var:ac_sect
+			any_in_list = { variable = ac_members ac_sect_available_trigger = yes is_ai = yes NOT = { has_variable = ac_duel_foe } }
+		}
+	}
+	immediate = {
+		# A rival sect's disciple where there is one; else any other sect's.
+		var:ac_sect = {
+			random_in_list = {
+				variable = ac_rivals
+				limit = { any_in_list = { variable = ac_members ac_sect_available_trigger = yes is_ai = yes NOT = { has_variable = ac_duel_foe } } }
+				save_scope_as = ac_mocking_sect
+			}
+		}
+		if = {
+			limit = { NOT = { exists = scope:ac_mocking_sect } }
+			random_in_global_list = {
+				variable = ac_sects
+				limit = {
+					this != root.var:ac_sect
+					any_in_list = { variable = ac_members ac_sect_available_trigger = yes is_ai = yes NOT = { has_variable = ac_duel_foe } }
+				}
+				save_scope_as = ac_mocking_sect
+			}
+		}
+		scope:ac_mocking_sect = {
+			random_in_list = {
+				variable = ac_members
+				limit = { ac_sect_available_trigger = yes is_ai = yes NOT = { has_variable = ac_duel_foe } }
+				save_scope_as = ac_mocker
+			}
+		}
+	}
+	option = {
+		name = ac_sect_life.0002.clash
+		custom_tooltip = ac_sect_life.0002.clash_tt
+		scope:ac_mocker = { save_scope_as = ac_duel_foe }
+		ac_duel_start_effect = { LETHAL = no }
+	}
+	option = {
+		name = ac_sect_life.0002.wit
+		duel = {
+			skill = diplomacy
+			target = scope:ac_mocker
+			50 = {
+				compare_modifier = { value = scope:duel_value multiplier = 3.5 min = -49 }
+				add_prestige = 50
+				var:ac_sect = { ac_sect_change_renown_effect = { VALUE = 1 } }
+			}
+			50 = {
+				compare_modifier = { value = scope:duel_value multiplier = -3.5 min = -49 }
+				add_stress = 15
+			}
+		}
+	}
+	option = {
+		name = ac_sect_life.0002.leave
+		add_stress = -5
+		var:ac_sect = { ac_sect_change_renown_effect = { VALUE = -1 } }
+		custom_tooltip = ac_sect_life.0002.leave_tt
+	}
+}
+
+# The estate asks its disciples for help.
+ac_sect_life.0003 = {
+	type = character_event
+	title = ac_sect_life.0003.t
+	desc = ac_sect_life.0003.desc
+	theme = stewardship
+	left_portrait = { character = root animation = thinking }
+	right_portrait = { character = var:ac_sect.story_owner animation = worry }
+	trigger = { ac_sect_master_trigger = no }
+	option = {
+		name = ac_sect_life.0003.gold
+		trigger = { gold >= 50 }
+		remove_short_term_gold = 50
+		var:ac_sect = { change_variable = { name = ac_treasury add = 50 } }
+		ac_sect_award_contribution_effect = { VALUE = 25 }
+	}
+	option = {
+		name = ac_sect_life.0003.labor
+		add_stress = 15
+		var:ac_sect = { change_variable = { name = ac_treasury add = 20 } }
+		ac_sect_award_contribution_effect = { VALUE = 20 }
+	}
+	option = { name = ac_sect_life.0003.decline }
+}
+
+# A season of stillness in the Cultivation Hall.
+ac_sect_life.0004 = {
+	type = character_event
+	title = ac_sect_life.0004.t
+	desc = ac_sect_life.0004.desc
+	theme = learning
+	left_portrait = { character = root animation = personality_zealous }
+	option = {
+		name = ac_sect_life.0004.study
+		ac_gain_cultivation_study_xp_effect = { XP = ac_sect_insight_xp }
+	}
+	option = {
+		name = ac_sect_life.0004.share
+		ac_sect_award_contribution_effect = { VALUE = 10 }
+		var:ac_sect = { ac_sect_change_renown_effect = { VALUE = 1 } }
+	}
+	option = {
+		name = ac_sect_life.0004.rest
+		add_stress = -20
+	}
+}
+
+# Master only: a wandering cultivator asks to enter the sect.
+ac_sect_life.0005 = {
+	type = character_event
+	title = ac_sect_life.0005.t
+	desc = ac_sect_life.0005.desc
+	theme = diplomacy
+	left_portrait = { character = root animation = personality_honorable }
+	trigger = {
+		ac_sect_master_trigger = yes
+		var:ac_sect = { var:ac_lower_count < ac_sect_lower_capacity }
+	}
+	option = {
+		name = ac_sect_life.0005.admit
+		ac_sect_seed_one_effect = { RANK = lower }
+		var:ac_sect = { ac_sect_change_renown_effect = { VALUE = 1 } }
+		custom_tooltip = ac_sect_life.0005.admit_tt
+	}
+	option = {
+		name = ac_sect_life.0005.fee
+		ac_sect_seed_one_effect = { RANK = lower }
+		var:ac_sect = { change_variable = { name = ac_treasury add = 40 } }
+		custom_tooltip = ac_sect_life.0005.fee_tt
+	}
+	option = { name = ac_sect_life.0005.refuse }
+}
+
+# Master only: a disciple has been copying the sect's manuals to sell.
+ac_sect_life.0006 = {
+	type = character_event
+	title = ac_sect_life.0006.t
+	desc = ac_sect_life.0006.desc
+	theme = intrigue
+	left_portrait = { character = root animation = disapproval }
+	right_portrait = { character = scope:ac_thief animation = fear }
+	trigger = {
+		ac_sect_master_trigger = yes
+		var:ac_sect = { any_in_list = { variable = ac_members is_alive = yes is_ai = yes has_trait = ac_sect_lower_disciple } }
+	}
+	immediate = {
+		var:ac_sect = {
+			random_in_list = {
+				variable = ac_members
+				limit = { is_alive = yes is_ai = yes has_trait = ac_sect_lower_disciple }
+				save_scope_as = ac_thief
+			}
+		}
+	}
+	option = {
+		name = ac_sect_life.0006.expel
+		scope:ac_thief = { ac_sect_leave_effect = yes }
+		var:ac_sect = { ac_sect_change_renown_effect = { VALUE = 1 } }
+		custom_tooltip = ac_sect_life.0006.expel_tt
+	}
+	option = {
+		name = ac_sect_life.0006.fine
+		var:ac_sect = { change_variable = { name = ac_treasury add = 30 } }
+		scope:ac_thief = { add_opinion = { target = root modifier = grateful_opinion opinion = 15 } }
+	}
+	option = {
+		name = ac_sect_life.0006.ignore
+		add_stress = -5
+		var:ac_sect = { ac_sect_change_renown_effect = { VALUE = -1 } }
+	}
+}
+
+# Trade Sects only: the caravans return.
+ac_sect_life.0007 = {
+	type = character_event
+	title = ac_sect_life.0007.t
+	desc = ac_sect_life.0007.desc
+	theme = stewardship
+	left_portrait = { character = root animation = happiness }
+	trigger = { var:ac_sect = { has_variable = ac_trade_sect } }
+	option = {
+		name = ac_sect_life.0007.share
+		add_gold = 40
+	}
+	option = {
+		name = ac_sect_life.0007.reinvest
+		var:ac_sect = { change_variable = { name = ac_treasury add = 60 } }
+		ac_sect_award_contribution_effect = { VALUE = 15 }
+	}
+}

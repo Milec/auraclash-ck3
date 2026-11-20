@@ -2,6 +2,7 @@
 
 # 0001 Mortal Core Training menu
 # 0002 scheduled auto-training check (hidden)
+# 0005 Immortal Core Advancement: bind Aura Pressure into a Core
 # 0100 choose Martial Arts Style
 # 0200/0201 choose Element (two pages)
 # 0300/0301 choose Foundation (two pages)
@@ -32,60 +33,50 @@ ac_cult.0001 = {
 		character = root
 		animation = personality_bold
 	}
+	immediate = { ac_init_aura_effect = yes }
 
-	option = { # Soul Core -> learning
+	option = {
 		name = ac_cult.0001.soul
-		trigger = { ac_can_train_core_trigger = { CORE = soul } }
+		trigger = { ac_can_mortal_train_trigger = yes }
 		show_as_unavailable = { always = yes }
-		ac_train_core_effect = { CORE = soul }
+		ac_mortal_core_train_effect = { CORE = soul }
 		ai_chance = {
 			base = 10
-			modifier = {
-				add = 20
-				learning >= 12
-			}
+			modifier = { add = 20 ac_mortal_training_raises_core_trigger = { CORE = soul } }
+			modifier = { add = 10 learning >= 12 }
 		}
 	}
-
-	option = { # Agility Core -> intrigue
+	option = {
 		name = ac_cult.0001.agility
-		trigger = { ac_can_train_core_trigger = { CORE = agility } }
+		trigger = { ac_can_mortal_train_trigger = yes }
 		show_as_unavailable = { always = yes }
-		ac_train_core_effect = { CORE = agility }
+		ac_mortal_core_train_effect = { CORE = agility }
 		ai_chance = {
 			base = 10
-			modifier = {
-				add = 20
-				intrigue >= 12
-			}
+			modifier = { add = 20 ac_mortal_training_raises_core_trigger = { CORE = agility } }
+			modifier = { add = 10 intrigue >= 12 }
 		}
 	}
-
-	option = { # Power Core -> martial
+	option = {
 		name = ac_cult.0001.power
-		trigger = { ac_can_train_core_trigger = { CORE = power } }
+		trigger = { ac_can_mortal_train_trigger = yes }
 		show_as_unavailable = { always = yes }
-		ac_train_core_effect = { CORE = power }
+		ac_mortal_core_train_effect = { CORE = power }
 		ai_chance = {
 			base = 10
-			modifier = {
-				add = 20
-				martial >= 12
-			}
+			modifier = { add = 20 ac_mortal_training_raises_core_trigger = { CORE = power } }
+			modifier = { add = 10 martial >= 12 }
 		}
 	}
-
-	option = { # Fortitude Core -> stewardship
+	option = {
 		name = ac_cult.0001.fortitude
-		trigger = { ac_can_train_core_trigger = { CORE = fortitude } }
+		trigger = { ac_can_mortal_train_trigger = yes }
 		show_as_unavailable = { always = yes }
-		ac_train_core_effect = { CORE = fortitude }
+		ac_mortal_core_train_effect = { CORE = fortitude }
 		ai_chance = {
 			base = 10
-			modifier = {
-				add = 20
-				stewardship >= 12
-			}
+			modifier = { add = 20 ac_mortal_training_raises_core_trigger = { CORE = fortitude } }
+			modifier = { add = 10 stewardship >= 12 }
 		}
 	}
 
@@ -118,6 +109,81 @@ ac_cult.0002 = {
 
 	immediate = {
 		ac_core_auto_train_effect = yes
+	}
+}
+
+ac_cult.0005 = {
+	type = character_event
+	title = ac_cult.0005.t
+	desc = {
+		desc = ac_cult.0005.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = ac_core_advance_auto }
+				desc = ac_cult.0005.desc_auto_on
+			}
+			desc = ac_cult.0005.desc_auto_off
+		}
+	}
+	theme = learning
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	immediate = { ac_init_aura_effect = yes }
+
+	option = {
+		name = ac_cult.0005.soul
+		trigger = { ac_can_advance_core_trigger = { CORE = soul } }
+		show_as_unavailable = { always = yes }
+		ac_advance_core_effect = { CORE = soul }
+		hidden_effect = { trigger_event = ac_cult.0005 }
+		ai_chance = { base = 10 modifier = { add = ac_core_soul_progress } }
+	}
+	option = {
+		name = ac_cult.0005.agility
+		trigger = { ac_can_advance_core_trigger = { CORE = agility } }
+		show_as_unavailable = { always = yes }
+		ac_advance_core_effect = { CORE = agility }
+		hidden_effect = { trigger_event = ac_cult.0005 }
+		ai_chance = { base = 10 modifier = { add = ac_core_agility_progress } }
+	}
+	option = {
+		name = ac_cult.0005.power
+		trigger = { ac_can_advance_core_trigger = { CORE = power } }
+		show_as_unavailable = { always = yes }
+		ac_advance_core_effect = { CORE = power }
+		hidden_effect = { trigger_event = ac_cult.0005 }
+		ai_chance = { base = 10 modifier = { add = ac_core_power_progress } }
+	}
+	option = {
+		name = ac_cult.0005.fortitude
+		trigger = { ac_can_advance_core_trigger = { CORE = fortitude } }
+		show_as_unavailable = { always = yes }
+		ac_advance_core_effect = { CORE = fortitude }
+		hidden_effect = { trigger_event = ac_cult.0005 }
+		ai_chance = { base = 10 modifier = { add = ac_core_fortitude_progress } }
+	}
+
+	option = {
+		name = ac_cult.0005.auto_on
+		trigger = { NOT = { has_character_flag = ac_core_advance_auto } }
+		add_character_flag = ac_core_advance_auto
+		custom_tooltip = ac_cult.0005.auto_on.tt
+		hidden_effect = { trigger_event = ac_cult.0005 }
+		ai_chance = { base = 0 }
+	}
+
+	option = {
+		name = ac_cult.0005.auto_off
+		trigger = { has_character_flag = ac_core_advance_auto }
+		remove_character_flag = ac_core_advance_auto
+		ai_chance = { base = 0 }
+	}
+
+	option = {
+		name = ac_cult.0005.leave
+		ai_chance = { base = 1 }
 	}
 }
 

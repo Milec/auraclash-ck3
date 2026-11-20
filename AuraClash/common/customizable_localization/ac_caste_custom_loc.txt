@@ -1,0 +1,8 @@
+﻿AC_Caste = {
+	type = character
+	text = { trigger = { ac_caste_noble_trigger = yes } localization_key = ac_caste_noble }
+	text = { trigger = { ac_caste_warrior_trigger = yes } localization_key = ac_caste_warrior }
+	text = { trigger = { ac_caste_merchant_trigger = yes } localization_key = ac_caste_merchant }
+	text = { trigger = { ac_caste_slave_trigger = yes } localization_key = ac_caste_slave }
+	text = { localization_key = ac_caste_laborer }
+}
