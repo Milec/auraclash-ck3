@@ -57,14 +57,11 @@ The overhaul and the cultivation mechanics are one mod, in `AuraClash/`: a total
      - drylands and hills in the Bladed Lands;
      - farmland on Azuma Honsha.
    - **Winter severity** for the north (Outer North, Sacred mountains).
-   - A blank, valid **`rivers.png`** (index 255 land, 254 water).
-
-   Still needs the CK3 install:
-   - **Bake the heightmap.** CK3 reads a packed `heightmap.heightmap`, `packed_heightmap.png` and `indirection_heightmap.png`. Generate them from `heightmap.png` with the game's map tooling.
-   - **Painted rivers** and water.
+   - **Rivers** (`tools/rasen_rivers.py`, drawn into `rivers.png` by the map build): about 600 rivers drain the heightmap to the sea, found by a priority flood on a 4-pixel grid with smooth noise so they meander. Outer West, "thousands of rivers" between its karst mountains, is the densest; the Outer South dunes have the fewest. Each starts at a source pixel, widens with the streams that join it, and ends at the sea or at a merge pixel beside a larger river (`test_rivers_are_well_formed`).
+   - **The packed heightmap** (`heightmap.heightmap`, `packed_heightmap.png`, `indirection_heightmap.png`) is generated from `heightmap.png` by `tools/pack_heightmap.py`.
 
    **Ground textures** (`python tools/build_rasen_terrain.py`, generated from the province map and terrain): `gfx/map/terrain/detail_index.tga` and `detail_intensity.tga` give every province the vanilla material of its terrain in its region's colours, with the source painting's drawn trees, peaks and snow showing through (`build_rasen_map.biome_layers`, with the painted region names masked out). Province terrain types come from the same layers: provinces the painting fills with peaks are mountains or hills, with trees forest (taiga in the frozen north, jungle in the Wild Lands and inland Outer South), and the Outer South coast is desert dunes. `colormap.dds` tints the ground, and `flat_maps/flatmap.dds` is a paper map drawn from the terrain (parchment, ground wash, relief shading, inked coast) with no labels or icons. The game loads them without errors, and the terrain was checked in game on 2026-11-13. The index maps are run-length-encoded TGA, which vanilla's are not.
-   - **Map object locators** (cities, units, combat) from the in-game map editor.
+   - **Map object locators** (cities, units, combat, sieges, activities and entrepots) are generated from each province's interior; army and combat locators cover land and passable sea, which is what CK3 1.21 expects.
    - `map_data` is no longer replaced wholesale, so vanilla `seasons.txt` and `continent.txt` remain available to `default.map`.
 3. **Peoples and faiths (done, generated).** `tools/build_rasen_world.py`, with its data in `tools/rasen_world_data.py`:
    - **Cultures:** Zenshin, Cathayan, Oni, Yokai and Kitsune, each with its own heritage and Zenshin-style or Cathayan name lists.
@@ -123,7 +120,7 @@ The overhaul and the cultivation mechanics are one mod, in `AuraClash/`: a total
      - Approximations:
        - The cult's faith, the Lords' ages and traits, and Ryugujin traditions and faith are design choices.
        - Masaru's twenty-three sons are not all generated.
-6. **Cleanup:** replace or guard vanilla content that assumes Earth's map (vanilla event overrides that reference real places, struggles, travel events).
+6. **Cleanup (done):** vanilla content that assumes Earth's map is guarded: landless stubs for every vanilla realm title, stub characters, patched vanilla files (`tools/build_rasen_vanilla_patches.py`) and Rasen's own roads, trade goods and districts. What remains are load-time lookups of Earth's counties and baronies (about 3,000 lines, logged once and harmless: they cannot be stubbed without provinces).
 
 ## Loading
 
@@ -177,6 +174,11 @@ Not yet verified by a person: the player-facing UI (duel rounds, Council voting,
 
 `error.log` is about 4,100 lines after loading (down from 18,700, and from 7,900 before the character stubs). The 997 Earth characters that vanilla scripts name are stubs born and dead in year 1 (`tools/build_rasen_character_stubs.py`), and Earth's tributary setup no longer runs at game start. Most of what remains is vanilla scripts naming Earth's counties and baronies, which cannot be stubbed without provinces on the map. Over a century of play the whole log is about 18,000 lines (it was 391,000 before China's wall great projects were hidden: they checked dozens of Chinese baronies whenever Rasen's hegemon looked at great projects).
 
+### Verified in-game on CK3 1.21.0.3 (Silk and Silver, all DLC)
+The same QA run now has 99 checks, all passing, including Silk and Silver districts at the hub and in villages, entrepots, trade markets, the four Oni Trade Sects (merchant companies) and their trade posts. Two unattended runs of 145 and 148 game years (the QA clock unpauses at speed 4) ended without a crash; the hegemony held every year, and Trials, sects, gates and transformations ran every year.
+
+Mercenary companies take their regiments from their culture's own men-at-arms, and Earth's regional innovations never apply on Rasen, so each Rasen culture has one men-at-arms tradition (`tools/rasen_world_data.py`). That removed about 375,000 mercenary and `can_recruit` errors a century: the whole 148-year log is now about 24,700 lines. What remains is vanilla: the imperial examination invite rules read `capital_county` on landless characters (about 3,000 lines), the Silk Road decisions, `ep3_emperor_yearly.3010`, a doubly queued on_action, and about 3,000 harmless load-time title-link lookups.
+
 ### Total-conversion lessons (CK3 1.20)
 - Do **not** `replace_path` `history/province_mapping`: without it the game crashes (null read) as soon as any province has a holding.
 - `adjacencies.csv` needs its `-1;-1;...` end line, or loading spins forever.
@@ -186,7 +188,7 @@ Not yet verified by a person: the player-facing UI (duel rounds, Council voting,
 
 ### Vanilla keys (verified against CK3 1.20.1)
 `python tools/verify_vanilla_keys.py` checks every vanilla key the mod names against the installed game; `tools/test_vanilla_keys.py` runs it whenever `CK3_GAME_ROOT` is set. All 172 references resolve:
-- The graphics sets (`mongol_*_gfx`, `steppe_*_gfx`) and the `asian` ethnicity exist. They are still placeholders for All Under Heaven's East Asian sets.
+- The graphics sets (All Under Heaven's `japanese_*_gfx` and `chinese_*_gfx`) and the `asian` ethnicity exist.
 - Traditions, ethos, martial customs, tenets and doctrines exist.
 - So do `graphical_faith`, `piety_icon_group`, the `custom_faith_N` icons, innovations, `culture_era_early_medieval`, terrain types, event themes and modifier icons.
 

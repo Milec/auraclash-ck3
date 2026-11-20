@@ -2,7 +2,7 @@
 
 Bring the cultivation system of **Aura Clash**, an eastern-fantasy (xianxia/wuxia) setting, into Crusader Kings III. Awaken as a Cultivator, train your four Combat Cores, temper your Foundation in battle, master a Martial Arts Style and two Elements, and condense an Immortal Core.
 
-**Version:** 0.5.0 · **Event integrations target:** CK3 1.20.1 · **Status:** early and playable; many perks are still placeholders
+**Version:** 1.0.0 · **Game:** CK3 1.21.0.3 with Silk and Silver (all DLC supported) · **Status:** complete and playable; not yet long-play tested by hand
 
 ---
 
@@ -30,7 +30,7 @@ mod/
 - **Start a new game** when updating from an earlier version. v0.3 replaces the Foundation trait, and v0.2 renamed the tree and perk keys.
 - `AuraClash/gui/window_character_lifestyle.gui` **replaces** the vanilla lifestyle window. It will conflict with other mods that edit that window, including Princes of Darkness and most UI overhauls.
 - One vanilla option-display define is changed: unavailable options can remain visible until **6** options are shown (vanilla is 4). This does not cap the number of available choices.
-- Cultivation integration overrides **143 individual vanilla events** using `id_override_priority = 10`, targeting CK3 **1.20.1 / 1.20.1.1**: **269 added choices in 141 events**, plus two linked tournament outcome events. Mods changing those same events need a compatibility patch. Original event files are not replaced; normal choices and cleanup are preserved, with guarded resolution for successful cultivation interventions. The generator includes required file-local helpers and constants alongside relocated events. Fully restart CK3 after updating: event priority overrides do not support hot reload.
+- Cultivation integration overrides **143 individual vanilla events** using `id_override_priority = 10`, targeting CK3 **1.21.0 / 1.21.0.3**: **267 added choices in 140 events**, plus two linked tournament outcome events. Mods changing those same events need a compatibility patch. Original event files are not replaced; normal choices and cleanup are preserved, with guarded resolution for successful cultivation interventions. The generator includes required file-local helpers and constants alongside relocated events. Fully restart CK3 after updating: event priority overrides do not support hot reload.
 - Native sect domiciles add a landless Sect Master title and register its government in `NGovernment.GOVERNMENT_TYPES`, retaining all 21 native entries. Mods replacing that list need a merged compatibility definition.
 - Six construction-notification localization keys use generic wording for Sect Masters because native messages assume a personal domicile. Other characters keep vanilla wording; mods replacing those same keys need a localization merge.
 - Potential adds conditional descriptions to `TRAIT_LEVEL_TRACK_TT`; other traits retain their native pip text. Mods replacing that localization key need a merge.
@@ -442,7 +442,7 @@ python tools/build_event_tracker.py
 python tools/build_event_tracker.py --check
 python -m unittest discover -s tools -p "test_*.py" -v
 ```
-The builder refuses game versions other than 1.20.1 until their upstream changes are reviewed. `tools/event_override_sources.json` records the source event hashes. Regression checks verify preserved vanilla options and cleanup, fatal intervention gates, linked tournament outcomes, captive eligibility, native event references, file-local helper dependencies, healing cooldowns and localization. Activity checks also cover jockey eligibility, deferred fall injuries, board-game resolution, exact brawl repairs, murder-feast bookkeeping and the exclusion of ordinary duels. They do not replace an in-game playtest: use a separate debug save to test travel, disaster contracts, plagues, prison, school techniques, tournaments, hunts, court petitions and fatal outcomes with and without the required abilities. Most of these events require scopes supplied by their normal gameplay chains; firing a bare event ID from the console is insufficient.
+The builder refuses game versions other than 1.21.0 and 1.21.0.3 until their upstream changes are reviewed. `tools/event_override_sources.json` records the source event hashes. Regression checks verify preserved vanilla options and cleanup, fatal intervention gates, linked tournament outcomes, captive eligibility, native event references, file-local helper dependencies, healing cooldowns and localization. Activity checks also cover jockey eligibility, deferred fall injuries, board-game resolution, exact brawl repairs, murder-feast bookkeeping and the exclusion of ordinary duels. They do not replace an in-game playtest: use a separate debug save to test travel, disaster contracts, plagues, prison, school techniques, tournaments, hunts, court petitions and fatal outcomes with and without the required abilities. Most of these events require scopes supplied by their normal gameplay chains; firing a bare event ID from the console is insufficient.
 
 To refresh the Excel workbook after generating the registry, run `node tools/build_event_tracker.mjs` with `@oai/artifact-tool` available through the external workspace runtime (`tools/node_modules` may be a junction to that runtime's `node_modules`). The workbook is generated from `docs/event-registry.json`; make persistent changes in the event specifications. Tracker checks verify complete coverage, sorting and source locations. DLC checks also cover restored examination preparation, the palace multiplier, noncombat rescue follow-ups, paid construction, native herd losses, driver scopes and the exclusion of catastrophic Greek-fire flags. CK3 Tiger 1.19 does not recognize several native 1.20.1 religious stress/fulfillment tokens, so its diagnostics require review rather than a blanket pass/fail claim.
 
@@ -463,14 +463,16 @@ All script keys use the `ac_` prefix to avoid clashing with vanilla or other mod
 
 ---
 
-## Imperial Rasen overhaul (in development)
-The mod is becoming a full overhaul set in Imperial Rasen, the spiral continent of Aura Clash. `tools/build_rasen_map.py` generates the map geometry (1,157 land provinces across the five Inner Kingdoms, Azuma Honsha and the four Outer provinces), title hierarchy and regions into `AuraClash/` from the painted world map. It includes the Exalted Council (five Exalts voting on imperial decrees every three years, and sponsoring favourites in the Trials), the Ice Incursions of Outer North, and races and castes by culture. `AuraClash/` loads and plays in CK3 1.21.0: load it after `AuraClash/` and pick the Heavenly Ascension Trials bookmark (3000.3.1). See the [overhaul plan](docs/overhaul.md) for the setting, design and remaining steps.
+## Imperial Rasen overhaul
+The mod is becoming a full overhaul set in Imperial Rasen, the spiral continent of Aura Clash. `tools/build_rasen_map.py` generates the map geometry (1,157 land provinces across the five Inner Kingdoms, Azuma Honsha and the four Outer provinces), title hierarchy and regions into `AuraClash/` from the painted world map. It includes the Exalted Council (five Exalts voting on imperial decrees every three years, and sponsoring favourites in the Trials), the Ice Incursions of Outer North, and races and castes by culture. `AuraClash/` loads and plays in CK3 1.21.0.3: pick the Heavenly Ascension Trials bookmark (3000.3.1). See the [overhaul plan](docs/overhaul.md) for the setting, design and remaining steps.
 
 ## Roadmap
+Done since 0.5: the Prayer Talisman requirement for Aoyusumu's Chi Healing, cultivation taught by a cultivator guardian or parent, and the port to CK3 1.21 with Silk and Silver (roads, trade goods, districts, entrepots and Outer South's Trade Sects).
+
+Still open:
 - Lore-accurate refinements of the current perks, plus capstone traits
-- Prayer Talisman requirement for Aoyusumu's Chi Healing
-- Cultivator gained through a good tutor (childhood nurture by a cultivator guardian or parent is implemented)
 - Additional artwork for perks, decisions and interface elements
+- A hand playtest of the interface and of long play
 
 ---
 

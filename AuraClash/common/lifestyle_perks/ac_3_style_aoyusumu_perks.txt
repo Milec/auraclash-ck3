@@ -227,7 +227,7 @@ ac_3_style_aoyusumu_j_perk = {
 
 	effect = {
 		custom_description_no_bullet = {
-			text = ac_perk_unlocks_heal
+			text = ac_perk_unlocks_heal_talisman
 		}
 	}
 }

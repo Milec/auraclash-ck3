@@ -120,7 +120,11 @@ ac_ai_cultivation_aspirant_trigger = {
 # Has a perk that unlocks Chi Healing
 ac_can_chi_heal_trigger = {
 	OR = {
-		has_perk = ac_3_style_aoyusumu_j_perk
+		# Aoyusumu heals through prayer: its masters also need the Prayer Talisman Technique.
+		AND = {
+			has_perk = ac_3_style_aoyusumu_j_perk
+			has_character_flag = ac_tech_prayer_talisman
+		}
 		has_perk = ac_3_style_kiihakai_c_perk
 		has_perk = ac_4_element_water_a_perk
 	}

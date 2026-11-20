@@ -34,44 +34,47 @@ NORTHERN_GFX = {
     'clothing_gfx': ['northern_clothing_gfx'], 'unit_gfx': ['northern_unit_gfx'],
 }
 
+# Each culture's last tradition unlocks its own men-at-arms (CK3 1.21 mercenary companies draw their
+# regiments from these; vanilla's regional innovations never apply on Rasen). The Bladed Lands' Zenshin
+# have samurai, as the lore says; the others are the nearest fit.
 CULTURES = {
     'zenshin': dict(name='Zenshin', prefix='Zen', plural='Zenshin', colour=(200, 60, 50),
                     desc='The people of Imperial Rasen, descended from Cathayan settlers. For three millennia the katana has set Zenshin warriors apart from their Cathayan forebears.',
                     heritage='heritage_zenshin', heritage_name='Zenshin', language='language_zenshin', language_name='Zenshin',
                     ethos='ethos_bellicose', martial_custom='martial_custom_equal', name_list='name_list_zenshin', ethnicity='asian_japanese',
-                    traditions=['tradition_martial_admiration', 'tradition_ruling_caste', 'tradition_castle_keepers', 'tradition_legalistic'], **JAPANESE_GFX),
+                    traditions=['tradition_martial_admiration', 'tradition_ruling_caste', 'tradition_castle_keepers', 'tradition_legalistic', 'tradition_tgp_bushido'], **JAPANESE_GFX),
     'cathayan': dict(name='Cathayan', prefix='Cathay', plural='Cathayans', colour=(210, 160, 60),
                      desc='Heirs of the Cathayan Empire, shattered by the Calamity. Their hanfu robes, qiang and jian survive across the Mystic and Sacred Lands.',
                      heritage='heritage_cathayan', heritage_name='Cathayan', language='language_cathayan', language_name='Old Cathayan',
                      ethos='ethos_bureaucratic', martial_custom='martial_custom_equal', name_list='name_list_cathayan', ethnicity='asian_han_chinese',
-                     traditions=['tradition_philosopher_culture', 'tradition_poetry', 'tradition_legalistic'], **CHINESE_GFX),
+                     traditions=['tradition_philosopher_culture', 'tradition_poetry', 'tradition_legalistic', 'tradition_tgp_art_of_war'], **CHINESE_GFX),
     'oni': dict(name='Oni', prefix='Oni', plural='Oni', colour=(170, 40, 40),
                 desc='Spirits who longed for a human form. Oni are horned, often red-skinned, and formidable in body.',
                 heritage='heritage_oni', heritage_name='Oni', language='language_zenshin', language_name='Zenshin',
                 ethos='ethos_stoic', martial_custom='martial_custom_equal', name_list='name_list_zenshin', ethnicity='asian_japanese',
-                traditions=['tradition_warrior_culture', 'tradition_mountain_homes', 'tradition_stalwart_defenders'], **JAPANESE_GFX),
+                traditions=['tradition_warrior_culture', 'tradition_mountain_homes', 'tradition_stalwart_defenders', 'tradition_fortress_mastery'], **JAPANESE_GFX),
     'yokai': dict(name='Yokai', prefix='Yokai', plural='Yokai', colour=(90, 130, 50),
                   desc='Beasts who longed for a human form: wolf, monkey and stranger kin. Many roam the Wild Lands, where strength alone earns respect.',
                   heritage='heritage_yokai', heritage_name='Yokai', language='language_zenshin', language_name='Zenshin',
                   ethos='ethos_bellicose', martial_custom='martial_custom_equal', name_list='name_list_zenshin', ethnicity='asian_japanese',
-                  traditions=['tradition_forest_folk', 'tradition_hit_and_run', 'tradition_warrior_culture'], **JAPANESE_GFX),
+                  traditions=['tradition_forest_folk', 'tradition_hit_and_run', 'tradition_warrior_culture', 'tradition_bush_hunting'], **JAPANESE_GFX),
     'lunargoth': dict(name='Lunargoth', prefix='Luna', plural='Lunargoths', colour=(170, 190, 220),
                       desc='Fair-haired northerners of Outer North who fill the Northern Army. They answer to the Divine General, call him Emperor of all ten Provinces, and treat boons and debts as cowardice.',
                       heritage='heritage_lunargoth', heritage_name='Lunargoth', language='language_lunargoth', language_name='Lunargothic',
                       ethos='ethos_stoic', martial_custom='martial_custom_equal', name_list='name_list_lunargoth', ethnicity='caucasian_northern_blond',
-                      traditions=['tradition_stalwart_defenders', 'tradition_warrior_culture', 'tradition_mountain_homes'], **NORTHERN_GFX),
+                      traditions=['tradition_stalwart_defenders', 'tradition_warrior_culture', 'tradition_mountain_homes', 'tradition_mpo_iron_cavalry'], **NORTHERN_GFX),
     'kitsune': dict(name='Kitsune', prefix='Kitsune', plural='Kitsune', colour=(220, 120, 40),
                     desc='The rarest people of Rasen: part beast, part spirit, part human. Many sects treat Kitsune as trickster spirits rather than a race.',
                     heritage='heritage_kitsune', heritage_name='Kitsune', language='language_zenshin', language_name='Zenshin',
                     ethos='ethos_courtly', martial_custom='martial_custom_equal', name_list='name_list_zenshin', ethnicity='asian_japanese',
-                    traditions=['tradition_xenophilic', 'tradition_hit_and_run', 'tradition_poetry'], **JAPANESE_GFX),
+                    traditions=['tradition_xenophilic', 'tradition_hit_and_run', 'tradition_poetry', 'tradition_tgp_warrior_monks'], **JAPANESE_GFX),
     # Ch. 9: "the draconic underwater dome-cities of Ryugujo", a foreign nation to the southeast
     # whose city-states are ruled by Dragon Princes. Off the painted map; its people appear as envoys and spies.
     'ryugujin': dict(name='Ryugujin', prefix='Ryugu', plural='Ryugujin', colour=(40, 150, 160),
                      desc='The people of Ryugujo, whose draconic dome-cities lie beneath the sea southeast of Imperial Rasen. Each city-state is ruled from the seat of a Dragon Prince.',
                      heritage='heritage_ryugujin', heritage_name='Ryugujin', language='language_ryugujin', language_name='Ryugujin',
                      ethos='ethos_courtly', martial_custom='martial_custom_equal', name_list='name_list_ryugujin', ethnicity='asian_japanese',
-                     traditions=['tradition_seafaring', 'tradition_isolationist', 'tradition_mystical_ancestors'], **JAPANESE_GFX),
+                     traditions=['tradition_seafaring', 'tradition_isolationist', 'tradition_mystical_ancestors', 'tradition_maritime_way_of_life'], **JAPANESE_GFX),
 }
 
 NAME_LISTS = {

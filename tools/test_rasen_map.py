@@ -62,7 +62,31 @@ class RasenMapTests(unittest.TestCase):
         self.assertLessEqual(set(re.findall(r'(?m)^\d+=(\w+)$', terrain)), valid)
         rivers = Image.open(ROOT / 'map_data/rivers.png')
         self.assertEqual((rivers.mode, rivers.size), ('P', (rasen.MAP_WIDTH, rasen.MAP_HEIGHT)))
-        self.assertLessEqual(set(np.unique(np.asarray(rivers)).tolist()), {254, 255})
+        self.assertLessEqual(set(np.unique(np.asarray(rivers)).tolist()), {0, 1, 3, 4, 5, 6, 9, 254, 255})
+
+    def test_rivers_are_well_formed(self):
+        # CK3 rivers: 1-pixel 4-connected lines; a source (0) starts each, and each ends at the sea
+        # or at a merge (1) beside the river it joins. Rivers never run side by side.
+        index = np.asarray(Image.open(ROOT / 'map_data/rivers.png'))
+        river, water = index < 254, index == 254
+        near = np.zeros(index.shape, int)
+        wet = np.zeros(index.shape, int)
+        for dy, dx in ((0, 1), (1, 0), (0, -1), (-1, 0)):
+            near += np.roll(river, (dy, dx), (0, 1))
+            wet += np.roll(water, (dy, dx), (0, 1))
+        sources, merges = (index == 0).sum(), (index == 1).sum()
+        self.assertGreater(sources, 300)
+        self.assertTrue((near[index == 0] == 1).all())
+        self.assertTrue((near[index == 1] == 2).all())
+        ends = river & (near == 1) & (index != 0)
+        self.assertTrue(wet[ends].all())
+        self.assertEqual(int(ends.sum()) + int(merges), int(sources))
+        # Only mouths touch water, and only joins (beside a merge) have three river neighbours.
+        self.assertEqual(int((river & (wet > 0)).sum()), int(ends.sum()))
+        merge_next = np.zeros(index.shape, bool)
+        for dy, dx in ((0, 1), (1, 0), (0, -1), (-1, 0)):
+            merge_next |= np.roll(index == 1, (dy, dx), (0, 1))
+        self.assertFalse((river & (near > 2) & ~merge_next).any())
 
     def test_heightmap_matches_canvas(self):
         height = Image.open(ROOT / 'map_data/heightmap.png')

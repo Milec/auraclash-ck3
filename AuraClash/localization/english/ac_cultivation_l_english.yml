@@ -639,6 +639,7 @@
  ac_4_element_wind_name:0 "ac_4_element_wind_visible"
  ac_4_element_wind_visible:0 "Wind Element"
  ac_perk_unlocks_heal:0 "Unlocks the #V Chi Healing#! interaction: mend one level of a character's wounds (your own included)."
+ ac_perk_unlocks_heal_talisman:0 "With the #V Prayer Talisman#! Technique, unlocks the #V Chi Healing#! interaction: mend one level of a character's wounds (your own included)."
  ac_perk_unlocks_scry:0 "Unlocks the #V Scry#! interaction: try to uncover a character's secrets."
  ac_perk_unlocks_hex:0 "Unlocks the #V Hex#! interaction: curse a character to weaken one of their skills for a year."
  ac_perk_unlocks_copy:0 "Unlocks the #V Copy Technique#! interaction: steal a lifestyle perk point from a prisoner."

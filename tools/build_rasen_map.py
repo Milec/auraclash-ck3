@@ -32,6 +32,7 @@ from scipy import ndimage as nd
 from scipy.cluster.vq import kmeans2
 from scipy.spatial import cKDTree
 
+import rasen_rivers
 from rasen_names import NameForge
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -677,9 +678,9 @@ def climate(region_of):
     return '\n'.join(lines) + '\n'
 
 
-def rivers_png(labels):
-    """CK3 rivers.png: 8-bit indexed, 255 = land (white), 254 = water (pink); no rivers drawn yet."""
-    index = np.where(labels > 0, 255, 254).astype(np.uint8)
+def rivers_png(labels, height, provinces, region_of):
+    """CK3 rivers.png: 8-bit indexed, 255 = land (white), 254 = water (pink), rivers drawn by rasen_rivers."""
+    index = rasen_rivers.draw(np.where(labels > 0, 255, 254).astype(np.uint8), height, provinces, region_of)
     image = Image.fromarray(index, 'P')
     palette = [0] * 768
     palette[0:3] = (0, 255, 0)        # river source
@@ -779,7 +780,7 @@ def render(write=True):
     terrain, properties = province_terrain(provinces, region_of, height, (tree, rock_drawn, snow))
     files['common/province_terrain/00_rasen_province_terrain.txt'] = ('\ufeff' + terrain).encode('utf-8')
     files['common/province_terrain/01_rasen_province_properties.txt'] = ('\ufeff' + properties).encode('utf-8')
-    files['map_data/rivers.png'] = rivers_png(target)
+    files['map_data/rivers.png'] = rivers_png(target, height, provinces, region_of)
     default, land_ids, sea_ids, ocean_ids = default_map(region_of)
     files['map_data/default.map'] = default.encode('utf-8')
     files['map_data/definition.csv'] = definition_csv(colours, names, count).encode('utf-8')
@@ -822,7 +823,8 @@ def render(write=True):
     files['map_data/geographical_regions/00_rasen_vanilla_region_stubs.txt'] = ('﻿' + '\n'.join(stubs) + '\n').encode('utf-8')
     files['map_data/seasons.txt'] = SEASONS.encode('utf-8')
     files['map_data/climate.txt'] = climate(region_of).encode('utf-8')
-    files.update(map_object_locators(provinces, land_ids, sea_ids + ocean_ids))
+    # Impassable ocean zones get no army or combat locator: CK3 1.21 reports those files incomplete otherwise.
+    files.update(map_object_locators(provinces, land_ids, sea_ids))
     summary = {
         'land_provinces': len(land_ids), 'sea_zones': len(sea_ids), 'impassable_seas': len(ocean_ids),
         'kingdoms': {k['key']: {'duchies': len(k['duchies']),
