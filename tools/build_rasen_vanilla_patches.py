@@ -9,8 +9,9 @@ affected vanilla file with a copy read from the installed game, changing only:
   zone, which never holds a holding, character or army, so those checks are false.
 - `barony ?= title:b_constantinople` / `title:b_roma` in common/buildings/special_buildings/
   00_special_buildings.txt: replaced by `always = no` (Theodosian and Aurelian Walls).
-- Game-start setup of Earth's military and monastic orders, and two test events, in
-  common/on_action/game_start.txt: commented out (each logged hundreds of errors).
+- Game-start setup of Earth's military and monastic orders, historical merchant companies and
+  house relations, and two test events, in common/on_action/game_start.txt: commented out (each
+  logged errors at every start).
 - Earth counties in the Japanese house-name table (common/scripted_effects/
   10_dlc_tgp_japan_scripted_effects.txt): replaced by a never-held stub title, so the table
   parses without errors and its county conditions are simply false.
@@ -52,7 +53,14 @@ LINE_EDITS['common/on_action/game_start.txt'] = [
     ('\t\t\tset_up_historical_monastic_orders_effect = yes\n', '\t\t\t# Imperial Rasen: no Earth monastic orders\n'),
     ('\t\tset_up_historical_military_orders_effect = yes\n', '\t\t# Imperial Rasen: no Earth military orders\n'),
     ('\t\tsetup_tributaries_effect = yes # defined in 00_tributary_setup_effect.txt\n', '\t\t# Imperial Rasen: no Earth tributaries\n'),
+    # Relations between Earth's historical houses (about 10 errors at game start).
+    ('\t\ttgp_setup_historical_house_relation_effect = yes\n', '\t\t# Imperial Rasen: no Earth house relations (tgp)\n'),
+    ('\t\tgdp_setup_historical_house_relation_effect = yes\n', '\t\t# Imperial Rasen: no Earth house relations (gdp)\n'),
 ]
+# Earth's historical merchant companies (about 40 errors at game start); Rasen's Trade Sects are set up
+# in common/on_action/rasen_merchant_on_actions.txt instead.
+EARTH_COMPANY = re.compile(r'^(\t*)(gdp_historical_company_(?:setup|expertise)_effect = \{ TITLE = c_merchant_\w+ .*)$', re.M)
+EARTH_COMPANY_COUNT = 21
 # China's wall great projects check dozens of Chinese baronies and were the bulk of the error log once
 # Rasen's hegemony took the h_china key (about 95,000 errors a century). They never apply to Rasen.
 LINE_EDITS['common/great_projects/types/00_great_project_types.txt'] = [
@@ -174,6 +182,9 @@ def render(game: Path):
             text = COUNTY.sub(lambda m: m.group(0) if m.group(1) in ours else f'title:{TITLE_STANDIN}', text)
         if relative in EARTH_STATEMENT_FILES:
             text = comment_earth_statements(text, all_our_titles(), standin)
+            text, count = EARTH_COMPANY.subn(r'\1# Imperial Rasen (Earth company): \2', text)
+            if count != EARTH_COMPANY_COUNT:
+                raise SystemExit(f'{relative}: expected {EARTH_COMPANY_COUNT} Earth companies, found {count} (game version changed?)')
         if relative in DYNASTY_FILES:
             text = DYNASTY.sub('always = no # Imperial Rasen: none of Earth\'s dynasties', text)
         if relative == HOLY_SITES:
