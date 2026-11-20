@@ -79,13 +79,13 @@ SITE_COUNTY, SITE_BARONY = 'c_azuma', 'b_azuma'
 # county modifiers, important locations: about 470 errors in CK3 1.21). Statements that begin by
 # scoping to a title that is not on the map, or to the off-map stand-in province, are commented out.
 EARTH_STATEMENT_FILES = ('common/on_action/game_start.txt',)
-SCOPE_START = re.compile(r'(?:title:([hekdcb]_\w+)|province:(\d+))[\w.]*\s*\??=\s*\{')
+SCOPE_START = re.compile(r'(?:title:([hekdcb]_[\w-]+)|province:(\d+))[\w.]*\s*\??=\s*\{')
 BRANCH = re.compile(r'(?:if|else_if|else)\s*=\s*\{')
 
 
 def all_our_titles():
     text = (OUT / 'common/landed_titles/00_rasen_titles.txt').read_text(encoding='utf-8-sig')
-    return set(re.findall(r'\b([hekdcb]_\w+) = \{', text))
+    return set(re.findall(r'\b([hekdcb]_[\w-]+) = \{', text))
 
 
 def comment_earth_statements(text: str, ours: set, standin: int) -> str:

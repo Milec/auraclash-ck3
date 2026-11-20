@@ -1,5 +1,5 @@
 {
-  "ck3_version": "1.21.0",
+  "ck3_version": "1.21.0.3",
   "events": [
     {
       "event": "travel_danger_events.3004",

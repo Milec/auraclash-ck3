@@ -130,7 +130,7 @@ The overhaul and the cultivation mechanics are one mod, in `AuraClash/`: a total
 `AuraClash/` loads and plays in CK3 1.20.1.2.
 
 ### Port to CK3 1.21.0 (playable, 2026-11-19)
-Steam updated the game to 1.21.0 on 2026-11-17. The mod now loads and plays on it: the QA run starts the bookmark, all 89 checks pass, and `error.log` is about 3,800 lines after loading (6,200 before the game-start patches below). Changes:
+Steam updated the game to 1.21.0 on 2026-11-17 (and to the 1.21.0.3 hotfix on 2026-11-19, which changed none of the overridden events). The mod now loads and plays on it with Silk and Silver: the QA run starts the bookmark, all 94 checks pass, and `error.log` is about 3,900 lines after loading (6,200 before the game-start patches below). Changes:
 - County development is now **prosperity**: `prosperity_growth_factor`, `character_capital_county_monthly_prosperity_growth_add`, `innovation_prosperity_01`, `county_modifier_prosperity_*` icons, `order_by = prosperity_level`.
 - County opinion, control and tax: `popular_opinion_add`, `monthly_control_change`, `domain_tax_mult` (character) and `all_tax_mult` (county).
 - Special buildings sit in **special districts** (`common/districts`). The Spirit Fruit Grove is `ac_spirit_fruit_grove_district`, placed with `add_special_district_slot`/`add_special_district`.
@@ -142,6 +142,12 @@ Steam updated the game to 1.21.0 on 2026-11-17. The mod now loads and plays on i
 - **Trade goods.** Vanilla's `county_potential_trade_goods` names Earth counties (14,000 errors). `tools/build_rasen_trade.py` overrides it, giving Rasen's counties the 35 goods by terrain and region, with rare goods in the hills and mountains and fish on the coasts: about five goods a county, each good in at least two.
 - **Governments.** 1.21 adds `merchant_government` to the `GOVERNMENT_TYPES` define, which the mod overrides for its sect domiciles; the override now keeps all 21 native entries, and a test compares the list with the installed game.
 - **Soryo succession.** 1.21 gives `japan_feudal` rulers a starting succession law only when they are independent, so the Bladed Lands' lords had none ("unhandled succession order [invalid]"). `rasen_soryo_succession` (on game start) gives them primogeniture; about 30 such lines are still logged while the game loads, before it runs.
+- **Districts** (Silk and Silver). Vanilla 1.21 history gives each settled province its holding district and three to five more; Rasen's provinces get the same through `tools/rasen_districts.py`, which `build_rasen_world.py` writes into the province history (year 2999):
+  - every holding has its holding district and villages; county seats add a district for one of the county's trade goods (so it is always buildable) and a military, manor or religious community district;
+  - duchy seats (the trade markets) are walled, with a port on the coast; realm capitals and Azuma Honsha add markets and urban housing; province size runs from 2 (county seats) to 8 (Azuma Honsha);
+  - **entrepots**, Silk and Silver's great trading ports, start at the 20 busiest coastal markets: the coastal realm capitals and the ends of the sea roads, 13 of them in the Outer Lands;
+  - `gfx/map/map_object_data/entrepot_locators.txt` (`python tools/rasen_districts.py`) places each coastal province's entrepot just offshore; CK3 wants an entry for every land province.
+  - Trade posts are left out: they need merchant-republic owners, and Rasen has no merchant government.
 - **Game start.** 1.21's `game_start.txt` sets up landmarks, districts, county modifiers and important locations on Earth titles. `tools/build_rasen_vanilla_patches.py` comments out each statement that scopes to a title not on the map, or to the off-map stand-in province (about 1,200 lines, keeping the line count). What remains is about 100 lines from historical merchant companies, house relations and Silk Road decisions on Earth titles; they don't affect play.
 
 ### Government

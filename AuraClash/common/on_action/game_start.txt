@@ -28,9 +28,9 @@ on_game_start = {
 				has_mpo_dlc_trigger = no
 				current_date >= 1000.1.1
 			}
-			title:e_caspian-pontic_steppe = {
-				set_title_name = cn_cumania
-			}
+			# Imperial Rasen (not on the map): title:e_caspian-pontic_steppe = {
+				# Imperial Rasen (not on the map): set_title_name = cn_cumania
+			# Imperial Rasen (not on the map): }
 		}
 		#Rabbene Gershom outlaws polygamy
 		if = {
@@ -529,7 +529,7 @@ on_game_start = {
 	        # Imperial Rasen (not on the map): title:b_konarak.title_province = { add_special_district_slot = konark_temple_01_district } #928
 	        # Imperial Rasen (not on the map): title:b_fes.title_province = { add_special_district = al_qarawiyyin_university_01_district } #4694
 	        # Imperial Rasen (not on the map): title:b_kairouan.title_province = { add_special_district = kairouan_basins_01_district } #4594
-	        title:b_al-ghaba.title_province = { add_special_district = ghana_palace_01_district } #6628 #NOTE: likely existed since the 8th, but earliest (only) source on palace is from 1068
+	        # Imperial Rasen (not on the map): title:b_al-ghaba.title_province = { add_special_district = ghana_palace_01_district } #6628 #NOTE: likely existed since the 8th, but earliest (only) source on palace is from 1068
 	        # Imperial Rasen (not on the map): title:b_visegrad_hun.title_province = { add_special_district_slot = visegrad_castle_01_district } #3803
 	        # Imperial Rasen (not on the map): if = { limit = { game_start_date >= 1161.9.15 } title:b_leczyca.title_province = { add_special_district = wawel_cathedral_01_district } } #4924 #Date of consecreation of Archcollegiate Church of St. Mary and St. Alexius in Tum
 	        # Imperial Rasen (not on the map): else = { title:b_leczyca.title_province = { add_special_district_slot = wawel_cathedral_01_district } }
@@ -1625,8 +1625,8 @@ on_game_start = {
 		### REGIONAL CROP BOUNTIES ###
 		# Bounty of the Nile
 		# Imperial Rasen (not on the map): title:c_damietta = { add_county_modifier = bounty_of_the_nile_modifier }
-		title:c_al-buhaira = { add_county_modifier = bounty_of_the_nile_modifier }
-		title:c_al-gharbiya = { add_county_modifier = bounty_of_the_nile_modifier }
+		# Imperial Rasen (not on the map): title:c_al-buhaira = { add_county_modifier = bounty_of_the_nile_modifier }
+		# Imperial Rasen (not on the map): title:c_al-gharbiya = { add_county_modifier = bounty_of_the_nile_modifier }
 		# Imperial Rasen (not on the map): title:c_sharkiya = { add_county_modifier = bounty_of_the_nile_modifier }
 		# Imperial Rasen (not on the map): title:c_cairo = { add_county_modifier = bounty_of_the_nile_modifier }
 		# Imperial Rasen (not on the map): title:c_giza = { add_county_modifier = bounty_of_the_nile_modifier }

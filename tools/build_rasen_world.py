@@ -14,6 +14,7 @@ import random
 import re
 from pathlib import Path
 
+import rasen_districts as districts
 from rasen_world_data import (BOOKMARK, CANON_CAST, CULTURE_RACE, DIVINE_GENERAL, YOKAI_KINDS, INNOVATIONS, MORTAL_LIMIT_BONUS, SECT_SEATS, SECT_STANDING, CANON_HOLDERS, CULTURES, EXALTS, FAITHS, HOLY_SITES,
                               GOVERNMENT_EFFECTS, KINGDOM_RULERS, REGION_GOVERNMENT, WILD_MAO, NAME_LISTS, RELIGIONS, REGION_PEOPLES, RELIGION_LOC_KEYS, START, TRAIT_GROUPS)
 
@@ -434,7 +435,9 @@ def history_files(kingdoms):
                     holding = order[bi] if bi < len(order) else 'none'
                     # As in vanilla, only the county's capital province carries culture and rite.
                     people_lines = [f'culture = {culture}', f'rite = {faith}'] if bi == 0 else []
-                    provinces.append(block(str(province), [*people_lines, f'holding = {holding}']))
+                    # CK3 1.21 districts (tools/rasen_districts.py), set the year before the game starts.
+                    built = districts.history_lines(province, holding, START[0] - 1)
+                    provinces.append(block(str(province), [*people_lines, f'holding = {holding}', *built]))
     family_rng = random.Random(SEED + 1)
     for cid in sorted({h for h in re.findall(r'holder = (rasen_\d+)', '\n'.join(titles))}, key=lambda c: int(c.split('_')[1])):
         people.family(cid, family_rng)

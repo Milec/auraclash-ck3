@@ -134,6 +134,14 @@ def event():
                           f'participant_group_type = {movement}_movement var:movement_leader ?= global_var:rasen_exalt_{land} }} }}'))
     # CK3 1.21: the Bladed Lands' Soryo rulers start with primogeniture (rasen_soryo_succession).
     body.append(check('soryo_succession', 'title:k_bladed.holder = { has_realm_law = single_heir_succession_law } title:d_shigayama.holder = { has_realm_law = single_heir_succession_law }'))
+    # Silk and Silver (CK3 1.21): starting districts, entrepots and trade markets (tools/rasen_districts.py).
+    body.append(check('districts_hub', 'title:c_azuma.title_province = { province_has_district = market_district '
+                                       'province_has_district = entrepot_location_district province_has_district = walls_district }'))
+    body.append(check('districts_villages', 'title:c_whitemarch.title_province = { province_has_district = villages_district }'))
+    body.append(check('districts_entrepots', 'any_county_in_region = { region = world_rasen_outer count >= 3 '
+                                             'title_province = { province_has_district = entrepot_location_district } }'))
+    body.append(check('trade_market_hub', 'exists = title:c_azuma.title_province.barony.trade_market'))
+    body.append(check('trade_market_outer', 'exists = title:c_nanhou.title_province.barony.trade_market'))
     body.append(check('peace_law', 'title:h_china.holder = { has_realm_law_flag = rasen_great_lords_need_leave }'))
     body.append(check('exalt_co_monarch', 'title:h_china.holder = { diarch ?= { rasen_is_exalt_trigger = yes } }'))
     body.append(check('exalt_estate', 'global_var:rasen_exalt_bladed = { has_domicile = yes }'))
