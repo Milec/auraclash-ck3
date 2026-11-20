@@ -353,3 +353,18 @@ CANON_CAST = [
          desc='Dragon Prince of Ryugujo, heir to one of its ruling seats, and secretly in league with the Akuma Lords.'),
 ]
 YOKAI_KINDS = ['yokai_cat', 'yokai_wolf', 'yokai_reptile', 'yokai_monkey', 'yokai_bovine']
+# The Oni merchant families of Outer South run Trade Sects from its desert port cities, at the
+# entrance to Rasen's waters (Aura Clash Core Rulebook). In CK3 1.21 they are merchant companies:
+# landless c_merchant_ titles (merchant_government) with trade posts in the great markets.
+# `category` is the trade good category of their old craft; `founded` sets its starting expertise.
+MERCHANT_FAMILIES = [
+    dict(key='akagane', house='Akagane', name='Takeshi', female=False, age=54, seat='c_chizeta',
+         category='base_metals', founded=2610, colour=(178, 72, 52)),
+    dict(key='benisuna', house='Benisuna', name='Kaede', female=True, age=47, seat='c_goldwell',
+         category='jewelry_materials', founded=2700, colour=(196, 120, 64)),
+    dict(key='kinsaba', house='Kinsaba', name='Daichi', female=False, age=61, seat='c_lotuscove',
+         category='luxury_items', founded=2550, colour=(204, 170, 70)),
+    dict(key='shuhama', house='Shuhama', name='Haruka', female=True, age=42, seat='c_sahama',
+         category='incense', founded=2820, colour=(160, 60, 90)),
+]
+MERCHANT_TRADE_POSTS = 3  # each family's posts at the great markets outside Outer South

@@ -16,6 +16,7 @@
 			district = { type = entrepot_location_district level = 2 }
 		}
 	}
+	2999.6.1 = { trade_post = { type = trade_post_location_district level = 1 owner = rasen_886 } }
 }
 
 48 = {
@@ -44,6 +45,7 @@
 			district = { type = entrepot_location_district level = 1 }
 		}
 	}
+	2999.6.1 = { trade_post = { type = trade_post_location_district level = 1 owner = rasen_883 } }
 }
 
 23 = {
@@ -242,6 +244,7 @@
 			district = { type = entrepot_location_district level = 1 }
 		}
 	}
+	2999.6.1 = { trade_post = { type = trade_post_location_district level = 1 owner = rasen_883 } }
 }
 
 91 = {
@@ -260,6 +263,7 @@
 			district = { type = entrepot_location_district level = 1 }
 		}
 	}
+	2999.6.1 = { trade_post = { type = trade_post_location_district level = 1 owner = rasen_895 } }
 }
 
 116 = {
@@ -1798,6 +1802,7 @@
 			district = { type = entrepot_location_district level = 1 }
 		}
 	}
+	2999.6.1 = { trade_post = { type = trade_post_location_district level = 1 owner = rasen_886 } }
 }
 
 130 = {
@@ -1918,6 +1923,7 @@
 			district = { type = entrepot_location_district level = 1 }
 		}
 	}
+	2999.6.1 = { trade_post = { type = trade_post_location_district level = 1 owner = rasen_890 } }
 }
 
 114 = {
@@ -1990,6 +1996,7 @@
 			district = { type = entrepot_location_district level = 1 }
 		}
 	}
+	2999.6.1 = { trade_post = { type = trade_post_location_district level = 1 owner = rasen_890 } }
 }
 
 182 = {
@@ -2030,6 +2037,7 @@
 			district = { type = entrepot_location_district level = 2 }
 		}
 	}
+	2999.6.1 = { trade_post = { type = trade_post_location_district level = 1 owner = rasen_883 } }
 }
 
 247 = {
@@ -2643,6 +2651,7 @@
 			district = { type = entrepot_location_district level = 1 }
 		}
 	}
+	2999.6.1 = { trade_post = { type = trade_post_location_district level = 1 owner = rasen_895 } }
 }
 
 211 = {
@@ -2947,6 +2956,7 @@
 			district = { type = entrepot_location_district level = 2 }
 		}
 	}
+	2999.6.1 = { trade_post = { type = trade_post_location_district level = 1 owner = rasen_886 } }
 }
 
 307 = {
@@ -4177,6 +4187,7 @@
 			district = { type = entrepot_location_district level = 1 }
 		}
 	}
+	2999.6.1 = { trade_post = { type = trade_post_location_district level = 1 owner = rasen_890 } }
 }
 
 372 = {
@@ -6364,6 +6375,7 @@
 			district = { type = entrepot_location_district level = 2 }
 		}
 	}
+	2999.6.1 = { trade_post = { type = trade_post_location_district level = 1 owner = rasen_895 } }
 }
 
 710 = {

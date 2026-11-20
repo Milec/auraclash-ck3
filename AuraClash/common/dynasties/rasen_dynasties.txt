@@ -237,3 +237,23 @@ dynasty_rasen_ryugu = {
 	name = "dynasty_rasen_ryugu"
 	culture = ryugujin
 }
+
+dynasty_rasen_akagane = {
+	name = "dynasty_rasen_akagane"
+	culture = oni
+}
+
+dynasty_rasen_benisuna = {
+	name = "dynasty_rasen_benisuna"
+	culture = oni
+}
+
+dynasty_rasen_kinsaba = {
+	name = "dynasty_rasen_kinsaba"
+	culture = oni
+}
+
+dynasty_rasen_shuhama = {
+	name = "dynasty_rasen_shuhama"
+	culture = oni
+}

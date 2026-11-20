@@ -142,6 +142,13 @@ def event():
                                              'title_province = { province_has_district = entrepot_location_district } }'))
     body.append(check('trade_market_hub', 'exists = title:c_azuma.title_province.barony.trade_market'))
     body.append(check('trade_market_outer', 'exists = title:c_nanhou.title_province.barony.trade_market'))
+    # Outer South's Oni Trade Sects are merchant companies with trade posts (build_rasen_world.py).
+    for family in ('akagane', 'benisuna', 'kinsaba', 'shuhama'):
+        body.append(check(f'merchant_{family}', f'title:c_merchant_{family}.holder ?= {{ has_government = merchant_government '
+                                                'culture = culture:oni exists = domicile }'))
+    body.append(check('merchant_trade_posts', 'title:c_thunderfall.title_province = { trade_post_owner ?= { '
+                                              'primary_title = title:c_merchant_akagane } } '
+                                              'title:c_nanhou.title_province = { exists = trade_post_owner }'))
     body.append(check('peace_law', 'title:h_china.holder = { has_realm_law_flag = rasen_great_lords_need_leave }'))
     body.append(check('exalt_co_monarch', 'title:h_china.holder = { diarch ?= { rasen_is_exalt_trigger = yes } }'))
     body.append(check('exalt_estate', 'global_var:rasen_exalt_bladed = { has_domicile = yes }'))

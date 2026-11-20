@@ -1641,3 +1641,19 @@ d_dazemon = {
 c_hibashi = {
 	2990.1.1 = { holder = rasen_220 }
 }
+
+c_merchant_akagane = {
+	2990.1.1 = { holder = rasen_883 government = merchant_government }
+}
+
+c_merchant_benisuna = {
+	2990.1.1 = { holder = rasen_886 government = merchant_government }
+}
+
+c_merchant_kinsaba = {
+	2990.1.1 = { holder = rasen_890 government = merchant_government }
+}
+
+c_merchant_shuhama = {
+	2990.1.1 = { holder = rasen_895 government = merchant_government }
+}

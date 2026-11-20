@@ -13173,3 +13173,230 @@ rasen_882 = {
 	2920.11.2 = { birth = yes }
 	3000.3.1 = { effect = { ac_develop_grandmaster_effect = yes rasen_join_akuma_effect = yes } }
 }
+
+rasen_883 = {
+	name = "Takeshi"
+	dynasty = dynasty_rasen_akagane
+	rite = ancestral_rites
+	culture = oni
+	trait = ac_race_oni
+	trait = deceitful
+	trait = trusting
+	trait = gregarious
+	trait = education_intrigue_4
+	trait = education_stewardship_4
+	2946.10.15 = { birth = yes }
+	2970.1.1 = { add_spouse = rasen_884 }
+}
+
+rasen_884 = {
+	name = "Ayame"
+	dynasty = dynasty_rasen_nakamoto
+	rite = ancestral_rites
+	culture = oni
+	trait = ac_race_oni
+	female = yes
+	trait = greedy
+	trait = craven
+	trait = humble
+	trait = education_learning_3
+	2952.8.20 = { birth = yes }
+}
+
+rasen_885 = {
+	name = "Shizuka"
+	father = rasen_883
+	mother = rasen_884
+	dynasty = dynasty_rasen_akagane
+	rite = ancestral_rites
+	culture = oni
+	trait = ac_race_oni
+	female = yes
+	trait = callous
+	trait = just
+	trait = generous
+	trait = education_diplomacy_2
+	2989.7.8 = { birth = yes }
+}
+
+rasen_886 = {
+	name = "Kaede"
+	dynasty = dynasty_rasen_benisuna
+	rite = ancestral_rites
+	culture = oni
+	trait = ac_race_oni
+	female = yes
+	trait = brave
+	trait = just
+	trait = compassionate
+	trait = education_learning_2
+	trait = education_stewardship_4
+	2953.2.2 = { birth = yes }
+	2976.1.1 = { add_matrilineal_spouse = rasen_887 }
+}
+
+rasen_887 = {
+	name = "Tomoya"
+	dynasty = dynasty_rasen_inoue
+	rite = ancestral_rites
+	culture = oni
+	trait = ac_race_oni
+	trait = craven
+	trait = generous
+	trait = diligent
+	trait = education_diplomacy_4
+	2958.2.27 = { birth = yes }
+}
+
+rasen_888 = {
+	name = "Misuka"
+	father = rasen_887
+	mother = rasen_886
+	dynasty = dynasty_rasen_benisuna
+	rite = ancestral_rites
+	culture = oni
+	trait = ac_race_oni
+	female = yes
+	trait = greedy
+	trait = deceitful
+	trait = impatient
+	trait = education_stewardship_2
+	2997.4.19 = { birth = yes }
+}
+
+rasen_889 = {
+	name = "Isamu"
+	father = rasen_887
+	mother = rasen_886
+	dynasty = dynasty_rasen_benisuna
+	rite = ancestral_rites
+	culture = oni
+	trait = ac_race_oni
+	trait = generous
+	trait = humble
+	trait = impatient
+	trait = education_diplomacy_2
+	2987.10.28 = { birth = yes }
+}
+
+rasen_890 = {
+	name = "Daichi"
+	dynasty = dynasty_rasen_kinsaba
+	rite = ancestral_rites
+	culture = oni
+	trait = ac_race_oni
+	trait = wrathful
+	trait = ambitious
+	trait = craven
+	trait = education_diplomacy_3
+	trait = education_stewardship_4
+	2939.7.2 = { birth = yes }
+	2958.1.1 = { add_spouse = rasen_891 }
+}
+
+rasen_891 = {
+	name = "Nanami"
+	dynasty = dynasty_rasen_matsuda
+	rite = ancestral_rites
+	culture = oni
+	trait = ac_race_oni
+	female = yes
+	trait = zealous
+	trait = ambitious
+	trait = greedy
+	trait = education_learning_2
+	2940.9.8 = { birth = yes }
+}
+
+rasen_892 = {
+	name = "Suzume"
+	father = rasen_890
+	mother = rasen_891
+	dynasty = dynasty_rasen_kinsaba
+	rite = ancestral_rites
+	culture = oni
+	trait = ac_race_oni
+	female = yes
+	trait = lazy
+	trait = arrogant
+	trait = trusting
+	trait = education_stewardship_3
+	2976.1.12 = { birth = yes }
+}
+
+rasen_893 = {
+	name = "Hikari"
+	father = rasen_890
+	mother = rasen_891
+	dynasty = dynasty_rasen_kinsaba
+	rite = ancestral_rites
+	culture = oni
+	trait = ac_race_oni
+	female = yes
+	trait = compassionate
+	trait = arbitrary
+	trait = arrogant
+	trait = education_diplomacy_2
+	2959.12.12 = { birth = yes }
+}
+
+rasen_894 = {
+	name = "Tomoe"
+	father = rasen_890
+	mother = rasen_891
+	dynasty = dynasty_rasen_kinsaba
+	rite = ancestral_rites
+	culture = oni
+	trait = ac_race_oni
+	female = yes
+	trait = impatient
+	trait = greedy
+	trait = callous
+	trait = education_stewardship_3
+	2964.8.18 = { birth = yes }
+}
+
+rasen_895 = {
+	name = "Haruka"
+	dynasty = dynasty_rasen_shuhama
+	rite = ancestral_rites
+	culture = oni
+	trait = ac_race_oni
+	female = yes
+	trait = arrogant
+	trait = arbitrary
+	trait = lazy
+	trait = education_stewardship_3
+	trait = education_stewardship_4
+	2958.7.22 = { birth = yes }
+	2976.1.1 = { add_matrilineal_spouse = rasen_896 }
+}
+
+rasen_896 = {
+	name = "Daisuke"
+	dynasty = dynasty_rasen_sanada
+	rite = ancestral_rites
+	culture = oni
+	trait = ac_race_oni
+	trait = shy
+	trait = zealous
+	trait = content
+	trait = education_intrigue_4
+	2955.6.4 = { birth = yes }
+}
+
+rasen_897 = {
+	name = "Hana"
+	father = rasen_896
+	mother = rasen_895
+	dynasty = dynasty_rasen_shuhama
+	rite = ancestral_rites
+	culture = oni
+	trait = ac_race_oni
+	female = yes
+	trait = just
+	trait = zealous
+	trait = gregarious
+	trait = education_martial_3
+	2977.2.6 = { birth = yes }
+}

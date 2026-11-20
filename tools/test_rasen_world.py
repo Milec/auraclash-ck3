@@ -42,7 +42,10 @@ class RasenWorldTests(unittest.TestCase):
         titles = read('common/landed_titles/00_rasen_titles.txt')
         counties = set(re.findall(r'(?m)^\t+(c_\w+) = \{', titles))
         held = set(re.findall(r'(?m)^(c_\w+) = \{', self.text['history/titles/rasen_titles.txt']))
-        self.assertEqual(counties, held)
+        # The Trade Sects' landless merchant titles (common/landed_titles/rasen_merchant_families.txt) are held too.
+        merchants = set(re.findall(r'(?m)^(c_merchant_\w+) = \{', self.text['common/landed_titles/rasen_merchant_families.txt']))
+        self.assertEqual(len(merchants), 4)
+        self.assertEqual(counties | merchants, held)
         provinces = set(re.findall(r'province = (\d+)', titles))
         self.assertEqual(provinces, set(re.findall(r'(?m)^(\d+) = \{', self.text['history/provinces/rasen_provinces.txt'])))
 
